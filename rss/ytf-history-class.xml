@@ -1,0 +1,817 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     version="2.0">
+    <channel>
+        <atom:link href="https://dirtysalt.github.io/rss/ytf-history-class.xml" type="application/rss+xml" rel="self"/>
+        <copyright>dirtysalt</copyright>
+        <link>http://dirtysalt.github.io</link>
+        <language>zh-cn</language>
+
+        <title>袁腾飞历史课程</title>
+        <description>1. 中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞
+2. 中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞
+3. 中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞
+4. 中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞
+5. 中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞
+6. 中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞
+7. 中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞
+8. 中国古代史.01.先秦（上）.袁腾飞
+9. 中国古代史.02.先秦（下）、秦汉（上）.袁腾飞
+10. 中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞
+11. 中国古代史.04.魏晋南北朝（下）.袁腾飞
+12. 中国古代史.05.隋唐（一）.袁腾飞
+13. 中国古代史.06.隋唐（二）.袁腾飞
+14. 中国古代史.07.隋唐（三）.袁腾飞
+15. 中国古代史.08.隋唐（四）.袁腾飞
+16. 中国古代史.09.宋元（一）.袁腾飞
+17. 中国古代史.10.宋元（二）.袁腾飞
+18. 中国古代史.12.明清（一）.袁腾飞
+19. 中国古代史.13.明清（二）.袁腾飞
+20. 中国古代史.14.明清（三）.袁腾飞
+21. 中国古代史.15.明清（四）.袁腾飞
+22. 中国古代史.16.明清（五）.袁腾飞
+23. 中国古代史.17.明清（六）.袁腾飞
+24. 当代政治格局.01.现代中国外交1.袁腾飞
+25. 当代政治格局.02.现代中国外交2.袁腾飞
+26. 当代政治格局.03.世界格局多极化1.袁腾飞
+27. 当代政治格局.04.世界格局多极化2.袁腾飞
+28. 改革-民主-战争-人物.01.明治维新（上）.袁腾飞
+29. 改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞
+30. 改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞
+31. 改革-民主-战争-人物.05.俄国1861年改革.袁腾飞
+32. 改革-民主-战争-人物.06.中国古代的改革.袁腾飞
+33. 改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞
+34. 改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞
+35. 改革-民主-战争-人物.09.法国大革命.袁腾飞
+36. 改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞
+37. 改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞
+38. 改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞
+39. 改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞
+40. 改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞
+41. 改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞
+42. 改革-民主-战争-人物.16.综合练习.袁腾飞
+43. 改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞
+44. 改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞
+45. 改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞
+46. 改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞
+47. 改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞
+48. 改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞
+49. 改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞
+50. 改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞
+51. 近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞
+52. 近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞
+53. 近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞
+54. 近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞
+55. 近现代史.05.北洋军阀的统治、新文化运动.袁腾飞
+56. 近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞
+57. 近现代史.07.国共的十年对峙（下）.袁腾飞
+58. 近现代史.08.抗日战争.袁腾飞
+59. 近现代史.09.人民解放战争、过渡时期.袁腾飞
+60. 近现代史.12.现代化建设新局面的形成.袁腾飞
+61. 近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞</description>
+        <pubDate>2017-09-08T16:36:16.895974</pubDate>
+
+        <itunes:summary></itunes:summary>
+        <itunes:subtitle></itunes:subtitle>
+        <itunes:author></itunes:author>
+        <itunes:image href=""/>
+        <itunes:keywords></itunes:keywords>
+        <itunes:explicit>no</itunes:explicit>
+
+        
+        <item>
+            <title>中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>1</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞.mp3" type="audio/mp3" length="54109674"/>
+            <itunes:duration>01:52:43</itunes:duration>
+            <guid>中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞</guid>
+            <pubDate>2017-09-08T16:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>2</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞.mp3" type="audio/mp3" length="53311581"/>
+            <itunes:duration>01:51:03</itunes:duration>
+            <guid>中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞</guid>
+            <pubDate>2017-09-08T15:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>3</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞.mp3" type="audio/mp3" length="51749668"/>
+            <itunes:duration>01:47:48</itunes:duration>
+            <guid>中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞</guid>
+            <pubDate>2017-09-08T14:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>4</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞.mp3" type="audio/mp3" length="52730201"/>
+            <itunes:duration>01:49:51</itunes:duration>
+            <guid>中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞</guid>
+            <pubDate>2017-09-08T13:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>5</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞.mp3" type="audio/mp3" length="52227186"/>
+            <itunes:duration>01:48:48</itunes:duration>
+            <guid>中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞</guid>
+            <pubDate>2017-09-08T12:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>6</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞.mp3" type="audio/mp3" length="50458383"/>
+            <itunes:duration>01:45:07</itunes:duration>
+            <guid>中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞</guid>
+            <pubDate>2017-09-08T11:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>7</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞.mp3" type="audio/mp3" length="50424946"/>
+            <itunes:duration>01:45:03</itunes:duration>
+            <guid>中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞</guid>
+            <pubDate>2017-09-08T10:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.01.先秦（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>8</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.01.先秦（上）.袁腾飞.mp3" type="audio/mp3" length="56200934"/>
+            <itunes:duration>01:57:05</itunes:duration>
+            <guid>中国古代史.01.先秦（上）.袁腾飞</guid>
+            <pubDate>2017-09-08T09:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.02.先秦（下）、秦汉（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>9</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.02.先秦（下）、秦汉（上）.袁腾飞.mp3" type="audio/mp3" length="53122455"/>
+            <itunes:duration>01:50:40</itunes:duration>
+            <guid>中国古代史.02.先秦（下）、秦汉（上）.袁腾飞</guid>
+            <pubDate>2017-09-08T08:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>10</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞.mp3" type="audio/mp3" length="55500225"/>
+            <itunes:duration>01:55:37</itunes:duration>
+            <guid>中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞</guid>
+            <pubDate>2017-09-08T07:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.04.魏晋南北朝（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>11</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.04.魏晋南北朝（下）.袁腾飞.mp3" type="audio/mp3" length="35494608"/>
+            <itunes:duration>01:13:56</itunes:duration>
+            <guid>中国古代史.04.魏晋南北朝（下）.袁腾飞</guid>
+            <pubDate>2017-09-08T06:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.05.隋唐（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>12</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.05.隋唐（一）.袁腾飞.mp3" type="audio/mp3" length="39526998"/>
+            <itunes:duration>01:22:20</itunes:duration>
+            <guid>中国古代史.05.隋唐（一）.袁腾飞</guid>
+            <pubDate>2017-09-08T05:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.06.隋唐（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>13</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.06.隋唐（二）.袁腾飞.mp3" type="audio/mp3" length="54099772"/>
+            <itunes:duration>01:52:42</itunes:duration>
+            <guid>中国古代史.06.隋唐（二）.袁腾飞</guid>
+            <pubDate>2017-09-08T04:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.07.隋唐（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>14</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.07.隋唐（三）.袁腾飞.mp3" type="audio/mp3" length="47112411"/>
+            <itunes:duration>01:38:08</itunes:duration>
+            <guid>中国古代史.07.隋唐（三）.袁腾飞</guid>
+            <pubDate>2017-09-08T03:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.08.隋唐（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>15</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.08.隋唐（四）.袁腾飞.mp3" type="audio/mp3" length="28430182"/>
+            <itunes:duration>00:59:13</itunes:duration>
+            <guid>中国古代史.08.隋唐（四）.袁腾飞</guid>
+            <pubDate>2017-09-08T02:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.09.宋元（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>16</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.09.宋元（一）.袁腾飞.mp3" type="audio/mp3" length="55908571"/>
+            <itunes:duration>01:56:28</itunes:duration>
+            <guid>中国古代史.09.宋元（一）.袁腾飞</guid>
+            <pubDate>2017-09-08T01:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.10.宋元（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>17</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.10.宋元（二）.袁腾飞.mp3" type="audio/mp3" length="54124721"/>
+            <itunes:duration>01:52:45</itunes:duration>
+            <guid>中国古代史.10.宋元（二）.袁腾飞</guid>
+            <pubDate>2017-09-08T00:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.12.明清（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>18</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.12.明清（一）.袁腾飞.mp3" type="audio/mp3" length="47171761"/>
+            <itunes:duration>01:38:16</itunes:duration>
+            <guid>中国古代史.12.明清（一）.袁腾飞</guid>
+            <pubDate>2017-09-07T23:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.13.明清（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>19</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.13.明清（二）.袁腾飞.mp3" type="audio/mp3" length="52053524"/>
+            <itunes:duration>01:48:26</itunes:duration>
+            <guid>中国古代史.13.明清（二）.袁腾飞</guid>
+            <pubDate>2017-09-07T22:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.14.明清（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>20</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.14.明清（三）.袁腾飞.mp3" type="audio/mp3" length="52040150"/>
+            <itunes:duration>01:48:24</itunes:duration>
+            <guid>中国古代史.14.明清（三）.袁腾飞</guid>
+            <pubDate>2017-09-07T21:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.15.明清（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>21</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.15.明清（四）.袁腾飞.mp3" type="audio/mp3" length="56006920"/>
+            <itunes:duration>01:56:40</itunes:duration>
+            <guid>中国古代史.15.明清（四）.袁腾飞</guid>
+            <pubDate>2017-09-07T20:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.16.明清（五）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>22</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.16.明清（五）.袁腾飞.mp3" type="audio/mp3" length="49068878"/>
+            <itunes:duration>01:42:13</itunes:duration>
+            <guid>中国古代史.16.明清（五）.袁腾飞</guid>
+            <pubDate>2017-09-07T19:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>中国古代史.17.明清（六）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>23</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/中国古代史.17.明清（六）.袁腾飞.mp3" type="audio/mp3" length="51862308"/>
+            <itunes:duration>01:48:02</itunes:duration>
+            <guid>中国古代史.17.明清（六）.袁腾飞</guid>
+            <pubDate>2017-09-07T18:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>当代政治格局.01.现代中国外交1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>24</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/当代政治格局.01.现代中国外交1.袁腾飞.mp3" type="audio/mp3" length="27583477"/>
+            <itunes:duration>00:57:27</itunes:duration>
+            <guid>当代政治格局.01.现代中国外交1.袁腾飞</guid>
+            <pubDate>2017-09-07T17:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>当代政治格局.02.现代中国外交2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>25</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/当代政治格局.02.现代中国外交2.袁腾飞.mp3" type="audio/mp3" length="27135425"/>
+            <itunes:duration>00:56:31</itunes:duration>
+            <guid>当代政治格局.02.现代中国外交2.袁腾飞</guid>
+            <pubDate>2017-09-07T16:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>当代政治格局.03.世界格局多极化1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>26</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/当代政治格局.03.世界格局多极化1.袁腾飞.mp3" type="audio/mp3" length="29615386"/>
+            <itunes:duration>01:01:41</itunes:duration>
+            <guid>当代政治格局.03.世界格局多极化1.袁腾飞</guid>
+            <pubDate>2017-09-07T15:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>当代政治格局.04.世界格局多极化2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>27</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/当代政治格局.04.世界格局多极化2.袁腾飞.mp3" type="audio/mp3" length="26446629"/>
+            <itunes:duration>00:55:05</itunes:duration>
+            <guid>当代政治格局.04.世界格局多极化2.袁腾飞</guid>
+            <pubDate>2017-09-07T14:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.01.明治维新（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>28</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.01.明治维新（上）.袁腾飞.mp3" type="audio/mp3" length="54547825"/>
+            <itunes:duration>01:53:38</itunes:duration>
+            <guid>改革-民主-战争-人物.01.明治维新（上）.袁腾飞</guid>
+            <pubDate>2017-09-07T13:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>29</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞.mp3" type="audio/mp3" length="17092867"/>
+            <itunes:duration>00:35:36</itunes:duration>
+            <guid>改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞</guid>
+            <pubDate>2017-09-07T12:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>30</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞.mp3" type="audio/mp3" length="41449984"/>
+            <itunes:duration>01:26:21</itunes:duration>
+            <guid>改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞</guid>
+            <pubDate>2017-09-07T11:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.05.俄国1861年改革.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>31</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.05.俄国1861年改革.袁腾飞.mp3" type="audio/mp3" length="13859871"/>
+            <itunes:duration>00:28:52</itunes:duration>
+            <guid>改革-民主-战争-人物.05.俄国1861年改革.袁腾飞</guid>
+            <pubDate>2017-09-07T10:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.06.中国古代的改革.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>32</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.06.中国古代的改革.袁腾飞.mp3" type="audio/mp3" length="51846216"/>
+            <itunes:duration>01:48:00</itunes:duration>
+            <guid>改革-民主-战争-人物.06.中国古代的改革.袁腾飞</guid>
+            <pubDate>2017-09-07T09:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>33</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞.mp3" type="audio/mp3" length="34927985"/>
+            <itunes:duration>01:12:45</itunes:duration>
+            <guid>改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞</guid>
+            <pubDate>2017-09-07T08:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>34</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞.mp3" type="audio/mp3" length="55474022"/>
+            <itunes:duration>01:55:34</itunes:duration>
+            <guid>改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞</guid>
+            <pubDate>2017-09-07T07:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.09.法国大革命.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>35</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.09.法国大革命.袁腾飞.mp3" type="audio/mp3" length="55251459"/>
+            <itunes:duration>01:55:06</itunes:duration>
+            <guid>改革-民主-战争-人物.09.法国大革命.袁腾飞</guid>
+            <pubDate>2017-09-07T06:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>36</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞.mp3" type="audio/mp3" length="37259570"/>
+            <itunes:duration>01:17:37</itunes:duration>
+            <guid>改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞</guid>
+            <pubDate>2017-09-07T05:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>37</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞.mp3" type="audio/mp3" length="26484164"/>
+            <itunes:duration>00:55:10</itunes:duration>
+            <guid>改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞</guid>
+            <pubDate>2017-09-07T04:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>38</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞.mp3" type="audio/mp3" length="27469294"/>
+            <itunes:duration>00:57:13</itunes:duration>
+            <guid>改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞</guid>
+            <pubDate>2017-09-07T03:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>39</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞.mp3" type="audio/mp3" length="25608749"/>
+            <itunes:duration>00:53:21</itunes:duration>
+            <guid>改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞</guid>
+            <pubDate>2017-09-07T02:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>40</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞.mp3" type="audio/mp3" length="28733621"/>
+            <itunes:duration>00:59:51</itunes:duration>
+            <guid>改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞</guid>
+            <pubDate>2017-09-07T01:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>41</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞.mp3" type="audio/mp3" length="21396845"/>
+            <itunes:duration>00:44:34</itunes:duration>
+            <guid>改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞</guid>
+            <pubDate>2017-09-07T00:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.16.综合练习.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>42</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.16.综合练习.袁腾飞.mp3" type="audio/mp3" length="20074004"/>
+            <itunes:duration>00:41:49</itunes:duration>
+            <guid>改革-民主-战争-人物.16.综合练习.袁腾飞</guid>
+            <pubDate>2017-09-06T23:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>43</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞.mp3" type="audio/mp3" length="27730182"/>
+            <itunes:duration>00:57:46</itunes:duration>
+            <guid>改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞</guid>
+            <pubDate>2017-09-06T22:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>44</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞.mp3" type="audio/mp3" length="27096346"/>
+            <itunes:duration>00:56:26</itunes:duration>
+            <guid>改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞</guid>
+            <pubDate>2017-09-06T21:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>45</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞.mp3" type="audio/mp3" length="27056640"/>
+            <itunes:duration>00:56:22</itunes:duration>
+            <guid>改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞</guid>
+            <pubDate>2017-09-06T20:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>46</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞.mp3" type="audio/mp3" length="27314103"/>
+            <itunes:duration>00:56:54</itunes:duration>
+            <guid>改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞</guid>
+            <pubDate>2017-09-06T19:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>47</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞.mp3" type="audio/mp3" length="27139814"/>
+            <itunes:duration>00:56:32</itunes:duration>
+            <guid>改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞</guid>
+            <pubDate>2017-09-06T18:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>48</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞.mp3" type="audio/mp3" length="28227762"/>
+            <itunes:duration>00:58:48</itunes:duration>
+            <guid>改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞</guid>
+            <pubDate>2017-09-06T17:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>49</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞.mp3" type="audio/mp3" length="26787683"/>
+            <itunes:duration>00:55:48</itunes:duration>
+            <guid>改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞</guid>
+            <pubDate>2017-09-06T16:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>50</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞.mp3" type="audio/mp3" length="25863784"/>
+            <itunes:duration>00:53:52</itunes:duration>
+            <guid>改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞</guid>
+            <pubDate>2017-09-06T15:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>51</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞.mp3" type="audio/mp3" length="52370964"/>
+            <itunes:duration>01:49:06</itunes:duration>
+            <guid>近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞</guid>
+            <pubDate>2017-09-06T14:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>52</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞.mp3" type="audio/mp3" length="54518647"/>
+            <itunes:duration>01:53:34</itunes:duration>
+            <guid>近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞</guid>
+            <pubDate>2017-09-06T13:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>53</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞.mp3" type="audio/mp3" length="55926962"/>
+            <itunes:duration>01:56:30</itunes:duration>
+            <guid>近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞</guid>
+            <pubDate>2017-09-06T12:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>54</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞.mp3" type="audio/mp3" length="55759778"/>
+            <itunes:duration>01:56:09</itunes:duration>
+            <guid>近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞</guid>
+            <pubDate>2017-09-06T11:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.05.北洋军阀的统治、新文化运动.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>55</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.05.北洋军阀的统治、新文化运动.袁腾飞.mp3" type="audio/mp3" length="48486244"/>
+            <itunes:duration>01:41:00</itunes:duration>
+            <guid>近现代史.05.北洋军阀的统治、新文化运动.袁腾飞</guid>
+            <pubDate>2017-09-06T10:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>56</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞.mp3" type="audio/mp3" length="55710040"/>
+            <itunes:duration>01:56:03</itunes:duration>
+            <guid>近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞</guid>
+            <pubDate>2017-09-06T09:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.07.国共的十年对峙（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>57</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.07.国共的十年对峙（下）.袁腾飞.mp3" type="audio/mp3" length="48989256"/>
+            <itunes:duration>01:42:03</itunes:duration>
+            <guid>近现代史.07.国共的十年对峙（下）.袁腾飞</guid>
+            <pubDate>2017-09-06T08:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.08.抗日战争.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>58</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.08.抗日战争.袁腾飞.mp3" type="audio/mp3" length="44743209"/>
+            <itunes:duration>01:33:12</itunes:duration>
+            <guid>近现代史.08.抗日战争.袁腾飞</guid>
+            <pubDate>2017-09-06T07:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.09.人民解放战争、过渡时期.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>59</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.09.人民解放战争、过渡时期.袁腾飞.mp3" type="audio/mp3" length="50657043"/>
+            <itunes:duration>01:45:32</itunes:duration>
+            <guid>近现代史.09.人民解放战争、过渡时期.袁腾飞</guid>
+            <pubDate>2017-09-06T06:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.12.现代化建设新局面的形成.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>60</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.12.现代化建设新局面的形成.袁腾飞.mp3" type="audio/mp3" length="44778029"/>
+            <itunes:duration>01:33:17</itunes:duration>
+            <guid>近现代史.12.现代化建设新局面的形成.袁腾飞</guid>
+            <pubDate>2017-09-06T05:36:16.895974</pubDate>
+        </item>
+        
+        <item>
+            <title>近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href=""/>
+            <itunes:order>61</itunes:order>
+            <enclosure url="http://dirtysalt.info/ytf-history-class/mp3/近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞.mp3" type="audio/mp3" length="11420915"/>
+            <itunes:duration>00:00:00</itunes:duration>
+            <guid>近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞</guid>
+            <pubDate>2017-09-06T04:36:16.895974</pubDate>
+        </item>
+        
+    </channel>
+</rss>
