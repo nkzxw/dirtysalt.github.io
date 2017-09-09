@@ -398,6 +398,7 @@ http://dirtysalt.github.io/blogs/dreaming-in-code.html
 http://dirtysalt.github.io/blogs/drive-learning.html
 http://dirtysalt.github.io/blogs/employee-equity.html
 http://dirtysalt.github.io/blogs/equipped-with-ssd.html
+http://dirtysalt.github.io/blogs/eureka-on-career.html
 http://dirtysalt.github.io/blogs/experience-of-running-coffee-shop-for-40-years.html
 http://dirtysalt.github.io/blogs/face-landmark-detection-dlib.html
 http://dirtysalt.github.io/blogs/finding-great-developers.html
@@ -622,6 +623,7 @@ http://dirtysalt.github.io/blogs/the-secret-to-career-success.html
 http://dirtysalt.github.io/blogs/the-shortest-history-of-europe.html
 http://dirtysalt.github.io/blogs/the-signal-and-the-noise.html
 http://dirtysalt.github.io/blogs/the-times-they-are-changing.html
+http://dirtysalt.github.io/blogs/think-and-grow-rich.html
 http://dirtysalt.github.io/blogs/think-like-an-artist.html
 http://dirtysalt.github.io/blogs/thinking-fast-and-slow.html
 http://dirtysalt.github.io/blogs/thousands-pv.html
