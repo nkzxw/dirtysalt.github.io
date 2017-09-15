@@ -490,6 +490,7 @@ http://dirtysalt.github.io/blogs/my-first-english-conversation.html
 http://dirtysalt.github.io/blogs/my-iphone5s.html
 http://dirtysalt.github.io/blogs/my-thoughts-on-startup.html
 http://dirtysalt.github.io/blogs/my-without-wife-wedding.html
+http://dirtysalt.github.io/blogs/narrow-python-build.html
 http://dirtysalt.github.io/blogs/new-era-carmack.html
 http://dirtysalt.github.io/blogs/nginx-forwarding-proxy.html
 http://dirtysalt.github.io/blogs/nginx-site-redirect.html
