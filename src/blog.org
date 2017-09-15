@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201709 [[file:blogs/narrow-python-build.org][Narrow Python Build]]
 - 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
 - 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
 - 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作

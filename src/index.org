@@ -347,9 +347,17 @@
 - [[file:./teach-yourself-programming-in-ten-years.org][Teach Yourself Programming in Ten Years]] by Peter Norvig
 - [[file:./mean-people-fail.org][Mean People Fail]] by Paul Graham.
 - [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
+- [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
 
 =blogs=
-
+- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
+- 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
+- 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
+- 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
+- 201707 [[file:./blogs/reducing-image-file-size-at-esty.org][Reducing Image File Size at Etsy]]
+- 201707 [[file:./blogs/making-photos-smaller.org][Making Photos Smaller Without Quality Loss]]
+- 201706 [[file:./blogs/the-evolution-of-code-deploys-at-reddit.org][The Evolution of Code Deploys at Reddit]]
+- 201706 [[file:./blogs/44-eng-mag-lessons.org][44 engineering management lessons]]
 - 201705 [[file:./blogs/colleague-creates-spaghetti-code.org][What to do when Your Colleague Creates Spaghetti Code]]
 - 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
 - 201610 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
