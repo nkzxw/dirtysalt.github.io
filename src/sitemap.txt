@@ -433,6 +433,7 @@ http://dirtysalt.github.io/blogs/how-env-impacts-on-person.html
 http://dirtysalt.github.io/blogs/how-gfw-discovers-hidden-circumvention-servers.html
 http://dirtysalt.github.io/blogs/how-google-works.html
 http://dirtysalt.github.io/blogs/how-to-apply-domain.html
+http://dirtysalt.github.io/blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.html
 http://dirtysalt.github.io/blogs/how-to-choose-baseline-0.html
 http://dirtysalt.github.io/blogs/how-to-choose-baseline-1.html
 http://dirtysalt.github.io/blogs/how-to-define-software-stability.html
