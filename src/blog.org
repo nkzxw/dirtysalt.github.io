@@ -1,6 +1,9 @@
 #+title: blog
 
 ** 2017
+- 201709 [[file:./blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.org][How to build your personal brand as a new developer]]
+- 201709 [[file:blogs/narrow-python-build.org][Narrow Python Build]]
+- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
 - 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
 - 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
 - 201707 [[file:./blogs/reading-list-for-college.org][我给中学生的书单]] 摘自得到的《硅谷来信》
@@ -364,3 +367,5 @@
 - [[file:./blogs/made-in-america.org][富甲美国(Made in America)]] by Sam Walton
 - [[file:blogs/the-economist.org][经济学人(The Economist)]] by Schumpeter(熊彼特)
 - [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
+- [[file:./blogs/think-and-grow-rich.org][思考致富(Think and Grow Rich)]] by Napoleon Hill(拿破仑.希尔)
+- [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳

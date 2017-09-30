@@ -398,6 +398,7 @@ http://dirtysalt.github.io/blogs/dreaming-in-code.html
 http://dirtysalt.github.io/blogs/drive-learning.html
 http://dirtysalt.github.io/blogs/employee-equity.html
 http://dirtysalt.github.io/blogs/equipped-with-ssd.html
+http://dirtysalt.github.io/blogs/eureka-on-career.html
 http://dirtysalt.github.io/blogs/experience-of-running-coffee-shop-for-40-years.html
 http://dirtysalt.github.io/blogs/face-landmark-detection-dlib.html
 http://dirtysalt.github.io/blogs/finding-great-developers.html
@@ -432,6 +433,7 @@ http://dirtysalt.github.io/blogs/how-env-impacts-on-person.html
 http://dirtysalt.github.io/blogs/how-gfw-discovers-hidden-circumvention-servers.html
 http://dirtysalt.github.io/blogs/how-google-works.html
 http://dirtysalt.github.io/blogs/how-to-apply-domain.html
+http://dirtysalt.github.io/blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.html
 http://dirtysalt.github.io/blogs/how-to-choose-baseline-0.html
 http://dirtysalt.github.io/blogs/how-to-choose-baseline-1.html
 http://dirtysalt.github.io/blogs/how-to-define-software-stability.html
@@ -489,6 +491,7 @@ http://dirtysalt.github.io/blogs/my-first-english-conversation.html
 http://dirtysalt.github.io/blogs/my-iphone5s.html
 http://dirtysalt.github.io/blogs/my-thoughts-on-startup.html
 http://dirtysalt.github.io/blogs/my-without-wife-wedding.html
+http://dirtysalt.github.io/blogs/narrow-python-build.html
 http://dirtysalt.github.io/blogs/new-era-carmack.html
 http://dirtysalt.github.io/blogs/nginx-forwarding-proxy.html
 http://dirtysalt.github.io/blogs/nginx-site-redirect.html
@@ -604,6 +607,7 @@ http://dirtysalt.github.io/blogs/the-economist.html
 http://dirtysalt.github.io/blogs/the-effective-engineer-by-edmond-lau.html
 http://dirtysalt.github.io/blogs/the-evolution-of-code-deploys-at-reddit.html
 http://dirtysalt.github.io/blogs/the-facebook-effect.html
+http://dirtysalt.github.io/blogs/the-feynman-technique-the-best-way-to-learn-anything.html
 http://dirtysalt.github.io/blogs/the-future-of-programming.html
 http://dirtysalt.github.io/blogs/the-golden-circle.html
 http://dirtysalt.github.io/blogs/the-great-game.html
@@ -621,6 +625,7 @@ http://dirtysalt.github.io/blogs/the-secret-to-career-success.html
 http://dirtysalt.github.io/blogs/the-shortest-history-of-europe.html
 http://dirtysalt.github.io/blogs/the-signal-and-the-noise.html
 http://dirtysalt.github.io/blogs/the-times-they-are-changing.html
+http://dirtysalt.github.io/blogs/think-and-grow-rich.html
 http://dirtysalt.github.io/blogs/think-like-an-artist.html
 http://dirtysalt.github.io/blogs/thinking-fast-and-slow.html
 http://dirtysalt.github.io/blogs/thousands-pv.html
