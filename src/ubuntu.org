@@ -2,6 +2,12 @@
 ** 写在前面
 千万不要抱有一朝一兮就可以搞定的想法。最好的话身边有一个群体，大家都使用Ubuntu这个东西。这样如果有什么问题的话，大家就比较容易找到解决办法，直到自己完全适应为止。推荐安装下面这些软件：
 
+UPDATE(2017-10-04): 这几天又重新安装ubuntu，觉得这个东西很多组件都没有带上。转了一圈之后觉得deepin可能还不错，所以就试试这个东西。用下来感觉还不错，几个比较方便的东西：
+1. 自带了搜狗输入法
+2. vpn支持l2tp, 这点非常重要
+3. AppStore里面带了很多使用了Wine包装过的程序，比如微信和QQ等
+感觉deepin非常适合中国人民使用。相比Ubuntu来说，本地化工作做的好太多了。
+
 Desktop Applications:
 - sudo apt-get install emacs24
 - sudo apt-get install vlc # 视频
@@ -18,6 +24,7 @@ Desktop Applications:
 - sudo apt-get install virtualbox
 - sudo apt-get install virtualbox-guest-additions-iso
 - sudo apt-get install nautilus-dropbox
+- sudo apt-get install shadowsocks-qt5
 
 Development Applications:
 - sudo apt-get install linux-tools-common
@@ -572,7 +579,7 @@ note@2016-01: 可以看看这个项目 [[https://github.com/syl20bnr/spacemacs][
 *** image-magick
 http://www.imagemagick.org/script/index.php
 
-- 调整图像大小比例 
+- 调整图像大小比例
   - convert -resize 50%x50% input output
   - convert -resize 1000x input output # 等比例缩放，width = 1000
 - 垂直合并图片 convert -append input... output
