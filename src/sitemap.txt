@@ -290,6 +290,7 @@ http://dirtysalt.github.io/the-secret-to-10-million-concurrent-connections.html
 http://dirtysalt.github.io/the-skinny-on-raid.html
 http://dirtysalt.github.io/the-times-of-intelligence.html
 http://dirtysalt.github.io/the-tyranny-of-the-clock.html
+http://dirtysalt.github.io/think-stats.html
 http://dirtysalt.github.io/thinking-clearly-about-performance.html
 http://dirtysalt.github.io/thoughts-on-prog-lang.html
 http://dirtysalt.github.io/thoughts-on-systems-for-large-datasets.html
@@ -421,6 +422,7 @@ http://dirtysalt.github.io/blogs/hackers-and-painters.html
 http://dirtysalt.github.io/blogs/hard-to-believe.html
 http://dirtysalt.github.io/blogs/have-a-baby.html
 http://dirtysalt.github.io/blogs/have-a-nice-sleep-and-straighten-up.html
+http://dirtysalt.github.io/blogs/have-a-rest-strategically.html
 http://dirtysalt.github.io/blogs/heart-broken.html
 http://dirtysalt.github.io/blogs/helsinki-travel.html
 http://dirtysalt.github.io/blogs/helsinki-travel2.html
@@ -584,6 +586,7 @@ http://dirtysalt.github.io/blogs/staying-healthy-while-working-remotely.html
 http://dirtysalt.github.io/blogs/steve-jobs.html
 http://dirtysalt.github.io/blogs/sth-about-chords.html
 http://dirtysalt.github.io/blogs/stock-price-data-sanity.html
+http://dirtysalt.github.io/blogs/story-telling-and-obtain-experience.html
 http://dirtysalt.github.io/blogs/structured-computer-organization.html
 http://dirtysalt.github.io/blogs/struggle-with-ubuntu.html
 http://dirtysalt.github.io/blogs/surviving-meetings-while-remote.html

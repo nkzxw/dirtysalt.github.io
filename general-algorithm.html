@@ -28,20 +28,20 @@
 <li><a href="#orgheadline6">1.6. CONCISE</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">2. 面试算法</a>
+<li><a href="#orgheadline16">2. 面试算法</a>
 <ul>
 <li><a href="#orgheadline8">2.1. 链接资源</a></li>
-<li><a href="#orgheadline9">2.2. 配置topcoder</a></li>
-<li><a href="#orgheadline10">2.3. 树最长距离问题</a></li>
-<li><a href="#orgheadline11">2.4. 开门抽奖问题(Monty Hall Problem)</a></li>
-<li><a href="#orgheadline12">2.5. 等概率选取链表元素问题</a></li>
-<li><a href="#orgheadline13">2.6. 查找非重复数字问题</a></li>
-<li><a href="#orgheadline14">2.7. 水池最大蓄水问题</a></li>
-<li><a href="#orgheadline15">2.8. 赔率系统设计问题</a></li>
-<li><a href="#orgheadline16">2.9. 流式计算均值和方差</a></li>
+<li><a href="#orgheadline9">2.2. 树最长距离问题</a></li>
+<li><a href="#orgheadline10">2.3. 开门抽奖问题(Monty Hall Problem)</a></li>
+<li><a href="#orgheadline11">2.4. 等概率选取链表元素问题</a></li>
+<li><a href="#orgheadline12">2.5. 查找非重复数字问题</a></li>
+<li><a href="#orgheadline13">2.6. 水池最大蓄水问题</a></li>
+<li><a href="#orgheadline14">2.7. 赔率系统设计问题</a></li>
+<li><a href="#orgheadline15">2.8. 流式计算均值和方差</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">3. CS中最重要的32个算法</a></li>
+<li><a href="#orgheadline17">3. CS中最重要的32个算法</a></li>
+<li><a href="#orgheadline18">4. 配置topcoder</a></li>
 </ul>
 </div>
 </div>
@@ -407,8 +407,8 @@ CONCISE针对这个部分稍微改进了一下
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">2</span> 面试算法</h2>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">2</span> 面试算法</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline8" class="outline-3">
 <h3 id="orgheadline8"><span class="section-number-3">2.1</span> 链接资源</h3>
@@ -462,122 +462,9 @@ Resources:
 </ul>
 </div>
 </div>
-
 <div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.2</span> 配置topcoder</h3>
+<h3 id="orgheadline9"><span class="section-number-3">2.2</span> 树最长距离问题</h3>
 <div class="outline-text-3" id="text-2-2">
-<p>
-安装topcoder非常简单：
-</p>
-<ul class="org-ul">
-<li>确认安装好javaws，因为topcoder客户端是一个java applet</li>
-<li>下载topcoder的客户端 # wget  <a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp">http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp</a></li>
-<li>启动这个applet之后就就可以进入arena了。</li>
-</ul>
-
-<p>
-为了方便地使用topcoder（比如将一些testcase下载下来的话），可以使用一些插件。个人觉得下面这个组合不错
-</p>
-<ul class="org-ul">
-<li>code processor</li>
-<li>file edit</li>
-<li>TZTester</li>
-</ul>
-<p>
-这些插件都可以在这里找到 <a href="http://community.topcoder.com/tc?module=Static&amp;d1=applet&amp;d2=plugins">http://community.topcoder.com/tc?module=Static&d1=applet&d2=plugins</a>
-</p>
-
-<p>
-三个插件的下载地址分别是：
-</p>
-<ul class="org-ul">
-<li><a href="http://community.topcoder.com/contest/classes/TZTester/TZTester.jar">http://community.topcoder.com/contest/classes/TZTester/TZTester.jar</a></li>
-<li><a href="http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar">http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar</a></li>
-<li><a href="http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar">http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar</a></li>
-</ul>
-
-<p>
-下载完成之后在topcoder客户端里面的options-&gt;Editor里面进行配置
-</p>
-<ul class="org-ul">
-<li>Add增加一个Editor</li>
-<li>EntryPoint填写 codeprocessor.EntryPoint</li>
-<li>ClassPath将前面三个jar选择上</li>
-<li>然后选择这个为Default Editor</li>
-<li>然后点击Configure</li>
-<li>EntryPoint填写 fileedit.EntryPoint</li>
-<li>processor class填写 tangentz.TZTester</li>
-</ul>
-
-<p>
-继续点击Configure选项，在General这个部分基本上没有什么需要修改的：
-</p>
-<ul class="org-ul">
-<li>read/write problem to ./topcoder # 将题目保存到topcoder目录里面</li>
-<li>#todo: more?</li>
-</ul>
-<p>
-然后就是配置Code Template。如果使用C++的话，那么可以考虑使用下面的模板
-</p>
-<div class="org-src-container">
-
-<pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
-<span class="org-comment"> * Copyright (C) dirlt</span>
-<span class="org-comment"> */</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdlib&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cctype&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstring&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cmath&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;ctime&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;sstream&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;vector&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;string&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;map&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;set&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;algorithm&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;queue&gt;</span>
-<span class="org-preprocessor">#include</span> <span class="org-string">&lt;stack&gt;</span>
-<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
-<span class="org-keyword">typedef</span> <span class="org-type">long</span> <span class="org-type">long</span> <span class="org-type">ll</span>;
-
-<span class="org-keyword">class</span> $CLASSNAME$ {
- <span class="org-keyword">public</span>:
-  $RC$ $METHODNAME$($METHODPARMS$) {
-  }
-  $TESTCODE$
-};
-
-<span class="org-comment-delimiter">// </span><span class="org-comment">BEGIN CUT HERE</span>
-<span class="org-type">int</span> <span class="org-function-name">main</span>() {
-  $CLASSNAME$ ___test;
-  ___test.run_test(-1);
-  <span class="org-keyword">return</span> 0;
-}
-<span class="org-comment-delimiter">// </span><span class="org-comment">END CUT HERE</span>
-</pre>
-</div>
-
-<p>
-以后每次打开题目都会在本地保存一份代码，并且里面附带测试用例，本地完成之后直接load即可保存到远程。nice!!!
-</p>
-
-<p>
-这是我第一次做div2的成绩，留个念
-</p>
-
-
-<div class="figure">
-<p><img src="./images/first-topcoder-div2.jpg" alt="first-topcoder-div2.jpg" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.3</span> 树最长距离问题</h3>
-<div class="outline-text-3" id="text-2-3">
 <p>
 树的最长距离定义为任意两个节点之间距离的最大值。咋一看这个问题，似乎就是根节点左子树高度和右子树高度之和，但是实际上可能对于子树里面可能会存在更长的距离。对于最长距离的话应该仅存在于这两者之间。
 </p>
@@ -662,9 +549,9 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.4</span> 开门抽奖问题(Monty Hall Problem)</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.3</span> 开门抽奖问题(Monty Hall Problem)</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 原题是有三扇门，一扇门后面是一辆汽车，后面两扇门没有东西。主持人首先让你选择一扇门，之后主持人打开一扇后面没有任何东西的门，然后主持人问你是否需要更换你的选择？扩展一下这个问题，如果扩展到N(N&gt;=3)扇门的话，那么之前和之后中奖概率分别是多少？
 </p>
@@ -691,9 +578,9 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.5</span> 等概率选取链表元素问题</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.4</span> 等概率选取链表元素问题</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 等概率选取未知长度的链表中的元素，要求是只能够遍历这个链表一次。下面是代码， <b>注意这里的wanted会不断地被更新</b>
 </p>
@@ -721,9 +608,9 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.6</span> 查找非重复数字问题</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.5</span> 查找非重复数字问题</h3>
+<div class="outline-text-3" id="text-2-5">
 <hr  />
 <p>
 有一堆数，只有 <b>一个</b> 数出现单次，其余数都出现 <b>偶数</b> 次。
@@ -834,9 +721,9 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.7</span> 水池最大蓄水问题</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.6</span> 水池最大蓄水问题</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 考虑一个二维直方图平面，X轴单位为1，Y轴是直方图高度。假设向这个直方图里面灌水，请问这个直方图能够容纳多少水。
 </p>
@@ -956,9 +843,9 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.8</span> 赔率系统设计问题</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">2.7</span> 赔率系统设计问题</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 #note@2012.6.14
 </p>
@@ -1019,9 +906,9 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.9</span> 流式计算均值和方差</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">2.8</span> 流式计算均值和方差</h3>
+<div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance">http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance</a></li>
 <li><a href="http://www.johndcook.com/standard_deviation.html">http://www.johndcook.com/standard_deviation.html</a></li>
@@ -1052,8 +939,8 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">3</span> CS中最重要的32个算法</h2>
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">3</span> CS中最重要的32个算法</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms">http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms</a>
@@ -1093,6 +980,121 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
 <li>合并查找算法(Union-find)</li>
 <li>维特比算法(Viterbi)</li>
 </ol>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">4</span> 配置topcoder</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+UPDATE(2017-10-06): 下面这些插件还不支持Python, 所以我开始使用另外一个插件 <a href="https://github.com/shivawu/topcoder-greed">https://github.com/shivawu/topcoder-greed</a>. 这个插件是一个整合包，配置起来更加方便。
+</p>
+
+<p>
+安装topcoder非常简单：
+</p>
+<ul class="org-ul">
+<li>确认安装好javaws，因为topcoder客户端是一个java applet</li>
+<li>下载topcoder的客户端 # wget  <a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp">http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp</a></li>
+<li>启动这个applet之后就就可以进入arena了。</li>
+</ul>
+
+<p>
+为了方便地使用topcoder（比如将一些testcase下载下来的话），可以使用一些插件。个人觉得下面这个组合不错
+</p>
+<ul class="org-ul">
+<li>code processor</li>
+<li>file edit</li>
+<li>TZTester</li>
+</ul>
+<p>
+这些插件都可以在这里找到 <a href="http://community.topcoder.com/tc?module=Static&amp;d1=applet&amp;d2=plugins">http://community.topcoder.com/tc?module=Static&d1=applet&d2=plugins</a>
+</p>
+
+<p>
+三个插件的下载地址分别是：
+</p>
+<ul class="org-ul">
+<li><a href="http://community.topcoder.com/contest/classes/TZTester/TZTester.jar">http://community.topcoder.com/contest/classes/TZTester/TZTester.jar</a></li>
+<li><a href="http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar">http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar</a></li>
+<li><a href="http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar">http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar</a></li>
+</ul>
+
+<p>
+下载完成之后在topcoder客户端里面的options-&gt;Editor里面进行配置
+</p>
+<ul class="org-ul">
+<li>Add增加一个Editor</li>
+<li>EntryPoint填写 codeprocessor.EntryPoint</li>
+<li>ClassPath将前面三个jar选择上</li>
+<li>然后选择这个为Default Editor</li>
+<li>然后点击Configure</li>
+<li>EntryPoint填写 fileedit.EntryPoint</li>
+<li>processor class填写 tangentz.TZTester</li>
+</ul>
+
+<p>
+继续点击Configure选项，在General这个部分基本上没有什么需要修改的：
+</p>
+<ul class="org-ul">
+<li>read/write problem to ./topcoder # 将题目保存到topcoder目录里面</li>
+<li>#todo: more?</li>
+</ul>
+<p>
+然后就是配置Code Template。如果使用C++的话，那么可以考虑使用下面的模板
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
+<span class="org-comment"> * Copyright (C) dirlt</span>
+<span class="org-comment"> */</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdlib&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cctype&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstring&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;cmath&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;ctime&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;sstream&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;vector&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;string&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;map&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;set&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;algorithm&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;queue&gt;</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">&lt;stack&gt;</span>
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+<span class="org-keyword">typedef</span> <span class="org-type">long</span> <span class="org-type">long</span> <span class="org-type">ll</span>;
+
+<span class="org-keyword">class</span> $CLASSNAME$ {
+ <span class="org-keyword">public</span>:
+  $RC$ $METHODNAME$($METHODPARMS$) {
+  }
+  $TESTCODE$
+};
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">BEGIN CUT HERE</span>
+<span class="org-type">int</span> <span class="org-function-name">main</span>() {
+  $CLASSNAME$ ___test;
+  ___test.run_test(-1);
+  <span class="org-keyword">return</span> 0;
+}
+<span class="org-comment-delimiter">// </span><span class="org-comment">END CUT HERE</span>
+</pre>
+</div>
+
+<p>
+以后每次打开题目都会在本地保存一份代码，并且里面附带测试用例，本地完成之后直接load即可保存到远程。nice!!!
+</p>
+
+<p>
+这是我第一次做div2的成绩，留个念
+</p>
+
+
+<div class="figure">
+<p><img src="./images/first-topcoder-div2.jpg" alt="first-topcoder-div2.jpg" />
+</p>
+</div>
 </div>
 </div>
 </div>
