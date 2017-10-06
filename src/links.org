@@ -23,8 +23,8 @@ Home:
 
 -----
 Blog:
-- [[file:blog.org][My blog]] - [[file:about-me.org][About me]]
-- jwz. [[http://www.jwz.org/blog/][blog]] [[http://www.jwz.org/doc/][doc]]
+- [[file:blog.org][my blog]] & [[file:about-me.org][about me]]
+- jwz. [[http://www.jwz.org/blog/][blog]] & [[http://www.jwz.org/doc/][doc]]
 #+BEGIN_QUOTE
 "you can divide our industry into two kinds of people: those who want to go work for a company to make it successful, and those who want to go work for a successful company. " - [[http://www.jwz.org/gruntle/nomo.html][jwz]])
 #+END_QUOTE
@@ -41,9 +41,6 @@ Blog:
 - 王垠 http://www.yinwang.org/
 - Colah's blog : http://colah.github.io/archive.html # neural nets
 - Bret Victor : http://worrydream.com/#!/TheFutureOfProgramming # Programming, Designer.
-
------
-Site:
 - Mechanical Sympathy : http://mechanical-sympathy.blogspot.co.at/ # Concurrency, JVM, CPU, Memory
 - Paper Trail : http://the-paper-trail.org/blog/
 - Building Scalable Systems : http://scalingsystems.com/
@@ -52,6 +49,7 @@ Site:
 - Percona : http://www.mysqlperformanceblog.com/ # MySQL
 - DBMS 2 : : http://www.dbms2.com/ # Database
 - Small Datum : http://smalldatum.blogspot.com/
+- IT Hare on Soft.ware : http://ithare.com/
 
 -----
 Conf:

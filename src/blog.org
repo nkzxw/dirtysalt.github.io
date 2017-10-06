@@ -1,6 +1,8 @@
 #+title: blog
 
 ** 2017
+- 201709 [[file:./blogs/have-a-rest-strategically.org][战略性休息]] 摘自得到的《精英日课》
+- 201709 [[file:./blogs/story-telling-and-obtain-experience.org][讲故事和刷经验值]] 摘自得到的《精英日课》
 - 201709 [[file:./blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.org][How to build your personal brand as a new developer]]
 - 201709 [[file:blogs/narrow-python-build.org][Narrow Python Build]]
 - 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
