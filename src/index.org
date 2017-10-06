@@ -107,6 +107,7 @@
 - [[file:computational-advertising.org][Computational Advertising]] 计算广告
 - [[file:./bitcoin.org][Bitcoin: A Peer-to-Peer Electronic Cash System]] 比特币论文
 - [[https://github.com/dirtysalt/tomb/tree/master/leetcode][My leetcode's code]]
+- [[file:think-stats.org][统计思维-程序员数学之概率统计]]
 
 =Machine Learning=
 - [[file:ml-reading.org][Machine Learning Reading]] 机器学习方面的一些文章
