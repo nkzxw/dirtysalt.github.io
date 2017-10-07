@@ -478,6 +478,7 @@ http://dirtysalt.github.io/blogs/mac-talk.html
 http://dirtysalt.github.io/blogs/macosx-rootless-mode.html
 http://dirtysalt.github.io/blogs/made-in-america.html
 http://dirtysalt.github.io/blogs/majority-of-silent-people.html
+http://dirtysalt.github.io/blogs/make-startup-usb-stick-under-mac.html
 http://dirtysalt.github.io/blogs/making-money-along-the-way.html
 http://dirtysalt.github.io/blogs/making-photos-smaller.html
 http://dirtysalt.github.io/blogs/meeting-dyq.html
