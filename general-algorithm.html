@@ -28,20 +28,25 @@
 <li><a href="#orgheadline6">1.6. CONCISE</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">2. 面试算法</a>
+<li><a href="#orgheadline17">2. 面试算法</a>
 <ul>
 <li><a href="#orgheadline8">2.1. 链接资源</a></li>
-<li><a href="#orgheadline9">2.2. 树最长距离问题</a></li>
-<li><a href="#orgheadline10">2.3. 开门抽奖问题(Monty Hall Problem)</a></li>
-<li><a href="#orgheadline11">2.4. 等概率选取链表元素问题</a></li>
-<li><a href="#orgheadline12">2.5. 查找非重复数字问题</a></li>
-<li><a href="#orgheadline13">2.6. 水池最大蓄水问题</a></li>
-<li><a href="#orgheadline14">2.7. 赔率系统设计问题</a></li>
+<li><a href="#orgheadline9">2.2. 树最长距离</a></li>
+<li><a href="#orgheadline10">2.3. Monty Hall</a></li>
+<li><a href="#orgheadline11">2.4. 等概率选取链表元素</a></li>
+<li><a href="#orgheadline12">2.5. 查找非重复数字</a></li>
+<li><a href="#orgheadline13">2.6. 水池最大蓄水</a></li>
+<li><a href="#orgheadline14">2.7. 赔率设计</a></li>
 <li><a href="#orgheadline15">2.8. 流式计算均值和方差</a></li>
+<li><a href="#orgheadline16">2.9. Poor Pigs</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">3. CS中最重要的32个算法</a></li>
-<li><a href="#orgheadline18">4. 配置topcoder</a></li>
+<li><a href="#orgheadline20">3. Misc</a>
+<ul>
+<li><a href="#orgheadline18">3.1. CS中最重要的32个算法</a></li>
+<li><a href="#orgheadline19">3.2. 配置topcoder</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -407,8 +412,8 @@ CONCISE针对这个部分稍微改进了一下
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">2</span> 面试算法</h2>
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">2</span> 面试算法</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline8" class="outline-3">
 <h3 id="orgheadline8"><span class="section-number-3">2.1</span> 链接资源</h3>
@@ -463,7 +468,7 @@ Resources:
 </div>
 </div>
 <div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.2</span> 树最长距离问题</h3>
+<h3 id="orgheadline9"><span class="section-number-3">2.2</span> 树最长距离</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 树的最长距离定义为任意两个节点之间距离的最大值。咋一看这个问题，似乎就是根节点左子树高度和右子树高度之和，但是实际上可能对于子树里面可能会存在更长的距离。对于最长距离的话应该仅存在于这两者之间。
@@ -550,7 +555,7 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 
 <div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.3</span> 开门抽奖问题(Monty Hall Problem)</h3>
+<h3 id="orgheadline10"><span class="section-number-3">2.3</span> Monty Hall</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 原题是有三扇门，一扇门后面是一辆汽车，后面两扇门没有东西。主持人首先让你选择一扇门，之后主持人打开一扇后面没有任何东西的门，然后主持人问你是否需要更换你的选择？扩展一下这个问题，如果扩展到N(N&gt;=3)扇门的话，那么之前和之后中奖概率分别是多少？
@@ -579,7 +584,7 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 
 <div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.4</span> 等概率选取链表元素问题</h3>
+<h3 id="orgheadline11"><span class="section-number-3">2.4</span> 等概率选取链表元素</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 等概率选取未知长度的链表中的元素，要求是只能够遍历这个链表一次。下面是代码， <b>注意这里的wanted会不断地被更新</b>
@@ -609,7 +614,7 @@ leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http:
 </div>
 
 <div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.5</span> 查找非重复数字问题</h3>
+<h3 id="orgheadline12"><span class="section-number-3">2.5</span> 查找非重复数字</h3>
 <div class="outline-text-3" id="text-2-5">
 <hr  />
 <p>
@@ -722,7 +727,7 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 
 <div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.6</span> 水池最大蓄水问题</h3>
+<h3 id="orgheadline13"><span class="section-number-3">2.6</span> 水池最大蓄水</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 考虑一个二维直方图平面，X轴单位为1，Y轴是直方图高度。假设向这个直方图里面灌水，请问这个直方图能够容纳多少水。
@@ -844,7 +849,7 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 
 <div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.7</span> 赔率系统设计问题</h3>
+<h3 id="orgheadline14"><span class="section-number-3">2.7</span> 赔率设计</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 #note@2012.6.14
@@ -937,11 +942,59 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
 </pre>
 </div>
 </div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">2.9</span> Poor Pigs</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+leetcode 上面的题目，没有想出来，但是看完 <a href="https://discuss.leetcode.com/topic/67666/another-explanation-and-solution">解法</a>(A) 之后觉得非常赞。
+</p>
+
+<p>
+一开始我看的是这个 <a href="https://discuss.leetcode.com/topic/67482/solution-with-detailed-explanation">回答(B)</a> , 但是似乎并不完美，尤其是没有解释好多轮的情况。
+</p>
+
+<p>
+如果只有一轮情况的话，那么每个dimension的长度就变成了2, 所以答案是 2 ^ pigs. 回答B里面对于一轮情况的解释还是不错的。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Python">#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+class Solution(object):
+    def poorPigs(self, buckets, minutesToDie, minutesToTest):
+        """
+        :type buckets: int
+        :type minutesToDie: int
+        :type minutesToTest: int
+        :rtype: int
+        """
+        pigs = 0
+        rounds = minutesToTest / minutesToDie
+        while True:
+            if (rounds + 1) ** pigs &gt;= buckets:
+                break
+            pigs += 1
+        return pigs
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.poorPigs(1000, 15, 60))
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">3</span> CS中最重要的32个算法</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> Misc</h2>
 <div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.1</span> CS中最重要的32个算法</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 <a href="http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms">http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms</a>
 </p>
@@ -982,9 +1035,9 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
 </ol>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">4</span> 配置topcoder</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.2</span> 配置topcoder</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 UPDATE(2017-10-06): 下面这些插件还不支持Python, 所以我开始使用另外一个插件 <a href="https://github.com/shivawu/topcoder-greed">https://github.com/shivawu/topcoder-greed</a>. 这个插件是一个整合包，配置起来更加方便。
 </p>
@@ -1033,15 +1086,13 @@ UPDATE(2017-10-06): 下面这些插件还不支持Python, 所以我开始使用�
 </ul>
 
 <p>
-继续点击Configure选项，在General这个部分基本上没有什么需要修改的：
+继续点击Configure选项，在General这个部分基本上没有什么需要修改的。
 </p>
-<ul class="org-ul">
-<li>read/write problem to ./topcoder # 将题目保存到topcoder目录里面</li>
-<li>#todo: more?</li>
-</ul>
+
 <p>
 然后就是配置Code Template。如果使用C++的话，那么可以考虑使用下面的模板
 </p>
+
 <div class="org-src-container">
 
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
@@ -1094,6 +1145,7 @@ UPDATE(2017-10-06): 下面这些插件还不支持Python, 所以我开始使用�
 <div class="figure">
 <p><img src="./images/first-topcoder-div2.jpg" alt="first-topcoder-div2.jpg" />
 </p>
+</div>
 </div>
 </div>
 </div>
