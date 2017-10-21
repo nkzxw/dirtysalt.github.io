@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201710 [[file:./blogs/mongodb34-perf-issue-checkpoint.org][升级到MongoDB 3.4出现的性能问题]]
 - 201710 [[file:blogs/make-startup-usb-stick-under-mac.org][在Mac下面制作USB启动盘]]
 - 201709 [[file:./blogs/have-a-rest-strategically.org][战略性休息]] 摘自得到的《精英日课》
 - 201709 [[file:./blogs/story-telling-and-obtain-experience.org][讲故事和刷经验值]] 摘自得到的《精英日课》
