@@ -360,6 +360,7 @@
 - [[file:blogs/flowers-to-algernon.org][献给阿尔吉侬的花束(Flowers for Algernon)]]
 - [[file:blogs/how-to-win-friends-and-influence-people.org][人性的弱点全集(How to win friends and influence people)]] by Dale Carnegie
 - [[file:blogs/shoe-dog.org][鞋狗(Shoe Dog)]] by Phil Knight
+- [[file:./blogs/black-swan.org][黑天鹅(Black Swan)]] by Nassim Nicolas Taleb
 - [[file:blogs/the-bed-of-procrustes.org][随机生存的智慧: 黑天鹅语录(The Bed of Procrustes)]] by Nassim Nicholas Taleb
 - [[file:blogs/how-to-stop-worring-and-start-living.org][人性的优点全集(How to stop worring and start living]] by Dale Carnegie
 - [[file:blogs/hard-to-believe.org][万万没想到:用理工科思维理解世界]] by 万维刚
