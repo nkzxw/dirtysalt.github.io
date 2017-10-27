@@ -359,6 +359,7 @@ http://dirtysalt.github.io/blogs/before-you-code-write.html
 http://dirtysalt.github.io/blogs/beginning-of-a-hard-journey.html
 http://dirtysalt.github.io/blogs/big-data-is-supposed-to-be.html
 http://dirtysalt.github.io/blogs/big-data.html
+http://dirtysalt.github.io/blogs/black-swan.html
 http://dirtysalt.github.io/blogs/bob-dylan-lyrics-collection.html
 http://dirtysalt.github.io/blogs/boost-shadowsocks-with-tcp-bbr.html
 http://dirtysalt.github.io/blogs/boots-of-spanish-leather.html
