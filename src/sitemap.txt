@@ -163,6 +163,7 @@ http://dirtysalt.github.io/lock.html
 http://dirtysalt.github.io/lzf.html
 http://dirtysalt.github.io/lzma.html
 http://dirtysalt.github.io/mac.html
+http://dirtysalt.github.io/machine-learning-for-trading-class.html
 http://dirtysalt.github.io/make-non-obvious-hires.html
 http://dirtysalt.github.io/manhattan.html
 http://dirtysalt.github.io/mapred.html
