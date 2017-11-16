@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]]
 - 201711 [[file:blogs/pypy-impl.org][PyPy实现方式]]
 - 201711 [[file:./blogs/why-buddhism-true-4.org][为什么佛学是真的4-冥想的方法]]
 - 201710 [[file:./blogs/mongodb34-perf-issue-checkpoint.org][升级到MongoDB 3.4出现的性能问题]]

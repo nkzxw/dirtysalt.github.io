@@ -231,6 +231,7 @@
 - [[file:why-google-stores-billions-of-lines-of-code-in-a-single-repository.org][Why Google Stores Billions of Lines of Code in a Single Repository]] @ 2016
 - [[file:./achieving-rapid-response-times-in-large-online-services.org][Achieving Rapid Response Times in Large Online Services]] @ 2012 Jeff Dean
 - [[file:./large-scale-deep-learning-for-intelligent-computer-systems.org][Large-Scale Deep Learning for Intelligent Computer Systems]] @ 2016 Jeff Dean
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
 
 ** Papers
 - [[file:chubby.org][The Chubby lock service for loosely-coupled distributed systems]] @ 2006
