@@ -129,6 +129,8 @@
 - [[http://www.autonlab.org/tutorials/list.html][Statistical Data Mining Tutorials]] by [[http://www.cs.cmu.edu/~awm/][Andrew W. Moore]]
 - Coursera: Machine Learning by Andrew Ng. [[file:ml-class.org][笔记和一些习题代码]] (仅供学习) 以及 [[file:images/coursera-ml-2014.pdf][证书]]
 - [[https://github.com/dirtysalt/tomb/tree/master/kaggle][My kaggle's code]]
+- [[https://github.com/dirtysalt/tomb/tree/master/py/mlcode][一些机器学习算法实现(仅供学习)]]
+- [[file:machine-learning-for-trading-class.org][Machine Learning for Trading]]
 
 * Distributed System
 ** Notes
@@ -229,6 +231,7 @@
 - [[file:why-google-stores-billions-of-lines-of-code-in-a-single-repository.org][Why Google Stores Billions of Lines of Code in a Single Repository]] @ 2016
 - [[file:./achieving-rapid-response-times-in-large-online-services.org][Achieving Rapid Response Times in Large Online Services]] @ 2012 Jeff Dean
 - [[file:./large-scale-deep-learning-for-intelligent-computer-systems.org][Large-Scale Deep Learning for Intelligent Computer Systems]] @ 2016 Jeff Dean
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
 
 ** Papers
 - [[file:chubby.org][The Chubby lock service for loosely-coupled distributed systems]] @ 2006
