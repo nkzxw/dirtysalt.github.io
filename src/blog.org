@@ -374,3 +374,5 @@
 - [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
 - [[file:./blogs/think-and-grow-rich.org][思考致富(Think and Grow Rich)]] by Napoleon Hill(拿破仑.希尔)
 - [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳
+
+
