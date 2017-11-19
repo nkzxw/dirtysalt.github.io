@@ -50,6 +50,7 @@ Blog:
 - DBMS 2 : : http://www.dbms2.com/ # Database
 - Small Datum : http://smalldatum.blogspot.com/
 - IT Hare on Soft.ware : http://ithare.com/
+- Wes McKinney: http://wesmckinney.com/archives.html # Pandas, Data Science
 
 -----
 Conf:
