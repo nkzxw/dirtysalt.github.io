@@ -67,7 +67,7 @@ for f in glob.glob('../*.html')+glob.glob('../blogs/*.html'):
             pass
         else:
             ds.append(x)
-    print 'add code to \'%s\''%(f)
+    print('add code to \'%s\''%(f))
     open(f,'w').writelines(map(lambda x:x + '\n', ds))
 
 site = 'http://dirtysalt.github.io/'
