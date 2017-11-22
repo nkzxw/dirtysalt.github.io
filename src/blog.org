@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201711 [[file:./blogs/tool-is-to-free-people.org][解放生产力的工具]]
 - 201711 [[file:./blogs/software-2.org][Software 2.0]] by Andrej Karpathy
 - 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]]
 - 201711 [[file:blogs/pypy-impl.org][PyPy实现方式]]
