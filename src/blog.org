@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201711 [[file:./blogs/ten-rules-for-negotiating-a-job-offer.org][Ten Rules for Negotiating a Job Offer]]
 - 201711 [[file:./blogs/tool-is-to-free-people.org][解放生产力的工具]]
 - 201711 [[file:./blogs/software-2.org][Software 2.0]] by Andrej Karpathy
 - 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]]
@@ -379,5 +380,3 @@
 - [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
 - [[file:./blogs/think-and-grow-rich.org][思考致富(Think and Grow Rich)]] by Napoleon Hill(拿破仑.希尔)
 - [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳
-
-
