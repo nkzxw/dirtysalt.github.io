@@ -486,6 +486,7 @@ http://dirtysalt.github.io/blogs/unecessary-hurry-up.html
 http://dirtysalt.github.io/blogs/have-a-baby.html
 http://dirtysalt.github.io/blogs/introduction-to-computing-systems.html
 http://dirtysalt.github.io/blogs/hive-gettting-started.html
+http://dirtysalt.github.io/blogs/ten-rules-for-negotiating-a-job-offer.html
 http://dirtysalt.github.io/blogs/how-to-do-cross-validation.html
 http://dirtysalt.github.io/blogs/ms-interview.html
 http://dirtysalt.github.io/blogs/money-doggy.html
