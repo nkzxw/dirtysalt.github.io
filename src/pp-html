@@ -51,6 +51,11 @@ filter_words = ('resume',)
 HTML_DIR = '../html/'
 html_files = glob.glob(HTML_DIR + '*.html') + \
   glob.glob(HTML_DIR + 'blogs/*.html')
+alternative_links = [
+    ('file:///Users/dirlt/repo/dirtysalt.github.io/codes/', 'https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/'),
+    ('file:///home/dirlt/repo/dirtysalt.github.io/codes/', 'https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/'),
+]
+
 
 for f in html_files:
     skip = False
@@ -83,6 +88,14 @@ for f in html_files:
         if x.find('<title>') !=-1 and x.find('</title>') != -1:
             site_title = x[len('<title>'):-len('</title>')].replace("'", '')
     print('add code to \'%s\''%(f))
+
+    def replace_link(x):
+        x2 = x
+        for (k, k2) in alternative_links:
+            x2 = x2.replace(k, k2)
+        return x2
+
+    data = map(replace_link, data)
     with open(f, 'w') as fh:
         fh.writelines(map(lambda x: x + '\n', data))
 

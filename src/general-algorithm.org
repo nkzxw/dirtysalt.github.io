@@ -349,7 +349,7 @@ class Solution {
 
 思考的关键在于，主持人这个行为对你当前选择的概率是没有任何影响的。因为无论如何主持人都可以打开一扇空门出来。
 
-#note(20150908): 这个问题是 [[https://en.wikipedia.org/wiki/Monty_Hall_problem][Monty Hall Problem]], 可以通过 [[https://github.com/dirtysalt/tomb/blob/master/py/scripts/monty_hall.py][模拟]] 来计算结果
+#note(20150908): 这个问题是 [[https://en.wikipedia.org/wiki/Monty_Hall_problem][Monty Hall Problem]], 可以通过 [[file:~/repo/dirtysalt.github.io/codes/py/scripts/monty_hall.py][模拟]] 来计算结果
 
 *** 等概率选取链表元素
 等概率选取未知长度的链表中的元素，要求是只能够遍历这个链表一次。下面是代码， *注意这里的wanted会不断地被更新*

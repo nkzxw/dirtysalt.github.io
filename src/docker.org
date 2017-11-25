@@ -1,4 +1,5 @@
 #+title: Docker
+
 - https://www.docker.com/
 - https://docs.docker.com/userguide/
 - LXC https://linuxcontainers.org/
@@ -375,7 +376,7 @@ Dockerfile格式很简单的:
    - USER # 设置运行用户名和uid，影响之后的RUN
    - WORKDIR # 设置工作目录，影响之后的RUN，CMD，ENTRYPOINT
 
-可以参考创建 [[https://github.com/dirtysalt/tomb/blob/master/misc/dockerfiles/mysql/Dockerfile][mysql]] 和 [[https://github.com/dirtysalt/tomb/blob/master/misc/dockerfiles/redis/Dockerfile][redis]] 镜像的Dockerfile.
+可以参考创建 [[file:../codes/misc/docker-files/mysql/Dockerfile][mysql]] 和 [[file:../codes/misc/docker-files/redis/Dockerfile][redis]] 镜像的Dockerfile.
 
 ** assign static ip to container
 可以在启动container时候使用lxc-conf指定lxc配置来分配固定IP(必须保证容器格式是lxc)

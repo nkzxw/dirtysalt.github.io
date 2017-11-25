@@ -1,4 +1,9 @@
 #+title: spark
+** Code examples
+- [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/AvroDataFrame.scala][使用Spark DataFrame操作Avro文件]]
+- [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/AvroRawRDD.scala][使用Spark RDD操作Avro文件]]
+- [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/TestOnHBase.scala][使用Spark读写HBase]]
+
 ** Spark Running Mode
 spark整体架构如下图:
 
@@ -34,7 +39,7 @@ file:./images/spark-yarn-cluster-mode.png file:./images/spark-yarn-client-mode.p
 
 RDD从生成到执行过程, 以及这个过程中使用的组件, 可以参考下图:
 - SparkContext 用户用来生成RDD
-- DAGScheduler 
+- DAGScheduler
   - 将RDD生成Jobs, 并且将Jobs划分成为Stages
   - 然后将Stage细分到Tasks, 提交给TaskScheduler.
 - TaskScheduler是执行Tasks的引擎.

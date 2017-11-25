@@ -85,7 +85,7 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 #+END_EXAMPLE
 
 ** 获取集群运行状况
-  - 参考代码 [[https://github.com/dirtysalt/tomb/blob/master/java/hbase/src/main/java/com/dirlt/java/hbase/ClusterSummary.java][com.dirlt.java.hbase.ClusterSummary]]
+  - [[file:../codes/java/hbase/src/main/java/com/dirlt/java/hbase/ClusterSummary.java][code on github]]
   - HBaseAdmin可以获取节点信息
   - HTable可以获取table信息
 
@@ -93,7 +93,7 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
   - http://hbase.apache.org/book/arch.bulk.load.html
   - Preparing data via a MapReduce job
     - 将输入文件转换成为HFile格式
-    - 参考代码 [[https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/HBaseLoaderMR.java][com.dirlt.java.mr.HBaseLoaderMR]]
+    - [[file:../codes/java/mr/src/main/java/com/dirlt/java/mr/HBaseLoaderMR.java][code on github]]
     - region，reduce，output对应，也就是说有多少个region就有多少个reduce
       - #note: 所以需要关注region分布。如果过于集中的话需要考虑使用做pre-split或者是将key做hash-prefix等
     - configureIncrementalLoad会改写reducer实现，所以这个转换过程只能够由单独任务完成。
@@ -607,7 +607,7 @@ https://github.com/stumbleupon/asynchbase
 
 https://github.com/OpenTSDB/asynchbase/issues/72
 
-测试代码可以参考 [[https://github.com/dirtysalt/tomb/blob/master/java/asynchbase/src/main/java/com/dirlt/java/asynchbase/AsyncHBase.java][com.dirlt.java.asynchbase.AsyncHBase]], 在Get添加Callback之前会检查结果是否已经获取到。如果已经获取的话，那么会在当前的线程就执行callback
+测试代码可以参考 [[file:../codes/java/asynchbase/src/main/java/com/dirlt/java/asynchbase/AsyncHBase.java][code on github]], 在Get添加Callback之前会检查结果是否已经获取到。如果已经获取的话，那么会在当前的线程就执行callback
 
 ===== Question
 
@@ -689,4 +689,3 @@ http://stackoverflow.com/questions/11327316/how-to-join-tables-in-hbase
    - hash join 遍历一路的时候去查另外一路。
 
 对于MR来说，个人认为sort join通常是效率最高的方式，而hash join次之（hbase的read效率不是很高）。
-
