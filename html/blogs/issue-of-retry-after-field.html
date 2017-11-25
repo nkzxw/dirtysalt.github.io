@@ -3,7 +3,6 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-25 六 16:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Retry-After字段带来的问题</title>
@@ -73,5 +72,5 @@ HTTPHeaderDict({'X-Request-Id': '9e703b03-ec08-4ea3-bce4-ed8583af038f', 'Via': '
 应对Retry-After这个问题也非常好解决，只需要在外部请求的时候增加一个定时器就行。之所以会出现Retry-After，基本上还是因为访问次数太多了，换一批代理或者是改进一下负载策略才能根本地解决问题。
 </p>
 </div>
-</body>
+<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirtysalt';var disqus_identifier = 'blogs/issue-of-retry-after-field.html';var disqus_title = 'Retry-After字段带来的问题';var disqus_url = 'https://dirtysalt.github.io/html/blogs/issue-of-retry-after-field.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
 </html>

@@ -23,10 +23,10 @@ BODY_END = """
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 /* required: replace example with your forum shortname  */
-var disqus_shortname = 'dirlt';
+var disqus_shortname = 'dirtysalt';
 var disqus_identifier = '%(site_id)s';
-var disqus_title = '%(site_id)s';
-var disqus_url = 'http://dirtysalt.github.io/%(site_id)s';
+var disqus_title = '%(site_title)s';
+var disqus_url = 'https://dirtysalt.github.io/html/%(site_id)s';
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function() {
 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -48,40 +48,46 @@ r3 = re.compile(r'^<a href="http://validator.w3.org/check')
 r4 = re.compile(r'^<!-- \d{4}-\d{2}\-\d{2} ')
 
 filter_words = ('resume',)
-HTML_DIR = '../html'
-html_files =
+HTML_DIR = '../html/'
+html_files = glob.glob(HTML_DIR + '*.html') + \
+  glob.glob(HTML_DIR + 'blogs/*.html')
 
-for f in glob.glob('../html/*.html')+glob.glob('../html/blogs/*.html'):
+for f in html_files:
     skip = False
     for w in filter_words:
-        if f.fidn(w) != -1:
+        if f.find(w) != -1:
             skip = True
             break
     if skip:
         continue
 
     xs = open(f).readlines()
-    site_id = f[
-    id = f[len('../html/'):]
-    ds=[]
+    site_id = f[len(HTML_DIR):]
+    site_title = site_id
+
+    data=[]
     for x in xs:
         x = x[:-1] # strip trailing \n
         if x.find('<head>') != -1 and not x == '<head>' + HEAD + '\n':
-            ds.append('<head>' + HEAD)
+            data.append('<head>' + HEAD)
         elif x.find('<body>') != -1 and not x == '<body>' + BODY + '\n':
-            ds.append('<body>' + BODY)
+            data.append('<body>' + BODY)
         elif x.find('</head>') != -1 and not x == HEAD_END + '</head>' + '\n':
-            ds.append(HEAD_END + '</head>')
+            data.append(HEAD_END + '</head>')
         elif x.find('</body>') != -1 and not x == BODY_END%(locals()) + '</body>' + '\n':
-            ds.append(BODY_END%(locals()) + '</body>')
-        elif r1.match(x) or r2.match(x) or \
-            r3.match(x) or r4.match(x):
+            data.append(BODY_END%(locals()) + '</body>')
+        elif r1.match(x) or r2.match(x) or r3.match(x) or r4.match(x):
             pass
         else:
-            ds.append(x)
+            data.append(x)
+        if x.find('<title>') !=-1 and x.find('</title>') != -1:
+            site_title = x[len('<title>'):-len('</title>')].replace("'", '')
     print('add code to \'%s\''%(f))
-    open(f,'w').writelines(map(lambda x:x + '\n', ds))
+    with open(f, 'w') as fh:
+        fh.writelines(map(lambda x: x + '\n', data))
 
+
+# generate sitemap for indexing
 site = 'http://dirtysalt.github.io/html/'
 files = glob.glob('*.org') + glob.glob('blogs/*.org')
 with open('sitemap.txt', 'w') as fh:
