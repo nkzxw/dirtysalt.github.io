@@ -144,7 +144,7 @@
 <h3 id="orgheadline3"><span class="section-number-3">2.2</span> 使用lzo</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-关于如何使用lzo可以参看代码示例 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/ReadLzoInput.java">com.dirlt.java.mr.ReadLzoInput</a>. 下面几点需要说明：
+关于如何使用lzo可以参看代码示例 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/ReadLzoInput.java">code on github</a>. 下面几点需要说明：
 </p>
 <ul class="org-ul">
 <li>LzoTextInputFormat用来处理lzo压缩的文本文件，
@@ -176,7 +176,7 @@
 </p>
 
 <p>
-如果需要单独使用lzo而不是使用mapreduce来做压缩和解压缩的话，可以参考 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/UseLzoStandadlone.java">com.dirlt.java.mr.UseLzoStandadlone</a>.
+如果需要单独使用lzo而不是使用mapreduce来做压缩和解压缩的话，可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/UseLzoStandadlone.java">code on github</a>.
 </p>
 </div>
 </div>
@@ -215,7 +215,7 @@ message Message {
 此外我们还需要为这个类写几个辅助类，但是索性的是辅助类并不是很复杂。
 </p>
 <ul class="org-ul">
-<li>InputFormat <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufInputFormat.java">com.dirlt.java.mr.MessageLzoProtobufInputFormat</a></li>
+<li>InputFormat <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufInputFormat.java">code on github</a></li>
 </ul>
 <div class="org-src-container">
 
@@ -229,7 +229,7 @@ message Message {
 </div>
 
 <ul class="org-ul">
-<li>OutputFormat <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufOutputFormat.java">com.dirlt.java.mr.MessageLzoProtobufOutputFormat</a></li>
+<li>OutputFormat <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufOutputFormat.java">code on github</a></li>
 </ul>
 <div class="org-src-container">
 
@@ -243,7 +243,7 @@ message Message {
 </div>
 
 <ul class="org-ul">
-<li>Writable <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufWritable.java">com.dirlt.java.mr.MessageLzoProtobufWritable</a></li>
+<li>Writable <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/MessageLzoProtobufWritable.java">code on github</a></li>
 </ul>
 <div class="org-src-container">
 
@@ -262,7 +262,7 @@ message Message {
 </div>
 
 <p>
-关于如何使用lzo+protobuf可以参看代码示例 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/UseLzoProtobuf.java">com.dirlt.java.mr.UseLzoProtobuf</a>. 值得注意的是如果输入为lzo文件的话，那么类型是ProtobufWritable&lt;M&gt;（泛型），如果需要取值的话必须通过setConverter提供类信息。
+关于如何使用lzo+protobuf可以参看代码示例 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/UseLzoProtobuf.java">code on github</a>. 值得注意的是如果输入为lzo文件的话，那么类型是ProtobufWritable&lt;M&gt;（泛型），如果需要取值的话必须通过setConverter提供类信息。
 </p>
 </div>
 </div>
@@ -275,7 +275,7 @@ message Message {
 <h3 id="orgheadline6"><span class="section-number-3">3.1</span> MultipleInputs</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleInputs1.java">com.dirlt.java.mr.RunMultipleInputs1</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleInputs1.java">code on github</a></li>
 <li>支持一个htable和多个文件（但是对于htable不支持设置scan范围）</li>
 <li>代码大致过程：
 <ul class="org-ul">
@@ -298,8 +298,8 @@ message Message {
 <h3 id="orgheadline7"><span class="section-number-3">3.2</span> MultipleTableInputFormat</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleInputs2.java">com.dirlt.java.mr.RunMultipleInputs2</a></li>
-<li>#note: 在cdh4.3.0下面运行的代码略有变动，存放在 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr2/src/main/java/com/dirlt/java/mr2/RunMultipleInputs2.java">com.dirlt.java.mr2.RunMultipleInputs2</a>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleInputs2.java">code on github</a></li>
+<li>#note: 在cdh4.3.0下面运行的代码略有变动，存放在 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr2/src/main/java/com/dirlt/java/mr2/RunMultipleInputs2.java">code on github</a>
 <ul class="org-ul">
 <li>需要配合MultipleInputs使用</li>
 <li>使用这个InputFormat可以同时支持多文件输入和多表输入</li>
@@ -334,7 +334,7 @@ message Message {
 <h3 id="orgheadline9"><span class="section-number-3">4.1</span> MultipleOutputs</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleOutputs.java">com.dirlt.java.mr.RunMultipleOutputs</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleOutputs.java">code on github</a></li>
 <li>支持多个htable和多个文件</li>
 <li>如果使用write(String namedOutput, K key, V value)会写到FileOutputFormat设置的目录下面，文件附上前缀namedOutput-，</li>
 <li>如果使用write(String namedOutput, K key, V value, String baseOutputPath)
@@ -355,7 +355,7 @@ message Message {
 <h3 id="orgheadline10"><span class="section-number-3">4.2</span> MultipleTableOutputFormat</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleTableOutput.java">com.dirlt.java.mr.RunMultipleTableOutput</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/RunMultipleTableOutput.java">code on github</a></li>
 <li>支持多个htable</li>
 <li>调用context.write的key需要指定outputTable
 <ul class="org-ul">
@@ -371,7 +371,7 @@ message Message {
 <h2 id="orgheadline12"><span class="section-number-2">5</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/ClusterSummary.java">com.dirlt.java.mr.ClusterSummary</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/mr/src/main/java/com/dirlt/java/mr/ClusterSummary.java">code on github</a></li>
 <li>获取更多信息可以阅读JobClient API</li>
 </ul>
 </div>

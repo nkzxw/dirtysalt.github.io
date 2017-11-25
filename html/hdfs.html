@@ -141,7 +141,7 @@ HDFS文件系统的操作步骤主要如下：
 <ul class="org-ul">
 <li>首先通过configuration获得FileSystem实例</li>
 <li>然后通过FileSystem这个实例操作文件系统上的文件</li>
-<li>代码可以参考 <a href="https://github.com/dirtysalt/tomb/blob/master/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">com.dirlt.java.hdfs.GetFS</a></li>
+<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">code on github</a></li>
 </ul>
 
 <p>
@@ -194,7 +194,7 @@ uri = file:///
 <li>sync是FSDataOutputStream特有的，老版本相当是将datanode数据同步到namenode，这样reader就可以读取到当前的block，但是在高版本deprecated</li>
 <li>hflush则是高版本推荐的sync用法</li>
 <li>hsync不仅仅有hflush功能，还能够调用对应的datanode将数据刷到local fs上面。</li>
-<li>#note: 但是似乎不太work. 参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">com.dirlt.java.hdfs.TestConsistency</a></li>
+<li>#note: 但是似乎不太work. 参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">code on github</a></li>
 </ul></li>
 </ul>
 </div>
@@ -210,7 +210,7 @@ uri = file:///
 <ul class="org-ul">
 <li>但是过程似乎有点复杂，所以也不确实是否真的写入64KB才会调用progress</li>
 </ul></li>
-<li>代码可以参考 <a href="https://github.com/dirtysalt/tomb/blob/master/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">com.dirlt.java.hdfs.TestProgress</a></li>
+<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">code on github</a></li>
 </ul>
 </div>
 </div>
@@ -219,7 +219,7 @@ uri = file:///
 <h2 id="orgheadline6"><span class="section-number-2">6</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">com.dirlt.java.hdfs.ClusterSummary</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
 <li>通过DFSClient可以获取集群运行状况</li>
 </ul>
 </div>

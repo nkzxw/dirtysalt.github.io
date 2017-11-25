@@ -85,7 +85,6 @@ http://dirtysalt.github.io/html/mesos-omega-borg-a-survey.html
 http://dirtysalt.github.io/html/power-drill.html
 http://dirtysalt.github.io/html/gizzard.html
 http://dirtysalt.github.io/html/why-not-raid0-in-hdfs.html
-http://dirtysalt.github.io/html/some-spark-examples.html
 http://dirtysalt.github.io/html/oprofile-obsolete.html
 http://dirtysalt.github.io/html/solid-state-revolution-in-depth-on-how-ssd-really-work.html
 http://dirtysalt.github.io/html/ml-foundations.html

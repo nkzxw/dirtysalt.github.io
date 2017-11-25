@@ -214,7 +214,7 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 <h2 id="orgheadline7"><span class="section-number-2">7</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/hbase/src/main/java/com/dirlt/java/hbase/ClusterSummary.java">com.dirlt.java.hbase.ClusterSummary</a></li>
+<li><a href="../codes/java/hbase/src/main/java/com/dirlt/java/hbase/ClusterSummary.java">code on github</a></li>
 <li>HBaseAdmin可以获取节点信息</li>
 <li>HTable可以获取table信息</li>
 </ul>
@@ -229,7 +229,7 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 <li>Preparing data via a MapReduce job
 <ul class="org-ul">
 <li>将输入文件转换成为HFile格式</li>
-<li>参考代码 <a href="https://github.com/dirtysalt/tomb/blob/master/java/mr/src/main/java/com/dirlt/java/mr/HBaseLoaderMR.java">com.dirlt.java.mr.HBaseLoaderMR</a></li>
+<li><a href="../codes/java/mr/src/main/java/com/dirlt/java/mr/HBaseLoaderMR.java">code on github</a></li>
 <li>region，reduce，output对应，也就是说有多少个region就有多少个reduce
 <ul class="org-ul">
 <li>#note: 所以需要关注region分布。如果过于集中的话需要考虑使用做pre-split或者是将key做hash-prefix等</li>
@@ -937,7 +937,7 @@ processBatch代码比较冗长，大致意思如下：
 </p>
 
 <p>
-测试代码可以参考 <a href="https://github.com/dirtysalt/tomb/blob/master/java/asynchbase/src/main/java/com/dirlt/java/asynchbase/AsyncHBase.java">com.dirlt.java.asynchbase.AsyncHBase</a>, 在Get添加Callback之前会检查结果是否已经获取到。如果已经获取的话，那么会在当前的线程就执行callback
+测试代码可以参考 <a href="../codes/java/asynchbase/src/main/java/com/dirlt/java/asynchbase/AsyncHBase.java">code on github</a>, 在Get添加Callback之前会检查结果是否已经获取到。如果已经获取的话，那么会在当前的线程就执行callback
 </p>
 
 <p>
