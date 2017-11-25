@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Finagle</title>
@@ -87,7 +88,7 @@
 </ul></li>
 <li>Filters
 <ul class="org-ul">
-<li>It is often useful to define application-agnostic behavior as well. 
+<li>It is often useful to define application-agnostic behavior as well.
 <ul class="org-ul">
 <li>A common example of this is to implement timeouts: if a request fails to complete within a certain time, the timeout mechanism fails it with a timeout exception.</li>
 </ul></li>
@@ -125,7 +126,7 @@ Client implementations are encouraged to provide sensible defaults and leave roo
 </ul></li>
 <li>Connection Pooling
 <ul class="org-ul">
-<li>Finagle provides a generic pool that maintains a collection of service instances. 
+<li>Finagle provides a generic pool that maintains a collection of service instances.
 <ul class="org-ul">
 <li>Each endpoint the client connects to has an independent pool with high and low watermarks.</li>
 <li>The WatermarkPool keeps persistent services up to the lower bound. <b>It will keep making new services up to upper bound if you checkout more than lower bound services, but when you release those services above the lower bound, it immediately tries to close them.</b></li>
@@ -138,7 +139,7 @@ Client implementations are encouraged to provide sensible defaults and leave roo
 <li>Fail Fast
 <ul class="org-ul">
 <li>The FailFastFactory attempts to reduce the amount of requests dispatched to endpoints that are likely to fail. #note: 后台检查链接健康状况</li>
-<li>It works by marking downed hosts when a connection fails, and launching a background process that repeatedly attempts to reconnect with a given backoff schedule. 
+<li>It works by marking downed hosts when a connection fails, and launching a background process that repeatedly attempts to reconnect with a given backoff schedule.
 <ul class="org-ul">
 <li>During the time that a host is marked down, the factory is marked unavailable (and thus the load balancer above it will avoid its use).</li>
 <li>The factory becomes available again on success or when the backoff schedule runs out.</li>
@@ -247,5 +248,5 @@ Client implementations are encouraged to provide sensible defaults and leave roo
 <h2 id="orgheadline9"><span class="section-number-2">2</span> <a href="your-server-as-a-function.html">Your Server As A Function</a></h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'finagle.html';var disqus_title = 'finagle.html';var disqus_url = 'http://dirtysalt.github.io/finagle.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

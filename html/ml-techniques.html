@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>机器学习技法 on Coursera</title>
@@ -245,7 +246,7 @@
 <ul class="org-ul">
 <li>AdaBoost算法中我们看到需要为每个实例赋予权值，但是DTree算法中很难处理具有权重的实例。虽然我们可以修改DTree内部算法来处理权重，但是有个相对更简单的办法来处理权重：使用权重来对原来数据集合重新采样或者是重新分布，使得这个权重可以直接反应在数据集合上。这样最后DTree算法只需要处理没有权重的数据集合即可。</li>
 <li>如果我们使用的是full-grown也就是完全生成树，那么Ein=0. 按照AdaBoost算法，这个k=inf我们没有办法处理。所以DTree内部必须剪枝比如限制树高度，一方面为了具有更好的泛化能力，另一方面为了使得Ein!=0. 另外也可以让DTree只是在某些点上进行训练。如果树高度=1的话，那么AdaBoost-DTree = AdaBoost-Stump.</li>
-<li>Optimization View of AdaBoost: 
+<li>Optimization View of AdaBoost:
 <ul class="org-ul">
 <li>分析AdaBoost中的权重计算公式，推导之后发现某项和SVM-margin可以关联起来，最终告诉我们需要尽可能地使所有的点权重之和小。搜索最最小值我们可以使用GD方法来完成。</li>
 <li>有趣的是我们最终发现，最小值依赖于演算法。只要演算法每一轮给出的h是最优的话，那么最终Eada也是最小的。从另外一个角度来看每轮寻找最优的h本身就是在做梯度下降。</li>
@@ -339,5 +340,5 @@
 <h2 id="orgheadline17"><span class="section-number-2">17</span> <a href="images/216_handout.pdf">完结篇(Finalge)</a></h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'ml-techniques.html';var disqus_title = 'ml-techniques.html';var disqus_url = 'http://dirtysalt.github.io/ml-techniques.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

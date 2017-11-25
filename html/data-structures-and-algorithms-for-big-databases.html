@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Structures and Algorithms for Big Databases</title>
@@ -94,7 +95,7 @@ Topics and Outline for this Tutorial
 <li>Data is transferred in blocks between RAM and disk. 考虑数据在RAM和disk之间传输</li>
 <li>The # of block transfers dominates the running time. 传输的block数目决定了运行时间</li>
 </ul></li>
-<li>Goal: Minimize # of block transfers 
+<li>Goal: Minimize # of block transfers
 <ul class="org-ul">
 <li>Performance bounds are parameterized by block size B, memory size M, data size N.</li>
 </ul></li>
@@ -165,7 +166,7 @@ merge-sort analysis非常精辟，每次merge run是M/B. 这点非常重要，�
 </div>
 
 <p>
-或许上面这个图不是很好理解，但是在性能上曲线如下： <b>可以看到查询最快的是btree, insert最快的是logging</b> 
+或许上面这个图不是很好理解，但是在性能上曲线如下： <b>可以看到查询最快的是btree, insert最快的是logging</b>
 </p>
 
 
@@ -189,7 +190,7 @@ merge-sort analysis非常精辟，每次merge run是M/B. 这点非常重要，�
 </ul>
 
 <p>
-Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下问题: 
+Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下问题:
 </p>
 <ul class="org-ul">
 <li>Variable-sized rows</li>
@@ -320,5 +321,5 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'data-structures-and-algorithms-for-big-databases.html';var disqus_title = 'data-structures-and-algorithms-for-big-databases.html';var disqus_url = 'http://dirtysalt.github.io/data-structures-and-algorithms-for-big-databases.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

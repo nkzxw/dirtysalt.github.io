@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>In-Stream Big Data Processing</title>
@@ -51,7 +52,7 @@
 </p>
 
 <p>
-In recent years, this idea got a lot of traction and a whole bunch of solutions like <b>Twitter’s Storm,  Yahoo’s S4, Cloudera’s Impala, Apache Spark, and Apache Tez</b> appeared and joined the army of Big Data and NoSQL systems. This article is an effort to 
+In recent years, this idea got a lot of traction and a whole bunch of solutions like <b>Twitter’s Storm,  Yahoo’s S4, Cloudera’s Impala, Apache Spark, and Apache Tez</b> appeared and joined the army of Big Data and NoSQL systems. This article is an effort to
 </p>
 <ul class="org-ul">
 <li>explore techniques used by developers of in-stream data processing systems,</li>
@@ -117,7 +118,7 @@ Disjoint data partitioning technique shuffles the data into several partitions i
 </div>
 
 <p>
-The divide and broadcast join algorithm is illustrated in the figure below. This method divides the first data set into multiple disjoint partitions (R1, R2, and R3 in the figure) and replicates the second data set to all processors. 
+The divide and broadcast join algorithm is illustrated in the figure below. This method divides the first data set into multiple disjoint partitions (R1, R2, and R3 in the figure) and replicates the second data set to all processors.
 </p>
 
 
@@ -147,7 +148,7 @@ In-stream processing naturally employs this technique to join a data stream with
 </p>
 
 <p>
-In relational databases, join operation can take advantage of pipelining by using the symmetric hash join algorithm or some of its advanced variants. Symmetric hash join is a generalization of hash join. Whereas a normal hash join requires at least one of its inputs to be completely available to produce first results (the input is needed to build a hash table), symmetric hash join is able to produce first results immediately. In contrast to the normal hash join, it maintains hash tables for both inputs and populates these tables as tuples arrive: 
+In relational databases, join operation can take advantage of pipelining by using the symmetric hash join algorithm or some of its advanced variants. Symmetric hash join is a generalization of hash join. Whereas a normal hash join requires at least one of its inputs to be completely available to produce first results (the input is needed to build a hash table), symmetric hash join is able to produce first results immediately. In contrast to the normal hash join, it maintains hash tables for both inputs and populates these tables as tuples arrive:
 </p>
 
 
@@ -311,7 +312,7 @@ It is important to understand that such techniques can defeat the whole purpose 
 <h3 id="orgheadline12"><span class="section-number-3">2.7</span> Aggregation on a Sliding Window</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-<b>Incremental computations</b> over sliding windows is a group of techniques that are widely used in digital signal processing, in both software and hardware. 
+<b>Incremental computations</b> over sliding windows is a group of techniques that are widely used in digital signal processing, in both software and hardware.
 </p>
 
 
@@ -385,5 +386,5 @@ scripts into efficient query processing pipelines instead of sequences of MapRed
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'in-stream-big-data-processing.html';var disqus_title = 'in-stream-big-data-processing.html';var disqus_url = 'http://dirtysalt.github.io/in-stream-big-data-processing.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

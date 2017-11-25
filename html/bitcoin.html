@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bitcoin: A Peer-to-Peer Electronic Cash System</title>
@@ -234,7 +235,7 @@ It is possible to verify payments without running a full network node. A user on
 </div>
 
 <p>
-As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification. # 如果大部分节点都是可信的话, 那么验证是可靠的. 但是如果attacker控制网络大部分节点的话&#x2026; 
+As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification. # 如果大部分节点都是可信的话, 那么验证是可靠的. 但是如果attacker控制网络大部分节点的话&#x2026;
 </p>
 </div>
 </div>
@@ -243,7 +244,7 @@ As such, the verification is reliable as long as honest nodes control the networ
 <h2 id="orgheadline10"><span class="section-number-2">10</span> Combining and Splitting Value</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-一个trx可以包含许多input和许多output. trx里面涉及的coin都会被打上编号(trx-id, #-of-output). 
+一个trx可以包含许多input和许多output. trx里面涉及的coin都会被打上编号(trx-id, #-of-output).
 </p>
 
 
@@ -278,5 +279,5 @@ As an additional firewall, a new key pair should be used for each transaction to
 <h2 id="orgheadline13"><span class="section-number-2">13</span> Conclusion</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'bitcoin.html';var disqus_title = 'bitcoin.html';var disqus_url = 'http://dirtysalt.github.io/bitcoin.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

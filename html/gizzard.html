@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gizzard: a library for creating distributed datastores</title>
@@ -45,7 +46,7 @@
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Thus, we have extracted Gizzard, a Scala framework that makes it easy to create custom fault-tolerant, distributed databases.</li>
-<li>At a high level, 
+<li>At a high level,
 <ul class="org-ul">
 <li>Gizzard is a middleware networking service that manages partitioning data across arbitrary backend datastores (e.g., SQL databases, Lucene, etc.).</li>
 <li>The partitioning rules are stored in a forwarding table that maps key ranges to partitions.</li>
@@ -111,7 +112,7 @@
 <h3 id="orgheadline6"><span class="section-number-3">3.4</span> Gizzard handles replication through a replication tree</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
-<li>Each shard referenced in the forwarding table can be either a physical shard or a logical shard. 
+<li>Each shard referenced in the forwarding table can be either a physical shard or a logical shard.
 <ul class="org-ul">
 <li>A physical shard is a reference to a particular data storage back-end, such as a SQL database. (physical shard)</li>
 <li>In contrast, A logical shard is just a tree of other shards, where each branch in the tree represents some logical transformation on the data, and each node is a data-storage back-end. (logical shard/branch)</li>
@@ -136,7 +137,7 @@
 <h3 id="orgheadline7"><span class="section-number-3">3.5</span> Gizzard is fault-tolerant</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
-<li>Gizzard is designed to avoid any single points of failure. 
+<li>Gizzard is designed to avoid any single points of failure.
 <ul class="org-ul">
 <li>If a certain replica in a partition has crashed, Gizzard routes requests to the remaining healthy replicas, bearing in mind the weighting function.</li>
 <li>If all replicas of in a partition are unavailable, Gizzard will be unable to serve read requests to that shard, but all other shards will be unaffected.</li>
@@ -159,12 +160,12 @@
 
 
 <div class="figure">
-<p><img src="./images/gizzard-migration.png" alt="gizzard-migration.png" /> 
+<p><img src="./images/gizzard-migration.png" alt="gizzard-migration.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'gizzard.html';var disqus_title = 'gizzard.html';var disqus_url = 'http://dirtysalt.github.io/gizzard.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Guide to Advanced Programming in C</title>
@@ -50,11 +51,11 @@ Stack Overflow Problems
 This file gives some hints on addressing this problem on different platforms.
 
 Under Unix-like systems, programs may throw a "Segmentation Fault"
-error.  This can be due to stack overflow, especially from recursive 
+error.  This can be due to stack overflow, especially from recursive
 function calls or huge data sets.  In our demo program "Pi"
 (see "$(CORE_PATH)/progs/pi"), we compute Pi to any number of desired
 bits or digits.  Here are some test results on when stack overflows
-will occur on different platforms, using their default stack sizes.  
+will occur on different platforms, using their default stack sizes.
 
 	platform	default size	# bits	# digits
         ===============================================================
@@ -62,23 +63,23 @@ will occur on different platforms, using their default stack sizes.
 	Linux 		8172K bytes	&lt;=62407	&lt;=18786
 	Windows		1024K bytes	&lt;=10581	&lt;=3185	(Release Version)
 	cygwin		2048K bytes	&lt;=3630	&lt;=1092
-	
-If we now change their stack size to their maximum, our Pi program can 
-compute more bits. 
+
+If we now change their stack size to their maximum, our Pi program can
+compute more bits.
 
 	platform	stack size	# bits		# digits
         ===============================================================
 	SunOS/Solaris	unlimited	&gt;=100,000	30102
 	Linux		8172K bytes	&lt;=33,219,282	&lt;=10,000,000(?)
 	Windows		32768K bytes	&lt;=343077	&lt;=12041
-	
+
 How to change the default stack size on different platforms:
-In general, under Unix-like platforms, the stack size is controlled 
-by environment variable, not the program itself.  
-So you cannot pass any flags to the 
+In general, under Unix-like platforms, the stack size is controlled
+by environment variable, not the program itself.
+So you cannot pass any flags to the
 compilers, like gcc, to setup stack size.  Under Windows platforms, the
-stack size information is contained in the executable files.  It can be set 
-during compilation in Visual C++, but this is not available in gcc. 
+stack size information is contained in the executable files.  It can be set
+during compilation in Visual C++, but this is not available in gcc.
 Alternatively, Microsoft provides a program "editbin.exe" which can change the
 executable files directly.  Here are more details:
 
@@ -98,14 +99,14 @@ Windows (during compilation):
 	1. Select "Project-&gt;Setting".
 	2. Select "Link" page.
 	3. Select "Category" to "Output".
-	4. Type your preferred stack size in "Reserve:" field under "Stack 
+	4. Type your preferred stack size in "Reserve:" field under "Stack
 	   allocations". eg, 32768 in decimal or 0x20000 in hexadecimal.
 
 Windows (to modify the executable file):
 =======================================
 There are two programs included in Microsoft Visual Studio, "dumpbin.exe"
- and "editbin.exe".  Run "dumpbin /headers executable_file", and you can see 
-the "size of stack reserve" information in "optional header values".  Run 
+ and "editbin.exe".  Run "dumpbin /headers executable_file", and you can see
+the "size of stack reserve" information in "optional header values".  Run
 "editbin /STACK:size" to change the default stack size.
 </pre>
 </div>
@@ -169,5 +170,5 @@ typedef char __v16qi __attribute__ ((__vector_size__ (16)));
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'guide-to-advanced-programming-in-c.html';var disqus_title = 'guide-to-advanced-programming-in-c.html';var disqus_url = 'http://dirtysalt.github.io/guide-to-advanced-programming-in-c.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to receive a million packets per second</title>
@@ -172,8 +173,8 @@ While a 10% penalty for running on a different NUMA node may not sound too bad, 
 除了使用多队列的方式外，我们还可以使用多IP来避免单个processor来处理中断。
 </p>
 <pre class="example">
-sender$ taskset -c 1,2 ./udpsender 192.168.254.1:4321 192.168.254.2:4321  
-receiver$ watch 'sudo ethtool -S eth2 |grep rx'  
+sender$ taskset -c 1,2 ./udpsender 192.168.254.1:4321 192.168.254.2:4321
+receiver$ watch 'sudo ethtool -S eth2 |grep rx'
      rx-0.rx_packets:     8.0/s
      rx-1.rx_packets:     0.0/s
      rx-2.rx_packets:     0.0/s
@@ -185,7 +186,7 @@ receiver$ watch 'sudo ethtool -S eth2 |grep rx'
      rx-8.rx_packets:     0.0/s
      rx-9.rx_packets:     0.0/s
      rx-10.rx_packets:    0.0/s
-receiver$ taskset -c 1 ./udpreceiver1 0.0.0.0:4321  
+receiver$ taskset -c 1 ./udpreceiver1 0.0.0.0:4321
   0.609M pps  18.599MiB / 156.019Mb
   0.657M pps  20.039MiB / 168.102Mb
   0.649M pps  19.803MiB / 166.120Mb
@@ -198,8 +199,8 @@ receiver$ taskset -c 1 ./udpreceiver1 0.0.0.0:4321
 如果我们继续增加发送IP数量的话，接收pps不再上升，rx_nodesc_drop_cnt也不增加。netstat能够看到接收错误
 </p>
 <pre class="example">
-receiver$ watch 'netstat -s --udp'  
-Udp:  
+receiver$ watch 'netstat -s --udp'
+Udp:
       437.0k/s packets received
         0.0/s packets to unknown port received.
       386.9k/s packet receive errors
@@ -226,7 +227,7 @@ Udp:
 </p>
 
 <pre class="example">
-receiver$ taskset -c 1,2,3,4 ./udpreceiver1 0.0.0.0:4321 4 1  
+receiver$ taskset -c 1,2,3,4 ./udpreceiver1 0.0.0.0:4321 4 1
   1.114M pps  34.007MiB / 285.271Mb
   1.147M pps  34.990MiB / 293.518Mb
   1.126M pps  34.374MiB / 288.354Mb
@@ -250,5 +251,5 @@ To sum up, if you want a perfect performance you need to:
 While we had shown that it is technically possible to receive 1Mpps on a Linux machine, the application was not doing any actual processing of received packets - it didn't even look at the content of the traffic. Don't expect performance like that for any practical application without a lot more work.（注意这个实验里面没有对packet做任何处理）
 </p>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'how-to-receive-a-million-packets-per-second.html';var disqus_title = 'how-to-receive-a-million-packets-per-second.html';var disqus_url = 'http://dirtysalt.github.io/how-to-receive-a-million-packets-per-second.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center</title>
@@ -152,11 +153,11 @@ The key aspect of Mesos that lets frameworks achieve placement goals is the fact
 </p>
 
 <p>
-DRF是资源分配算法, 特性是尽可能地使每个framework所使用的关键资源比例相当. 
+DRF是资源分配算法, 特性是尽可能地使每个framework所使用的关键资源比例相当.
 </p>
 
 <p>
-For example, if a cluster contains 100 CPUs and 100 GB of RAM, and framework F1 needs 4 CPUs and 1 GB RAM per task while F2 needs 1 CPU and 8 GB RAM per task, then DRF gives F1 20 tasks (80 CPUs and 20 GB) and gives F2 10 tasks (10 CPUs and 80 GB). This makes F1 ’s share of CPU equal to F2 ’s share of RAM, while fully utilizing one resource (RAM). 这个例子里面集群资源CPU:RAM = 1:1, 而F1的CPU:RAM = 4:1, 而F2的比例是1:8. 所以f1的cpu是关键资源, 而f2的mem是关键资源. 因为要让cpu(f1)/cpu(f2) == mem(f2)/mem(f1). 
+For example, if a cluster contains 100 CPUs and 100 GB of RAM, and framework F1 needs 4 CPUs and 1 GB RAM per task while F2 needs 1 CPU and 8 GB RAM per task, then DRF gives F1 20 tasks (80 CPUs and 20 GB) and gives F2 10 tasks (10 CPUs and 80 GB). This makes F1 ’s share of CPU equal to F2 ’s share of RAM, while fully utilizing one resource (RAM). 这个例子里面集群资源CPU:RAM = 1:1, 而F1的CPU:RAM = 4:1, 而F2的比例是1:8. 所以f1的cpu是关键资源, 而f2的mem是关键资源. 因为要让cpu(f1)/cpu(f2) == mem(f2)/mem(f1).
 </p>
 
 <p>
@@ -190,7 +191,7 @@ to decide when to trigger revocation, alloca-tion modules must know which framew
 </p>
 
 <p>
-While killing a task has a low impact on many frameworks (e.g., MapReduce or stateless web servers), it is harmful for frameworks with interdependent tasks (e.g., MPI). We allow these frameworks to avoid be-ing killed by letting allocation modules expose a guar-anteed allocation to each framework – a quantity of resources that the framework may hold without losing tasks. Frameworks read their guaranteed allocations through an API call. Allocation modules are responsible for ensuring that the guaranteed allocations they provide can all be met concurrently. 为了尽可能地不kill task, 可以为每个framework分配"保险资源". 
+While killing a task has a low impact on many frameworks (e.g., MapReduce or stateless web servers), it is harmful for frameworks with interdependent tasks (e.g., MPI). We allow these frameworks to avoid be-ing killed by letting allocation modules expose a guar-anteed allocation to each framework – a quantity of resources that the framework may hold without losing tasks. Frameworks read their guaranteed allocations through an API call. Allocation modules are responsible for ensuring that the guaranteed allocations they provide can all be met concurrently. 为了尽可能地不kill task, 可以为每个framework分配"保险资源".
 </p>
 
 <p>
@@ -271,7 +272,7 @@ Do not accept unknown resources: Frameworks are incentivized not to accept resou
 <h3 id="orgheadline12"><span class="section-number-3">5.2</span> Limitations of Distributed Scheduling</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
-Fragmentation: When tasks have heterogeneous re-source demands, a distributed collection of frameworks may not be able to optimize bin packing as well as a cen-tralized scheduler. To accommodate frameworks with large per-task resource requirements, allocation modules can support a minimum offer size on each slave, and ab-stain from offering resources on that slave until this min-imum amount is free.  相对于中央调度器的资源碎片问题. 解决办法可以是为每个slave定义minimum offer size. 
+Fragmentation: When tasks have heterogeneous re-source demands, a distributed collection of frameworks may not be able to optimize bin packing as well as a cen-tralized scheduler. To accommodate frameworks with large per-task resource requirements, allocation modules can support a minimum offer size on each slave, and ab-stain from offering resources on that slave until this min-imum amount is free.  相对于中央调度器的资源碎片问题. 解决办法可以是为每个slave定义minimum offer size.
 </p>
 
 <p>
@@ -302,5 +303,5 @@ Interdependent framework constraints: It’s possible to construct scenarios whe
 <h2 id="orgheadline17"><span class="section-number-2">9</span> Conclusion</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'mesos.html';var disqus_title = 'mesos.html';var disqus_url = 'http://dirtysalt.github.io/mesos.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

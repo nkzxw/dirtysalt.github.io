@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Building Scalable, Highly Concurrent &amp; Fault-Tolerant Systems: Lessons Learned</title>
@@ -79,7 +80,7 @@ Dataflow Concurrency <b>基于数据流的并发</b>
 </ul></li>
 </ul>
 <ul class="org-ul">
-<li>No difference between 
+<li>No difference between
 <ul class="org-ul">
 <li>Concurrent &amp;</li>
 <li>Sequential code</li>
@@ -110,7 +111,7 @@ Dataflow Concurrency <b>基于数据流的并发</b>
 <h2 id="orgheadline3"><span class="section-number-2">3</span> Go Fault-Tolerant</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>Failure management in Java/C/C# etc <b>在独立的线程里面必须进行错误处理，否则外部没有办法发现错误。这样在线程里面整个错误处理贯穿于逻辑本身</b> 
+<li>Failure management in Java/C/C# etc <b>在独立的线程里面必须进行错误处理，否则外部没有办法发现错误。这样在线程里面整个错误处理贯穿于逻辑本身</b>
 <ul class="org-ul">
 <li>You are given a SINGLE thread of control</li>
 <li>If this thread blows up you are screwed</li>
@@ -227,5 +228,5 @@ Werner Vogels’ Misconceptions about Reliable Distributed Computing
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'building-scalable-highly-concurrent-and-fault-tolerant-systems.html';var disqus_title = 'building-scalable-highly-concurrent-and-fault-tolerant-systems.html';var disqus_url = 'http://dirtysalt.github.io/building-scalable-highly-concurrent-and-fault-tolerant-systems.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

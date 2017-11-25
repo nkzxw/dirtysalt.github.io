@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Google File System</title>
@@ -312,7 +313,7 @@ GFS的一致性模型理解可能容易出现分歧，我的理解大致是这�
 </p>
 
 <p>
-首先考虑write.假设write A和write B操作。两个操作均写两个相同块x,y.其中write A发起顺序是(Ay,Ax),而write B发起顺序是(Bx,By). 
+首先考虑write.假设write A和write B操作。两个操作均写两个相同块x,y.其中write A发起顺序是(Ay,Ax),而write B发起顺序是(Bx,By).
 同时发起，
 </p>
 <ul class="org-ul">
@@ -343,7 +344,7 @@ GFS的一致性模型理解可能容易出现分歧，我的理解大致是这�
 <hr  />
 
 <p>
-所以总结GFS一致性模型就是 
+所以总结GFS一致性模型就是
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -392,7 +393,7 @@ GFS的一致性模型理解可能容易出现分歧，我的理解大致是这�
 
 <ul class="org-ul">
 <li>File namespace mutations (e.g., file creation) are atomic. They are handled exclusively by the master: namespace locking guarantees atomicity and correctness (Section 4.1); the master's operation log defines a global total order of these operations</li>
-<li>The state of a file region after a data mutation depends on the type of mutation, whether it succeeds or fails, and whether there are concurrent mutations.下面是对一致性模型的解释:     
+<li>The state of a file region after a data mutation depends on the type of mutation, whether it succeeds or fails, and whether there are concurrent mutations.下面是对一致性模型的解释:
 <ul class="org-ul">
 <li>A file region is consistent if all clients will always see the same data, regardless of which replicas they read from.</li>
 <li>A region is defined after a file data mutation if it is consistent and clients will see what the mutation writes in its entirety.</li>
@@ -980,5 +981,5 @@ In another experiment, we killed two chunkservers each with roughly 16,000 chunk
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'gfs.html';var disqus_title = 'gfs.html';var disqus_url = 'http://dirtysalt.github.io/gfs.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

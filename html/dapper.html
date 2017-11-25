@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dapper, a Large-Scale Distributed Systems Tracing Infrastructure</title>
@@ -139,7 +140,7 @@ Two classes of solutions have been proposed to ag- gregate this information so t
 <ul class="org-ul">
 <li>While black-box schemes are more portable than annotation-based methods, they need more data in order to gain sufficient accuracy due to their reliance on sta- tistical inference.（需要一定的历史数据来建立这种关联）</li>
 </ul></li>
-<li>Annotation-based schemes rely on applications or middleware to explicitly tag every record with a global identifier that links these message records back to the originating re- quest. （而基于标注的办法就需要在record上面标明号GID, 这样通过GID将所有的信息联系起来） 
+<li>Annotation-based schemes rely on applications or middleware to explicitly tag every record with a global identifier that links these message records back to the originating re- quest. （而基于标注的办法就需要在record上面标明号GID, 这样通过GID将所有的信息联系起来）
 <ul class="org-ul">
 <li>The key disadvantage of annotation- based methods is, obviously, the need to instrument pro- grams. （需要应用程序额外提供一些信息，影响了透明性）</li>
 <li>In our environment, since all applications use the same threading model, control flow and RPC system, we found that it was possible to restrict instrumentation to a small set of common libraries, and achieve a monitor- ing system that is effectively transparent to application developers.（但是因为将dapper封装成为library, 所以可以限制这种对透明性的影响）</li>
@@ -151,7 +152,7 @@ Two classes of solutions have been proposed to ag- gregate this information so t
 <h3 id="orgheadline3"><span class="section-number-3">3.1</span> Trace trees and spans</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>In a Dapper trace tree, the tree nodes are basic units of work which we refer to as spans.（每个活动都称为一个span) 
+<li>In a Dapper trace tree, the tree nodes are basic units of work which we refer to as spans.（每个活动都称为一个span)
 <ul class="org-ul">
 <li>The edges indicate a casual relationship between a span and its parent span.</li>
 <li>Independent of its place in a larger trace tree, though, a span is also a simple log of timestamped records which encode the span’s start and end time, any RPC timing data, and zero or more application-specific annotations(span里面记录了起始和终止时间，并且附带了其他一些来自应用程序的注解信息）</li>
@@ -356,7 +357,7 @@ Two classes of solutions have been proposed to ag- gregate this information so t
 <li>Our production clusters presently generate more than 1 terabyte of sampled trace data per day. Dapper users would like trace data to remain available for at least two weeks after it was initially logged from a production pro- cess.(每天产生1TB数据，而用户通常需要观察最近两周的数据）</li>
 <li>The benefits of increased trace data density must then be weighed against the cost of machines and disk storage for the Dapper repositories. Sampling a high fraction of requests also brings the Dapper collectors un- comfortably close to the write throughput limit for the Dapper Bigtable repository.(如果后期采样密度高的话会接近bigtable的极限）</li>
 </ul></li>
-<li>In order to maintain flexibility around both the mate- rial resource requirements and the cumulative Bigtable write throughput, we added support for additional sam- pling in the collection system itself. 
+<li>In order to maintain flexibility around both the mate- rial resource requirements and the cumulative Bigtable write throughput, we added support for additional sam- pling in the collection system itself.
 <ul class="org-ul">
 <li>We leverage the fact that all spans for a given trace – though they may be spread across thousands of distinct host machines – share a common trace id. （根据trace id进行聚合）</li>
 <li>For each span seen in the col- lection system, we hash the associated trace id as a scalar z, where 0 ≤ z ≤ 1. If z is less than our collection sam- pling coefficient, we keep the span and write it to the Bigtable. Otherwise, we discard it.（然后将trace id转换成为标量z，然后根据z判断是否小于某个系数。如果小于某个系数的话，那么就保留否则就丢弃）</li>
@@ -432,5 +433,5 @@ Two classes of solutions have been proposed to ag- gregate this information so t
 <h2 id="orgheadline33"><span class="section-number-2">10</span> Conclusions</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'dapper.html';var disqus_title = 'dapper.html';var disqus_url = 'http://dirtysalt.github.io/dapper.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

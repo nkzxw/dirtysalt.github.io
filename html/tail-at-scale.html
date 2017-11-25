@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Tail at Scale</title>
@@ -113,7 +114,7 @@ Increased variability is also due to several hardware trends:
 </div>
 
 <ul class="org-ul">
-<li>Table 1 lists measurements from a real Google service that is logically similar to this idealized scenario; 
+<li>Table 1 lists measurements from a real Google service that is logically similar to this idealized scenario;
 <ul class="org-ul">
 <li>root servers distribute a request through intermediate servers to a very large number of leaf servers. The table shows the effect of large fan-out on latency distributions.</li>
 <li>The 99th-percentile latency for a single random request to finish, measured at the root, is 10ms. However, the 99th-percentile latency for all requests to finish is 140ms, and the 99th-percentile latency for 95% of the requests finishing is 70ms, meaning that waiting for the slowest 5% of the requests to complete is responsible for half of the total 99%-percentile latency.</li>
@@ -219,7 +220,7 @@ Interactive response-time variability can be reduced by ensuring interactive req
 <ul class="org-ul">
 <li>Google's implementation of this technique in the context of its cluster-level distributed file system is effective at reducing both median and tail latencies.</li>
 <li>Table 2 lists the times for servicing a small read request from a BigTable where the data is not cached in memory but must be read from the underlying file system; each file chunk has three replicas on distinct machines.</li>
-<li>The table includes read latencies observed with and without tied requests for two scenarios: 
+<li>The table includes read latencies observed with and without tied requests for two scenarios:
 <ul class="org-ul">
 <li>The first is a cluster in which the benchmark is running in isolation, in which case latency variability is mostly from self-interference and regular cluster-management activities. In it, sending a tied request that does cross-server cancellation to another file system replica following 1ms reduces median latency by 16% and is increasingly effective along the tail of the latency distribution, achieving nearly 40% reduction at the 99.9th-percentile latency.</li>
 <li>The second scenario is like the first except there is also a large, concurrent sorting job running on the same cluster contending for the same disk resources in the shared file system. Although overall latencies are somewhat higher due to higher utilization, similar reductions in the latency profile are achieved with the tied-request technique discussed earlier. The latency profile with tied requests while running a concurrent large sorting job is nearly identical to the latency profile of a mostly idle cluster without tied requests. Tied requests allow the workloads to be consolidated into a single cluster, resulting in dramatic computing cost reductions.</li>
@@ -320,7 +321,7 @@ The techniques we have discussed so far are most applicable for operations that 
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>Variability at the hardware level is likely to be higher in the future due to more aggressive power optimizations becoming available and fabrication challenges at deep submicron levels resulting in device-level heterogeneity. Device heterogeneity combined with ever-increasing system scale will make tolerating variability through software techniques even more important over time. （设备级别本身出现延迟偏差的几率是越来越高）</li>
-<li>Fortunately, several emerging hardware trends will increase the effectiveness of latency-tolerating techniques. 
+<li>Fortunately, several emerging hardware trends will increase the effectiveness of latency-tolerating techniques.
 <ul class="org-ul">
 <li>higher bisection bandwidth in data-center networks and network-interface optimizations that reduce per-message overheads (such as remote direct-memory access) will reduce the cost of tied requests, making it more likely that cancellation messages are received in time to avoid redundant work.</li>
 <li>Lower per-message overheads naturally allow more fine-grain requests, contributing to better multiplexing and avoiding head-of-line blocking effects.</li>
@@ -333,5 +334,5 @@ The techniques we have discussed so far are most applicable for operations that 
 <h2 id="orgheadline18"><span class="section-number-2">12</span> Conclusion</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'tail-at-scale.html';var disqus_title = 'tail-at-scale.html';var disqus_url = 'http://dirtysalt.github.io/tail-at-scale.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

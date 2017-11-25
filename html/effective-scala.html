@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Effective Scala</title>
@@ -54,7 +55,7 @@ Scala provides many tools that enable succinct expression. Less typing is less r
 </p>
 
 <p>
-Above all, program in Scala. You are not writing Java, nor Haskell, nor Python; a Scala program is unlike one written in any of these. In order to use the language effectively, you must phrase your problems in its terms. There’s no use coercing a Java program into Scala, for it will be inferior in most ways to its original. 
+Above all, program in Scala. You are not writing Java, nor Haskell, nor Python; a Scala program is unlike one written in any of these. In order to use the language effectively, you must phrase your problems in its terms. There’s no use coercing a Java program into Scala, for it will be inferior in most ways to its original.
 </p>
 
 <p>
@@ -125,7 +126,7 @@ Scala有一个非常通用，丰富，强大，可组合的集合库；集合是
 </p>
 
 <p>
-The collections library is large: in addition to an elaborate hierarchy — the root of which being Traversable[T] — there are immutable and mutable variants for most collections. Whatever the complexity, the following diagram contains the important distinctions for both immutable and mutable hierarchies. 
+The collections library is large: in addition to an elaborate hierarchy — the root of which being Traversable[T] — there are immutable and mutable variants for most collections. Whatever the complexity, the following diagram contains the important distinctions for both immutable and mutable hierarchies.
 </p>
 
 <p>
@@ -149,7 +150,7 @@ Iterable[T] 是所有可遍历的集合，它提供了迭代的方法(foreach)�
 </ul>
 
 <p>
-Prefer using immutable collections. They are applicable in most circumstances, and make programs easier to reason about since they are referentially transparent and are thus also threadsafe by default. Use the mutable namespace explicitly. 
+Prefer using immutable collections. They are applicable in most circumstances, and make programs easier to reason about since they are referentially transparent and are thus also threadsafe by default. Use the mutable namespace explicitly.
 </p>
 
 <p>
@@ -163,7 +164,7 @@ val set = mutable.Set()
 </div>
 
 <p>
-Use the default constructor for the collection type. The corollary to the above is: in your own methods and constructors, receive the most generic collection type appropriate. This typically boils down to one of the above: Iterable, Seq, Set, or Map. 
+Use the default constructor for the collection type. The corollary to the above is: in your own methods and constructors, receive the most generic collection type appropriate. This typically boils down to one of the above: Iterable, Seq, Set, or Map.
 </p>
 
 <p>
@@ -282,7 +283,7 @@ require and assert both serve as executable documentation. Both are useful for s
 <h2 id="orgheadline7"><span class="section-number-2">7</span> Functional programming</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-Value oriented programming confers many advantages, especially when used in conjunction with functional programming constructs. This style emphasizes 
+Value oriented programming confers many advantages, especially when used in conjunction with functional programming constructs. This style emphasizes
 </p>
 <ul class="org-ul">
 <li>the transformation of values over stateful mutation,</li>
@@ -371,7 +372,7 @@ The most important standard libraries at Twitter are <a href="http://github.com/
 </p>
 
 <p>
-Twitter’s futures are asynchronous, so blocking operations — basically any operation that can suspend the execution of its thread; network IO and disk IO are examples — must be handled by a system that itself provides futures for the results of said operations. Finagle provides such a system for network IO. 
+Twitter’s futures are asynchronous, so blocking operations — basically any operation that can suspend the execution of its thread; network IO and disk IO are examples — must be handled by a system that itself provides futures for the results of said operations. Finagle provides such a system for network IO.
 </p>
 
 <p>
@@ -383,11 +384,11 @@ Twitter的future是异步的，所以基本上任何操作(阻塞操作)——�
 </p>
 
 <p>
-Util’s Local provides a reference cell that is local to a particular future dispatch tree. Setting the value of a local makes this value available to any computation deferred by a Future in the same thread. <b>They are analogous to thread locals, except their scope is not a Java thread but a tree of “future threads”.</b> 
+Util’s Local provides a reference cell that is local to a particular future dispatch tree. Setting the value of a local makes this value available to any computation deferred by a Future in the same thread. <b>They are analogous to thread locals, except their scope is not a Java thread but a tree of “future threads”.</b>
 </p>
 
 <p>
-As with thread locals, Locals can be very convenient, but should almost always be avoided: make sure the problem cannot be sufficiently solved by passing data around explicitly, even if it is somewhat burdensome. 
+As with thread locals, Locals can be very convenient, but should almost always be avoided: make sure the problem cannot be sufficiently solved by passing data around explicitly, even if it is somewhat burdensome.
 </p>
 
 <p>
@@ -432,5 +433,5 @@ Offer/Broker 建立于Actor之上，以这三种重要的方式表现：1，通�
 <h2 id="orgheadline13"><span class="section-number-2">13</span> Acknowledgements</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'effective-scala.html';var disqus_title = 'effective-scala.html';var disqus_url = 'http://dirtysalt.github.io/effective-scala.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>

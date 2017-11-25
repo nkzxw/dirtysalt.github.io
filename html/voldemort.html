@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2017-11-25 六 16:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Serving Large-scale Batch Computed Data with Project Voldemort</title>
@@ -203,7 +204,7 @@ The lack of off-the-shelf solutions, along with the in-efficiencies of the previ
 <ul class="org-ul">
 <li>Every store is represented by a directory, which in turn contains directories corresponding to “versions” of the data. A symbolic link per store is used to point to the current serving version directory. Because the data in all version directories except the serving one is inactive, we are not affecting page cache usage and latency. （通过目录来保存历史版本，软链接指向当前使用的版本。存储历史并不会影响到page cache以及latency）</li>
 <li>Every version directory (named version-no) has a configurable number as-sociated with it, which should monotonically increase with every new fetch. A commonly used example for the version number is the timestamp of push.（版本号应该是单调递增的，比如push时间戳。</li>
-<li>Swapping in a new data version on a single node is done as follows: 
+<li>Swapping in a new data version on a single node is done as follows:
 <ol class="org-ol">
 <li>copy into a new version directory,</li>
 <li>close the current set of active chunk set files,</li>
@@ -248,7 +249,7 @@ The lack of off-the-shelf solutions, along with the in-efficiencies of the previ
 
 <ul class="org-ul">
 <li>Our smallest unit of rebalancing is a partition. In other words, the addition of a new node translates to giving the ownership of some partitions to that node. The rebalancing process is run by a tool that coordinates the full process.（Again，这种partition方式就是dynamo里面提到的第三种方式，好处就是在rebalance的时候不需要scan key range而只是需要移动对应的partition data file）</li>
-<li>The following describes the rebalancing strategy during the addition of a new node. 
+<li>The following describes the rebalancing strategy during the addition of a new node.
 <ul class="org-ul">
 <li>First, the rebalancing tool is provided with the future cluster topology metadata, and with this data, it generates a list of all primary partitions that need to be moved. The tool moves partitions in small batches so as to checkpoint and not refetch too much data in case of failure.（driver会计算出哪些partition需要移动，但是每次移动一批partition而不是全部。这样可以方便做checkpoint，并且在失败重试情况下面少取数据）</li>
 <li>For every small batch of primary partitions, the sys-tem generates an intermediate cluster topology metadata, which is the current cluster topology plus changes in own-ership of the batch of partitions moved.</li>
@@ -273,5 +274,5 @@ The lack of off-the-shelf solutions, along with the in-efficiencies of the previ
 <h2 id="orgheadline17"><span class="section-number-2">8</span> Conclusion and Future Work</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *//* required: replace example with your forum shortname  */var disqus_shortname = 'dirlt';var disqus_identifier = 'voldemort.html';var disqus_title = 'voldemort.html';var disqus_url = 'http://dirtysalt.github.io/voldemort.html';/* * * DON'T EDIT BELOW THIS LINE * * */(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><!-- DISQUS END --></body>
+</body>
 </html>
