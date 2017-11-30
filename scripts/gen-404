@@ -149,7 +149,7 @@ SCRIPT_TEMPLATE = """
     var htmlList = [%(html_files_string)s]
     for (let index = 0; index < htmlList.length; index++) {
       if (htmlList[index] === window.location.pathname) {
-        window.location.replace('/html' + window.location.pathname + window.location.search)
+        window.location.replace('/html' + window.location.pathname + window.location.search + window.location.hash)
       }
     }
   </script>
