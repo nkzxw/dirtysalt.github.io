@@ -12,7 +12,7 @@ fi
 git pull origin master
 
 # generate html files.
-$emacs --batch --script publish.el
+$emacs --batch --script ./scripts/publish.el
 if [ $? != 0 ]
 then
     echo "publish failed!"
@@ -20,9 +20,7 @@ then
 fi
 
 # post processing html files.
-./pp-html
-cp .nojekyll CNAME sitemap.txt sitemap.xml ../
-
-git add ../
+./scripts/pp-html
+git add .
 git commit -a -m 'x'
 git push origin master
