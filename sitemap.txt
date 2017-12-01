@@ -329,6 +329,7 @@ https://dirtysalt.github.io/html/blogs/reversed-bollinger-band.html
 https://dirtysalt.github.io/html/blogs/made-in-america.html
 https://dirtysalt.github.io/html/blogs/moneyball.html
 https://dirtysalt.github.io/html/blogs/rework.html
+https://dirtysalt.github.io/html/blogs/sonos-streaming-basics.html
 https://dirtysalt.github.io/html/blogs/to-death.html
 https://dirtysalt.github.io/html/blogs/think-and-grow-rich.html
 https://dirtysalt.github.io/html/blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.html
