@@ -234,6 +234,7 @@
 - 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
 
 ** Papers
+- 201712 [[file:./blogs/nobody-ever-got-fired-for-buying-a-cluster.org][Nobody ever got fired for buying a cluster]] 计算集群的必要性思考
 - [[file:chubby.org][The Chubby lock service for loosely-coupled distributed systems]] @ 2006
 - [[file:gfs.org][The Google File System]] @ 2003
 - [[file:mapreduce.org][MapReduce: Simplified Data Processing on Large Clusters]] @ 2004
