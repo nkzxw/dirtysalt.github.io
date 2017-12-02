@@ -529,6 +529,7 @@ https://dirtysalt.github.io/html/blogs/squid-https-forwarding-proxy.html
 https://dirtysalt.github.io/html/blogs/mobile-foreign-business.html
 https://dirtysalt.github.io/html/blogs/on-the-future-of-neural-networks.html
 https://dirtysalt.github.io/html/blogs/how-to-win-friends-and-influence-people.html
+https://dirtysalt.github.io/html/blogs/nobody-ever-got-fired-for-buying-a-cluster.html
 https://dirtysalt.github.io/html/blogs/talk-with-luoyan.html
 https://dirtysalt.github.io/html/blogs/vinod-khosla-talk.html
 https://dirtysalt.github.io/html/blogs/code-quality-the-open-source-perspective.html
