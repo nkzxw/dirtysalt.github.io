@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201712 [[file:./blogs/ways-of-paying-mortgage.org][等额本金和等额本息的计算]]
 - 201712 [[file:./blogs/nobody-ever-got-fired-for-buying-a-cluster.org][Nobody ever got fired for buying a cluster]] 计算集群的必要性思考 @ 2013
 - 201712 [[file:./blogs/sonos-streaming-basics.org][流媒体基础知识(sonos)]]
 - 201711 [[file:./blogs/ten-rules-for-negotiating-a-job-offer.org][Ten Rules for Negotiating a Job Offer]]
