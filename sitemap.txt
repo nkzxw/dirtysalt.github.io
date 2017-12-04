@@ -596,6 +596,7 @@ https://dirtysalt.github.io/html/blogs/dont-go-gentle-into-that-good-night.html
 https://dirtysalt.github.io/html/blogs/search-at-slack.html
 https://dirtysalt.github.io/html/blogs/dont-call-yourself-a-programmer.html
 https://dirtysalt.github.io/html/blogs/code-for-run.html
+https://dirtysalt.github.io/html/blogs/ways-of-paying-mortgage.html
 https://dirtysalt.github.io/html/blogs/proxy-on-http-streaming.html
 https://dirtysalt.github.io/html/blogs/notes-on-side-project.html
 https://dirtysalt.github.io/html/blogs/the-effective-engineer-by-edmond-lau.html
