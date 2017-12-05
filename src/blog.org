@@ -38,7 +38,7 @@
 - 201705 [[file:./blogs/what-a-good-ceo-looks-like.org][厉害的CEO是什么样的？]] 摘自得到的《精英日课》
 - 201705 [[file:./blogs/wujun-thoughts-on-career.org][吴军对职业发展的一些看法]] 摘自得到的《硅谷来信》
 - 201705 [[file:./blogs/use-wifi-aps-to-identify-location.org][利用WiFi热点来定位]]
-- 201704 [[file:./blogs/u-of-t-professor-geoffrey-hiton.org][U of T, Geoffrey Hinton]] 一篇关于Goffrey Hiton的文章
+- 201704 [[file:./blogs/u-of-t-professor-geoffrey-hiton.org][U of T, Geoffrey Hinton]] 一篇关于Geoffrey Hiton的文章
 - 201704 [[file:./blogs/scaling-your-api-with-rate-limiters.org][Scaling your API with rate limiters]]
 - 201704 [[file:./blogs/a-few-days-at-village.org][在老家的几天]]
 - 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
