@@ -303,7 +303,6 @@
 
 * Software Design
 ** Articles
-
 - [[file:t11-on-backpressure.org][T11谈文艺模型(On Backpressure)]]
 - [[file:t11-on-architecture.org][T11谈架构]]
 - [[file:./suffering-oriented-programming.org][Suffering-oriented programming]]
@@ -347,6 +346,7 @@
 - [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
 
 ** Blogs
+- 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
 - 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
 - 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
 - 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
@@ -410,7 +410,6 @@
 - 201509 [[file:./blogs/tips-for-work-life-balance.org][Tips for work-life balance]]
 
 ** Books
-
 - [[file:design-reading.org][Design Reading]] 软件设计方面的一些文章
 - [[file:license.org][Open Source License]] 一些常见的开源协议
 - [[file:design-pattern.org][Design Pattern]] 将书<Design Patterns: Elements of Reusable Object-Oriented Software>中要表达的思想按照自己的意思整理出来(后面可能会添加一些自己的"设计模式"吧:)。不过我倒是觉得没有必要在使用中刻意地去拼凑使用某种模式，相反应该让模式渗入到自己的思想中去，指导自己写出更加优美更加可维护的代码，而不用在意"我使用了哪种模式". 然后现在我开始逐渐认同一个观点，那就是"设计模式是语言表达能力存在缺陷的一种表现".
