@@ -689,4 +689,5 @@ https://dirtysalt.github.io/html/blogs/a-little-architecture.html
 https://dirtysalt.github.io/html/blogs/portrayal.html
 https://dirtysalt.github.io/html/blogs/helsinki-travel.html
 https://dirtysalt.github.io/html/blogs/not-easy-as-you-think.html
+https://dirtysalt.github.io/html/blogs/probability-paradox-by-peter-norvig.html
 https://dirtysalt.github.io/html/blogs/house-clean-0.html
