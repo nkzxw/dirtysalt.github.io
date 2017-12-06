@@ -1,12 +1,16 @@
 # Layout
 
-- codes 我的代码
-   - 放在这里主要是方便文档引用
-   - 注意非生产代码
+- src 原始org文件
 - html 生成的html文档
-- src 生成html的原始org文件
-   - *.org
+- blogs -> html/blogs
+- images -> src/images
+- css -> src/css
+- scripts
    - publish/publish.el 发布脚本
-   - pp-html 生成html之后处理脚本
-   - sitemap.txt/xml 站点导图
-   -  CNAME 域名管理
+   - pp-html 处理org生成的html文件，添加评论以及GA等代码
+   - gen-404 生成404.html
+- codes
+   - 放在这里主要是方便文档引用
+   - 注意都是非生产代码
+- sitemap.xml/txt 站点导图
+- 404.html/index.html
