@@ -436,6 +436,7 @@ https://dirtysalt.github.io/html/blogs/the-feynman-technique-the-best-way-to-lea
 https://dirtysalt.github.io/html/blogs/america-alone-talk.html
 https://dirtysalt.github.io/html/blogs/retrospect-2010.html
 https://dirtysalt.github.io/html/blogs/on-computational-investing.html
+https://dirtysalt.github.io/html/blogs/simple-made-easy.html
 https://dirtysalt.github.io/html/blogs/nginx-forwarding-proxy.html
 https://dirtysalt.github.io/html/blogs/got6-is-coming.html
 https://dirtysalt.github.io/html/blogs/programmers-are-distraction-for-your-startup.html
