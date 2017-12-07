@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian
 - 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
 - 201712 [[file:blogs/probability-paradox-by-peter-norvig.org][Probability Paradox by Norvig]] Norvig写的一篇关于概率和悖论文章
 - 201712 [[file:./blogs/ways-of-paying-mortgage.org][等额本金和等额本息的计算]]
