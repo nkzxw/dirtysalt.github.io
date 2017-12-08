@@ -54,9 +54,9 @@ def handle_series(r):
     home = ''
     feed = ''
     for x in xs:
-        if x.text == 'Series home':
+        if x.find('Series') != -1:
             home = x.attrs.get('href', '')
-        if x.text == 'Feed':
+        if x.find('Feed') != -1:
             feed = x.attrs.get('href', '')
     data = {
         'tags': tags,
@@ -74,3 +74,5 @@ def update_series_items():
     for r in get_series_items():
         pool.spawn(handle_series, r)
     pool.join()
+
+update_series_items()
