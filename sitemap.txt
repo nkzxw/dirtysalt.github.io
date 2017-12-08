@@ -556,6 +556,7 @@ https://dirtysalt.github.io/html/blogs/a-note-of-nobel-winner.html
 https://dirtysalt.github.io/html/blogs/visit-tj-data-center.html
 https://dirtysalt.github.io/html/blogs/the-prestige.html
 https://dirtysalt.github.io/html/blogs/industrial-disk-price.html
+https://dirtysalt.github.io/html/blogs/love-your-bugs.html
 https://dirtysalt.github.io/html/blogs/remove-the-stress-pick-a-deadline.html
 https://dirtysalt.github.io/html/blogs/how-to-get-a-job-like-mine-aaron-swartz.html
 https://dirtysalt.github.io/html/blogs/a-impl-of-my-dict-book.html
