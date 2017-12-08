@@ -1,7 +1,7 @@
 #+title: blog
 
 ** 2017
-- 201712 [[file:./blogs/
+- 201712 [[file:blogs/love-your-bugs.org][Love Your Bugs]]
 - 201712 [[file:./blogs/code-in-space.org][Code in Space]] 太空系统环境下的编程
 - 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian
 - 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
