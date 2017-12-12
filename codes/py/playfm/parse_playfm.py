@@ -59,7 +59,6 @@ def handle_series(r):
             home = x.attrs.get('href', '')
         if text.find('Feed') != -1:
             feed = x.attrs.get('href', '')
-    print(feed)
     data = {
         'tags': tags,
         'home': home,
