@@ -54,10 +54,12 @@ def handle_series(r):
     home = ''
     feed = ''
     for x in xs:
-        if x.find('Series') != -1:
+        text = x.text
+        if text.find('Series') != -1:
             home = x.attrs.get('href', '')
-        if x.find('Feed') != -1:
+        if text.find('Feed') != -1:
             feed = x.attrs.get('href', '')
+    print(feed)
     data = {
         'tags': tags,
         'home': home,
