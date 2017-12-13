@@ -687,6 +687,7 @@ https://dirtysalt.github.io/html/blogs/on-career-and-management.html
 https://dirtysalt.github.io/html/blogs/use-emacs-org-mode-to-build-site.html
 https://dirtysalt.github.io/html/blogs/hackers-and-painters.html
 https://dirtysalt.github.io/html/blogs/experience-of-running-coffee-shop-for-40-years.html
+https://dirtysalt.github.io/html/blogs/make-a-workable-dns.html
 https://dirtysalt.github.io/html/blogs/the-great-game.html
 https://dirtysalt.github.io/html/blogs/apply-visa-for-finland.html
 https://dirtysalt.github.io/html/blogs/pf-thoughts-on-cn.html
