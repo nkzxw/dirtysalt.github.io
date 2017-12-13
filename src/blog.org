@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201712 [[file:blogs/make-a-workable-dns.org][搭建一个可用的DNS]] (dnsmasq + ss)
 - 201712 [[file:./blogs/the-language-of-the-system.org][The Language of the System]] by Rich Hickey
 - 201712 [[file:blogs/love-your-bugs.org][Love Your Bugs]]
 - 201712 [[file:./blogs/code-in-space.org][Code in Space]] 太空系统环境下的编程
