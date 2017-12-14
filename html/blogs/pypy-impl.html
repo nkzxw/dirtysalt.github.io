@@ -22,6 +22,7 @@
 <li><a href="#orgheadline2">2. 优化</a></li>
 <li><a href="#orgheadline3">3. JIT</a></li>
 <li><a href="#orgheadline4">4. 后续</a></li>
+<li><a href="#orgheadline5">5. 使用</a></li>
 </ul>
 </div>
 </div>
@@ -103,6 +104,19 @@ PyPyC.run(RPython.run(user-code))<br  />
 <div class="outline-text-2" id="text-4">
 <p>
 如果细看的话，PyPyC这个部分的代码是固定的，之和RPython的解释以及JIT编译有关，这个组件是可以复用的。所以理论上我们只要用RPython编写一个语言的解释器，就可以得到这个语言的高效的解释器附带JIT编译器的实现。PHP, Ruby都有这类实现。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> 使用</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+使用起来还是蛮方便的，整个Python环境放在一个目录下面就行。因为使用virutalenv来管理packages, 所以只要使用pypy安装好了pip, virtualenv之后，进入了virtual env下面，就还是按照CPython使用方式来搞就行。
+</p>
+
+<p>
+安装requirements.txt的时候除了一些问题，是在pycrypto上面，网上说法是不支持fastmath, 所以需要使用 `with_gmp=no pip install pycrypt` 命令来安装。一切没有问题之后，发现PyPy可能不支持pth这种路径文件方式，只要先作罢，看看后面有没有什么其他工程可以用上PyPy的。
 </p>
 </div>
 </div>
