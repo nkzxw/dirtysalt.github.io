@@ -124,6 +124,7 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 
 *** simhash core algorithm
 - http://blog.csdn.net/lgnlgn/article/details/6008498
+- http://www.wwwconference.org/www2007/papers/paper215.pdf
 
 simhash算法针对文档分析得到文档特征的一个向量表示，然后使用这个向量之间的差距就可以作为文档之间的差别大小，可以用来做文档近似判断。
 

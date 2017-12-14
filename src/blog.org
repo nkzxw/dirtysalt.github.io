@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2017
+- 201712 [[file:./blogs/try-simhash.org][试试Simhash]]
 - 201712 [[file:blogs/make-a-workable-dns.org][搭建一个可用的DNS]] (dnsmasq + ss)
 - 201712 [[file:./blogs/the-language-of-the-system.org][The Language of the System]] by Rich Hickey
 - 201712 [[file:blogs/love-your-bugs.org][Love Your Bugs]]
@@ -180,7 +181,7 @@
 - 201509 [[file:./blogs/ostep-con-cv.org][OSTEP / Concurrency-CV]]
 - 201509 [[file:./blogs/ostep-con-lock.org][OSTEP / Concurrency-Lock]]
 - 201509 [[file:./blogs/hive-gettting-started.org][hive getting started]]
-- 201509 [[file:./blogs/zookeeper-gettting-started.org][zookeeper gettting started]]
+- 201509 [[file:./blogs/zookeeper-gettting-started.org][zookeeper getting started]]
 - 201509 [[file:./blogs/ostep-virt-vax-vms.org][OSTEP / Virt-VAX/VMS]]
 - 201509 [[file:./blogs/ostep-virt-vm1.org][OSTEP / Virt-页式系统]]
 - 201509 [[file:./blogs/ostep-virt-vm0.org][OSTEP / Virt-段式系统]]
