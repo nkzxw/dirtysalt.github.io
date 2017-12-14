@@ -332,6 +332,7 @@ https://dirtysalt.github.io/html/blogs/rework.html
 https://dirtysalt.github.io/html/blogs/sonos-streaming-basics.html
 https://dirtysalt.github.io/html/blogs/to-death.html
 https://dirtysalt.github.io/html/blogs/think-and-grow-rich.html
+https://dirtysalt.github.io/html/blogs/try-simhash.html
 https://dirtysalt.github.io/html/blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.html
 https://dirtysalt.github.io/html/blogs/boots-of-spanish-leather.html
 https://dirtysalt.github.io/html/blogs/convict-conditioning.html
