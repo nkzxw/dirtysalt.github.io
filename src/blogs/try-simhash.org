@@ -1,6 +1,6 @@
 #+title: 试试Simhash
 
-[[file:../general-algorithm.org][很早]] 就了解这个算法，一直没有怎么使用过。最近想到需要做些去重工作，就找个实现来跑跑。
+[[file:~/repo/dirtysalt.github.io/src/general-algorithm.org][很早]] 就了解这个算法，一直没有怎么使用过。最近想到需要做些去重工作，就找个实现来跑跑。 [[http://www.wwwconference.org/www2007/papers/paper215.pdf][Google]] 用这个算法来做网页去重工作。
 
 使用的是 https://leons.im/posts/a-python-implementation-of-simhash-algorithm/ 这个python实现，两个类：Simhash是用来计算hash value的，SimhashIndex则是用来计算临近点的。
 
