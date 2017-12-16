@@ -284,6 +284,7 @@
 - [[file:./images/cjy-baidu-blog-archive.html][百度空间存档]] - [[file:./blogs/to-death.org][写给离去的亲人]] - [[file:./blogs/cola-and-water.org][可乐和矿泉水]]
 - [[file:./blogs/house.org][house]] - [[file:blogs/car.org][car]] - [[file:./blogs/pregnancy.org][baby]] - [[file:./blogs/ascii.org][ascii]] - [[file:./blogs/idiom.org][idiom]] - [[file:./blogs/cross-ocean.org][cross-ocean]]
 - [[file:./blogs/retrospect-2009.org][回顾2009]] - [[file:./blogs/retrospect-2010.org][回顾2010]] - [[file:./blogs/retrospect-2011.org][回顾2011]] - [[file:./blogs/retrospect-2012.org][回顾2012]] - [[file:./blogs/retrospect-2013.org][回顾2013]] - [[file:./blogs/retrospect-2014.org][回顾2014]]
+- [[file:./blogs/beyond-lyrics-collection.org][Beyond歌词收藏]]
 - [[file:blogs/bob-dylan-lyrics-collection.org][鲍勃迪伦(Bob Dylan)歌词收藏]]
 - [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
 - [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond

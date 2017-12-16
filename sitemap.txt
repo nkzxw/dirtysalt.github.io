@@ -405,6 +405,7 @@ https://dirtysalt.github.io/html/blogs/how-to-define-software-stability.html
 https://dirtysalt.github.io/html/blogs/first-10km-running.html
 https://dirtysalt.github.io/html/blogs/getting-things-done-when-you-are-only-a-grunt.html
 https://dirtysalt.github.io/html/blogs/how-to-pick-your-battles-on-a-software-team.html
+https://dirtysalt.github.io/html/blogs/beyond-lyrics-collection.html
 https://dirtysalt.github.io/html/blogs/build-hls-server.html
 https://dirtysalt.github.io/html/blogs/ten-rules-for-negotiating-a-job-offer.html
 https://dirtysalt.github.io/html/blogs/what-you-can-do-and-what-you-should-do.html
