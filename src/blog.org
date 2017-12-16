@@ -1,6 +1,8 @@
 #+title: blog
 
 ** 2017
+- 201712 [[file:./blogs/cities-and-ambition.org][市井雄心 Cities and Ambition]] by Paul Graham
+- 201712 [[file:./blogs/math-read.org][How to Read Mathematics]]
 - 201712 [[file:./blogs/try-simhash.org][试试Simhash]]
 - 201712 [[file:blogs/make-a-workable-dns.org][搭建一个可用的DNS]] (dnsmasq + ss)
 - 201712 [[file:./blogs/the-language-of-the-system.org][The Language of the System]] by Rich Hickey
