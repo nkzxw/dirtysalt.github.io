@@ -585,6 +585,7 @@ https://dirtysalt.github.io/html/blogs/baidu-bit-shanghai-route.html
 https://dirtysalt.github.io/html/blogs/struggle-with-ubuntu.html
 https://dirtysalt.github.io/html/blogs/the-cathedral-and-the-bazaar.html
 https://dirtysalt.github.io/html/blogs/writing-clean-code.html
+https://dirtysalt.github.io/html/blogs/cities-and-ambition.html
 https://dirtysalt.github.io/html/blogs/god-father.html
 https://dirtysalt.github.io/html/blogs/becoming-cto.html
 https://dirtysalt.github.io/html/blogs/big-data-is-supposed-to-be.html
@@ -646,6 +647,7 @@ https://dirtysalt.github.io/html/blogs/getting-real.html
 https://dirtysalt.github.io/html/blogs/the-black-box-society.html
 https://dirtysalt.github.io/html/blogs/the-men-who-built-america.html
 https://dirtysalt.github.io/html/blogs/republic-and-democracy.html
+https://dirtysalt.github.io/html/blogs/math-read.html
 https://dirtysalt.github.io/html/blogs/the-mythical-man-month.html
 https://dirtysalt.github.io/html/blogs/1984.html
 https://dirtysalt.github.io/html/blogs/the-little-prince.html
