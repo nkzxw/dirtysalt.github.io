@@ -127,10 +127,10 @@
 - [[file:./neuralnets.org][Neural Networks for Machine Learning on Coursera]]
 - [[file:./mmds.org][Mining Massive Datasets on Coursera]]
 - [[http://www.autonlab.org/tutorials/list.html][Statistical Data Mining Tutorials]] by [[http://www.cs.cmu.edu/~awm/][Andrew W. Moore]]
-- Coursera: Machine Learning by Andrew Ng. [[file:ml-class.org][笔记和一些习题代码]] (仅供学习) 以及 [[file:images/coursera-ml-2014.pdf][证书]]
-- [[https://github.com/dirtysalt/tomb/tree/master/kaggle][My kaggle's code]]
-- [[https://github.com/dirtysalt/tomb/tree/master/py/mlcode][一些机器学习算法实现(仅供学习)]]
+- [[file:ml-class.org][Coursera: Machine Learning]] by Andrew Ng [[file:images/coursera-ml-2014.pdf][证书]]
+- [[https://github.com/dirtysalt/tomb/tree/master/kaggle][My kaggle's code]] and [[file:../codes/py/mlcode/][一些机器学习算法实现]]
 - [[file:machine-learning-for-trading-class.org][Machine Learning for Trading]]
+- [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng
 
 * Distributed System
 ** Notes
