@@ -215,7 +215,8 @@ tcpdump
 关于制作deb包，下面两个链接比较有帮助
 - Debian Binary Package Building HOWTO : http://tldp.org/HOWTO/html_single/Debian-Binary-Package-Building-HOWTO/ （制作最简单的deb包）
 - Debian Policy Manual - Package maintainer scripts and installation procedure : https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html （deb hook脚本运行机制）
-- 我也做了个简单的sample https://github.com/dirtysalt/tomb/tree/master/misc/deb-package
+
+我也做了个简单的 [[file:../codes/misc/deb-package][sample]] 供参考
 
 *** The System Running In Low Graphics Mode
 http://simpledeveloper.com/system-running-in-low-graphics-mode/

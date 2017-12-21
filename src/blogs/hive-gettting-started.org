@@ -141,5 +141,4 @@ Time taken: 5.787 seconds
 - load data.
 - do select （看到这里运行了mr任务）
 
-上面例子是使用文本数据. 这里有个 [[https://github.com/dirtysalt/tomb/tree/master/scala/hive-avro][例子]] 如何使用avro数据.
-
+上面例子是使用文本数据. 这里有个 [[file:~/repo/dirtysalt.github.io/codes/scala/hive-avro][例子]] 如何使用avro数据.

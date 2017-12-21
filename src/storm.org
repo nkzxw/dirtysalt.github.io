@@ -5,8 +5,8 @@
 
 #note: storm文档还不是特别好，使用storm时候可以参考下面三个链接
   - [[http://ifeve.com/wp-content/uploads/2014/03/Getting-Started-With-Storm-Jonathan-Leibiusky-Gabriel-E_1276.pdf][Getting Started With Storm]]
-  - 通常storm都是和kafka对接的，[[https://github.com/miguno/kafka-storm-starter][这个项目]] 可以作为参考 
-  - 另外storm还支持multilang, 我这里也做了一个 [[https://github.com/dirtysalt/tomb/tree/master/scala/kafka-streaming][demo]]
+  - 通常storm都是和kafka对接的，[[https://github.com/miguno/kafka-storm-starter][这个项目]] 可以作为参考
+  - 另外storm还支持multilang, 我这里也做了一个 [[file:~/repo/dirtysalt.github.io/codes/scala/kafka-streaming][demo]]
 
 ** overview
 - http://storm.apache.org/documentation/Tutorial.html

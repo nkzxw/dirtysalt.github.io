@@ -2,7 +2,7 @@
 
 Udacity: https://classroom.udacity.com/courses/ud501
 
-这么课程在Coursera上面也有。整个课程分为两个部分，但是在Cousera上面只放了 [[https://www.coursera.org/learn/computational-investing][前半部分]] 。我整理了当时的 [[https://github.com/dirtysalt/tomb/tree/master/py/qstk-hw][作业]] 答案
+这么课程在Coursera上面也有。整个课程分为两个部分，但是在Cousera上面只放了 [[https://www.coursera.org/learn/computational-investing][前半部分]] 。我整理了当时的 [[file:~/repo/dirtysalt.github.io/codes/py/qstk-hw/][作业]] 答案
 
 这个是他们的 [[http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit][教学主页]] ，使用QSTK(Quant Software Toolkit)来做教学，在 [[https://github.com/QuantSoftware/QuantSoftwareToolkit][github]] 上面也有源代码。
 

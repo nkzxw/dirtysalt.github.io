@@ -79,7 +79,7 @@ Software Engineer, Baidu, 2010.6 - 2011.8
 
 - INF(infrastructure) COM(component) Team.
 
-- "[[https://github.com/dirtysalt/tomb/tree/master/cc/itachi][itachi]]", an open-source high performance asynchronous network programming framework in C++.
+- "[[file:~/repo/dirtysalt.github.io/codes/cc/itachi/][itachi]]", an open-source high performance asynchronous network programming framework in C++.
 
 - "comake2", an in-house build system in Python, takes advantages of some open-source build systems such as SCons, CMake, Google's GYP, Boost's Jam etc. It have been wildly used in Baidu for continuous integration.
 

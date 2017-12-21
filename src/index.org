@@ -105,7 +105,7 @@
 - [[file:./probabilistic-data-structures-for-web-analytics-and-data-mining.org][Probabilistic Data Structures for Web Analytics and Data Mining]] 用于Web分析和数据挖掘的概率化数据结构
 - [[file:computational-advertising.org][Computational Advertising]] 计算广告
 - [[file:./bitcoin.org][Bitcoin: A Peer-to-Peer Electronic Cash System]] 比特币论文
-- [[https://github.com/dirtysalt/tomb/tree/master/leetcode][My leetcode's code]]
+- [[file:~/repo/dirtysalt.github.io/codes/leetcode][My leetcode's code]]
 - [[file:think-stats.org][统计思维-程序员数学之概率统计]]
 - [[file:snappy.org][snappy]] Google的开源压缩解压库。在满足一定压缩比率的条件下着重提升压缩和解压速度。
 - [[file:lzf.org][lzf]] [[file:redis.org][redis]] 使用的开源压缩解压库。轻量(两个文件)可以很容易地独立纳入项目。
@@ -128,7 +128,7 @@
 - [[file:./mmds.org][Mining Massive Datasets on Coursera]]
 - [[http://www.autonlab.org/tutorials/list.html][Statistical Data Mining Tutorials]] by [[http://www.cs.cmu.edu/~awm/][Andrew W. Moore]]
 - [[file:ml-class.org][Coursera: Machine Learning]] by Andrew Ng [[file:images/coursera-ml-2014.pdf][证书]]
-- [[https://github.com/dirtysalt/tomb/tree/master/kaggle][My kaggle's code]] and [[file:../codes/py/mlcode/][一些机器学习算法实现]]
+- [[file:~/repo/dirtysalt.github.io/codes/kaggle/][My kaggle's code]] and [[file:../codes/py/mlcode/][一些机器学习算法实现]]
 - [[file:machine-learning-for-trading-class.org][Machine Learning for Trading]]
 - [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng
 
