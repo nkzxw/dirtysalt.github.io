@@ -113,6 +113,7 @@ https://dirtysalt.github.io/html/oozie.html
 https://dirtysalt.github.io/html/realtime-big-data-analytics-emerging-architecture.html
 https://dirtysalt.github.io/html/gunicorn.html
 https://dirtysalt.github.io/html/finagle.html
+https://dirtysalt.github.io/html/neural-networks-and-deep-learning.html
 https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html
 https://dirtysalt.github.io/html/why-google-stores-billions-of-lines-of-code-in-a-single-repository.html
 https://dirtysalt.github.io/html/dremel.html
