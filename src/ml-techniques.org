@@ -111,7 +111,7 @@ file:./images/ntuml-linear-kernel-models.png
 ** [[file:images/211_handout.pdf][梯度增强决策树(Gradient Boosted Decision Tree)]]
   - AdaBoost算法中我们看到需要为每个实例赋予权值，但是DTree算法中很难处理具有权重的实例。虽然我们可以修改DTree内部算法来处理权重，但是有个相对更简单的办法来处理权重：使用权重来对原来数据集合重新采样或者是重新分布，使得这个权重可以直接反应在数据集合上。这样最后DTree算法只需要处理没有权重的数据集合即可。
   - 如果我们使用的是full-grown也就是完全生成树，那么Ein=0. 按照AdaBoost算法，这个k=inf我们没有办法处理。所以DTree内部必须剪枝比如限制树高度，一方面为了具有更好的泛化能力，另一方面为了使得Ein!=0. 另外也可以让DTree只是在某些点上进行训练。如果树高度=1的话，那么AdaBoost-DTree = AdaBoost-Stump.
-  - Optimization View of AdaBoost: 
+  - Optimization View of AdaBoost:
     - 分析AdaBoost中的权重计算公式，推导之后发现某项和SVM-margin可以关联起来，最终告诉我们需要尽可能地使所有的点权重之和小。搜索最最小值我们可以使用GD方法来完成。
     - 有趣的是我们最终发现，最小值依赖于演算法。只要演算法每一轮给出的h是最优的话，那么最终Eada也是最小的。从另外一个角度来看每轮寻找最优的h本身就是在做梯度下降。
     - GD里面有下降参数a, 通常是固定值. 如果我们每一轮得到h的话，实际上我们可以做一些事情来加快学习速度（称为steepest decent).
@@ -160,4 +160,4 @@ file:./images/ntuml-linear-kernel-models.png
   - 矩阵分解可以使用SGD来做求解，并且SGD似乎是来做大规模矩阵分解最有效的方式。另外作者提到NTU在KDDCup上关于SGD的一个改进：在那次比赛的应用中，越接近现在的实例权重越大。因此他们修改矩阵分解算法，只是使用离现在最近的部分实例来做梯度下降。
   - file:./images/ntuml-sgd-for-matrix-factorization.png
 
-** [[file:images/216_handout.pdf][完结篇(Finalge)]]
+** [[file:images/216_handout.pdf][完结篇(Finale)]]
