@@ -208,6 +208,7 @@ https://dirtysalt.github.io/html/engineering-management.html
 https://dirtysalt.github.io/html/unp.html
 https://dirtysalt.github.io/html/oprofile.html
 https://dirtysalt.github.io/html/links.html
+https://dirtysalt.github.io/html/structing-machine-learning-projects.html
 https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons-learned.html
 https://dirtysalt.github.io/html/why-not-raid0-in-hdfs.html
 https://dirtysalt.github.io/html/thinking-clearly-about-performance.html
@@ -275,6 +276,7 @@ https://dirtysalt.github.io/html/mapred.html
 https://dirtysalt.github.io/html/tenzing.html
 https://dirtysalt.github.io/html/lessons-learned-while-building-infrastructure-software-at-google.html
 https://dirtysalt.github.io/html/systemtap.html
+https://dirtysalt.github.io/html/improving-deep-neural-networks.html
 https://dirtysalt.github.io/html/scheme.html
 https://dirtysalt.github.io/html/the-anatomy-of-the-perfect-technical-interview-from-a-former-amazon-vp.html
 https://dirtysalt.github.io/html/ml-the-hard-way.html

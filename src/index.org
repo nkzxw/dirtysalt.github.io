@@ -130,7 +130,9 @@
 - [[file:ml-class.org][Coursera: Machine Learning]] by Andrew Ng [[file:images/coursera-ml-2014.pdf][证书]]
 - [[file:~/repo/dirtysalt.github.io/codes/kaggle/][My kaggle's code]] and [[file:../codes/py/mlcode/][一些机器学习算法实现]]
 - [[file:machine-learning-for-trading-class.org][Machine Learning for Trading]]
-- [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng
+- [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng [[file:./images/coursera-nn-dl.pdf][证书]]
+- [[file:improving-deep-neural-networks.org][Coursera: Improving Deep Neural Networks]] by Andrew Ng [[file:./images/coursera-dnn.pdf][证书]]
+- [[file:./structing-machine-learning-projects.org][Coursera: Structuring Machine Learning Projects]] by Andrew Ng [[file:./images/coursera-ml-strategy.pdf][证书]]
 
 * Distributed System
 ** Notes
