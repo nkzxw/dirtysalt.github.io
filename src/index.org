@@ -133,6 +133,7 @@
 - [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng [[file:./images/coursera-nn-dl.pdf][证书]]
 - [[file:improving-deep-neural-networks.org][Coursera: Improving Deep Neural Networks]] by Andrew Ng [[file:./images/coursera-dnn.pdf][证书]]
 - [[file:./structing-machine-learning-projects.org][Coursera: Structuring Machine Learning Projects]] by Andrew Ng [[file:./images/coursera-ml-strategy.pdf][证书]]
+- [[file:./convolutional-neural-networks.org][Convolutional Neural Networks]] by Andrew Ng [[file:./images/coursera-cnn.pdf][证书]]
 
 * Distributed System
 ** Notes

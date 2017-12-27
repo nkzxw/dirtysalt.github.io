@@ -1,0 +1,5 @@
+#+title: Convolutional Neural Networks
+
+继续突击这门 [[https://www.coursera.org/learn/convolutional-neural-networks][课程]]. CNN是DNN的一种特殊实现，专门解决输入是图像这种带有空间性质的半结构化的数据。这门课程介绍了CNN的基本原理，以及几种基本实现，然后介绍了CNN的几种应用：物体检测，脸部识别，以及 [[file:./blogs/tensorflow-neural-art.org][风格迁移]]。
+
+说实话课程难度还是比较高的，到后面几个weeks的作业光是写graph都已经焦头烂额了，更别说如果作业要求从头实现BP的话会怎么样。作业开始逐渐依赖于keras和tensorflow这种high level framework了，更多地强调如何构建起这些网络以及如何运行。

@@ -45,6 +45,7 @@ https://dirtysalt.github.io/html/generalists-and-specialists-thoughts-on-hiring.
 https://dirtysalt.github.io/html/sicp.html
 https://dirtysalt.github.io/html/spanner.html
 https://dirtysalt.github.io/html/distributed-algorithms-in-nosql-databases.html
+https://dirtysalt.github.io/html/convolutional-neural-networks.html
 https://dirtysalt.github.io/html/you-can-not-sacrifice-partition-tolerance.html
 https://dirtysalt.github.io/html/opentsdb.html
 https://dirtysalt.github.io/html/haystack.html
