@@ -22,6 +22,10 @@
 <li><a href="#orgheadline2">2. 几种经典的CNN实现</a></li>
 <li><a href="#orgheadline3">3. Residual Network</a></li>
 <li><a href="#orgheadline4">4. Inception Network</a></li>
+<li><a href="#orgheadline5">5. Practical Advices</a></li>
+<li><a href="#orgheadline6">6. 物体检测</a></li>
+<li><a href="#orgheadline7">7. 脸部识别</a></li>
+<li><a href="#orgheadline8">8. 风格迁移</a></li>
 </ul>
 </div>
 </div>
@@ -219,6 +223,54 @@ Inception network是google搞出来的，出发点很简单，就是我自己也
 
 <p>
 至于为什么叫做inception network, 完全是因为盗梦空间(Inception)这部电影。电影里面小李子有句台词 <a href="http://knowyourmeme.com/memes/we-need-to-go-deeper">"we need to go deeper"</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Practical Advices</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Data Augmentation在图像上可以适度使用，包括下面几种方法：
+</p>
+<ol class="org-ol">
+<li>mirroring 镜像操作</li>
+<li>cropping 裁剪操作</li>
+<li>color shifting RGB偏移操作</li>
+</ol>
+<p>
+这些方法对CNN学习有帮助，一些方法比如rotate等对CNN则并不起什么作用。
+</p>
+
+<p>
+比赛时一定要使用ensemble, 并且在predict阶段可以对test input进行multi crop, 裁剪出多份图像分别进行预测，然后将结果综合。不过这些技巧在实践中不太使用，对性能是会有影响的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> 物体检测</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+TODO:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> 脸部识别</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+TODO:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> 风格迁移</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+TODO:
 </p>
 </div>
 </div>
