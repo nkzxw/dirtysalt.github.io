@@ -97,3 +97,21 @@ file:./images/cnn-inception-block.png
 file:./images/cnn-inception-network.png
 
 至于为什么叫做inception network, 完全是因为盗梦空间(Inception)这部电影。电影里面小李子有句台词 [[http://knowyourmeme.com/memes/we-need-to-go-deeper]["we need to go deeper"]]
+
+** Practical Advices
+Data Augmentation在图像上可以适度使用，包括下面几种方法：
+1. mirroring 镜像操作
+2. cropping 裁剪操作
+3. color shifting RGB偏移操作
+这些方法对CNN学习有帮助，一些方法比如rotate等对CNN则并不起什么作用。
+
+比赛时一定要使用ensemble, 并且在predict阶段可以对test input进行multi crop, 裁剪出多份图像分别进行预测，然后将结果综合。不过这些技巧在实践中不太使用，对性能是会有影响的。
+
+** 物体检测
+TODO:
+
+** 脸部识别
+TODO:
+
+** 风格迁移
+TODO:
