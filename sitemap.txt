@@ -114,6 +114,7 @@ https://dirtysalt.github.io/html/oozie.html
 https://dirtysalt.github.io/html/realtime-big-data-analytics-emerging-architecture.html
 https://dirtysalt.github.io/html/gunicorn.html
 https://dirtysalt.github.io/html/finagle.html
+https://dirtysalt.github.io/html/mining-massive-datasets.html
 https://dirtysalt.github.io/html/neural-networks-and-deep-learning.html
 https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html
 https://dirtysalt.github.io/html/why-google-stores-billions-of-lines-of-code-in-a-single-repository.html
@@ -171,7 +172,6 @@ https://dirtysalt.github.io/html/rocksdb.html
 https://dirtysalt.github.io/html/linux-kernel-development.html
 https://dirtysalt.github.io/html/linux-tools.html
 https://dirtysalt.github.io/html/vagrant.html
-https://dirtysalt.github.io/html/mmds.html
 https://dirtysalt.github.io/html/a-tour-inside-cloudflare-latest-generation-servers.html
 https://dirtysalt.github.io/html/omega.html
 https://dirtysalt.github.io/html/graphite.html
