@@ -213,6 +213,7 @@ https://dirtysalt.github.io/html/structing-machine-learning-projects.html
 https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons-learned.html
 https://dirtysalt.github.io/html/why-not-raid0-in-hdfs.html
 https://dirtysalt.github.io/html/thinking-clearly-about-performance.html
+https://dirtysalt.github.io/html/lua.html
 https://dirtysalt.github.io/html/memory.html
 https://dirtysalt.github.io/html/raid.html
 https://dirtysalt.github.io/html/jvm.html
@@ -220,6 +221,7 @@ https://dirtysalt.github.io/html/go.html
 https://dirtysalt.github.io/html/microservices-not-a-free-lunch.html
 https://dirtysalt.github.io/html/a-comparison-of-approaches-to-large-scale-data-analysis.html
 https://dirtysalt.github.io/html/cracking-the-coding-interview.html
+https://dirtysalt.github.io/html/lua-prog-lang-book.html
 https://dirtysalt.github.io/html/computer-system-reading.html
 https://dirtysalt.github.io/html/the-times-of-intelligence.html
 https://dirtysalt.github.io/html/the-tyranny-of-the-clock.html

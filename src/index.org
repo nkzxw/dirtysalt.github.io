@@ -279,31 +279,28 @@
 - [[file:./spark-phd-paper.org][An Architecture for Fast and General Data Processing on Large Clusters]]
 
 * Programming Language
-- [[file:thoughts-on-prog-lang.org][Thoughts on Prog Lang]] [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])
-- [[file:build-system.org][build-system]] 在实现Baidu in-house的构建工具 [[http://wenku.baidu.com/view/19f3d535284ac850ad0242cc.html][Comake2]] 之前做的构建系统调研总结.
-- [[file:cpp.org][C/C++]] C++ (pronounced "cee plus plus") is a statically typed, free-form, multi-paradigm, compiled, general-purpose programming language. It is regarded as an intermediate-level language, as it comprises a combination of both high-level and low-level language features. [[http://en.wikipedia.org/wiki/C%2B%2B][Wikipedia]]
-  - [[file:swig.org][swig]] C/C++多语言扩展接口生成器. 使用起来非常方便, 但是本身不太完善, 比较适合用于原型系统.
+- [[file:thoughts-on-prog-lang.org][thoughts on programming language]] [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])
+- [[file:build-system.org][build-system]] 在实现Baidu in-house的构建工具 [[http://wenku.baidu.com/view/19f3d535284ac850ad0242cc.html][comake2]] 之前做的构建系统调研总结.
+- [[file:swig.org][swig]] C/C++多语言扩展接口生成器. 使用起来非常方便, 但是本身不太完善, 比较适合用于原型系统.
+- [[file:cpp.org][C/C++]]
   - [[file:./guide-to-advanced-programming-in-c.org][Guide to Advanced Programming in C]]
   - [[file:./the-cpp-prog-lang.org][The C++ Programming Language]]
-- [[file:scheme.org][Scheme]] Scheme is a functional programming language and one of the two main dialects of the programming language Lisp. [[http://en.wikipedia.org/wiki/Scheme_%28programming_language%29][Wikipedia]]
+- [[file:scheme.org][Scheme]] [[http://www.schemers.org/][official site]]
   - [[file:./the-little-schemer.org][The Little Schemer]]
   - [[file:./the-seasoned-schemer.org][The Seasoned Schemer]]
   - [[file:sicp.org][SICP = Structure and Interpretation of Computer Programs]]
-- [[file:java.org][Java]] Java is a programming language originally developed by James Gosling at Sun Microsystems (which has since merged into Oracle Corporation) and released in 1995 as a core component of Sun Microsystems' Java platform. The language derives much of its syntax from C and C++ but has a simpler object model and fewer low-level facilities. [[http://en.wikipedia.org/wiki/Java_%28programming_language%29][Wikipedia]]
-  - [[file:maven.org][maven]] 针对JVM语言项目的"基于工程对象模型(POM, Project Object Model)"构建系统
+- [[file:java.org][Java]]
+  - [[file:maven.org][maven]]
   - [[file:./jni.org][JNI]] Java Native Interface
   - [[file:./jvm.org][JVM]] Java Virtual Machine
-- [[file:clojure.org][Clojure]] Clojure (pronounced like "closure") is a recent dialect of the Lisp programming language created by Rich Hickey. It is a functional general-purpose language. Its focus on programming with immutable values and explicit progression-of-time constructs are intended to facilitate the development of more robust programs, particularly multithreaded ones. [[http://en.wikipedia.org/wiki/Clojure][Wikipedia]]
-- [[file:python.org][Python]] Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. Its syntax is said to be clear and expressive. Python has a large and comprehensive standard library. [[http://en.wikipedia.org/wiki/Python_(programming_language)][Wikipedia]]
+- [[file:clojure.org][Clojure]]
+- [[file:python.org][Python]]
   - [[file:./efficiently-exploiting-multiple-cores-with-python.org][Efficiently Exploiting Multiple Cores with Python]] 如何有效使用多核
   - [[file:./images/the-django-book/index.html][The Django Book]] 不错的Django入门材料
-- [[file:go.org][Go]] Go is a compiled, garbage-collected, concurrent programming language developed by Google Inc. [[http://en.wikipedia.org/wiki/Go_(programming_language)][Wikipedia]]
-  - [[file:./go-lang-book.org][Go语言编程]] by 许式伟，吕桂华
-- [[file:./scala.org][Scala]] Scala is an object-functional programming and scripting language for general software applications, statically typed, designed to concisely express solutions in an elegant, type-safe and lightweight (low ceremonial) manner. [[http://en.wikipedia.org/wiki/Scala_(programming_language)][Wikipedia]]
-  - [[file:./effective-scala.org][Effective Scala]]
-  - [[file:./images/coursera-fpps-2013.pdf][Coursera: FP in Scala]]
-- [[file:./erlang.org][Erlang]] Erlang is a general-purpose, concurrent, functional programming language, as well as a garbage-collected runtime system. [[https://en.wikipedia.org/wiki/Scala_(programming_language)][Wikipedia]]
-  - [[file:./erlang-prog-lang-book.org][Erlang程序设计]]
+- [[file:go.org][Go]] ([[file:./go-lang-book.org][Go语言编程]] by 许式伟，吕桂华)
+- [[file:./scala.org][Scala]] ([[file:./effective-scala.org][Effective Scala]]) ([[file:images/coursera-fpps-2013.pdf][Coursera: FP in Scala]])
+- [[file:./erlang.org][Erlang]] ([[file:./erlang-prog-lang-book.org][Erlang程序设计]])
+- [[file:./lua.org][Lua]] ([[file:lua-prog-lang-book.org][Lua程序设计]] by Robert 译 周惟迪)
 
 * Software Design
 ** Articles

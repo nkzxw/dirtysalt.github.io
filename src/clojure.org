@@ -10,4 +10,3 @@
 - technomancy/leiningen · GitHub https://github.com/technomancy/leiningen clojure自动构建工具
   - http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
   - http://github.com/downloads/clojure/clojure-contrib/clojure-contrib-1.2.0.zip
-  - #note: 使用lein可以搞定这些东西

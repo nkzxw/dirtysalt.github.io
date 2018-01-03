@@ -18,26 +18,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. options</a></li>
-<li><a href="#orgheadline2">2. GC</a></li>
+<li><a href="#orgheadline1">1. GC</a></li>
 </ul>
 </div>
 </div>
 <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> options</h2>
+<h2 id="orgheadline1"><span class="section-number-2">1</span> GC</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-用于服务器的JVM参数. 供参考 `-server -Xms8192m -Xmx8192m -XX:NewSize=1024m -XX:+UseConcMarkSweepGC -XX:+UseParNewGC`
+JVM GC方面文章
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> GC</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-一些关于JVM GC方面文章
-</p>
 <ul class="org-ul">
 <li>Sun jdk 1.6 gc <a href="http://www.slideshare.net/BlueDavy/sun-jdk-16-gc">http://www.slideshare.net/BlueDavy/sun-jdk-16-gc</a></li>
 <li>Java SE 6 HotSpot[tm] Virtual Machine Garbage Collection Tuning : <a href="http://www.oracle.com/technetwork/java/javase/gc-tuning-6-140523.html">http://www.oracle.com/technetwork/java/javase/gc-tuning-6-140523.html</a></li>
@@ -59,6 +50,10 @@
 
 <p>
 为了监控GC情况添加如下参数 `-verbose:gc -XX:-PrintGCDetails -XX:+PrintGCTimeStamps`
+</p>
+
+<p>
+下面参数仅供参考 `-server -Xms8192m -Xmx8192m -XX:NewSize=1024m -XX:+UseConcMarkSweepGC -XX:+UseParNewGC`
 </p>
 </div>
 </div>
