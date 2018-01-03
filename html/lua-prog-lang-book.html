@@ -18,22 +18,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. 第一部分(C1~C10)</a>
+<li><a href="#orgheadline6">1. 第一部分(C1~C10)</a>
 <ul>
 <li><a href="#orgheadline1">1.1. 类型，表达式，语句</a></li>
 <li><a href="#orgheadline2">1.2. 函数/深入函数/迭代器与泛型for</a></li>
 <li><a href="#orgheadline3">1.3. 编译执行与错误</a></li>
+<li><a href="#orgheadline4">1.4. 协同程序(coroutine)</a></li>
+<li><a href="#orgheadline5">1.5. 完整的示例</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">2. 第二部分(C11~C17)</a></li>
-<li><a href="#orgheadline6">3. 第三部分(C18~C23)</a></li>
-<li><a href="#orgheadline7">4. 第四部分(C24~C31)</a></li>
+<li><a href="#orgheadline7">2. 第二部分(C11~C17)</a></li>
+<li><a href="#orgheadline8">3. 第三部分(C18~C23)</a></li>
+<li><a href="#orgheadline9">4. 第四部分(C24~C31)</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> 第一部分(C1~C10)</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">1</span> 第一部分(C1~C10)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 这个部分介绍基本语法以及简单地介绍Lua环境。
@@ -212,10 +214,80 @@ get_named_args({height = 100, width = 200, depth = 50})
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 协同程序(coroutine)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+coroutine的几个相关操作
+</p>
+<ul class="org-ul">
+<li>`co = coroutine.create(func)`</li>
+<li>`coroutine.resume(co, &#x2026;)` 让co继续执行
+<ul class="org-ul">
+<li>初始阶段传入参数，被传入 `func`</li>
+<li>返回值(ok, `yield` 传入的参数)</li>
+</ul></li>
+<li>`coroutine.yield` 传入的参数被 `resume` 返回，只能在co里面调用</li>
+<li>`coroutine.status` 查询co的状态
+<ul class="org-ul">
+<li>suspended 挂起</li>
+<li>running 运行</li>
+<li>dead 死亡</li>
+<li>normal 正常</li>
+</ul></li>
+</ul>
+
+<p>
+书里面producer/consumer的例子改写成为coroutine方式如下
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lua"><span class="org-comment-delimiter">-- </span><span class="org-comment">function producer()</span>
+<span class="org-comment-delimiter">--    </span><span class="org-comment">while true do</span>
+<span class="org-comment-delimiter">--       </span><span class="org-comment">local x = io.read()</span>
+<span class="org-comment-delimiter">--       </span><span class="org-comment">send(x)</span>
+<span class="org-comment-delimiter">--    </span><span class="org-comment">end</span>
+<span class="org-comment-delimiter">-- </span><span class="org-comment">end</span>
+
+producer = <span class="org-builtin">coroutine</span>.<span class="org-builtin">create</span>(
+   <span class="org-keyword">function</span>()
+      <span class="org-keyword">while</span> <span class="org-constant">true</span> <span class="org-keyword">do</span>
+         <span class="org-keyword">local</span> <span class="org-variable-name">x</span> = <span class="org-builtin">io</span>.<span class="org-builtin">read</span>()
+         send(x)
+      <span class="org-keyword">end</span>
+   <span class="org-keyword">end</span>
+)
+
+<span class="org-keyword">function</span> <span class="org-function-name">consumer</span>()
+   <span class="org-keyword">while</span> <span class="org-constant">true</span> <span class="org-keyword">do</span>
+      <span class="org-keyword">local</span> <span class="org-variable-name">x</span> = receive()
+      <span class="org-builtin">io</span>.<span class="org-builtin">write</span>(x, <span class="org-string">"\n"</span>)
+   <span class="org-keyword">end</span>
+<span class="org-keyword">end</span>
+
+<span class="org-keyword">function</span> <span class="org-function-name">receive</span>()
+   <span class="org-keyword">local</span> <span class="org-variable-name">status</span>, <span class="org-variable-name">value</span> = <span class="org-builtin">coroutine</span>.<span class="org-builtin">resume</span>(producer)
+   <span class="org-keyword">return</span> value
+<span class="org-keyword">end</span>
+
+<span class="org-keyword">function</span> <span class="org-function-name">send</span>(x)
+   <span class="org-builtin">coroutine</span>.<span class="org-builtin">yield</span>(x)
+<span class="org-keyword">end</span>
+
+consumer()
+</pre>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> 第二部分(C11~C17)</h2>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> 完整的示例</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">2</span> 第二部分(C11~C17)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 深入介绍Lua环境
@@ -227,8 +299,8 @@ TODO:
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> 第三部分(C18~C23)</h2>
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">3</span> 第三部分(C18~C23)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Lua各种库的使用方法
@@ -240,8 +312,8 @@ TODO:
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">4</span> 第四部分(C24~C31)</h2>
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">4</span> 第四部分(C24~C31)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 如何将Lua和C混合起来使用
