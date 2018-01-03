@@ -21,14 +21,14 @@
 <li><a href="#orgheadline1">1. Lecture1 (神经网络背景)</a></li>
 <li><a href="#orgheadline2">2. Lecture2 (神经网络分类)</a></li>
 <li><a href="#orgheadline3">3. Lecture3 (使用BP训练神经网络)</a></li>
-<li><a href="#orgheadline4">4. Lecture4 (神经网络输出函数)</a></li>
+<li><a href="#orgheadline4">4. Lecture4 (Learning feature vectors for words)</a></li>
 <li><a href="#orgheadline5">5. Lecture5 (CNN卷积神经网络)</a></li>
-<li><a href="#orgheadline6">6. Lecture6 (mini-batch梯度下降)</a></li>
+<li><a href="#orgheadline6">6. Lecture6 (Optimization: How to make the learning go faster)</a></li>
 <li><a href="#orgheadline7">7. Lecture7 (RNN递归神经网络)</a></li>
 <li><a href="#orgheadline8">8. Lecture8 (Hessian-Free &amp; Echo State Networks)</a></li>
-<li><a href="#orgheadline9">9. Lecture9 (训练NN中避免overfitting-0)</a></li>
-<li><a href="#orgheadline10">10. Lecture10 (训练NN中避免overfitting-1)</a></li>
-<li><a href="#orgheadline11">11. Lecture16</a></li>
+<li><a href="#orgheadline9">9. Lecture9 (Ways to make neural networks generalize better)</a></li>
+<li><a href="#orgheadline10">10. Lecture10 (Combining multiple neural networks to improve generalization)</a></li>
+<li><a href="#orgheadline11">11. Lecture16 (Recent applications of deep neural nets)</a></li>
 </ul>
 </div>
 </div>
@@ -91,13 +91,13 @@
 <div id="outline-container-orgheadline2" class="outline-2">
 <h2 id="orgheadline2"><span class="section-number-2">2</span> Lecture2 (神经网络分类)</h2>
 <div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>types of neural network arch # 神经网络架构类型
+<p>
+types of neural network arch # 神经网络架构类型
+</p>
 <ul class="org-ul">
 <li>feed-forward neural networks # 前向神经网络</li>
 <li>recurrent neural networks(RNN) # 循环神经网络。适合对序列进行建模（隐藏层可以长时间记忆信息）</li>
 <li>symmetrically connected networks # 对称连接网络(双向对称神经网络)。如果没有隐藏层的话则称为Hopfield nets.</li>
-</ul></li>
 </ul>
 </div>
 </div>
@@ -159,7 +159,7 @@ BP可以告诉我们dE/dw(error deriviate). 为了得到一个完整的训练神
 </div>
 
 <div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> <a href="./images/nn-class-lec4.pdf">Lecture4</a> (神经网络输出函数)</h2>
+<h2 id="orgheadline4"><span class="section-number-2">4</span> <a href="./images/nn-class-lec4.pdf">Lecture4</a> (Learning feature vectors for words)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 如果最后一层神经元函数是y = e(z) = sigmod(z)，且代价函数是C=(y-t)^2, 那么dC/dz = 2(y-t) * y * (1-y). 如果我们以此来做梯度下降的话会发现：如果t=1,y=0.000001的话，那么dy/dz是非常小的。这样会导致学习速度非常慢，因此我们需要更好的代价函数。我们试图通过将输出转换成为概率，然后使用交叉熵来作为代价函数C = &sum;{ti * -log(yi)}(t = 0,1). 为了将输出转换成为概率，我们可以使用softmax function作为神经元函数: yi = e^zi / &sum;(e^zj). 这个神经元函数输出不仅仅考虑单个神经突触触发强度，还考虑这层其他神经突触触发强度。使用softmax/cross-entropy之后，dC/dzi = yi - ti. 如果t=1, y = 0.000001的话，那么梯度变化依然会很大。
@@ -209,7 +209,7 @@ BP可以告诉我们dE/dw(error deriviate). 为了得到一个完整的训练神
 </div>
 
 <div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> <a href="./images/nn-class-lec6.pdf">Lecture6</a> (mini-batch梯度下降)</h2>
+<h2 id="orgheadline6"><span class="section-number-2">6</span> <a href="./images/nn-class-lec6.pdf">Lecture6</a> (Optimization: How to make the learning go faster)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 使用mini-batch的时候，我们需要确保每个batch里面的数据分布应该是尽可能典型的。如果数据集合比较大并且冗余度非常高的话，那么使用mini-batch相比full-batch是更加合适的。
@@ -293,7 +293,7 @@ RNN实现上可以认为是将其展开成为多层前馈神经网络. 假设我
 <h2 id="orgheadline8"><span class="section-number-2">8</span> Lecture8 (Hessian-Free &amp; Echo State Networks)</h2>
 </div>
 <div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> Lecture9 (训练NN中避免overfitting-0)</h2>
+<h2 id="orgheadline9"><span class="section-number-2">9</span> Lecture9 (Ways to make neural networks generalize better)</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 避免overfitting大致上有下面4中方法，这节只讨论Approach2. 后面一节讨论3,4
@@ -327,7 +327,7 @@ RNN实现上可以认为是将其展开成为多层前馈神经网络. 假设我
 </div>
 
 <div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> Lecture10 (训练NN中避免overfitting-1)</h2>
+<h2 id="orgheadline10"><span class="section-number-2">10</span> Lecture10 (Combining multiple neural networks to improve generalization)</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 关于mixture of experts这个小节我没有完全理解，大致意思是如果我们需要构造几个模型的话，我们应该：1. 尽可能地让这几个模型可以合作工作（cooperation, 放在一起得到比较好的效果） 2. 但是同时让模型看上去差异比较大(specialization)。
@@ -356,11 +356,12 @@ full-bayesian learning不仅要求给出极大后验概率的模型，还要给�
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> Lecture16</h2>
+<h2 id="orgheadline11"><span class="section-number-2">11</span> Lecture16 (Recent applications of deep neural nets)</h2>
 <div class="outline-text-2" id="text-11">
 <p>
-the fog of progress. why we can not predict long-term future
+the fog of progress &amp; why we can not predict long-term future
 </p>
 
 
