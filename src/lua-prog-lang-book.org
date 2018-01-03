@@ -4,7 +4,104 @@
 
 这个部分介绍基本语法以及简单地介绍Lua环境。
 
-TODO:
+*** 类型，表达式，语句
+Lua有8种基础类型，通过函数 `type` 来了解具体类型
+1. nil(无效值)
+2. boolean(true/false)
+3. number(整数或者是双精度浮点)
+4. string
+5. userdata(自定义类型)
+6. function
+7. thread(线程)
+8. table
+
+如果要写入长字符串的话，可以使用下面这种格式.
+#+BEGIN_SRC Lua
+s = [[this is a very long string.
+could be multiple lines]]
+#+END_SRC
+获得字符串长度(table的大小)，可以使用 `#var` 得到。
+
+table既可以认为是一个dict, 也可以认为是array. 非常灵活的数据结构。
+- `a['x'] = 10` 或者是 `a.x = 10`
+- lua数组通常以1作为索引的起始值
+- lua将nil作为界定数组结尾的标识（这点在lua环境中很常见）
+#+BEGIN_SRC Lua
+a = {[1] = 10, [2] = 20, [10] = 10}
+for i, v in ipairs(a) do
+   print(i, v)
+end
+print(#a)
+#+END_SRC
+
+table constructor(table构造式）很有趣，同时兼容key/value和array的构造
+- `days = {'Sun', 'Mon', 'Tue'}` 数组构造，下标从1开始
+- `point = {x = 10, y = 20}` 字典构造
+- 上面两者也可以混合在一起
+- 同时支持表达式做key `days = {["*"] = mul}` 或者是 `days = {[ 0 ] = 20}`
+- 虽然上面的写法支持下标为0，但是最好不要这么使用。
+
+多变量赋值时，如果没有匹配上的话，那么剩余的变量自动匹配到 nil. 多余的自动忽略。
+或者是如果直接声明 `local a` 的话，那么 `a` 的默认值也是 nil. 整个lua环境对 nil 有非常特殊的处理。
+
+块(block)(通常是do-end部分）是规定了local(局部)变量的作用范围。常见控制结构有
+- if then(else/elseif) end
+- while do ... end
+- repeat ... until
+- for var=exp1, exp2, exp3 do ... end(数字型for, numeric for)
+  - 如果exp2很大的话可以用 `math.huge` 来表示无线循环
+  - `var` 作用域仅限于这个block，不要对 `var` 做任何赋值
+- for var1, var2 in func do ... end(泛型for, generic for)
+
+*** 函数/深入函数/迭代器与泛型for
+lua的函数定义和scheme很像，默认地都是匿名函数，至于 `function a()` 不过是 `a = function()` 这种语法糖形式。
+
+函数调用中比较有意思的是，如果只有一个参数并且该参数是字符串或者是table构造式的话，可以省略 `()`. 这样的话写出来就非常漂亮比如
+#+BEGIN_SRC Lua
+print 'hello, world'
+a, b = table.unpack{10, 20}
+print(a, b)
+#+END_SRC
+这里 `unpack` 是将一个数组拆解开来。
+
+变长参数在C语言里面需要花费很大的力气才能解开，但是lua里面使用却很容易。
+#+BEGIN_SRC lua
+function test_vargs(a, b, ...)
+   print('a = ' .. a .. " , b = " .. b)
+   for i = 1, select('#', ...) do
+      print('varg #' .. i .. " = " .. select(i, ...))
+   end
+end
+test_vargs(10,20, table.unpack{30, 40 , 50})
+#+END_SRC
+
+Lua本身并不支持具名实参 `named arguments`. 但是有个workaround, 就是传入table/字典
+#+BEGIN_SRC Lua
+function get_named_args(args)
+   keys = {"height", "width", "depth"}
+   for i, k in ipairs(keys) do
+      local arg = args[k]
+      print(k .. ' = ' .. arg)
+   end
+end
+get_named_args({height = 100, width = 200, depth = 50})
+#+END_SRC
+虽然结果是想要的，但是好像不是那么地优雅。
+
+`深入函数` 这节里面展示了闭包的使用
+
+泛型for `for v1, v2, ...  in <explist> do ... end ` 的执行如下：
+
+file:./images/lua-generic-for-execution.png
+
+所以实际上迭代可以通过 `_var`(控制变量) 控制，可以通过 `_s`(状态). 使用 `_var`得到的迭代器是无状态的迭代器，而使用 `_s`得到的迭代器是有状态的。尽可能使用无状态的迭代器。
+
+*** 编译执行与错误
+`loadstring`可以载入外部代码，`loadfile`可以载入代码文件。两者返回的都是一个function对象。只有执行这个function对象代码才会变真正执行，在执行的时候也是可以传入参数的。
+
+`package.loadlib`可以载入C代码（动态加载）。这个函数不是标准ANSI C的实现，但是因为这个函数太重要的，所以lua在每个平台上都有特定实现。
+
+`errro("error message")` 汇报错误；`assert` 做断言；`pcall`可以在保护模式(protected mode下面)调用函数，分别返回值和错误；`debug.traceback`可以打印出错堆栈。
 
 ** 第二部分(C11~C17)
 
