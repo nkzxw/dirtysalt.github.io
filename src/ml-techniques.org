@@ -1,7 +1,8 @@
 #+title: 机器学习技法 on Coursera
 https://class.coursera.org/ntumltwo-001
 
-UPDATE@2018-01: 这么课程难度有点高，里面有太多数学的推导我没有办法理解。
+- UPDATE@2018-01: 这么课程难度有点高，里面有太多数学的推导我没有办法理解。
+- 在林老师的 [[https://www.csie.ntu.edu.tw/~htlin/mooc/][主页]] 上这两门课程的所有材料和视频
 
 ** [[file:images/201_handout.pdf][线性SVM（Linear Support Vector Machine）]]
 - 将w0单独剥离出来，wx + w0. 那么w称为coefficient（系数），w0称为bias/intercept（截距)

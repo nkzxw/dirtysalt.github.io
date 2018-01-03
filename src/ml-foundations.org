@@ -1,10 +1,10 @@
 #+title: 机器学习基石 on Coursera
 https://class.coursera.org/ntumlone-002
 
-UPDATE@2018-01 在Coursera上面好像拆分成为了两门课程，《机器学习技法》这么课程下架了。
-
-- https://www.coursera.org/learn/ntumlone-mathematicalfoundations/home/welcome
-- https://www.coursera.org/learn/ntumlone-algorithmicfoundations/home/welcome
+- UPDATE@2018-01 在Coursera上面好像拆分成为了两门课程，《机器学习技法》这么课程下架了。
+  - https://www.coursera.org/learn/ntumlone-mathematicalfoundations/home/welcome
+  - https://www.coursera.org/learn/ntumlone-algorithmicfoundations/home/welcome
+- 在林老师的 [[https://www.csie.ntu.edu.tw/~htlin/mooc/][主页]] 上这两门课程的所有材料和视频
 
 -----
 L1 机器学习介绍
