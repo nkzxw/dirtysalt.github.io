@@ -1,5 +1,8 @@
 #+title: blog
 
+** 2018
+- 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
+
 ** 2017
 - 201712 [[file:./blogs/geoffrey-hinton-interview-in-coursera.org][Geoffrey Hinton Interview in Coursera]]
 - 201712 [[file:./blogs/cities-and-ambition.org][市井雄心 Cities and Ambition]] by Paul Graham
