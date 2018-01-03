@@ -1,7 +1,7 @@
 #+title: Mining Massive Datasets on Coursera
 https://class.coursera.org/mmds-002
 
-#note: 感觉课程安排有点问题：每周课程似乎没有什么特别强的重点；一周可能会讲好几个topics然而之间关系不大。
+感觉课程安排有点问题：每周课程似乎没有什么特别强的重点，一周可能会讲好几个topics然而之间关系不大，几个讲师之间的风格差别也很大。
 
 ** Page Rank
 PR的数学(矩阵)形式是Mx = x. 其中M表示链接权值系数矩阵，x则是我们希望求解页面权重矩阵。如果Ax = kx. 那么称x为A的eigenvector(特征向量), 而k则为eigenvalue(特征值).  如果A比较小的话那么可以使用高斯消元法求解，如果比较大的话则比较适合使用迭代方式(Power Iteration)求解：首先分配每个页面相同权重，然后不断迭代直到页面权重改变非常小。
