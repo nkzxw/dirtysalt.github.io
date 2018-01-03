@@ -103,6 +103,58 @@ file:./images/lua-generic-for-execution.png
 
 `errro("error message")` 汇报错误；`assert` 做断言；`pcall`可以在保护模式(protected mode下面)调用函数，分别返回值和错误；`debug.traceback`可以打印出错堆栈。
 
+*** 协同程序(coroutine)
+coroutine的几个相关操作
+- `co = coroutine.create(func)`
+- `coroutine.resume(co, ...)` 让co继续执行
+  - 初始阶段传入参数，被传入 `func`
+  - 返回值(ok, `yield` 传入的参数)
+- `coroutine.yield` 传入的参数被 `resume` 返回，只能在co里面调用
+- `coroutine.status` 查询co的状态
+  - suspended 挂起
+  - running 运行
+  - dead 死亡
+  - normal 正常
+
+书里面producer/consumer的例子改写成为coroutine方式如下
+#+BEGIN_SRC lua
+-- function producer()
+--    while true do
+--       local x = io.read()
+--       send(x)
+--    end
+-- end
+
+producer = coroutine.create(
+   function()
+      while true do
+         local x = io.read()
+         send(x)
+      end
+   end
+)
+
+function consumer()
+   while true do
+      local x = receive()
+      io.write(x, "\n")
+   end
+end
+
+function receive()
+   local status, value = coroutine.resume(producer)
+   return value
+end
+
+function send(x)
+   coroutine.yield(x)
+end
+
+consumer()
+#+END_SRC
+
+*** 完整的示例
+
 ** 第二部分(C11~C17)
 
 深入介绍Lua环境
