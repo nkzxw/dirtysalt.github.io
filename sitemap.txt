@@ -185,6 +185,7 @@ https://dirtysalt.github.io/html/busting-4-modern-hardware-myths-are-memory-hdds
 https://dirtysalt.github.io/html/general-algorithm.html
 https://dirtysalt.github.io/html/optimizing-software-in-cpp.html
 https://dirtysalt.github.io/html/financial-markets-class.html
+https://dirtysalt.github.io/html/future-of-code.html
 https://dirtysalt.github.io/html/cardinal-sin-of-software-engineering.html
 https://dirtysalt.github.io/html/t11-on-backpressure.html
 https://dirtysalt.github.io/html/percolator.html
