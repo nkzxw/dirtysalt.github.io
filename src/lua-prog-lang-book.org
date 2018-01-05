@@ -23,7 +23,7 @@ could be multiple lines]]
 获得字符串长度(table的大小)，可以使用 `#var` 得到。
 
 table既可以认为是一个dict, 也可以认为是array. 非常灵活的数据结构。
-- `a['x'] = 10` 或者是 `a.x = 10`
+- a['x'] = 10 或者是 a.x = 10
 - lua数组通常以1作为索引的起始值
 - lua将nil作为界定数组结尾的标识（这点在lua环境中很常见）
 #+BEGIN_SRC Lua
@@ -33,12 +33,13 @@ for i, v in ipairs(a) do
 end
 print(#a)
 #+END_SRC
+- ipairs假设index是数字并且从0开始，而pairs则没有这个假设
 
 table constructor(table构造式）很有趣，同时兼容key/value和array的构造
-- `days = {'Sun', 'Mon', 'Tue'}` 数组构造，下标从1开始
-- `point = {x = 10, y = 20}` 字典构造
+- days = {'Sun', 'Mon', 'Tue'} 数组构造，下标从1开始
+- point = {x = 10, y = 20} 字典构造
 - 上面两者也可以混合在一起
-- 同时支持表达式做key `days = {["*"] = mul}` 或者是 `days = {[ 0 ] = 20}`
+- 同时支持表达式做key days = {["*"] = mul} 或者是 days = {[ 0 ] = 20}
 - 虽然上面的写法支持下标为0，但是最好不要这么使用。
 
 多变量赋值时，如果没有匹配上的话，那么剩余的变量自动匹配到 nil. 多余的自动忽略。
@@ -88,7 +89,7 @@ get_named_args({height = 100, width = 200, depth = 50})
 #+END_SRC
 虽然结果是想要的，但是好像不是那么地优雅。
 
-`深入函数` 这节里面展示了闭包的使用
+深入函数 这节里面展示了闭包的使用
 
 泛型for `for v1, v2, ...  in <explist> do ... end ` 的执行如下：
 
@@ -105,12 +106,12 @@ file:./images/lua-generic-for-execution.png
 
 *** 协同程序(coroutine)
 coroutine的几个相关操作
-- `co = coroutine.create(func)`
-- `coroutine.resume(co, ...)` 让co继续执行
+- co = coroutine.create(func)
+- coroutine.resume(co, ...) 让co继续执行
   - 初始阶段传入参数，被传入 `func`
   - 返回值(ok, `yield` 传入的参数)
-- `coroutine.yield` 传入的参数被 `resume` 返回，只能在co里面调用
-- `coroutine.status` 查询co的状态
+- coroutine.yield 传入的参数被 `resume` 返回，只能在co里面调用
+- coroutine.status 查询co的状态
   - suspended 挂起
   - running 运行
   - dead 死亡
@@ -153,13 +154,210 @@ end
 consumer()
 #+END_SRC
 
-*** 完整的示例
-
 ** 第二部分(C11~C17)
 
 深入介绍Lua环境
 
 TODO:
+
+*** 数据结构/数据文件
+*** 元表和元方法
+元表(metatable)本质上是一个table，我们可以在这个table里面设置，然后来影响和扩展使用这个metatable的table的行为。在Lua代码里面只能设置table的metatable, 其他类型的metatable的设置只能在C代码里面完成。下面代码片段说明了metatable的使用
+- `_m` 是 `make_obj`里面对象o的metatable
+- __tostring 函数影响到如何输出这个对象
+- __add 函数影响到如何叠加两个对象
+- __index 函数影响到如何查找某个不断在的字段
+- rawget 可以不理会 __index 这个函数
+#+BEGIN_SRC Lua
+local _m = {
+   __tostring = function ()
+      return o.c
+   end,
+   __add = function (a, b)
+      return a.c + b.c
+   end,
+   __index = function (t, k)
+      -- t是调用对象，而非metatable
+      print(t == obj1, t == obj2, t == _m)
+      print('request key = ' .. k)
+      if k == 'e' then
+         return 10
+      else
+         return 20
+      end
+   end
+}
+
+local function make_obj(c)
+   o = {c = c}
+   setmetatable(o, _m)
+   return o
+end
+
+local function inspect_obj(o)
+   for k,v in pairs(o) do
+      print('key = ' .. k .. ', value = ' .. v)
+   end
+end
+
+obj1 = make_obj(10)
+obj2 = make_obj(20)
+print(obj1 + obj2)
+
+inspect_obj(obj1)
+print(obj1.e, obj1.f)
+print(rawget(obj1, 'e'), rawget(obj1, 'c'))
+#+END_SRC
+
+上面这段程序的输出如下
+#+BEGIN_EXAMPLE
+➜  workspace lua test.lua
+30
+key = c, value = 10
+true	false	false
+request key = e
+true	false	false
+request key = f
+10	20
+nil	10
+#+END_EXAMPLE
+
+__index还可以是一个table对象。如果是table对象而非函数的话，那么直接在这个table对象里面查找。
+
+除了 __index 之外，还有个 __newindex 函数是影响如果某个字段不存在，如何给这个字段赋值。所以可以结合 __index 和 __newindex 两个函数，来实现追踪table的读写。
+
+*** 环境
+Lua所有的全局变量都保存在一个table里面，这个table称为环境(environment). 可以使用 `_G` 来获得环境。结合上面元表(metatable)和元方法(metamethod), 可以做蛮多事情的。
+
+*** 模块与包
+模块可以通过 `require` 来加载。加载模块会有返回值，这个由模块来定义的，通常返回的是一个table.
+
+加载模块搜索路径存放在 `package.path` 里面，这个路径可以通过 LUA_PATH 环境变量控制。当loader没有办法找到对应Lua模块的时候，会去寻找C模块。C模块对应的路径分别是 `package.cpath` 和 `LUA_CPATH`. 一旦模块加载上来后，就会在 `package.loaded` 里面创建一个条目，之后再遇到 `require` 的话就从这里面读取。所以如果希望重新加载的话，可以将里面条目置nil.
+
+模块在编写上有许多技巧，似乎都比较复杂。下面我总结了个可以work的boilerplate (copy from [[https://moonbingbing.gitbooks.io/openresty-best-practices/lua/not_use_module.html][here]])
+#+BEGIN_SRC Lua
+-- /usr/bin/env lua
+-- coding:utf-8
+-- Copyright (C) dirlt
+
+local _M = {}           -- 局部的变量
+_M._VERSION = '1.0'     -- 模块版本
+
+local mt = { __index = _M }
+
+function _M.new(self, width, height)
+    return setmetatable({ width=width, height=height }, mt)
+end
+
+function _M.get_square(self)
+    return self.width * self.height
+end
+
+function _M.get_circumference(self)
+    return (self.width + self.height) * 2
+end
+
+return _M
+#+END_SRC
+
+在调用的时候如下
+#+BEGIN_SRC Lua
+local rect = require 'kv' -- 上面module命名为kv.lua
+
+obj = rect:new(10, 20)
+print(obj:get_square(), obj:get_circumference())
+
+for k in pairs(obj) do
+   print(k)
+end
+#+END_SRC
+
+*** 面向对象编程
+面向对象上没有更多概念的引入，都是在利用metatable/metamethod在模拟面向对象的性质，但是非常巧妙。更加奇妙的是，class/instance没有明确的界限，类似于javascript里面的prototype.
+
+看看下面这段代码
+- Account 是个类(class)，字段 `balance` 默认值是0
+- `new` 里面的o是一些new fields, 并且这个o就是返回对象(instance)
+- `setmetatable` 以及 `self.__index` 在后面会用到
+- `account` 是个对象(instance), `new`出来的时候并没有`balance`字段
+- 第一次调用 `add_balance` 的时候，`account` 对象里面才创建了 `balance` 对象
+#+BEGIN_SRC Lua
+Account = {balance = 0}
+
+function Account:new (o)
+  o = o or {}
+  setmetatable(o, self)
+  self.__index = self
+  return o
+end
+
+function Account:add_balance(value)
+   self.balance = self.balance + value
+   return self
+end
+
+account = Account:new()
+print(rawget(account, 'balance'), account.balance)
+account:add_balance(10)
+account:add_balance(20)
+print(account.balance)
+#+END_SRC
+
+接下来创建子类：
+- SubAccount 是个subclass，里面多了个属性 `add_level`
+- `SubAccount:new` 里面注意
+  - setmetatable(o, SubAccount)
+  - SubAccount.__index= SubAccount
+#+BEGIN_SRC Lua
+SubAccount = Account:new()
+
+function SubAccount:add_level(value)
+   self.level = self.level + value
+   return self
+end
+
+sub_account = SubAccount:new({level = 10})
+sub_account:add_balance(10)
+sub_account:add_level(50)
+print(sub_account.balance, sub_account.level)
+#+END_SRC
+
+*** 弱引用table
+弱引用的table，里面key或者是value，如果没有被外面访问的话，那么在gc阶段是会被回收的。Lua只会回收弱引用table中的对象，而不会回收值。
+
+将普通的table变成弱引用table的方式是修改metatable. `{__mode = 'k'}` 说明key是弱引用， `{__mode = 'v'}` 说明value是弱引用。
+
+#+BEGIN_SRC Lua
+a = {}
+setmetatable(a, {__mode = 'v'})
+
+b = {1,2,3}
+c = {4,5,6}
+a.b = b
+a.c = c
+
+print('before gc ...')
+for k,v in pairs(a) do
+   print(k, v)
+end
+
+print('after gc ...')
+b = {} -- 此时外部已经没有对b的引用
+collectgarbage()
+for k, v in pairs(a) do
+   print(k, v)
+end
+#+END_SRC
+
+输出结果是这样的
+#+BEGIN_EXAMPLE
+➜  workspace lua test.lua
+before gc ...
+b	table: 0x7fe6e9406850
+c	table: 0x7fe6e9402b30
+after gc ...
+c	table: 0x7fe6e9402b30
+#+END_EXAMPLE
 
 ** 第三部分(C18~C23)
 
