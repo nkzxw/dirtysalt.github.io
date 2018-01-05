@@ -113,6 +113,7 @@
 - zopfli https://github.com/google/zopfli/
 - brotli https://github.com/google/brotli/
 - zstd https://github.com/facebook/zstd
+- 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]
 
 * Machine Learning
 - [[file:ml-reading.org][Machine Learning Reading]] 机器学习方面的一些文章
