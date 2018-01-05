@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2018
+- 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]
 - 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
 
 ** 2017
