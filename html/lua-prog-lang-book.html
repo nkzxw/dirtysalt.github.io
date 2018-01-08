@@ -474,6 +474,11 @@ end
 <li>`account` 是个对象(instance), `new`出来的时候并没有`balance`字段</li>
 <li>第一次调用 `add_balance` 的时候，`account` 对象里面才创建了 `balance` 对象</li>
 </ul>
+
+<p>
+`self.__index = self` 这段代码并不会影响到self本身，而是会影响到其他对self为metatable的对象。
+</p>
+
 <div class="org-src-container">
 
 <pre class="src src-Lua">Account = {balance = 0}
