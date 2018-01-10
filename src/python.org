@@ -37,13 +37,13 @@ Namespaces are one honking great idea -- let's do more of those!
 - r'...' # raw-string. 对字符串不做任何转义
 - except (E1, E2, ...) as e # 捕获多种类型异常
 - PYTHONPATH环境变量可以控制模块搜索路径
-- \_\_init.py\_\_ 文件中变量\_\_all\_\_(列表)可以控制"from X import *"导入的名字
+- __init.py__ 文件中变量__all__(列表)可以控制"from X import *"导入的名字
 
 *** 命名惯例
-- 以单一下划线开头的变量名( \_X )不会被from module import *语句导入
-- 前后有两个下划线的变量名( \_\_X\_\_ )是系统定义的变量名，对解释器有特殊意义
-- 以两下划线开头，但是结尾没有两个下划线的变量名(\_\_X)是类的私有变量
-- 通过交互模式运行，只有单个下划线的变量名(\_)会保存左后表达式的结果
+- 以单一下划线开头的变量名( _X )不会被from module import *语句导入
+- 前后有两个下划线的变量名( __X__ )是系统定义的变量名，对解释器有特殊意义
+- 以两下划线开头，但是结尾没有两个下划线的变量名(__X)是类的私有变量
+- 通过交互模式运行，只有单个下划线的变量名(_)会保存左后表达式的结果
 
 *** 字符编码
 python字符串是unicode类型，二进制是str类型。
@@ -84,12 +84,34 @@ def toLocal(s):
 
 -----
 
-最近修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
+修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
 #+BEGIN_SRC Python
 import sys
 if(sys.getdefaultencoding() !='utf8'):
   reload(sys)
   sys.setdefaultencoding('utf8')
+#+END_SRC
+
+UPDATE@201801: 这个问题只会出现在Python2.x Python3之后默认使用utf8编码了，而且没有 [[file:./blogs/narrow-python-build.org][narrow/wide build]] 问题了。
+
+-----
+UPDATE@201801 在decode阶段有个参数`errors`可以用来控制错误编码字符
+- strict 默认值，直接返回UnicodeError
+- ignore 跳过这个字符
+- replace 用U+FFFD REPLACEMENT CHARACTER替换这个字符
+今天我看 `requests` 代码里面，处理 `Response.text` 对象时使用了这个方法
+#+BEGIN_SRC Python
+        # Decode unicode from given encoding.
+        try:
+            content = str(self.content, encoding, errors='replace')
+        except (LookupError, TypeError):
+            # A LookupError is raised if the encoding was not found which could
+            # indicate a misspelling or similar mistake.
+            #
+            # A TypeError can be raised if encoding is None
+            #
+            # So we try blindly encoding.
+            content = str(self.content, errors='replace')
 #+END_SRC
 
 *** import and reload
