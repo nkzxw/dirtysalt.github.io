@@ -286,6 +286,7 @@ https://dirtysalt.github.io/html/scheme.html
 https://dirtysalt.github.io/html/the-anatomy-of-the-perfect-technical-interview-from-a-former-amazon-vp.html
 https://dirtysalt.github.io/html/ml-the-hard-way.html
 https://dirtysalt.github.io/html/zeromq.html
+https://dirtysalt.github.io/html/python-ipython.html
 https://dirtysalt.github.io/html/unveil-google-app-engine.html
 https://dirtysalt.github.io/html/maven.html
 https://dirtysalt.github.io/html/t11-on-architecture.html
@@ -335,6 +336,7 @@ https://dirtysalt.github.io/html/blogs/central-limit-theorem.html
 https://dirtysalt.github.io/html/blogs/spam-from-apple.html
 https://dirtysalt.github.io/html/blogs/reversed-bollinger-band.html
 https://dirtysalt.github.io/html/blogs/made-in-america.html
+https://dirtysalt.github.io/html/blogs/minimal-wsgi-app-in-python.html
 https://dirtysalt.github.io/html/blogs/moneyball.html
 https://dirtysalt.github.io/html/blogs/rework.html
 https://dirtysalt.github.io/html/blogs/sonos-streaming-basics.html
@@ -418,6 +420,7 @@ https://dirtysalt.github.io/html/blogs/how-to-pick-your-battles-on-a-software-te
 https://dirtysalt.github.io/html/blogs/beyond-lyrics-collection.html
 https://dirtysalt.github.io/html/blogs/build-hls-server.html
 https://dirtysalt.github.io/html/blogs/ten-rules-for-negotiating-a-job-offer.html
+https://dirtysalt.github.io/html/blogs/reading-excel-in-python.html
 https://dirtysalt.github.io/html/blogs/what-you-can-do-and-what-you-should-do.html
 https://dirtysalt.github.io/html/blogs/employee-equity.html
 https://dirtysalt.github.io/html/blogs/remote.html
