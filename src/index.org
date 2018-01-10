@@ -299,6 +299,7 @@
 - [[file:python.org][Python]]
   - [[file:./efficiently-exploiting-multiple-cores-with-python.org][Efficiently Exploiting Multiple Cores with Python]] 如何有效使用多核
   - [[file:./images/the-django-book/index.html][The Django Book]] 不错的Django入门材料
+  - [[file:./python-ipython.org][IPython]] 交互式Python环境，Notebook也非常适合实验
 - [[file:go.org][Go]] ([[file:./go-lang-book.org][Go语言编程]] by 许式伟，吕桂华)
 - [[file:./scala.org][Scala]] ([[file:./effective-scala.org][Effective Scala]]) ([[file:images/coursera-fpps-2013.pdf][Coursera: FP in Scala]])
 - [[file:./erlang.org][Erlang]] ([[file:./erlang-prog-lang-book.org][Erlang程序设计]])
