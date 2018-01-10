@@ -171,7 +171,10 @@
 <li><a href="gizzard.html">gizzard</a> a library for creating distributed datastores 可以认为是数据库中间层，完成partition/replication，也做fault-tolerant migration. <b>DEPRECATED, DONT USE IT</b></li>
 <li><a href="leveldb.html">leveldb</a> Google的开源kv存储系统。支持billion级别的数据量，适合于写少读多的情况。当时阅读的时候是从github上面clone下来的，可能还存相当多的bug.</li>
 <li><a href="mongodb.html">mongodb</a> 面向文档的分布式存储系统，但是却可以针对文档字段索引来加快查询。功能上比通常我们认为的NoSQL强但是弱于RDBMS.</li>
-<li><a href="redis.html">redis</a> 内存存储系统，支持丰富的数据类型以及相应的计算(支持持久化)。外围包装网络访问接口(并且提供了丰富的客户端),可以比较方便地在分布式系统内或者是环境下面使用.</li>
+<li><a href="redis.html">redis</a> 内存存储系统，支持丰富的数据类型以及相应的计算(支持持久化)。外围包装网络访问接口(并且提供了丰富的客户端),可以比较方便地在分布式系统内或者是环境下面使用.
+<ul class="org-ul">
+<li><a href="./redis-cluster-tutorial.html">Redis Cluster Tutorial</a> Redis Cluster入门</li>
+</ul></li>
 <li><a href="mysql.html">mysql</a> 开源关系型数据库。The world's most popular open source database.</li>
 <li><a href="galera.html">galera</a> 基于MySQL的同步多主备份集群(synchronous multi-master replication cluster).</li>
 <li><a href="memcached.html">memcached</a> an in-memory key-value store for small chunks of arbitrary data (strings, objects) 可以用来搭建分布式缓存服务，没有持久化存储。</li>
