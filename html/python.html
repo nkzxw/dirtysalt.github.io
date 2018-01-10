@@ -102,7 +102,7 @@ Namespaces are one honking great idea &#x2013; let's do more of those!
 <li>r'&#x2026;' # raw-string. 对字符串不做任何转义</li>
 <li>except (E1, E2, &#x2026;) as e # 捕获多种类型异常</li>
 <li>PYTHONPATH环境变量可以控制模块搜索路径</li>
-<li>\_\_init.py\_&ensp;文件中变量\_\_all\_\_(列表)可以控制"from X import *"导入的名字</li>
+<li>__init.py__ 文件中变量__all__(列表)可以控制"from X import *"导入的名字</li>
 </ul>
 </div>
 </div>
@@ -111,10 +111,10 @@ Namespaces are one honking great idea &#x2013; let's do more of those!
 <h3 id="orgheadline3"><span class="section-number-3">1.3</span> 命名惯例</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>以单一下划线开头的变量名( \_X )不会被from module import *语句导入</li>
-<li>前后有两个下划线的变量名( \_\_X\_&ensp;)是系统定义的变量名，对解释器有特殊意义</li>
-<li>以两下划线开头，但是结尾没有两个下划线的变量名(\_\_X)是类的私有变量</li>
-<li>通过交互模式运行，只有单个下划线的变量名(\_)会保存左后表达式的结果</li>
+<li>以单一下划线开头的变量名( _X )不会被from module import *语句导入</li>
+<li>前后有两个下划线的变量名( <span class="underline"><span class="underline">X</span></span> )是系统定义的变量名，对解释器有特殊意义</li>
+<li>以两下划线开头，但是结尾没有两个下划线的变量名(__X)是类的私有变量</li>
+<li>通过交互模式运行，只有单个下划线的变量名(_)会保存左后表达式的结果</li>
 </ul>
 </div>
 </div>
@@ -171,7 +171,7 @@ def toLocal(s):
 <hr  />
 
 <p>
-最近修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
+修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
 </p>
 <div class="org-src-container">
 
@@ -179,6 +179,38 @@ def toLocal(s):
 if(sys.getdefaultencoding() !='utf8'):
   reload(sys)
   sys.setdefaultencoding('utf8')
+</pre>
+</div>
+
+<p>
+UPDATE@201801: 这个问题只会出现在Python2.x Python3之后默认使用utf8编码了，而且没有 <a href="./blogs/narrow-python-build.html">narrow/wide build</a> 问题了。
+</p>
+
+<hr  />
+<p>
+UPDATE@201801 在decode阶段有个参数`errors`可以用来控制错误编码字符
+</p>
+<ul class="org-ul">
+<li>strict 默认值，直接返回UnicodeError</li>
+<li>ignore 跳过这个字符</li>
+<li>replace 用U+FFFD REPLACEMENT CHARACTER替换这个字符</li>
+</ul>
+<p>
+今天我看 `requests` 代码里面，处理 `Response.text` 对象时使用了这个方法
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python"># Decode unicode from given encoding.
+try:
+    content = str(self.content, encoding, errors='replace')
+except (LookupError, TypeError):
+    # A LookupError is raised if the encoding was not found which could
+    # indicate a misspelling or similar mistake.
+    #
+    # A TypeError can be raised if encoding is None
+    #
+    # So we try blindly encoding.
+    content = str(self.content, errors='replace')
 </pre>
 </div>
 </div>
