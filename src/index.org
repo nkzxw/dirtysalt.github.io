@@ -303,7 +303,7 @@
 - [[file:go.org][Go]] ([[file:./go-lang-book.org][Go语言编程]] by 许式伟，吕桂华)
 - [[file:./scala.org][Scala]] ([[file:./effective-scala.org][Effective Scala]]) ([[file:images/coursera-fpps-2013.pdf][Coursera: FP in Scala]])
 - [[file:./erlang.org][Erlang]] ([[file:./erlang-prog-lang-book.org][Erlang程序设计]])
-- [[file:./lua.org][Lua]] ([[file:lua-prog-lang-book.org][Lua程序设计]] by Robert 译 周惟迪)
+- [[file:./lua.org][Lua]] ([[file:lua-prog-lang-book.org][Lua程序设计]] by Robert 译 周惟迪) [[file:./openresty-best-practices-lua.org][OpenResty最佳实践/Lua]]
 
 * Software Design
 ** Articles
