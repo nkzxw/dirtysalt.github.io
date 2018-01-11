@@ -390,9 +390,25 @@ c	table: 0x7fe6e9402b30
 
 ** 第三部分(C18~C23)
 
-Lua各种库的使用方法
+Lua各种库的使用方法。书里面介绍了下面这些库
+- 数学库 math
+- table库
+- 字符串库 string. 这个篇幅比较多，应该使用也比较多
+- IO库 io
+- 操作系统库 os
+- 调试库 debug
 
-TODO:
+最后这个调试库debug比较有意思。这个库并没有提供一个Lua调试器，只是提供了一些primitives, 使用这些primitives可以来完成调试功能。primitives可以分为两类:
+1. 自省函数(introspective function).
+   - 调用调试库的栈层stack level = 1
+   - `debug.getinfo`, 某个栈层的函数信息
+   - `debug.getlocal` 某个栈层的局部变量
+   - `debug.getupvalue` 某个函数的非局部变量(closure里面包含的变量)
+2. 钩子(hook).
+   - 在函数调用和返回处会调用钩子函数
+   - `debug.sethook` 参数包括回调函数，监控事件，以及可选数字指定多久获得一次事件
+
+注意这些primitives的性能并不高，Lua以一种不会影响程序正确执行的方式来保存调试信息而已。所以在production环境下面这些调试语句最好需要去除掉。
 
 ** 第四部分(C24~C31)
 
