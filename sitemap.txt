@@ -82,6 +82,7 @@ https://dirtysalt.github.io/html/rcfile.html
 https://dirtysalt.github.io/html/mapreduce.html
 https://dirtysalt.github.io/html/nginx.html
 https://dirtysalt.github.io/html/license.html
+https://dirtysalt.github.io/html/openresty-best-practices-lua.html
 https://dirtysalt.github.io/html/mapreduce-a-flexible-data-processing-tool.html
 https://dirtysalt.github.io/html/storm.html
 https://dirtysalt.github.io/html/large-scale-data-and-computation-chanllenges-and-opportunities.html
