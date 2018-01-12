@@ -10,7 +10,7 @@
 - 201712 [[file:./blogs/geoffrey-hinton-interview-in-coursera.org][Geoffrey Hinton Interview in Coursera]]
 - 201712 [[file:./blogs/cities-and-ambition.org][市井雄心 Cities and Ambition]] by Paul Graham
 - 201712 [[file:./blogs/math-read.org][How to Read Mathematics]]
-- 201712 [[file:./blogs/try-simhash.org][试试Simhash]]
+- 201712 [[file:blogs/test-simhash.org][试试Simhash]]
 - 201712 [[file:blogs/make-a-workable-dns.org][搭建一个可用的DNS]] (dnsmasq + ss)
 - 201712 [[file:./blogs/the-language-of-the-system.org][The Language of the System]] by Rich Hickey
 - 201712 [[file:blogs/love-your-bugs.org][Love Your Bugs]]
