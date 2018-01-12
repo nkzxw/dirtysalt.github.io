@@ -58,6 +58,7 @@ https://dirtysalt.github.io/html/spark-rdd-paper.html
 https://dirtysalt.github.io/html/tcmalloc.html
 https://dirtysalt.github.io/html/tips-for-optimizing-c-cpp-code.html
 https://dirtysalt.github.io/html/memcached.html
+https://dirtysalt.github.io/html/redis-manifesto.html
 https://dirtysalt.github.io/html/achieving-rapid-response-times-in-large-online-services.html
 https://dirtysalt.github.io/html/numa.html
 https://dirtysalt.github.io/html/mesos-omega-borg-a-survey.html
@@ -336,6 +337,7 @@ https://dirtysalt.github.io/html/blogs/flowers-to-algernon.html
 https://dirtysalt.github.io/html/blogs/central-limit-theorem.html
 https://dirtysalt.github.io/html/blogs/spam-from-apple.html
 https://dirtysalt.github.io/html/blogs/reversed-bollinger-band.html
+https://dirtysalt.github.io/html/blogs/test-simhash.html
 https://dirtysalt.github.io/html/blogs/made-in-america.html
 https://dirtysalt.github.io/html/blogs/minimal-wsgi-app-in-python.html
 https://dirtysalt.github.io/html/blogs/moneyball.html
