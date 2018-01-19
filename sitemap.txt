@@ -604,6 +604,7 @@ https://dirtysalt.github.io/html/blogs/cities-and-ambition.html
 https://dirtysalt.github.io/html/blogs/god-father.html
 https://dirtysalt.github.io/html/blogs/becoming-cto.html
 https://dirtysalt.github.io/html/blogs/big-data-is-supposed-to-be.html
+https://dirtysalt.github.io/html/blogs/python-requests-encoding-issue.html
 https://dirtysalt.github.io/html/blogs/growth-hacker.html
 https://dirtysalt.github.io/html/blogs/baby-sleep-training.html
 https://dirtysalt.github.io/html/blogs/data-infra-at-airbnb.html
