@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2018
+- 201801 [[file:./blogs/python-requests-encoding-issue.org][Python Requests库编码问题]]
 - 201801 [[file:blogs/minimal-wsgi-app-in-python.org][Minimal WSGI App in Pyton]]
 - 201801 [[file:blogs/reading-excel-in-python.org][Reading Excel in Python]]
 - 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]

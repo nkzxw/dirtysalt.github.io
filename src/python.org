@@ -30,7 +30,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 #+END_QUOTE
 
-*** 基础知识
+*** 基础知识(basic concepts)
 - str vs. repr # str是字符串表示，repr是code-form.
 - a is b # 判断是否为同一对象
 - copy.copy/deepcopy # 来做对象拷贝/深拷贝
@@ -39,13 +39,13 @@ Namespaces are one honking great idea -- let's do more of those!
 - PYTHONPATH环境变量可以控制模块搜索路径
 - __init.py__ 文件中变量__all__(列表)可以控制"from X import *"导入的名字
 
-*** 命名惯例
+*** 命名惯例(name convention)
 - 以单一下划线开头的变量名( _X )不会被from module import *语句导入
 - 前后有两个下划线的变量名( __X__ )是系统定义的变量名，对解释器有特殊意义
 - 以两下划线开头，但是结尾没有两个下划线的变量名(__X)是类的私有变量
 - 通过交互模式运行，只有单个下划线的变量名(_)会保存左后表达式的结果
 
-*** 字符编码
+*** 字符编码(encoding)
 python字符串是unicode类型，二进制是str类型。
    - encode是将unicode转换成为str
    - decode是将str转换成为unicode
