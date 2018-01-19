@@ -692,6 +692,7 @@ https://dirtysalt.github.io/html/blogs/ostep-virt-vm0.html
 https://dirtysalt.github.io/html/blogs/reading-list-for-college.html
 https://dirtysalt.github.io/html/blogs/why-cant-programmers-program.html
 https://dirtysalt.github.io/html/blogs/refactoring-improving-the-design-of-existing-code.html
+https://dirtysalt.github.io/html/blogs/wechat-auto-jump.html
 https://dirtysalt.github.io/html/blogs/animal-farm.html
 https://dirtysalt.github.io/html/blogs/new-era-carmack.html
 https://dirtysalt.github.io/html/blogs/the-economic-naturalist.html
