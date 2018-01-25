@@ -224,6 +224,31 @@ io_loop()
 #+END_SRC
 注意如果要使用send的话，必须使用send(None)/next来初始化.
 
+Python3之前如果需要将多个生成器串联起来的话，不是特别容易。代码里面 `bar` 为了将两个 `foo(10)` 和 `foo(20)`迭代器串联起来，需要显示地遍历。
+#+BEGIN_SRC Python
+def foo(n):
+    for x in range(3):
+        yield x + n
+
+
+def bar():
+    x = foo(10)
+    for v in x:
+        yield v
+    x = foo(20)
+    for v in x:
+        yield v
+    # yield from foo(10)
+    # yield from foo(20)
+
+
+b = bar()
+for v in b:
+    print(v)
+#+END_SRC
+
+但是Python3引入关键字 `yield from`. 可以简化上面的写法。具体可以看上面这段注释。
+
 *** decorator(装饰器)
 装饰器是一种设计模式，在原有的对象上或者是函数上，在外部做一些处理。python里面的装饰器是函数，装饰的对象也是函数。
 
@@ -288,6 +313,70 @@ wrapper
 - http://softwareengineering.stackexchange.com/questions/187403/import-module-vs-from-module-import-function/187471
 
 UPDATE@201801: nova项目中我发现 [[http://v2in.com/pth-file-usage-in-python.html][.pth]] 这种机制在很大程度上可以帮助模块路径配置。不过好像这种机制仅限于CPython，在PyPy或者是Jython下面不行。
+
+
+*** coroutine(协程)
+我理解generator和coroutine之间的差别只是在于切换上下文上。generator的切换关系是沿着调用链的，也是是callee完成后必须要返回到caller.
+而coroutine则没有这个限制，可以在多个函数之间切换，而这多个函数之间并没有caller/callee的联系。
+
+coroutine之间是可以交换数据的，下面这两个操作是配对的。coroutine的启动需要强制 `c.send(None)`
+- `n = yield r`
+- `r = c.send(n)`
+
+看下面这段代码
+#+BEGIN_SRC Python
+ef consumer():
+    print('start consumer')
+    r = 'uninitialized'
+    while True:
+        n = yield r
+        if not n:
+            return
+        print('[CONSUMER] Consuming %s...' % n)
+        r = '200 OK'
+
+
+def produce(c):
+    r = c.send(None)
+    print(r)
+    print('start producer')
+    n = 0
+    while n < 5:
+        n = n + 1
+        print('[PRODUCER] Producing %s...' % n)
+        r = c.send(n)
+        print('[PRODUCER] Consumer return: %s' % r)
+    c.close()
+
+
+c = consumer()
+produce(c)
+#+END_SRC
+- `r = c.send(None)` 首先启动consumer.
+- consumer执行到 `n = yield r`这个部分，要求外部继续输入并且返回r(uninitialized)，切换回producer.
+- producer执行到 `r = c.send(1)`, 然后切换到consumer. 后面循环继续
+
+上面这段代码的输出结果如下
+#+BEGIN_EXAMPLE
+start consumer
+uninitialized
+start producer
+[PRODUCER] Producing 1...
+[CONSUMER] Consuming 1...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 2...
+[CONSUMER] Consuming 2...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 3...
+[CONSUMER] Consuming 3...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 4...
+[CONSUMER] Consuming 4...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 5...
+[CONSUMER] Consuming 5...
+[PRODUCER] Consumer return: 200 OK
+#+END_EXAMPLE
 
 ** library
 *** httplib
@@ -405,6 +494,56 @@ https://virtualenv.pypa.io/en/latest/index.html
 - cd <env-path>; source bin/activate 重写环境变量, 切换到当前独立环境
 - 之后可以在<env-path>目录下面开发, 安装以及部署等工作
 - 清理环境使用 deactive.
+
+*** asyncio
+理论上asynco也可以不配合coroutine，不过配合coroutine才能最好地发挥asyncio的性能。Python3.5引入关键字`async`和`await`让定义coroutine更加简单。
+
+#+BEGIN_SRC Python
+import asyncio
+
+
+@asyncio.coroutine
+def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    yield from asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+
+async def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    await asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+loop = asyncio.get_event_loop()
+tasks = [hello('TA'), hello('TB')]
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+#+END_SRC
+
+asyncio里面的event_loop指的就是当前执行线程，所以我们只能往里面添加coroutine，否则一个阻塞操作会使得整个线程挂起，这样其他coroutines就没有办法执行了。
+但是在很多情况下，我们使用的库函数本身就不是async/coroutine的，在这种情况下面，我们就需要把这些操作丢到另外一个thread pool下面执行。
+#+BEGIN_SRC Python
+import asyncio
+
+import requests
+
+
+async def test():
+    evloop = asyncio.get_event_loop()
+    # 对于block的操作需要放到executor里面
+    future1 = evloop.run_in_executor(None, requests.get, 'http://baidu.com')
+    future2 = evloop.run_in_executor(None, requests.get, 'http://sina.com')
+    resp1 = await future1
+    resp2 = await future2
+    print('baidu.com ...')
+    print(resp1.text[:10])
+    print('sina.com ...')
+    print(resp2.text[:10])
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test())
+#+END_SRC
 
 ** inside
 
