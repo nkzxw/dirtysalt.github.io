@@ -533,6 +533,7 @@ https://dirtysalt.github.io/html/blogs/do-house-work-as-leisure.html
 https://dirtysalt.github.io/html/blogs/sth-about-chords.html
 https://dirtysalt.github.io/html/blogs/peter-thiel-on-competition.html
 https://dirtysalt.github.io/html/blogs/eureka-on-career.html
+https://dirtysalt.github.io/html/blogs/intro-quantum-computing.html
 https://dirtysalt.github.io/html/blogs/apply-visa-for-usa.html
 https://dirtysalt.github.io/html/blogs/on-facebook-newsfeed.html
 https://dirtysalt.github.io/html/blogs/use-wifi-aps-to-identify-location.html
