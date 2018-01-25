@@ -2,11 +2,11 @@
 
 顺序编程
 - 有限的类型推导
-  - =var k = "hello"= or =k := "hello"=
+  - var k = "hello" or k := "hello"
   - 不会对函数返回值类型进行推导
-- 不定参数 =args ...int= 可以认为是数组切片类型 =args []int=
-- =range=用来遍历数组, 切片, 以及字典.
-- 取消=while=, 只保留=for=.
+- 不定参数 `args ...int` 可以认为是数组切片类型 `args []int`
+- range用来遍历数组, 切片, 以及字典.
+- 取消while, 只保留for.
   - for <init>; <loop>; <pred> { \n ... }
   - for <loop> { \n ... }
   - for { \n ... }
@@ -32,16 +32,16 @@
   - 对象实例可以赋值给接口
   - 一个接口可以赋值给另外一个接口
   - func (a A)...自动会实现func (a *A)...
-- 类型/接口查询. 值是否实现某个接口 =v.(IReader)= 或是什么类型 =v.(type)=
+- 类型/接口查询. 值是否实现某个接口 v.(IReader) 或是什么类型 v.(type)
 
 并发编程
-- goroutine go协程 see =libtask=
+- goroutine go协程 see libtask
   - 使用CPU数量 runtime.GOMAXPROCS()
   - 主动yield runtime.GoSched()
 - 并发通信
-  - 基于消息传递 channel =chan type=
-    - 单向写入channel =chan<- type=
-    - 单向读出channel =<-chan type=
+  - 基于消息传递 channel `chan type`
+    - 单向写入channel `chan<- type`
+    - 单向读出channel `<-chan type`
     - 通过make(chan type [,bufsize])来创建
   - 基于内存共享 sync.* 同步机制
 - select 有效轮询各个channels状态
