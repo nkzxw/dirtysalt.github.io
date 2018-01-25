@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2018
+- 201801 [[file:./blogs/intro-quantum-computing.org][量子计算机初探]]
 - 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
 - 201801 [[file:./blogs/python-requests-encoding-issue.org][Python Requests库编码问题]]
 - 201801 [[file:blogs/minimal-wsgi-app-in-python.org][Minimal WSGI App in Pyton]]
