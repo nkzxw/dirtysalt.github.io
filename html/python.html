@@ -18,7 +18,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline11">1. language</a>
+<li><a href="#orgheadline12">1. language</a>
 <ul>
 <li><a href="#orgheadline1">1.1. philosophy</a></li>
 <li><a href="#orgheadline2">1.2. 基础知识(basic concepts)</a></li>
@@ -30,18 +30,20 @@
 <li><a href="#orgheadline8">1.8. generator(生成器)</a></li>
 <li><a href="#orgheadline9">1.9. decorator(装饰器)</a></li>
 <li><a href="#orgheadline10">1.10. 模块加载路径</a></li>
+<li><a href="#orgheadline11">1.11. coroutine(协程)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">2. library</a>
+<li><a href="#orgheadline19">2. library</a>
 <ul>
-<li><a href="#orgheadline12">2.1. httplib</a></li>
-<li><a href="#orgheadline13">2.2. datetime</a></li>
-<li><a href="#orgheadline14">2.3. pip(python package index)</a></li>
-<li><a href="#orgheadline15">2.4. logging</a></li>
-<li><a href="#orgheadline16">2.5. virtualenv</a></li>
+<li><a href="#orgheadline13">2.1. httplib</a></li>
+<li><a href="#orgheadline14">2.2. datetime</a></li>
+<li><a href="#orgheadline15">2.3. pip(python package index)</a></li>
+<li><a href="#orgheadline16">2.4. logging</a></li>
+<li><a href="#orgheadline17">2.5. virtualenv</a></li>
+<li><a href="#orgheadline18">2.6. asyncio</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">3. inside</a></li>
+<li><a href="#orgheadline20">3. inside</a></li>
 </ul>
 </div>
 </div>
@@ -51,8 +53,8 @@
 <li><a href="http://pythonguidecn.readthedocs.io/zh/latest/index.html">Python最佳实践指南</a></li>
 </ul>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">1</span> language</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">1</span> language</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> philosophy</h3>
@@ -363,6 +365,37 @@ io_loop()
 <p>
 注意如果要使用send的话，必须使用send(None)/next来初始化.
 </p>
+
+<p>
+Python3之前如果需要将多个生成器串联起来的话，不是特别容易。代码里面 `bar` 为了将两个 `foo(10)` 和 `foo(20)`迭代器串联起来，需要显示地遍历。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python">def foo(n):
+    for x in range(3):
+        yield x + n
+
+
+def bar():
+    x = foo(10)
+    for v in x:
+        yield v
+    x = foo(20)
+    for v in x:
+        yield v
+    # yield from foo(10)
+    # yield from foo(20)
+
+
+b = bar()
+for v in b:
+    print(v)
+</pre>
+</div>
+
+<p>
+但是Python3引入关键字 `yield from`. 可以简化上面的写法。具体可以看上面这段注释。
+</p>
 </div>
 </div>
 
@@ -452,13 +485,95 @@ UPDATE@201801: nova项目中我发现 <a href="http://v2in.com/pth-file-usage-in
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.11</span> coroutine(协程)</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+我理解generator和coroutine之间的差别只是在于切换上下文上。generator的切换关系是沿着调用链的，也是是callee完成后必须要返回到caller.
+而coroutine则没有这个限制，可以在多个函数之间切换，而这多个函数之间并没有caller/callee的联系。
+</p>
+
+<p>
+coroutine之间是可以交换数据的，下面这两个操作是配对的。coroutine的启动需要强制 `c.send(None)`
+</p>
+<ul class="org-ul">
+<li>`n = yield r`</li>
+<li>`r = c.send(n)`</li>
+</ul>
+
+<p>
+看下面这段代码
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python">ef consumer():
+    print('start consumer')
+    r = 'uninitialized'
+    while True:
+        n = yield r
+        if not n:
+            return
+        print('[CONSUMER] Consuming %s...' % n)
+        r = '200 OK'
+
+
+def produce(c):
+    r = c.send(None)
+    print(r)
+    print('start producer')
+    n = 0
+    while n &lt; 5:
+        n = n + 1
+        print('[PRODUCER] Producing %s...' % n)
+        r = c.send(n)
+        print('[PRODUCER] Consumer return: %s' % r)
+    c.close()
+
+
+c = consumer()
+produce(c)
+</pre>
+</div>
+<ul class="org-ul">
+<li>`r = c.send(None)` 首先启动consumer.</li>
+<li>consumer执行到 `n = yield r`这个部分，要求外部继续输入并且返回r(uninitialized)，切换回producer.</li>
+<li>producer执行到 `r = c.send(1)`, 然后切换到consumer. 后面循环继续</li>
+</ul>
+
+<p>
+上面这段代码的输出结果如下
+</p>
+<pre class="example">
+start consumer
+uninitialized
+start producer
+[PRODUCER] Producing 1...
+[CONSUMER] Consuming 1...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 2...
+[CONSUMER] Consuming 2...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 3...
+[CONSUMER] Consuming 3...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 4...
+[CONSUMER] Consuming 4...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 5...
+[CONSUMER] Consuming 5...
+[PRODUCER] Consumer return: 200 OK
+</pre>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">2</span> library</h2>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">2</span> library</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.1</span> httplib</h3>
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.1</span> httplib</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 关于httplib.HTTPConnection超时问题
@@ -472,8 +587,8 @@ UPDATE@201801: nova项目中我发现 <a href="http://v2in.com/pth-file-usage-in
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.2</span> datetime</h3>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">2.2</span> datetime</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 日期时间和时间戳之间的转化
@@ -532,8 +647,8 @@ In [13]: timeit time.strftime('%Y-%m-%d %H:%M:%S', st)
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.3</span> pip(python package index)</h3>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">2.3</span> pip(python package index)</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 python模块管理工具
@@ -557,8 +672,8 @@ python模块管理工具
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.4</span> logging</h3>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">2.4</span> logging</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 python logging主要有下面几个类
@@ -615,8 +730,8 @@ class=logging.Formatter
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.5</span> virtualenv</h3>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">2.5</span> virtualenv</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 <a href="https://virtualenv.pypa.io/en/latest/index.html">https://virtualenv.pypa.io/en/latest/index.html</a>
@@ -634,10 +749,72 @@ class=logging.Formatter
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">2.6</span> asyncio</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+理论上asynco也可以不配合coroutine，不过配合coroutine才能最好地发挥asyncio的性能。Python3.5引入关键字`async`和`await`让定义coroutine更加简单。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Python">import asyncio
+
+
+@asyncio.coroutine
+def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    yield from asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+
+async def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    await asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+loop = asyncio.get_event_loop()
+tasks = [hello('TA'), hello('TB')]
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+</pre>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">3</span> inside</h2>
+<p>
+asyncio里面的event_loop指的就是当前执行线程，所以我们只能往里面添加coroutine，否则一个阻塞操作会使得整个线程挂起，这样其他coroutines就没有办法执行了。
+但是在很多情况下，我们使用的库函数本身就不是async/coroutine的，在这种情况下面，我们就需要把这些操作丢到另外一个thread pool下面执行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python">import asyncio
+
+import requests
+
+
+async def test():
+    evloop = asyncio.get_event_loop()
+    # 对于block的操作需要放到executor里面
+    future1 = evloop.run_in_executor(None, requests.get, 'http://baidu.com')
+    future2 = evloop.run_in_executor(None, requests.get, 'http://sina.com')
+    resp1 = await future1
+    resp2 = await future2
+    print('baidu.com ...')
+    print(resp1.text[:10])
+    print('sina.com ...')
+    print(resp2.text[:10])
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test())
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> inside</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="http://pgbovine.net/cpython-internals.htm">Philip Guo - CPython internals: A ten-hour codewalk through the Python interpreter source code</a></li>
