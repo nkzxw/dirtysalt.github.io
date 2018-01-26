@@ -1,0 +1,7 @@
+我写了一个python websocket server, 在美区的aws上面测试了一下
+
+test_ws_server.py + test_ws_client2.py. 这个是ping-pong程序。5000个connections，延迟在2s左右，这个还是本地client/server的响应。bottlenect在CPU上，所以websocket server还不单单是一个IO intensive的应用，连接和data frame的管理也非常耗费CPU.
+
+test_ws_server.py + test_ws_client.py. 这个仅仅是client接受数据的程序，同样5000 connections. 延迟在1~1.5s左右，同样bottlenect在CPU上
+
+Python完成这种事情似乎有点力不从心.
