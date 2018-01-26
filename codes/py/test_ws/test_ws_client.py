@@ -19,16 +19,17 @@ class Digest:
     def __init__(self):
         self.digest = TDigest()
         self.digest.update(0)
-
-    def clear(self):
-        self.digest = TDigest()
-        self.digest.update(0)
+        self._count = 0
 
     def add(self, v):
         self.digest.update(v)
+        self._count += 1
 
     def percentile(self, v):
         return self.digest.percentile(v)
+
+    def count(self):
+        return self._count
 
 
 digest = Digest()
@@ -38,11 +39,12 @@ digest = Digest()
 def print_digest():
     global digest
     while True:
-        logger.warning('DIGEST p50 = {}, p75 = {}, p90 = {}, p99 = {}'.format(digest.percentile(50),
-                                                                              digest.percentile(75),
-                                                                              digest.percentile(90),
-                                                                              digest.percentile(99)))
-        digest.clear()
+        logger.warning('DIGEST. count = {}, p50 = {}, p75 = {}, p90 = {}, p99 = {}'.format(
+            digest.count(),
+            digest.percentile(50),
+            digest.percentile(75),
+            digest.percentile(90),
+            digest.percentile(99)))
         time.sleep(5)
 
 
@@ -65,7 +67,7 @@ class MyClientProtocol(WebSocketClientProtocol):
         now = time.time()
         latency = now - ts
         global digest
-        digest.add(latency)
+        digest.add(latency * 1000)
 
 
 if __name__ == '__main__':

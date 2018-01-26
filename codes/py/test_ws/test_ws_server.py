@@ -64,7 +64,8 @@ class MyServerProtocol(WebSocketServerProtocol):
 
     def onClose(self, wasClean, code, reason):
         global global_conns
-        del global_conns[self.peer]
+        if self.peer in global_conns:
+            del global_conns[self.peer]
         logger.info('onClose {}, {}, {}'.format(wasClean, code, reason))
         pass
 
