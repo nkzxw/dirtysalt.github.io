@@ -15,6 +15,7 @@ from redis_queue import RedisQueue
 # asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 global_conns = dict()
+global_lock = asyncio.Lock()
 command_queue = RedisQueue('command')
 logger = logging.getLogger()
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
@@ -50,26 +51,28 @@ def print_stats():
 
 
 class MyServerProtocol(WebSocketServerProtocol):
-    def onMessage(self, payload, isBinary):
+    async def onMessage(self, payload, isBinary):
         logger.info('onMessage. {}, {}'.format(payload, isBinary))
         self.sendMessage(b'pong')
         # self.sendMessage(payload, isBinary)
 
-    def onConnect(self, request):
+    async def onConnect(self, request):
         self.peer = request.peer
         global global_conns
-        global_conns[self.peer] = self
+        with await global_lock:
+            global_conns[self.peer] = self
         logger.info('onConnect {}'.format(request))
         pass
 
-    def onClose(self, wasClean, code, reason):
+    async def onClose(self, wasClean, code, reason):
         global global_conns
-        if self.peer in global_conns:
-            del global_conns[self.peer]
+        with await global_lock:
+            if self.peer in global_conns:
+                del global_conns[self.peer]
         logger.info('onClose {}, {}, {}'.format(wasClean, code, reason))
         pass
 
-    def onOpen(self):
+    async def onOpen(self):
         logger.info('onOpen ...')
         pass
 
