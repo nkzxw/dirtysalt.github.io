@@ -9,7 +9,7 @@ import time
 from autobahn.asyncio.websocket import WebSocketServerFactory, WebSocketServerProtocol
 from redis_queue import RedisQueue
 
-# 这个地方似乎有bug, 如果使用uvloop的话，整个代码会hang住
+# # 这个地方似乎有bug, 如果使用uvloop的话，整个代码会hang住
 # import uvloop
 #
 # asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
@@ -18,7 +18,7 @@ global_conns = dict()
 command_queue = RedisQueue('command')
 logger = logging.getLogger()
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
-logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
+logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
 
 
 # 决定是否从redis queue里面收取消息然后广播到所有连接上.
@@ -28,9 +28,11 @@ def read_command():
         if item is None:
             continue
         logger.warning('got item {}. write to {} clients'.format(item, len(global_conns)))
+        ts = int(time.time())
+        msg = str(ts).encode('utf8')
         conns = list(global_conns.values())
         for conn in conns:
-            conn.sendMessage(item)
+            conn.sendMessage(msg)
 
 
 def write_command():

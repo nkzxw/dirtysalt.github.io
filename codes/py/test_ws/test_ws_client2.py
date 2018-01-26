@@ -79,7 +79,7 @@ if __name__ == '__main__':
     factory.protocol = MyClientProtocol
 
     loop = asyncio.get_event_loop()
-    inst_num = 20
+    inst_num = 10000
     insts = []
     for i in range(inst_num):
         coro = loop.create_connection(factory, '127.0.0.1', 8765)
