@@ -9,11 +9,16 @@ import time
 from autobahn.asyncio.websocket import WebSocketServerFactory, WebSocketServerProtocol
 from redis_queue import RedisQueue
 
+# 这个地方似乎有bug, 如果使用uvloop的话，整个代码会hang住
+# import uvloop
+#
+# asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
 global_conns = dict()
 command_queue = RedisQueue('command')
 logger = logging.getLogger()
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
-logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
+logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
 
 
 # 决定是否从redis queue里面收取消息然后广播到所有连接上.
@@ -43,44 +48,32 @@ def print_stats():
 
 
 class MyServerProtocol(WebSocketServerProtocol):
-    async def onMessage(self, payload, isBinary):
+    def onMessage(self, payload, isBinary):
         logger.info('onMessage. {}, {}'.format(payload, isBinary))
         self.sendMessage(b'pong')
         # self.sendMessage(payload, isBinary)
 
     def onConnect(self, request):
-        global global_conns
         self.peer = request.peer
+        global global_conns
         global_conns[self.peer] = self
         logger.info('onConnect {}'.format(request))
         pass
 
     def onClose(self, wasClean, code, reason):
         global global_conns
-        if self.peer in global_conns:
-            del global_conns[self.peer]
-        # logger.info('onClose {}, {}, {}'.format(wasClean, code, reason))
+        del global_conns[self.peer]
+        logger.info('onClose {}, {}, {}'.format(wasClean, code, reason))
         pass
 
-    async def onOpen(self):
+    def onOpen(self):
         logger.info('onOpen ...')
-        # msg = 'total {} clients'.format(len(global_conns))
-        # msg = msg.encode('utf8')
-        # for conn in global_conns.values():
-        #     conn.sendMessage(msg)
-        # msg = ','.join(global_conns.keys())
-        # msg = msg.encode('utf8')
-        # for conn in global_conns.values():
-        #     conn.sendMessage(msg)
-        #     # logger.info('before sleep ...')
-        #     # await asyncio.sleep(10)
-        #     # logger.info('after sleep ...')
+        pass
 
 
 if __name__ == '__main__':
     factory = WebSocketServerFactory()
     factory.protocol = MyServerProtocol
-
     loop = asyncio.get_event_loop()
     coro = loop.create_server(factory, '127.0.0.1', 8765)
     server = loop.run_until_complete(coro)

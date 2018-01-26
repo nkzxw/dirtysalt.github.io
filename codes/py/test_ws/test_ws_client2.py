@@ -2,17 +2,18 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+
 import asyncio
 import logging
+import time
 
 from autobahn.asyncio.websocket import WebSocketClientFactory, WebSocketClientProtocol
+from tdigest import TDigest
 
 global_index = 0
 logger = logging.getLogger()
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
 logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
-import time
-from tdigest import TDigest
 
 
 class Digest:
@@ -47,18 +48,22 @@ def print_digest():
 
 
 class MyClientProtocol(WebSocketClientProtocol):
-    def __init__(self):
+    def onConnect(self, response):
+        logger.info('on Connect ...')
         global global_index
         self.index = global_index
         global_index += 1
 
     def onOpen(self):
-        # logger.info('on Open... ')
+        logger.info('on Open... ')
         self.sendMessage(b'ping')
         self.ping = time.time()
         pass
 
-    async def onMessage(self, payload, isBinary):
+    def onMessage(self, payload, isBinary):
+        if payload != b'pong':
+            return
+
         now = time.time()
         latency = now - self.ping
         global digest
@@ -74,7 +79,7 @@ if __name__ == '__main__':
     factory.protocol = MyClientProtocol
 
     loop = asyncio.get_event_loop()
-    inst_num = 10000
+    inst_num = 20
     insts = []
     for i in range(inst_num):
         coro = loop.create_connection(factory, '127.0.0.1', 8765)
