@@ -140,8 +140,8 @@
 - 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
 
 * Distributed System
-** Notes
-- [[file:akka-doc.org][Akka Doc]] Akka文档阅读笔记
+** Projects
+- [[file:akka.org][Akka]] Akka文档阅读笔记
 - [[file:storm.org][Storm]] Twitter的流式处理系统
 - [[file:./samza.org][Samza]] LinkedIn的流式处理系统
 - [[file:hadoop.org][Hadoop]] Apache的分布式系统基础架构总称
