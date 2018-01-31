@@ -118,7 +118,7 @@ def main():
     server = loop.run_until_complete(coro)
     loop.run_until_complete(asyncio.gather(*[listen_command(),
                                              read_command(),
-                                             write_command(),
+                                             # write_command(),
                                              print_stats()]))
     loop.run_forever()
     loop.close()
