@@ -4,7 +4,7 @@
 import logging
 import os
 
-from flask import Flask, render_template, request, session
+from flask import Flask, request, session
 from flask_socketio import Namespace, SocketIO
 
 app = Flask(__name__)
@@ -13,18 +13,23 @@ socketio = SocketIO(app, message_queue='redis://localhost/0', channel='flask-soc
 logger = logging.getLogger('server')
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
 logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
+listening_port = None
 
 
 @app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+@app.route('/room/<int:room>/', methods=['GET'])
+def index(room=0):
+    print(request.environ['REMOTE_ADDR'], request.environ['REMOTE_PORT'], room)
+    # return render_template('index.html')
+    return 'OK'
 
 
 class FanoutNamespace(Namespace):
     path = '/fanout.%s' % (os.getpid())
 
     def on_connect(self):
-        logger.info('path = {}, on connect, sid = {}, headers = {}'.format(self.path, request.sid, request.headers))
+        # logger.info('path = {}, on connect, sid = {}, headers = {}'.format(self.path, request.sid, request.headers))
+        logger.info('path = {}, on connect sid = {}'.format(self.path, request.sid))
         socketio.send('message: connect OK to all', namespace='/fanout')
         socketio.emit('my event', 'my event: connect OK', namespace='/fanout')
         session['data'] = request.sid
@@ -42,4 +47,10 @@ class FanoutNamespace(Namespace):
 socketio.on_namespace(FanoutNamespace('/fanout'))
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=8080)
+    import sys
+
+    port = 8080
+    if len(sys.argv) >= 2:
+        port = int(sys.argv[1])
+    listening_port
+    socketio.run(app, debug=True, port=port)
