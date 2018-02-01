@@ -23,25 +23,18 @@ TSeries = db['series']
 db = client['cache']
 TCache = db['playfm']
 
-
-def get_podcasts_tags():
-    rs = TCache.find()
-    tags = set()
-    for r in rs:
-        url = r['_id']
-        if url.startswith('https://player.fm/podcasts/'):
-            ss = url.split('/')
-            tag = ss[-1]
-            print('add tag %s' % tag)
-            tags.add(tag)
-    return tags
-
-
 def get_series_items():
     rs = TCache.find()
     for r in rs:
         url = r['_id']
         if url.startswith('https://player.fm/series/'):
+            yield r
+
+def get_featured_items():
+    rs = TCache.find()
+    for r in rs:
+        url = r['_id']
+        if url.startswith('https://player.fm/featured/'):
             yield r
 
 
@@ -67,13 +60,71 @@ def handle_series(r):
     print('write down data of url = %s' % url)
     TSeries.update({'_id': url}, {'$set': data}, upsert=True)
 
+def load_all_series_urls_from_cache():
+    print('load series urls from cache')
+    rs = TCache.find({}, ('_id',))
+    urls = []
+    for r in rs:
+        url = r['_id']
+        if url.find('/series/') != -1:
+            urls.append(url)
+    return urls
+
+def load_all_series_urls_from_table():
+    print('load series urls from table')
+    urls = [x['_id'] for x in TSeries.find({}, ('_id'))]
+    return urls
+
+# def update_series_items():
+#     n_threads = 10
+#     from gevent.pool import Pool as ThreadPoolExecutor
+#     pool = ThreadPoolExecutor(n_threads)
+#     for r in get_series_items():
+#         pool.spawn(handle_series, r)
+#     pool.join()
 
 def update_series_items():
+    urls_cache = load_all_series_urls_from_cache()
+    urls_table = load_all_series_urls_from_table()
+    diff_urls = list(set(urls_cache) - set(urls_table))
+    print('# of diff urls = %d' % len(diff_urls))
     n_threads = 10
     from gevent.pool import Pool as ThreadPoolExecutor
     pool = ThreadPoolExecutor(n_threads)
-    for r in get_series_items():
+    for url in diff_urls:
+        r = TCache.find_one({'_id': url})
+        assert(r is not None)
         pool.spawn(handle_series, r)
     pool.join()
+
+
+def get_featured_tags_hierarchy():
+    def pred(x):
+        if not hasattr(x, 'attrs'): return False
+        return x.attrs.get('data-toggle', '') == 'popover'
+
+    def parse_single_page(data):
+        d = {}
+        bs = BeautifulSoup(data)
+        tops = [x for x in bs.findAll('a') if pred(x)]
+        for t in tops:
+            text = t.text
+            d[text] = []
+            if 'data-content' not in t.attrs:
+                continue
+            sub_bs = BeautifulSoup(t.attrs['data-content'])
+            subs = [x.text for x in sub_bs.select('a')]
+            d[text] = subs
+        return d
+
+    from collections import defaultdict
+    result = defaultdict(list)
+    for r in get_featured_items():
+        print('handling url = {}'.format(r['_id']))
+        data = r['data']
+        d = parse_single_page(data)
+        for k in d:
+            result[k].extend(d[k])
+    return result
 
 update_series_items()
