@@ -1,5 +1,3 @@
-# layout
-
 - astyle. C/C++类语言的代码格式化工具
 - crc32. 生成32bit crc code的高效实现
 - cs143. stanford cs143编译器课程作业
