@@ -8,10 +8,10 @@ from flask_socketio import Namespace, SocketIO
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, message_queue='redis://localhost/0', channel='flask-socketio')
+socketio = SocketIO(app, message_queue='redis://localhost/0', channel='socketio-test')
 logger = logging.getLogger('server')
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
-logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
+logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
 
 total_connection = 0
 

@@ -10,5 +10,4 @@ logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
 logger = logging.getLogger('trigger')
 
 socketio = SocketIO(message_queue='redis://localhost/0', channel='socketio-test')
-# socketio.emit('my event', 'hello world', namespace='/fanout')
-socketio.send('raw message', namespace='/fanout')
+socketio.emit('my event', 'hello world', namespace='/fanout')
