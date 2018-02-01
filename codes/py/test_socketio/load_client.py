@@ -5,6 +5,7 @@
 import argparse
 import time
 
+import tdigest
 from gevent import monkey
 from gevent.pool import Pool
 
@@ -12,11 +13,14 @@ monkey.patch_all()
 
 import logging
 from socketIO_client import BaseNamespace, SocketIO
+from socket import socket as Socket
 
 logger = logging.getLogger('client')
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
 logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
 current_conn_number = 0
+rcv_msg_number = 0
+digest = tdigest.TDigest()
 
 
 class FanoutNamespace(BaseNamespace):
@@ -34,7 +38,13 @@ class FanoutNamespace(BaseNamespace):
         logger.info('on message. msg = {}'.format(data))
 
     def on_my_event(self, data):
-        logger.info('on my event. msg = {}'.format(data))
+        # logger.info('on my event. msg = {}'.format(data))
+        ts = int(data)
+        now = int(time.time() * 1000)
+        delay = (now - ts)
+        digest.update(delay)
+        global rcv_msg_number
+        rcv_msg_number += 1
 
 
 parser = argparse.ArgumentParser()
@@ -54,6 +64,17 @@ socks = []
 port = args.port
 host = args.host
 
+_socket_connect = Socket.connect
+
+
+def my_socket_connect(self: Socket, address):
+    # logger.warning('socket {} bind to {}'.format(self, args.bind))
+    self.bind((args.bind, 0))
+    return _socket_connect(self, address)
+
+
+Socket.connect = my_socket_connect
+
 for rnd in range(batch_round):
     logger.warning('round #{} start'.format(rnd))
     exp_conn_number = (rnd + 1) * batch_size
@@ -67,4 +88,12 @@ for rnd in range(batch_round):
         time.sleep(5)
     logger.warning('round #{} ok. current_conn = {}'.format(rnd, current_conn_number))
 
+while rcv_msg_number != total_conn_number:
+    logger.warning('rcv_msg = {}, total_conn = {}'.format(rcv_msg_number, total_conn_number))
+    time.sleep(5)
+for s in socks:
+    s.disconnect()
+logger.warning(
+    'digest. p50 = {}, p90 = {}, p99 = {}'.format(
+        digest.percentile(50), digest.percentile(90), digest.percentile(99)))
 pool.join()

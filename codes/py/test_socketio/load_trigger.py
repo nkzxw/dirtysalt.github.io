@@ -2,6 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 import logging
+import time
 
 from flask_socketio import SocketIO
 
@@ -10,4 +11,5 @@ logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
 logger = logging.getLogger('trigger')
 
 socketio = SocketIO(message_queue='redis://localhost/0', channel='socketio-test')
-socketio.emit('my event', 'hello world', namespace='/fanout')
+ts = int(time.time() * 1000)
+socketio.emit('my event', ts, namespace='/fanout')
