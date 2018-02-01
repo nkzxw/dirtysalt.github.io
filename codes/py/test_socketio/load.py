@@ -2,7 +2,6 @@
 # coding:utf-8
 # Copyright (C) dirlt
 import logging
-import os
 
 from flask import Flask, request
 from flask_socketio import Namespace, SocketIO
@@ -14,24 +13,32 @@ logger = logging.getLogger('server')
 DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %(msg)s'
 logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
 
+total_connection = 0
 
-@app.route('/', methods=['GET'])
-@app.route('/room/<int:room>/', methods=['GET'])
-def index(room=0):
-    logger.warning(request.environ['REMOTE_ADDR'], request.environ['REMOTE_PORT'], room)
-    # return render_template('index.html')
-    return 'OK'
+
+@app.route('/fanout', methods=['GET'])
+def handle_fanout():
+    message = 'addr = {}, port = {}, room = {}, conn = {}'.format(request.environ['REMOTE_ADDR'],
+                                                                  request.environ['REMOTE_PORT'],
+                                                                  request.args.get('room', 0),
+                                                                  total_connection)
+    return message
 
 
 class FanoutNamespace(Namespace):
-    path = '/fanout.%s' % (os.getpid())
-
     def on_connect(self):
-        logger.warning('path = {}, on connect sid = {}, ({}:{})'.format(
-            self.path, request.sid, request.environ['REMOTE_ADDR'],
-            request.environ['REMOTE_PORT']))
+        msg = 'on connect sid = {}, ({}:{})'.format(
+            request.sid, request.environ['REMOTE_ADDR'],
+            request.environ['REMOTE_PORT'])
+        logger.info(msg)
+        global total_connection
+        total_connection += 1
+        pass
 
     def on_disconnect(self):
+        logger.info('disconnect sid = {}'.format(request.sid))
+        global total_connection
+        total_connection -= 1
         pass
 
     def on_message(self, message):
@@ -49,4 +56,4 @@ if __name__ == '__main__':
     port = 8080
     if len(sys.argv) >= 2:
         port = int(sys.argv[1])
-    socketio.run(app, debug=True, port=port)
+    socketio.run(app, debug=True, port=port, host='0.0.0.0')

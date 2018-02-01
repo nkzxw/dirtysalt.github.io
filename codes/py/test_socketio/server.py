@@ -15,9 +15,9 @@ DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %
 logging.basicConfig(level=logging.INFO, format=DEFAULT_LOGGING_FORMAT)
 
 
-@app.route('/', methods=['GET'])
-@app.route('/room/<int:room>/', methods=['GET'])
-def index(room=0):
+@app.route('/fanout', methods=['GET'])
+def index():
+    room = request.args.get('room', 0)
     logging.info(request.environ['REMOTE_ADDR'], request.environ['REMOTE_PORT'], room)
     # return render_template('index.html')
     return 'OK'
