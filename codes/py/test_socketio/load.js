@@ -6,8 +6,9 @@ if (args.length > 2) {
 }
 bind_address = '192.168.1.186'
 console.log('connect port =>', port)
+namespace = '/fanout'
 function create_connection(port) {
-    const socket = io('http://127.0.0.1:' + port + '/fanout', {
+    const socket = io('http://127.0.0.1:' + port + namespace, {
         // TODO: not working. too bad.
         localAddress: bind_address,
         extraHeaders: {

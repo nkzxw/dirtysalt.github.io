@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 # coding:utf-8
 # Copyright (C) dirlt
-import logging
 
+from gevent import monkey
+
+monkey.patch_all()
+
+import logging
 from flask import Flask, request
 from flask_socketio import Namespace, SocketIO
 
@@ -14,9 +18,10 @@ DEFAULT_LOGGING_FORMAT = '[%(asctime)s][%(levelname)s]%(filename)s@%(lineno)d: %
 logging.basicConfig(level=logging.WARN, format=DEFAULT_LOGGING_FORMAT)
 
 total_connection = 0
+ns_name = '/fanout'
 
 
-@app.route('/fanout', methods=['GET'])
+@app.route(ns_name, methods=['GET'])
 def handle_fanout():
     message = 'addr = {}, port = {}, room = {}, conn = {}'.format(request.environ['REMOTE_ADDR'],
                                                                   request.environ['REMOTE_PORT'],
@@ -33,6 +38,7 @@ class FanoutNamespace(Namespace):
         logger.info(msg)
         global total_connection
         total_connection += 1
+        # self.send('ACK', room=request.sid)
         pass
 
     def on_disconnect(self):
@@ -48,7 +54,7 @@ class FanoutNamespace(Namespace):
         pass
 
 
-socketio.on_namespace(FanoutNamespace('/fanout'))
+socketio.on_namespace(FanoutNamespace(ns_name))
 
 if __name__ == '__main__':
     import sys
@@ -56,4 +62,4 @@ if __name__ == '__main__':
     port = 8080
     if len(sys.argv) >= 2:
         port = int(sys.argv[1])
-    socketio.run(app, debug=True, port=port, host='0.0.0.0')
+    socketio.run(app, debug=False, port=port, host='0.0.0.0')

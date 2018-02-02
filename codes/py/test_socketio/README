@@ -11,8 +11,12 @@ ngx.conf提供了nginx的配置，可以使用 `multi_if.sh` 来创建多个网�
 -----
 
 load.* 主要是用来做压力测试
-- load.py flask-socketio编写的server
-- load2.py socketio编写的server, 性能可能会比flask-socketio高点
-- load.js nodejs编写的client.
+- load_fio.py flask-socketio编写的server
+- load_sio.py socketio编写的server, 性能可能会比flask-socketio高点
+- load.js nodejs编写的client, 但是没有使用
+- load_client.py 用python编写的client.
+- load_trigger.py 触发发送信息
 
 压力测试有个工具 https://github.com/M6Web/websocket-bench, 可以做点简单的benchmark.
+
+这个benchmark做了两个测试：连接延迟和接收消息延迟。最终state没有办法合并，因为没有办法做序列化，所以只能是每个进程看看链接延迟和消息延迟

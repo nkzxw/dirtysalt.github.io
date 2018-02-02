@@ -26,17 +26,20 @@ async def handle_fanout(request):
     return web.Response(text='query = "{}"'.format(request.query_string))
 
 
-@sio.on('connect', namespace='/fanout')
+namespace = '/'
+
+
+@sio.on('connect', namespace=namespace)
 async def connect(sid, _environ):
     logger.info('connect. sid = {}'.format(sid))
 
 
-@sio.on('disconnect', namespace='/fanout')
+@sio.on('disconnect', namespace=namespace)
 async def disconnect(sid):
     logger.info('disconnect. sid = {}'.format(sid))
 
 
-app.router.add_get('/fanout', handle_fanout)
+app.router.add_get(namespace, handle_fanout)
 
 if __name__ == '__main__':
     import sys
