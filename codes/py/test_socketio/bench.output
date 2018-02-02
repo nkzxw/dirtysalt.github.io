@@ -879,20 +879,12 @@ bind = 192.168.77.13, w = 1
 [2018-02-02 06:07:44,583][WARNING]load_client.py@153: (bind = 192.168.77.13, w = 0) QUIT !!!
 [2018-02-02 06:07:44,954][WARNING]load_client.py@153: (bind = 192.168.77.12, w = 1) QUIT !!!
 [2018-02-02 06:07:45,683][WARNING]load_client.py@153: (bind = 192.168.77.12, w = 0) QUIT !!!
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.11, w = 1): create conn: p50 = 41.77, p90 = 45.77, p99 = 52.88, recv message: p50 = 9430.20, p90 = 11351.60, p99 = 11759.4
-0
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.10, w = 0): create conn: p50 = 41.78, p90 = 45.87, p99 = 50.97, recv message: p50 = 9446.05, p90 = 11338.10, p99 = 11658.4
-5
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.10, w = 1): create conn: p50 = 41.78, p90 = 45.80, p99 = 50.88, recv message: p50 = 9458.33, p90 = 11320.57, p99 = 11652.9
-0
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.13, w = 1): create conn: p50 = 41.87, p90 = 45.76, p99 = 50.33, recv message: p50 = 9405.09, p90 = 11287.55, p99 = 11761.3
-0
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.11, w = 0): create conn: p50 = 41.64, p90 = 45.77, p99 = 50.33, recv message: p50 = 9395.18, p90 = 11316.40, p99 = 11671.7
-0
-[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.13, w = 0): create conn: p50 = 41.85, p90 = 45.89, p99 = 51.47, recv message: p50 = 9422.50, p90 = 11239.40, p99 = 11673.4
-5
-[2018-02-02 06:07:45,696][WARNING]load_client.py@180: state = (bind = 192.168.77.12, w = 1): create conn: p50 = 41.78, p90 = 45.71, p99 = 50.61, recv message: p50 = 9462.69, p90 = 11311.11, p99 = 11764.3
-0
-[2018-02-02 06:07:45,696][WARNING]load_client.py@180: state = (bind = 192.168.77.12, w = 0): create conn: p50 = 41.83, p90 = 45.82, p99 = 52.20, recv message: p50 = 9432.50, p90 = 11431.67, p99 = 11745.4
-5
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.11, w = 1): create conn: p50 = 41.77, p90 = 45.77, p99 = 52.88, recv message: p50 = 9430.20, p90 = 11351.60, p99 = 11759.40
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.10, w = 0): create conn: p50 = 41.78, p90 = 45.87, p99 = 50.97, recv message: p50 = 9446.05, p90 = 11338.10, p99 = 11658.45
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.10, w = 1): create conn: p50 = 41.78, p90 = 45.80, p99 = 50.88, recv message: p50 = 9458.33, p90 = 11320.57, p99 = 11652.90
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.13, w = 1): create conn: p50 = 41.87, p90 = 45.76, p99 = 50.33, recv message: p50 = 9405.09, p90 = 11287.55, p99 = 11761.30
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.11, w = 0): create conn: p50 = 41.64, p90 = 45.77, p99 = 50.33, recv message: p50 = 9395.18, p90 = 11316.40, p99 = 11671.70
+[2018-02-02 06:07:45,695][WARNING]load_client.py@180: state = (bind = 192.168.77.13, w = 0): create conn: p50 = 41.85, p90 = 45.89, p99 = 51.47, recv message: p50 = 9422.50, p90 = 11239.40, p99 = 11673.45
+[2018-02-02 06:07:45,696][WARNING]load_client.py@180: state = (bind = 192.168.77.12, w = 1): create conn: p50 = 41.78, p90 = 45.71, p99 = 50.61, recv message: p50 = 9462.69, p90 = 11311.11, p99 = 11764.30
+[2018-02-02 06:07:45,696][WARNING]load_client.py@180: state = (bind = 192.168.77.12, w = 0): create conn: p50 = 41.83, p90 = 45.82, p99 = 52.20, recv message: p50 = 9432.50, p90 = 11431.67, p99 = 11745.45
 (venv) [ec2-user@us_ws0 ~]$
