@@ -34,6 +34,12 @@
 
 <hr  />
 <ul class="org-ul">
+<li>_iX X是输入的行号，这个变量表示第X个输入的字符串</li>
+<li>_X 第X个输出的内容</li>
+</ul>
+
+<hr  />
+<ul class="org-ul">
 <li>%time: Time the execution of a single statement</li>
 <li>%timeit: Time repeated execution of a single statement for more accuracy</li>
 <li>%prun: Run code with the profiler</li>
@@ -53,7 +59,11 @@
 <li>%store output_variable &gt; output.txt 把变量内容输出到文件</li>
 <li>%logstart/off/on/stop 可以保存ipython下面所有执行的命令</li>
 <li>%reset 清除当前session下面所有的变量</li>
+<li>%xdel variable 清除当前sesison的某个变量</li>
 <li>%bookmark &lt;name&gt; &lt;dir&gt; / cd &lt;name&gt; / %bookmark -l 书签系统</li>
+<li>%who/%whos/%who_ls 列举当前环境下所有的变量</li>
+<li>%cpaste 格式化粘贴代码</li>
+<li>%page variable 通过分页器打印变量</li>
 </ul>
 
 
@@ -84,6 +94,10 @@ sns.set()
 plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 plt.rcParams['figure.figsize'] = (15, 5)
+# 或者使用下面这个方式
+plt.rc('font', **{'sans-serif': ['SimHei']})
+plt.rc('axes', **{'unicode_minus': False})
+plt.rc('figure', **{'figsize': (10, 10)})
 pd.set_option('display.width', 5000)
 pd.set_option('display.max_columns', 60)
 </pre>
