@@ -42,6 +42,10 @@ sns.set()
 plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 plt.rcParams['figure.figsize'] = (15, 5)
+# 或者使用下面这个方式
+plt.rc('font', **{'sans-serif': ['SimHei']})
+plt.rc('axes', **{'unicode_minus': False})
+plt.rc('figure', **{'figsize': (10, 10)})
 pd.set_option('display.width', 5000)
 pd.set_option('display.max_columns', 60)
 #+END_SRC
