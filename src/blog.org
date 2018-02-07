@@ -1,6 +1,8 @@
 #+title: blog
 
 ** 2018
+- 201802 [[file:./blogs/what-you-want-child-to-read-and-what-they-really-want-to-read.org][你想让儿童读的和儿童想读的]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/civilized-adults-dont-ask-why.org][文明成年人不问为什么]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/reading-list-for-undergraduate.org][给大学生的书单]] 摘自得到的《硅谷来信》
 - 201802 [[file:./blogs/grow-up-is-to-kill-the-monkey-king.org][成长的过程就是杀死我们心中的孙悟空]] 摘自得到的《硅谷来信》
 - 201801 [[file:./blogs/websocket-and-socketio.org][WebSocket和Socket.IO]]
