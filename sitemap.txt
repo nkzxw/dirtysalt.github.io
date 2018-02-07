@@ -438,6 +438,7 @@ https://dirtysalt.github.io/html/blogs/how-yelp-runs-millions-of-tests-every-day
 https://dirtysalt.github.io/html/blogs/calm-down-for-a-second.html
 https://dirtysalt.github.io/html/blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.html
 https://dirtysalt.github.io/html/blogs/bob-dylan-lyrics-collection.html
+https://dirtysalt.github.io/html/blogs/grow-up-is-to-kill-the-monkey-king.html
 https://dirtysalt.github.io/html/blogs/tool-is-to-free-people.html
 https://dirtysalt.github.io/html/blogs/jianshu-captcha.html
 https://dirtysalt.github.io/html/blogs/ssh-tunneling-python.html
@@ -660,6 +661,7 @@ https://dirtysalt.github.io/html/blogs/black-swan.html
 https://dirtysalt.github.io/html/blogs/heart-broken.html
 https://dirtysalt.github.io/html/blogs/my-thoughts-on-startup.html
 https://dirtysalt.github.io/html/blogs/discussion-on-rs.html
+https://dirtysalt.github.io/html/blogs/reading-list-for-undergraduate.html
 https://dirtysalt.github.io/html/blogs/beginning-of-a-hard-journey.html
 https://dirtysalt.github.io/html/blogs/retrospect-2014.html
 https://dirtysalt.github.io/html/blogs/dont-switch-to-yinxiang-note.html
