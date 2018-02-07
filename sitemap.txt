@@ -600,6 +600,7 @@ https://dirtysalt.github.io/html/blogs/the-hurt-locker.html
 https://dirtysalt.github.io/html/blogs/why-i-work-remotely-hint-it-has-nothing-to-do-with-productivity.html
 https://dirtysalt.github.io/html/blogs/authority-and-merit.html
 https://dirtysalt.github.io/html/blogs/the-catcher-in-the-rye.html
+https://dirtysalt.github.io/html/blogs/how-to-behave-systematically.html
 https://dirtysalt.github.io/html/blogs/geoffrey-hinton-interview-in-coursera.html
 https://dirtysalt.github.io/html/blogs/baidu-bit-shanghai-route.html
 https://dirtysalt.github.io/html/blogs/struggle-with-ubuntu.html
