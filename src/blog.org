@@ -1,6 +1,8 @@
 #+title: blog
 
 ** 2018
+- 201802 [[file:./blogs/reading-list-for-undergraduate.org][给大学生的书单]] 摘自得到的《硅谷来信》
+- 201802 [[file:./blogs/grow-up-is-to-kill-the-monkey-king.org][成长的过程就是杀死我们心中的孙悟空]] 摘自得到的《硅谷来信》
 - 201801 [[file:./blogs/websocket-and-socketio.org][WebSocket和Socket.IO]]
 - 201801 [[file:./blogs/intro-quantum-computing.org][量子计算机初探]]
 - 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
