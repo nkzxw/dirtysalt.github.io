@@ -404,6 +404,7 @@ https://dirtysalt.github.io/html/blogs/availability-vs-durability.html
 https://dirtysalt.github.io/html/blogs/cross-ocean.html
 https://dirtysalt.github.io/html/blogs/modern-operating-systems.html
 https://dirtysalt.github.io/html/blogs/the-times-they-are-changing.html
+https://dirtysalt.github.io/html/blogs/reading-list-for-children.html
 https://dirtysalt.github.io/html/blogs/zhihu-hft-engineer.html
 https://dirtysalt.github.io/html/blogs/the-signal-and-the-noise.html
 https://dirtysalt.github.io/html/blogs/drive-learning.html
@@ -529,6 +530,7 @@ https://dirtysalt.github.io/html/blogs/retrospect-2012.html
 https://dirtysalt.github.io/html/blogs/10-lessons-from-10-years-of-aws.html
 https://dirtysalt.github.io/html/blogs/mxnet-neural-art.html
 https://dirtysalt.github.io/html/blogs/ostep-con-cv.html
+https://dirtysalt.github.io/html/blogs/dare-to-be-a-complicated-man.html
 https://dirtysalt.github.io/html/blogs/talk-with-nenad.html
 https://dirtysalt.github.io/html/blogs/a-possible-impl-of-abtest-sys.html
 https://dirtysalt.github.io/html/blogs/do-house-work-as-leisure.html
