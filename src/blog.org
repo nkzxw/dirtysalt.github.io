@@ -1,6 +1,9 @@
 #+title: blog
 
 ** 2018
+- 201802 [[file:./blogs/hard-learning.org][强力研读]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/freedom-and-affiliation.org][自由人与依附感]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/management-actually-is-engineering.org][管理其实是个工程学]] 摘自得到的《精英日课》
 - 201802 [[file:blogs/how-to-behave-systematically.org][怎样用系统下一盘大棋]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/dare-to-be-a-complicated-man.org][敢不敢做个复杂的人]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/reading-list-for-children.org][给小学生的书单]] 摘自得到的《精英日课》
