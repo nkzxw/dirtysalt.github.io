@@ -34,6 +34,9 @@ WebSocket的诞生源于在Web端上做实时应用的需求。在实现技术�
 这样计算下来，每个网卡对应 5000 * 2 = 1w个连接，一共4w个连接。
 
 实际观察到创建了16w个链接，这个是因为client端会创建两个连接(这个似乎是python socket.io client的问题，我没有办法正确地使用默认的namespace).
+
+UPDATE@2018-02: 在load_client.py里面需要主动地调用connect(path = '/')接口
+
 #+BEGIN_EXAMPLE
 (venv) [ec2-user@us_ws0 ~]$ ss -s
 Total: 160607 (kernel 0)

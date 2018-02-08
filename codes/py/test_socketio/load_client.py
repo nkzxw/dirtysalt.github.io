@@ -119,6 +119,7 @@ def run(bind_address, _worker_idx):
         for i in range(batch_size):
             # NOTE: 使用这种方式可能可以减少链接数量，因为默认是链接 '/'. But not working.!!!
             # sock = SocketIO(host=host, port=port, Namespace=FanoutNamespace)
+            # NOTE: 后来我发现这个是可以work的，不过需要主动调用 connect(path = '/')
             sock = SocketIO(host=host, port=port)
             sock.define(BindFanoutNamespace, args.namespace)
             socks.append(sock)
