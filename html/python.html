@@ -584,6 +584,23 @@ start producer
 <li>send/recv timeout可以通过socket.setdefaulttimeout()来设置，全局设置对所有socket有效.</li>
 <li>对单个socket可以通过设置connection.sock.settimeout完成，但是必须首先connect才能够获得sock对象.</li>
 </ul>
+
+<p>
+UPDATE@201802 socket client其实是支持绑定地址的，这个对于多网卡机器非常有用，但是很多lib包括httplib以及requests这类库都不支持。不过python有个好处就是可以很容易地做monkey patch，我们可以直接在socket调用connect之前做地址/端口绑定
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python">from socket import Socket
+ _socket_connect = Socket.connect
+
+def my_socket_connect(self: Socket, address):
+    # logger.warning('socket {} bind to {}'.format(self, args.bind))
+    self.bind((bind_address, 0))
+    return _socket_connect(self, address)
+
+Socket.connect = my_socket_connect
+</pre>
+</div>
 </div>
 </div>
 
@@ -644,6 +661,37 @@ In [13]: timeit time.strftime('%Y-%m-%d %H:%M:%S', st)
     return st
 </pre>
 </div>
+
+<p>
+UPDATE@201802: 解析各种时间格式是非常麻烦的事情，好在有个 `python-dateutil` 库可以来解决这个问题。另外如果需要处理多个时区的话，最好统一转换成为UTC时间来处理。`python-dateutil` 有时候无法是被某些特定的timezone, 可以通过 `tzinfos` 字段来告诉如何处理
+</p>
+<div class="org-src-container">
+
+<pre class="src src-Python">TZINFOS = {'PST': -8 * 3600}
+
+def parse_date(s):
+    if not s:
+        return None
+    try:
+        x = dateutil.parser.parse(s, tzinfos=TZINFOS)
+        tzinfo = getattr(x, 'tzinfo')
+        if tzinfo:
+            offset = tzinfo.utcoffset(x)
+            y = x - offset
+            x = y.replace(tzinfo=None)
+        return x
+    except Exception:
+        logger.exception('parse date %s' % s)
+        return None
+</pre>
+</div>
+
+<pre class="example">
+s = 'Fri, 9 Feb 2018 03:00:00 PST'
+parse_date(s)
+
+Out[5]: datetime.datetime(2018, 2, 9, 11, 0)
+</pre>
 </div>
 </div>
 
