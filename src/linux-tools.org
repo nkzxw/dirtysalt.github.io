@@ -298,7 +298,7 @@ file:./images/iftop-illustration.png
 https://iperf.fr/ 测量网络吞吐
 
 *** mtr
-my traceroute. ping和traceroute两个工具的合体. 两种工作方式, 一种是实时查看, 一种是生成报表. 
+my traceroute. ping和traceroute两个工具的合体. 两种工作方式, 一种是实时查看, 一种是生成报表.
 两者区别是实时查看的话mtr会不断地发送ICMP, 而报表模式则需要指定发送多少个ICMP.
 
 #+BEGIN_EXAMPLE
@@ -447,6 +447,8 @@ ntp(network time protocol)是用来做机器时间同步的，包含下面几个
 - INPUT ACCEPT 所有输入都接受
 - FORWARD ACCEPT 所有转发接受
 - OUTPUT ACCEPT 所有输出接受
+
+`/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT` 打开80端口
 
 `iptables -A [chain] [chain-specification]` 添加规则
 #+BEGIN_EXAMPLE

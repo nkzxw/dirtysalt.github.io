@@ -6,4 +6,4 @@ T11的文艺模型主要关心的就是极限吞吐。极限吞吐(sustained thr
 
 后来云风一篇关于 [[http://blog.codingnow.com/2012/02/ring_buffer.html][RingBuffer博文]] 重新让我思考了这个问题。我重新阅读了一下T11的Kylin代码，主要也是关于内存管理的部分。虽然内存管理部分非常简单，但是也是存在部分策略在里面的。之后T11在微博上也和我提到了这点，就是对于一个复杂点的系统来说，比如存储系统等，如果要实现得好，至少一半以上的工作是在做OS。。无独有偶，就在前几天tencent的一个后台开发总监也提到了这个问题，关于[[http://djt.qq.com/article-156-1.html][过载保护]] 。思想和T11文艺模型是一样的。
 
-T11确实是一个看过同时做过很多的人。这是他空间的一篇文章[[http://hi.baidu.com/linsd99/blog/item/dbdaef3ce804f3e054e72392.html][列举了架构相关的学习材料]]。
+T11确实是一个看过同时做过很多的人。这是他空间的一篇文章 [[https://www.evernote.com/l/AFGiqVw8jQxNeYfgAPLmHgrblL5xu4gJp-o][列举了架构相关的学习材料]]。

@@ -39,3 +39,8 @@
      - 西三环支行
    - [[http://images.cmbchina.com/pv_obj_cache/pv_obj_id_1E163A4B312BA92769B0A93769F7D378AD8E0100/filename/38732f4a-a956-4724-a8e0-31b6a7f0b0e9.pdf][内地网点清单1]]
    - [[http://images.cmbchina.com/pv_obj_cache/pv_obj_id_9996965F595D5AD8512924A77B2495BCEDFA0000/filename/01767695-fdc5-42e1-8d70-544f58f53f4b.pdf][内网网点清单2]]
+
+-----
+UPDATE@2017-02 收到一条短信说，"您的香港一卡通长期未有网银转账，现限额被调整为零，内地一卡通不受影响，您可于一个月内通过网银恢复限额，如疑请询客服热线。2017-02-15[招商银行]" ，网上找了一下，只需要在网银里面“其他->限额管理”重置一下网银限额就行。 [[https://zhidao.baidu.com/question/1511759599973877460.html][link]]
+
+file:../images/cmb-hk-reset-limitation.jpg

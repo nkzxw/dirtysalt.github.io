@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     version="2.0">
+    <channel>
+        <atom:link href="http://file.dirtysalt.info/rss/ytf-history-class.xml" type="application/rss+xml" rel="self"/>
+        <copyright>dirtysalt</copyright>
+        <link>http://dirtysalt.github.io</link>
+        <language>zh-cn</language>
+
+        <title>袁腾飞历史课程</title>
+        <description>1. 中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞
+2. 中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞
+3. 中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞
+4. 中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞
+5. 中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞
+6. 中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞
+7. 中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞
+8. 中国古代史.01.先秦（上）.袁腾飞
+9. 中国古代史.02.先秦（下）、秦汉（上）.袁腾飞
+10. 中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞
+11. 中国古代史.04.魏晋南北朝（下）.袁腾飞
+12. 中国古代史.05.隋唐（一）.袁腾飞
+13. 中国古代史.06.隋唐（二）.袁腾飞
+14. 中国古代史.07.隋唐（三）.袁腾飞
+15. 中国古代史.08.隋唐（四）.袁腾飞
+16. 中国古代史.09.宋元（一）.袁腾飞
+17. 中国古代史.10.宋元（二）.袁腾飞
+18. 中国古代史.12.明清（一）.袁腾飞
+19. 中国古代史.13.明清（二）.袁腾飞
+20. 中国古代史.14.明清（三）.袁腾飞
+21. 中国古代史.15.明清（四）.袁腾飞
+22. 中国古代史.16.明清（五）.袁腾飞
+23. 中国古代史.17.明清（六）.袁腾飞
+24. 当代政治格局.01.现代中国外交1.袁腾飞
+25. 当代政治格局.02.现代中国外交2.袁腾飞
+26. 当代政治格局.03.世界格局多极化1.袁腾飞
+27. 当代政治格局.04.世界格局多极化2.袁腾飞
+28. 改革-民主-战争-人物.01.明治维新（上）.袁腾飞
+29. 改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞
+30. 改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞
+31. 改革-民主-战争-人物.05.俄国1861年改革.袁腾飞
+32. 改革-民主-战争-人物.06.中国古代的改革.袁腾飞
+33. 改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞
+34. 改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞
+35. 改革-民主-战争-人物.09.法国大革命.袁腾飞
+36. 改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞
+37. 改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞
+38. 改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞
+39. 改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞
+40. 改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞
+41. 改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞
+42. 改革-民主-战争-人物.16.综合练习.袁腾飞
+43. 改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞
+44. 改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞
+45. 改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞
+46. 改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞
+47. 改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞
+48. 改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞
+49. 改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞
+50. 改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞
+51. 近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞
+52. 近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞
+53. 近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞
+54. 近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞
+55. 近现代史.05.北洋军阀的统治、新文化运动.袁腾飞
+56. 近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞
+57. 近现代史.07.国共的十年对峙（下）.袁腾飞
+58. 近现代史.08.抗日战争.袁腾飞
+59. 近现代史.09.人民解放战争、过渡时期.袁腾飞
+60. 近现代史.12.现代化建设新局面的形成.袁腾飞
+61. 近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞
+62. 近现代史.14.欧洲资本主义的兴起（上）.袁腾飞
+63. 近现代史.15.欧洲的资本主义兴起（下）、资产阶级革命时代的东西方（上）.袁腾飞
+64. 近现代史.16.资产阶级革命时代的东西方（下）.袁腾飞
+65. 近现代史.17.启蒙运动、工业化初期.袁腾飞
+66. 近现代史.18.自由资本主义（上）.袁腾飞
+67. 近现代史.19.自由资本主义（中）.袁腾飞
+68. 近现代史.20.自由资本主义（下）、垄断资本主义（上）.袁腾飞
+69. 近现代史.21.垄断资本主义（下）.袁腾飞
+70. 近现代史.22.两次大战间的世界（上）.袁腾飞
+71. 近现代史.23.两次大战间的世界（下）.袁腾飞
+72. 近现代史.24.第二次世界大战、两极格局（上）.袁腾飞
+73. 近现代史.25.两极格局（下）.袁腾飞
+74. 高考历史针对D.模拟训练7.袁腾飞
+75. 高考历史针对D.模拟训练8.袁腾飞
+76. 高考考前讲座A.世界史串讲复习.袁腾飞
+77. 高考考前讲座A.世界格局多极化.袁腾飞
+78. 高考考前讲座A.综合练习1.袁腾飞
+79. 高考考前讲座A.综合练习2.袁腾飞
+80. 高考考前讲座A.综合练习3.袁腾飞
+81. 高考考前讲座A.综合练习4.袁腾飞
+82. 高考考前讲座A.综合练习5.袁腾飞
+83. 高考考前讲座A.综合练习6.袁腾飞
+84. 高考考前讲座B.袁腾飞
+85. 高考考前讲座C.解题思路和复习建议.袁腾飞
+86. 高考考前讲座D.模拟训练1.袁腾飞
+87. 高考考前讲座D.模拟训练2.袁腾飞
+88. 高考考前讲座D.模拟训练3.袁腾飞
+89. 高考考前讲座D.模拟训练4.袁腾飞
+90. 高考考前讲座D.模拟训练5.袁腾飞
+91. 高考考前讲座D.模拟训练6.袁腾飞
+92. 高考考前讲座E.高考热点问题举例.袁腾飞</description>
+        <pubDate>Sat, 23 Sep 2017 08:39:42 -0000</pubDate>
+
+        <itunes:summary></itunes:summary>
+        <itunes:subtitle></itunes:subtitle>
+        <itunes:author>dirtysalt</itunes:author>
+        <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+        <itunes:owner>
+            <itunes:name>dirtysalt</itunes:name>
+            <itunes:email>dirtysalt1987@gmail.com</itunes:email>
+        </itunes:owner>
+        <itunes:keywords></itunes:keywords>
+        <itunes:category text="Education"/>
+        <itunes:explicit>no</itunes:explicit>
+
+        
+        <item>
+            <title>中国古代及世界近现代政治史.1.中国古代的政治制度（上）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>1</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.1.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%94%BF%E6%B2%BB%E5%88%B6%E5%BA%A6%EF%BC%88%E4%B8%8A%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54109674"/>
+            <itunes:duration>01:52:43</itunes:duration>
+            <guid isPermaLink="false">46df9c27-1b9b-3530-ad78-9e133e54b5e4</guid>
+            <pubDate>Sat, 23 Sep 2017 08:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.2.中国古代的政治制度（下）、西方近代民主政治（一）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>2</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.2.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%94%BF%E6%B2%BB%E5%88%B6%E5%BA%A6%EF%BC%88%E4%B8%8B%EF%BC%89%E3%80%81%E8%A5%BF%E6%96%B9%E8%BF%91%E4%BB%A3%E6%B0%91%E4%B8%BB%E6%94%BF%E6%B2%BB%EF%BC%88%E4%B8%80%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="53311581"/>
+            <itunes:duration>01:51:03</itunes:duration>
+            <guid isPermaLink="false">ac527477-6d4e-3032-80a4-7dce325860ce</guid>
+            <pubDate>Sat, 23 Sep 2017 07:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.3.西方近代民主政治（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>3</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.3.%E8%A5%BF%E6%96%B9%E8%BF%91%E4%BB%A3%E6%B0%91%E4%B8%BB%E6%94%BF%E6%B2%BB%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="51749668"/>
+            <itunes:duration>01:47:48</itunes:duration>
+            <guid isPermaLink="false">90156e43-07bb-3851-b55e-1ad645f74eb1</guid>
+            <pubDate>Sat, 23 Sep 2017 06:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.4.近代中国反侵略、求民主的潮流（一）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>4</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.4.%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%8F%8D%E4%BE%B5%E7%95%A5%E3%80%81%E6%B1%82%E6%B0%91%E4%B8%BB%E7%9A%84%E6%BD%AE%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52730201"/>
+            <itunes:duration>01:49:51</itunes:duration>
+            <guid isPermaLink="false">80cce16a-0ebe-36a9-8179-46bbb6d4aa92</guid>
+            <pubDate>Sat, 23 Sep 2017 05:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.5.近代中国反侵略、求民主的潮流（二）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>5</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.5.%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%8F%8D%E4%BE%B5%E7%95%A5%E3%80%81%E6%B1%82%E6%B0%91%E4%B8%BB%E7%9A%84%E6%BD%AE%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52227186"/>
+            <itunes:duration>01:48:48</itunes:duration>
+            <guid isPermaLink="false">39413a20-f02c-37f5-8e03-d7e0c9e1f456</guid>
+            <pubDate>Sat, 23 Sep 2017 04:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.6.近代中国反侵略、求民主的潮流（三）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>6</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.6.%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%8F%8D%E4%BE%B5%E7%95%A5%E3%80%81%E6%B1%82%E6%B0%91%E4%B8%BB%E7%9A%84%E6%BD%AE%E6%B5%81%EF%BC%88%E4%B8%89%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="50458383"/>
+            <itunes:duration>01:45:07</itunes:duration>
+            <guid isPermaLink="false">c3ea104c-775c-3f57-8017-c2dd39a958bc</guid>
+            <pubDate>Sat, 23 Sep 2017 03:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代及世界近现代政治史.7.近代中国反侵略、求民主的潮流（四）袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>7</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%8A%E4%B8%96%E7%95%8C%E8%BF%91%E7%8E%B0%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%8F%B2.7.%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%8F%8D%E4%BE%B5%E7%95%A5%E3%80%81%E6%B1%82%E6%B0%91%E4%B8%BB%E7%9A%84%E6%BD%AE%E6%B5%81%EF%BC%88%E5%9B%9B%EF%BC%89%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="50424946"/>
+            <itunes:duration>01:45:03</itunes:duration>
+            <guid isPermaLink="false">a26afa93-62fb-3bda-ab8d-0b5193b369c6</guid>
+            <pubDate>Sat, 23 Sep 2017 02:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.01.先秦（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>8</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.01.%E5%85%88%E7%A7%A6%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="56200934"/>
+            <itunes:duration>01:57:05</itunes:duration>
+            <guid isPermaLink="false">0e26177b-f8a5-3b80-a042-92ca3aa699e4</guid>
+            <pubDate>Sat, 23 Sep 2017 01:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.02.先秦（下）、秦汉（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>9</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.02.%E5%85%88%E7%A7%A6%EF%BC%88%E4%B8%8B%EF%BC%89%E3%80%81%E7%A7%A6%E6%B1%89%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="53122455"/>
+            <itunes:duration>01:50:40</itunes:duration>
+            <guid isPermaLink="false">99007661-d4b2-312f-81aa-68286554386a</guid>
+            <pubDate>Sat, 23 Sep 2017 00:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.03.秦汉（下）、魏晋南北朝（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>10</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.03.%E7%A7%A6%E6%B1%89%EF%BC%88%E4%B8%8B%EF%BC%89%E3%80%81%E9%AD%8F%E6%99%8B%E5%8D%97%E5%8C%97%E6%9C%9D%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55500225"/>
+            <itunes:duration>01:55:37</itunes:duration>
+            <guid isPermaLink="false">a93c1bba-03ed-3a0c-8668-cfc0eeccca52</guid>
+            <pubDate>Fri, 22 Sep 2017 23:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.04.魏晋南北朝（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>11</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.04.%E9%AD%8F%E6%99%8B%E5%8D%97%E5%8C%97%E6%9C%9D%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="35494608"/>
+            <itunes:duration>01:13:56</itunes:duration>
+            <guid isPermaLink="false">9135f82b-9cfc-3e2f-9a19-2c570219b70e</guid>
+            <pubDate>Fri, 22 Sep 2017 22:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.05.隋唐（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>12</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.05.%E9%9A%8B%E5%94%90%EF%BC%88%E4%B8%80%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="39526998"/>
+            <itunes:duration>01:22:20</itunes:duration>
+            <guid isPermaLink="false">d8c36c49-73c6-3bd2-a2d5-313668522ebd</guid>
+            <pubDate>Fri, 22 Sep 2017 21:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.06.隋唐（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>13</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.06.%E9%9A%8B%E5%94%90%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54099772"/>
+            <itunes:duration>01:52:42</itunes:duration>
+            <guid isPermaLink="false">c7665e3c-2b70-306e-9e0b-4ddb8c5578ff</guid>
+            <pubDate>Fri, 22 Sep 2017 20:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.07.隋唐（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>14</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.07.%E9%9A%8B%E5%94%90%EF%BC%88%E4%B8%89%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="47112411"/>
+            <itunes:duration>01:38:08</itunes:duration>
+            <guid isPermaLink="false">2a6b575d-a8e9-3e7c-b1e9-221568f49fc1</guid>
+            <pubDate>Fri, 22 Sep 2017 19:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.08.隋唐（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>15</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.08.%E9%9A%8B%E5%94%90%EF%BC%88%E5%9B%9B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="28430182"/>
+            <itunes:duration>00:59:13</itunes:duration>
+            <guid isPermaLink="false">64fc77c6-fc78-3370-a877-a26f217e54e3</guid>
+            <pubDate>Fri, 22 Sep 2017 18:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.09.宋元（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>16</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.09.%E5%AE%8B%E5%85%83%EF%BC%88%E4%B8%80%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55908571"/>
+            <itunes:duration>01:56:28</itunes:duration>
+            <guid isPermaLink="false">25280494-67ef-3a95-8e49-c769154240a7</guid>
+            <pubDate>Fri, 22 Sep 2017 17:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.10.宋元（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>17</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.10.%E5%AE%8B%E5%85%83%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54124721"/>
+            <itunes:duration>01:52:45</itunes:duration>
+            <guid isPermaLink="false">c8f61d7c-54c9-3f08-8564-a14078ed99ae</guid>
+            <pubDate>Fri, 22 Sep 2017 16:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.12.明清（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>18</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.12.%E6%98%8E%E6%B8%85%EF%BC%88%E4%B8%80%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="47171761"/>
+            <itunes:duration>01:38:16</itunes:duration>
+            <guid isPermaLink="false">c0318b73-6634-3dba-b57c-958389d87c8c</guid>
+            <pubDate>Fri, 22 Sep 2017 15:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.13.明清（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>19</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.13.%E6%98%8E%E6%B8%85%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52053524"/>
+            <itunes:duration>01:48:26</itunes:duration>
+            <guid isPermaLink="false">9878792b-95d7-3a06-bf33-ee6a84824edb</guid>
+            <pubDate>Fri, 22 Sep 2017 14:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.14.明清（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>20</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.14.%E6%98%8E%E6%B8%85%EF%BC%88%E4%B8%89%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52040150"/>
+            <itunes:duration>01:48:24</itunes:duration>
+            <guid isPermaLink="false">f186c7f5-cf75-3774-a3b8-3550d37552f0</guid>
+            <pubDate>Fri, 22 Sep 2017 13:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.15.明清（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>21</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.15.%E6%98%8E%E6%B8%85%EF%BC%88%E5%9B%9B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="56006920"/>
+            <itunes:duration>01:56:40</itunes:duration>
+            <guid isPermaLink="false">922a9719-8003-3246-af25-5fd15127ad76</guid>
+            <pubDate>Fri, 22 Sep 2017 12:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.16.明清（五）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>22</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.16.%E6%98%8E%E6%B8%85%EF%BC%88%E4%BA%94%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="49068878"/>
+            <itunes:duration>01:42:13</itunes:duration>
+            <guid isPermaLink="false">8eec8c95-af9a-34be-a9be-f0b45ae86ed8</guid>
+            <pubDate>Fri, 22 Sep 2017 11:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>中国古代史.17.明清（六）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>23</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2.17.%E6%98%8E%E6%B8%85%EF%BC%88%E5%85%AD%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="51862308"/>
+            <itunes:duration>01:48:02</itunes:duration>
+            <guid isPermaLink="false">cc61d4d4-ef91-336c-969e-187d1eb19b42</guid>
+            <pubDate>Fri, 22 Sep 2017 10:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>当代政治格局.01.现代中国外交1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>24</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E5%BD%93%E4%BB%A3%E6%94%BF%E6%B2%BB%E6%A0%BC%E5%B1%80.01.%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A41.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27583477"/>
+            <itunes:duration>00:57:27</itunes:duration>
+            <guid isPermaLink="false">890d40e7-c811-33b6-a942-6de503a776b1</guid>
+            <pubDate>Fri, 22 Sep 2017 09:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>当代政治格局.02.现代中国外交2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>25</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E5%BD%93%E4%BB%A3%E6%94%BF%E6%B2%BB%E6%A0%BC%E5%B1%80.02.%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A42.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27135425"/>
+            <itunes:duration>00:56:31</itunes:duration>
+            <guid isPermaLink="false">6764ece5-5412-3d4b-9625-7fe94c5f3664</guid>
+            <pubDate>Fri, 22 Sep 2017 08:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>当代政治格局.03.世界格局多极化1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>26</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E5%BD%93%E4%BB%A3%E6%94%BF%E6%B2%BB%E6%A0%BC%E5%B1%80.03.%E4%B8%96%E7%95%8C%E6%A0%BC%E5%B1%80%E5%A4%9A%E6%9E%81%E5%8C%961.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="29615386"/>
+            <itunes:duration>01:01:41</itunes:duration>
+            <guid isPermaLink="false">887aafee-c2e0-3f1c-ae96-f6c517d33a31</guid>
+            <pubDate>Fri, 22 Sep 2017 07:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>当代政治格局.04.世界格局多极化2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>27</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E5%BD%93%E4%BB%A3%E6%94%BF%E6%B2%BB%E6%A0%BC%E5%B1%80.04.%E4%B8%96%E7%95%8C%E6%A0%BC%E5%B1%80%E5%A4%9A%E6%9E%81%E5%8C%962.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26446629"/>
+            <itunes:duration>00:55:05</itunes:duration>
+            <guid isPermaLink="false">7c030d0b-0c25-325b-91f4-3c4a3a615881</guid>
+            <pubDate>Fri, 22 Sep 2017 06:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.01.明治维新（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>28</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.01.%E6%98%8E%E6%B2%BB%E7%BB%B4%E6%96%B0%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54547825"/>
+            <itunes:duration>01:53:38</itunes:duration>
+            <guid isPermaLink="false">30c349b4-c1b8-3883-b600-04f7ee9b351a</guid>
+            <pubDate>Fri, 22 Sep 2017 05:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.03.戊戌变法（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>29</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.03.%E6%88%8A%E6%88%8C%E5%8F%98%E6%B3%95%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="17092867"/>
+            <itunes:duration>00:35:36</itunes:duration>
+            <guid isPermaLink="false">e401762b-e40c-3a7b-aa9e-cac2fff5f30b</guid>
+            <pubDate>Fri, 22 Sep 2017 04:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.04.戊戌变法（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>30</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.04.%E6%88%8A%E6%88%8C%E5%8F%98%E6%B3%95%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="41449984"/>
+            <itunes:duration>01:26:21</itunes:duration>
+            <guid isPermaLink="false">094f5b67-1f9c-38c7-ba24-700d7f5cc46b</guid>
+            <pubDate>Fri, 22 Sep 2017 03:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.05.俄国1861年改革.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>31</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.05.%E4%BF%84%E5%9B%BD1861%E5%B9%B4%E6%94%B9%E9%9D%A9.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="13859871"/>
+            <itunes:duration>00:28:52</itunes:duration>
+            <guid isPermaLink="false">ad3a1ce9-d053-3c66-8771-2a60a66a59e8</guid>
+            <pubDate>Fri, 22 Sep 2017 02:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.06.中国古代的改革.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>32</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.06.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%94%B9%E9%9D%A9.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="51846216"/>
+            <itunes:duration>01:48:00</itunes:duration>
+            <guid isPermaLink="false">4ea6f126-a170-3b9e-a6a6-ffa4ddbe16d5</guid>
+            <pubDate>Fri, 22 Sep 2017 01:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.07.《历史上重大改革回眸》专项训练.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>33</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.07.%E3%80%8A%E5%8E%86%E5%8F%B2%E4%B8%8A%E9%87%8D%E5%A4%A7%E6%94%B9%E9%9D%A9%E5%9B%9E%E7%9C%B8%E3%80%8B%E4%B8%93%E9%A1%B9%E8%AE%AD%E7%BB%83.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="34927985"/>
+            <itunes:duration>01:12:45</itunes:duration>
+            <guid isPermaLink="false">5b536d26-442a-3f4d-86e0-c1a5deae2bde</guid>
+            <pubDate>Fri, 22 Sep 2017 00:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.08.英、美民主政治的建立.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>34</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.08.%E8%8B%B1%E3%80%81%E7%BE%8E%E6%B0%91%E4%B8%BB%E6%94%BF%E6%B2%BB%E7%9A%84%E5%BB%BA%E7%AB%8B.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55474022"/>
+            <itunes:duration>01:55:34</itunes:duration>
+            <guid isPermaLink="false">d0265a00-6426-309d-a2e9-64c8be5805c4</guid>
+            <pubDate>Thu, 21 Sep 2017 23:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.09.法国大革命.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>35</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.09.%E6%B3%95%E5%9B%BD%E5%A4%A7%E9%9D%A9%E5%91%BD.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55251459"/>
+            <itunes:duration>01:55:06</itunes:duration>
+            <guid isPermaLink="false">056b653a-0452-3ad5-b433-fd15d69c419b</guid>
+            <pubDate>Thu, 21 Sep 2017 22:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.10.近代中国的民主进程.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>36</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.10.%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%9A%84%E6%B0%91%E4%B8%BB%E8%BF%9B%E7%A8%8B.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="37259570"/>
+            <itunes:duration>01:17:37</itunes:duration>
+            <guid isPermaLink="false">20e28fe5-8ea3-3783-844d-79ccb32c5d61</guid>
+            <pubDate>Thu, 21 Sep 2017 21:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.11.中国古代的杰出帝王（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>37</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.11.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%9D%B0%E5%87%BA%E5%B8%9D%E7%8E%8B%EF%BC%88%E4%B8%80%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26484164"/>
+            <itunes:duration>00:55:10</itunes:duration>
+            <guid isPermaLink="false">be2869bd-3c0b-3e87-b607-cad462c85125</guid>
+            <pubDate>Thu, 21 Sep 2017 20:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.12.中国古代的杰出帝王（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>38</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.12.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%9D%B0%E5%87%BA%E5%B8%9D%E7%8E%8B%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27469294"/>
+            <itunes:duration>00:57:13</itunes:duration>
+            <guid isPermaLink="false">9db1307a-ed19-301e-8ad1-80bb89b7fe0e</guid>
+            <pubDate>Thu, 21 Sep 2017 19:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.13.中国古代的杰出帝王（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>39</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.13.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%9D%B0%E5%87%BA%E5%B8%9D%E7%8E%8B%EF%BC%88%E4%B8%89%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="25608749"/>
+            <itunes:duration>00:53:21</itunes:duration>
+            <guid isPermaLink="false">a6de8845-e2a3-31a0-9a97-42fc9cebf814</guid>
+            <pubDate>Thu, 21 Sep 2017 18:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.14.中国古代的杰出帝王（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>40</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.14.%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%9A%84%E6%9D%B0%E5%87%BA%E5%B8%9D%E7%8E%8B%EF%BC%88%E5%9B%9B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="28733621"/>
+            <itunes:duration>00:59:51</itunes:duration>
+            <guid isPermaLink="false">2673f7e6-1b2a-3fce-bc2e-37600a87b04b</guid>
+            <pubDate>Thu, 21 Sep 2017 17:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.15.西方资产阶级革命领袖.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>41</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.15.%E8%A5%BF%E6%96%B9%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E9%9D%A9%E5%91%BD%E9%A2%86%E8%A2%96.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="21396845"/>
+            <itunes:duration>00:44:34</itunes:duration>
+            <guid isPermaLink="false">7287f099-0fef-3a99-8b69-57dfccdf7e9b</guid>
+            <pubDate>Thu, 21 Sep 2017 16:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.16.综合练习.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>42</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.16.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="20074004"/>
+            <itunes:duration>00:41:49</itunes:duration>
+            <guid isPermaLink="false">355f255e-9224-35e6-9290-17598dee6a82</guid>
+            <pubDate>Thu, 21 Sep 2017 15:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.17.第一次世界大战（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>43</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.17.%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27730182"/>
+            <itunes:duration>00:57:46</itunes:duration>
+            <guid isPermaLink="false">aa10c7ab-4b6c-3047-835a-ec1ad69ebfa4</guid>
+            <pubDate>Thu, 21 Sep 2017 14:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.18.第一次世界大战（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>44</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.18.%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27096346"/>
+            <itunes:duration>00:56:26</itunes:duration>
+            <guid isPermaLink="false">60982f85-b1fb-3144-9158-df5fcb97bdea</guid>
+            <pubDate>Thu, 21 Sep 2017 13:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.19.第二次世界大战（一）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>45</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.19.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27056640"/>
+            <itunes:duration>00:56:22</itunes:duration>
+            <guid isPermaLink="false">a3692ba6-9d3c-3107-9d0f-397df3849d96</guid>
+            <pubDate>Thu, 21 Sep 2017 12:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.20.第二次世界大战（二）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>46</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.20.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27314103"/>
+            <itunes:duration>00:56:54</itunes:duration>
+            <guid isPermaLink="false">e0c01a15-02ee-3110-839e-7bd10c03d849</guid>
+            <pubDate>Thu, 21 Sep 2017 11:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.21.第二次世界大战（三）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>47</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.21.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="27139814"/>
+            <itunes:duration>00:56:32</itunes:duration>
+            <guid isPermaLink="false">f1ed8581-93f3-3eef-a5cb-339d93308007</guid>
+            <pubDate>Thu, 21 Sep 2017 10:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.22.第二次世界大战（四）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>48</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.22.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="28227762"/>
+            <itunes:duration>00:58:48</itunes:duration>
+            <guid isPermaLink="false">0da03465-5378-32f1-9ac3-728aa595e72c</guid>
+            <pubDate>Thu, 21 Sep 2017 09:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.23.第二次世界大战（五）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>49</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.23.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E4%BA%94%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26787683"/>
+            <itunes:duration>00:55:48</itunes:duration>
+            <guid isPermaLink="false">8b833259-d9c2-3d0a-a9d3-d5185a7169a4</guid>
+            <pubDate>Thu, 21 Sep 2017 08:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>改革-民主-战争-人物.24.第二次世界大战（六）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>50</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E6%94%B9%E9%9D%A9-%E6%B0%91%E4%B8%BB-%E6%88%98%E4%BA%89-%E4%BA%BA%E7%89%A9.24.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="25863784"/>
+            <itunes:duration>00:53:52</itunes:duration>
+            <guid isPermaLink="false">2d9eda00-bdf1-3ddc-a348-5087a0f296d0</guid>
+            <pubDate>Thu, 21 Sep 2017 07:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.01.中国开始沦为半殖民地半封建社会（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>51</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.01.%E4%B8%AD%E5%9B%BD%E5%BC%80%E5%A7%8B%E6%B2%A6%E4%B8%BA%E5%8D%8A%E6%AE%96%E6%B0%91%E5%9C%B0%E5%8D%8A%E5%B0%81%E5%BB%BA%E7%A4%BE%E4%BC%9A%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52370964"/>
+            <itunes:duration>01:49:06</itunes:duration>
+            <guid isPermaLink="false">c1601d1f-c5da-306e-908f-88e2490e88bd</guid>
+            <pubDate>Thu, 21 Sep 2017 06:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.02.中国开始沦为半殖民地半封建社会（下）.中国近代化的开端和资本主义的产生、发展（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>52</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.02.%E4%B8%AD%E5%9B%BD%E5%BC%80%E5%A7%8B%E6%B2%A6%E4%B8%BA%E5%8D%8A%E6%AE%96%E6%B0%91%E5%9C%B0%E5%8D%8A%E5%B0%81%E5%BB%BA%E7%A4%BE%E4%BC%9A%EF%BC%88%E4%B8%8B%EF%BC%89.%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E5%8C%96%E7%9A%84%E5%BC%80%E7%AB%AF%E5%92%8C%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%9A%84%E4%BA%A7%E7%94%9F%E3%80%81%E5%8F%91%E5%B1%95%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54518647"/>
+            <itunes:duration>01:53:34</itunes:duration>
+            <guid isPermaLink="false">418a96b0-0edf-3c9c-8ea0-b5f50e02ff5a</guid>
+            <pubDate>Thu, 21 Sep 2017 05:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.03.中国近代化的开端和资本主义的产生、发展（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>53</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.03.%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E5%8C%96%E7%9A%84%E5%BC%80%E7%AB%AF%E5%92%8C%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%9A%84%E4%BA%A7%E7%94%9F%E3%80%81%E5%8F%91%E5%B1%95%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55926962"/>
+            <itunes:duration>01:56:30</itunes:duration>
+            <guid isPermaLink="false">dff60669-8993-3304-a374-ac6444cb0622</guid>
+            <pubDate>Thu, 21 Sep 2017 04:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.04.资产阶级民主革命、维护民主共和的斗争.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>54</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.04.%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E6%B0%91%E4%B8%BB%E9%9D%A9%E5%91%BD%E3%80%81%E7%BB%B4%E6%8A%A4%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E7%9A%84%E6%96%97%E4%BA%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55759778"/>
+            <itunes:duration>01:56:09</itunes:duration>
+            <guid isPermaLink="false">c0ead951-35ca-39e8-868b-22a317b8861f</guid>
+            <pubDate>Thu, 21 Sep 2017 03:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.05.北洋军阀的统治、新文化运动.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>55</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.05.%E5%8C%97%E6%B4%8B%E5%86%9B%E9%98%80%E7%9A%84%E7%BB%9F%E6%B2%BB%E3%80%81%E6%96%B0%E6%96%87%E5%8C%96%E8%BF%90%E5%8A%A8.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="48486244"/>
+            <itunes:duration>01:41:00</itunes:duration>
+            <guid isPermaLink="false">2c504eab-11ac-3c4d-870d-7c9ba0530ccc</guid>
+            <pubDate>Thu, 21 Sep 2017 02:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.06.国民大革命、国共的十年对峙（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>56</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.06.%E5%9B%BD%E6%B0%91%E5%A4%A7%E9%9D%A9%E5%91%BD%E3%80%81%E5%9B%BD%E5%85%B1%E7%9A%84%E5%8D%81%E5%B9%B4%E5%AF%B9%E5%B3%99%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55710040"/>
+            <itunes:duration>01:56:03</itunes:duration>
+            <guid isPermaLink="false">f22ebae0-792f-32c8-a282-be478cd08f86</guid>
+            <pubDate>Thu, 21 Sep 2017 01:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.07.国共的十年对峙（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>57</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.07.%E5%9B%BD%E5%85%B1%E7%9A%84%E5%8D%81%E5%B9%B4%E5%AF%B9%E5%B3%99%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="48989256"/>
+            <itunes:duration>01:42:03</itunes:duration>
+            <guid isPermaLink="false">06436fbc-4c2f-3233-844c-15e665b0772c</guid>
+            <pubDate>Thu, 21 Sep 2017 00:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.08.抗日战争.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>58</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.08.%E6%8A%97%E6%97%A5%E6%88%98%E4%BA%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="44743209"/>
+            <itunes:duration>01:33:12</itunes:duration>
+            <guid isPermaLink="false">412b3551-0698-3f37-a396-9a21b2bc5f97</guid>
+            <pubDate>Wed, 20 Sep 2017 23:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.09.人民解放战争、过渡时期.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>59</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.09.%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E6%88%98%E4%BA%89%E3%80%81%E8%BF%87%E6%B8%A1%E6%97%B6%E6%9C%9F.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="50657043"/>
+            <itunes:duration>01:45:32</itunes:duration>
+            <guid isPermaLink="false">1ea6b0eb-0b81-342f-a8e9-b093493834a1</guid>
+            <pubDate>Wed, 20 Sep 2017 22:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.12.现代化建设新局面的形成.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>60</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.12.%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%BB%BA%E8%AE%BE%E6%96%B0%E5%B1%80%E9%9D%A2%E7%9A%84%E5%BD%A2%E6%88%90.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="44778029"/>
+            <itunes:duration>01:33:17</itunes:duration>
+            <guid isPermaLink="false">7cb845d2-3488-3d7b-aae1-f4ad95f0c9b6</guid>
+            <pubDate>Wed, 20 Sep 2017 21:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.13.各族人民共同发展、中国的外交和国防.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>61</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.13.%E5%90%84%E6%97%8F%E4%BA%BA%E6%B0%91%E5%85%B1%E5%90%8C%E5%8F%91%E5%B1%95%E3%80%81%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%A4%96%E4%BA%A4%E5%92%8C%E5%9B%BD%E9%98%B2.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="48462339"/>
+            <itunes:duration>01:40:57</itunes:duration>
+            <guid isPermaLink="false">9a760d36-688a-334e-a490-664823bc4c25</guid>
+            <pubDate>Wed, 20 Sep 2017 20:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.14.欧洲资本主义的兴起（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>62</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.14.%E6%AC%A7%E6%B4%B2%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%9A%84%E5%85%B4%E8%B5%B7%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54199038"/>
+            <itunes:duration>01:52:54</itunes:duration>
+            <guid isPermaLink="false">a02597bd-4929-3c01-891c-e4e0dd38fc5c</guid>
+            <pubDate>Wed, 20 Sep 2017 19:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.15.欧洲的资本主义兴起（下）、资产阶级革命时代的东西方（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>63</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.15.%E6%AC%A7%E6%B4%B2%E7%9A%84%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E5%85%B4%E8%B5%B7%EF%BC%88%E4%B8%8B%EF%BC%89%E3%80%81%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E9%9D%A9%E5%91%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%96%B9%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54239998"/>
+            <itunes:duration>01:52:59</itunes:duration>
+            <guid isPermaLink="false">3bb350b0-17a2-3c36-bff2-305c46778d15</guid>
+            <pubDate>Wed, 20 Sep 2017 18:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.16.资产阶级革命时代的东西方（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>64</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.16.%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E9%9D%A9%E5%91%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%96%B9%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="50759523"/>
+            <itunes:duration>01:45:44</itunes:duration>
+            <guid isPermaLink="false">ba95ad56-36d4-3dbd-9041-c2b5b2c9c3e6</guid>
+            <pubDate>Wed, 20 Sep 2017 17:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.17.启蒙运动、工业化初期.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>65</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.17.%E5%90%AF%E8%92%99%E8%BF%90%E5%8A%A8%E3%80%81%E5%B7%A5%E4%B8%9A%E5%8C%96%E5%88%9D%E6%9C%9F.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="53123500"/>
+            <itunes:duration>01:50:40</itunes:duration>
+            <guid isPermaLink="false">71ad22b5-e5b4-3071-95c2-7811e69e748a</guid>
+            <pubDate>Wed, 20 Sep 2017 16:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.18.自由资本主义（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>66</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.18.%E8%87%AA%E7%94%B1%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="46556943"/>
+            <itunes:duration>01:36:59</itunes:duration>
+            <guid isPermaLink="false">ca515051-8931-3832-9484-a6449d0d4672</guid>
+            <pubDate>Wed, 20 Sep 2017 15:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.19.自由资本主义（中）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>67</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.19.%E8%87%AA%E7%94%B1%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%EF%BC%88%E4%B8%AD%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="53776272"/>
+            <itunes:duration>01:52:01</itunes:duration>
+            <guid isPermaLink="false">8803e047-66db-3dee-af66-20c9649491a0</guid>
+            <pubDate>Wed, 20 Sep 2017 14:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.20.自由资本主义（下）、垄断资本主义（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>68</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.20.%E8%87%AA%E7%94%B1%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%EF%BC%88%E4%B8%8B%EF%BC%89%E3%80%81%E5%9E%84%E6%96%AD%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="52178076"/>
+            <itunes:duration>01:48:42</itunes:duration>
+            <guid isPermaLink="false">2d5ab346-861a-3d9e-9c94-f0fcbd21da14</guid>
+            <pubDate>Wed, 20 Sep 2017 13:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.21.垄断资本主义（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>69</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.21.%E5%9E%84%E6%96%AD%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="51282598"/>
+            <itunes:duration>01:46:50</itunes:duration>
+            <guid isPermaLink="false">bafc9ad0-6552-3676-9a4b-ed27806c71fe</guid>
+            <pubDate>Wed, 20 Sep 2017 12:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.22.两次大战间的世界（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>70</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.22.%E4%B8%A4%E6%AC%A1%E5%A4%A7%E6%88%98%E9%97%B4%E7%9A%84%E4%B8%96%E7%95%8C%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54299428"/>
+            <itunes:duration>01:53:07</itunes:duration>
+            <guid isPermaLink="false">a3d9f4cd-1904-304e-8d69-3ddd82273e7b</guid>
+            <pubDate>Wed, 20 Sep 2017 11:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.23.两次大战间的世界（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>71</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.23.%E4%B8%A4%E6%AC%A1%E5%A4%A7%E6%88%98%E9%97%B4%E7%9A%84%E4%B8%96%E7%95%8C%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="53608124"/>
+            <itunes:duration>01:51:40</itunes:duration>
+            <guid isPermaLink="false">4ca296c0-63ff-3925-abab-9a0ffa87b9bf</guid>
+            <pubDate>Wed, 20 Sep 2017 10:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.24.第二次世界大战、两极格局（上）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>72</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.24.%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%E3%80%81%E4%B8%A4%E6%9E%81%E6%A0%BC%E5%B1%80%EF%BC%88%E4%B8%8A%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55070982"/>
+            <itunes:duration>01:54:43</itunes:duration>
+            <guid isPermaLink="false">502303ed-59d5-3ef5-bdc6-f3e45c19e13e</guid>
+            <pubDate>Wed, 20 Sep 2017 09:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>近现代史.25.两极格局（下）.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>73</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2.25.%E4%B8%A4%E6%9E%81%E6%A0%BC%E5%B1%80%EF%BC%88%E4%B8%8B%EF%BC%89.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="55247986"/>
+            <itunes:duration>01:55:05</itunes:duration>
+            <guid isPermaLink="false">4323da7a-b065-33b4-bc71-8cff6ffd4594</guid>
+            <pubDate>Wed, 20 Sep 2017 08:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考历史针对D.模拟训练7.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>74</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E5%8E%86%E5%8F%B2%E9%92%88%E5%AF%B9D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%837.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="24815333"/>
+            <itunes:duration>00:51:41</itunes:duration>
+            <guid isPermaLink="false">2e5d5479-8e36-3ba4-9c73-0a618c90cd18</guid>
+            <pubDate>Wed, 20 Sep 2017 07:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考历史针对D.模拟训练8.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>75</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E5%8E%86%E5%8F%B2%E9%92%88%E5%AF%B9D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%838.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="22266200"/>
+            <itunes:duration>00:46:23</itunes:duration>
+            <guid isPermaLink="false">1c052c6c-33e5-339a-a425-9c4eedd1d34d</guid>
+            <pubDate>Wed, 20 Sep 2017 06:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.世界史串讲复习.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>76</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E4%B8%96%E7%95%8C%E5%8F%B2%E4%B8%B2%E8%AE%B2%E5%A4%8D%E4%B9%A0.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="21541142"/>
+            <itunes:duration>00:44:52</itunes:duration>
+            <guid isPermaLink="false">9a99635d-f13c-391b-9519-39188c204181</guid>
+            <pubDate>Wed, 20 Sep 2017 05:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.世界格局多极化.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>77</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E4%B8%96%E7%95%8C%E6%A0%BC%E5%B1%80%E5%A4%9A%E6%9E%81%E5%8C%96.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="29077263"/>
+            <itunes:duration>01:00:34</itunes:duration>
+            <guid isPermaLink="false">91ac66b6-434f-3c99-8969-e4eb02a0104f</guid>
+            <pubDate>Wed, 20 Sep 2017 04:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>78</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A01.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26034520"/>
+            <itunes:duration>00:54:14</itunes:duration>
+            <guid isPermaLink="false">fb71b1b7-1c89-3f08-894a-c9dda88d5cff</guid>
+            <pubDate>Wed, 20 Sep 2017 03:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>79</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A02.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26639725"/>
+            <itunes:duration>00:55:29</itunes:duration>
+            <guid isPermaLink="false">4809c18f-94ab-3a49-a8ed-04d7b960f7e5</guid>
+            <pubDate>Wed, 20 Sep 2017 02:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习3.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>80</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A03.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="25031418"/>
+            <itunes:duration>00:52:08</itunes:duration>
+            <guid isPermaLink="false">3c49e808-5979-3751-8247-e926b56a1663</guid>
+            <pubDate>Wed, 20 Sep 2017 01:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习4.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>81</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A04.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="25631190"/>
+            <itunes:duration>00:53:23</itunes:duration>
+            <guid isPermaLink="false">d4fd86b7-dae2-3de9-9e87-385aa980a6fa</guid>
+            <pubDate>Wed, 20 Sep 2017 00:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习5.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>82</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A05.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="26102230"/>
+            <itunes:duration>00:54:22</itunes:duration>
+            <guid isPermaLink="false">516bb537-259f-3db5-b780-035c0ea6652a</guid>
+            <pubDate>Tue, 19 Sep 2017 23:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座A.综合练习6.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>83</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7A.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A06.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="24355787"/>
+            <itunes:duration>00:50:44</itunes:duration>
+            <guid isPermaLink="false">e430f4af-2238-30de-bccd-002a8b523ef0</guid>
+            <pubDate>Tue, 19 Sep 2017 22:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座B.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>84</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7B.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="54358489"/>
+            <itunes:duration>01:53:14</itunes:duration>
+            <guid isPermaLink="false">86040f83-a0fd-359f-bdee-42183824c9fe</guid>
+            <pubDate>Tue, 19 Sep 2017 21:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座C.解题思路和复习建议.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>85</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7C.%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%E5%92%8C%E5%A4%8D%E4%B9%A0%E5%BB%BA%E8%AE%AE.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="69300667"/>
+            <itunes:duration>02:24:22</itunes:duration>
+            <guid isPermaLink="false">9e4655e4-72fc-3d9f-8480-bf89104b62cb</guid>
+            <pubDate>Tue, 19 Sep 2017 20:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练1.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>86</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%831.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="24218278"/>
+            <itunes:duration>00:50:27</itunes:duration>
+            <guid isPermaLink="false">9fe51ce0-aea8-3061-a18d-304d72b43ea7</guid>
+            <pubDate>Tue, 19 Sep 2017 19:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练2.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>87</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%832.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="18870700"/>
+            <itunes:duration>00:39:18</itunes:duration>
+            <guid isPermaLink="false">17668f66-c53c-3d58-97cf-6d2ae4ad2a78</guid>
+            <pubDate>Tue, 19 Sep 2017 18:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练3.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>88</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%833.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="21418788"/>
+            <itunes:duration>00:44:37</itunes:duration>
+            <guid isPermaLink="false">df3ddf60-0acb-3fc8-b33f-64ddebb93fd2</guid>
+            <pubDate>Tue, 19 Sep 2017 17:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练4.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>89</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%834.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="22772767"/>
+            <itunes:duration>00:47:26</itunes:duration>
+            <guid isPermaLink="false">1fe5ff29-3334-3764-9481-45e6ddacfa03</guid>
+            <pubDate>Tue, 19 Sep 2017 16:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练5.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>90</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%835.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="21411892"/>
+            <itunes:duration>00:44:36</itunes:duration>
+            <guid isPermaLink="false">145ce5e1-cae5-33c2-8f04-18b5d31e0698</guid>
+            <pubDate>Tue, 19 Sep 2017 15:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座D.模拟训练6.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>91</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7D.%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%836.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="20055823"/>
+            <itunes:duration>00:41:46</itunes:duration>
+            <guid isPermaLink="false">e8db1cb3-1c3e-3eeb-a632-8db56d567936</guid>
+            <pubDate>Tue, 19 Sep 2017 14:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+        <item>
+            <title>高考考前讲座E.高考热点问题举例.袁腾飞</title>
+            <description></description>
+            <itunes:summary></itunes:summary>
+            <itunes:image href="http://file.dirtysalt.info/rss/ytf-history-class.jpg"/>
+            <!-- <itunes:order>92</itunes:order> -->
+            <enclosure url="http://file.dirtysalt.info/ytf-history-class/mp3/%E9%AB%98%E8%80%83%E8%80%83%E5%89%8D%E8%AE%B2%E5%BA%A7E.%E9%AB%98%E8%80%83%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98%E4%B8%BE%E4%BE%8B.%E8%A2%81%E8%85%BE%E9%A3%9E.mp3" type="audio/mp3" length="67400414"/>
+            <itunes:duration>02:20:24</itunes:duration>
+            <guid isPermaLink="false">92400308-eb35-3fee-aac0-45870f77b1aa</guid>
+            <pubDate>Tue, 19 Sep 2017 13:39:42 -0000</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        
+    </channel>
+</rss>

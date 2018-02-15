@@ -530,20 +530,24 @@ class B{
 
 之后我在想，虽然这个方式不错消除继承完全按照基于对象的方式编程，但是如果对于对象所需要的接口非常多的话，并且虚函数本身就是语言内置的特性，相对来说使用起来会更加方便。下面是可编译的示例代码之后我在想，虽然这个方式不错消除继承完全按照基于对象的方式编程，但是如果对于对象所需要的接口非常多的话，并且虚函数本身就是语言内置的特性，相对来说使用起来会更加方便。
 
-具体代码可以参考 [[https://github.com/dirtysalt/tomb/blob/master/cc/test_bind.cc][tomb/cc/test_bind.cc]]
+具体代码可以参考 [[file:../codes/cc/misc/test_bind.cc][code on github]]
 
 *** boost::spirit
 今天被Dr. Yang推荐使用boost::spirit，模板编程实现的语法解析器。Dr. Yang推荐我看看hypertable里面实现的hql，里面就是使用spirit实现的hql(hypertable query language)，在src/cc/Hypertable/Lib/HqlParser.h里面。粗看一下功能还是非常强大的，对于很多使用flex/bison完成的工作都可以通过spirit来完成。看上去是LALR解析器，现在不太清楚就是如果出现shift/reduce或者是reduce/reduce冲突的话spirit是怎么解决的。#note:应该是LL(1)解析器
 
 对于action的话需要单独编写function object来完成，operator()是这个grammar对应的字符串。定义ParserState来构建语法树是一个好主意。对于里面更多的细节现在还是不太了解，关于入门使用可以查看代码中的链接或者documentation.
 
-具体代码可以参考 [[https://github.com/dirtysalt/tomb/blob/master/cc/test_spirit.cc][tomb/cc/test_spirit.cc]]
+具体代码可以参考 [[file:../codes/cc/misc/test_spirit.cc][code on github]]
 
 *** boost::property_tree
-http://www.boost.org/doc/libs/1_58_0/doc/html/property_tree.html 用作配置文件不错. 具体代码可以参考 [[https://github.com/dirtysalt/tomb/blob/master/cc/test_ptree.cc][tomb/cc/test_ptree.cc]]
+http://www.boost.org/doc/libs/1_58_0/doc/html/property_tree.html
+
+用作配置文件不错. 具体代码可以参考 [[file:../codes/cc/misc/test_ptree.cc][code on github]]
 
 *** boost::python
-http://www.boost.org/doc/libs/1_58_0/libs/python/doc/index.html 编写Python Extension. 具体代码可以参考 [[https://github.com/dirtysalt/tomb/blob/master/cc/test_pye.cc][tomb/cc/test_pye.cc]]
+http://www.boost.org/doc/libs/1_58_0/libs/python/doc/index.html
+
+编写Python Extension. 具体代码可以参考 [[file:../codes/cc/misc/test_pye.cc][code on github]]
 
 *** logging
 @2015-07-26 最近一段时间使用C++编写Python扩展时候，发现原来的日志库(easyloggingpp)封装存在一些问题。修改完成日志库的封装之后，顺便就看了一下C/C++下面有什么可用的日志库。我粗略地看了下面几种，然后总结了一下优缺点以及自己的想法。
@@ -560,7 +564,7 @@ http://www.boost.org/doc/libs/1_58_0/libs/python/doc/index.html 编写Python Ext
   - 可以选择输出到标准错误或者是文件，文件默认是在""/tmp/<program name>.<hostname>.<user name>.log.<severity level>.<date>.<time>.<pid>". 这意味着不需要考虑rotate。用户可以指定输出文件的路径但是不能修改文件名称
   - 从文档上看没有提供扩展能力（代码可能会有这个功能，但是需要用户阅读代码来扩展）
   - 对C++程序简单好用，容易集成，扩展能力比较差只支持输出文件（但是如果考虑到G还有 [[file:gwp.org][其他]] [[file:./dapper.org][系统]] 来辅助日志分析的话，其实这个不是问题）
-- log4cpp/log4cplus/log4cxx # log4j的C++实现. 
+- log4cpp/log4cplus/log4cxx # log4j的C++实现.
   - 从功能上来说是最强大的，支持多模块输出，也很容易集成，只是没有那么好用
   - 设计上有Handler, Filter, Formatter这样的概念，设计考虑上非常周到
   - 网上有不少关于如何具体使用log4cxx的文章，但是很少有谈论其设计的文章。设计方面可以阅读一下 [[https://docs.python.org/3/library/logging.html?highlight=logging#module-logging][python logging]]
@@ -646,7 +650,7 @@ int main() {
 }
 #+END_SRC
 
-这里还想说一下就是，C++11也把bind纳入stl了（smart pointers, atomic, thread这些原来都在boost的组件都纳入stl了）. 
+这里还想说一下就是，C++11也把bind纳入stl了（smart pointers, atomic, thread这些原来都在boost的组件都纳入stl了）.
 #+BEGIN_SRC C++
 #include <functional>
 #include <iostream>

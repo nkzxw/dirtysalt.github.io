@@ -263,7 +263,7 @@ UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook
 - http://unix.stackexchange.com/questions/127777/how-to-configure-the-process-open-file-limit-of-a-user
 - https://www.kernel.org/doc/Documentation/sysctl/fs.txt
 
-首先需要修改系统上限
+首先需要修改系统上限，这些可以在/etc/sysctl.conf里面修改，然后执行sysctl -p
    - /proc/sys/fs/file-max # 所有进程打开文件句柄数上限
    - /proc/sys/fs/nr_open # 单个进程打开文件句柄数上限
    - /proc/sys/fs/file-nr # 系统当前打开文件句柄数

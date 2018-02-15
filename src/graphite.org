@@ -47,17 +47,17 @@ pip install graphite-web --install-option="--prefix=/$HOME/utils/graphite/app" -
 pattern = ^carbon\.
 retentions = 10:1d
 
-[default_1min_for_1day]
-pattern = .*
-retentions = 10s:1d
-
 [collectd]
-pattern = ^collectd.*
+pattern = ^collectd\.*
 retentions = 10s:1d,1m:7d,10m:1y
 
 [statsd]
-pattern = ^stats*
+pattern = ^stats\.*
 retentions = 10s:1d,1m:7d,10m:1y
+
+[default]
+pattern = .*
+retentions = 10s:1d
 #+END_EXAMPLE
 然后使用 ./bin/carbon-cache.py start 来启动
 

@@ -10,7 +10,7 @@
 
 视频加黑边 ffmpeg -i 5.2.mp4 -vf "pad=852:852:0:186:black" 5.3.mp4
 
-多个视频合并. 可以使用 [[https://github.com/dirtysalt/tomb/blob/master/py/utils/ffmpeg-concat-mp4-files.py][这个脚本]]. 最好确保几个视频尺寸相同.
+多个视频合并. 可以使用 [[file:../codes/py/misc/ffmpeg-concat-mp4-files.py][这个脚本]]. 最好确保几个视频尺寸相同.
 
 截取视频的第一帧 ffmpeg -i input.mp4 -vframes 1 output.png
 

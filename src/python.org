@@ -1,6 +1,7 @@
 #+title: Python
 - [[http://learnpythonthehardway.org/][Learn Python The Hard Way]] ([[file:images/learn-py-the-hard-way/index.html][中文]])
 - [[http://itlab.idcquan.com/linux/manual/python_chinese/][A Byte of Python]]
+- [[http://pythonguidecn.readthedocs.io/zh/latest/index.html][Python最佳实践指南]]
 
 ** language
 *** philosophy
@@ -29,22 +30,22 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 #+END_QUOTE
 
-*** 基础知识
+*** 基础知识(basic concepts)
 - str vs. repr # str是字符串表示，repr是code-form.
 - a is b # 判断是否为同一对象
 - copy.copy/deepcopy # 来做对象拷贝/深拷贝
 - r'...' # raw-string. 对字符串不做任何转义
 - except (E1, E2, ...) as e # 捕获多种类型异常
 - PYTHONPATH环境变量可以控制模块搜索路径
-- \_\_init.py\_\_ 文件中变量\_\_all\_\_(列表)可以控制"from X import *"导入的名字
+- __init.py__ 文件中变量__all__(列表)可以控制"from X import *"导入的名字
 
-*** 命名惯例
-- 以单一下划线开头的变量名( \_X )不会被from module import *语句导入
-- 前后有两个下划线的变量名( \_\_X\_\_ )是系统定义的变量名，对解释器有特殊意义
-- 以两下划线开头，但是结尾没有两个下划线的变量名(\_\_X)是类的私有变量
-- 通过交互模式运行，只有单个下划线的变量名(\_)会保存左后表达式的结果
+*** 命名惯例(name convention)
+- 以单一下划线开头的变量名( _X )不会被from module import *语句导入
+- 前后有两个下划线的变量名( __X__ )是系统定义的变量名，对解释器有特殊意义
+- 以两下划线开头，但是结尾没有两个下划线的变量名(__X)是类的私有变量
+- 通过交互模式运行，只有单个下划线的变量名(_)会保存左后表达式的结果
 
-*** 字符编码
+*** 字符编码(encoding)
 python字符串是unicode类型，二进制是str类型。
    - encode是将unicode转换成为str
    - decode是将str转换成为unicode
@@ -83,12 +84,34 @@ def toLocal(s):
 
 -----
 
-最近修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
+修改饭团系统的时候，使用sqlitedb还出现了字符编码问题。系统似乎默认使用ascii来进行编码解码，可以修改系统默认的编码解码方式为utf8。
 #+BEGIN_SRC Python
 import sys
 if(sys.getdefaultencoding() !='utf8'):
   reload(sys)
   sys.setdefaultencoding('utf8')
+#+END_SRC
+
+UPDATE@201801: 这个问题只会出现在Python2.x Python3之后默认使用utf8编码了，而且没有 [[file:./blogs/narrow-python-build.org][narrow/wide build]] 问题了。
+
+-----
+UPDATE@201801 在decode阶段有个参数`errors`可以用来控制错误编码字符
+- strict 默认值，直接返回UnicodeError
+- ignore 跳过这个字符
+- replace 用U+FFFD REPLACEMENT CHARACTER替换这个字符
+今天我看 `requests` 代码里面，处理 `Response.text` 对象时使用了这个方法
+#+BEGIN_SRC Python
+        # Decode unicode from given encoding.
+        try:
+            content = str(self.content, encoding, errors='replace')
+        except (LookupError, TypeError):
+            # A LookupError is raised if the encoding was not found which could
+            # indicate a misspelling or similar mistake.
+            #
+            # A TypeError can be raised if encoding is None
+            #
+            # So we try blindly encoding.
+            content = str(self.content, errors='replace')
 #+END_SRC
 
 *** import and reload
@@ -201,6 +224,31 @@ io_loop()
 #+END_SRC
 注意如果要使用send的话，必须使用send(None)/next来初始化.
 
+Python3之前如果需要将多个生成器串联起来的话，不是特别容易。代码里面 `bar` 为了将两个 `foo(10)` 和 `foo(20)`迭代器串联起来，需要显示地遍历。
+#+BEGIN_SRC Python
+def foo(n):
+    for x in range(3):
+        yield x + n
+
+
+def bar():
+    x = foo(10)
+    for v in x:
+        yield v
+    x = foo(20)
+    for v in x:
+        yield v
+    # yield from foo(10)
+    # yield from foo(20)
+
+
+b = bar()
+for v in b:
+    print(v)
+#+END_SRC
+
+但是Python3引入关键字 `yield from`. 可以简化上面的写法。具体可以看上面这段注释。
+
 *** decorator(装饰器)
 装饰器是一种设计模式，在原有的对象上或者是函数上，在外部做一些处理。python里面的装饰器是函数，装饰的对象也是函数。
 
@@ -255,167 +303,101 @@ wrapper
 wrapper
 #+END_EXAMPLE
 
+*** 模块加载路径
+一些关于模块加载和模块检索路径方面的文章
+
+- https://docs.python.org/3/reference/import.html
+- https://leemendelowitz.github.io/blog/how-does-python-find-packages.html  site.py这个脚本会修改sys.path来解决内置python的问题
+- https://www.codementor.io/sheena/tutorials/python-path-virtualenv-import-for-beginners-du107r3o1
+- http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html
+- http://softwareengineering.stackexchange.com/questions/187403/import-module-vs-from-module-import-function/187471
+
+UPDATE@201801: nova项目中我发现 [[http://v2in.com/pth-file-usage-in-python.html][.pth]] 这种机制在很大程度上可以帮助模块路径配置。不过好像这种机制仅限于CPython，在PyPy或者是Jython下面不行。
+
+
+*** coroutine(协程)
+我理解generator和coroutine之间的差别只是在于切换上下文上。generator的切换关系是沿着调用链的，也是是callee完成后必须要返回到caller.
+而coroutine则没有这个限制，可以在多个函数之间切换，而这多个函数之间并没有caller/callee的联系。
+
+coroutine之间是可以交换数据的，下面这两个操作是配对的。coroutine的启动需要强制 `c.send(None)`
+- `n = yield r`
+- `r = c.send(n)`
+
+看下面这段代码
+#+BEGIN_SRC Python
+ef consumer():
+    print('start consumer')
+    r = 'uninitialized'
+    while True:
+        n = yield r
+        if not n:
+            return
+        print('[CONSUMER] Consuming %s...' % n)
+        r = '200 OK'
+
+
+def produce(c):
+    r = c.send(None)
+    print(r)
+    print('start producer')
+    n = 0
+    while n < 5:
+        n = n + 1
+        print('[PRODUCER] Producing %s...' % n)
+        r = c.send(n)
+        print('[PRODUCER] Consumer return: %s' % r)
+    c.close()
+
+
+c = consumer()
+produce(c)
+#+END_SRC
+- `r = c.send(None)` 首先启动consumer.
+- consumer执行到 `n = yield r`这个部分，要求外部继续输入并且返回r(uninitialized)，切换回producer.
+- producer执行到 `r = c.send(1)`, 然后切换到consumer. 后面循环继续
+
+上面这段代码的输出结果如下
+#+BEGIN_EXAMPLE
+start consumer
+uninitialized
+start producer
+[PRODUCER] Producing 1...
+[CONSUMER] Consuming 1...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 2...
+[CONSUMER] Consuming 2...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 3...
+[CONSUMER] Consuming 3...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 4...
+[CONSUMER] Consuming 4...
+[PRODUCER] Consumer return: 200 OK
+[PRODUCER] Producing 5...
+[CONSUMER] Consuming 5...
+[PRODUCER] Consumer return: 200 OK
+#+END_EXAMPLE
+
 ** library
-*** native WSGI
-WSGI(web server gateway interface)定义了一个web server的标准编程接口。开发着只需要按照这个接口来实现应用，然后将模块运行在标准化的container上，就实现了一个web server.
-#+BEGIN_SRC Python
-def logic(environ,start_response):
-    start_response('200 OK', # status code
-                   [('Content-type','text/plain')]) # header
-    return ("OK",)
-#+END_SRC
-对于logic需要处理两个参数：
-   - environ 表示环境变量，对于get/post请求数据都会放在这里.下面是常用的环境
-     - PATH_INFO // 请求path
-     - REQUEST_METHOD // 请求方法 GET/POST
-     - CONTENT_LENGTH //
-     - QUERY_STRING // path后面接的query，可以使用cgi.parse_qs来进行解析
-       - cgi.parse_qs解析后的结果就是dict
-       - 如果dict同一个key出现多次的话会以数组方式保留
-     - wsgi.input // 可以读取POST数据
-   - start_response 表示一个continuation，恢复status code以及header
-
-之后我们只需要选择一个合适的框架或者容器就可以运行起来了。python内置了一个WSGI framework。这里的validator可以帮助外围做一些验证。
-#+BEGIN_SRC Python
-def run():
-    vlogic=validator(logic)
-    httpd = make_server('', 8000, vlogic)
-    httpd.serve_forever()
-#+END_SRC
-
-内置framework使用的是单进程启动模式，我们也可以修改成为多进程模式。更好的方式是利用已有的webserver framework比如gunicorn。假设上面的文件为x.py, 那么使用下面方式启动即可
-#+BEGIN_EXAMPLE
-[dirlt@compaq-pc] > gunicorn -w 4 x:logic
-2012-08-30 23:18:59 [16116] [INFO] Starting gunicorn 0.13.4
-2012-08-30 23:18:59 [16116] [INFO] Listening at: http://127.0.0.1:8000 (16116)
-2012-08-30 23:18:59 [16116] [INFO] Using worker: sync
-2012-08-30 23:18:59 [16119] [INFO] Booting worker with pid: 16119
-2012-08-30 23:18:59 [16120] [INFO] Booting worker with pid: 16120
-2012-08-30 23:18:59 [16122] [INFO] Booting worker with pid: 16122
-2012-08-30 23:18:59 [16121] [INFO] Booting worker with pid: 16121
-^C2012-08-30 23:19:09 [16120] [INFO] Worker exiting (pid: 16120)
-2012-08-30 23:19:09 [16116] [INFO] Handling signal: int
-2012-08-30 23:19:09 [16119] [INFO] Worker exiting (pid: 16119)
-2012-08-30 23:19:09 [16122] [INFO] Worker exiting (pid: 16122)
-2012-08-30 23:19:09 [16121] [INFO] Worker exiting (pid: 16121)
-2012-08-30 23:19:09 [16116] [INFO] Shutting down: Master
-#+END_EXAMPLE
-
------
-
-如果上面WSGI程序修改成为下面的话，那么在访问web页面的时候会出现如下错误 "Error code: ERR_INCOMPLETE_CHUNKED_ENCODING".
-#+BEGIN_SRC Python
-def run(environ,start_response):
-    start_response('200 OK', # status code
-                   [('Content-type','text/plain')]) # header
-    s = "OK".decode('utf-8')
-    return (s,)
-#+END_SRC
-当时这个错误是以非常诡异的方式呈现的，而不是像我示例代码一样，当时s是从sqlite3读取的类型为TEXT的某个字段。WSGI要求返回对象必须是str类型而不能是unicode类型。
-
-*** nginx WSGI
-python运行web大约有下面三种方式：
-- 程序自己启动http server直接对外服务
-- 用WSGI编写然后使用gunicorn这样的HTTP Container启动对外服务
-- nginx在前端做反向代理，和WSGI Container(uwsgi)或HTTP Container(gunicorn)通信
-
-各自优缺点分别是：
-- 方案1 +因为python GIL缘故只能使用单线程处理，并且http server扩展性也不好+ 只能用单进程工作，可以通过开辟多线程或者是gevent协程来处理并发。但是想要部署多进程不方便，并且也没有使用container带来的一些功能（比如配置升级以及二进制升级等）
-- 方案2相对来说比较灵活，可以使用不同的container启动，并且也可以很容易地切换成为方案3，可是不能处理子域名。
-- 方案3可以让nginx处理好慢连接(比如使用proxy buffering), 然后在把请求交给container来处理，性能上有保证，同时支持子域名。
-
-因为自己搭建fantuan.dirlt.com使用到了子域名，所以最终使用方案3(nginx + uwsgi + web.py). 配置步骤如下：
-
-在nginx/site-enables里面从default产生一份新的配置文件，修改内容
-#+BEGIN_EXAMPLE
-server {
-        server_name fantuan.dirlt.com;
-        location / {
-                include uwsgi_params;
-                uwsgi_pass  127.0.0.1:8001;
-        }
-}
-#+END_EXAMPLE
-也就是说对于fantuan.dirlt.com这个请求包含uwsgi_params里面的参数全部转发到127.0.0.1:8001这个端口。
-
-然后在本地启动uwsgi绑定在127.0.0.1:8001这个端口上面。uwsgi支持配置文件：
-#+BEGIN_EXAMPLE
-[uwsgi]
-chdir = .
-module = server:application
-master = True
-processes = 4
-socket = 127.0.0.1:8001
-vacuum = True
-max-requests = 128
-#+END_EXAMPLE
-- module x:y 说明使用x.py里面y(WSGI function)对象
-- socket 必须指定是127.0.0.1:8001
-
-*** xlrd
-分析excel文件在实际生活中还是比较常见的，通常我们的问题就是卡在读取上面（主要原因是因为我对COM接口不太熟悉，不太了解windows编程）。使用xlrd可以通过python来访问excel文件。
-
-   - xlrd http://pypi.python.org/pypi/xlrd
-   - 文档 [[http://www.lexicon.net/sjmachin/xlrd.htm]]  看起来可能比较费劲，下面的py文档更加可读
-   - py文档 packages.python.org/xlrd3（xlrd3是针对python3的，但是和xlrd API是完全兼容的）
-   - 参考链接 http://www.shello.name/?p=133
-   - update@201510: 近期发现 [[https://pypi.python.org/pypi/pyExcelerator][pyExcelerator]] 也挺好用的, 可以同时读写excel.
-
-从文档里面可以看到它是直接分析excel文件的，通过阅读OpenOffice的关于M$ Excel文件格式文档编写的。
-#+BEGIN_QUOTE
-    Development of this module would not have been possible without the document "OpenOffice.org's Documentation of the Microsoft Excel File Format" ("OOo docs" for short). The latest version is available from OpenOffice.org in PDF format and XML format. Small portions of the OOo docs are reproduced in this document. A study of the OOo docs is recommended for those who wish a deeper understanding of the Excel file layout than the xlrd docs can provide.
-#+END_QUOTE
-   - PDF format http://sc.openoffice.org/excelfileformat.pdf
-   - XML format http://sc.openoffice.org/excelfileformat.sxw
-
-基本上能够得到所有的数据，包括处理date信息，单元格的格式化信息，名字引用信息，内部统一使用Unicode（如果内部使用其他编码的话会自动转换）
-#+BEGIN_QUOTE
-Features:
-1.Support for handling dates, and documentation of Excel date problems and how to avoid them.
-2.Unicode aware; correctly handles "compressed" Unicode in modern files; decodes legacy charsets in older files (if Python has the codec).
-3.Extracts all data (including Booleans and error-values)
-4.Extracts named references
-5.Extracts formatting information for cells (number format, font, alignment, borders, backgrounds, protection) and rows/columns (default height/width, etc). This effort was funded by Simplistix Ltd.
-6.Further information: APIs, README, HISTORY
-#+END_QUOTE
-
-但是也有一些信息没有提取出来（但是对于很多简单的应用来说的话是没有必要的）。包括表格，图片，宏等嵌入对象，VBA模块，公式，注释以及超链等。
-#+BEGIN_QUOTE
-Exclusions: xlrd will not attempt to decode password-protected (encrypted) files. Otherwise, it will safely and reliably ignore any of these if present:
-1.Charts, Macros, Pictures, any other embedded object. WARNING: currently this includes embedded worksheets.
-2.Visual Basic (VBA) modules
-3.Formulas (results of formula calculations are extracted, of course)
-4.Comments and hyperlinks
-#+END_QUOTE
-
-来个简单的例子：
-#+BEGIN_SRC Python
-#!/usr/bin/env python
-#coding:utf-8
-#Copyright (C) dirlt
-
-import xlrd
-book=xlrd.open_workbook('x.xls')
-
-print '--------------------sheets:#%d--------------------'%(book.nsheets)
-for i in range(0,book.nsheets):
-    sheet=book.sheet_by_index(i)
-    print '----------sheet%d:\'%s\', rows:%d, cols:%d----------'%(i,sheet.name,sheet.nrows,sheet.ncols)
-    for r in range(0,sheet.nrows):
-        for c in range(0,sheet.ncols):
-            cell=sheet.cell(r,c)
-            if(cell):
-                # access cell.ctype.
-                print '%s '%(cell.value),
-        print ''
-#+END_SRC
-
 *** httplib
 关于httplib.HTTPConnection超时问题
 - python - HTTP Request Timeout - Stack Overflow : http://stackoverflow.com/questions/265720/http-request-timeout
 - 构造函数的timeout是connect timeout. 而不是recv/send timeout. 超时单位是秒.
 - send/recv timeout可以通过socket.setdefaulttimeout()来设置，全局设置对所有socket有效.
 - 对单个socket可以通过设置connection.sock.settimeout完成，但是必须首先connect才能够获得sock对象.
+
+UPDATE@201802 socket client其实是支持绑定地址的，这个对于多网卡机器非常有用，但是很多lib包括httplib以及requests这类库都不支持。不过python有个好处就是可以很容易地做monkey patch，我们可以直接在socket调用connect之前做地址/端口绑定
+#+BEGIN_SRC Python
+from socket import Socket
+ _socket_connect = Socket.connect
+
+def my_socket_connect(self: Socket, address):
+    # logger.warning('socket {} bind to {}'.format(self, args.bind))
+    self.bind((bind_address, 0))
+    return _socket_connect(self, address)
+
+Socket.connect = my_socket_connect
+#+END_SRC
 
 *** datetime
 日期时间和时间戳之间的转化
@@ -463,6 +445,33 @@ def f(s):
     return st
 #+END_SRC
 
+UPDATE@201802: 解析各种时间格式是非常麻烦的事情，好在有个 `python-dateutil` 库可以来解决这个问题。另外如果需要处理多个时区的话，最好统一转换成为UTC时间来处理。`python-dateutil` 有时候无法是被某些特定的timezone, 可以通过 `tzinfos` 字段来告诉如何处理
+#+BEGIN_SRC Python
+TZINFOS = {'PST': -8 * 3600}
+
+def parse_date(s):
+    if not s:
+        return None
+    try:
+        x = dateutil.parser.parse(s, tzinfos=TZINFOS)
+        tzinfo = getattr(x, 'tzinfo')
+        if tzinfo:
+            offset = tzinfo.utcoffset(x)
+            y = x - offset
+            x = y.replace(tzinfo=None)
+        return x
+    except Exception:
+        logger.exception('parse date %s' % s)
+        return None
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+s = 'Fri, 9 Feb 2018 03:00:00 PST'
+parse_date(s)
+
+Out[5]: datetime.datetime(2018, 2, 9, 11, 0)
+#+END_EXAMPLE
+
 *** pip(python package index)
 python模块管理工具
 - https://github.com/pypa/pip/
@@ -475,6 +484,7 @@ python模块管理工具
 - pip wheel -r requirements.txt --wheel-dir=`pwd`/pywheel --find-links=file://`pwd`/pycache # 将python模块编译称为wheel格式（二进制格式，利于分发安装）
 - pip install --no-index --find-links=file://`pwd`/pywheel -r requirements.txt # 从缓存目录安装python模块 (note: 发现有些依赖却没有安装，所以推荐下面一种方式)
 - pip install --force-reinstall --ignore-installed --upgrade --no-index --no-deps `pwd`/pywheel/*.whl # 安装所有列举的python模块
+
 *** logging
 python logging主要有下面几个类
 - Loggers expose the interface that application code directly uses.
@@ -524,14 +534,58 @@ https://virtualenv.pypa.io/en/latest/index.html
 - cd <env-path>; source bin/activate 重写环境变量, 切换到当前独立环境
 - 之后可以在<env-path>目录下面开发, 安装以及部署等工作
 - 清理环境使用 deactive.
-*** ipython
-`%store output_variable > output.txt` 把变量内容输出到文件
 
-UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook的问题.
-- 首先在目标机器dev上启动ipython notebook. `jupyter notebook --no-browser --port=8888`
-- 然后在本机上选择绑定端口比如1000. `ssh -L "*:10000:dev:8888" dev`
-之后就可以在本地使用 `http://localhost:10000` 来访问远端的notebook了.
+*** asyncio
+理论上asynco也可以不配合coroutine，不过配合coroutine才能最好地发挥asyncio的性能。Python3.5引入关键字`async`和`await`让定义coroutine更加简单。
+
+#+BEGIN_SRC Python
+import asyncio
+
+
+@asyncio.coroutine
+def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    yield from asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+
+async def hello(thread_name):
+    print('Hello world! (%s)' % thread_name)
+    await asyncio.sleep(1)
+    print('Hello again! (%s)' % thread_name)
+
+loop = asyncio.get_event_loop()
+tasks = [hello('TA'), hello('TB')]
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+#+END_SRC
+
+asyncio里面的event_loop指的就是当前执行线程，所以我们只能往里面添加coroutine，否则一个阻塞操作会使得整个线程挂起，这样其他coroutines就没有办法执行了。
+但是在很多情况下，我们使用的库函数本身就不是async/coroutine的，在这种情况下面，我们就需要把这些操作丢到另外一个thread pool下面执行。
+#+BEGIN_SRC Python
+import asyncio
+
+import requests
+
+
+async def test():
+    evloop = asyncio.get_event_loop()
+    # 对于block的操作需要放到executor里面
+    future1 = evloop.run_in_executor(None, requests.get, 'http://baidu.com')
+    future2 = evloop.run_in_executor(None, requests.get, 'http://sina.com')
+    resp1 = await future1
+    resp2 = await future2
+    print('baidu.com ...')
+    print(resp1.text[:10])
+    print('sina.com ...')
+    print(resp2.text[:10])
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test())
+#+END_SRC
 
 ** inside
+
 - [[http://pgbovine.net/cpython-internals.htm][Philip Guo - CPython internals: A ten-hour codewalk through the Python interpreter source code]]
 - [[https://www.youtube.com/watch?v=HVUTjQzESeo][Allison Kaptur - Bytes in the Machine: Inside the CPython interpreter - PyCon 2015 - YouTube]]

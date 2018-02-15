@@ -1,6 +1,13 @@
 #+title: dirtysalt's homepage
 
-** Operating System
+* Introduction
+- [[file:links.org][Links]] 一些很多价值的链接和站点
+- [[file:./blog.org][Blogs]] 我的博客，噪音很多
+- [[file:./jobs.org][Jobs]] 欢迎您加入我们的团队
+- [[file:./paste.org][Paste]] 网络剪贴板，部分是有版权内容
+- [[file:fun.org][Funny]] 段子收集器，部分是有版权内容
+
+* Operating System
 - [[file:computer-system-reading.org][Computer System Reading]] 单机系统方面的一些文章
   - [[file:./the-secret-to-10-million-concurrent-connections.org][The Secret To 10 Million Concurrent Connections -The Kernel Is The Problem, Not The Solution]]
   - [[file:./a-tour-inside-cloudflare-latest-generation-servers.org][A Tour Inside CloudFlare's Latest Generation Servers]]
@@ -13,7 +20,7 @@
   - [[file:linux-kernel-development.org][Linux Kernel Development]] by Robert Love
   - [[file:./earlybird-realtime-search-at-twitter.org][Earlybird: Real-Time Search at Twitter]] twitter实时检索系统
 - [[http://pages.cs.wisc.edu/~remzi/OSTEP/][Operating Systems: Three Easy Pieces]] 一门非常好的操作系统课程
-- [[http://www.amazon.com/UNIX-Systems-Modern-Architectures-Multiprocessing/dp/0201633388][现代体系结构上的UNIX系统]] [[http://book.douban.com/subject/1229889/][(内核程序员的SMP和Caching技术)]]
+- [[http://www.amazon.com/UNIX-Systems-Modern-Architectures-Multiprocessing/dp/0201633388][现代体系结构上的UNIX系统]] [[http://book.douban.com/subject/1229889/][(内核程序员的SMP和Caching技术)]] [[http://warsus.github.io/lions-/][第六版莱昂斯 Unix 操作系统评述]]
 - [[file:cpu.org][CPU]] / [[file:simd.org][SIMD]] SIMD(Single Instruction Muitple Data)单指令多数据。这个笔记是 [[http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html][Intel Reference Manual]] 中关于SIMD指令的总结, 里面包含了一些理解SIMD指令需要的知识, 以及对SIMD指令进行了分类, 但是没有太多实用例子.
 - [[file:apue.org][APUE]] Unix环境高级编程(Advanced Programming Unix Environment),W. Richard Stevens的神作。笔记里面没有包含书最后的几个部分，比如终端，打印机等，因为我觉得可能大家都不太需要这个东西了。我还尝试将一些跨章节的概念整合到一起，这样比较容易从总体把握Unix编程环境。
 - [[file:linux.org][linux]] 将原来[[file:apue.org][APUE]] 和 [[file:unp.org][UNP]] 中的一部分内容放在这里面来了，这样可以保持这两篇内容比较稳定。
@@ -41,6 +48,7 @@
 - [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]] / [[file:continuation.org][continuation]]
   - [[file:./concurrency-hazards.org][Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code]]
   - [[file:./images/single-multi-thread-event-driven.jpg][One picture explain Single-Thread, Multiple-Thread, Event-Driven]]
+  - [[file:./images/gevent-tutorial/index.html][gevent-tutorial]] gevent的教程，里面涉及到很多和并发相关的概念和组件。
 - [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:./blogs/struggle-with-ubuntu.org][之前有过痛苦的经历]] . 主要记录自己使用出现的问题.
 - [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.
 - [[file:docker.org][docker]] 基于lxc(linux container)的分发应用工具和平台.
@@ -51,10 +59,10 @@
 - [[file:elastic-search.org][Elasticsearch]] 支持分布式的搜索引擎. 性能良好，开箱即用，社区活跃.
 - [[file:./ffmpeg.org][ffmpeg]] 视频/音频处理的瑞士军刀.
 
-** Network Programming
+* Network Programming
 - [[file:unp.org][UNP]] Unix网络编程(Unix Network Programming),W. Richard Stevens的又一神作。笔记里面只是对于TCP原理有比较详细讨论，这部分笔记也包含了TCP Illustrated v1里面和TCP相关的章节内容。对于编程方面也着重TCP socket使用，毕竟在大部分应用场景下面我们选用TCP模型更多，并且TCP里面有很多非常琐碎的知识。
-- [[https://github.com/dirtysalt/tomb/tree/master/cc/itachi][itachi]] 自己两天时间写完的异步网络编程框架，当然有很多地方需要改进，但是内核基本稳定了。并且在上面做了asocket封装，编写网络程序非常方便。
-- [[file:./libev.org][libev]] 开源的事件触发器。被认为是更高效的libevent. [[https://github.com/dirtysalt/itachi][itachi]] 这个项目开始想自己编写事件触发器，但是发现工作比较琐碎枯燥，所以底层还是选择使用libev.
+- [[file:~/repo/dirtysalt.github.io/codes/cc/itachi/][itachi]] 自己两天时间写完的异步网络编程框架，当然有很多地方需要改进，但是内核基本稳定了。并且在上面做了asocket封装，编写网络程序非常方便。
+- [[file:./libev.org][libev]] 开源的事件触发器。被认为是更高效的libevent. [[file:~/repo/dirtysalt.github.io/codes/cc/itachi][itachi]] 这个项目开始想自己编写事件触发器，但是发现工作比较琐碎枯燥，所以底层还是选择使用libev.
 - [[file:hpserver.org][hpserver]] 开源的网络编程框架。可以当做一个入门级的网络编程框架阅读。这个是我最开始阅读的网络编程框架(1st).
 - [[file:nmstl.org][nmstl]] 开源的网络编程框架。一个很早期的作品，代码十分简洁。主要是内部实现了SEDA的思想。这个是我第二个阅读的网络编程框架(2nd).
 - [[file:muduo.org][muduo]] 开源的网络编程框架。作者理想中的网络编程框架实现，里面有很多mina/netty的影子。这个是我三个阅读的网络编程框架(3rd).
@@ -68,7 +76,7 @@
 - [[file:./haproxy.org][HAProxy]] 高性能的负载均衡器，可以提供4（TCP），7（HTTP）层反向代理。
 - [[file:./gunicorn.org][gunicorn]] Python WSGI HTTP Server. green unicorn(Ruby实现)
 
-** Storage System
+* Storage System
 - [[file:storage-system-reading.org][Storage System Reading]] 存储系统方面的一些文章
   - [[file:backblaze-storage-pod.org][Backblaze Storage Pod]] 构建廉价存储服务器的厂商。将其设计以及使用公开并且做了比较深入的说明。
   - [[file:./nosql-back-to-the-feature-or-yet-another-db-feature.org][NoSQL - Back to the Future or Yet Another DB Feature]] @2012
@@ -84,23 +92,32 @@
 - [[file:leveldb.org][leveldb]] Google的开源kv存储系统。支持billion级别的数据量，适合于写少读多的情况。当时阅读的时候是从github上面clone下来的，可能还存相当多的bug.
 - [[file:mongodb.org][mongodb]] 面向文档的分布式存储系统，但是却可以针对文档字段索引来加快查询。功能上比通常我们认为的NoSQL强但是弱于RDBMS.
 - [[file:redis.org][redis]] 内存存储系统，支持丰富的数据类型以及相应的计算(支持持久化)。外围包装网络访问接口(并且提供了丰富的客户端),可以比较方便地在分布式系统内或者是环境下面使用.
+  - [[file:./redis-cluster-tutorial.org][Redis Cluster Tutorial]] Redis Cluster入门
+  - [[file:./redis-manifesto.org][Redis Manifesto]]
 - [[file:mysql.org][mysql]] 开源关系型数据库。The world's most popular open source database.
 - [[file:galera.org][galera]] 基于MySQL的同步多主备份集群(synchronous multi-master replication cluster).
 - [[file:memcached.org][memcached]] an in-memory key-value store for small chunks of arbitrary data (strings, objects) 可以用来搭建分布式缓存服务，没有持久化存储。
 - [[file:rocksdb.org][rocksdb]] A persistent key-value store for fast storage environments. 基于 [[file:leveldb.org][leveldb]] 构建
 - [[file:rcfile.org][rcfile]] / [[file:orcfile.org][orcfile]] / [[file:parquet.org][parquet]] 几种列式存储(columnar storage)实现
 
-** Algorithm / ML / Compression
-=Algorithm=
-- [[file:general-algorithm.org][General Algorithm]] 一些通用算法
+* Algorithm
+- [[file:general-algorithm.org][General Algorithm]] 通用算法
 - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]] 据说算法分为三种：面试算法，ACM算法，算法=D
 - [[file:./do-you-think-you-have-gambling-problem.org][Do You Think You Have a Gambling Problem?]] 赌博其实是概率问题
 - [[file:./probabilistic-data-structures-for-web-analytics-and-data-mining.org][Probabilistic Data Structures for Web Analytics and Data Mining]] 用于Web分析和数据挖掘的概率化数据结构
 - [[file:computational-advertising.org][Computational Advertising]] 计算广告
 - [[file:./bitcoin.org][Bitcoin: A Peer-to-Peer Electronic Cash System]] 比特币论文
-- [[https://github.com/dirtysalt/tomb/tree/master/leetcode][My leetcode's code]]
+- [[file:~/repo/dirtysalt.github.io/codes/leetcode][My leetcode's code]]
+- [[file:think-stats.org][统计思维-程序员数学之概率统计]]
+- [[file:snappy.org][snappy]] Google的开源压缩解压库。在满足一定压缩比率的条件下着重提升压缩和解压速度。
+- [[file:lzf.org][lzf]] [[file:redis.org][redis]] 使用的开源压缩解压库。轻量(两个文件)可以很容易地独立纳入项目。
+- [[file:lzma.org][lzma]] Lempel-Ziv-Markov chain-Algorithm ，压缩速度相对较慢但是压缩比超高。
+- zopfli https://github.com/google/zopfli/
+- brotli https://github.com/google/brotli/
+- zstd https://github.com/facebook/zstd
+- 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]
 
-=ML=
+* Machine Learning
 - [[file:ml-reading.org][Machine Learning Reading]] 机器学习方面的一些文章
   - [[file:./ml-the-hard-way.org][Machine Learning the Hard Way]] 哥们用ml来赌马，虽然最后赚钱了，但是结果却特别悲惨:)
   - [[file:./deconstructing-recommender-systems.org][Deconstructing Recommender Systems]] 关于推荐系统的介绍性文章
@@ -111,22 +128,20 @@
 - [[file:./ml-foundations.org][机器学习基石 on Coursera]]
 - [[file:./ml-techniques.org][机器学习技法 on Coursera]]
 - [[file:./neuralnets.org][Neural Networks for Machine Learning on Coursera]]
-- [[file:./mmds.org][Mining Massive Datasets on Coursera]]
+- [[file:mining-massive-datasets.org][Mining Massive Datasets on Coursera]]
 - [[http://www.autonlab.org/tutorials/list.html][Statistical Data Mining Tutorials]] by [[http://www.cs.cmu.edu/~awm/][Andrew W. Moore]]
-- Coursera: Machine Learning by Andrew Ng. [[file:ml-class.org][笔记和一些习题代码]] (仅供学习) 以及 [[file:images/coursera-ml-2014.pdf][证书]]
-- [[https://github.com/dirtysalt/tomb/tree/master/kaggle][My kaggle's code]]
+- [[file:ml-class.org][Coursera: Machine Learning]] by Andrew Ng [[file:images/coursera-ml-2014.pdf][证书]]
+- [[file:~/repo/dirtysalt.github.io/codes/kaggle/][My kaggle's code]] and [[file:../codes/py/mlcode/][一些机器学习算法实现]]
+- [[file:machine-learning-for-trading-class.org][Machine Learning for Trading]]
+- [[file:./neural-networks-and-deep-learning.org][Coursera: Neural Networks and Deep Learning]] by Andrew Ng [[file:./images/coursera-nn-dl.pdf][证书]]
+- [[file:improving-deep-neural-networks.org][Coursera: Improving Deep Neural Networks]] by Andrew Ng [[file:./images/coursera-dnn.pdf][证书]]
+- [[file:./structing-machine-learning-projects.org][Coursera: Structuring Machine Learning Projects]] by Andrew Ng [[file:./images/coursera-ml-strategy.pdf][证书]]
+- [[file:./convolutional-neural-networks.org][Convolutional Neural Networks]] by Andrew Ng [[file:./images/coursera-cnn.pdf][证书]]
+- 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
 
-=Compression=
-- [[file:snappy.org][snappy]] Google的开源压缩解压库。在满足一定压缩比率的条件下着重提升压缩和解压速度。
-- [[file:lzf.org][lzf]] [[file:redis.org][redis]] 使用的开源压缩解压库。轻量(两个文件)可以很容易地独立纳入项目。
-- [[file:lzma.org][lzma]] Lempel-Ziv-Markov chain-Algorithm ，压缩速度相对较慢但是压缩比超高。
-- zopfli https://github.com/google/zopfli/
-- brotli https://github.com/google/brotli/
-- zstd https://github.com/facebook/zstd
-
-** Distributed System
-*notes*
-- [[file:akka-doc.org][Akka Doc]] Akka文档阅读笔记
+* Distributed System
+** Projects
+- [[file:akka.org][Akka]] Akka文档阅读笔记
 - [[file:storm.org][Storm]] Twitter的流式处理系统
 - [[file:./samza.org][Samza]] LinkedIn的流式处理系统
 - [[file:hadoop.org][Hadoop]] Apache的分布式系统基础架构总称
@@ -145,7 +160,7 @@
 - [[file:./spark.org][Spark]] AMPLab的分布式计算系统
 - [[file:./paxos.org][Paxos]] / [[file:./raft.org][Raft]] 分布式一致性算法
 
-*articles*
+** Articles
 - [[file:distributed-system-reading.org][Distributed System Reading]] 分布式系统方面的一些文章
 - [[file:./you-can-not-sacrifice-partition-tolerance.org][You Can't Sacrifice Partition Tolerance]]
 - [[file:the-anatomy-of-the-google-architecture.org][The Anatomy Of The Google Architecture]] @2009 Google架构的深入解析，属于非官方文档，是一个非Google的友人收集各种资料汇集起来的
@@ -221,8 +236,13 @@
 - 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
 - [[file:./thoughts-on-systems-for-large-datasets.org][Thoughts on Systems for Large Datasets: Problems and Opportunities]] @ 2014 Jeff Dean
 - [[file:why-google-stores-billions-of-lines-of-code-in-a-single-repository.org][Why Google Stores Billions of Lines of Code in a Single Repository]] @ 2016
+- [[file:./achieving-rapid-response-times-in-large-online-services.org][Achieving Rapid Response Times in Large Online Services]] @ 2012 Jeff Dean
+- [[file:./large-scale-deep-learning-for-intelligent-computer-systems.org][Large-Scale Deep Learning for Intelligent Computer Systems]] @ 2016 Jeff Dean
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
+- 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian @ 2013
 
-*papers*
+** Papers
+- 201712 [[file:./blogs/nobody-ever-got-fired-for-buying-a-cluster.org][Nobody ever got fired for buying a cluster]] 计算集群的必要性思考 @ 2013
 - [[file:chubby.org][The Chubby lock service for loosely-coupled distributed systems]] @ 2006
 - [[file:gfs.org][The Google File System]] @ 2003
 - [[file:mapreduce.org][MapReduce: Simplified Data Processing on Large Clusters]] @ 2004
@@ -262,33 +282,33 @@
 - [[file:./spark-rdd-paper.org][Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing]] @ 2012
 - [[file:./spark-phd-paper.org][An Architecture for Fast and General Data Processing on Large Clusters]]
 
-** Programming Language
-- [[file:thoughts-on-prog-lang.org][Thoughts on Prog Lang]]
-- [[file:build-system.org][build-system]] 在实现Baidu in-house的构建工具 [[http://wenku.baidu.com/view/19f3d535284ac850ad0242cc.html][Comake2]] 之前做的构建系统调研总结.
-- [[file:cpp.org][C/C++]] # C++ (pronounced "cee plus plus") is a statically typed, free-form, multi-paradigm, compiled, general-purpose programming language. It is regarded as an intermediate-level language, as it comprises a combination of both high-level and low-level language features. [[http://en.wikipedia.org/wiki/C%2B%2B][Wikipedia]]
-  - [[file:swig.org][swig]] C/C++多语言扩展接口生成器. 使用起来非常方便, 但是本身不太完善, 比较适合用于原型系统.
+* Programming Language
+- [[file:thoughts-on-prog-lang.org][thoughts on programming language]] [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])
+- [[file:build-system.org][build-system]] 在实现Baidu in-house的构建工具 [[http://wenku.baidu.com/view/19f3d535284ac850ad0242cc.html][comake2]] 之前做的构建系统调研总结.
+- [[file:swig.org][swig]] C/C++多语言扩展接口生成器. 使用起来非常方便, 但是本身不太完善, 比较适合用于原型系统.
+- [[file:cpp.org][C/C++]]
   - [[file:./guide-to-advanced-programming-in-c.org][Guide to Advanced Programming in C]]
   - [[file:./the-cpp-prog-lang.org][The C++ Programming Language]]
-- [[file:scheme.org][Scheme]] # Scheme is a functional programming language and one of the two main dialects of the programming language Lisp. [[http://en.wikipedia.org/wiki/Scheme_%28programming_language%29][Wikipedia]]
+- [[file:scheme.org][Scheme]] [[http://www.schemers.org/][official site]]
   - [[file:./the-little-schemer.org][The Little Schemer]]
   - [[file:./the-seasoned-schemer.org][The Seasoned Schemer]]
   - [[file:sicp.org][SICP = Structure and Interpretation of Computer Programs]]
-- [[file:java.org][Java]] # Java is a programming language originally developed by James Gosling at Sun Microsystems (which has since merged into Oracle Corporation) and released in 1995 as a core component of Sun Microsystems' Java platform. The language derives much of its syntax from C and C++ but has a simpler object model and fewer low-level facilities. [[http://en.wikipedia.org/wiki/Java_%28programming_language%29][Wikipedia]]
-  - [[file:maven.org][maven]] 针对JVM语言项目的"基于工程对象模型(POM, Project Object Model)"构建系统
+- [[file:java.org][Java]]
+  - [[file:maven.org][maven]]
   - [[file:./jni.org][JNI]] Java Native Interface
   - [[file:./jvm.org][JVM]] Java Virtual Machine
-- [[file:clojure.org][Clojure]] # Clojure (pronounced like "closure") is a recent dialect of the Lisp programming language created by Rich Hickey. It is a functional general-purpose language. Its focus on programming with immutable values and explicit progression-of-time constructs are intended to facilitate the development of more robust programs, particularly multithreaded ones. [[http://en.wikipedia.org/wiki/Clojure][Wikipedia]]
-- [[file:python.org][Python]] # Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. Its syntax is said to be clear and expressive. Python has a large and comprehensive standard library. [[http://en.wikipedia.org/wiki/Python_(programming_language)][Wikipedia]]
+- [[file:clojure.org][Clojure]]
+- [[file:python.org][Python]]
   - [[file:./efficiently-exploiting-multiple-cores-with-python.org][Efficiently Exploiting Multiple Cores with Python]] 如何有效使用多核
   - [[file:./images/the-django-book/index.html][The Django Book]] 不错的Django入门材料
-- [[file:go.org][Go]] # Go is a compiled, garbage-collected, concurrent programming language developed by Google Inc. [[http://en.wikipedia.org/wiki/Go_(programming_language)][Wikipedia]]
-- [[file:./scala.org][Scala]] # Scala is an object-functional programming and scripting language for general software applications, statically typed, designed to concisely express solutions in an elegant, type-safe and lightweight (low ceremonial) manner. [[http://en.wikipedia.org/wiki/Scala_(programming_language)][Wikipedia]]
-  - [[file:./effective-scala.org][Effective Scala]]
-  - [[file:./images/coursera-fpps-2013.pdf][Coursera: FP in Scala]]
+  - [[file:./python-ipython.org][IPython]] 交互式Python环境，Notebook也非常适合实验
+- [[file:go.org][Go]] ([[file:./go-lang-book.org][Go语言编程]] by 许式伟，吕桂华)
+- [[file:./scala.org][Scala]] ([[file:./effective-scala.org][Effective Scala]]) ([[file:images/coursera-fpps-2013.pdf][Coursera: FP in Scala]])
+- [[file:./erlang.org][Erlang]] ([[file:./erlang-prog-lang-book.org][Erlang程序设计]])
+- [[file:./lua.org][Lua]] ([[file:lua-prog-lang-book.org][Lua程序设计]] by Robert 译 周惟迪) [[file:./openresty-best-practices-lua.org][OpenResty最佳实践/Lua]]
 
-** Software Design
-
-*articles*
+* Software Design
+** Articles
 - [[file:t11-on-backpressure.org][T11谈文艺模型(On Backpressure)]]
 - [[file:t11-on-architecture.org][T11谈架构]]
 - [[file:./suffering-oriented-programming.org][Suffering-oriented programming]]
@@ -328,14 +348,29 @@
 - [[file:./complexity-is-the-enemy.org][Complexity is the enemy]] 复杂是...敌人
 - [[file:./teach-yourself-programming-in-ten-years.org][Teach Yourself Programming in Ten Years]] by Peter Norvig
 - [[file:./mean-people-fail.org][Mean People Fail]] by Paul Graham.
+- [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
+- [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
 
-*[[file:./blog.org][blogs]]*
-- 201710 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
-- 201710 [[file:./blogs/becoming-cto.org][Becoming CTO]]
-- 201710 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
-- 201710 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
-- 201709 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
-- 201709 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
+** Blogs
+- 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
+- 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
+- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
+- 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
+- 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
+- 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
+- 201707 [[file:./blogs/reducing-image-file-size-at-esty.org][Reducing Image File Size at Etsy]]
+- 201707 [[file:./blogs/making-photos-smaller.org][Making Photos Smaller Without Quality Loss]]
+- 201706 [[file:./blogs/the-evolution-of-code-deploys-at-reddit.org][The Evolution of Code Deploys at Reddit]]
+- 201706 [[file:./blogs/44-eng-mag-lessons.org][44 engineering management lessons]]
+- 201705 [[file:./blogs/colleague-creates-spaghetti-code.org][What to do when Your Colleague Creates Spaghetti Code]]
+- 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
+- 201610 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
+- 201610 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
+- 201610 [[file:./blogs/becoming-cto.org][Becoming CTO]]
+- 201610 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
+- 201610 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
+- 201609 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
+- 201609 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
 - 201608 [[file:./blogs/the-future-of-programming.org][The Future of Programming]] by Bret Victor
 - 201608 [[file:./blogs/what-makes-a-great-software-engineer.org][What Makes A Great Software Engineer?]]
 - 201606 [[file:./blogs/top-10-things-that-makes-you-a-good-programmer.org][Top 10 Things that Makes You a Good Programmer]]
@@ -381,7 +416,8 @@
 - 201509 [[file:./blogs/what-happens-to-older-developers.org][What Happens to Older Developers?]]
 - 201509 [[file:./blogs/tips-for-work-life-balance.org][Tips for work-life balance]]
 
-*books*
+** Books
+- [[file:./future-of-code.org][代码的未来]] by 松本行弘
 - [[file:design-reading.org][Design Reading]] 软件设计方面的一些文章
 - [[file:license.org][Open Source License]] 一些常见的开源协议
 - [[file:design-pattern.org][Design Pattern]] 将书<Design Patterns: Elements of Reusable Object-Oriented Software>中要表达的思想按照自己的意思整理出来(后面可能会添加一些自己的"设计模式"吧:)。不过我倒是觉得没有必要在使用中刻意地去拼凑使用某种模式，相反应该让模式渗入到自己的思想中去，指导自己写出更加优美更加可维护的代码，而不用在意"我使用了哪种模式". 然后现在我开始逐渐认同一个观点，那就是"设计模式是语言表达能力存在缺陷的一种表现".
@@ -410,91 +446,3 @@
 - [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
 - [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
 - [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
-
-** Misc Books
-- [[file:./links.org][Great links]]
-- [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
-- [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
-- [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
-- [[file:./blogs/writing-clean-code.org][编程精粹-Microsoft编写优质无错代码的秘诀(Writing Clean Code)]]
-- [[file:./blogs/the-art-of-unix-programming.org][Unix程序设计艺术(The Art of Unix Programming)]] by Eric Raymond
-- [[file:./blogs/the-mythical-man-month.org][人月神话(The Mythical Man-Month)]] by Fred Brooks
-- [[file:./blogs/the-pragmatic-programmer.org][程序员修炼之道(The Pragmatic Programmer)]] by Andrew Hunt
-- [[file:./blogs/dreaming-in-code.org][梦断代码(Dreaming in Code)]]
-- [[file:./blogs/refactoring-improving-the-design-of-existing-code.org][重构-改善既有代码的设计(Refactoring: Improving the Design of Existing Code)]]
-- [[file:./blogs/code-quality-the-open-source-perspective.org][高质量程序设计艺术(Code Quality The Open Source Perspective)]]
-- [[file:./blogs/virtual-machine-design-and-implementation-in-c-cpp.org][虚拟机设计与实现(Virtual Machine Design and Implementation in C/C++)]]
-- [[file:./blogs/structured-computer-organization.org][结构化计算机组成(Strcutured Computer Organization)]] by A.S.T
-- [[file:./blogs/modern-operating-systems.org][现代操作系统(Modern Operating Systems)]] by A.S.T
-- [[file:./blogs/introduction-to-computing-systems.org][计算机系统概论(Introduction to Computing Systems)]] by Yale Patt
-- [[file:./blogs/distributed-operating-systems.org][分布式操作系统(Distributed Operating Systems)]] by A.S.T
-- [[file:./blogs/how-to-solve-it-a-new-apsect-of-math-method.org][如何解题-数学思维新方法(How to Solve It: A New Aspect of Mathematical Method)]] by George Polya
-- [[file:./blogs/republic.org][理想国(Republic)]] by Plato
-- 影响力(Influence) by Kerry Patterson
-- 娱乐至死(Amusing Ourselves to Death) by Neil Postman
-- 狂热分子(True Believer) by Eric Hoffer
-- 乌合之众(The Crowd) by Gustave Le Bon
-- [[file:./blogs/people-all-know.org][全世界人民都知道]] by 李承鹏
-- [[file:./blogs/big-data.org][大数据时代：生活、工作与思维的大变革(Big Data:A Revolution That Will Transform How We Live, Work, and Think)]]
-- [[file:./blogs/the-catcher-in-the-rye.org][麦田里的守望者(The Catcher in The Rye)]] by Jerome Salinger
-- [[file:./blogs/jonathon-ive.org][乔纳森传(Jonathon Ive)]]
-- [[file:./blogs/the-facebook-effect.org][Facebook效应(The Facebook Effect)]]
-- [[file:./blogs/the-little-prince.org][小王子(The Little Prince)]] by Antoine de Saint-Exupéry
-- [[file:./blogs/on-top-of-tides.org][浪潮之巅(On Top of Tides)]] by 吴军
-- [[file:./blogs/the-economic-naturalist.org][牛奶可乐经济学(The Economic Naturalist)]]
-- [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
-- [[file:./blogs/baked-in-creating-products-and-business-that-market-themselves.org][自营销(Baked In: Creating Products and Businesses That Market Themselves)]]
-- [[file:./blogs/dear-andreas.org][亲爱的安德烈]] by 龙应台
-- [[file:./blogs/rework.org][Rework]] by 37 Signals
-- [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
-- [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
-- [[file:./blogs/think-like-an-artist.org][像艺术家一样思考-藏在名画里的创意思维(Think Like An Artist)]]
-- [[file:./blogs/confessions-of-an-advertising-man.org][一个广告人的自白(Confessions of an Advertising Man)]]
-- [[file:./blogs/remote.org][Remote]] by 37 Signals
-- [[file:./blogs/inside-job.org][监守自盗(Inside Job)]]
-- [[file:./blogs/god-father.org][教父(God Father)]] by Francis Coppola
-- [[file:./blogs/seediq-bale.org][赛德克巴莱(Seediq Bale)]] by 魏德圣
-- [[file:./blogs/scent-of-a-woman.org][闻香识女人(Scent of a Woman)]]
-- [[file:./blogs/pulp-fiction.org][低俗小说(Pulp Fiction)]] by Quentin Tarantino
-- [[file:./blogs/the-hurt-locker.org][拆弹部队(The Hurt Locker)]]
-- [[file:./blogs/lincoln.org][林肯(Lincoln)(2012)]] by Steven Spielberg
-- [[file:./blogs/the-prestige.org][致命魔术(The Prestige)]] by Chris Nolan
-- [[file:./blogs/moneyball.org][点球成金(Moneyball)]]
-- [[file:./blogs/animal-farm.org][动物庄园(Animal Farm)]] by George Orwell
-- [[file:./blogs/stairway-to-heaven.org][Stairway to Heaven]] by Led Zeppelin
-- [[file:./blogs/dont-go-gentle-into-that-good-night.org][Do not go gentle into that good night]] by Dylan Thomas
-- [[file:./blogs/youtube-steve-chen-bio.org][YouTube创始人陈士骏自传]]
-- [[file:./blogs/1984.org][1984]] by George Orwell
-- [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by wujun
-- [[file:./blogs/why-cn-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
-- [[file:./blogs/wu-qing-yuan-bio.org][中的精神（吴清源自传）]]
-- [[file:./blogs/star-wars.org][星球大战(Star Wars)]]
-- [[file:./blogs/baby-sleep-training.org][有关宝宝睡眠的那些事儿(睡眠训练实战操作经验)]]
-- [[file:./blogs/antifragile.org][反脆弱: 从不确定性中获益(Antifragile: Things That Gain from Disorder)]] by Nassim Nicholas Taleb
-- [[file:./blogs/money-doggy.org][小狗钱钱]] by Bodo Schafer
-- [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
-- [[file:./blogs/anti-destruction-in-china.org][李可乐抗拆记]] by 李承鹏
-- [[file:./blogs/dark-time.org][暗时间]] by 刘未鹏
-- [[file:./blogs/wolf-totem.org][狼图腾]] by 姜戎
-- [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯;玛莎·西尔斯
-- [[file:./blogs/platform-strategy.org][平台战略: 正在席卷全球的商业模式革命]] by 陈威如, 余卓轩
-- [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
-- [[file:./blogs/the-men-who-built-america.org][谁建造了美国(The men who built America)]] by 网易公开课
-- [[file:./blogs/that-man-looks-like-a-dog.org][(ZZ)那个人好像一条狗]] 周星驰 <大圣娶亲>
-- [[file:./blogs/three-body.org][三体(Three Body)]] by 刘慈欣
-- [[file:./blogs/growth-hacker.org][增长黑客(Growth Hacker)]] by 范冰
-- [[file:./blogs/lean-in.org][向前一步(Lean In)]] by Sheryl Sandberg
-- [[file:./blogs/the-hitchhikers-guide-to-the-galaxy.org][银河系漫游指南(The Hitchhiker's Guide to the Galaxy)]] by Douglas Adams
-- [[file:./blogs/thinking-fast-and-slow.org][思考,快与慢(Thinking, Fast and Slow)]] by Daniel Kahneman
-- [[file:./blogs/from-zero-to-one.org][从0到1(From Zero To One)]] by Peter Thiel
-- [[file:./blogs/the-great-game.org][伟大的博弈: 华尔街金融帝国的崛起(The Great Game: The Emergence of Wall Street as a World Power)]] by John Gordon
-- [[file:./blogs/delivering-happiness.org][奉上幸福(Devliering Happiness)]] by 谢家华
-- [[file:./blogs/convict-conditioning.org][囚徒健身(Convict Conditioning)]] by Paul Wade
-- [[file:./blogs/the-paypal-wars.org][支付战争(The PayPal Wars)]] by Eric Jackson
-- [[file:./blogs/how-google-works.org][谷歌是如何运营的(How Google Works)]] by Eric Schmidt
-- [[file:./blogs/reminiscences-of-stock-broker.org][股票作手回忆录(Reminiscences of stock broker)]] by Jesse Livermore
-- [[file:./blogs/zhihu-daily-economy.org][知乎周刊-日常经济学]]
-- [[file:./blogs/the-shortest-history-of-europe.org][极简欧洲史]] by John Hirst
-- [[file:./blogs/majority-of-silent-people.org][沉默的大多数]] by 王小波
-- [[file:./blogs/mac-talk.org][MacTalk]] by 池建强
-- [[file:./blogs/zhihu-hft-engineer.org][我是高频交易工程师：知乎董可人自选集]]

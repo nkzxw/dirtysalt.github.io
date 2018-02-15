@@ -202,9 +202,7 @@ Use wsrep_osu_method to choose either option. *ALTER TABLE to create new autoinc
    - Each node will get the DDL statement and must process the DDL at same slot in transaction stream
    - Galera will isolate the affected table/database for the duration of DDL processing
 
-file:./images/galera-schema-upgrade-toi.png
-
-file:./images/galera-schema-upgrade-toi2.png
+file:./images/galera-schema-upgrade-toi.png file:./images/galera-schema-upgrade-toi2.png
 
 *Rolling Schema Upgrade* （节点首先desync，DDL作用在节点上之后，然后resync）
    - DDL is not replicated
@@ -213,13 +211,7 @@ file:./images/galera-schema-upgrade-toi2.png
    - DBA should roll RSU operation over allnodes
    - Requires backwards compatible schema changes
 
-file:./images/galera-schema-upgrade-rsu.png
-
-file:./images/galera-schema-upgrade-rsu2.png
-
-file:./images/galera-schema-upgrade-rsu3.png
-
-file:./images/galera-schema-upgrade-rsu4.png
+file:./images/galera-schema-upgrade-rsu.png file:./images/galera-schema-upgrade-rsu2.png file:./images/galera-schema-upgrade-rsu3.png file:./images/galera-schema-upgrade-rsu4.png
 
 ** Certification Based Replication
 *** Introduction
@@ -280,9 +272,7 @@ Possible methods:
 
 *Disconnecting a node for backup*
 
-file:./images/galera-backup-disconnect-node.png
-
-file:./images/galera-backup-backup.png
+file:./images/galera-backup-disconnect-node.png file:./images/galera-backup-backup.png
 
 *Backup by SST API*
 

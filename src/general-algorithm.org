@@ -1,4 +1,33 @@
 #+title: General Algorithm
+** 链接资源
+Jobs:
+   - http://careers.stackoverflow.com/jobs/
+   - http://recruiting.jobvite.com/
+   - http://www.mercurynews.com/jobs
+
+Coding Problem:
+   - http://www.careercup.com/
+   - http://codility.com/
+   - http://leetcode.com/
+   - http://community.topcoder.com/
+
+Online Editor:
+   - http://collabedit.com/
+   - https://codinghire.com/
+   - https://code.stypi.com/deuukwa6
+
+Resources:
+   - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
+   - http://www.mitbbs.com/bbsdoc/JobHunting.html
+   - http://www.glassdoor.com/index.htm
+
+行为型问题:
+   - So tell me about yourself.
+   - What is your greatest weakness?
+   - Have you ever had a conflict with a co-worker? How did you solve it?
+   - What is your most challenging/interesting project?
+   - Where do you see yourself in five years?
+
 ** 工程算法
 *** strlen in glibc
 参考链接 http://www.kuqin.com/language/20071113/2308.html. 这里和链接有点不太一样的就是，这个版本glibc实现考虑了非ASCII字符。
@@ -124,6 +153,7 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 
 *** simhash core algorithm
 - http://blog.csdn.net/lgnlgn/article/details/6008498
+- http://www.wwwconference.org/www2007/papers/paper215.pdf
 
 simhash算法针对文档分析得到文档特征的一个向量表示，然后使用这个向量之间的差距就可以作为文档之间的差别大小，可以用来做文档近似判断。
 
@@ -150,7 +180,7 @@ simhash算法原理非常简单：
 - Sketch of the Day: HyperLogLog — Cornerstone of a Big Data Infrastructure – AK Tech Blog http://blog.aggregateknowledge.com/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/
 - http://stackoverflow.com/questions/12327004/how-does-the-hyperloglog-algorithm-work
 - HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm : http://research.google.com/pubs/pub40671.html
-- https://github.com/clearspring/stream-lib #note: HyperLogLogPlus实现
+- https://github.com/clearspring/stream-lib # HyperLogLogPlus实现
 
 这个算法主要是来进行去重的，前提是在big data下面并且内存存在限制。算法的假设和原理如下：
 #+BEGIN_QUOTE
@@ -237,109 +267,7 @@ file:./images/concise-concise.png
 论文后面还给了一些 *直接在这种压缩表示* 上面的算法。
 
 ** 面试算法
-*** 链接资源
-Jobs:
-   - http://careers.stackoverflow.com/jobs/
-   - http://recruiting.jobvite.com/
-   - http://www.mercurynews.com/jobs
-
-Coding Problem:
-   - http://www.careercup.com/
-   - http://codility.com/
-   - http://leetcode.com/
-   - http://community.topcoder.com/
-
-Online Editor:
-   - http://collabedit.com/
-   - https://codinghire.com/
-   - https://code.stypi.com/deuukwa6
-
-Resources:
-   - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
-   - http://www.mitbbs.com/bbsdoc/JobHunting.html
-   - http://www.glassdoor.com/index.htm
-
-行为型问题:
-   - So tell me about yourself.
-   - What is your greatest weakness?
-   - Have you ever had a conflict with a co-worker? How did you solve it?
-   - What is your most challenging/interesting project?
-   - Where do you see yourself in five years?
-
-*** 配置topcoder
-安装topcoder非常简单：
-   - 确认安装好javaws，因为topcoder客户端是一个java applet
-   - 下载topcoder的客户端 # wget  http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp
-   - 启动这个applet之后就就可以进入arena了。
-
-为了方便地使用topcoder（比如将一些testcase下载下来的话），可以使用一些插件。个人觉得下面这个组合不错
-   - code processor
-   - file edit
-   - TZTester
-这些插件都可以在这里找到 http://community.topcoder.com/tc?module=Static&d1=applet&d2=plugins
-
-三个插件的下载地址分别是：
-   - http://community.topcoder.com/contest/classes/TZTester/TZTester.jar
-   - http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar
-   - http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar
-
-下载完成之后在topcoder客户端里面的options->Editor里面进行配置
-   - Add增加一个Editor
-   - EntryPoint填写 codeprocessor.EntryPoint
-   - ClassPath将前面三个jar选择上
-   - 然后选择这个为Default Editor
-   - 然后点击Configure
-   - EntryPoint填写 fileedit.EntryPoint
-   - processor class填写 tangentz.TZTester
-
-继续点击Configure选项，在General这个部分基本上没有什么需要修改的：
-   - read/write problem to ./topcoder # 将题目保存到topcoder目录里面
-   - #todo: more?
-然后就是配置Code Template。如果使用C++的话，那么可以考虑使用下面的模板
-#+BEGIN_SRC C++
-/* coding:utf-8
- * Copyright (C) dirlt
- */
-#include <cstdlib>
-#include <cctype>
-#include <cstring>
-#include <cstdio>
-#include <cmath>
-#include <ctime>
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <string>
-#include <map>
-#include <set>
-#include <algorithm>
-#include <queue>
-#include <stack>
-using namespace std;
-typedef long long ll;
-
-class $CLASSNAME$ {
- public:
-  $RC$ $METHODNAME$($METHODPARMS$) {
-  }
-  $TESTCODE$
-};
-
-// BEGIN CUT HERE
-int main() {
-  $CLASSNAME$ ___test;
-  ___test.run_test(-1);
-  return 0;
-}
-// END CUT HERE
-#+END_SRC
-
-以后每次打开题目都会在本地保存一份代码，并且里面附带测试用例，本地完成之后直接load即可保存到远程。nice!!!
-
-这是我第一次做div2的成绩，留个念
-
-file:./images/virgin-topcoder-div2.jpg
-*** 树最长距离问题
+*** 树最长距离
 树的最长距离定义为任意两个节点之间距离的最大值。咋一看这个问题，似乎就是根节点左子树高度和右子树高度之和，但是实际上可能对于子树里面可能会存在更长的距离。对于最长距离的话应该仅存在于这两者之间。
 
 #+BEGIN_SRC Python
@@ -412,7 +340,7 @@ class Solution {
 };
 #+END_SRC
 
-*** 开门抽奖问题(Monty Hall Problem)
+*** Monty Hall Problem
 原题是有三扇门，一扇门后面是一辆汽车，后面两扇门没有东西。主持人首先让你选择一扇门，之后主持人打开一扇后面没有任何东西的门，然后主持人问你是否需要更换你的选择？扩展一下这个问题，如果扩展到N(N>=3)扇门的话，那么之前和之后中奖概率分别是多少？
 
 第一步是随机选择那么概率是1/N.但是第二步概率可以这样考虑：
@@ -423,9 +351,9 @@ class Solution {
 
 思考的关键在于，主持人这个行为对你当前选择的概率是没有任何影响的。因为无论如何主持人都可以打开一扇空门出来。
 
-#note(20150908): 这个问题是 [[https://en.wikipedia.org/wiki/Monty_Hall_problem][Monty Hall Problem]], 可以通过 [[https://github.com/dirtysalt/tomb/blob/master/py/stats/monty_hall.py][模拟]] 来计算结果
+UPDATE@2015-09-08: 这个问题是 [[https://en.wikipedia.org/wiki/Monty_Hall_problem][Monty Hall Problem]], 可以通过 [[file:~/repo/dirtysalt.github.io/codes/py/scripts/monty_hall.py][模拟]] 来计算结果
 
-*** 等概率选取链表元素问题
+*** 等概率选取链表元素
 等概率选取未知长度的链表中的元素，要求是只能够遍历这个链表一次。下面是代码， *注意这里的wanted会不断地被更新*
 #+BEGIN_SRC C++
 int nmatch = 0;
@@ -441,7 +369,7 @@ for ( p=list; p!=NULL; p=p->next ){
    - 并且确保倒数第一个元素没有被 *选中* 。因为最后一个选中概率为1/n，所以最后一个元素不被选中概率为(n-1)/n
 因此倒数第二个元素被选出的概率为 1/(n-1) * (n-1)/n = 1/n. 同理计算对于每一个元素的概率都是 1/n.
 
-*** 查找非重复数字问题
+*** 查找非重复数字
 -----
 有一堆数，只有 *一个* 数出现单次，其余数都出现 *偶数* 次。
 
@@ -518,7 +446,7 @@ class Solution {
 };
 #+END_SRC
 
-*** 水池最大蓄水问题
+*** 水池最大蓄水
 考虑一个二维直方图平面，X轴单位为1，Y轴是直方图高度。假设向这个直方图里面灌水，请问这个直方图能够容纳多少水。
 
 举个例子，假设有下面直方图 9，4，5，10，很明显最终9，10会两侧的水，并且水面高度为9，因此对于4来说的话就会容纳5单位，5就容纳4个单位，因此一共容纳9个单位。
@@ -614,8 +542,8 @@ class Solution {
 };
 #+END_SRC
 
-*** 赔率系统设计问题
-#note@2012.6.14
+*** 赔率设计问题
+@2012.6.14
 
 昨天大家说做一个赌球赔率系统，晚上Hai教我了一些基本的东西。
 
@@ -638,10 +566,8 @@ class Solution {
    - 如果b win,那么我们希望只是输掉(N-K).所以赔率应该是1:1+(N-K)/M
 但是赔率至少应该有得赚，所以M-K>0 && N-K>0.因此K
 
------
-
-但是现实中存在下面一些问题：
-   - 如何bootstrap呢?（设定初始赔率）。#note: 我们可以首先计算出双方获胜概率p,计算出赔率1/p.为了抽水了降低赔率比如1/p*0.9.这样最后概率计算出来就会是1/0.9了。
+现实中存在下面一些问题：
+   - 如何bootstrap呢?也就是设定初始赔率。我们可以首先计算出双方获胜概率p,计算出赔率1/p.为了抽水了降低赔率比如1/p*0.9.这样最后概率计算出来就会是1/0.9了。
    - 如果某一方没有压钱的话，那么相当于是庄家自己在赌博。
    - 现实生活中是先看到赔率然后再下手的，下手之后这笔钱对应的赔率应该是不变的。而我们设计的模型是假设钱都已经到位了之后，我们再来定义赔率。
 
@@ -665,6 +591,115 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
          = (X1^2 + X2^2 + ... Xi^2 + ... + Xn^2) - n * Xe^2
 #+END_EXAMPLE
 
+*** Poor Pigs @ leetcode
+leetcode 上面的题目，没有想出来，但是看完 [[https://discuss.leetcode.com/topic/67666/another-explanation-and-solution][解法]](A) 之后觉得非常赞。
+
+一开始我看的是这个 [[https://discuss.leetcode.com/topic/67482/solution-with-detailed-explanation][回答(B)]] , 但是似乎并不完美，尤其是没有解释好多轮的情况。
+
+如果只有一轮情况的话，那么每个dimension的长度就变成了2, 所以答案是 2 ^ pigs. 回答B里面对于一轮情况的解释还是不错的。
+
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+class Solution(object):
+    def poorPigs(self, buckets, minutesToDie, minutesToTest):
+        """
+        :type buckets: int
+        :type minutesToDie: int
+        :type minutesToTest: int
+        :rtype: int
+        """
+        pigs = 0
+        rounds = minutesToTest / minutesToDie
+        while True:
+            if (rounds + 1) ** pigs >= buckets:
+                break
+            pigs += 1
+        return pigs
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.poorPigs(1000, 15, 60))
+
+#+END_SRC
+
+** 配置topcoder
+UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 https://github.com/shivawu/topcoder-greed. 这个插件是一个整合包，配置起来更加方便。
+
+安装topcoder非常简单：
+   - 确认安装好javaws，因为topcoder客户端是一个java applet
+   - 下载topcoder的客户端 # wget  http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp
+   - 启动这个applet之后就就可以进入arena了。
+
+为了方便地使用topcoder（比如将一些testcase下载下来的话），可以使用一些插件。个人觉得下面这个组合不错
+   - code processor
+   - file edit
+   - TZTester
+这些插件都可以在这里找到 http://community.topcoder.com/tc?module=Static&d1=applet&d2=plugins
+
+三个插件的下载地址分别是：
+   - http://community.topcoder.com/contest/classes/TZTester/TZTester.jar
+   - http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar
+   - http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar
+
+下载完成之后在topcoder客户端里面的options->Editor里面进行配置
+   - Add增加一个Editor
+   - EntryPoint填写 codeprocessor.EntryPoint
+   - ClassPath将前面三个jar选择上
+   - 然后选择这个为Default Editor
+   - 然后点击Configure
+   - EntryPoint填写 fileedit.EntryPoint
+   - processor class填写 tangentz.TZTester
+
+继续点击Configure选项，在General这个部分基本上没有什么需要修改的。
+
+然后就是配置Code Template。如果使用C++的话，那么可以考虑使用下面的模板
+
+#+BEGIN_SRC C++
+/* coding:utf-8
+ * Copyright (C) dirlt
+ */
+#include <cstdlib>
+#include <cctype>
+#include <cstring>
+#include <cstdio>
+#include <cmath>
+#include <ctime>
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <queue>
+#include <stack>
+using namespace std;
+typedef long long ll;
+
+class $CLASSNAME$ {
+ public:
+  $RC$ $METHODNAME$($METHODPARMS$) {
+  }
+  $TESTCODE$
+};
+
+// BEGIN CUT HERE
+int main() {
+  $CLASSNAME$ ___test;
+  ___test.run_test(-1);
+  return 0;
+}
+// END CUT HERE
+#+END_SRC
+
+以后每次打开题目都会在本地保存一份代码，并且里面附带测试用例，本地完成之后直接load即可保存到远程。nice!!!
+
+这是我第一次做div2的成绩，留个念
+
+file:./images/first-topcoder-div2.jpg
 ** CS中最重要的32个算法
 http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms
 

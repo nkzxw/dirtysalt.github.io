@@ -1,166 +1,167 @@
 #+title: APUE(Advanced Programming Unix Environment)
+
 ** Unix基础知识
-整个Unix体系结构包括这么几个部分：
-   - 内核(kernel)
-   - 系统调用(system call)
-   - 库函数(library)
-   - shell
-   - 应用程序(application)
+ 整个Unix体系结构包括这么几个部分：
+    - 内核(kernel)
+    - 系统调用(system call)
+    - 库函数(library)
+    - shell
+    - 应用程序(application)
+
 *** 登录
-系统的口令文件存放在/etc/passwd下面，每行是一条记录。每条记录以:分隔包含7个字段
-   - username
-   - password
-   - uid(user id)
-   - gid(group id)
-   - comment
-   - home directory
-   - shell
-但是现在所有的系统都将这些信息放在其他文件(which file).Linux默认是Bourne-again shell(bash).
+ 系统的口令文件存放在/etc/passwd下面，每行是一条记录。每条记录以:分隔包含7个字段
+    - username
+    - password
+    - uid(user id)
+    - gid(group id)
+    - comment
+    - home directory
+    - shell
+ 但是现在所有的系统都将这些信息放在其他文件(which file).Linux默认是Bourne-again shell(bash).
 
 *** 帮助
-早期的Unix系统把8个部分都集中在一本手册上面，现在趋势是将他们安排在不同的手册上面，
-包括用户专门手册，程序员手册，系统管理员手册等。通常来说shell命令在第1节，系统调用
-在第2节，库函数在第3节，而系统管理员手册在第7节。
+ 早期的Unix系统把8个部分都集中在一本手册上面，现在趋势是将他们安排在不同的手册上面，
+ 包括用户专门手册，程序员手册，系统管理员手册等。通常来说shell命令在第1节，系统调用
+ 在第2节，库函数在第3节，而系统管理员手册在第7节。
 
 *** 文件和目录
-目录的起点为根，名字是/.目录是包含多个目录项的文件，逻辑上来说目录包含文件名还包括文件
-属性信息等，但是在现实系统实现时候属性信息是和文件关联起来的而不是由目录保存的。如果由
-目录来保存文件属性信息的话，那么在制作硬链接的时候会存在问题，很难保持多个文件属性复本的同步。
-创建目录的时候自动会创建.和..目录。
+ 目录的起点为根，名字是/.目录是包含多个目录项的文件，逻辑上来说目录包含文件名还包括文件
+ 属性信息等，但是在现实系统实现时候属性信息是和文件关联起来的而不是由目录保存的。如果由
+ 目录来保存文件属性信息的话，那么在制作硬链接的时候会存在问题，很难保持多个文件属性复本的同步。
+ 创建目录的时候自动会创建.和..目录。
 
-每个进程都存在工作目录(working directory),使得所有相对路径名都从这个工作目录开始解释。进程
-允许使用chdir或者是fchdir来改变工作目录。需要注意的是工作目录仅仅和进程相关的，所以执行
-一个程序在里面chdir,而退回到shell的话工作目录不变。一个用户登录时候的工作目录成为
-起始目录(home directory),这个在口令文件中指定了。
+ 每个进程都存在工作目录(working directory),使得所有相对路径名都从这个工作目录开始解释。进程
+ 允许使用chdir或者是fchdir来改变工作目录。需要注意的是工作目录仅仅和进程相关的，所以执行
+ 一个程序在里面chdir,而退回到shell的话工作目录不变。一个用户登录时候的工作目录成为
+ 起始目录(home directory),这个在口令文件中指定了。
 
-目录中各项就是文件名。通常来说文件名不能够出现的字符只是/和null字符。尽管如此，一个好的习惯是
-应该尽可能使用印刷字符的一个子集来作为文件名字符，这样在shell下面能够键入文件名。文件名
-和目录放在一起形成了路径名(pathname).
+ 目录中各项就是文件名。通常来说文件名不能够出现的字符只是/和null字符。尽管如此，一个好的习惯是
+ 应该尽可能使用印刷字符的一个子集来作为文件名字符，这样在shell下面能够键入文件名。文件名
+ 和目录放在一起形成了路径名(pathname).
 
-文件属性包括文件类型，文件大小，文件所有者，文件权限，文件最后修改时间等。使用stat,fstat或者是
-lstat函数可以返回某个文件的属性信息。
+ 文件属性包括文件类型，文件大小，文件所有者，文件权限，文件最后修改时间等。使用stat,fstat或者是
+ lstat函数可以返回某个文件的属性信息。
 
 *** 输入和输出
-对于进程需要访问文件的话，系统调用提供的界面是文件描述符(file descriptor).一个fd是一个小的非负
-整数，内核用它标识一个特定进程正在访问的文件。对于每一个应用程序，shell都会为这个应用程序打开
-默认的3个fd,分别是stdin,stdout和stderr.这3个fd的值通常是0,1,2,但是为了程序的可移植性考虑的话，
-最好使用
-#+BEGIN_SRC C++
-#include <unistd.h>
-#define STDIN_FILENO 0
-#define STDOUT_FILENO 1
-#define STDERR_FILENO 2
-#+END_SRC
+ 对于进程需要访问文件的话，系统调用提供的界面是文件描述符(file descriptor).一个fd是一个小的非负
+ 整数，内核用它标识一个特定进程正在访问的文件。对于每一个应用程序，shell都会为这个应用程序打开
+ 默认的3个fd,分别是stdin,stdout和stderr.这3个fd的值通常是0,1,2,但是为了程序的可移植性考虑的话，
+ 最好使用
+ #+BEGIN_SRC C++
+ #include <unistd.h>
+ #define STDIN_FILENO 0
+ #define STDOUT_FILENO 1
+ #define STDERR_FILENO 2
+ #+END_SRC
 
-IO分为不带缓冲IO和带缓冲IO.不带缓冲IO是指read/write这样的调用，而带缓冲IO是指标准IO比如printf/
-getchar/fputs这样的调用。是否带缓冲的区别是是否在用户态是否有buffer来缓冲从内核态读出来的数据。
+ IO分为不带缓冲IO和带缓冲IO.不带缓冲IO是指read/write这样的调用，而带缓冲IO是指标准IO比如printf/
+ getchar/fputs这样的调用。是否带缓冲的区别是是否在用户态是否有buffer来缓冲从内核态读出来的数据。
 
 *** 程序和进程
-程序和进程的区别是逻辑上的区别。程序是静态的存储在磁盘的可执行文件，用户启动程序的话，那么
-内核装载这个程序运行，那么就形成了进程。进程(process)就是程序运行之后的动态的一个对象。
+ 程序和进程的区别是逻辑上的区别。程序是静态的存储在磁盘的可执行文件，用户启动程序的话，那么
+ 内核装载这个程序运行，那么就形成了进程。进程(process)就是程序运行之后的动态的一个对象。
 
-为了控制进程，每个进程都会分配一个pid(process id).主要有3个用于控制进程的函数，分别是fork/exec/waitpid.
-需要注意的是,fork在很多系统中有另外一个名字spawn.
+ 为了控制进程，每个进程都会分配一个pid(process id).主要有3个用于控制进程的函数，分别是fork/exec/waitpid.
+ 需要注意的是,fork在很多系统中有另外一个名字spawn.
 
-进程是竞争操作系统的资源单位和调度单位，而线程是最小的调度单位。一个进程可能包含很多线程(thread)，
-但是始终只有一个主线程(main thread).使用线程可以充分利用多处理器系统的并行性。在同一个进程里面，
-线程之间是共享资源的，包括地址空间，文件描述符，栈，进程相关属性等，而不像进程之间一样默认资源是隔离
-的(当然也可以共享).同时线程为了方便控制也有tid(thread id)，但是控制线程的函数另外有一套。
+ 进程是竞争操作系统的资源单位和调度单位，而线程是最小的调度单位。一个进程可能包含很多线程(thread)，
+ 但是始终只有一个主线程(main thread).使用线程可以充分利用多处理器系统的并行性。在同一个进程里面，
+ 线程之间是共享资源的，包括地址空间，文件描述符，栈，进程相关属性等，而不像进程之间一样默认资源是隔离
+ 的(当然也可以共享).同时线程为了方便控制也有tid(thread id)，但是控制线程的函数另外有一套。
 
 *** 错误处理
-当Unix函数出错时，常常返回一个负值并且使用errno来表示这个错误号。
-#+BEGIN_SRC C++
-#include <errno.h>
-//是否支持多线程
-#ifdef SUPPORT_MULTI_THREADS
-extern int errno;
-#else
-exrern int* __errno_locaiton(void);
-#define errno (*__errno_locaiton())
-#endif
-//错误编号(!0)
-#define EACCESS <???>
-#define EPERM <???>
-#+END_SRC
-没有支持多线程之前，可以使用变量来表示。但是如果是支持多线程的话，那么errno将会是一个全局变量，
-所以errno就需要后面一种方式表示。因为现在大部分操作系统都是支持多线程的，所以对于我们来说，
-需要认识到errno其实是一个宏。
+ 当Unix函数出错时，常常返回一个负值并且使用errno来表示这个错误号。
+ #+BEGIN_SRC C++
+ #include <errno.h>
+ //是否支持多线程
+ #ifdef SUPPORT_MULTI_THREADS
+ extern int errno;
+ #else
+ exrern int* __errno_locaiton(void);
+ #define errno (*__errno_locaiton())
+ #endif
+ //错误编号(!0)
+ #define EACCESS <???>
+ #define EPERM <???>
+ #+END_SRC
+ 没有支持多线程之前，可以使用变量来表示。但是如果是支持多线程的话，那么errno将会是一个全局变量，
+ 所以errno就需要后面一种方式表示。因为现在大部分操作系统都是支持多线程的，所以对于我们来说，
+ 需要认识到errno其实是一个宏。
 
-同时C标准定义了两个函数来帮助打印错误信息
-#+BEGIN_SRC C++
-const char* strerror(int errnum); //根据错误号返回一个错误信息字符串
-void perror(const char* msg); //msg:<错误消息>打印到标准错误上
-#+END_SRC
+ 同时C标准定义了两个函数来帮助打印错误信息
+ #+BEGIN_SRC C++
+ const char* strerror(int errnum); //根据错误号返回一个错误信息字符串
+ void perror(const char* msg); //msg:<错误消息>打印到标准错误上
+ #+END_SRC
 
 *** 用户标识
-用户标识包括
-   - 用户id(uid,user id)
-   - 组id(gid,group id)
-   - 附加组id(sgid,supplementary group id)
+ 用户标识包括
+    - 用户id(uid,user id)
+    - 组id(gid,group id)
+    - 附加组id(sgid,supplementary group id)
 
-对于uid来说是系统为了简化区别用户的方式(不然使用字符串区别非常麻烦).uid在登录时候确定
-并且不能够修改。uid=0的用户为根用户(root),这是一个超级用户对于系统都一切支配权。同理也是
-gid和sgid存在的理由。gid就好比用户所属部门的一个编号，而sgid引入原因是有时候希望这个用户
-属于多个其他部门，这些其他部门的gid就是sgid.
+ 对于uid来说是系统为了简化区别用户的方式(不然使用字符串区别非常麻烦).uid在登录时候确定
+ 并且不能够修改。uid=0的用户为根用户(root),这是一个超级用户对于系统都一切支配权。同理也是
+ gid和sgid存在的理由。gid就好比用户所属部门的一个编号，而sgid引入原因是有时候希望这个用户
+ 属于多个其他部门，这些其他部门的gid就是sgid.
 
 *** 信号
-信号(signal)是通知进程已经发生某种情况的一种技术。通常用户接收到信息有三个选择：
-   - 忽略
-   - 默认方式(系统提供)
-   - 自定义处理
-在终端下面有两种产生信号的方式，分别是中断键(interrupt key,C-c)和退出键(quit key,C-\).
-另外我们可以调用kill函数或者是在shell下面使用kill命令来给进程发送信号。
+ 信号(signal)是通知进程已经发生某种情况的一种技术。通常用户接收到信息有三个选择：
+    - 忽略
+    - 默认方式(系统提供)
+    - 自定义处理
+ 在终端下面有两种产生信号的方式，分别是中断键(interrupt key,C-c)和退出键(quit key,C-\).
+ 另外我们可以调用kill函数或者是在shell下面使用kill命令来给进程发送信号。
 
 *** 时间值
-长期以来，Unix系统使用两种不同的时间值。
+ 长期以来，Unix系统使用两种不同的时间值。
 
-一种是自1970-1-1 0:0:0以来所经过的秒数累计值，使用time_t来表示，可以用于比如保存文件最后一次
-修改时间等。这是一个绝对时间。
+ 一种是自1970-1-1 0:0:0以来所经过的秒数累计值，使用time_t来表示，可以用于比如保存文件最后一次
+ 修改时间等。这是一个绝对时间。
 
-一种是CPU时间，用于度量进程使用的中央处理机资源。CPU时间以时钟滴答计算，使用sysconf可以获得每秒
-时钟滴答数。使用clock_t来表示。这是一个相对时间。度量一个进程的执行时间，Unix使用三个时间值：
-   - 时钟时间(wall clock time).
-   - 用户CPU时间(user cpu time).
-   - 系统CPU时间(sys cpu time).
-#+BEGIN_SRC C++
-#include <cstdio>
-#include <cstdlib>
-#include <cerrno>
-#include <unistd.h>
-#include <sys/times.h>
+ 一种是CPU时间，用于度量进程使用的中央处理机资源。CPU时间以时钟滴答计算，使用sysconf可以获得每秒
+ 时钟滴答数。使用clock_t来表示。这是一个相对时间。度量一个进程的执行时间，Unix使用三个时间值：
+    - 时钟时间(wall clock time).
+    - 用户CPU时间(user cpu time).
+    - 系统CPU时间(sys cpu time).
+ #+BEGIN_SRC C++
+ #include <cstdio>
+ #include <cstdlib>
+ #include <cerrno>
+ #include <unistd.h>
+ #include <sys/times.h>
 
-int main(){
-    long clock_tck_per_sec=sysconf(_SC_CLK_TCK);
-    if(clock_tck_per_sec==-1){
-        perror("_SC_CLK_TCK not supported");
-        exit(-1);
-    }
-    //operations.
-    //...
-    struct tms buf;
-    if(times(&buf)==-1){
-        perror("times failed");
-        exit(-1);
-    }
-    printf("user time:%.3lfs\n"
-           "sys time:%.3lfs\n"
-           "cuser time:%.3lfs\n"
-           "csys time:%.3lfs\n",
-           buf.tms_utime*1.0/clock_tck_per_sec,
-           buf.tms_stime*1.0/clock_tck_per_sec,
-           buf.tms_cutime*1.0/clock_tck_per_sec,
-           buf.tms_cstime*1.0/clock_tck_per_sec);
-    return 0;
-}
-#+END_SRC
+ int main(){
+     long clock_tck_per_sec=sysconf(_SC_CLK_TCK);
+     if(clock_tck_per_sec==-1){
+         perror("_SC_CLK_TCK not supported");
+         exit(-1);
+     }
+     //operations.
+     //...
+     struct tms buf;
+     if(times(&buf)==-1){
+         perror("times failed");
+         exit(-1);
+     }
+     printf("user time:%.3lfs\n"
+            "sys time:%.3lfs\n"
+            "cuser time:%.3lfs\n"
+            "csys time:%.3lfs\n",
+            buf.tms_utime*1.0/clock_tck_per_sec,
+            buf.tms_stime*1.0/clock_tck_per_sec,
+            buf.tms_cutime*1.0/clock_tck_per_sec,
+            buf.tms_cstime*1.0/clock_tck_per_sec);
+     return 0;
+ }
+ #+END_SRC
 
 *** 系统调用和库函数
-系统调用是内核态函数，而库函数是用户态函数。但是对于用户来说实际上是不关心的。
-Reaserch Unix提供了50个系统调用，BSD4.4提供了110个，SVR4提供了120个，Linux提供了240-260个，
-而FreeBSD大约提供了320个。通常来说在man 2里面有描述。而库函数在man 3里面有描述。系统调用和
-库函数另外一个差别是，系统调用通常提供一个最小接口(但是现在趋势是尽可能将很多功能集中形成
-一个系统调用，因为这样不用频繁地陷入内核态来提高性能),而库函数在上层进行一些复杂功能实现。
-
+ 系统调用是内核态函数，而库函数是用户态函数。但是对于用户来说实际上是不关心的。
+ Reaserch Unix提供了50个系统调用，BSD4.4提供了110个，SVR4提供了120个，Linux提供了240-260个，
+ 而FreeBSD大约提供了320个。通常来说在man 2里面有描述。而库函数在man 3里面有描述。系统调用和
+ 库函数另外一个差别是，系统调用通常提供一个最小接口(但是现在趋势是尽可能将很多功能集中形成
+ 一个系统调用，因为这样不用频繁地陷入内核态来提高性能),而库函数在上层进行一些复杂功能实现。
 ** Unix标准化以及实现
 *** Unix标准化
 **** ISO C

@@ -21,7 +21,7 @@ T(task),E(experience),P(performance)
 - classification # discrete valued output.
    - decision boundary # 决策边界
    - binary-class(negative/positive) vs. multi-class
-   - [[file:images/ml-class-lr.pdf][logistic regression]] # 逻辑回归    
+   - [[file:images/ml-class-lr.pdf][logistic regression]] # 逻辑回归
       - sigmoid / logistic function
       - g(x) = 1 / (1 + e^-x) [0, 1]
       - interpretation of hypothesis output.
@@ -783,4 +783,3 @@ end
     - y = x * 2
     - name(x) to call function.
   - addpath to add path in order to find function file.
-

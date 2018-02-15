@@ -1,19 +1,106 @@
 #+title: blog
 
+** 2018
+- 201802 [[file:./blogs/hard-learning.org][强力研读]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/freedom-and-affiliation.org][自由人与依附感]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/management-actually-is-engineering.org][管理其实是个工程学]] 摘自得到的《精英日课》
+- 201802 [[file:blogs/how-to-behave-systematically.org][怎样用系统下一盘大棋]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/dare-to-be-a-complicated-man.org][敢不敢做个复杂的人]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/reading-list-for-children.org][给小学生的书单]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/what-you-want-child-to-read-and-what-they-really-want-to-read.org][你想让儿童读的和儿童想读的]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/civilized-adults-dont-ask-why.org][文明成年人不问为什么]] 摘自得到的《精英日课》
+- 201802 [[file:./blogs/reading-list-for-undergraduate.org][给大学生的书单]] 摘自得到的《硅谷来信》
+- 201802 [[file:./blogs/grow-up-is-to-kill-the-monkey-king.org][成长的过程就是杀死我们心中的孙悟空]] 摘自得到的《硅谷来信》
+- 201801 [[file:./blogs/websocket-and-socketio.org][WebSocket和Socket.IO]]
+- 201801 [[file:./blogs/intro-quantum-computing.org][量子计算机初探]]
+- 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
+- 201801 [[file:./blogs/python-requests-encoding-issue.org][Python Requests库编码问题]]
+- 201801 [[file:blogs/minimal-wsgi-app-in-python.org][Minimal WSGI App in Pyton]]
+- 201801 [[file:blogs/reading-excel-in-python.org][Reading Excel in Python]]
+- 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]
+- 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
+
+** 2017
+- 201712 [[file:./blogs/geoffrey-hinton-interview-in-coursera.org][Geoffrey Hinton Interview in Coursera]]
+- 201712 [[file:./blogs/cities-and-ambition.org][市井雄心 Cities and Ambition]] by Paul Graham
+- 201712 [[file:./blogs/math-read.org][How to Read Mathematics]]
+- 201712 [[file:blogs/test-simhash.org][试试Simhash]]
+- 201712 [[file:blogs/make-a-workable-dns.org][搭建一个可用的DNS]] (dnsmasq + ss)
+- 201712 [[file:./blogs/the-language-of-the-system.org][The Language of the System]] by Rich Hickey
+- 201712 [[file:blogs/love-your-bugs.org][Love Your Bugs]]
+- 201712 [[file:./blogs/code-in-space.org][Code in Space]] 太空系统环境下的编程
+- 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian
+- 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
+- 201712 [[file:blogs/probability-paradox-by-peter-norvig.org][Probability Paradox by Norvig]] Norvig写的一篇关于概率和悖论文章
+- 201712 [[file:./blogs/ways-of-paying-mortgage.org][等额本金和等额本息的计算]]
+- 201712 [[file:./blogs/nobody-ever-got-fired-for-buying-a-cluster.org][Nobody ever got fired for buying a cluster]] 计算集群的必要性思考 @ 2013
+- 201712 [[file:./blogs/sonos-streaming-basics.org][流媒体基础知识(sonos)]]
+- 201711 [[file:./blogs/ten-rules-for-negotiating-a-job-offer.org][Ten Rules for Negotiating a Job Offer]]
+- 201711 [[file:./blogs/tool-is-to-free-people.org][解放生产力的工具]]
+- 201711 [[file:./blogs/software-2.org][Software 2.0]] by Andrej Karpathy
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]]
+- 201711 [[file:blogs/pypy-impl.org][PyPy实现方式]]
+- 201711 [[file:./blogs/why-buddhism-true-4.org][为什么佛学是真的4-冥想的方法]]
+- 201710 [[file:./blogs/mongodb34-perf-issue-checkpoint.org][升级到MongoDB 3.4出现的性能问题]]
+- 201710 [[file:blogs/make-startup-usb-stick-under-mac.org][在Mac下面制作USB启动盘]]
+- 201709 [[file:./blogs/have-a-rest-strategically.org][战略性休息]] 摘自得到的《精英日课》
+- 201709 [[file:./blogs/story-telling-and-obtain-experience.org][讲故事和刷经验值]] 摘自得到的《精英日课》
+- 201709 [[file:./blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.org][How to build your personal brand as a new developer]]
+- 201709 [[file:blogs/narrow-python-build.org][Narrow Python Build]]
+- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
+- 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
+- 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
+- 201707 [[file:./blogs/reading-list-for-college.org][我给中学生的书单]] 摘自得到的《硅谷来信》
+- 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
+- 201707 [[file:./blogs/macosx-rootless-mode.org][MacOS X Rootless Mode]]
+- 201707 [[file:./blogs/what-you-can-do-and-what-you-should-do.org][能做什么和该做什么]]
+- 201707 [[file:./blogs/reducing-image-file-size-at-esty.org][Reducing Image File Size at Etsy]]
+- 201707 [[file:./blogs/making-photos-smaller.org][Making Photos Smaller Without Quality Loss]]
+- 201707 [[file:./blogs/proxy-on-http-streaming.org][HTTP流媒体的代理实现]]
+- 201707 [[file:./blogs/ssh-permission-denied.org][SSH Permission Denied(Public Key)]]
+- 201706 [[file:./blogs/the-evolution-of-code-deploys-at-reddit.org][The Evolution of Code Deploys at Reddit]]
+- 201706 [[file:blogs/on-python-profiling.org][Python程序性能分析]]
+- 201706 [[file:./blogs/44-eng-mag-lessons.org][44 engineering management lessons]]
+- 201706 [[file:./blogs/use-emacs-org-mode-to-build-site.org][用Emacs Org-Mode来建站]]
+- 201705 [[file:./blogs/colleague-creates-spaghetti-code.org][What to do when Your Colleague Creates Spaghetti Code]]
+- 201705 [[file:./blogs/how-yelp-runs-millions-of-tests-every-day.org][How Yelp Runs Millions of Tests Every Day]]
+- 201705 [[file:./blogs/ssh-tunneling-python.org][SSH Tunneling in Python]]
+- 201705 [[file:./blogs/issue-of-retry-after-field.org][Retry-After字段带来的问题]]
+- 201705 [[file:./blogs/what-a-good-ceo-looks-like.org][厉害的CEO是什么样的？]] 摘自得到的《精英日课》
+- 201705 [[file:./blogs/wujun-thoughts-on-career.org][吴军对职业发展的一些看法]] 摘自得到的《硅谷来信》
+- 201705 [[file:./blogs/use-wifi-aps-to-identify-location.org][利用WiFi热点来定位]]
+- 201704 [[file:./blogs/u-of-t-professor-geoffrey-hiton.org][U of T, Geoffrey Hinton]] 一篇关于Geoffrey Hiton的文章
+- 201704 [[file:./blogs/scaling-your-api-with-rate-limiters.org][Scaling your API with rate limiters]]
+- 201704 [[file:./blogs/a-few-days-at-village.org][在老家的几天]]
+- 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
+- 201703 [[file:blogs/a-possible-impl-of-reco-sys.org][推荐系统的可能实现]]
+ - 201703 [[file:./blogs/automation-on-finacial-report.org][实事求是谈金融报告自动化 – 文因互联]]
+- 201702 [[file:blogs/boost-shadowsocks-with-tcp-bbr.org][通过TCP BBR为ShadowSocks加速]]
+- 201702 [[file:./blogs/principle-of-smart-route-in-vpn.org][VPN的智能加速原理]]
+- 201702 [[file:./blogs/my-thoughts-on-startup.org][创业/小公司的优点和缺点]]
+- 201702 [[file:blogs/abandoned-probabilistic-option.org][被放弃的概率权]]
+- 201701 [[file:./blogs/boots-of-spanish-leather.org][Boots of Spanish Leather]] by Bob Dylan
+- 201701 [[file:blogs/sth-about-chords.org][一些关于和弦的东西]]
+- 201701 [[file:./blogs/is-there-a-simple-algorithm-for-intelligence.org][Is there a simple algorithm for intelligence?]] By Michael Nielsen
+- 201701 [[file:./blogs/on-the-future-of-neural-networks.org][On the future of neural networks]] By Michael Nielsen
+- 201701 [[file:./blogs/on-stories-in-neural-networks.org][On stories in neural networks]] By Michael Nielsen
+
 ** 2016
-- 201710 [[file:blogs/the-times-they-are-changing.org][The Times They Are A-Changin']] by Bob Dylan
-- 201710 [[file:blogs/level-up-lang-taste.org][讲一件提升语言格调的小事]]
-- 201710 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
-- 201710 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
-- 201710 [[file:./blogs/becoming-cto.org][Becoming CTO]]
-- 201710 [[file:./blogs/purchase-on-rapidssl.org][在RapidSSL上购买SSL证书]]
-- 201710 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
-- 201710 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
-- 201710 [[file:./blogs/chengdu-travel.org][天府之旅]]
-- 201709 [[file:./blogs/mxnet-neural-art.org][MXNet Neural Art]]
-- 201709 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
-- 201709 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
-- 201709 [[file:./blogs/build-hls-server.org][搭建直播平台]]
+- 201612 [[file:blogs/face-landmark-detection-dlib.org][dlib's face landmark detection]]
+- 201612 [[file:blogs/tensorflow-neural-art.org][Tensorflow Neural Art]]
+- 201610 [[file:blogs/the-times-they-are-changing.org][The Times They Are A-Changin']] by Bob Dylan
+- 201610 [[file:blogs/level-up-lang-taste.org][讲一件提升语言格调的小事]]
+- 201610 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
+- 201610 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
+- 201610 [[file:./blogs/becoming-cto.org][Becoming CTO]]
+- 201610 [[file:./blogs/purchase-on-rapidssl.org][在RapidSSL上购买SSL证书]]
+- 201610 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
+- 201610 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
+- 201610 [[file:./blogs/chengdu-travel.org][天府之旅]]
+- 201609 [[file:./blogs/mxnet-neural-art.org][MXNet Neural Art]]
+- 201609 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
+- 201609 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
+- 201609 [[file:./blogs/build-hls-server.org][搭建直播平台]]
 - 201609 [[file:./blogs/stackoverflow-maintenance.org][StackOverflow Maintenance]]
 - 201609 [[file:./blogs/yy-live-on-child-0.org][@杨樾杨樾 老师的育儿直播]]
 - 201608 [[file:./blogs/some-non-casual-thoughts.org][一些想法（关于工作，人生，以及最近做的梦)]]
@@ -116,9 +203,8 @@
 - 201509 [[file:./blogs/ostep-persist-disk.org][OSTEP / Persistence-Disk]]
 - 201509 [[file:./blogs/ostep-con-cv.org][OSTEP / Concurrency-CV]]
 - 201509 [[file:./blogs/ostep-con-lock.org][OSTEP / Concurrency-Lock]]
-- 201509 [[file:./some-spark-examples.org][一些Spark例子程序]]
-- 201509 [[file:./blogs/hive-gettting-started.org][hive getting started]]
-- 201509 [[file:./blogs/zookeeper-gettting-started.org][zookeeper gettting started]]
+- 201509 [[file:blogs/hive-getting-started.org][hive getting started]]
+- 201509 [[file:blogs/zookeeper-getting-started.org][zookeeper getting started]]
 - 201509 [[file:./blogs/ostep-virt-vax-vms.org][OSTEP / Virt-VAX/VMS]]
 - 201509 [[file:./blogs/ostep-virt-vm1.org][OSTEP / Virt-页式系统]]
 - 201509 [[file:./blogs/ostep-virt-vm0.org][OSTEP / Virt-段式系统]]
@@ -176,12 +262,12 @@
 - 201312 [[file:./blogs/thousands-pv.org][主页千次PV]]
 - 201311 [[file:./blogs/heart-broken.org][为她心碎]]
 - 201311 [[file:./blogs/professional-amateur.org][非业余的业余爱好]]
-- 201311 [[file:./blogs/my-virgin-english-conversation.org][初次英语对话]]
+- 201311 [[file:blogs/my-first-english-conversation.org][初次英语对话]]
 - 201310 [[file:./blogs/run-wordpress-in-fast-way.org][简单搭建WordPress]]
 - 201309 [[file:./blogs/do-we-need-exercise.org][我们是否需要运动]]
 - 201309 [[file:./blogs/running-tutorial.org][跑步教学]]
-- 201309 [[file:./blogs/virgin-10km-running.org][初次10km跑]]
-- 201308 [[file:./blogs/virgin-swimming.org][初次游泳]]
+- 201309 [[file:blogs/first-10km-running.org][初次10km跑]]
+- 201308 [[file:blogs/first-swimming.org][初次游泳]]
 - 201307 [[file:./blogs/guilin-travel.org][桂林山水]]
 - 201307 [[file:./blogs/ymy-travel.org][圆明园游]]
 - 201307 [[file:./blogs/my-amoi-n821.org][我的夏新N821]]
@@ -195,13 +281,12 @@
 
 ** 2012
 - 201211 [[file:./blogs/not-easy-as-you-think.org][没有那么简单]]
-- 201211 [[file:./blogs/virgin-foot-massage.org][初次足疗]]
+- 201211 [[file:blogs/first-foot-massage.org][初次足疗]]
 - 201209 [[file:./blogs/what-can-i-do-when-old.org][以后老了我能做什么]]
 - 201208 [[file:./blogs/how-to-define-software-stability.org][如何定义软件稳定]]
 - 201208 [[file:./blogs/purchase-mba.org][购买MacBookAir]]
 - 201208 [[file:./blogs/2012-birthday.org][记在2012年生日]]
 - 201207 [[file:./blogs/visit-tj-data-center.org][参观天津机房]]
-- 201206 [[file:./blogs/purchase-car.org][购买汽车]]
 - 201205 [[file:./blogs/looking-for-house-with-xcq.org][和xcq看房子]]
 - 201204 [[file:./blogs/code-for-run.org][为运行而生的代码]]
 - 201204 [[file:./blogs/talk-with-luoyan.org][和luoyan的谈话]]
@@ -220,5 +305,112 @@
 
 ** misc
 - [[file:./images/cjy-baidu-blog-archive.html][百度空间存档]] - [[file:./blogs/to-death.org][写给离去的亲人]] - [[file:./blogs/cola-and-water.org][可乐和矿泉水]]
-- [[file:fun.org][fun]] - [[file:./clip.org][clip]] - [[file:./blogs/house.org][house]] - [[file:./blogs/pregnancy.org][baby]] - [[file:./blogs/ascii.org][ascii]] - [[file:./blogs/idiom.org][idiom]] - [[file:./blogs/cross-ocean.org][cross-ocean]]
+- [[file:./blogs/house.org][house]] - [[file:blogs/car.org][car]] - [[file:./blogs/pregnancy.org][baby]] - [[file:./blogs/ascii.org][ascii]] - [[file:./blogs/idiom.org][idiom]] - [[file:./blogs/cross-ocean.org][cross-ocean]]
 - [[file:./blogs/retrospect-2009.org][回顾2009]] - [[file:./blogs/retrospect-2010.org][回顾2010]] - [[file:./blogs/retrospect-2011.org][回顾2011]] - [[file:./blogs/retrospect-2012.org][回顾2012]] - [[file:./blogs/retrospect-2013.org][回顾2013]] - [[file:./blogs/retrospect-2014.org][回顾2014]]
+- [[file:./blogs/beyond-lyrics-collection.org][Beyond歌词收藏]]
+- [[file:blogs/bob-dylan-lyrics-collection.org][鲍勃迪伦(Bob Dylan)歌词收藏]]
+- [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
+- [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
+- [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
+- [[file:./blogs/writing-clean-code.org][编程精粹-Microsoft编写优质无错代码的秘诀(Writing Clean Code)]]
+- [[file:./blogs/the-art-of-unix-programming.org][Unix程序设计艺术(The Art of Unix Programming)]] by Eric Raymond
+- [[file:./blogs/the-mythical-man-month.org][人月神话(The Mythical Man-Month)]] by Fred Brooks
+- [[file:./blogs/the-pragmatic-programmer.org][程序员修炼之道(The Pragmatic Programmer)]] by Andrew Hunt
+- [[file:./blogs/dreaming-in-code.org][梦断代码(Dreaming in Code)]]
+- [[file:./blogs/refactoring-improving-the-design-of-existing-code.org][重构-改善既有代码的设计(Refactoring: Improving the Design of Existing Code)]]
+- [[file:./blogs/code-quality-the-open-source-perspective.org][高质量程序设计艺术(Code Quality The Open Source Perspective)]]
+- [[file:./blogs/virtual-machine-design-and-implementation-in-c-cpp.org][虚拟机设计与实现(Virtual Machine Design and Implementation in C/C++)]]
+- [[file:./blogs/structured-computer-organization.org][结构化计算机组成(Strcutured Computer Organization)]] by A.S.T
+- [[file:./blogs/modern-operating-systems.org][现代操作系统(Modern Operating Systems)]] by A.S.T
+- [[file:./blogs/introduction-to-computing-systems.org][计算机系统概论(Introduction to Computing Systems)]] by Yale Patt
+- [[file:./blogs/distributed-operating-systems.org][分布式操作系统(Distributed Operating Systems)]] by A.S.T
+- [[file:./blogs/how-to-solve-it-a-new-apsect-of-math-method.org][如何解题-数学思维新方法(How to Solve It: A New Aspect of Mathematical Method)]] by George Polya
+- [[file:./blogs/republic.org][理想国(Republic)]] by Plato
+- 影响力(Influence) by Kerry Patterson
+- 娱乐至死(Amusing Ourselves to Death) by Neil Postman
+- 狂热分子(True Believer) by Eric Hoffer
+- 乌合之众(The Crowd) by Gustave Le Bon
+- [[file:./blogs/people-all-know.org][全世界人民都知道]] by 李承鹏
+- [[file:./blogs/big-data.org][大数据时代：生活、工作与思维的大变革(Big Data:A Revolution That Will Transform How We Live, Work, and Think)]]
+- [[file:./blogs/the-catcher-in-the-rye.org][麦田里的守望者(The Catcher in The Rye)]] by Jerome Salinger
+- [[file:./blogs/jonathon-ive.org][乔纳森传(Jonathon Ive)]]
+- [[file:./blogs/the-facebook-effect.org][Facebook效应(The Facebook Effect)]]
+- [[file:./blogs/the-little-prince.org][小王子(The Little Prince)]] by Antoine de Saint-Exupéry
+- [[file:./blogs/on-top-of-tides.org][浪潮之巅(On Top of Tides)]] by 吴军
+- [[file:./blogs/the-economic-naturalist.org][牛奶可乐经济学(The Economic Naturalist)]]
+- [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
+- [[file:./blogs/baked-in-creating-products-and-business-that-market-themselves.org][自营销(Baked In: Creating Products and Businesses That Market Themselves)]]
+- [[file:./blogs/dear-andreas.org][亲爱的安德烈]] by 龙应台
+- [[file:./blogs/rework.org][Rework]] by 37 Signals
+- [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
+- [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
+- [[file:./blogs/think-like-an-artist.org][像艺术家一样思考-藏在名画里的创意思维(Think Like An Artist)]]
+- [[file:./blogs/confessions-of-an-advertising-man.org][一个广告人的自白(Confessions of an Advertising Man)]]
+- [[file:./blogs/remote.org][Remote]] by 37 Signals
+- [[file:./blogs/inside-job.org][监守自盗(Inside Job)]]
+- [[file:./blogs/god-father.org][教父(God Father)]] by Francis Coppola
+- [[file:./blogs/seediq-bale.org][赛德克巴莱(Seediq Bale)]] by 魏德圣
+- [[file:./blogs/scent-of-a-woman.org][闻香识女人(Scent of a Woman)]]
+- [[file:./blogs/pulp-fiction.org][低俗小说(Pulp Fiction)]] by Quentin Tarantino
+- [[file:./blogs/the-hurt-locker.org][拆弹部队(The Hurt Locker)]]
+- [[file:./blogs/lincoln.org][林肯(Lincoln)(2012)]] by Steven Spielberg
+- [[file:./blogs/the-prestige.org][致命魔术(The Prestige)]] by Chris Nolan
+- [[file:./blogs/moneyball.org][点球成金(Moneyball)]]
+- [[file:./blogs/animal-farm.org][动物庄园(Animal Farm)]] by George Orwell
+- [[file:./blogs/stairway-to-heaven.org][Stairway to Heaven]] by Led Zeppelin
+- [[file:./blogs/dont-go-gentle-into-that-good-night.org][Do not go gentle into that good night]] by Dylan Thomas
+- [[file:./blogs/youtube-steve-chen-bio.org][YouTube创始人陈士骏自传]]
+- [[file:./blogs/1984.org][1984]] by George Orwell
+- [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by wujun
+- [[file:./blogs/why-cn-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
+- [[file:./blogs/wu-qing-yuan-bio.org][中的精神（吴清源自传）]]
+- [[file:./blogs/star-wars.org][星球大战(Star Wars)]]
+- [[file:./blogs/baby-sleep-training.org][有关宝宝睡眠的那些事儿(睡眠训练实战操作经验)]]
+- [[file:./blogs/antifragile.org][反脆弱: 从不确定性中获益(Antifragile: Things That Gain from Disorder)]] by Nassim Nicholas Taleb
+- [[file:./blogs/money-doggy.org][小狗钱钱]] by Bodo Schafer
+- [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
+- [[file:./blogs/anti-destruction-in-china.org][李可乐抗拆记]] by 李承鹏
+- [[file:./blogs/dark-time.org][暗时间]] by 刘未鹏
+- [[file:./blogs/wolf-totem.org][狼图腾]] by 姜戎
+- [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯 玛莎·西尔斯
+- [[file:./blogs/platform-strategy.org][平台战略: 正在席卷全球的商业模式革命]] by 陈威如, 余卓轩
+- [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
+- [[file:./blogs/the-men-who-built-america.org][谁建造了美国(The men who built America)]] by 网易公开课
+- [[file:blogs/that-man-looks-like-a-dog.org][那个人好像一条狗]] 周星驰 <大圣娶亲>
+- [[file:./blogs/three-body.org][三体(Three Body)]] by 刘慈欣
+- [[file:./blogs/growth-hacker.org][增长黑客(Growth Hacker)]] by 范冰
+- [[file:./blogs/lean-in.org][向前一步(Lean In)]] by Sheryl Sandberg
+- [[file:./blogs/the-hitchhikers-guide-to-the-galaxy.org][银河系漫游指南(The Hitchhiker's Guide to the Galaxy)]] by Douglas Adams
+- [[file:./blogs/thinking-fast-and-slow.org][思考,快与慢(Thinking, Fast and Slow)]] by Daniel Kahneman
+- [[file:./blogs/from-zero-to-one.org][从0到1(From Zero To One)]] by Peter Thiel
+- [[file:./blogs/the-great-game.org][伟大的博弈: 华尔街金融帝国的崛起(The Great Game: The Emergence of Wall Street as a World Power)]] by John Gordon
+- [[file:./blogs/delivering-happiness.org][奉上幸福(Devliering Happiness)]] by 谢家华
+- [[file:./blogs/convict-conditioning.org][囚徒健身(Convict Conditioning)]] by Paul Wade
+- [[file:./blogs/the-paypal-wars.org][支付战争(The PayPal Wars)]] by Eric Jackson
+- [[file:./blogs/how-google-works.org][谷歌是如何运营的(How Google Works)]] by Eric Schmidt
+- [[file:./blogs/reminiscences-of-stock-broker.org][股票作手回忆录(Reminiscences of stock broker)]] by Jesse Livermore
+- [[file:./blogs/zhihu-daily-economy.org][知乎周刊-日常经济学]]
+- [[file:./blogs/the-shortest-history-of-europe.org][极简欧洲史]] by John Hirst
+- [[file:./blogs/majority-of-silent-people.org][沉默的大多数]] by 王小波
+- [[file:./blogs/mac-talk.org][MacTalk]] by 池建强
+- [[file:./blogs/zhihu-hft-engineer.org][我是高频交易工程师：知乎董可人自选集]]
+- [[file:./the-times-of-intelligence.org][智能时代]] by wujun
+- [[file:the-hard-thing-about-hard-things.org][创业维艰：如何完成比难更难的事]] by Ben Horowitz
+- [[file:bob-dylan-bio-like-a-rolling-stone.org][编年史(Like A Rolling Stone)]] of Bob Dylan
+- [[file:blogs/flowers-to-algernon.org][献给阿尔吉侬的花束(Flowers for Algernon)]]
+- [[file:blogs/how-to-win-friends-and-influence-people.org][人性的弱点全集(How to win friends and influence people)]] by Dale Carnegie
+- [[file:blogs/shoe-dog.org][鞋狗(Shoe Dog)]] by Phil Knight
+- [[file:./blogs/black-swan.org][黑天鹅(Black Swan)]] by Nassim Nicolas Taleb
+- [[file:blogs/the-bed-of-procrustes.org][随机生存的智慧: 黑天鹅语录(The Bed of Procrustes)]] by Nassim Nicholas Taleb
+- [[file:blogs/how-to-stop-worring-and-start-living.org][人性的优点全集(How to stop worring and start living]] by Dale Carnegie
+- [[file:blogs/hard-to-believe.org][万万没想到:用理工科思维理解世界]] by 万维刚
+- [[file:blogs/the-instant-economist.org][斯坦福极简经济学(The Instant Economist)]] by 蒂莫西·泰勒
+- [[file:blogs/a-serious-and-absurd-book-about-behavioural-psychology.org][一本正经又怪诞的行为心理学]] by 理查德·怀斯曼
+- [[file:./blogs/the-black-box-society.org][黑箱社会(The Black Box Society)]] by Frank Pasquale
+- [[file:./blogs/a-chronicle-of-tencent.org][腾讯传]] by 吴晓波
+- [[file:blogs/so-good-they-can-not-ignore-you.org][优秀到不能被忽视(So Good they can not ignore you)]] by Cal Newport
+- [[file:./blogs/made-in-america.org][富甲美国(Made in America)]] by Sam Walton
+- [[file:blogs/the-economist.org][经济学人(The Economist)]] by Schumpeter(熊彼特)
+- [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
+- [[file:./blogs/think-and-grow-rich.org][思考致富(Think and Grow Rich)]] by Napoleon Hill(拿破仑.希尔)
+- [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳

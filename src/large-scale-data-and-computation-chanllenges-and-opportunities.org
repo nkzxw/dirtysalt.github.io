@@ -70,3 +70,14 @@ Solve many problems, but leave many cross-cluster issues to human-level operator
    - moving or deploying new service replicas is labor intensive
 
 Spanner:Worldwide Storage
+** Higher Level Systems
+有了这些"just works"的抽象组件(GFS, MapReduce, BigTable, Spanner, tied requests, etc.)后，我们就能开搞更加牛X的东西比如深度学习。
+
+Parameter Server用于实现异步分布式随机梯度下降.
+
+file:./images/google-parameter-server-for-adsdg.png
+
+实现这种深度学习系统里面也有许多有意思的tradeoff
+- Use lower precision arithmetic
+- Send 1 or 2 bits instead of 32 bits across network
+- Drop results from slow partitions

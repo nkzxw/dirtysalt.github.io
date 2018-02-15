@@ -1,4 +1,7 @@
 #+title: ZeroMQ
+
+NOTE@201712：重读这篇笔记。感觉MQ对系统可能至关重要，以及了解MQ在系统中可能出现的使用模式。当时对里面很多地方没有搞清楚，所以笔记里面有很多东西也没有办法阅读。
+
 ** Introduction
 ZMQ希望用户在编写应用程序方面，更加关心消息通信而不是socket连接。在内部已经使用异步方式帮用户处理好了网络IO读写以及数据成帧，使得用户在处理的时候只需要关注消息本身。
 ZMQ所支持的消息传输模型有很多种，比如push-pull,pub-sub,request-reply以及exclusive-pair,应该可以涵盖应用层面所有的消息通讯方式。同时ZMQ本身可以底层允许选择不同的通信协议，
@@ -20,7 +23,7 @@ ZMQ总结了几种消息通信模型可以覆盖所有的应用程序，分别�
    - Request-Reply
 我们会在后面仔细讨论每一种消息通信模型。
 
-使用ZMQ之后的话不像我们所认识一样的server必须在client之前启动。在ZMQ下面的话client完全可以在server之前启动。一旦连接顺序并不按照我们所想象的那样工作的话，连接顺序是无关的时候，那么客户端和服务端这两个概念就非常模糊了。我们必须重新考虑什么是server,什么是client.ZMQ给出一个非常实际的答案。我们将socket嵌入到网络拓扑的时候，server应该是网络结构中稳定的部分，而client应该是网络结构中比较易变的部分。
+使用ZMQ之后的话不像我们所认识一样的server必须在client之前启动。在ZMQ下面的话client完全可以在server之前启动。一旦连接顺序并不按照我们所想象的那样工作的话，连接顺序是无关的时候，那么客户端和服务端这两个概念就非常模糊了。我们必须重新考虑什么是server,什么是client.ZMQ给出一个非常实际的答案。我们将socket嵌入到网络拓扑的时候，server应该是网络结构中稳定的部分，而client应该是网络结构中比较易变的部分。（NOTE@201712: 注意MQ这个名字，这就决定了为什么可以不限制client/server启动顺序）
 
 What this means is that you should always think in terms of "servers" as stable parts of your topology, with more-or-less fixed endpoint addresses, and "clients" as dynamic parts that come and go. Then, design your application around this model. The chances that it will "just work" are much better like that.
 
@@ -28,6 +31,7 @@ What this means is that you should always think in terms of "servers" as stable 
 首先我们看看ZMQ的使用情况。我们以简单的Request-Reply消息模型为例。所谓Request-Reply模型就是client发送一个消息然后等待回应，而server接收到消息然后立刻回复。
 这是一个lockstep的过程，就是说中途不能够切换做另外的事情，比如client发送消息之后就不能够再发送必须等待回应，而server接收到消息之后必须立刻恢复而不能够再次接收。
 咋一看这是一个同步过程，但是后面可以看到ZMQ允许完成异步的Request-Reply.使用这种简单的通信模型我们可以很快地写出一个echo服务。
+
 #+BEGIN_SRC C++
 //============================================================
 //client.cc.send 'hello' always to server,which hosts on localhost:19870
@@ -109,6 +113,7 @@ int main() {
    - zmq_msg_close销毁一个message
    - zmq_close关闭一个socket
    - zmq_term销毁一个context
+
 ZMQ底层做好了poller机制，对于server来说的话将多个connection映射到一个socket上面来了。底层使用其他线程完成了IO读写。
 这里可以看到如果使用TCP的话底层应该是字节流，而我们没有指定任何成帧策略就得到了一条条消息，可以看到ZMQ内置有一个字节流成帧策略。
 
@@ -117,14 +122,27 @@ ZMQ底层做好了poller机制，对于server来说的话将多个connection映�
    - tcp // tcp
    - ipc // 进程间通信。猜想底层应该是unix domain socket实现的.因为运行完毕之后我们可以看到socket文件。
    - inproc // 线程间通信。对于这种通讯协议来说的话底层IO线程没用使用。
-   - pgm // ???
-   - epgm // ???
+   - pgm // Pragmatic General Multicast, 实用通用多播协议，基于IP协议的可靠多路广播
+   - epgm // encapsulated pgm, 可以认为是pgm的变体
+
+[[http://www.cnblogs.com/fengbohello/p/4336261.html][文章]] 有关于pgm和epgm的简单介绍。实际应用中 `tcp` 协议应该是可以满足很多情况了。
+#+BEGIN_QUOTE
+MQ在实现PGM的时候有两种变体，将PGM数据报直接放在IP数据报的上一层的标准协议，在RFC文档3208中定义（pgm传输）；和“封装PGM”或叫EPGM，此时PGM数据报被封装在UDP数据报内部（epgm传输方式）。
+
+pgm和epgm传输方式只能被ZMQ_PUB和ZMQ_SUB两种socket使用。
+
+默认情况下，PGM的socket的速率是被限制的。参见zmq_setsockopt(3)函数的ZMQ_RATE和ZMQ_RECOVERY_IVL属性以获取更多细节。
+
+pgm的实现需要访问原始的IP套接字（socket）。附加的功能可能需要访问操作系统的操作。不需要与其它PGM的实现进行互操作性的应用程序可以使用epgm，这样不需要请求任何特权。
+#+END_QUOTE
+
 我们可以非常容易地切换到其他通信协议上，而不需要修改任何代码。
 #+BEGIN_SRC C++
 zmq_connect(req,"ipc://fuck"); // client.cc
 zmq_bind(req,"ipc://fuck"); // server.cc
 #+END_SRC
 
+可以在系统上查看的确有 `fuck` 这个文件。
 #+BEGIN_EXAMPLE
 [zhangyan@tc-cm-et18.tc.baidu.com]$ stat fuck
   File: `fuck'
@@ -232,6 +250,7 @@ Identity可以用来表示一个socket的身份，对于ZMQ是非常有用途的
 #+BEGIN_SRC C++
 zmq_setsockopt(socket,ZMQ_IDENTITY,"dirlt",5);
 #+END_SRC
+
 如果没有设置Identity的话，那么在pub-sub模型上的话就会出现消息丢失，而在路由的时候那么ROUTER会帮助用户生成UUID.
 Identity的实现非常简单，就是整个message开头加上一个特殊的frame来标记的。
 
@@ -242,7 +261,8 @@ ZMQ里面内置的Device有下面三种：
    - QUEUE, which is like the request-reply broker. http://zguide.zeromq.org/page:all#A-Request-Reply-Broker .
    - FORWARDER, which is like the pub-sub proxy server. http://zguide.zeromq.org/page:all#A-Publish-Subscribe-Proxy-Server .
    - STREAMER, which is like FORWARDER but for pipeline flows.
-使用device也非常简单.
+
+使用device也非常简单。下面是段示例代码
 #+BEGIN_SRC C++
 #include "zhelpers.h"
 int main (void)
@@ -268,7 +288,7 @@ int main (void)
 }
 #+END_SRC
 
-ZMQ Guide里面提到了不要将不同Device和socket进行混用. If you're like most 01MQ users, at this stage your mind is starting to think, "what kind of evil stuff can I do if I plug random socket types into devices?" The short answer is: don't do it. You can mix socket types but the results are going to be weird. So stick to using ROUTER/DEALER for queue devices, SUB/PUB for forwarders and PULL/PUSH for streamers. 但是如果实际阅读代码的话，会发现这个部分的逻辑都是一样的，也就是事实上在现在ZMQ版本里面是可以混用的
+ZMQ Guide里面提到了不要将不同Device和socket进行混用. If you're like most 01MQ users, at this stage your mind is starting to think, "what kind of evil stuff can I do if I plug random socket types into devices?" The short answer is: don't do it. You can mix socket types but the results are going to be weird. So stick to using ROUTER/DEALER for queue devices, SUB/PUB for forwarders and PULL/PUSH for streamers. 如果实际阅读代码的话，会发现这个部分的逻辑都是一样的，也就是事实上在现在ZMQ版本里面是可以混用的。用户在使用的时候需要注意好模式的搭配。
 #+BEGIN_SRC C++
 int zmq_device (int device_, void *insocket_, void *outsocket_)
 {
@@ -287,6 +307,7 @@ int zmq_device (int device_, void *insocket_, void *outsocket_)
         (zmq::socket_base_t*) outsocket_);
 }
 #+END_SRC
+
 而zmq::device逻辑也非常简单，就是之前提到pipe工作机制。内部使用了ZMQ本身提供的zmq_poll机制来进行通知哪个socket上面有数据。
 #+BEGIN_SRC C++
 int zmq::device (class socket_base_t *insocket_,
@@ -710,10 +731,10 @@ The 0MQ lightweight messaging kernel is a library which extends the standard soc
    - tcp
    - ipc
    - inproc
-   - 其他(没有用过也没听说过，可能是多播方面吧).
+   - pgm/epgm
 用户大致上只需要修改工作的uri底层就可以切换实现，非常方面。对于异步队列的话，就是使用inproc这个transports来完成的。
 
-我在编写同步rpc方面使用了0MQ,在这里面多消息基本上一无是处，因为这个东西完全可以在上层将所有的消息(对象)打包称为一个消息然后发送，只要上层提供了足够方便的多个对象的序列化和反序列化接口即可，多消息模式完全没有意义。消息订阅和过滤从之前的文档来看是按照消息的头几个字节来判断的，但是因为pub-sub模式可能会丢消息，所以在我们项目里面没有使用。项目里面使用的就是这个链接里面提到的模型 http://zguide.zeromq.org/page:all#toc38
+我在编写同步rpc方面使用了0MQ,在这里面多消息基本上一无是处，因为这个东西完全可以在上层将所有的消息(对象)打包称为一个消息然后发送，只要上层提供了足够方便的多个对象的序列化和反序列化接口即可，多消息模式完全没有意义。消息订阅和过滤从之前的文档来看是按照消息的头几个字节来判断的，但是因为pub-sub模式可能会丢消息，所以在我们项目里面没有使用。项目里面使用的就是这个链接里面提到的模型 http://zguide.zeromq.org/page:all#toc38 （NOTE@201712：当时对于0MQ看待非常狭隘，0MQ本身并不是一个RPC实现。它可以用来实现RPC，但是其实它有更多的非常好的特性可以用于实际生产中）
 
 *** Context
 我理解context对于0MQ来说就好比是epoll线程的句柄，然后之后所有的建立的socket都会在这个线程里面进行监听。当然整个app通常来说只需要创建一次就可以了，然后在app之前等待结束即可。
@@ -725,7 +746,6 @@ The 0MQ lightweight messaging kernel is a library which extends the standard soc
 void *zmq_init (int io_threads);
 #+END_SRC
 其中io_threads指定的就是线程个数。
-   - EINVAL.io_threads传入参数非法。
 
 然后在app销毁的时候调用zmq_term来销毁这个epoll线程句柄以及开辟的epoll线程。原型非常简单
 #+BEGIN_SRC C++
@@ -741,7 +761,6 @@ Context termination is performed in the following steps:
 一旦zmq_term的话那么所有正在block operations的话都会返回ZMQ_TERM这个错误。但后一旦中断这个错误之后的话，会一直等待直到socket调用zmq_close,如果还设置了LINGER这个选项的话，那么会等待数据到达到了对端或者是linger超时位置。返回值的话可能会
    - EFAULT.context本身无效
    - EINTR.调用被信号处理中断，这个时候可以重新发起zmq_term这个操作。
-
 虽然解释非常清楚，但是对于我们大部分用户来说，真的不会设置LINGER选项，并且都会等待所有线程执行完毕之后才会调用zmq_term来释放句柄。
 
 *** Messages
@@ -997,13 +1016,10 @@ transport://endpoint
 
 对于ipc来说的话，底层使用了unix domain socket来完成进程之间通信。unix domain socket走loopback接口，没有网卡限制也不会耗CPU中断.
 如果了解unix domain socket的话，那么知道对应的ip地址在这里映射成为就是文本的一个特殊的unix domain socket文件，所以我们需要提供文件名。
-方式就是
-   - ipc://pathname
-如果path不是绝对路径的话，那么就以当前目录开始。但是通常来说以绝对路径操作会更加方便，
+方式就是 `ipc://pathname `. 如果path不是绝对路径的话，那么就以当前目录开始。但是通常来说以绝对路径操作会更加方便，
 
 所谓的inproc就是说在进程内部通信就是线程之间的通信，实现上就是异步消息队列。因为不占用任何线程，所以如果只是使用inproc的话，
-那么zmq_init的话io_threads可以==0.而endpoint仅仅是为了标识这个异步队列，给定一个名称即可。比如使用方式可以使：
-   - inproc://#0
+那么zmq_init的话io_threads可以==0.而endpoint仅仅是为了标识这个异步队列，给定一个名称即可。比如使用方式可以使： `inproc://#0`.
 另外需要注意的就是，inproc的server必须首先创建好，然后client才可以connect过来，这点是有顺序的。
 
 *** Devices
@@ -1113,6 +1129,8 @@ int zmq::device (class socket_base_t *insocket_,
 
 ** Philosophy
 *** Fixing the World
+编程是一门被包装起来的艺术。大多数人认为编程的核心在于数据结构，算法，语言，以及抽象，但是这些都不是编程的核心，这些都只是工具。编程的核心，应该强调人的物理特性，就是交流。所以编程应该强调组合性，有很多可以相互交流的building blocks, 并且这些blocks可以被组装起来形成更大更加复杂的系统。ZMQ可以认为是这些blocks其中的一个。
+
 Programming is a science dressed up as art, because most of us don't understand the physics of software, and it's rarely if ever taught. The physics of software is not algorithms, data structures, languages and abstractions. These are just tools we make, use, throw away. The real physics of software is the physics of people.
 
 Specifically, our limitations when it comes to complexity, and our desire to work together to solve large problems in pieces. This is the science of programming: make building blocks that people can understand and use easily, and people will work together to solve the very largest problems.
@@ -1120,6 +1138,8 @@ Specifically, our limitations when it comes to complexity, and our desire to wor
 We live in a connected world, and modern software has to navigate this world. So the building blocks for tomorrow's very largest solutions are connected and massively parallel. It's not enough for code to be "strong and silent" any more. Code has to talk to code. Code has to be chatty, sociable, well-connected. Code has to run like the human brain, trillions of individual neurons firing off messages to each other, a massively parallel network with no central control, no single point of failure, yet able to solve immensely difficult problems. And it's no accident that the future of code looks like the human brain, because the endpoints of every network are, at some level, human brains.
 
 *** Programming with ZMQ
+ZMQ是一个 *消息队列* 的实现，提供了很多MQ上的patterns. 在设计应用代码时，要尽可能地从MQ的角度出发，而不要从socket/thread这类primitive出发。
+
 Having seen some examples, you're eager to start using ZMQ in some apps. Before you start that, take a deep breath, chillax, and reflect on some basic advice that will save you stress and confusion.
    - Learn ZMQ step by step. It's just one simple API but it hides a world of possibilities. Take the possibilities slowly, master each one.
    - Write nice code. Ugly code hides problems and makes it hard for others to help you. You might get used to meaningless variable names, but people reading your code won't. Use names that are real words, that say something other than "I'm too careless to tell you what this variable is really for". Use consistent indentation, clean layout. Write nice code and your world will be more comfortable.
@@ -1182,17 +1202,21 @@ ZMQ为我们在编写网络应用程序上面带了颠覆性的效果。表面�
 Actually ZMQ does rather more than this. It has a subversive effect on how you develop network-capable applications. Superficially it's just a socket API on which you do zmq_recv(3) and zmq_send(3). But message processing rapidly becomes the central loop, and your application soon breaks down into a set of message processing tasks. It is elegant and natural. And it scales: each of these tasks maps to a node, and the nodes talk to each other across arbitrary transports. Two nodes in one process (node is a thread), two nodes on one box (node is a process), two boxes on one network (node is a box). With no application code changes.
 
 *** The Zen of Zero
+Zero意味着成本低（很容易在项目里使用），复杂度低（很容易地reason/debug）
+
 Originally the zero in ZMQ was meant as "zero broker" and (as close to) "zero latency" (as possible). In the meantime it has come to cover different goals: zero administration, zero cost, zero waste. More generally, "zero" refers to the culture of minimalism that permeates the project. We add power by removing complexity rather than exposing new functionality.
 
 *** Handling Errors and ETERM
+区分好内部和外部错误，对于外部错误要尽可能地抵御，而对内部错误则需要fail-fast.
+
 ZMQ's error handling philosophy is a mix of fail-fast and resilience. Processes, we believe, should be as vulnerable as possible to internal errors, and as robust as possible against external attacks and errors. To give an analogy, a living cell will self-destruct if it detects a single internal error, yet it will resist attack from the outside by all means possible. Assertions, which pepper the ZMQ code, are absolutely vital to robust code, they just have to be on the right side of the cellular wall. And there should be such a wall. If it is unclear whether a fault is internal or external, that is a design flaw that needs to be fixed.
 
 *** Multithreading with ZMQ
+如果有一件事情是我从30多年的并发编程经验所总结出来的话，那么就是永远不要共享状态。
+
 To make utterly perfect MT programs (and I mean that literally) we don't need mutexes, locks, or any other form of inter-thread communication except messages sent across ZMQ sockets.
 
 By "perfect" MT programs I mean code that's easy to write and understand, that works with one technology in any language and on any operating system, and that scales across any number of CPUs with zero wait states and no point of diminishing returns.
-
-如果有一件事情是我从30多年的并发编程经验所总结出来的话，那么就是永远不要共享状态。
 
 If you've spent years learning tricks to make your MT code work at all, let alone rapidly, with locks and semaphores and critical sections, you will be disgusted when you realize it was all for nothing. If there's one lesson we've learned from 30+ years of concurrent programming it is: just don't share state. It's like two drunkards trying to share a beer. It doesn't matter if they're good buddies. Sooner or later they're going to get into a fight. And the more drunkards you add to the pavement, the more they fight each other over the beer. The tragic majority of MT applications look like drunken bar fights.
 

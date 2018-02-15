@@ -1,6 +1,6 @@
 #+title: kaggle-2 / Facial Keypoints Detection
 
-[[https://github.com/dirtysalt/tomb/tree/master/kaggle/facial-keypoints-detection.py][code on github]]
+[[file:~/repo/dirtysalt.github.io/codes/kaggle/facial-keypoints-detection.py][code on github]]
 
 [[http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/][这个教程]] 真心不错，里面能够学到不少东西，比如FlipBatchIterator来在线提供不同的batch, EarlyStopping策略，以及Specialist来单独处理某些实例。
 

@@ -230,7 +230,7 @@ caffe的python binding功能还是非常完备的
 - caffe.draw visualizes network architectures.
 - Caffe blobs are exposed as numpy ndarrays for ease-of-use and efficiency.
 
-我写了个 [[https://github.com/dirtysalt/tomb/tree/master/kaggle/digit-recognizer][示例]] 来解决Kaggle上 [[http://www.kaggle.com/c/digit-recognizer][手写数字识别]] 问题，prototxt是在examples/mnist基础上稍作修改的（增加了一个dropout）。
+我写了个 [[file:~/repo/dirtysalt.github.io/codes/kaggle/digit-recognizer][示例]] 来解决Kaggle上 [[http://www.kaggle.com/c/digit-recognizer][手写数字识别]] 问题，prototxt是在examples/mnist基础上稍作修改的（增加了一个dropout）。
 
 #note: LB上的0.99586不是真实成绩，这个是用mnist自带的数据跑出的模型，而不是kaggle给出的数据。使用kaggle给出的数据最高跑到0.99071. 如果要改进的话，估计可以在caffe-prepare.py上多做一些数据变化来增加数据样例大小(现在只是做了rotate).
 

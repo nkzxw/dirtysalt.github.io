@@ -14,7 +14,7 @@ Extensive experience in:
 - performance optimization and tuning for systems and applications.
 - system software development.
 - big data processing and analysis.
-- machine learning and data mining.
+- machine learning and data analysis.
 
 Specialities:
 - proficient in C/C++, Python, Java, Scala.
@@ -23,6 +23,15 @@ Specialities:
 - good understanding of compiler technique and related tools.
 
 * Experience
+Software Engineer, Head of Backend Development, [[http://castbox.fm/][CastBox.FM]], 2016.4 -
+
+- build backend infrastructure, including:
+  - web server, web crawler, database, monitoring, performance tuning.
+  - built on AWS low-level services: ec2, s3, cloudfront, athena etc.
+  - use Python which is a very productive language and has a great ecosystem.
+- apply machine learning to recommend channels/episodes to users.
+
+
 Senior Software Architect, Data Platform, Umeng, 2013.11 - 2016.4
 
 - infrastructure on big data processing.
@@ -70,7 +79,7 @@ Software Engineer, Baidu, 2010.6 - 2011.8
 
 - INF(infrastructure) COM(component) Team.
 
-- "[[https://github.com/dirtysalt/tomb/tree/master/cc/itachi][itachi]]", an open-source high performance asynchronous network programming framework in C++.
+- "[[file:~/repo/dirtysalt.github.io/codes/cc/itachi/][itachi]]", an open-source high performance asynchronous network programming framework in C++.
 
 - "comake2", an in-house build system in Python, takes advantages of some open-source build systems such as SCons, CMake, Google's GYP, Boost's Jam etc. It have been wildly used in Baidu for continuous integration.
 

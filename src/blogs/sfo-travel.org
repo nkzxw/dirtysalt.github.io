@@ -18,9 +18,7 @@ file:../images/sfo-airport.jpg
 
 早上在附近转悠，大部分房子都是如下图。几乎每家都有garden和garage，一般2-3辆车。和赫尔辛基一样，这边车看到行人的话通常都会等待行人先过去然后再走，并且每到有stop的地方，不是慢速行驶而是真的stop下来。地上比较干净。天气温度有点偏凉，凉风习习，空气非常好。
 
-file:../images/sfo-house1.jpg
-
-file:../images/sfo-house2.jpg
+file:../images/sfo-house1.jpg file:../images/sfo-house2.jpg
 
 会上看到 Peter Zaitsev, Vadim Tkachenko, Monty Widenius.
 

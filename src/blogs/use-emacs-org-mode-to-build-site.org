@@ -1,0 +1,85 @@
+#+title: 用Emacs Org-Mode来建站
+
+很多朋友问到我这个站点是怎么搭建出来的。不过我的感觉是，他们可能更多地是对我积累了这么多文章感到好奇，而不仅仅是这个站点的搭建感兴趣。因为其实只要有个简单的Wordpress或者是Github Pages也能做到这样，唯一的差别还是是否愿意长期往这个站点里面添加文章和内容。说来惭愧，我的这个站点里面大部分的内容都不是原创的，东抄一点西抄一点，抄别人的文章，翻译别人的文章和论文等等。
+
+既然问的同学多了，我就简单地说说我这个站点是怎么搞的。代码仓库在 [[https://github.com/dirtysalt/dirtysalt.github.io][这里]]
+- =src= 和 =src/blogs= 下面是org源文件，生成的html文件放在上层
+- =src/images= 下面是图片和PDF文件等一些静态资源. 在上层有一个软连接
+- =src/css= 下面是CSS文件. 同样在上层有一个软链接
+- =src/publish= 和 =src/publish.el= 是发布命令，将org files生成html files
+- =src/pp-html= 会对生成的html files做后期处理（集成GA/Disqus）
+
+下图是一个目录结构概要
+#+BEGIN_EXAMPLE
+- html files
+- images -> src/images
+- css -> src/css
+- src
+   - org files
+   - images
+   - css
+   - publish/publish.el/pp-html
+#+END_EXAMPLE
+
+publish.el非常简单，里面只调用了 `org-publish-project` 函数
+#+BEGIN_SRC Elisp
+;;; we need environment at first
+(load "~/.emacs") 
+;;; then we do action
+(require 'ox-publish)
+(org-publish-project "site")
+#+END_SRC
+
+这个函数涉及到的一些配置在我的.emacs文件里面
+#+BEGIN_SRC Elisp
+;; http://orgmode.org/manual/Publishing-options.html
+(setq org-export-with-sub-superscripts nil)
+(setq org-export-with-timestamps nil)
+(setq org-export-author nil)
+(setq org-export-with-creator nil)
+(setq org-export-with-date nil)
+(setq org-export-with-email nil)
+(setq org-export-with-toc 't)
+(setq org-export-with-section-numbers 't)
+(setq org-html-preamble nil)
+(setq org-html-postamble nil)
+(setq org-html-head
+      (concat
+       "<style type=\"text/css\">"
+       (get-string-from-file "~/repo/dirtysalt.github.io/src/css/site.css")
+       "</style>"))
+;; see org-html-style-default
+(setq org-html-head-include-default-style nil)
+
+;; see org-html-scripts
+(setq org-html-head-include-scripts nil)
+(setq org-html-htmlize-output-type 'css)
+
+;; http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+(setq org-publish-project-alist
+      '(("pages"
+         :base-directory "~/repo/dirtysalt.github.io/src/"
+         :publishing-directory "~/repo/dirtysalt.github.io/"
+         :recursive nil
+         :html-head-include-default-style nil
+         :html-head "<link rel=\"shortcut icon\" href=\"http://dirtysalt.info/css/favicon.ico\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/site.css\" />"
+         :publishing-function org-html-publish-to-html
+         ;; :auto-sitemap 't
+         ;; :sitemap-filename "sitemap.org"
+         ;; :sitemap-title "Sitemap"
+         :with-toc 't)
+        ("blog"
+         :base-directory "~/repo/dirtysalt.github.io/src/blogs/"
+         :publishing-directory "~/repo/dirtysalt.github.io/blogs/"
+         :recursive nil
+         :html-head-include-default-style nil
+         :html-head "<link rel=\"shortcut icon\" href=\"http://dirtysalt.info/css/favicon.ico\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/site.css\" />"
+         :publishing-function org-html-publish-to-html
+         :section-numbers 't
+         :with-toc 't)
+        ("site" :components ("pages" "blog"))))
+#+END_SRC
+
+
