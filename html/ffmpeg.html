@@ -50,6 +50,14 @@
 抽取thumnail ffmpeg -i ed437d48b88f1def8b58e7e97c.mp4 -vf  "thumbnail" -frames:v 1 -y thumb.png # 这个效果可能会比抽取第一帧的效果好.
 </p>
 
+<p>
+抽取视频音轨 ffmpeg -i video.mp4 -acodec copy audio.mp3 # 不做任何转码，速度很快
+</p>
+
+<p>
+放大音量 ffmpeg -i video.mp4 -af "volume=10" audio.mp3 <a href="https://trac.ffmpeg.org/wiki/AudioVolume">Audio Volume Manipulation</a>
+</p>
+
 <hr  />
 <p>
 <b>视频转gif</b>
