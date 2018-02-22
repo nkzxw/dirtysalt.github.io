@@ -74,7 +74,7 @@
 - 201704 [[file:./blogs/a-few-days-at-village.org][在老家的几天]]
 - 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
 - 201703 [[file:blogs/a-possible-impl-of-reco-sys.org][推荐系统的可能实现]]
- - 201703 [[file:./blogs/automation-on-finacial-report.org][实事求是谈金融报告自动化 – 文因互联]]
+- 201703 [[file:./blogs/automation-on-finacial-report.org][实事求是谈金融报告自动化 – 文因互联]]
 - 201702 [[file:blogs/boost-shadowsocks-with-tcp-bbr.org][通过TCP BBR为ShadowSocks加速]]
 - 201702 [[file:./blogs/principle-of-smart-route-in-vpn.org][VPN的智能加速原理]]
 - 201702 [[file:./blogs/my-thoughts-on-startup.org][创业/小公司的优点和缺点]]
@@ -307,6 +307,7 @@
 - [[file:./images/cjy-baidu-blog-archive.html][百度空间存档]] - [[file:./blogs/to-death.org][写给离去的亲人]] - [[file:./blogs/cola-and-water.org][可乐和矿泉水]]
 - [[file:./blogs/house.org][house]] - [[file:blogs/car.org][car]] - [[file:./blogs/pregnancy.org][baby]] - [[file:./blogs/ascii.org][ascii]] - [[file:./blogs/idiom.org][idiom]] - [[file:./blogs/cross-ocean.org][cross-ocean]]
 - [[file:./blogs/retrospect-2009.org][回顾2009]] - [[file:./blogs/retrospect-2010.org][回顾2010]] - [[file:./blogs/retrospect-2011.org][回顾2011]] - [[file:./blogs/retrospect-2012.org][回顾2012]] - [[file:./blogs/retrospect-2013.org][回顾2013]] - [[file:./blogs/retrospect-2014.org][回顾2014]]
+- [[file:blogs/retrospect-2015.org][回顾2015]] - [[file:blogs/retrospect-2016.org][回顾2016]] - [[file:./blogs/retrospect-2017.org][回顾2017]]
 - [[file:./blogs/beyond-lyrics-collection.org][Beyond歌词收藏]]
 - [[file:blogs/bob-dylan-lyrics-collection.org][鲍勃迪伦(Bob Dylan)歌词收藏]]
 - [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
