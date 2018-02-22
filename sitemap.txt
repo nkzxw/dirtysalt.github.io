@@ -372,7 +372,9 @@ https://dirtysalt.github.io/html/blogs/staying-healthy-while-working-remotely.ht
 https://dirtysalt.github.io/html/blogs/kaggle-2-facial-keypoints-detection.html
 https://dirtysalt.github.io/html/blogs/dark-time.html
 https://dirtysalt.github.io/html/blogs/poor-charlie-almanack.html
+https://dirtysalt.github.io/html/blogs/retrospect-2016.html
 https://dirtysalt.github.io/html/blogs/several-waters.html
+https://dirtysalt.github.io/html/blogs/retrospect-2017.html
 https://dirtysalt.github.io/html/blogs/have-a-baby.html
 https://dirtysalt.github.io/html/blogs/venture-captial.html
 https://dirtysalt.github.io/html/blogs/a-few-days-at-village.html
@@ -711,6 +713,7 @@ https://dirtysalt.github.io/html/blogs/scaling-to-billions-on-top-of-digital-oce
 https://dirtysalt.github.io/html/blogs/what-can-i-do-when-old.html
 https://dirtysalt.github.io/html/blogs/car.html
 https://dirtysalt.github.io/html/blogs/the-instant-economist.html
+https://dirtysalt.github.io/html/blogs/retrospect-2015.html
 https://dirtysalt.github.io/html/blogs/why-cd-just-keeps-on-giving.html
 https://dirtysalt.github.io/html/blogs/story-telling-and-obtain-experience.html
 https://dirtysalt.github.io/html/blogs/the-future-of-programming.html
