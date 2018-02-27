@@ -364,17 +364,17 @@
 - [[file:./blogs/dont-go-gentle-into-that-good-night.org][Do not go gentle into that good night]] by Dylan Thomas
 - [[file:./blogs/youtube-steve-chen-bio.org][YouTube创始人陈士骏自传]]
 - [[file:./blogs/1984.org][1984]] by George Orwell
-- [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by wujun
+- [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by 吴军
 - [[file:./blogs/why-cn-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
 - [[file:./blogs/wu-qing-yuan-bio.org][中的精神（吴清源自传）]]
 - [[file:./blogs/star-wars.org][星球大战(Star Wars)]]
 - [[file:./blogs/baby-sleep-training.org][有关宝宝睡眠的那些事儿(睡眠训练实战操作经验)]]
 - [[file:./blogs/antifragile.org][反脆弱: 从不确定性中获益(Antifragile: Things That Gain from Disorder)]] by Nassim Nicholas Taleb
-- [[file:./blogs/money-doggy.org][小狗钱钱]] by Bodo Schafer
+- [[file:blogs/money-doggy.org][小狗钱钱(Money Doggy)]] by Bodo Schafer
 - [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
 - [[file:./blogs/anti-destruction-in-china.org][李可乐抗拆记]] by 李承鹏
-- [[file:./blogs/dark-time.org][暗时间]] by 刘未鹏
-- [[file:./blogs/wolf-totem.org][狼图腾]] by 姜戎
+- [[file:blogs/dark-time.org][暗时间(Dark Time)]] by 刘未鹏
+- [[file:blogs/wolf-totem.org][狼图腾(Wolf Totem)]] by 姜戎
 - [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯 玛莎·西尔斯
 - [[file:./blogs/platform-strategy.org][平台战略: 正在席卷全球的商业模式革命]] by 陈威如, 余卓轩
 - [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
@@ -397,7 +397,7 @@
 - [[file:./blogs/majority-of-silent-people.org][沉默的大多数]] by 王小波
 - [[file:./blogs/mac-talk.org][MacTalk]] by 池建强
 - [[file:./blogs/zhihu-hft-engineer.org][我是高频交易工程师：知乎董可人自选集]]
-- [[file:./the-times-of-intelligence.org][智能时代]] by wujun
+- [[file:./the-times-of-intelligence.org][智能时代]] by 吴军
 - [[file:the-hard-thing-about-hard-things.org][创业维艰：如何完成比难更难的事]] by Ben Horowitz
 - [[file:bob-dylan-bio-like-a-rolling-stone.org][编年史(Like A Rolling Stone)]] of Bob Dylan
 - [[file:blogs/flowers-to-algernon.org][献给阿尔吉侬的花束(Flowers for Algernon)]]
