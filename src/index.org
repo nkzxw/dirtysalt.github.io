@@ -95,7 +95,7 @@
   - [[file:./redis-cluster-tutorial.org][Redis Cluster Tutorial]] Redis Cluster入门
   - [[file:./redis-manifesto.org][Redis Manifesto]]
 - [[file:mysql.org][mysql]] 开源关系型数据库。The world's most popular open source database.
-- [[file:galera.org][galera]] 基于MySQL的同步多主备份集群(synchronous multi-master replication cluster).
+- [[file:galera.org][galera]] 基于MySQL的同步多主备份集群(synchronous multi-master replication cluster). [[file:./galera-code.org][code]]
 - [[file:memcached.org][memcached]] an in-memory key-value store for small chunks of arbitrary data (strings, objects) 可以用来搭建分布式缓存服务，没有持久化存储。
 - [[file:rocksdb.org][rocksdb]] A persistent key-value store for fast storage environments. 基于 [[file:leveldb.org][leveldb]] 构建
 - [[file:rcfile.org][rcfile]] / [[file:orcfile.org][orcfile]] / [[file:parquet.org][parquet]] 几种列式存储(columnar storage)实现
@@ -121,7 +121,7 @@
 - [[file:ml-reading.org][Machine Learning Reading]] 机器学习方面的一些文章
   - [[file:./ml-the-hard-way.org][Machine Learning the Hard Way]] 哥们用ml来赌马，虽然最后赚钱了，但是结果却特别悲惨:)
   - [[file:./deconstructing-recommender-systems.org][Deconstructing Recommender Systems]] 关于推荐系统的介绍性文章
-- [[file:./sklearn.org][sklearn]] python scikit learn. 机器学习包.
+- [[file:./sklearn.org][sklearn]] python scikit learn. 机器学习包. [[file:./sklearn-api.org][api]]
 - [[file:caffe.org][caffe]] C++实现的深度学习框架，有python和matlab的扩展接口
 - [[file:nolearn.org][nolearn]] scikit-learn compatibile wrapper for neural nets. 底层可以使用不同的NN实现比如 [[file:./caffe.org][caffe]], [[https://github.com/Lasagne/Lasagne][lasagne]].
 - [[file:./beauty-of-math.org][数学之美]] wujun
@@ -322,7 +322,7 @@
 - [[file:./systems-software-research-is-irrelevant.org][Systems Software Research is Irrelevant]]
 - [[file:./applied-philosophy-aka-hacking.org][Applied Philosophy, a.k.a "Hacking"]]
 - [[file:linux-kernel-management-style.org][Linux Kernel Management Style]]
-- [[file:./blogs/how-did-you-learn-so-much-stuff.org][How did you learn so much stuff about Oracle?]]
+- [[file:how-did-you-learn-so-much-stuff.org][How did you learn so much stuff about Oracle?]]
 - [[file:./a-conversation-with-werner-vogels.org][A Conversation with Werner Vogels]]
 - [[file:./an-interview-with-edw.org][An Interview With Edsger W. Dijkstra]]
 - [[file:./what-are-the-best-kept-secrets-of-great-programmers.org][What are the best-kept secrets of great programmers?]]
@@ -350,6 +350,8 @@
 - [[file:./mean-people-fail.org][Mean People Fail]] by Paul Graham.
 - [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
 - [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
+- [[file:./reply-to-science-institution.org][对科学院的答复]]
+
 
 ** Blogs
 - 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
