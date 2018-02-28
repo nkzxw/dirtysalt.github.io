@@ -2,7 +2,7 @@
 
 file:./images/valve-logo.jpg
 
-- dirtysalt1987 AT gmail DOT com, [[file:./resume.org][CV]] ([[file:./resume-cn.org][中文]]), +[[file:./cover-letter.org][Cover Letter]]+
+- dirtysalt1987 AT gmail DOT com, [[file:./resume.org][CV]] ([[file:./resume-cn.org][中文]]), [[file:./cover-letter.org][Cover Letter]]
 - [[http://www.linkedin.com/in/dirtysalt][LinkedIn]], [[http://weibo.com/dirlt][微博]], [[https://twitter.com/dirtysalt][Twitter]], [[https://github.com/dirtysalt][GitHub]], [[http://www.jianshu.com/users/8bd69eb6a57a/][简书]]
 - [[file:images/um-arch.pdf][Umeng Analytical Architecture]]
 - [[file:images/um-talk.pdf][如何在一天之内收集3.6亿移动设备的数据]]
