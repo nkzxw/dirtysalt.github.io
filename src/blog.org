@@ -416,3 +416,4 @@
 - [[file:blogs/money-doggy.org][小狗钱钱(Money Doggy)]] by Bodo Schafer
 - [[file:./blogs/dear-andreas.org][亲爱的安德烈]] by 龙应台
 - [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯 玛莎·西尔斯
+- [[file:./blogs/principles.org][原则(Principles)]] by Ray Dalio
