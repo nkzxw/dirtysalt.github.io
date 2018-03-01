@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2018
+- 201803 [[file:./blogs/how-the-economic-machine-works-by-ray-dalio.org][How The Economic Machine Works By Ray Dalio]] 经济机器是如何运行的
 - 201802 [[file:./blogs/difference-between-poor-rich-on-zhihu.org][你在哪一刻体验到了真正的贫富差距？]] 摘自知乎回答
 - 201802 [[file:./blogs/python-weak-perf-matters.org][Python 的低性能问题是无法忽视的]]
 - 201802 [[file:./blogs/hard-learning.org][强力研读]] 摘自得到的《精英日课》
