@@ -695,6 +695,7 @@ https://dirtysalt.github.io/html/blogs/animal-farm.html
 https://dirtysalt.github.io/html/blogs/new-era-carmack.html
 https://dirtysalt.github.io/html/blogs/the-economic-naturalist.html
 https://dirtysalt.github.io/html/blogs/some-non-casual-thoughts.html
+https://dirtysalt.github.io/html/blogs/how-the-economic-machine-works-by-ray-dalio.html
 https://dirtysalt.github.io/html/blogs/scaling-to-billions-on-top-of-digital-ocean.html
 https://dirtysalt.github.io/html/blogs/what-can-i-do-when-old.html
 https://dirtysalt.github.io/html/blogs/car.html
