@@ -352,7 +352,6 @@
 - [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
 - [[file:./reply-to-science-institution.org][对科学院的答复]]
 
-
 ** Blogs
 - 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
 - 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
