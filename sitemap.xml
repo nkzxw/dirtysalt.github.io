@@ -93,6 +93,8 @@
 <url><loc>https://dirtysalt.github.io/html/a-typical-data-processing-system.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/solid-state-revolution-in-depth-on-how-ssd-really-work.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/the-log-what-every-software-engineer-should-know-about-real-time-datas-unifying-abstraction.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/statistical-learning-method.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/intro-to-cnn.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/programmer-dilemma.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/analysis-of-hdfs-under-hbase-a-facebook-messages-case-study.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/how-long-does-it-take-to-make-context-switch.html</loc></url>
@@ -133,6 +135,7 @@
 <url><loc>https://dirtysalt.github.io/html/ffmpeg.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/nolearn.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/system-programming-at-twitter.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/why-you-should-be-spot-checking-algorithms.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/coroutine.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ml-reading.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hadoop-benchmark.html</loc></url>
@@ -142,6 +145,7 @@
 <url><loc>https://dirtysalt.github.io/html/case-study-gfs-evolution-on-fast-forward.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/docker.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/history-of-apache-storm-and-lessons-learned.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/machine-learning-tom-mitchell.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ml-class.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-a-production-machine-learning-infrastructure.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/pic.html</loc></url>
@@ -162,6 +166,7 @@
 <url><loc>https://dirtysalt.github.io/html/jni.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/the-cpp-prog-lang.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/streambase.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/building-machine-learning-systems-with-python.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/sphinx-search.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/in-house-programmer.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html</loc></url>
@@ -169,6 +174,7 @@
 <url><loc>https://dirtysalt.github.io/html/beauty-of-math.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/deconstructing-recommender-systems.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/reply-to-science-institution.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/how-math-important-to-ml.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/mesos.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/cover-letter.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/how-to-beat-the-cap-theorem.html</loc></url>
@@ -223,6 +229,7 @@
 <url><loc>https://dirtysalt.github.io/html/memory.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/raid.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/jvm.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/use-random-forest-testing-179-classifiers-121-datasets.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/go.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/microservices-not-a-free-lunch.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/a-comparison-of-approaches-to-large-scale-data-analysis.html</loc></url>
@@ -241,6 +248,7 @@
 <url><loc>https://dirtysalt.github.io/html/linux.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/the-skinny-on-raid.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/mapreduce-a-major-step-backwards-ii.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/deep-learning-material-recommendations.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/aosa.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/project-voldemort-scaling-simple-storage-at-linkedin.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hdfs-scalability-the-limits-to-growth.html</loc></url>
@@ -327,6 +335,7 @@
 <url><loc>https://dirtysalt.github.io/html/yarn-intro.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/bigtable.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ml-foundations.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/a-tour-of-machine-learning-algorithms.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/zookeeper.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/blogs/colleague-creates-spaghetti-code.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/blogs/finding-great-developers.html</loc></url>

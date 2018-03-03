@@ -91,6 +91,8 @@ https://dirtysalt.github.io/html/f1.html
 https://dirtysalt.github.io/html/a-typical-data-processing-system.html
 https://dirtysalt.github.io/html/solid-state-revolution-in-depth-on-how-ssd-really-work.html
 https://dirtysalt.github.io/html/the-log-what-every-software-engineer-should-know-about-real-time-datas-unifying-abstraction.html
+https://dirtysalt.github.io/html/statistical-learning-method.html
+https://dirtysalt.github.io/html/intro-to-cnn.html
 https://dirtysalt.github.io/html/programmer-dilemma.html
 https://dirtysalt.github.io/html/analysis-of-hdfs-under-hbase-a-facebook-messages-case-study.html
 https://dirtysalt.github.io/html/how-long-does-it-take-to-make-context-switch.html
@@ -131,6 +133,7 @@ https://dirtysalt.github.io/html/in-stream-big-data-processing.html
 https://dirtysalt.github.io/html/ffmpeg.html
 https://dirtysalt.github.io/html/nolearn.html
 https://dirtysalt.github.io/html/system-programming-at-twitter.html
+https://dirtysalt.github.io/html/why-you-should-be-spot-checking-algorithms.html
 https://dirtysalt.github.io/html/coroutine.html
 https://dirtysalt.github.io/html/ml-reading.html
 https://dirtysalt.github.io/html/hadoop-benchmark.html
@@ -140,6 +143,7 @@ https://dirtysalt.github.io/html/building-scalable-highly-concurrent-and-fault-t
 https://dirtysalt.github.io/html/case-study-gfs-evolution-on-fast-forward.html
 https://dirtysalt.github.io/html/docker.html
 https://dirtysalt.github.io/html/history-of-apache-storm-and-lessons-learned.html
+https://dirtysalt.github.io/html/machine-learning-tom-mitchell.html
 https://dirtysalt.github.io/html/ml-class.html
 https://dirtysalt.github.io/html/building-a-production-machine-learning-infrastructure.html
 https://dirtysalt.github.io/html/pic.html
@@ -160,6 +164,7 @@ https://dirtysalt.github.io/html/yahoo-and-freebsd.html
 https://dirtysalt.github.io/html/jni.html
 https://dirtysalt.github.io/html/the-cpp-prog-lang.html
 https://dirtysalt.github.io/html/streambase.html
+https://dirtysalt.github.io/html/building-machine-learning-systems-with-python.html
 https://dirtysalt.github.io/html/sphinx-search.html
 https://dirtysalt.github.io/html/in-house-programmer.html
 https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html
@@ -167,6 +172,7 @@ https://dirtysalt.github.io/html/hbase-write-path.html
 https://dirtysalt.github.io/html/beauty-of-math.html
 https://dirtysalt.github.io/html/deconstructing-recommender-systems.html
 https://dirtysalt.github.io/html/reply-to-science-institution.html
+https://dirtysalt.github.io/html/how-math-important-to-ml.html
 https://dirtysalt.github.io/html/mesos.html
 https://dirtysalt.github.io/html/cover-letter.html
 https://dirtysalt.github.io/html/how-to-beat-the-cap-theorem.html
@@ -221,6 +227,7 @@ https://dirtysalt.github.io/html/lua.html
 https://dirtysalt.github.io/html/memory.html
 https://dirtysalt.github.io/html/raid.html
 https://dirtysalt.github.io/html/jvm.html
+https://dirtysalt.github.io/html/use-random-forest-testing-179-classifiers-121-datasets.html
 https://dirtysalt.github.io/html/go.html
 https://dirtysalt.github.io/html/microservices-not-a-free-lunch.html
 https://dirtysalt.github.io/html/a-comparison-of-approaches-to-large-scale-data-analysis.html
@@ -239,6 +246,7 @@ https://dirtysalt.github.io/html/mysql.html
 https://dirtysalt.github.io/html/linux.html
 https://dirtysalt.github.io/html/the-skinny-on-raid.html
 https://dirtysalt.github.io/html/mapreduce-a-major-step-backwards-ii.html
+https://dirtysalt.github.io/html/deep-learning-material-recommendations.html
 https://dirtysalt.github.io/html/aosa.html
 https://dirtysalt.github.io/html/project-voldemort-scaling-simple-storage-at-linkedin.html
 https://dirtysalt.github.io/html/hdfs-scalability-the-limits-to-growth.html
@@ -325,6 +333,7 @@ https://dirtysalt.github.io/html/tail-at-scale.html
 https://dirtysalt.github.io/html/yarn-intro.html
 https://dirtysalt.github.io/html/bigtable.html
 https://dirtysalt.github.io/html/ml-foundations.html
+https://dirtysalt.github.io/html/a-tour-of-machine-learning-algorithms.html
 https://dirtysalt.github.io/html/zookeeper.html
 https://dirtysalt.github.io/html/blogs/colleague-creates-spaghetti-code.html
 https://dirtysalt.github.io/html/blogs/finding-great-developers.html
