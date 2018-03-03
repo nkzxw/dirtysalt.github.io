@@ -678,6 +678,7 @@ https://dirtysalt.github.io/html/blogs/my-iphone5s.html
 https://dirtysalt.github.io/html/blogs/be-careful-when-you-drive.html
 https://dirtysalt.github.io/html/blogs/laws-of-performant-software.html
 https://dirtysalt.github.io/html/blogs/graduate-final-report.html
+https://dirtysalt.github.io/html/blogs/on-being-a-senior-engineer.html
 https://dirtysalt.github.io/html/blogs/why-did-so-many-startups-choose-nosql.html
 https://dirtysalt.github.io/html/blogs/about-dna-sequencing.html
 https://dirtysalt.github.io/html/blogs/the-bed-of-procrustes.html
