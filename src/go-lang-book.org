@@ -6,13 +6,16 @@
   - 不会对函数返回值类型进行推导
 - 不定参数 `args ...int` 可以认为是数组切片类型 `args []int`
 - range用来遍历数组, 切片, 以及字典.
+- 数组和切片. len, cap, make(创建动态数组)
+- 指针. 仅限于引用，不可以运算，智能解引用((&s).X 和 s.X)
+- 映射. _, ok = m[key] 判断是否存在; delete 删除映射
 - 取消while, 只保留for.
   - for <init>; <loop>; <pred> { \n ... }
   - for <loop> { \n ... }
   - for { \n ... }
 - 多重赋值, 多值返回, 匿名函数与闭包
 - 错误处理. error接口
-- RAII解决方案. defer
+- RAII解决方案. defer(defer stack)
 - 异常传播. panic + recover
   - panic(value). 触发异常并携带value
   - if r := recover() ; r != nil 捕获可能的异常并处理.
@@ -26,12 +29,16 @@
     3. channel
     4. interface
   - 这些"引用语义"类型内部实现都是维护指针
+- 方法和函数差别不大. func (v Vertex) Abs() 和 func Abs(v Vertex)
+- 方法 func (a A) 自动会实现func (a *A). 智能地解引用.
+  - 通常使用指针作为接受者，好处有下面两点：
+  - 可以修改结构里面的字段
+  - 如果是大型结构体可以避免拷贝
 - 初始化. new(A), A{a:1, b:2}, A{1,2}
 - 匿名组合. 类型和接口都可以通过匿名组合来实现继承
 - 非侵入式接口.
   - 对象实例可以赋值给接口
-  - 一个接口可以赋值给另外一个接口
-  - func (a A)...自动会实现func (a *A)...
+  - 接口之间可以赋值
 - 类型/接口查询. 值是否实现某个接口 v.(IReader) 或是什么类型 v.(type)
 
 并发编程
