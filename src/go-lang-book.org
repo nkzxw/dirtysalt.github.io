@@ -39,7 +39,10 @@
 - 非侵入式接口.
   - 对象实例可以赋值给接口
   - 接口之间可以赋值
+  - 在内部接口值可以看做包含值和具体类型的元组(value, type).
 - 类型/接口查询. 值是否实现某个接口 v.(IReader) 或是什么类型 v.(type)
+  - t, ok := i.(T) 如果成功，ok=True, t则为对应类型T
+  - i.(type) 取得底层类型
 
 并发编程
 - goroutine go协程 see libtask
@@ -49,7 +52,7 @@
   - 基于消息传递 channel `chan type`
     - 单向写入channel `chan<- type`
     - 单向读出channel `<-chan type`
-    - 通过make(chan type [,bufsize])来创建
+    - 通过make(chan type [,bufsize])来创建. 信道可以是有缓冲的
   - 基于内存共享 sync.* 同步机制
 - select 有效轮询各个channels状态
   - select本身没有提供timeout机制
