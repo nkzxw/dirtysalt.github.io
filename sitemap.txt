@@ -311,6 +311,7 @@ https://dirtysalt.github.io/html/gwp.html
 https://dirtysalt.github.io/html/megastore.html
 https://dirtysalt.github.io/html/data-structures-and-algorithms-for-big-databases.html
 https://dirtysalt.github.io/html/application-resilience-in-a-service-oriented-architecture.html
+https://dirtysalt.github.io/html/nlp-sequence-models.html
 https://dirtysalt.github.io/html/java.html
 https://dirtysalt.github.io/html/web-search-for-a-planet.html
 https://dirtysalt.github.io/html/storage-system-reading.html
