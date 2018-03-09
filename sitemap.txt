@@ -417,6 +417,7 @@ https://dirtysalt.github.io/html/blogs/the-signal-and-the-noise.html
 https://dirtysalt.github.io/html/blogs/drive-learning.html
 https://dirtysalt.github.io/html/blogs/antifragile.html
 https://dirtysalt.github.io/html/blogs/macosx-rootless-mode.html
+https://dirtysalt.github.io/html/blogs/how-to-build-your-own-alpha-zero-ai.html
 https://dirtysalt.github.io/html/blogs/taking-php-seriously.html
 https://dirtysalt.github.io/html/blogs/cool-retro-term.html
 https://dirtysalt.github.io/html/blogs/confessions-of-an-advertising-man.html
