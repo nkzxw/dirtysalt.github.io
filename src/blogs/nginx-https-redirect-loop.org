@@ -1,0 +1,43 @@
+#+title: Nginx的https重定向循环问题
+
+*TL;DR https重定向循环问题有可能是因为aws elb配置不当造成的。*
+
+最近我们的站点需要全部升级到https, 为此需要修改nginx配置，配置文件如下：
+#+BEGIN_SRC Nginx
+server {
+    listen 80;
+    server_name castbox.fm www.castbox.fm;
+    return 301 https://castbox.fm$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    ssl_certificate server.crt;
+    ssl_certificate_key server.key;
+    server_name www.castbox.fm;
+    return 301 https://castbox.fm$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    ssl_certificate server.crt;
+    ssl_certificate_key server.key;
+    server_name castbox.fm;
+    ....
+}
+#+END_SRC
+
+上线之后我们立刻发现问题：访问 https://castbox.fm 会不断地重定向到 https://castbox.fm
+
+开始我们以为是nginx配置问题或者是cloudflare的问题，直到我们拿另外一个无关的域名做测试，才排除这两种可能。这个域名也是托管在cloudflare上的，按照类似上面nginx的配置，都是可以正常work的。这两个域名之间唯一差别就是aws elb.
+
+在elb里面可以配置https的处理：
+1. elb可以直接处理https的加密解密工作，然后以http请求转发给后端
+2. 或者是elb可以直接转发https请求给后端的nginx.
+
+file:../images/nginx-https-redirect-loop-elb0.png file:../images/nginx-https-redirect-loop-elb1.png
+
+如果是使用方式1的话就会出现循环跳转的问题（这也是我们最开始的配置）：
+- 请求 https://castbox.fm 到达elb
+- elb解析https请求，转发http请求给后端nginx. 也就是请求 http://castbox.fm
+- nginx接收到 http://castbox.fm 请求，触发重定向到 https://castbox.fm

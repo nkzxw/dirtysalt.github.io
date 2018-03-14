@@ -1,6 +1,8 @@
 #+title: blog
 
 ** 2018
+- 201803 [[file:blogs/nginx-https-redirect-loop.org][Nginx的https重定向循环问题]]
+- 201803 [[file:./blogs/what-habits-make-a-programmer-great.org][What habits make a programmer great?]] about meta-habit
 - 201803 [[file:./blogs/how-to-build-your-own-alpha-zero-ai.org][How to build your own AlphaZero AI using Python and Keras]]
 - 201803 [[file:./blogs/on-being-a-senior-engineer.org][On Being A Senior Engineer]]
 - 201803 [[file:./blogs/how-the-economic-machine-works-by-ray-dalio.org][How The Economic Machine Works By Ray Dalio]] 经济机器是如何运行的
