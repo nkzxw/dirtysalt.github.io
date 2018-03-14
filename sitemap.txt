@@ -637,6 +637,7 @@ https://dirtysalt.github.io/html/blogs/a-great-developer-can-come-from-anywhere.
 https://dirtysalt.github.io/html/blogs/how-to-solve-it-a-new-apsect-of-math-method.html
 https://dirtysalt.github.io/html/blogs/mongodb34-perf-issue-checkpoint.html
 https://dirtysalt.github.io/html/blogs/house-clean-1.html
+https://dirtysalt.github.io/html/blogs/what-habits-make-a-programmer-great.html
 https://dirtysalt.github.io/html/blogs/on-python-profiling.html
 https://dirtysalt.github.io/html/blogs/house.html
 https://dirtysalt.github.io/html/blogs/why-i-stopped-paying-attention-to-industry-news.html
@@ -712,6 +713,7 @@ https://dirtysalt.github.io/html/blogs/scaling-to-billions-on-top-of-digital-oce
 https://dirtysalt.github.io/html/blogs/what-can-i-do-when-old.html
 https://dirtysalt.github.io/html/blogs/car.html
 https://dirtysalt.github.io/html/blogs/the-instant-economist.html
+https://dirtysalt.github.io/html/blogs/nginx-https-redirect-loop.html
 https://dirtysalt.github.io/html/blogs/why-cd-just-keeps-on-giving.html
 https://dirtysalt.github.io/html/blogs/story-telling-and-obtain-experience.html
 https://dirtysalt.github.io/html/blogs/the-future-of-programming.html
