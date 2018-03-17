@@ -453,6 +453,6 @@
 - [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
 - [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
 * Misc
-- [[file:links.org][Links]] 一些很多价值的链接和站点
+- [[file:links.org][Links]] 很有价值的链接和站点
 - [[file:./blog.org][Blogs]] 我的博客，噪音很多
 - [[file:./jobs.org][Jobs]] 欢迎您加入我们的团队
