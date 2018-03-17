@@ -64,6 +64,7 @@ https://dirtysalt.github.io/html/numa.html
 https://dirtysalt.github.io/html/mesos-omega-borg-a-survey.html
 https://dirtysalt.github.io/html/flumejava.html
 https://dirtysalt.github.io/html/design-pattern.html
+https://dirtysalt.github.io/html/go-course-day.html
 https://dirtysalt.github.io/html/ten-career-lessons.html
 https://dirtysalt.github.io/html/nosql-back-to-the-feature-or-yet-another-db-feature.html
 https://dirtysalt.github.io/html/the-little-schemer.html
