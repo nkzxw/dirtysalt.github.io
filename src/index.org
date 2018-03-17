@@ -1,12 +1,5 @@
 #+title: dirtysalt's homepage
 
-* Introduction
-- [[file:links.org][Links]] 一些很多价值的链接和站点
-- [[file:./blog.org][Blogs]] 我的博客，噪音很多
-- [[file:./jobs.org][Jobs]] 欢迎您加入我们的团队
-- [[file:./paste.org][Paste]] 网络剪贴板，部分是有版权内容
-- [[file:fun.org][Funny]] 段子收集器，部分是有版权内容
-
 * Operating System
 - [[file:computer-system-reading.org][Computer System Reading]] 单机系统方面的一些文章
   - [[file:./the-secret-to-10-million-concurrent-connections.org][The Secret To 10 Million Concurrent Connections -The Kernel Is The Problem, Not The Solution]]
@@ -459,3 +452,7 @@
 - [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
 - [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
 - [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
+* Misc
+- [[file:links.org][Links]] 一些很多价值的链接和站点
+- [[file:./blog.org][Blogs]] 我的博客，噪音很多
+- [[file:./jobs.org][Jobs]] 欢迎您加入我们的团队
