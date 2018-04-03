@@ -1,19 +1,25 @@
 #!/usr/bin/env python
 # coding:utf-8
 # Copyright (C) dirlt
+from gevent import monkey
+from gevent.pool import Pool
+from rabbitpy import Message
+
+monkey.patch_all()
+
 import logging
 import queue
 import threading
 import time
 
-from gevent import monkey
-from gevent.pool import Pool
-
-monkey.patch_all()
-
 import rabbitpy
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+handler.setLevel(logging.DEBUG)
+handler.setFormatter(logging.Formatter(logging.BASIC_FORMAT))
+logger.addHandler(handler)
 
 
 class Connection:
@@ -31,12 +37,11 @@ class Connection:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if isinstance(exc_val, rabbitpy.exceptions.RabbitpyException):
-            logger.debug('Got exception. type = {}, value = {}, tb = {}'.format(exc_type, exc_val, exc_tb))
             self.close()
         self._pool.release(self)
 
     def __str__(self):
-        return 'Connection(ident = {}, kwargs = {})'.format(self._ident, self._kwargs)
+        return 'rabbitmq conn(ident = {}, kwargs = {})'.format(self._ident, self._kwargs)
 
     def close(self):
         if not self._closed:
@@ -93,52 +98,76 @@ class ConnectionPool:
                 self._avaiable.put(conn)
 
     def close(self):
-        logger.debug('# of in_use = {}'.format(len(self._in_use)))
+        # logger.debug('# of rabbitmq pool = {}'.format(self.size))
         for conn in self._in_use:
             conn.close()
 
     @property
-    def in_use_size(self):
+    def size(self):
         return len(self._in_use)
 
 
 class MessageQueue(ConnectionPool):
-    def __init__(self, name, exchange=None, conn_class=None, **conn_kwargs):
+    def __init__(self, name, exchange='', conn_class=None, **conn_kwargs):
         self._name = name
         self._exchange = exchange
-        super(MessageQueue, self).__init__(conn_class=conn_class, conn_kwargs=conn_kwargs)
+        # super(MessageQueue, self).__init__(conn_class=conn_class, conn_kwargs=conn_kwargs)
+        ConnectionPool.__init__(self, conn_class=conn_class, conn_kwargs=conn_kwargs)
 
     def declare(self, durable=False):
         with self.acquire() as conn:
-            logger.debug('declare conn = {}'.format(conn))
+            # logger.debug('declare conn = {}'.format(conn))
             q = rabbitpy.Queue(conn.channel, self._name)
             q.durable = durable
             q.declare()
 
     def consume(self, callback):
         with self.acquire() as conn:
-            logger.debug('consume conn = {}'.format(conn))
+            # logger.debug('consume conn = {}'.format(conn))
             queue = rabbitpy.Queue(conn.channel, self._name)
             for message in queue.consume(prefetch=1):
                 callback(message)
                 message.ack()
 
+    def publish(self, body):
+        with self.acquire() as conn:
+            # logger.debug('publish conn = {}'.format(conn))
+            msg = Message(conn.channel, body_value=body)
+            msg.publish(self._exchange, routing_key=self._name)
 
-def main():
-    logger.setLevel(logging.DEBUG)
-    handler = logging.StreamHandler()
-    handler.setLevel(logging.DEBUG)
-    handler.setFormatter(logging.Formatter(logging.BASIC_FORMAT))
-    logger.addHandler(handler)
+    def queue_size(self):
+        with self.acquire() as conn:
+            q = rabbitpy.Queue(conn.channel, self._name)
+            (msg_count, consumer_count) = q.declare(passive=True)
+            return msg_count
+
+
+def _test():
     url = 'amqp://localhost:5672/%2F'
-    mq = MessageQueue(name='hello2', url=url)
+    mq = MessageQueue(name='hello', url=url)
+
+    def pub():
+        mq.declare(durable=True)
+        msg_no = 1
+        while True:
+            try:
+                body = 'message #%d' % msg_no
+                msg_no += 1
+                mq.publish(body)
+                time.sleep(0.1)
+                if msg_no % 10 == 0:
+                    logger.debug('pub msg no = {}'.format(msg_no))
+            except rabbitpy.exceptions.RabbitpyException as e:
+                logger.warning('rabbitpy exception')
+            except Exception as e:
+                logger.exception('unkonwn exception')
 
     def run():
-        # mq.declare(durable=True)
+        mq.declare(durable=True)
 
         def cb(message):
             logger.info(message.body.decode('utf8'))
-            time.sleep(5)
+            time.sleep(1)
 
         while True:
             try:
@@ -146,14 +175,15 @@ def main():
             except rabbitpy.exceptions.RabbitpyException as e:
                 logger.warning('rabbitpy excepiton')
             except Exception as e:
-                logger.warning('general exception')
+                logger.exception('unknown exception')
 
     def watch():
         while True:
-            logger.info('in use size = {}'.format(mq.in_use_size))
+            logger.info('# of rabbitmq pool = {}, queue size = {}'.format(mq.size, mq.queue_size()))
             time.sleep(2)
 
     pool = Pool()
+    pool.spawn(pub)
     for i in range(4):
         pool.spawn(run)
     pool.spawn(watch)
@@ -162,4 +192,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    _test()
