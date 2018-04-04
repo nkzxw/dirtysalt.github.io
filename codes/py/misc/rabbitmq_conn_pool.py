@@ -23,6 +23,8 @@ logger.addHandler(handler)
 
 
 class Connection:
+    Error = rabbitpy.exceptions.RabbitpyException
+
     def __init__(self, **kwargs):
         url = kwargs.get('url', '')
         self._conn = rabbitpy.Connection(url)
@@ -36,7 +38,7 @@ class Connection:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if isinstance(exc_val, rabbitpy.exceptions.RabbitpyException):
+        if isinstance(exc_val, Connection.Error):
             self.close()
         self._pool.release(self)
 
@@ -99,12 +101,14 @@ class ConnectionPool:
 
     def close(self):
         # logger.debug('# of rabbitmq pool = {}'.format(self.size))
-        for conn in self._in_use:
-            conn.close()
+        with self._lock:
+            for conn in self._in_use:
+                conn.close()
 
     @property
     def size(self):
-        return len(self._in_use)
+        with self._lock:
+            return len(self._in_use)
 
 
 class MessageQueue(ConnectionPool):
@@ -157,9 +161,9 @@ def _test():
                 time.sleep(0.1)
                 if msg_no % 10 == 0:
                     logger.debug('pub msg no = {}'.format(msg_no))
-            except rabbitpy.exceptions.RabbitpyException as e:
+            except Connection.Error:
                 logger.warning('rabbitpy exception')
-            except Exception as e:
+            except:
                 logger.exception('unkonwn exception')
 
     def run():
@@ -172,14 +176,19 @@ def _test():
         while True:
             try:
                 mq.consume(cb)
-            except rabbitpy.exceptions.RabbitpyException as e:
+            except Connection.Error:
                 logger.warning('rabbitpy excepiton')
-            except Exception as e:
+            except:
                 logger.exception('unknown exception')
 
     def watch():
         while True:
-            logger.info('# of rabbitmq pool = {}, queue size = {}'.format(mq.size, mq.queue_size()))
+            try:
+                logger.info('# of rabbitmq pool = {}, queue size = {}'.format(mq.size, mq.queue_size()))
+            except Connection.Error:
+                pass
+            except:
+                pass
             time.sleep(2)
 
     pool = Pool()
