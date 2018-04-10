@@ -360,6 +360,7 @@ https://dirtysalt.github.io/html/blogs/ascii.html
 https://dirtysalt.github.io/html/blogs/spark-master-ui.html
 https://dirtysalt.github.io/html/blogs/do-we-need-exercise.html
 https://dirtysalt.github.io/html/blogs/what-a-good-ceo-looks-like.html
+https://dirtysalt.github.io/html/blogs/getting-started-elk-beat.html
 https://dirtysalt.github.io/html/blogs/dear-andreas.html
 https://dirtysalt.github.io/html/blogs/telstra-billboard-of-love.html
 https://dirtysalt.github.io/html/blogs/yy-live-on-child-0.html
