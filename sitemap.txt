@@ -652,6 +652,7 @@ https://dirtysalt.github.io/html/blogs/find-10-digits-prime-in-consecutive-digit
 https://dirtysalt.github.io/html/blogs/making-money-along-the-way.html
 https://dirtysalt.github.io/html/blogs/ios-device-and-screenshot-size.html
 https://dirtysalt.github.io/html/blogs/the-scientist.html
+https://dirtysalt.github.io/html/blogs/ssh-proxycommand-on-ssr.html
 https://dirtysalt.github.io/html/blogs/26-lessons-from-being-a-developer-at-a-startup.html
 https://dirtysalt.github.io/html/blogs/republic.html
 https://dirtysalt.github.io/html/blogs/the-golden-circle.html
