@@ -1,6 +1,7 @@
 #+title: blog
 
 ** 2018
+- 201804 [[file:blogs/ssh-proxycommand-on-ssr.org][SSH ProxyCommand on SSR]]
 - 201804 [[file:blogs/getting-started-elk-beat.org][本地跑跑ELK + Beat(日志收集和指标收集)]]
 - 201803 [[file:blogs/nginx-https-redirect-loop.org][Nginx的https重定向循环问题]]
 - 201803 [[file:./blogs/what-habits-make-a-programmer-great.org][What habits make a programmer great?]] about meta-habit
