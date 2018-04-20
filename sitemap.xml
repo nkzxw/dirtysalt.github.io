@@ -110,7 +110,9 @@
 <url><loc>https://dirtysalt.github.io/html/gizzard.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/best-practices-for-selecting-apache-hadoop-hardware.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/numa-an-overview.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-ds.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hdfs-reliability.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-aa.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/an-interview-with-edw.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hadoop-definitive-guide.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/cpu.html</loc></url>
@@ -142,6 +144,7 @@
 <url><loc>https://dirtysalt.github.io/html/hadoop-benchmark.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/scala.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/perf.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-sd.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-scalable-highly-concurrent-and-fault-tolerant-systems.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/case-study-gfs-evolution-on-fast-forward.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/docker.html</loc></url>
@@ -171,6 +174,7 @@
 <url><loc>https://dirtysalt.github.io/html/sphinx-search.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/in-house-programmer.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-np.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hbase-write-path.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/beauty-of-math.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/deconstructing-recommender-systems.html</loc></url>
@@ -184,6 +188,7 @@
 <url><loc>https://dirtysalt.github.io/html/linux-tools.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/vagrant.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/a-tour-inside-cloudflare-latest-generation-servers.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-ml.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/omega.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/graphite.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/borg.html</loc></url>
@@ -221,6 +226,7 @@
 <url><loc>https://dirtysalt.github.io/html/engineering-management.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/unp.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/oprofile.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-ss.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/links.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/structing-machine-learning-projects.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons-learned.html</loc></url>
@@ -229,6 +235,7 @@
 <url><loc>https://dirtysalt.github.io/html/lua.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/memory.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/raid.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-pl.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/jvm.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/use-random-forest-testing-179-classifiers-121-datasets.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/go.html</loc></url>
@@ -290,6 +297,7 @@
 <url><loc>https://dirtysalt.github.io/html/bringing-spark-closer-to-bare-metal.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/mapred.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/tenzing.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/index-os.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/lessons-learned-while-building-infrastructure-software-at-google.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/systemtap.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/improving-deep-neural-networks.html</loc></url>

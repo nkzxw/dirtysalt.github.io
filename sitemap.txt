@@ -108,7 +108,9 @@ https://dirtysalt.github.io/html/computational-advertising.html
 https://dirtysalt.github.io/html/gizzard.html
 https://dirtysalt.github.io/html/best-practices-for-selecting-apache-hadoop-hardware.html
 https://dirtysalt.github.io/html/numa-an-overview.html
+https://dirtysalt.github.io/html/index-ds.html
 https://dirtysalt.github.io/html/hdfs-reliability.html
+https://dirtysalt.github.io/html/index-aa.html
 https://dirtysalt.github.io/html/an-interview-with-edw.html
 https://dirtysalt.github.io/html/hadoop-definitive-guide.html
 https://dirtysalt.github.io/html/cpu.html
@@ -140,6 +142,7 @@ https://dirtysalt.github.io/html/ml-reading.html
 https://dirtysalt.github.io/html/hadoop-benchmark.html
 https://dirtysalt.github.io/html/scala.html
 https://dirtysalt.github.io/html/perf.html
+https://dirtysalt.github.io/html/index-sd.html
 https://dirtysalt.github.io/html/building-scalable-highly-concurrent-and-fault-tolerant-systems.html
 https://dirtysalt.github.io/html/case-study-gfs-evolution-on-fast-forward.html
 https://dirtysalt.github.io/html/docker.html
@@ -169,6 +172,7 @@ https://dirtysalt.github.io/html/building-machine-learning-systems-with-python.h
 https://dirtysalt.github.io/html/sphinx-search.html
 https://dirtysalt.github.io/html/in-house-programmer.html
 https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html
+https://dirtysalt.github.io/html/index-np.html
 https://dirtysalt.github.io/html/hbase-write-path.html
 https://dirtysalt.github.io/html/beauty-of-math.html
 https://dirtysalt.github.io/html/deconstructing-recommender-systems.html
@@ -182,6 +186,7 @@ https://dirtysalt.github.io/html/linux-kernel-development.html
 https://dirtysalt.github.io/html/linux-tools.html
 https://dirtysalt.github.io/html/vagrant.html
 https://dirtysalt.github.io/html/a-tour-inside-cloudflare-latest-generation-servers.html
+https://dirtysalt.github.io/html/index-ml.html
 https://dirtysalt.github.io/html/omega.html
 https://dirtysalt.github.io/html/graphite.html
 https://dirtysalt.github.io/html/borg.html
@@ -219,6 +224,7 @@ https://dirtysalt.github.io/html/10-lessons-learned-from-the-early-days-of-googl
 https://dirtysalt.github.io/html/engineering-management.html
 https://dirtysalt.github.io/html/unp.html
 https://dirtysalt.github.io/html/oprofile.html
+https://dirtysalt.github.io/html/index-ss.html
 https://dirtysalt.github.io/html/links.html
 https://dirtysalt.github.io/html/structing-machine-learning-projects.html
 https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons-learned.html
@@ -227,6 +233,7 @@ https://dirtysalt.github.io/html/thinking-clearly-about-performance.html
 https://dirtysalt.github.io/html/lua.html
 https://dirtysalt.github.io/html/memory.html
 https://dirtysalt.github.io/html/raid.html
+https://dirtysalt.github.io/html/index-pl.html
 https://dirtysalt.github.io/html/jvm.html
 https://dirtysalt.github.io/html/use-random-forest-testing-179-classifiers-121-datasets.html
 https://dirtysalt.github.io/html/go.html
@@ -288,6 +295,7 @@ https://dirtysalt.github.io/html/mapreduce-patterns-algos-and-use-cases.html
 https://dirtysalt.github.io/html/bringing-spark-closer-to-bare-metal.html
 https://dirtysalt.github.io/html/mapred.html
 https://dirtysalt.github.io/html/tenzing.html
+https://dirtysalt.github.io/html/index-os.html
 https://dirtysalt.github.io/html/lessons-learned-while-building-infrastructure-software-at-google.html
 https://dirtysalt.github.io/html/systemtap.html
 https://dirtysalt.github.io/html/improving-deep-neural-networks.html
