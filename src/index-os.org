@@ -1,0 +1,52 @@
+#+title: Operating System
+
+- [[file:computer-system-reading.org][Computer System Reading]] 单机系统方面的一些文章
+  - [[file:./the-secret-to-10-million-concurrent-connections.org][The Secret To 10 Million Concurrent Connections -The Kernel Is The Problem, Not The Solution]]
+  - [[file:./a-tour-inside-cloudflare-latest-generation-servers.org][A Tour Inside CloudFlare's Latest Generation Servers]]
+  - [[file:./busting-4-modern-hardware-myths-are-memory-hdds-and-ssds-really-random-access.org][Busting 4 Modern Hardware Myths - Are Memory, HDDs, And SSDs Really Random Access?]]
+  - [[file:how-long-does-it-take-to-make-context-switch.org][How long does it take to make a context switch?]]
+  - [[http://c10m.robertgraham.com/p/manifesto.html][The C10M Problem]]
+  - [[file:./how-to-receive-a-million-packets-per-second.org][How to receive a million packets per second]]
+  - [[file:./yahoo-and-freebsd.org][Yahoo! and FreeBSD]]
+  - [[https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html][Is Parallel Programming Hard, And, If So, What Can You Do About It?]]
+  - [[file:linux-kernel-development.org][Linux Kernel Development]] by Robert Love
+  - [[file:./earlybird-realtime-search-at-twitter.org][Earlybird: Real-Time Search at Twitter]] twitter实时检索系统
+- [[http://pages.cs.wisc.edu/~remzi/OSTEP/][Operating Systems: Three Easy Pieces]] 一门非常好的操作系统课程
+- [[http://www.amazon.com/UNIX-Systems-Modern-Architectures-Multiprocessing/dp/0201633388][现代体系结构上的UNIX系统]] [[http://book.douban.com/subject/1229889/][(内核程序员的SMP和Caching技术)]] [[http://warsus.github.io/lions-/][第六版莱昂斯 Unix 操作系统评述]]
+- [[file:cpu.org][CPU]] / [[file:simd.org][SIMD]] SIMD(Single Instruction Muitple Data)单指令多数据。这个笔记是 [[http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html][Intel Reference Manual]] 中关于SIMD指令的总结, 里面包含了一些理解SIMD指令需要的知识, 以及对SIMD指令进行了分类, 但是没有太多实用例子.
+- [[file:apue.org][APUE]] Unix环境高级编程(Advanced Programming Unix Environment),W. Richard Stevens的神作。笔记里面没有包含书最后的几个部分，比如终端，打印机等，因为我觉得可能大家都不太需要这个东西了。我还尝试将一些跨章节的概念整合到一起，这样比较容易从总体把握Unix编程环境。
+- [[file:linux.org][linux]] 将原来[[file:apue.org][APUE]] 和 [[file:unp.org][UNP]] 中的一部分内容放在这里面来了，这样可以保持这两篇内容比较稳定。
+  - [[file:pic.org][pic-code]] 分析了一下PIC位置无关代码内部的原理以及和动态库之间的关系。通过阅读<深入理解计算机系统>并且结合实际的例子总结出来的。
+  - [[file:gcc-asm.org][gcc-assembly]] 如何编写GCC内嵌汇编，以及一些关于GCC内嵌汇编的文章，主要是参考了<GCC Manual>. 但是自己对这个依然不是很了解。
+  - [[file:encoding.org][encoding]] 介绍了GB2312/GBK/GB18030/Unicode/UTF16/UTF32/UTF8这几种字符编码格式。还是觉得UTF8在设计以及实现上都相对更加合理。
+  - [[file:linux-proc.org][linux /proc]] /proc文件系统
+  - [[file:linux-tools.org][linux-tools]] Linux系统下的一些常用工具. see [[file:images/unixtoolbox-zh-cn.xhtml][unix-toolbox]]
+- [[file:memory.org][memory]] 内存相关
+  - [[file:./numa.org][NUMA]] Non-Uniform Memory Access. 非一致性内存访问
+  - [[file:numa-an-overview.org][NUMA An Overview]] 关于NUMA的介绍性文章
+  - [[file:memory-barrier.org][memory-barrier]] 内存屏障
+  - [[http://lwn.net/Articles/250967/][What every programmer should know about memory]] by Ulrich Drepper([[https://sourceware.org/bugzilla/show_bug.cgi?id=4980][fun]]).
+  - [[file:tcmalloc.org][tcmalloc]] Google的开源线程缓存内存分配器，解决多线程下面内存分配效率问题。
+  - [[file:sanitizer.org][sanitizer]] Google的C++动态分析工具，可以检测内存泄漏，内存无效使用以及多线程数据竞争.
+- [[file:sysperf.org][system-performance]] 系统性能相关
+  - [[file:perf.org][perf]] / [[file:oprofile.org][oprofile]] ([[file:oprofile-obsolete.org][old version]]) 系统级别profiler.
+  - [[file:systemtap.org][systemtap]] 通过将探测(probe)语句编译成为内核驱动来观察系统运行情况.
+  - [[file:gperftools.org][gperftools]] Google的应用级别性能分析工具，包含 [[file:tcmalloc.org][tcmalloc]].
+  - [[file:./optimizing-software-in-cpp.org][Optimizing software in C++]]
+  - [[file:./tips-for-optimizing-c-cpp-code.org][Tips for Optimizing C/C++ Code]]
+  - [[file:./linux-system-and-performance-monitoring.org][Linux System and Performance Monitoring]]
+  - [[http://www.brendangregg.com/linuxperf.html][Linux Performance Tools]] by Brendan Gregg.
+  - [[file:./thinking-clearly-about-performance.org][Thinking Clearly about Performance]] by Cary Millsap.
+- [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]] / [[file:continuation.org][continuation]]
+  - [[file:./concurrency-hazards.org][Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code]]
+  - [[file:./images/single-multi-thread-event-driven.jpg][One picture explain Single-Thread, Multiple-Thread, Event-Driven]]
+  - [[file:./images/gevent-tutorial/index.html][gevent-tutorial]] gevent的教程，里面涉及到很多和并发相关的概念和组件。
+- [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:./blogs/struggle-with-ubuntu.org][之前有过痛苦的经历]] . 主要记录自己使用出现的问题.
+- [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.
+- [[file:docker.org][docker]] 基于lxc(linux container)的分发应用工具和平台.
+- [[file:vagrant.org][vagrant]] 用来构件虚拟开发环境的工具，底层可以使用多种虚拟化技术(现在支持相对比较好的是VirtualBox)
+- [[file:./sphinx-search.org][sphinx]] C++实现的全文检索引擎，可以很容易地替换掉MySQL内置的全文检索(FTS)实现
+- [[file:./graphite.org][graphite]] 和 [[file:./opentsdb.org][OpenTSDB]] 类似, 时间序列(time series)数据库, 但是主要用于监控.
+- [[file:git.org][git]] 分布式版本控制系统. 最开始用于管理linux kernel, 现在许多开源软件托管在github上使用git管理.
+- [[file:elastic-search.org][Elasticsearch]] 支持分布式的搜索引擎. 性能良好，开箱即用，社区活跃.
+- [[file:./ffmpeg.org][ffmpeg]] 视频/音频处理的瑞士军刀.
