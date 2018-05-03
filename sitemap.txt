@@ -386,6 +386,7 @@ https://dirtysalt.github.io/html/blogs/lean-in.html
 https://dirtysalt.github.io/html/blogs/staying-healthy-while-working-remotely.html
 https://dirtysalt.github.io/html/blogs/kaggle-2-facial-keypoints-detection.html
 https://dirtysalt.github.io/html/blogs/dark-time.html
+https://dirtysalt.github.io/html/blogs/why-have-to-master-a-skill.html
 https://dirtysalt.github.io/html/blogs/poor-charlie-almanack.html
 https://dirtysalt.github.io/html/blogs/several-waters.html
 https://dirtysalt.github.io/html/blogs/have-a-baby.html
@@ -410,6 +411,7 @@ https://dirtysalt.github.io/html/blogs/review-2011.html
 https://dirtysalt.github.io/html/blogs/pragmatic-thinking-and-learning.html
 https://dirtysalt.github.io/html/blogs/coursera-maintenance.html
 https://dirtysalt.github.io/html/blogs/build-nginx-from-source-on-ubuntu.html
+https://dirtysalt.github.io/html/blogs/why-study-history.html
 https://dirtysalt.github.io/html/blogs/how-to-stop-worring-and-start-living.html
 https://dirtysalt.github.io/html/blogs/silicon-valley-etiquette.html
 https://dirtysalt.github.io/html/blogs/idiom.html
@@ -468,6 +470,7 @@ https://dirtysalt.github.io/html/blogs/why-buddhism-true-4.html
 https://dirtysalt.github.io/html/blogs/software-2.html
 https://dirtysalt.github.io/html/blogs/majority-of-silent-people.html
 https://dirtysalt.github.io/html/blogs/starters-and-maintainers.html
+https://dirtysalt.github.io/html/blogs/why-turing-is-master.html
 https://dirtysalt.github.io/html/blogs/jeju-travel.html
 https://dirtysalt.github.io/html/blogs/life-is-not-easy-but-magical.html
 https://dirtysalt.github.io/html/blogs/a-serious-and-absurd-book-about-behavioural-psychology.html
@@ -591,6 +594,7 @@ https://dirtysalt.github.io/html/blogs/some-advice-from-jeff-bezos.html
 https://dirtysalt.github.io/html/blogs/a-note-of-nobel-winner.html
 https://dirtysalt.github.io/html/blogs/visit-tj-data-center.html
 https://dirtysalt.github.io/html/blogs/industrial-disk-price.html
+https://dirtysalt.github.io/html/blogs/skin-in-the-game-dedao.html
 https://dirtysalt.github.io/html/blogs/love-your-bugs.html
 https://dirtysalt.github.io/html/blogs/remove-the-stress-pick-a-deadline.html
 https://dirtysalt.github.io/html/blogs/how-to-get-a-job-like-mine-aaron-swartz.html
@@ -649,6 +653,7 @@ https://dirtysalt.github.io/html/blogs/mongodb34-perf-issue-checkpoint.html
 https://dirtysalt.github.io/html/blogs/house-clean-1.html
 https://dirtysalt.github.io/html/blogs/what-habits-make-a-programmer-great.html
 https://dirtysalt.github.io/html/blogs/on-python-profiling.html
+https://dirtysalt.github.io/html/blogs/mastering-study.html
 https://dirtysalt.github.io/html/blogs/house.html
 https://dirtysalt.github.io/html/blogs/why-i-stopped-paying-attention-to-industry-news.html
 https://dirtysalt.github.io/html/blogs/poem-and-movie.html
