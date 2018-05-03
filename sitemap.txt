@@ -374,6 +374,7 @@ https://dirtysalt.github.io/html/blogs/telstra-billboard-of-love.html
 https://dirtysalt.github.io/html/blogs/yy-live-on-child-0.html
 https://dirtysalt.github.io/html/blogs/have-a-rest-strategically.html
 https://dirtysalt.github.io/html/blogs/thinking-fast-and-slow.html
+https://dirtysalt.github.io/html/blogs/tibet-travel.html
 https://dirtysalt.github.io/html/blogs/websocket-and-socketio.html
 https://dirtysalt.github.io/html/blogs/review-2010.html
 https://dirtysalt.github.io/html/blogs/is-there-a-simple-algorithm-for-intelligence.html
