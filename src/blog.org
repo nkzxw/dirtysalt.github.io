@@ -1,6 +1,11 @@
 #+title: blog
 
 ** 2018
+- 201805 [[file:blogs/skin-in-the-game-dedao.org][精英日课解读《利益悠关》]] 摘自得到的《精英日课》
+- 201805 [[file:blogs/mastering-study.org][寻常问题的精英解法-如何学习]] 摘自得到的《精英日课》
+- 201805 [[file:./blogs/why-turing-is-master.org][计算机领域大人物：艾伦·图灵牛在哪？]] 摘自得到的《硅谷来信》
+- 201805 [[file:./blogs/why-have-to-master-a-skill.org][为什么要学会一项技能？]] 摘自得到的《硅谷来信》
+- 201805 [[file:./blogs/why-study-history.org][为什么学习历史]] 摘自得到的《硅谷来信》
 - 201804 [[file:blogs/ssh-proxycommand-on-ssr.org][SSH ProxyCommand on SSR]]
 - 201804 [[file:blogs/getting-started-elk-beat.org][本地跑跑ELK + Beat(日志收集和指标收集)]]
 - 201803 [[file:blogs/nginx-https-redirect-loop.org][Nginx的https重定向循环问题]]
