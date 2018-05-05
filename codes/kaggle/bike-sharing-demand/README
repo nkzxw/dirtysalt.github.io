@@ -1,0 +1,8 @@
+- data.py 数据预处理
+1. 把season/weather/hour/year/month这些离散量变为01变量
+2. windspeed存在异常点0, 这个标记出来作为一个特征
+3. atemp/temp线性相关性高，所以保留temp这个变量
+
+- train.py
+1. 本质上两个模型，其中GBM有sklearn和xgboost两套
+2. 对casual/registered分开做预测

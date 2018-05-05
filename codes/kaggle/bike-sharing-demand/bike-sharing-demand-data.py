@@ -17,7 +17,6 @@ def extend_fields(df):
     df['dt_month'] = dt2.apply(lambda x: x.month)
     df['dt_hour'] = dt2.apply(lambda x: x.hour)
     df['dt_year'] = dt2.apply(lambda x: x.year)
-    df['dt_day2'] = dt2.apply(lambda x: '{}-{}-{}'.format(x.year, x.month, x.day))
     x = df
     x['temp'] = np.round(x['temp']).astype(int)
     x['atemp'] = np.round(x['atemp']).astype(int)
