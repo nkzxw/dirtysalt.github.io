@@ -2,7 +2,7 @@
 
 - [[file:./index-os.org][Operating System]]
 - [[file:./index-np.org][Network Programming]]
-- [[file:./index.ss.org][Storage System]]
+- [[file:index-ss.org][Storage System]]
 - [[file:./index-aa.org][About Algorithm]]
 - [[file:./index-ml.org][Machine Learning]]
 - [[file:./index-ds.org][Distributed System]]
