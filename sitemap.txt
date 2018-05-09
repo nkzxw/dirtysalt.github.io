@@ -514,6 +514,7 @@ https://dirtysalt.github.io/html/blogs/from-zero-to-one.html
 https://dirtysalt.github.io/html/blogs/guilin-travel.html
 https://dirtysalt.github.io/html/blogs/get-marriage-identity.html
 https://dirtysalt.github.io/html/blogs/narrow-python-build.html
+https://dirtysalt.github.io/html/blogs/types-of-scipy-sparse-matrix.html
 https://dirtysalt.github.io/html/blogs/that-man-looks-like-a-dog.html
 https://dirtysalt.github.io/html/blogs/purchase-on-rapidssl.html
 https://dirtysalt.github.io/html/blogs/learn-stop-using-shiny-new-things-and-love-mysql.html

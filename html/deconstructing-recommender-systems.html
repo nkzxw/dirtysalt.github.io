@@ -16,7 +16,8 @@
 <h1 class="title">Deconstructing Recommender Systems</h1>
 <ul class="org-ul">
 <li><a href="http://spectrum.ieee.org/computing/software/deconstructing-recommender-systems">http://spectrum.ieee.org/computing/software/deconstructing-recommender-systems</a></li>
-<li>a. <a href="http://www.guokr.com/article/382553/">http://www.guokr.com/article/382553/</a> b. <a href="http://www.guokr.com/article/382681/">http://www.guokr.com/article/382681/</a> 中文翻译</li>
+<li>“猜你喜欢”是怎么猜中你心思的？ | 科学人 | 果壳网 科技有意思 : <a href="https://www.guokr.com/article/382553/">https://www.guokr.com/article/382553/</a></li>
+<li>推荐系统绝对不会向你推荐什么 | 科学人 | 果壳网 科技有意思 : <a href="https://www.guokr.com/article/382681/">https://www.guokr.com/article/382681/</a></li>
 </ul>
 
 <hr  />
@@ -71,13 +72,13 @@
 <ul class="org-ul">
 <li>Right now the biggest challenge for those of us who study recommender systems is to figure out how best to judge the new approaches and algorithms. It’s not as simple as benchmarking a microprocessor, because different recommenders have very different goals. # 评价推荐系统并不像做benchmark简单，因为不同的推荐系统有不同的目标。</li>
 
-<li>The easiest way to evaluate an algorithm is to look at the difference between its predictions and the actual ratings users give. For instance, if John gives the teen-romance novel Twilight one star, Amazon might note that it had predicted he would give it two stars, based on the ratings of other similar users, and so its recommender was off by a star. But sellers care much more about errors on highly rated items than errors on low-rated items, because the highly rated items are the ones users are more likely to buy; John is never going to purchase Twilight, so scoring this rating contributes little to understanding how well the recommender works. # 一种简单的方式就是对比推荐系统预测和用户实际的评分是否一致。但是对于seller来说他们更新对于high rate item的偏差，因为这些东西更加热门。</li>
+<li>The easiest way to evaluate an algorithm is to look at the difference between its predictions and the actual ratings users give. For instance, if John gives the teen-romance novel Twilight one star, Amazon might note that it had predicted he would give it two stars, based on the ratings of other similar users, and so its recommender was off by a star. But sellers care much more about errors on highly rated items than errors on low-rated items, because the highly rated items are the ones users are more likely to buy; John is never going to purchase Twilight, so scoring this rating contributes little to understanding how well the recommender works. # 一种简单的方式就是对比推荐系统预测和用户实际的评分是否一致。但是对于seller来说他们更新对于high rate item的偏差，因为这些东西更加热门。(RMSE)</li>
 
-<li>Another common measure is the extent to which recommendations match actual purchases. This analysis can also be misleading, however, because it erroneously rewards the recommender for items users managed to find on their own—precisely the items they don’t need recommendations for! # 另外一种方式是对比推荐东西和用户实际购买。但是这个问题就在于它会鼓励推荐系统寻找那些用户自己找到的的东西，而这些东西实际上不需要推荐系统来推荐</li>
+<li>Another common measure is the extent to which recommendations match actual purchases. This analysis can also be misleading, however, because it erroneously rewards the recommender for items users managed to find on their own—precisely the items they don’t need recommendations for! # 另外一种方式是对比推荐东西和用户实际购买。但是这个问题就在于它会鼓励推荐系统寻找那些用户自己找到的的东西，而这些东西实际上不需要推荐系统来推荐. (Top-K Precision)</li>
 
 <li>Given the shortcomings of these approaches, researchers have been working on new metrics that look not just at accuracy but also at other attributes, such as serendipity and diversity. # 同时引入了两个其他的评价标准(serendipity and diversity)</li>
 
-<li>Serendipity rewards unusual recommendations, particularly those that are valuable to one user but not as valuable to other similar users. An algorithm tuned to serendipity would note that the “White Album” appears to be a good recommendation for nearly everyone and would therefore look for a recommendation that’s less common—perhaps Joan Armatrading’s Love and Affection. This less-popular recommendation wouldn’t be as likely to hit its target, but when it did, it would be a much happier surprise to the user. # 人们总是希望在推荐里面看到一些不太common的东西，这样可以给他们带来惊喜。</li>
+<li><b>Serendipity</b> rewards unusual recommendations, particularly those that are valuable to one user but not as valuable to other similar users. An algorithm tuned to serendipity would note that the “White Album” appears to be a good recommendation for nearly everyone and would therefore look for a recommendation that’s less common—perhaps Joan Armatrading’s Love and Affection. This less-popular recommendation wouldn’t be as likely to hit its target, but when it did, it would be a much happier surprise to the user. # 人们总是希望在推荐里面看到一些不太common的东西，这样可以给他们带来惊喜。</li>
 
 <li>Looking at the diversity of a recommender’s suggestions is also revealing. For instance, a user who loves Dick Francis mysteries might nevertheless be disappointed to get a list of recommendations all written by Dick Francis. A truly diverse list of recommendations could include books by different authors and in different genres, as well as movies, games, and other products. # 另外人们也希望能够看到一些稍微存在差异性的东西</li>
 </ul>
