@@ -1,6 +1,7 @@
 #+title: Deconstructing Recommender Systems
 - http://spectrum.ieee.org/computing/software/deconstructing-recommender-systems
-- a. http://www.guokr.com/article/382553/ b. http://www.guokr.com/article/382681/ 中文翻译
+- “猜你喜欢”是怎么猜中你心思的？ | 科学人 | 果壳网 科技有意思 : https://www.guokr.com/article/382553/
+- 推荐系统绝对不会向你推荐什么 | 科学人 | 果壳网 科技有意思 : https://www.guokr.com/article/382681/
 
 -----
 关于推荐算法
@@ -18,12 +19,12 @@
 - But the user-user and item-item algorithms have a bigger problem than consistency: They’re too rigid. That is, they can spot people who prefer the same item but then miss potential pairs who prefer very similar items. About a decade ago, researchers figured out a way to factor in such sets of similar items—a process called dimensionality reduction. This method is much more computationally intensive than the user-user and item-item algorithms, so its adoption has been slower. But as computers have gotten faster and cheaper, it has been gaining ground. # 比一致性更大的问题在于，没有办法发现一些潜在的可能感兴趣的item，原因就是以item作为最小计算单位。设计出的另外一种办法就是降维，就是将某一类的产品归为一类，然后计算类和类之间的联系。这种算法相对来说计算更加密集，所以在当时没有被采纳。但是之后随着计算能力的提高又开始逐渐被采用。
 
 - It’s a pretty cool solution. But how do you find those taste dimensions? Not by asking a chef. Instead, these systems use a mathematical technique called singular value decomposition to compute the dimensions. Unlike the food example above, the dimensions that get computed are neither describable nor intuitive; they are pure abstract values, and try as you might, you’ll never identify one that represents, say, “salty.” And that’s okay, as long as those values ultimately yield accurate recommendations. # 降维使用一种奇异值分解(SVD)的算法来完成。实际上所归为的类可能在实际中没有任何意义，在算法里面仅仅是作为数字存在。
-  
+
 -----
 影响推荐因素
 
 - Recommenders have two other features that dramatically affect the recommendations you see: First, beyond figuring out how similar you are to other shoppers, the recommender has to figure out what you actually like. Second, the system operates according to a set of business rules that help ensure its recommendations are both helpful to you and profitable for the retailer. # 另外两个因素也在影响推荐结果，一个是推荐系统除了计算你和其他顾客的相似程度，实际上还在分析你具体想购买什么东西(从其他角度比如用户行为) ，另外一个是使用一些商业策略（外部策略）来保证推荐内容对于你和零售商都有好处。
-   
+
 - Amazon’s art store assesses your preferences in a few ways. It asks you to rate particular artworks on a five-star scale, and it also notes which paintings you enlarge, which you look at multiple times, which you place on a wish list, and which you actually buy. It also tracks which paintings are on your screen at the time as well as others you look at during your session. The retailer uses the path you’ve traveled through its website—the pages you’ve viewed and items you’ve clicked on—to suggest complementary works, and it combines your purchase data with your ratings to build a profile of your long-term preferences. # 以amazon art store为例，除了会要求你评分之外，还会收集你的一些行为，针对这些行为进行更深入的分析。
 
 - Companies like Amazon collect an immense amount of data like this about their customers. Nearly any action taken while you are logged in is stored for future use. Thanks to browser cookies, companies can even maintain records on anonymous shoppers, eventually linking the data to a customer profile when the anonymous shopper creates an account or signs in. This explosion of data collection is not unique to online vendors—Walmart is famous for its extensive mining of cash register receipt data. But an online shop is much better positioned to view and record not just your purchases but what items you considered, looked at, and rejected. Throughout much of the world, all of this activity is fair game; only in Europe do data privacy laws restrict such practices to a degree. # 行为收集可以通过cookie来完成。收集行为的方式并不是在线上才有的，比如沃尔玛也会收集一些顾客的购买记录数据，但是相对来说线上收集数据更加方便并且详细。
@@ -43,13 +44,12 @@
 
 - Right now the biggest challenge for those of us who study recommender systems is to figure out how best to judge the new approaches and algorithms. It’s not as simple as benchmarking a microprocessor, because different recommenders have very different goals. # 评价推荐系统并不像做benchmark简单，因为不同的推荐系统有不同的目标。
 
-- The easiest way to evaluate an algorithm is to look at the difference between its predictions and the actual ratings users give. For instance, if John gives the teen-romance novel Twilight one star, Amazon might note that it had predicted he would give it two stars, based on the ratings of other similar users, and so its recommender was off by a star. But sellers care much more about errors on highly rated items than errors on low-rated items, because the highly rated items are the ones users are more likely to buy; John is never going to purchase Twilight, so scoring this rating contributes little to understanding how well the recommender works. # 一种简单的方式就是对比推荐系统预测和用户实际的评分是否一致。但是对于seller来说他们更新对于high rate item的偏差，因为这些东西更加热门。
+- The easiest way to evaluate an algorithm is to look at the difference between its predictions and the actual ratings users give. For instance, if John gives the teen-romance novel Twilight one star, Amazon might note that it had predicted he would give it two stars, based on the ratings of other similar users, and so its recommender was off by a star. But sellers care much more about errors on highly rated items than errors on low-rated items, because the highly rated items are the ones users are more likely to buy; John is never going to purchase Twilight, so scoring this rating contributes little to understanding how well the recommender works. # 一种简单的方式就是对比推荐系统预测和用户实际的评分是否一致。但是对于seller来说他们更新对于high rate item的偏差，因为这些东西更加热门。(RMSE)
 
-- Another common measure is the extent to which recommendations match actual purchases. This analysis can also be misleading, however, because it erroneously rewards the recommender for items users managed to find on their own—precisely the items they don’t need recommendations for! # 另外一种方式是对比推荐东西和用户实际购买。但是这个问题就在于它会鼓励推荐系统寻找那些用户自己找到的的东西，而这些东西实际上不需要推荐系统来推荐
+- Another common measure is the extent to which recommendations match actual purchases. This analysis can also be misleading, however, because it erroneously rewards the recommender for items users managed to find on their own—precisely the items they don’t need recommendations for! # 另外一种方式是对比推荐东西和用户实际购买。但是这个问题就在于它会鼓励推荐系统寻找那些用户自己找到的的东西，而这些东西实际上不需要推荐系统来推荐. (Top-K Precision)
 
 - Given the shortcomings of these approaches, researchers have been working on new metrics that look not just at accuracy but also at other attributes, such as serendipity and diversity. # 同时引入了两个其他的评价标准(serendipity and diversity)
 
-- Serendipity rewards unusual recommendations, particularly those that are valuable to one user but not as valuable to other similar users. An algorithm tuned to serendipity would note that the “White Album” appears to be a good recommendation for nearly everyone and would therefore look for a recommendation that’s less common—perhaps Joan Armatrading’s Love and Affection. This less-popular recommendation wouldn’t be as likely to hit its target, but when it did, it would be a much happier surprise to the user. # 人们总是希望在推荐里面看到一些不太common的东西，这样可以给他们带来惊喜。
+- *Serendipity* rewards unusual recommendations, particularly those that are valuable to one user but not as valuable to other similar users. An algorithm tuned to serendipity would note that the “White Album” appears to be a good recommendation for nearly everyone and would therefore look for a recommendation that’s less common—perhaps Joan Armatrading’s Love and Affection. This less-popular recommendation wouldn’t be as likely to hit its target, but when it did, it would be a much happier surprise to the user. # 人们总是希望在推荐里面看到一些不太common的东西，这样可以给他们带来惊喜。
 
 - Looking at the diversity of a recommender’s suggestions is also revealing. For instance, a user who loves Dick Francis mysteries might nevertheless be disappointed to get a list of recommendations all written by Dick Francis. A truly diverse list of recommendations could include books by different authors and in different genres, as well as movies, games, and other products. # 另外人们也希望能够看到一些稍微存在差异性的东西
-
