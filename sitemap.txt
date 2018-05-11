@@ -359,7 +359,6 @@ https://dirtysalt.github.io/html/blogs/minimal-wsgi-app-in-python.html
 https://dirtysalt.github.io/html/blogs/rework.html
 https://dirtysalt.github.io/html/blogs/sonos-streaming-basics.html
 https://dirtysalt.github.io/html/blogs/to-death.html
-https://dirtysalt.github.io/html/blogs/think-and-grow-rich.html
 https://dirtysalt.github.io/html/blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.html
 https://dirtysalt.github.io/html/blogs/boots-of-spanish-leather.html
 https://dirtysalt.github.io/html/blogs/convict-conditioning.html
@@ -474,7 +473,6 @@ https://dirtysalt.github.io/html/blogs/starters-and-maintainers.html
 https://dirtysalt.github.io/html/blogs/why-turing-is-master.html
 https://dirtysalt.github.io/html/blogs/jeju-travel.html
 https://dirtysalt.github.io/html/blogs/life-is-not-easy-but-magical.html
-https://dirtysalt.github.io/html/blogs/a-serious-and-absurd-book-about-behavioural-psychology.html
 https://dirtysalt.github.io/html/blogs/the-feynman-technique-the-best-way-to-learn-anything.html
 https://dirtysalt.github.io/html/blogs/america-alone-talk.html
 https://dirtysalt.github.io/html/blogs/on-computational-investing.html
