@@ -98,9 +98,7 @@ print('cv for rf model')
 rf0 = RandomForestRegressor(n_estimators=400, random_state = 42, verbose=0, n_jobs=4)
 rf1 = RandomForestRegressor(n_estimators=400, random_state = 42, verbose=0, n_jobs=4)
 rf = MyEstimator(ma = rf0, mb = rf1)
-rf_best_params = {'a_min_samples_split': 9, 'b_min_samples_split': 6}
-rf_best_params['a_n_estimators'] = 2000
-rf_best_params['b_n_estimators'] = 2000
+rf_best_params = {'a_min_samples_split': 5, 'b_min_samples_split': 7, 'n_estimators': 600}
 rf.set_params(**rf_best_params)
 rf.fit(X, y)
 output_y = rf.predict(test_df)
@@ -116,15 +114,7 @@ print('cv for gbm model')
 gbm0 = GradientBoostingRegressor(n_estimators=200, random_state = 42, verbose=0)
 gbm1 = GradientBoostingRegressor(n_estimators=200, random_state = 42, verbose=0)
 gbm = MyEstimator(ma = gbm0, mb = gbm1)
-# params = {'a_max_depth': [3,4,5,6,7,8], 'b_max_depth': [5,6,7,8]}
-# gbm_cv = GridSearchCV(gbm, params, cv = make_cv(X,2), n_jobs = 4, verbose = 1)
-# gbm_cv.fit(X, y)
-# print(gbm_cv.best_score_, gbm_cv.best_params_)
-
-# gbm_best_params = gbm_cv.best_params_.copy()
-gbm_best_params = {'a_max_depth': 4, 'b_max_depth':6}
-gbm_best_params['a_n_estimators'] = 1000
-gbm_best_params['b_n_estimators'] = 1000
+gbm_best_params = {'a_max_depth': 4, 'b_max_depth':6, 'n_estimators': 300}
 gbm.set_params(**gbm_best_params)
 gbm.fit(X, y)
 output_y = gbm.predict(test_df)
@@ -141,9 +131,8 @@ from xgboost import XGBRegressor
 xgb0 = XGBRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
 xgb1 = XGBRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
 xgb = MyEstimator(ma = xgb0, mb = xgb1)
-xgb_best_params = {'a_max_depth': 4, 'b_max_depth':6}
-xgb_best_params['a_n_estimators'] = 1000
-xgb_best_params['b_n_estimators'] = 1000
+xgb_best_params = {'a_max_depth': 5, 'b_max_depth':7, 'n_estimators': 197}
+# xgb_best_params = {'a_max_depth': 5, 'b_max_depth':7, 'n_estimators': 200}
 xgb.set_params(**xgb_best_params)
 xgb.fit(X, y)
 output_y = xgb.predict(test_df)
