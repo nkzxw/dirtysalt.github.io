@@ -416,12 +416,10 @@
 - [[file:blogs/how-to-win-friends-and-influence-people.org][人性的弱点全集(How to win friends and influence people)]] by Dale Carnegie
 - [[file:./blogs/black-swan.org][黑天鹅(Black Swan)]] by Nassim Nicolas Taleb
 - [[file:blogs/the-bed-of-procrustes.org][随机生存的智慧: 黑天鹅语录(The Bed of Procrustes)]] by Nassim Nicholas Taleb
-- [[file:blogs/how-to-stop-worring-and-start-living.org][人性的优点全集(How to stop worring and start living]] by Dale Carnegie
+- [[file:blogs/how-to-stop-worring-and-start-living.org][人性的优点全集(How to stop worring and start living)]] by Dale Carnegie
 - [[file:blogs/hard-to-believe.org][万万没想到:用理工科思维理解世界]] by 万维刚
-- [[file:blogs/a-serious-and-absurd-book-about-behavioural-psychology.org][一本正经又怪诞的行为心理学]] by 理查德·怀斯曼
 - [[file:blogs/so-good-they-can-not-ignore-you.org][优秀到不能被忽视(So Good they can not ignore you)]] by Cal Newport
 - [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
-- [[file:./blogs/think-and-grow-rich.org][思考致富(Think and Grow Rich)]] by Napoleon Hill(拿破仑.希尔)
 - [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳
 - [[file:blogs/dark-time.org][暗时间(Dark Time)]] by 刘未鹏
 - [[file:./blogs/convict-conditioning.org][囚徒健身(Convict Conditioning)]] by Paul Wade
