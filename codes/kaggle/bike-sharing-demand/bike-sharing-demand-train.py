@@ -25,7 +25,7 @@ def rmse(x, y):
 
 def make_cv(X,n = 2):
     for i in range(n):
-        days = [x + i for x in [18-i, 19-i]]
+        days = [x for x in [18-i, 19-i]]
         train_idx = X[X['dt_day'].apply(lambda x: x not in days)].index
         test_idx = X[X['dt_day'].apply(lambda x: x in days)].index
         yield train_idx, test_idx
@@ -95,10 +95,10 @@ class MyEstimator(BaseEstimator, RegressorMixin):
 # ============================================================
 # RF Model
 print('cv for rf model')
-rf0 = RandomForestRegressor(n_estimators=400, random_state = 42, verbose=0, n_jobs=4)
-rf1 = RandomForestRegressor(n_estimators=400, random_state = 42, verbose=0, n_jobs=4)
+rf0 = RandomForestRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
+rf1 = RandomForestRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
 rf = MyEstimator(ma = rf0, mb = rf1)
-rf_best_params = {'a_min_samples_split': 5, 'b_min_samples_split': 7, 'n_estimators': 600}
+rf_best_params = {'a_min_samples_split': 10, 'b_min_samples_split': 7, 'n_estimators': 1700}
 rf.set_params(**rf_best_params)
 rf.fit(X, y)
 output_y = rf.predict(test_df)
@@ -114,7 +114,7 @@ print('cv for gbm model')
 gbm0 = GradientBoostingRegressor(n_estimators=200, random_state = 42, verbose=0)
 gbm1 = GradientBoostingRegressor(n_estimators=200, random_state = 42, verbose=0)
 gbm = MyEstimator(ma = gbm0, mb = gbm1)
-gbm_best_params = {'a_max_depth': 4, 'b_max_depth':6, 'n_estimators': 300}
+gbm_best_params = {'a_max_depth': 4, 'b_max_depth':6, 'n_estimators': 360}
 gbm.set_params(**gbm_best_params)
 gbm.fit(X, y)
 output_y = gbm.predict(test_df)
