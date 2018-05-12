@@ -131,8 +131,7 @@ from xgboost import XGBRegressor
 xgb0 = XGBRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
 xgb1 = XGBRegressor(n_estimators=200, random_state = 42, verbose=0, n_jobs=4)
 xgb = MyEstimator(ma = xgb0, mb = xgb1)
-xgb_best_params = {'a_max_depth': 5, 'b_max_depth':7, 'n_estimators': 197}
-# xgb_best_params = {'a_max_depth': 5, 'b_max_depth':7, 'n_estimators': 200}
+xgb_best_params = {'a_max_depth': 5, 'b_max_depth':4, 'n_estimators': 925}
 xgb.set_params(**xgb_best_params)
 xgb.fit(X, y)
 output_y = xgb.predict(test_df)

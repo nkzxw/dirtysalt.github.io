@@ -6,3 +6,5 @@
 - train.py
 1. 本质上两个模型，其中GBM有sklearn和xgboost两套
 2. 对casual/registered分开做预测
+3. xgb训练就是快，也可以更多的时间去调参.
+4. 最终分数是0.38258，而xgb单独提交就有0.38638
