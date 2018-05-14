@@ -1,0 +1,109 @@
+#+title: books
+
+写给自己
+- [[file:./images/cjy-baidu-blog-archive.html][百度空间存档]] - [[file:./blogs/to-death.org][写给离去的亲人]] - [[file:./blogs/cola-and-water.org][可乐和矿泉水]] - [[file:blogs/poem-and-movie.org][诗歌和电影]]
+- [[file:blogs/house.org][house]] - [[file:blogs/car.org][car]] - [[file:blogs/pregnancy.org][preganancy]] - [[file:blogs/ascii.org][ascii arts]] - [[file:blogs/idiom.org][idiom]] - [[file:blogs/cross-ocean.org][cross ocean]]
+- [[file:./blogs/review-2009.org][回顾2009]] - [[file:./blogs/review-2010.org][回顾2010]] - [[file:./blogs/review-2011.org][回顾2011]] - [[file:./blogs/review-2012.org][回顾2012]] - [[file:./blogs/review-2013.org][回顾2013]]
+- [[file:./blogs/review-2014.org][回顾2014]] - [[file:blogs/review-2015.org][回顾2015]] - [[file:blogs/review-2016.org][回顾2016]] - [[file:./blogs/review-2017.org][回顾2017]]
+- [[file:./blogs/baby-sleep-training.org][有关宝宝睡眠的那些事儿(睡眠训练实战操作经验)]]
+
+
+软件开发
+- [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
+- [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
+- [[file:./blogs/writing-clean-code.org][编程精粹-Microsoft编写优质无错代码的秘诀(Writing Clean Code)]]
+- [[file:./blogs/the-art-of-unix-programming.org][Unix程序设计艺术(The Art of Unix Programming)]] by Eric Raymond
+- [[file:./blogs/the-mythical-man-month.org][人月神话(The Mythical Man-Month)]] by Fred Brooks
+- [[file:./blogs/the-pragmatic-programmer.org][程序员修炼之道(The Pragmatic Programmer)]] by Andrew Hunt
+- [[file:./blogs/dreaming-in-code.org][梦断代码(Dreaming in Code)]]
+- [[file:./blogs/refactoring-improving-the-design-of-existing-code.org][重构-改善既有代码的设计(Refactoring: Improving the Design of Existing Code)]]
+- [[file:./blogs/code-quality-the-open-source-perspective.org][高质量程序设计艺术(Code Quality The Open Source Perspective)]]
+- [[file:./blogs/virtual-machine-design-and-implementation-in-c-cpp.org][虚拟机设计与实现(Virtual Machine Design and Implementation in C/C++)]]
+- [[file:./blogs/structured-computer-organization.org][结构化计算机组成(Strcutured Computer Organization)]] by A.S.T
+- [[file:./blogs/modern-operating-systems.org][现代操作系统(Modern Operating Systems)]] by A.S.T
+- [[file:./blogs/introduction-to-computing-systems.org][计算机系统概论(Introduction to Computing Systems)]] by Yale Patt
+- [[file:./blogs/distributed-operating-systems.org][分布式操作系统(Distributed Operating Systems)]] by A.S.T
+- [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
+- [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
+- [[file:blogs/rework.org][Rework]] by 37 Signals
+- [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
+- [[file:blogs/remote.org][Remote]] by 37 Signals
+- [[file:./blogs/mac-talk.org][MacTalk]] by 池建强
+
+人物传记
+- [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
+- [[file:./blogs/made-in-america.org][富甲美国(Made in America)]] by Sam Walton
+- [[file:blogs/shoe-dog.org][鞋狗(Shoe Dog)]] by Phil Knight
+- [[file:./blogs/jonathon-ive.org][乔纳森传(Jonathon Ive)]]
+- [[file:./blogs/wu-qing-yuan-bio.org][中的精神（吴清源自传）]]
+- [[file:./blogs/youtube-steve-chen-bio.org][YouTube创始人陈士骏自传]]
+- [[file:blogs/bob-dylan-bio-like-a-rolling-stone.org][编年史(Like A Rolling Stone)]] of Bob Dylan
+- [[file:./blogs/delivering-happiness.org][奉上幸福(Devliering Happiness)]] by 谢家华
+
+经济，历史，社会
+- [[file:./blogs/a-chronicle-of-tencent.org][腾讯传]] by 吴晓波
+- [[file:./blogs/the-hard-thing-about-hard-things.org][创业维艰：如何完成比难更难的事]] by Ben Horowitz
+- [[file:blogs/the-economist.org][经济学人(The Economist)]] by Schumpeter(熊彼特)
+- [[file:blogs/the-instant-economist.org][斯坦福极简经济学(The Instant Economist)]] by 蒂莫西·泰勒
+- [[file:./blogs/the-black-box-society.org][黑箱社会(The Black Box Society)]] by Frank Pasquale
+- [[file:./blogs/the-times-of-intelligence.org][智能时代]] by 吴军
+- [[file:./blogs/zhihu-hft-engineer.org][我是高频交易工程师：知乎董可人自选集]]
+- [[file:./blogs/zhihu-daily-economy.org][知乎周刊-日常经济学]]
+- [[file:./blogs/the-shortest-history-of-europe.org][极简欧洲史]] by John Hirst
+- [[file:./blogs/how-google-works.org][谷歌是如何运营的(How Google Works)]] by Eric Schmidt
+- [[file:./blogs/the-paypal-wars.org][支付战争(The PayPal Wars)]] by Eric Jackson
+- [[file:./blogs/from-zero-to-one.org][从0到1(From Zero To One)]] by Peter Thiel
+- [[file:./blogs/the-great-game.org][伟大的博弈: 华尔街金融帝国的崛起(The Great Game: The Emergence of Wall Street as a World Power)]] by John Gordon
+- [[file:./blogs/lean-in.org][向前一步(Lean In)]] by Sheryl Sandberg
+- [[file:./blogs/reminiscences-of-stock-broker.org][股票作手回忆录(Reminiscences of stock broker)]] by Jesse Livermore
+- [[file:./blogs/the-men-who-built-america.org][谁建造了美国(The men who built America)]] by 网易公开课
+- [[file:./blogs/growth-hacker.org][增长黑客(Growth Hacker)]] by 范冰
+- [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
+- [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by 吴军
+- [[file:./blogs/why-cn-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
+- [[file:./blogs/the-facebook-effect.org][Facebook效应(The Facebook Effect)]]
+- [[file:./blogs/the-economic-naturalist.org][牛奶可乐经济学(The Economic Naturalist)]]
+- [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
+- [[file:./blogs/confessions-of-an-advertising-man.org][一个广告人的自白(Confessions of an Advertising Man)]]
+- [[file:./blogs/inside-job.org][监守自盗(Inside Job)]]
+- 影响力(Influence) by Kerry Patterson
+- 娱乐至死(Amusing Ourselves to Death) by Neil Postman
+- 狂热分子(True Believer) by Eric Hoffer
+- 乌合之众(The Crowd) by Gustave Le Bon
+- [[file:./blogs/on-top-of-tides.org][浪潮之巅(On Top of Tides)]] by 吴军
+- [[file:blogs/how-to-solve-it-a-new-apsect-of-math-method.org][如何解题-数学思维新方法]] by George Polya
+- [[file:./blogs/republic.org][理想国(Republic)]] by Plato
+- [[file:blogs/big-data-and-revolution.org][大数据时代：生活、工作与思维的大变革]]
+
+小说
+- [[file:./blogs/the-catcher-in-the-rye.org][麦田里的守望者(The Catcher in The Rye)]] by Jerome Salinger
+- [[file:./blogs/god-father.org][教父(God Father)]] by Francis Coppola
+- [[file:./blogs/animal-farm.org][动物庄园(Animal Farm)]] by George Orwell
+- [[file:./blogs/1984.org][1984]] by George Orwell
+- [[file:blogs/wolf-totem.org][狼图腾(Wolf Totem)]] by 姜戎
+- [[file:blogs/that-man-looks-like-a-dog.org][那个人好像一条狗]] 周星驰 <大圣娶亲>
+- [[file:./blogs/three-body.org][三体(Three Body)]] by 刘慈欣
+- [[file:./blogs/the-little-prince.org][小王子(The Little Prince)]] by Antoine de Saint-Exupéry
+- [[file:./blogs/star-wars.org][星球大战(Star Wars)]]
+- [[file:./blogs/anti-destruction-in-china.org][李可乐抗拆记]] by 李承鹏
+- [[file:./blogs/the-hitchhikers-guide-to-the-galaxy.org][银河系漫游指南(The Hitchhiker's Guide to the Galaxy)]] by Douglas Adams
+- [[file:blogs/flowers-to-algernon.org][献给阿尔吉侬的花束(Flowers for Algernon)]]
+- [[file:./blogs/majority-of-silent-people.org][沉默的大多数]] by 王小波
+
+个人管理
+- [[file:./blogs/principles.org][原则(Principles)]] by Ray Dalio
+- [[file:./blogs/black-swan.org][黑天鹅(Black Swan)]] by Nassim Nicolas Taleb
+- [[file:blogs/the-bed-of-procrustes.org][随机生存的智慧: 黑天鹅语录(The Bed of Procrustes)]] by Nassim Nicholas Taleb
+- [[file:./blogs/antifragile.org][反脆弱: 从不确定性中获益(Antifragile: Things That Gain from Disorder)]] by Nassim Nicholas Taleb
+- [[file:blogs/how-to-win-friends-and-influence-people.org][人性的弱点全集(How to win friends and influence people)]] by Dale Carnegie
+- [[file:blogs/how-to-stop-worring-and-start-living.org][人性的优点全集(How to stop worring and start living)]] by Dale Carnegie
+- [[file:blogs/hard-to-believe.org][万万没想到:用理工科思维理解世界]] by 万维刚
+- [[file:blogs/so-good-they-can-not-ignore-you.org][优秀到不能被忽视(So Good they can not ignore you)]] by Cal Newport
+- [[file:blogs/poor-charlie-almanack.org][穷查理宝典(Poor Charlie's Almanack)]] by Charles Munger(查理芒格)
+- [[file:./blogs/eureka-on-career.org][职场尤里卡]] by 科学家种太阳
+- [[file:blogs/dark-time.org][暗时间(Dark Time)]] by 刘未鹏
+- [[file:./blogs/convict-conditioning.org][囚徒健身(Convict Conditioning)]] by Paul Wade
+- [[file:./blogs/thinking-fast-and-slow.org][思考,快与慢(Thinking, Fast and Slow)]] by Daniel Kahneman
+- [[file:blogs/money-doggy.org][小狗钱钱(Money Doggy)]] by Bodo Schafer
+- [[file:./blogs/dear-andreas.org][亲爱的安德烈]] by 龙应台
+- [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯 玛莎·西尔斯

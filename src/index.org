@@ -8,4 +8,4 @@
 - [[file:./index-ds.org][Distributed System]]
 - [[file:./index-pl.org][Programming Language]]
 - [[file:./index-sd.org][Software Design]]
-- [[file:links.org][Links]] / [[file:blog.org][Blogs]]
+- [[file:links.org][Links]] / [[file:blogs.org][Blogs]] / [[file:./books.org][Books]]

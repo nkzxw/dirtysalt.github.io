@@ -23,7 +23,7 @@ Home:
 
 -----
 Blog:
-- [[file:blog.org][my blog]] & [[file:about-me.org][about me]]
+- [[file:blogs.org][my blog]] & [[file:about-me.org][about me]]
 - jwz. [[http://www.jwz.org/blog/][blog]] & [[http://www.jwz.org/doc/][doc]]
 #+BEGIN_QUOTE
 "you can divide our industry into two kinds of people: those who want to go work for a company to make it successful, and those who want to go work for a successful company. " - [[http://www.jwz.org/gruntle/nomo.html][jwz]])
