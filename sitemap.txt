@@ -112,6 +112,7 @@ https://dirtysalt.github.io/html/index-ds.html
 https://dirtysalt.github.io/html/hdfs-reliability.html
 https://dirtysalt.github.io/html/index-aa.html
 https://dirtysalt.github.io/html/an-interview-with-edw.html
+https://dirtysalt.github.io/html/books.html
 https://dirtysalt.github.io/html/hadoop-definitive-guide.html
 https://dirtysalt.github.io/html/cpu.html
 https://dirtysalt.github.io/html/earlybird-realtime-search-at-twitter.html
@@ -330,6 +331,7 @@ https://dirtysalt.github.io/html/hadoop-io-files.html
 https://dirtysalt.github.io/html/libev.html
 https://dirtysalt.github.io/html/using-hbase-with-iomemory.html
 https://dirtysalt.github.io/html/service-disoriented-architecture.html
+https://dirtysalt.github.io/html/blogs.html
 https://dirtysalt.github.io/html/azkaban.html
 https://dirtysalt.github.io/html/impala.html
 https://dirtysalt.github.io/html/thoughts-on-prog-lang.html
@@ -348,7 +350,6 @@ https://dirtysalt.github.io/html/zookeeper.html
 https://dirtysalt.github.io/html/blogs/colleague-creates-spaghetti-code.html
 https://dirtysalt.github.io/html/blogs/finding-great-developers.html
 https://dirtysalt.github.io/html/blogs/purchase-diamond.html
-https://dirtysalt.github.io/html/blogs/big-data.html
 https://dirtysalt.github.io/html/blogs/flowers-to-algernon.html
 https://dirtysalt.github.io/html/blogs/central-limit-theorem.html
 https://dirtysalt.github.io/html/blogs/spam-from-apple.html
@@ -678,6 +679,7 @@ https://dirtysalt.github.io/html/blogs/level-up-lang-taste.html
 https://dirtysalt.github.io/html/blogs/black-swan.html
 https://dirtysalt.github.io/html/blogs/heart-broken.html
 https://dirtysalt.github.io/html/blogs/my-thoughts-on-startup.html
+https://dirtysalt.github.io/html/blogs/big-data-and-revolution.html
 https://dirtysalt.github.io/html/blogs/discussion-on-rs.html
 https://dirtysalt.github.io/html/blogs/my-first-moxa-wool-moxibustion.html
 https://dirtysalt.github.io/html/blogs/reading-list-for-undergraduate.html
