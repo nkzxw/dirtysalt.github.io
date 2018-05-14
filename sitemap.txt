@@ -435,7 +435,6 @@ https://dirtysalt.github.io/html/blogs/cool-retro-term.html
 https://dirtysalt.github.io/html/blogs/confessions-of-an-advertising-man.html
 https://dirtysalt.github.io/html/blogs/delivering-happiness.html
 https://dirtysalt.github.io/html/blogs/dreaming-in-code.html
-https://dirtysalt.github.io/html/blogs/people-all-know.html
 https://dirtysalt.github.io/html/blogs/first-foot-massage.html
 https://dirtysalt.github.io/html/blogs/zookeeper-getting-started.html
 https://dirtysalt.github.io/html/blogs/how-to-define-software-stability.html
