@@ -410,9 +410,9 @@
 - [[file:./blogs/the-hitchhikers-guide-to-the-galaxy.org][银河系漫游指南(The Hitchhiker's Guide to the Galaxy)]] by Douglas Adams
 - [[file:blogs/flowers-to-algernon.org][献给阿尔吉侬的花束(Flowers for Algernon)]]
 - [[file:./blogs/majority-of-silent-people.org][沉默的大多数]] by 王小波
-- [[file:./blogs/people-all-know.org][全世界人民都知道]] by 李承鹏
 
 个人管理
+- [[file:./blogs/principles.org][原则(Principles)]] by Ray Dalio
 - [[file:./blogs/black-swan.org][黑天鹅(Black Swan)]] by Nassim Nicolas Taleb
 - [[file:blogs/the-bed-of-procrustes.org][随机生存的智慧: 黑天鹅语录(The Bed of Procrustes)]] by Nassim Nicholas Taleb
 - [[file:./blogs/antifragile.org][反脆弱: 从不确定性中获益(Antifragile: Things That Gain from Disorder)]] by Nassim Nicholas Taleb
@@ -428,4 +428,3 @@
 - [[file:blogs/money-doggy.org][小狗钱钱(Money Doggy)]] by Bodo Schafer
 - [[file:./blogs/dear-andreas.org][亲爱的安德烈]] by 龙应台
 - [[file:./blogs/sears-the-baby-book.org][西尔斯育儿经]] by 威廉·西尔斯 玛莎·西尔斯
-- [[file:./blogs/principles.org][原则(Principles)]] by Ray Dalio
