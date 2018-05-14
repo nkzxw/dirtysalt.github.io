@@ -1,13 +1,5 @@
 #+title: books
 
-写给自己
-- [[file:./images/cjy-baidu-blog-archive.html][百度空间存档]] - [[file:./blogs/to-death.org][写给离去的亲人]] - [[file:./blogs/cola-and-water.org][可乐和矿泉水]] - [[file:blogs/poem-and-movie.org][诗歌和电影]]
-- [[file:blogs/house.org][house]] - [[file:blogs/car.org][car]] - [[file:blogs/pregnancy.org][preganancy]] - [[file:blogs/ascii.org][ascii arts]] - [[file:blogs/idiom.org][idiom]] - [[file:blogs/cross-ocean.org][cross ocean]]
-- [[file:./blogs/review-2009.org][回顾2009]] - [[file:./blogs/review-2010.org][回顾2010]] - [[file:./blogs/review-2011.org][回顾2011]] - [[file:./blogs/review-2012.org][回顾2012]] - [[file:./blogs/review-2013.org][回顾2013]]
-- [[file:./blogs/review-2014.org][回顾2014]] - [[file:blogs/review-2015.org][回顾2015]] - [[file:blogs/review-2016.org][回顾2016]] - [[file:./blogs/review-2017.org][回顾2017]]
-- [[file:./blogs/baby-sleep-training.org][有关宝宝睡眠的那些事儿(睡眠训练实战操作经验)]]
-
-
 软件开发
 - [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
 - [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
