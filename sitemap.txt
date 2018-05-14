@@ -364,7 +364,6 @@ https://dirtysalt.github.io/html/blogs/how-to-launch-a-mac-app-and-become-1-top-
 https://dirtysalt.github.io/html/blogs/boots-of-spanish-leather.html
 https://dirtysalt.github.io/html/blogs/convict-conditioning.html
 https://dirtysalt.github.io/html/blogs/wu-qing-yuan-bio.html
-https://dirtysalt.github.io/html/blogs/ascii.html
 https://dirtysalt.github.io/html/blogs/spark-master-ui.html
 https://dirtysalt.github.io/html/blogs/do-we-need-exercise.html
 https://dirtysalt.github.io/html/blogs/what-a-good-ceo-looks-like.html
@@ -415,7 +414,6 @@ https://dirtysalt.github.io/html/blogs/build-nginx-from-source-on-ubuntu.html
 https://dirtysalt.github.io/html/blogs/why-study-history.html
 https://dirtysalt.github.io/html/blogs/how-to-stop-worring-and-start-living.html
 https://dirtysalt.github.io/html/blogs/silicon-valley-etiquette.html
-https://dirtysalt.github.io/html/blogs/idiom.html
 https://dirtysalt.github.io/html/blogs/mac-root-certification.html
 https://dirtysalt.github.io/html/blogs/ms-presentation.html
 https://dirtysalt.github.io/html/blogs/how-to-apply-domain.html
