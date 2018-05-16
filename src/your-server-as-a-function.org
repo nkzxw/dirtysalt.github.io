@@ -3,31 +3,31 @@
 ** Abstract
 ** Introduction
 We present three abstractions around which we structure our server software at Twitter. They adhere to the style of func-tional programming—emphasizing immutability, the composition of first-class functions, and the isolation of side effects—and com-bine to present a large gain in flexibility, simplicity, ease of reason-ing, and robustness.(借鉴函数编程思想，不可变性，作为first-class的函数进行组合，以及将side-effects独立出来)
-   - Futures. The results of asynchronous operations are represented by futures which compose to express dependencies between operations.
-   - Services. Systems boundaries are represented by asynchronous functions called services. They provide a symmetric and uni-form API: the same abstraction represents both clients and servers.
-   - Filters. Application-agnostic concerns (e.g. timeouts, retries, au-thentication) are encapsulated by filters which compose to build services from multiple independent modules.
-   - Server operations (e.g. acting on an incoming RPC or a time-out) are defined in a declarative fashion, relating the results of the (possibly many) subsequent sub-operations through the use of fu-ture combinators.
-   - Operations are phrased as value transformations, encouraging the use of immutable data structures and, we believe, enhancing correctness through simplicity of reasoning.
-   - Operations describe what is computed; execution is handled separately. This frees the programmer from attending to the minu-tiae of setting up threads, ensuring pools and queues are sized cor-rectly, and making sure that resources are properly reclaimed—these concerns are instead handled by our runtime library, Fina-gle.
-   - Relinquishing the programmer from these responsibilities, the runtime is free to adapt to the situation at hand. This is used to exploit thread locality, implement QoS, multiplex network I/O, and to thread through tracing metadata (`a la Google Dapper).
+- Futures. The results of asynchronous operations are represented by futures which compose to express dependencies between operations.
+- Services. Systems boundaries are represented by asynchronous functions called services. They provide a symmetric and uni-form API: the same abstraction represents both clients and servers.
+- Filters. Application-agnostic concerns (e.g. timeouts, retries, au-thentication) are encapsulated by filters which compose to build services from multiple independent modules.
+- Server operations (e.g. acting on an incoming RPC or a time-out) are defined in a declarative fashion, relating the results of the (possibly many) subsequent sub-operations through the use of fu-ture combinators.
+- Operations are phrased as value transformations, encouraging the use of immutable data structures and, we believe, enhancing correctness through simplicity of reasoning.
+- Operations describe what is computed; execution is handled separately. This frees the programmer from attending to the minu-tiae of setting up threads, ensuring pools and queues are sized cor-rectly, and making sure that resources are properly reclaimed—these concerns are instead handled by our runtime library, Fina-gle.
+- Relinquishing the programmer from these responsibilities, the runtime is free to adapt to the situation at hand. This is used to exploit thread locality, implement QoS, multiplex network I/O, and to thread through tracing metadata (`a la Google Dapper).
 
 ** Futures
-   - A future is a container used to hold the result of an asynchronous operation such as a network RPC, a timeout, or a disk I/O opera- tion.
-   - A future is either empty—the result is not yet available; suc- ceeded—the producer has completed and has populated the future with the result of the operation; or failed—the producer failed, and the future contains the resulting exception. An immediately successful future is constructed with Future. value; an immediately failed future with Future.exception.
-   - An empty future is represented by a Promise, which is a writable future allowing for at most one state transition, to either of the nonempty states. Promises are similar to I-structures, except that they embody failed as well as successful computations; they are rarely used directly.(Promise用来hold Future)
-   - Futures compose in two ways. First, a future may be defined as a function of other futures, giving rise to a dependency graph which is evaluated in the manner of dataflow programming. Second, inde- pendent futures are executed concurrently by default—execution is sequenced only where a dependency exists. All operations returning futures are expected to be asynchronous, though this is not enforced.(Future有下面这些组合方式)
-     - Dependent composition # transformation via 'flatMap'
-     - Handling errors # short-circuits and use 'rescue'
-     - Composing multiple dependencies # # reduce via 'collect'
-     - Recursive composition #
+- A future is a container used to hold the result of an asynchronous operation such as a network RPC, a timeout, or a disk I/O opera- tion.
+- A future is either empty—the result is not yet available; suc- ceeded—the producer has completed and has populated the future with the result of the operation; or failed—the producer failed, and the future contains the resulting exception. An immediately successful future is constructed with Future. value; an immediately failed future with Future.exception.
+- An empty future is represented by a Promise, which is a writable future allowing for at most one state transition, to either of the nonempty states. Promises are similar to I-structures, except that they embody failed as well as successful computations; they are rarely used directly.(Promise用来hold Future)
+- Futures compose in two ways. First, a future may be defined as a function of other futures, giving rise to a dependency graph which is evaluated in the manner of dataflow programming. Second, inde- pendent futures are executed concurrently by default—execution is sequenced only where a dependency exists. All operations returning futures are expected to be asynchronous, though this is not enforced.(Future有下面这些组合方式)
+  - Dependent composition # transformation via 'flatMap'
+  - Handling errors # short-circuits and use 'rescue'
+  - Composing multiple dependencies # # reduce via 'collect'
+  - Recursive composition #
 ** Services and Filters
-   - A service is an asynchronous function, typically representing some remote endpoint to which RPCs are dispatched; it is distinguished from a regular function in Scala by enforcing that its return value is represented by a Future
-     - type Service[Req, Rep] = Req => Future[Rep]
-     - Services represent clients and servers symmetrically and are used by Finagle.
-     - HTTP Proxy in one line 'Http.serve(":8080", Http.newService("twitter.com:80"))'
-   - Filters implement application-independent functionality; they are composed with services to modify service behavior.
-     - type Filter[Req, Rep] = (Req, Service[Req, Rep]) => Future[Rep]
-     - Filters provide a combinator, andThen, which is used to com- bine filters with other filters—producing composite filters—or with services—producing a new service whose behavior is modified by the filter.
+- A service is an asynchronous function, typically representing some remote endpoint to which RPCs are dispatched; it is distinguished from a regular function in Scala by enforcing that its return value is represented by a Future
+  - type Service[Req, Rep] = Req => Future[Rep]
+  - Services represent clients and servers symmetrically and are used by Finagle.
+  - HTTP Proxy in one line 'Http.serve(":8080", Http.newService("twitter.com:80"))'
+- Filters implement application-independent functionality; they are composed with services to modify service behavior.
+  - type Filter[Req, Rep] = (Req, Service[Req, Rep]) => Future[Rep]
+  - Filters provide a combinator, andThen, which is used to com- bine filters with other filters—producing composite filters—or with services—producing a new service whose behavior is modified by the filter.
 
 ** Discussion
 *** Declarative programming with futures
@@ -48,16 +48,16 @@ Interrupts are not without problems. They introduce new seman- tic complications
 
 *** Filters
 This is an excerpt from its current configura- tion:
-   - recordHandletime
-   - traceRequest
-   - collectJvmStats
-   - parseRequest
-   - logRequest
-   - recordClientStats
-   - sanitize
-   - respondToHealthCheck andThen
-   - applyTrafficControl  andThen
-   - virtualHostServer
+- recordHandletime
+- traceRequest
+- collectJvmStats
+- parseRequest
+- logRequest
+- recordClientStats
+- sanitize
+- respondToHealthCheck andThen
+- applyTrafficControl  andThen
+- virtualHostServer
 
 *** The cost of abstraction
 High level programming languages and constructs do not come for free. Future combinators allocate new futures on the garbage collected heap; closures, too, need to be allocated on the heap, since their invocation is deferred. While we’ve focused on reducing the allocation footprints—and indeed created many tools for allocation analysis—it is an ongoing concern.(产生很多内存碎片导致性能下降)
@@ -73,9 +73,9 @@ This is an area of ongoing effort with many intriguing possibil-ities. Since Fin
 
 *** Futures, Services, and Filters at Twitter
 ** Related work
-   - Lwt is a cooperative threading library for OCaml whose chief abstraction, the lightweight thread, is similar to our Future.
-   - Haskell and Go provide cheap user-space threads, reduc-ing the overhead of thread-based concurrency. These runtimes man-age threads as a cheap resource, and frees the programmer from the obligation of manually managing threads. However, they are dis-tinct from futures in two ways.
-     - First, they do not provide a clean data flow model—their threads do not compose as naturally as do futures.(没有提供data flow model, 所以线程没有办法和future很好地组合)
-     - Second, the management of threads is built into their run-times, and thus limit the amount of runtime specialization that can be done by a separate library like Finagle.(thread management是语言内置而不是library方式提供)
+- Lwt is a cooperative threading library for OCaml whose chief abstraction, the lightweight thread, is similar to our Future.
+- Haskell and Go provide cheap user-space threads, reduc-ing the overhead of thread-based concurrency. These runtimes man-age threads as a cheap resource, and frees the programmer from the obligation of manually managing threads. However, they are dis-tinct from futures in two ways.
+  - First, they do not provide a clean data flow model—their threads do not compose as naturally as do futures.(没有提供data flow model, 所以线程没有办法和future很好地组合)
+  - Second, the management of threads is built into their run-times, and thus limit the amount of runtime specialization that can be done by a separate library like Finagle.(thread management是语言内置而不是library方式提供)
 
 ** Conclusions

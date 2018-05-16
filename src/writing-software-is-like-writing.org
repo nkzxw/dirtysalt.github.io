@@ -1,4 +1,5 @@
 #+title: Writing Software is Like ... Writing
+
 http://www.artima.com/weblogs/viewpost.jsp?thread=255898
 
 #+BEGIN_QUOTE
@@ -52,4 +53,3 @@ This answers one of the biggest questions -- why you can't replace a programmer 
 #+END_QUOTE
 
 编写程序和写作是一样，都需要长时间的练习，阅读，观察，和创作。这也解释了为什么不能够使用一个程序员替换另外一个程序员得到相似的结果，是因为每个人对于编写程序的深入程度以及知识面是不同的。
-

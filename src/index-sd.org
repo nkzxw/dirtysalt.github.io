@@ -2,7 +2,7 @@
 
 ** Articles
 - [[file:t11-on-backpressure.org][T11谈文艺模型(On Backpressure)]]
-- [[file:t11-on-architecture.org][T11谈架构]]
+- [[file:t11-on-architecture.org][T11谈架构(On Architecture)]]
 - [[file:./suffering-oriented-programming.org][Suffering-oriented programming]]
 - [[file:./the-tyranny-of-the-clock.org][The Tyranny of the Clock]]
 - [[file:./system-programming-at-twitter.org][Systems Programming at Twitter]]
@@ -19,10 +19,9 @@
 - [[file:./an-interview-with-edw.org][An Interview With Edsger W. Dijkstra]]
 - [[file:./what-are-the-best-kept-secrets-of-great-programmers.org][What are the best-kept secrets of great programmers?]]
 - [[file:./history-of-apache-storm-and-lessons-learned.org][History of Apache Storm and lessons learned]]
-- [[file:./images/programmer-career-chart.jpg][程序员技术发展路线]]
 - [[file:./vp-eng-vs-cto.org][VP Engineering vs. CTO]]
 - [[file:images/netflix-culture.pdf][Netflix Culture: Freedom & Responsibility(自由与责任)]]
-- [[file:./10-lessons-learned-from-the-early-days-of-google.org][10 Lessons Learned from the Early Days of Google]] by Matt Cutts
+- *非常推荐* [[file:./10-lessons-learned-from-the-early-days-of-google.org][10 Lessons Learned from the Early Days of Google]] by Matt Cutts
 - [[file:./the-anatomy-of-the-perfect-technical-interview-from-a-former-amazon-vp.org][The Anatomy of the Perfect Technical Interview from a Former Amazon VP]] 如何安排面试
 - [[file:./ten-career-lessons.org][Ten Career Lessons]]
 - [[file:./generalists-and-specialists-thoughts-on-hiring.org][Generalists and specialists: thoughts on hiring]] 全栈 vs. 专家
@@ -41,8 +40,7 @@
 - [[file:./teach-yourself-programming-in-ten-years.org][Teach Yourself Programming in Ten Years]] by Peter Norvig
 - [[file:./mean-people-fail.org][Mean People Fail]] by Paul Graham.
 - [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
-- [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]]
-- [[file:./reply-to-science-institution.org][对科学院的答复]]
+- [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]] ([[file:images/netflix-culture.pdf][pdf]])
 
 ** Blogs
 - 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
@@ -117,7 +115,7 @@
 - [[file:./competitive-strategy.org][竞争策略 on Coursera]]
 - [[file:./financial-markets-class.org][金融市场 on Coursera]]
 - [[file:./aosa.org][The Architecture of Open Source Applications]]
-- [[http://berb.github.io/diploma-thesis/community/index.html][Concurrent Programming for Scalable Web Architectures]]
+- [[http://berb.github.io/diploma-thesis/community/index.html][Concurrent Programming for Scalable Web Architectures]] 博士论文，似乎没有什么意思
 - [[http://producingoss.com/][Producing Open Source Software]]
 - [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
 - [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham

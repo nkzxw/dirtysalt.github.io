@@ -22,8 +22,8 @@ Filling the "Powered By" page for a project can be frustrating, as there can be 
 
 -----
 "visonary-driven" development 优势和劣势
-   - 控制代码质量，设计上更加统一
-   - 限制其他人的贡献，并且决策者成为单点。也容易对自己造成很大压力
+- 控制代码质量，设计上更加统一
+- 限制其他人的贡献，并且决策者成为单点。也容易对自己造成很大压力
 和"consensus-driven" development相比，比较适合用在项目初期很多方案都还不太确定的时候
 
 The hardest part about building an open source project is building the community of developers contributing to the project. This is definitely something I struggled with.

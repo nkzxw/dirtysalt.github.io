@@ -1,4 +1,5 @@
 #+title: Linux Kernel Management Style
+
 - http://lwn.net/Articles/105375/
 - http://wiki.woodpecker.org.cn/moin/LinuxKernelManaStyle 中文翻译
 
@@ -30,15 +31,15 @@ Most people are idiots, and being a manager means you'll have to deal with it, a
 
 However, in order to prepare yourself as a kernel manager, it's best to remember not to burn any bridges, bomb any innocent villagers, or alienate too many kernel developers. It turns out that alienating people is fairly easy, and un-alienating them is hard. Thus "alienating" immediately falls under the heading of "not reversible", and becomes a no-no according to Chapter 1. 然而，为了做好内核管理者，最好记住不要自绝后路，伤及无辜，或树敌过众。现实是，疏远人们是蛮容易的，把他们拉拢回来就难了。因此"疏远"直接归类到"不可逆反"的事情里，就是第一章里说的大忌。
 
-There's just a few simple rules here: 
-   - (1) don't call people d*ckheads (at least not in public) 不要骂人猪头（至少不要在公开场合下）
-   - (2) learn how to apologize when you forgot rule (1) 要是你忘了第一条，学会怎样道歉
+There's just a few simple rules here:
+- (1) don't call people d*ckheads (at least not in public) 不要骂人猪头（至少不要在公开场合下）
+- (2) learn how to apologize when you forgot rule (1) 要是你忘了第一条，学会怎样道歉
 
 The problem with #1 is that it's very easy to do, since you can say "you're a d*ckhead" in millions of different ways (*), sometimes without even realizing it, and almost always with a white-hot conviction that you are right. And the more convinced you are that you are right (and let's face it, you can call just about _anybody_ a d*ckhead, and you often _will_ be right), the harder it ends up being to apologize afterwards. 第一条的问题是太容易违反，因为你有一万种骂人猪头的办法＊，有时不自觉就骂了，而且几乎总是义愤填膺、义正严词。而且你越是骂的热血沸腾（让我们来面对事实，你可以骂几乎任何－人猪头，你往往不－会骂错），事后你越难道歉。
 
 To solve this problem, you really only have two options: 要解决这个问题，你其实只有两条路子：
-   - get really good at apologies 成为道歉专家
-   - spread the "love" out so evenly that nobody really ends up feeling like they get unfairly targeted.  Make it inventive enough, and they might even be amused. "遍洒博爱，处处留情"，这样没有人会觉得受到了特殊待遇。骂出新意，骂出水准，他们没准会找到艺术的享受。
+- get really good at apologies 成为道歉专家
+- spread the "love" out so evenly that nobody really ends up feeling like they get unfairly targeted.  Make it inventive enough, and they might even be amused. "遍洒博爱，处处留情"，这样没有人会觉得受到了特殊待遇。骂出新意，骂出水准，他们没准会找到艺术的享受。
 
 The option of being unfailingly polite really doesn't exist. Nobody will trust somebody who is so clearly hiding his true character. 第三条路子，始终如一的作谦谦君子，是行不通的。没有人会信任城府太深的人。
 

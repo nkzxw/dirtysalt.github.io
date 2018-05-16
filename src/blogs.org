@@ -56,7 +56,7 @@
 - 201711 [[file:./blogs/software-2.org][Software 2.0]] by Andrej Karpathy
 - 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]]
 - 201711 [[file:blogs/pypy-impl.org][PyPy实现方式]]
-- 201711 [[file:./blogs/why-buddhism-true-4.org][为什么佛学是真的4-冥想的方法]]
+- 201711 [[file:./blogs/why-buddhism-true-4.org][为什么佛学是真的4-冥想的方法]] 摘自得到的《精英日课》
 - 201710 [[file:./blogs/mongodb34-perf-issue-checkpoint.org][升级到MongoDB 3.4出现的性能问题]]
 - 201710 [[file:blogs/make-startup-usb-stick-under-mac.org][在Mac下面制作USB启动盘]]
 - 201709 [[file:./blogs/have-a-rest-strategically.org][战略性休息]] 摘自得到的《精英日课》
@@ -252,8 +252,6 @@
 - 201502 [[file:./blogs/do-house-work-as-leisure.org][有空多干点家务活]]
 - 201502 [[file:./blogs/you-cant-read-all-books.org][书是读不过来的]]
 - 201502 [[file:./blogs/peter-thiel-on-competition.org][Peter Thiel on competition]]
-- 201502 [[file:images/russia-underground.jpg][俄罗斯著名建筑下藏着什么]]
-- 201502 [[file:images/happiness-is.jpg][幸福是...]]
 - 201502 [[file:./blogs/telstra-billboard-of-love.org][Telstra BB]]
 
 ** 2014
@@ -282,7 +280,6 @@
 - 201310 [[file:./blogs/my-first-moxa-wool-moxibustion.org][初次艾灸]]
 - 201310 [[file:./blogs/run-wordpress-in-fast-way.org][简单搭建WordPress]]
 - 201309 [[file:./blogs/do-we-need-exercise.org][我们是否需要运动]]
-- 201309 [[file:./blogs/running-tutorial.org][跑步教学]]
 - 201309 [[file:blogs/first-10km-running.org][初次10km跑]]
 - 201308 [[file:blogs/first-swimming.org][初次游泳]]
 - 201307 [[file:./blogs/guilin-travel.org][桂林山水]]
@@ -305,7 +302,6 @@
 - 201208 [[file:./blogs/2012-birthday.org][记在2012年生日]]
 - 201207 [[file:./blogs/visit-tj-data-center.org][参观天津机房]]
 - 201205 [[file:blogs/look-house-with-xcq.org][和xcq看房子]]
-- 201204 [[file:./blogs/code-for-run.org][为运行而生的代码]]
 - 201204 [[file:./blogs/talk-with-luoyan.org][和luoyan的谈话]]
 - 201204 [[file:./blogs/switch-back-to-windows.org][切换回windows]]
 - 201203 [[file:./blogs/struggle-with-ubuntu.org][折腾Ubuntu]]
