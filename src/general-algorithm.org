@@ -4,22 +4,22 @@ Jobs:
    - http://careers.stackoverflow.com/jobs/
    - http://recruiting.jobvite.com/
    - http://www.mercurynews.com/jobs
+   - http://www.mitbbs.com/bbsdoc/JobHunting.html
+   - http://www.glassdoor.com/index.htm
 
 Coding Problem:
+   - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
    - http://www.careercup.com/
    - http://codility.com/
    - http://leetcode.com/
    - http://community.topcoder.com/
+   - https://www.geeksforgeeks.org/
+   - https://www.topcoder.com/community/data-science/data-science-tutorials/
+   - https://www.julyedu.com/question/index
 
 Online Editor:
    - http://collabedit.com/
    - https://codinghire.com/
-   - https://code.stypi.com/deuukwa6
-
-Resources:
-   - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
-   - http://www.mitbbs.com/bbsdoc/JobHunting.html
-   - http://www.glassdoor.com/index.htm
 
 行为型问题:
    - So tell me about yourself.

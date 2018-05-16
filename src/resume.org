@@ -35,14 +35,18 @@ Software Engineer, Head of Backend Development, [[http://castbox.fm/][CastBox.FM
 Senior Software Architect, Data Platform, Umeng, 2013.11 - 2016.4
 
 - infrastructure on big data processing.
-- machine learning on moderate-sized data.
+- data mining and machine learning on mobile data.
 
 Software Engineer, [[http://logzilla.net/][Logzilla]], 2015.4 - 2015.8 (Remote, as Consultant)
 
-- performance tuning to to support ~200k eps ingestion.
-- implement a new event storage engine to support ~1M eps.
+A real time event analytical platform.
+
+- performance tuning to to support ~200k eps(event per second) ingestion.
+- implement a new event storage engine to support ~1M eps(event per second).
 
 Software Engineer, [[http://galeracluster.com/][Galera]], 2014.4 - 2014.11 (Remote, as Consultant)
+
+A drop-in plugin of MySQL multi-master.
 
 - [[https://github.com/codership/galera][galera]], A synchronous multi-master replication library
 
