@@ -1,4 +1,4 @@
-#+title: kaggle-1 / Digit Recognizer
+#+title: Kaggle Digit Recognizer
 
 [[file:~/repo/dirtysalt.github.io/codes/kaggle/digit-recognizer/][code on github]]
 

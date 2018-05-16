@@ -1,4 +1,4 @@
-#+title: kaggle-2 / Facial Keypoints Detection
+#+title: Kaggle Facial Keypoints Detection
 
 [[file:~/repo/dirtysalt.github.io/codes/kaggle/facial-keypoints-detection.py][code on github]]
 

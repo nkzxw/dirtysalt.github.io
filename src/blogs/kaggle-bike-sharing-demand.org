@@ -1,4 +1,4 @@
-#+title: kaggle-0 / Bike Sharing Demand
+#+title: Kaggle Bike Sharing Demand
 
 [[file:~/repo/dirtysalt.github.io/codes/kaggle/bike-sharing-demand][code on github]]
 
