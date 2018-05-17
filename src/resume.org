@@ -14,7 +14,7 @@ Extensive experience in:
 - performance optimization and tuning for systems and applications.
 - system software development.
 - big data processing and analysis.
-- machine learning and data analysis.
+- exploratory data analysis and machine learning.
 
 Specialities:
 - proficient in C/C++, Python, Java, Scala.
@@ -30,7 +30,6 @@ Software Engineer, Head of Backend Development, [[http://castbox.fm/][CastBox.FM
   - built on AWS low-level services: ec2, s3, cloudfront, athena etc.
   - use Python which is a very productive language and has a great ecosystem.
 - apply machine learning to recommend channels/episodes to users.
-
 
 Senior Software Architect, Data Platform, Umeng, 2013.11 - 2016.4
 

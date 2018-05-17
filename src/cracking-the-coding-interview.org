@@ -62,7 +62,7 @@ Definitely Prepare:
 *** The Yahoo Interview
    - While Yahoo tends to only recruit at the top 10 – 20 schools, other candidates can still get interviewed through Yahoo’s job board (or – better yet – if they can get an internal referral). If you’re one of the lucky ones selected, your interview process will start off with a phone screen. Your phone screen will be with a senior employee (tech lead, manager, etc)
    - You will typically interview with 6 – 7 people on the same team for 45 minutes each Each interviewer will have an area of focus. Interviews will often be composed as follows:
-     - 5 minutes: General conversation Tell me about yourself, your projects, etc 
+     - 5 minutes: General conversation Tell me about yourself, your projects, etc
      - 20 minutes: Coding question For example, implement merge sort
      - 20 minutes: System design For example, design a large distributed cache These ques- tions will often focus on an area from your past experience or on something your interviewer is cur-rently working on
    - At the end of the day, you will likely meet with a Program Manag- er or someone else for a general con- versation (product demos, concerns about the company, your competing offers, etc). Meanwhile, your interview- ers will discuss your performance and attempt to come to a decision The hiring manager has the ultimate say and will weigh the positive feedback against the negative.
@@ -93,10 +93,10 @@ Not everything you did will fit into this approach, but the principle is the sam
    - Personal Information: For US positions, do not include age, marital status, or nationality. This sort of personal information is not appreciated by companies, as it creates a legal liabil- ity for them However, you may want to include your current work authorization / visa status, particularly when applying to smaller companies who may be unable to sponsor candidates.
 
 *** Behavioral Preparation
-Behavioral questions are asked for a variety of reasons 
-   - They can be asked either to get to know your personality, 
-   - to more deeply understand your resume, 
-   - or just to ease you into an interview Either way, 
+Behavioral questions are asked for a variety of reasons
+   - They can be asked either to get to know your personality,
+   - to more deeply understand your resume,
+   - or just to ease you into an interview Either way,
 these questions are important and can be prepared for.
 
 Behavioral questions are usually of the form “tell me about a time when you ”, and may ask for an example from a specific project or position. I recommend filling in the following “preparation grid” as shown below:
@@ -109,7 +109,7 @@ Behavioral questions are usually of the form “tell me about a time when you �
 | Enjoyed Most             |          |          |          |          |
 | Conflicts with Teammates |          |          |          |          |
 
-In each cell, put the corresponding story. We recommend reducing each story to just a couple keywords that you can write in each cell This will make the grid easier to study  
+In each cell, put the corresponding story. We recommend reducing each story to just a couple keywords that you can write in each cell This will make the grid easier to study
 
 -----
 
@@ -126,11 +126,11 @@ In each cell, put the corresponding story. We recommend reducing each story to j
      - “I’m not familiar with technology X, but it sounds like a very interesting solution Could you tell me a bit more about how it works?”
 
 *** Technical Preparation
-   - Memorizing or trying to learn specific questions won’t help you! 
+   - Memorizing or trying to learn specific questions won’t help you!
    - Try to solve the problem on your own.
    - Write the code for the algorithm on paper.
    - Type your paper code as-is into a computer.
-   - *Do a mock interview. CareerCup offers a mock interview 
+   - *Do a mock interview. CareerCup offers a mock interview
 
    | Data Structures      | Algorithms               | Concepts                 |
    |----------------------+--------------------------+--------------------------|
@@ -287,7 +287,7 @@ TreeNode* ancestor(TreeNode* root,TreeNode* p,TreeNode* q,int& cond) {
     cond = 2;
     return t;
   }
-  cond += c;  
+  cond += c;
   if(cond == 2) {
     return root;
   }
@@ -459,7 +459,7 @@ void reverse() {
   int t = R-1;
   int v = dp[t][1][N];
   printf("%d\n",v);
-  
+
   int s = 1;
   int c = 1;
   bool changed = true;
@@ -472,7 +472,7 @@ void reverse() {
         printf("below %d\n",i);
         s = i+1;
         c++;
-        changed = true;        
+        changed = true;
         break;
       }
     }
@@ -514,7 +514,7 @@ Questions:
    - 9.3 Given a sorted array of n integers that has been rotated an unknown number of times,give an O(logn) algorithm that finds an element in the array. You may assume that the array was originally sorted in increasing order. EXAMPLE: Input: find 5 in array (15 16 19 20 25 1 3 4 5 7 10 14) Output: 8 (the index of 5 in the array)
    - 9.4 If you have a 2 GB file with one string per line, which sorting algorithm would you use to sort the file and why?
    - 9.5 Given a sorted array of strings which is interspersed with empty strings, write a meth- od to find the location of a given string
-     - Example: find “ball” in [“at”, “”, “”, “”, “ball”, “”, “”, “car”, “”, “”, “dad”, “”, “”] will return 4 
+     - Example: find “ball” in [“at”, “”, “”, “”, “ball”, “”, “”, “car”, “”, “”, “dad”, “”, “”] will return 4
      - Example: find “ballcar” in [“at”, “”, “”, “”, “”, “ball”, “car”, “”, “”, “dad”, “”, “”] will return -1
    - 9.6 Given a matrix in which each row and each column is sorted, write a method to find an element in it.
    - 9.7 A circus is designing a tower routine consisting of people standing atop one anoth- er’s shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her. Given the heights and weights of each person in the circus, write a method to compute the largest possible number of peo- ple in such a tower. EXAMPLE: Input (ht, wt): (65, 100) (70, 150) (56, 90) (75, 190) (60, 95) (68, 110) Output: The longest tower is length 6 and includes from top to bottom: (56, 90) (60,95) (65,100) (68,110) (70,150) (75,190)
@@ -602,7 +602,7 @@ int BS(const vector<string>& A,const string& x) {
     } else {
       s = e + 1;
     }
-  }  
+  }
 }
 
 int main() {
@@ -620,7 +620,7 @@ int main() {
 
 *** Mathematical
 Questions:
-   - 10.1 You have a basketball hoop and someone says that you can play 1 of 2 games 
+   - 10.1 You have a basketball hoop and someone says that you can play 1 of 2 games
      - Game #1: You get one shot to make the hoop
      - Game #2: You get three shots and you have to make 2 of 3 shots
      - If p is the probability of making a particular shot, for which values of p should you pick one game or the other?
@@ -719,7 +719,7 @@ Questions:
    - 18.5 You are given a class with synchronized method A, and a normal method C If you have two threads in one instance of a program, can they call A at the same time? Can they call A and C at the same time?
 
 *** Moderate Additional Review Problems
-Questions: 
+Questions:
    - 19.1 Write a function to swap a number in place without temporary variables.
    - (x) 19.3 Write an algorithm which computes the number of trailing zeros in n factorial.
    - 19.4 Write a method which finds the maximum of two numbers. You should not use if- else or any other comparison operator.
@@ -762,7 +762,7 @@ string speak(int n) {
   if(n <= 19) {
     return s1[n];
   } else if(n < 100) {
-    int m = n % 10;    
+    int m = n % 10;
     string s = s2[n / 10];
     if(m != 0) {
       s += " ";
@@ -887,7 +887,7 @@ class Median {
  private:
   priority_queue< int, vector<int>, less<int> > Q0;
   priority_queue< int, vector<int>, greater<int> > Q1;
-  
+
  public:
   void insert(int x) {
     if(Q0.empty()) {
