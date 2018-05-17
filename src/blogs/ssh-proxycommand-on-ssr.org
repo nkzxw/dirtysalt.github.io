@@ -1,4 +1,4 @@
-#+title: SSH ProxyCommand on SSR
+#+title: ssh proxycommand on ssr
 
 如果你想ssh到某个国外机器上的话，因为一些众所周知的原因，链接会非常不稳定或者是被切断。ssh有个"proxycommand"选项，允许配置代理来完成连接。
 
