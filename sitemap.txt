@@ -602,6 +602,7 @@ https://dirtysalt.github.io/html/blogs/nine-algos-that-changed-the-future.html
 https://dirtysalt.github.io/html/blogs/my-amoi-n821.html
 https://dirtysalt.github.io/html/blogs/the-paypal-wars.html
 https://dirtysalt.github.io/html/blogs/getting-real-about-distributed-system-reliability.html
+https://dirtysalt.github.io/html/blogs/an-impact-guide-for-engineers.html
 https://dirtysalt.github.io/html/blogs/what-happens-to-older-developers.html
 https://dirtysalt.github.io/html/blogs/you-should-be-with-ambitious-people.html
 https://dirtysalt.github.io/html/blogs/pregnancy.html
