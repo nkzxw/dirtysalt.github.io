@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-21 一 18:50 -->
+<!-- 2018-05-21 一 19:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>章炎的中文简历</title>
@@ -39,29 +39,29 @@
 <h3 id="orgheadline2"><span class="section-number-3">2.1</span> 后端服务技术负责人, <a href="http://castbox.fm/">CastBox</a>, 2016.4 -</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-基础设施搭建：
+基础设施：
 </p>
 <ol class="org-ol">
-<li>Python作为主要开发语言，MongoDB作为主要数据库系统。</li>
-<li>域名注册，在Cloudflare上管理域名解析。</li>
-<li>使用AWS EC2做服务器，ELB做负载均衡，S3做日志和数据存储。</li>
+<li>负责域名注册，域名服务，以及SSL证书管理。</li>
+<li>使用AWS EC2做服务器，ELB做负载均衡，S3做日志和数据存储等其他服务。</li>
+<li>选用Python作为主要开发语言，MongoDB作为主要数据库系统。</li>
 </ol>
 
 <p>
 爬虫系统：
 </p>
 <ol class="org-ol">
-<li>数据库中播客数量超过60w，单集数量超过4000w.</li>
-<li>播客检查更新延迟可以做到5分钟以内，接近于实时。</li>
-<li>对播客和单集的图片根据尺寸进行压缩和裁剪，来优化客户端访问。</li>
+<li>从零开始抓取互联网上的播客数据，至今数据库中播客数量超过60w，单集数量超过4000w.</li>
+<li>播客检查更新延迟可以做到5分钟以内接近于实时，客户端可以第一时间收到推送。</li>
+<li>对播客和单集的图片根据尺寸进行压缩和裁剪，来优化客户端访问，减少图片的下载流量和加载时间。</li>
 </ol>
 
 <p>
 搜索系统：
 </p>
 <ol class="org-ol">
-<li>通过ElasticSearch来完成基本检索功能（主要是召回工作）以及联想词提示功能</li>
-<li>一旦播客更新以及新单集上线都可以被实时索引（# indexed per day ~= 2w)</li>
+<li>通过ElasticSearch来完成基本检索功能（主要是召回工作）以及联想词提示功能。</li>
+<li>一旦播客更新以及新单集上线都可以被实时索引（# indexed per day ~= 2w).</li>
 <li>在ElasticSearch上召回后，通过各种指标对播客和单集进行排序，这样有更大的灵活性。</li>
 <li>检索延迟大约在200ms(QPS ~= 100)，联想词延迟大约在10ms.</li>
 <li>通过结合Google Audio to Text技术，支持In-Audio Search功能。</li>
