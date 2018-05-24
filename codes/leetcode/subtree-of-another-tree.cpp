@@ -15,16 +15,16 @@
 #include <cstdio>
 struct TreeNode {
     int val;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode* left;
+    TreeNode* right;
 };
 
 class Solution {
 public:
-    bool match(TreeNode* s, TreeNode *t) {
+    bool match(TreeNode* s, TreeNode* t) {
         if(s == NULL && t == NULL) return true;
         if(s == NULL || t == NULL) return false;
-        return (s->val == t->val) && match(s->left, t->left) && match(s->right,t->right);
+        return (s->val == t->val) && match(s->left, t->left) && match(s->right, t->right);
     }
 
     bool isSubtree(TreeNode* s, TreeNode* t) {
@@ -32,6 +32,6 @@ public:
         if(t == NULL || s == NULL) return false;
         if(match(s, t)) return true;
         return isSubtree(s->left, t) || \
-                isSubtree(s->right, t);
+               isSubtree(s->right, t);
     }
 };

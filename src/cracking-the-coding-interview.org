@@ -219,27 +219,75 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 - 1.4 Write a method to decide if two strings are anagrams or not.
 - 1.5 Write a method to replace all spaces in a string with ‘%20’.
 - 1.6(x) Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees Can you do this in place?
+  - https://leetcode.com/problems/rotate-image
 - 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
+  - https://leetcode.com/problems/set-matrix-zeroes/description/
 - 1.8(x) Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i e , “waterbottle” is a rotation of “erbottlewat”).
 
 -----
-1.6
+1.6 clockwise
 
 #+BEGIN_SRC C++
-int m[N][N];
-for(int k=0;k<N/2;k++) {
-  int r = k;
-  int last = n - 1 - r;
-  for(int c = r; c <= last; c++) {
-    // [r,c], [N-1-c,r], [N-1-r,N-1-c], [c,N-1-r]
-    int tmp = m[r][c];
-    m[r][c] = m[c][N-1-r];
-    m[c][N-1-r] = m[N-1-r][N-1-c];
-    m[N-1-r][N-1-c] = m[N-1-c][r];
-    m[N-1-c][r] = tmp;
-  }
-}
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        vector<vector<int>>& m = matrix;
+        int N = matrix.size();
+        for(int r = 0; r < N/2; r++) {
+            int end = N - 1 - r;
+            for(int c = r; c < end; c++) {
+                int tmp = m[r][c];
+                m[r][c] = m[N-1-c][r];
+                m[N-1-c][r] = m[N-1-r][N-1-c];
+                m[N-1-r][N-1-c] = m[c][N-1-r];
+                m[c][N-1-r] = tmp;
+            }
+        }
+    }
+};
 #+END_SRC
+
+1.7
+
+#+BEGIN_SRC C++
+#include <cstdio>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int odd = 78392356;
+        for(int r = 0; r < matrix.size(); r++) {
+            for (int c = 0; c < matrix[r].size(); c++) {
+                if (matrix[r][c] == 0) {
+                    for(int k = 0; k < matrix.size(); k++) {
+                        if(matrix[k][c] != 0) {
+                            matrix[k][c] = odd;
+                        }
+                    }
+                    for(int k = 0; k < matrix[0].size();k++) {
+                        if (matrix[r][k] != 0) {
+                            matrix[r][k] = odd;
+                        }
+                    }
+                }
+            }
+        }
+        for(int r =0; r < matrix.size(); r++) {
+            for(int c = 0; c < matrix[r].size();c ++) {
+                if(matrix[r][c] == odd) {
+                    matrix[r][c] = 0;
+                }
+            }
+        }
+    }
+};
+#+END_SRC
+
 
 *** Linked Lists
 Questions:
@@ -257,14 +305,57 @@ Questions:
   - https://oj.leetcode.com/problems/linked-list-cycle/
   - https://oj.leetcode.com/problems/linked-list-cycle-ii/
 
+-----
+
+2.5
+
+#+BEGIN_SRC C++
+#include <cstdio>
+struct ListNode {
+    ListNode* next;
+};
+
+class Solution {
+public:
+    ListNode* detectCycle(ListNode* head) {
+        ListNode* p0 = head, *p1 = head;
+        bool cycle = false;
+        while(p0 != NULL && p1 != NULL) {
+            p0 = p0->next;
+            p1 = p1->next;
+            if (p1 == NULL) {
+                return NULL;
+            }
+            p1 = p1->next;
+            if (p0 == p1) {
+                cycle = true;
+                break;
+            }
+        }
+        if(!cycle) {
+            return NULL;
+        }
+        p0 = head;
+        while(p0 != p1) {
+            p0 = p0->next;
+            p1 = p1->next;
+        }
+        return p1; // or p0
+    }
+};
+#+END_SRC
+
+
 *** Stacks and Queues
 Questions:
 - 3.1 Describe how you could use a single array to implement three stacks.
 - 3.2 How would you design a stack which, in addition to push and pop, also has a function min which returns the minimum element? Push, pop and min should all operate in O(1) time.
+  - https://leetcode.com/problems/min-stack/description/
 - 3.3 Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be composed of several stacks, and should create a new stack once the previous one exceeds capacity. SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack (that is, pop() should return the same values as it would if there were just a single stack).
   - FOLLOW UP. Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
 - 3.4 In the classic problem of the Towers of Hanoi, you have 3 rods and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (e.g., each disk sits on top of an even larger one). You have the following constraints: (A) Only one disk can be moved at a time (B) A disk is slid off the top of one rod onto the next rod. (C) A disk can only be placed on top of a larger disk. Write a program to move the disks from the first rod to the last using Stacks.
 - 3.5 Implement a MyQueue class which implements a queue using two stacks.
+  - https://leetcode.com/problems/implement-queue-using-stacks/description/
 - 3.6 Write a program to sort a stack in ascending order. You should not make any assumptions about how the stack is implemented.
 
 ------
