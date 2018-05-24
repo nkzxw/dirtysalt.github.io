@@ -4,6 +4,11 @@
 
 import os
 import glob
+app_env=Environment(CPPPATH = ['..'],
+                CXXFLAGS = '-W -Wall -g -Werror -Wno-unused-parameter -O2')
+cpp_files = glob.glob('*.cpp')
+app_env.Program('astyle.exe', [app_env.Object('app_{}'.format(x[:-4]), x) for x in cpp_files])
+
 env=Environment(CPPPATH = ['..'],
                 CXXFLAGS = '-W -Wall -g -Werror -Wno-unused-parameter -O2 -DASTYLE_LIB')
 env.StaticLibrary('astyle',Glob('*.cc') + Glob('*.cpp'))

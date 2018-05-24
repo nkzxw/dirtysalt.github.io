@@ -218,9 +218,9 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 - 1.3 Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
 - 1.4 Write a method to decide if two strings are anagrams or not.
 - 1.5 Write a method to replace all spaces in a string with ‘%20’.
-- 1.6 Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees Can you do this in place?
+- 1.6(x) Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees Can you do this in place?
 - 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
-- 1.8 Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i e , “waterbottle” is a rotation of “erbottlewat”).
+- 1.8(x) Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i e , “waterbottle” is a rotation of “erbottlewat”).
 
 -----
 1.6
@@ -246,14 +246,14 @@ Questions:
 - 2.1 Write code to remove duplicates from an unsorted linked list. How would you solve this problem if a temporary buffer is not allowed?
 - 2.2 Implement an algorithm to find the nth to last element of a singly linked list.
 - 2.3 Implement an algorithm to delete a node in the middle of a single linked list, given only access to that node.
-- 2.4 You have two numbers represented by a linked list, where each node contains a sin- gle digit. The digits are stored in reverse order, such that the 1’s digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list.
-- (x) 2.5 Given a circular linked list, implement an algorithm which returns node at the begin- ning of the loop.
+- 2.4 You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1’s digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list.
+- (x) 2.5 Given a circular linked list, implement an algorithm which returns node at the beginning of the loop.
   - Assume P,Q at head. P proceeds 1 step, and Q proceed 2 step. There is k nodes before entry node of the circular list. And they takes u step to meet each other at p in the circular list. So we have following equations.
        1. k + xn + p= 2u # Q position.
        2. k + yn + p = u # P position.
        3. u = zn # using 1 and 2.
        4. (k + p) = z'n # using 2 and 3.
-       5. k % n = (n-p) # done.
+       5. k % n = (n-p) # done. 这个时候从开头以及当前位置分别追踪直到相遇，相遇点就是loop的起始点
  - see leetcode https://oj.leetcode.com/problems/linked-list-cycle/ and https://oj.leetcode.com/problems/linked-list-cycle-ii/
 
 *** Stacks and Queues
