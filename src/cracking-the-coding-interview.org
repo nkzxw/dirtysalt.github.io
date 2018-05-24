@@ -254,7 +254,8 @@ Questions:
        3. u = zn # using 1 and 2.
        4. (k + p) = z'n # using 2 and 3.
        5. k % n = (n-p) # done. 这个时候从开头以及当前位置分别追踪直到相遇，相遇点就是loop的起始点
- - see leetcode https://oj.leetcode.com/problems/linked-list-cycle/ and https://oj.leetcode.com/problems/linked-list-cycle-ii/
+  - https://oj.leetcode.com/problems/linked-list-cycle/
+  - https://oj.leetcode.com/problems/linked-list-cycle-ii/
 
 *** Stacks and Queues
 Questions:
@@ -315,49 +316,58 @@ Questions:
 - 4.4 Given a binary search tree, design an algorithm which creates a linked list of all the nodes at each depth (eg, if you have a tree with depth D, you’ll have D linked lists).
 - 4.5 Write an algorithm to find the ‘next’ node (e.g., in-order successor) of a given node in a binary search tree where each node has a link to its parent.
 - 4.6 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure.
+  - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+  - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 - 4.7 You have two very large binary trees: T1, with millions of nodes, and T2, with hun- dreds of nodes. Create an algorithm to decide if T2 is a subtree of T1.
+  - https://leetcode.com/problems/subtree-of-another-tree/description/
 - 4.8 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which sum up to that value.
+  - https://leetcode.com/problems/path-sum/description/
+  - https://leetcode.com/problems/path-sum-ii/description/
+  - https://leetcode.com/problems/path-sum-iii/description/
+  - https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
 
 -----
 4.6
 
 #+BEGIN_SRC C++
-TreeNode* ancestor(TreeNode* root,TreeNode* p,TreeNode* q,int& cond) {
-  if(root == NULL) return NULL;
-  if(root == p || root == q) {
-    cond++; // root is p or q, find one.
-  }
-  // check left.
-  int c = 0;
-  TreeNode* t = ancestor(root->left, p, q, c);
-  if(c == 2) {
-    cond = 2;
-    return t;
-  }
-  cond += c;
-  if(cond == 2) {
-    return root;
-  }
-  // check right.
-  c = 0;
-  t = ancestor(root->right, p, q, c);
-  if(c == 2) {
-    cond = 2;
-    return t;
-  }
-  cond += c;
-  if(cond == 2) {
-    return root;
-  }
-  // maybe cover one.
-  return root;
-}
+#include <cstdio>
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+};
 
-TreeNode* ancestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-  int cond;
-  return ancestor(root, p, q, cond);
-}
+class Solution {
+public:
+    TreeNode* find(TreeNode *root, TreeNode *p, TreeNode *q, int* covers) {
+        if (root == NULL) return NULL;
 
+        int c = 0;
+        if((root == p) || (root == q))
+            c += 1;
+
+        int c0 = 0, c1 = 0;
+        TreeNode *t0 = find(root->left, p, q, &c0);
+        if (c0 == 2) {
+            *covers = 2;
+            return t0;
+        }
+        TreeNode *t1 = find(root->right, p, q, &c1);
+        if (c1 == 2) {
+            *covers = 2;
+            return t1;
+        }
+        c += (c0 + c1);
+        *covers = c;
+        return root;
+    }
+
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        int covers = 0;
+        TreeNode *t = find(root, p, q, &covers);
+        return t;
+    }
+};
 #+END_SRC
 
 *** Bit Manipulation
