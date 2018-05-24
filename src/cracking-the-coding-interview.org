@@ -22,7 +22,7 @@ Receiving an offer is not about solving questions flawlessly (very few candidate
 
 Definitely Prepare: *“Why do you want to work for Microsoft?”*
 
-In this question, Microsoft wants to see that you’re passionate about technology. A great answer might be, “I’ve been using Microsoft software as long as I can re- member, and I'm really impressed at how Microsoft manages to create a product that is universally excellent. For example, I’ve been using Visual Studio recently to learn game programming, and it’s APIs are excellent.” Note how this shows a passion for technology!
+In this question, Microsoft wants to see that you’re passionate about technology. A great answer might be, “I’ve been using Microsoft software as long as I can remember, and I'm really impressed at how Microsoft manages to create a product that is universally excellent. For example, I’ve been using Visual Studio recently to learn game programming, and it’s APIs are excellent.” Note how this shows a passion for technology!
 
 *** The Amazon Interview
 - Amazon’s recruiting process usually begins with one or two phone screens in which you in- terview with a specific team. The engineer who interviews you will usually ask you to write simple code and read it aloud on the phone They will ask a broad set of questions to explore what areas of technology you’re familiar with.
@@ -75,27 +75,25 @@ Definitely Prepare:
 
 ** Interview War Stories
 
-While the technical questions on computer science obviously are very important, the most important interview question is not covered in this guidebook. In fact, it’s often the single most
-question in your interviewers' minds as they grill you in that little room. Despite the questions on polymorphism and heaps and virtual machines, the question they really want an answer to is ... *Would I have a beer with this guy?*
+While the technical questions on computer science obviously are very important, the most important interview question is not covered in this guidebook. In fact, it’s often the single most question in your interviewers' minds as they grill you in that little room. Despite the questions on polymorphism and heaps and virtual machines, the question they really want an answer to is ... *Would I have a beer with this guy?*
 
 The team of developers and managers interviewing you have their own tasks and projects waiting for them, back at their own desks. Believe me, they’re hoping that every interview is going to be the last one. They'd rather be doing anything else. There might be a batch of upcoming projects looming on their calendar, and they need more manpower if they’re going to even have a prayer of making their deadline.
 
-While they may not literally be asking themselves “Would I have a beer with this guy (or gal)”, they are looking to see how well you would !t in with the team, and how you would affect
-team chemistry. If they hire you, you’re all going to be spending a lot of time together for the next few months or years, and they want to know that they can rely on you – and maybe even come to consider you a friend and colleague. They want to know that they can depend on you. And as tempting as it might be to them to just settle and hire the next person who comes along, they know better.
+While they may not literally be asking themselves “Would I have a beer with this guy (or gal)”, they are looking to see how well you would fit in with the team, and how you would affect team chemistry. If they hire you, you’re all going to be spending a lot of time together for the next few months or years, and they want to know that they can rely on you – and maybe even come to consider you a friend and colleague. They want to know that they can depend on you. And as tempting as it might be to them to just settle and hire the next person who comes along, they know better.
 
 ** Before the Interview
 *** Resume Advice
 Resume screeners look for the same things that interviewers do:
 - *Are you smart?*
 - *Can you code?*
-That means that you should present your resume to show those two things. Your love of tennis, traveling, or magic cards won’t do much to show that, so it’s likely just wasting space.Keep in mind that recruiters only spend a fixed amount of time (about 20 seconds) looking at your resume. If you limit the content to the best, most impressive, most relevant items, they’ll jump out at the recruiter Weak items only dilute your resume and distract the re- cruiter from what you’d like them to see.
+That means that you should present your resume to show those two things. Your love of tennis, traveling, or magic cards won’t do much to show that, so it’s likely just wasting space.Keep in mind that recruiters only spend a fixed amount of time (about 20 seconds) looking at your resume. If you limit the content to the best, most impressive, most relevant items, they’ll jump out at the recruiter Weak items only dilute your resume and distract the recruiter from what you’d like them to see.
 
 -----
 
 *Writing Strong Bullets:*
 - For each role, try to discuss your accomplishments with the following approach: “Accom- plished X by implementing Y which led to Z” Here’s an example:
 - “Reduced object rendering time by 75% by applying Floyd’s algo- rithm, leading to a 10% reduction in system boot time”
-- “Increased average match accu- racy from 1.2 to 1.5 by implement- ing a new comparison algorithm based on windiff”
+- “Increased average match accu- racy from 1.2 to 1.5 by implementing a new comparison algorithm based on windiff”
 Not everything you did will fit into this approach, but the principle is the same: show what you did, how you did it, and what the results were Ideally, you should try to make the results “measurable” somehow.
 
 -----
@@ -133,7 +131,7 @@ In each cell, put the corresponding story. We recommend reducing each story to j
 - Insightful Questions: These questions are designed to demonstrate your deep knowledge of programming or technologies.
   - “I noticed that you use technology X How do you handle problem Y?”
   - “Why did the product choose to use the X protocol over the Y protocol? I know it has benefits like A, B, C, but many companies choose not to use it because of issue D”
-- Passion Questions: These questions are designed to demonstrate your passion for technol- ogy.
+- Passion Questions: These questions are designed to demonstrate your passion for technology.
   - “I’m very interested in scalability Did you come in with a background in this, or what opportunities are there to learn about it?”
   - “I’m not familiar with technology X, but it sounds like a very interesting solution Could you tell me a bit more about how it works?”
 
@@ -156,10 +154,10 @@ In each cell, put the corresponding story. We recommend reducing each story to j
 
 ** The Interview and Beyond
 *** Handling Behavioral Questions
-- Be Specific, Not Arrogant
-- Limit Details
+- Be Specific, Not Arrogant # 将问题说的具体一些就不会显得傲慢
+- Limit Details # 同样也不要说的太多具体，限制细节，否则有可能会把面试官搞晕
 - Ask Good Questions
-- Structure Answers Using S.A.R(Situation, Action, Response)
+- Structure Answers Using S.A.R(Situation, Action, Response) # 当时情况，如何分析的，如何行动的，以及最后的结果。其中如何分析的这点没有办法放在简历上，其他几点在简历上也比较简略，所以这些都可以在面试中体现出来
 
 Arrogance is a redflag, but you still want to make yourself sound impressive. So how do you make yourself sound good without being arrogant? By being specific! Specificity means giving just the facts and letting the interviewer derive an interpretation. Consider an example:
 - Candidate #1: “I basically did all the hard work for the team.”
@@ -183,7 +181,7 @@ A technical interview question can be solved utilizing a five step approach:
   - Promotion Opportunity: Do you prefer to move into management, or would you prefer to become an increasingly senior developer?
   - Money and Benefits: Of course, the money matters (but if you’re early in your career, it probably doesn’t matter much). As mentioned above, make sure you look at the full package.
   - Happiness: Did you like the people? The products? The location? It’s hard to tell, of course, before you work there. What are the options to change teams if you’re unhappy?
-  - Brand Name: The company’s brand name can mean a lot for your future career Some company names will open doors, while others will not as much.
+  - Brand Name: The company’s brand name can mean a lot for your future career. Some company names will open doors, while others will not as much.
   - *What about company stability? Personally, I think it matters much less than most people think. There are so many software companies out there. If you get laid off and need to find a new job, will it be difficult to find a new one? Only you can answer that.*
 
 *** Top Ten Mistakes Candidates Make
