@@ -409,7 +409,7 @@ Questions:
   - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 - 4.7 You have two very large binary trees: T1, with millions of nodes, and T2, with hun- dreds of nodes. Create an algorithm to decide if T2 is a subtree of T1.
   - https://leetcode.com/problems/subtree-of-another-tree/description/
-- 4.8 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which sum up to that value.
+- 4.8 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which sum up to that value. Note that it can be any path in the tree - it does not have to start at the root.
   - https://leetcode.com/problems/path-sum/description/
   - https://leetcode.com/problems/path-sum-ii/description/
   - https://leetcode.com/problems/path-sum-iii/description/
@@ -464,10 +464,11 @@ file:./images/bitop.png
 
 Questions:
 - 5.1 You are given two 32-bit numbers, N and M, and two bit positions, i and j Write a method to set all bits between i and j in N equal to M. Input: N = 10000000000, M = 10101, i = 2, j = 6. Output: N = 10001010100
-- 5.2 Given a (decimal - e g 3 72) number that is passed in as a string, print the binary rep- resentation If the number can not be represented accurately in binary, print “ERROR”
+- 5.2 Given a (decimal - e.g. 3.72) number that is passed in as a string, print the binary representation If the number can not be represented accurately in binary, print “ERROR”
 - 5.3 Given an integer, print the next smallest and next largest number that have the same number of 1 bits in their binary representation.
 - 5.4 Explain what the following code does: ((n & (n-1)) == 0).
 - 5.5 Write a function to determine the number of bits required to convert integer A to integer B.
+  - https://leetcode.com/problems/hamming-distance/description/
 - 5.6 Write a program to swap odd and even bits in an integer with as few instructions as possible (e g , bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, etc).
 
 -----
@@ -542,7 +543,7 @@ int main() {
 
 *** Brain Teasers
 - Don’t panic when you get a brain teaser. Interviewers want to see how you tackle a problem; they don’t expect you to immediately know the answer. Start talking, and show the inter- viewer how you approach a problem
-- In many cases, you will also find that the brain teasers have some connection back to funda- mental laws or theories of computer science.
+- In many cases, you will also find that the brain teasers have some connection back to fundamental laws or theories of computer science.
 - If you’re stuck, we recommend simplifying the problem. Solve it for a small number of items or a special case, and then see if you can generalize it.
 
 Questions:
