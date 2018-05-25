@@ -547,7 +547,7 @@ int main() {
 - If you’re stuck, we recommend simplifying the problem. Solve it for a small number of items or a special case, and then see if you can generalize it.
 
 Questions:
-- 6.1 Add arithmetic operators (plus, minus, times, divide) to make the following expres- sion true: 3 1 3 6 = 8. You can use any parentheses you’d like.
+- 6.1 Add arithmetic operators (plus, minus, times, divide) to make the following expression true: 3 1 3 6 = 8. You can use any parentheses you’d like.
 - (x) 6.2 There is an 8x8 chess board in which two diagonally opposite corners have been cut off. You are given 31 dominos, and a single domino can cover exactly two squares. Can you use the 31 dominos to cover the entire board?
 - 6.3 You have a five quart jug and a three quart jug, and an unlimited supply of water (but no measuring cups). How would you come up with exactly four quarts of water?
 - (x) 6.4 A bunch of men are on an island. A genie comes down and gathers everyone to- gether and places a magical hat on some people’s heads (i e , at least one person has a hat). The hat is magical: it can be seen by other people, but not by the wearer of the hat himself. To remove the hat, those(and only those who have a hat) must dunk themselves underwater at exactly midnight. If there are n people and c hats, how long does it take the men to remove the hats? The men cannot tell each other (in any way) that they have a hat.
