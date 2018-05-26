@@ -470,76 +470,151 @@ Questions:
 - 5.5 Write a function to determine the number of bits required to convert integer A to integer B.
   - https://leetcode.com/problems/hamming-distance/description/
 - 5.6 Write a program to swap odd and even bits in an integer with as few instructions as possible (e g , bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, etc).
+- 5.7 An array A[1...n] contains all the integers from 0 to n except for one number which is missing. In this problem, we cannot access an entire integer in A with a single operation. The elements of A are represented in binary, and the only operation we can use to access them is “fetch the jth bit of A[i]”, which takes constant time. Write code to find the missing integer. Can you do it in O(n) time?
 
 -----
-5.3
+5.3 这是一个对偶问题，大致思路是找到可以置换的0,1 pair, 然后将least bits进行重排列。
 
-#+BEGIN_SRC C++
-#include <cstdio>
-#include <cassert>
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
 
-int previous(int number) {
-  int n = number;
-  int c1 = 0;
-  int c0 = 0;
-  // find 0.
-  while(n & 0x1) {
-    n >>= 1;
-    c1++;
-  }
-  // find 1.
-  while(!(n & 0x1)) {
-    n >>= 1;
-    c0++;
-  }
-  // rearrange following 1 and 0.
-  // 10 with c0-1{0} and c1{1}
-  // change to 01 c1{1} c0-1{0}
-  n = ((n >> 1) << 1) + 1;
-  for(int i=0;i<c1;i++) {
-    n = (n << 1) + 1;
-  }
-  for(int i=1;i<c0;i++) {
-    n = (n << 1);
-  }
-  return n;
-}
 
-int next(int number) {
-  int n = number;
-  int c1 = 0;
-  int c0 = 0;
-  // find 1.
-  while(!(n & 0x1)) {
-    n >>= 1;
-    c0++;
-  }
-  // find 0.
-  while(n & 0x1) {
-    n >>= 1;
-    c1++;
-  }
-  // rearrrange following 1 and 0.
-  // change to 1 c0+1{0} c1-1{1}.
-  n += 1;
-  for(int i=0;i<=c0;i++) {
-    n = (n << 1);
-  }
-  for(int i=1;i<c1;i++) {
-    n = (n << 1) + 1;
-  }
-  return n;
-}
+def n_bits(v):
+    c = 0
+    while v:
+        c += (v & 0x1)
+        v >>= 1
+    return c
 
-int main() {
-  int n = (1 << 5) + (1 << 1) + 1;
-  int m = (1 << 4) + (1 << 3) + (1 << 2);
-  assert(previous(n) == m);
-  assert(next(m) == n);
-  return 0;
-}
 
+def same_n_bits(a, b):
+    return n_bits(a) == n_bits(b)
+
+
+def get_prev(v):
+    # 找到第一个可以置换的1(least bits中存在至少一个0)
+    # 并且统计least bits里面有多少个1
+
+    c0, c1 = None, None
+    least_ones = 0
+    for i in range(32):
+        if ((v >> i) & 0x1) == 0:
+            c0 = i
+            break
+        least_ones += 1
+    if c0 is None:
+        return None
+    for i in range(c0, 32):
+        if ((v >> i) & 0x1) == 1:
+            c1 = i
+            break
+    if c1 is None:
+        return None
+
+    # 下面剩余的1需要进行重排列，尽可能放置在高位
+    # 我们这里不设置bit, 而是进行重组
+    v = (v >> (c1 + 1)) << 1
+    v = (v << 1) + 1
+    assert (least_ones <= (c1 - 1))
+    for i in range(0, least_ones):
+        v = (v << 1) + 1
+    for i in range(least_ones, c1 - 1):
+        v = (v << 1)
+    return v
+
+
+def get_next(v):
+    # 找到第一个可以置换的0(least_bits中至少有一个1)
+    # 并且统计least bits里面有多少个0
+    c0, c1 = None, None
+    least_zeros = 0
+    for i in range(32):
+        if ((v >> i) & 0x1) == 1:
+            c1 = i
+            break
+        least_zeros += 1
+    if c1 is None:
+        return None
+    for i in range(c1, 32):
+        if ((v >> i) & 0x1) == 0:
+            c0 = i
+            break
+    if c0 is None:
+        return None
+    v = ((v >> (c0 + 1)) << 1) + 1
+    v = (v << 1)
+    assert (least_zeros <= (c0 - 1))
+    for i in range(0, least_zeros):
+        v = (v << 1)
+    for i in range(least_zeros, c0 - 1):
+        v = (v << 1) + 1
+    return v
+
+
+def check_prev(n):
+    prev = get_prev(n)
+    print('n = {}, prev = {}'.format(n, prev))
+    if prev is not None:
+        assert(prev < n)
+        assert (same_n_bits(prev, n))
+        for x in range(prev + 1, n):
+            # if same_n_bits(x, n):
+            #     print('bad case: prev = {}, x = {}'.format(prev, x))
+            #     break
+            assert not same_n_bits(x, n)
+
+
+for n in range(10, 2000):
+    check_prev(n)
+
+
+def check_next(n):
+    nextv = get_next(n)
+    print('n = {}, next = {}'.format(n, nextv))
+    if nextv is not None:
+        assert (nextv > n)
+        assert (same_n_bits(nextv, n))
+        for x in range(n + 1, nextv):
+            if same_n_bits(x, n):
+                print('bad case: next = {}, x = {}'.format(nextv, x))
+                break
+            assert not same_n_bits(x, n)
+
+
+for n in range(10, 2000):
+    check_next(n)
 #+END_SRC
+
+
+5.7
+
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+import random
+
+
+def find_missing(arr, n):
+    assert (len(arr) == n)
+    exp = 0
+    for x in range(0, n + 1):
+        exp ^= x
+    for x in arr:
+        exp ^= x
+    return exp
+
+
+for n in (100, 200, 300, 400):
+    arr = list(range(0, n + 1))
+    random.shuffle(arr)
+    exp_missing = arr[-1]
+    arr = arr[:-1]
+    print(exp_missing, find_missing(arr, n))
+#+END_SRC
+
 
 *** Brain Teasers
 - Don’t panic when you get a brain teaser. Interviewers want to see how you tackle a problem; they don’t expect you to immediately know the answer. Start talking, and show the inter- viewer how you approach a problem
