@@ -218,11 +218,11 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 - 1.3 Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
 - 1.4 Write a method to decide if two strings are anagrams or not.
 - 1.5 Write a method to replace all spaces in a string with ‘%20’.
-- 1.6(x) Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees Can you do this in place?
+- (x) 1.6 Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees Can you do this in place?
   - https://leetcode.com/problems/rotate-image
 - 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
   - https://leetcode.com/problems/set-matrix-zeroes/description/
-- 1.8(x) Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i e , “waterbottle” is a rotation of “erbottlewat”).
+- (x) 1.8 Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i e , “waterbottle” is a rotation of “erbottlewat”).
 
 -----
 1.6 clockwise
@@ -347,14 +347,14 @@ public:
 *** Stacks and Queues
 Questions:
 - 3.1 Describe how you could use a single array to implement three stacks.
-- 3.2 How would you design a stack which, in addition to push and pop, also has a function min which returns the minimum element? Push, pop and min should all operate in O(1) time.
+- (x) 3.2 How would you design a stack which, in addition to push and pop, also has a function min which returns the minimum element? Push, pop and min should all operate in O(1) time.
   - https://leetcode.com/problems/min-stack/description/
 - 3.3 Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be composed of several stacks, and should create a new stack once the previous one exceeds capacity. SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack (that is, pop() should return the same values as it would if there were just a single stack).
   - FOLLOW UP. Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
 - 3.4 In the classic problem of the Towers of Hanoi, you have 3 rods and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (e.g., each disk sits on top of an even larger one). You have the following constraints: (A) Only one disk can be moved at a time (B) A disk is slid off the top of one rod onto the next rod. (C) A disk can only be placed on top of a larger disk. Write a program to move the disks from the first rod to the last using Stacks.
 - 3.5 Implement a MyQueue class which implements a queue using two stacks.
   - https://leetcode.com/problems/implement-queue-using-stacks/description/
-- 3.6 Write a program to sort a stack in ascending order. You should not make any assumptions about how the stack is implemented.
+- (x) 3.6 Write a program to sort a stack in ascending order. You should not make any assumptions about how the stack is implemented.
 
 ------
 3.4 这个问题可以做个扩展，就是如何存在R根柱子的话，应该是什么样的解法？我觉得可以先把头部几个plates先放到(R-3)根柱子上，然后按照Hanoi的方法移动下面几个plates, 最后把头部plates放回到目的地。 R=3的时候，最少步数是 2**N - 1. R>3的时候
@@ -404,12 +404,12 @@ Questions:
 - 4.3 Given a sorted (increasing order) array, write an algorithm to create a binary tree with minimal height.
 - 4.4 Given a binary search tree, design an algorithm which creates a linked list of all the nodes at each depth (eg, if you have a tree with depth D, you’ll have D linked lists).
 - 4.5 Write an algorithm to find the ‘next’ node (e.g., in-order successor) of a given node in a binary search tree where each node has a link to its parent.
-- 4.6 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure.
+- (x) 4.6 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure.
   - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
   - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 - 4.7 You have two very large binary trees: T1, with millions of nodes, and T2, with hun- dreds of nodes. Create an algorithm to decide if T2 is a subtree of T1.
   - https://leetcode.com/problems/subtree-of-another-tree/description/
-- 4.8 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which sum up to that value. Note that it can be any path in the tree - it does not have to start at the root.
+- (x) 4.8 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which sum up to that value. Note that it can be any path in the tree - it does not have to start at the root.
   - https://leetcode.com/problems/path-sum/description/
   - https://leetcode.com/problems/path-sum-ii/description/
   - https://leetcode.com/problems/path-sum-iii/description/
@@ -465,7 +465,7 @@ file:./images/bitop.png
 Questions:
 - 5.1 You are given two 32-bit numbers, N and M, and two bit positions, i and j Write a method to set all bits between i and j in N equal to M. Input: N = 10000000000, M = 10101, i = 2, j = 6. Output: N = 10001010100
 - 5.2 Given a (decimal - e.g. 3.72) number that is passed in as a string, print the binary representation If the number can not be represented accurately in binary, print “ERROR”
-- 5.3 Given an integer, print the next smallest and next largest number that have the same number of 1 bits in their binary representation.
+- (x) 5.3 Given an integer, print the next smallest and next largest number that have the same number of 1 bits in their binary representation.
 - 5.4 Explain what the following code does: ((n & (n-1)) == 0).
 - 5.5 Write a function to determine the number of bits required to convert integer A to integer B.
   - https://leetcode.com/problems/hamming-distance/description/
@@ -623,6 +623,7 @@ for n in (100, 200, 300, 400):
 
 Questions:
 - 6.1 Add arithmetic operators (plus, minus, times, divide) to make the following expression true: 3 1 3 6 = 8. You can use any parentheses you’d like.
+  - (3 + 1) / (3 / 6)
 - (x) 6.2 There is an 8x8 chess board in which two diagonally opposite corners have been cut off. You are given 31 dominos, and a single domino can cover exactly two squares. Can you use the 31 dominos to cover the entire board?
 - 6.3 You have a five quart jug and a three quart jug, and an unlimited supply of water (but no measuring cups). How would you come up with exactly four quarts of water?
 - (x) 6.4 A bunch of men are on an island. A genie comes down and gathers everyone together and places a magical hat on some people’s heads (i e , at least one person has a hat). The hat is magical: it can be seen by other people, but not by the wearer of the hat himself. To remove the hat, those(and only those who have a hat) must dunk themselves underwater at exactly midnight. If there are n people and c hats, how long does it take the men to remove the hats? The men cannot tell each other (in any way) that they have a hat.
@@ -630,7 +631,7 @@ Questions:
   - dp[t][s][e] = 1 + min{ i=[s,e], max(dp[t-1][s][i-1], dp[t][i+1][e]) }. if(s>e) 0 else if(t==0) e-s+1
   - #note: not easy to deduce actions from dp
   - #note: and only one step can be decided. I've attached the code below.
-- (x) 6.6 There are one hundred closed lockers in a hallway. A man begins by opening all one hundred lockers Next, he closes every second locker. Then he goes to every third locker and closes it if it is open or opens it if it is closed (e g , he toggles every third locker). After his one hundredth pass in the hallway, in which he toggles only locker number one hundred, how many lockers are open?
+- (x) 6.6 There are one hundred closed lockers in a hallway. A man begins by opening all one hundred lockers. Next, he closes every second locker. Then he goes to every third locker and closes it if it is open or opens it if it is closed (e.g., he toggles every third locker). After his one hundredth pass in the hallway, in which he toggles only locker number one hundred, how many lockers are open?
   - only n = p * p have been flipped with odd number and final status is open.
 
 -----
@@ -715,13 +716,27 @@ int main() {
 - Recursive algorithms can be very space inefficient. Each recursive call adds a new layer to the stack, which means that if your algorithm has O(n) recursive calls then it uses O(n) memory Ouch! This is one reason why an iterative algorithm may be better.
 
 Questions:
+- 8.1 Write a method to generate the nth Fibonacci number.
 - 8.2 Imagine a robot sitting on the upper left hand corner of an NxN grid The robot can only move in two directions: right and down How many possible paths are there for the robot?
   - Imagine certain squares are “off limits”, such that the robot can not step on them Design an algorithm to get all possible paths for the robot
+  - C(n,m) = n! / (m! * (n-m)!)
+  - https://leetcode.com/problems/unique-paths/description/
+  - https://leetcode.com/problems/unique-paths-ii/description/
 - 8.3 Write a method that returns all subsets of a set.
+  - https://leetcode.com/problems/subsets/description/
+  - https://leetcode.com/problems/subsets-ii/description/
 - 8.4 Write a method to compute all permutations of a string.
-- 8.5 Implement an algorithm to print all valid (e g , properly opened and closed) combi- nations of n-pairs of parentheses.
+  - https://leetcode.com/problems/permutations/description/
+  - https://leetcode.com/problems/permutations-ii/description/
+  - https://leetcode.com/problems/next-permutation/description/
+- 8.5 Implement an algorithm to print all valid (e g , properly opened and closed) combinations of n-pairs of parentheses.
+  - https://leetcode.com/problems/generate-parentheses/description/
+- 8.6 Implement the “paint fill” function that one might see on many image editing programs. That is, given a screen (represented by a 2-dimensional array of Colors), a point, and a new color, fill in the surrounding area until you hit a border of that color.
+  - https://leetcode.com/problems/flood-fill/description/
 - 8.7 Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents) and pennies (1 cent), write code to calculate the number of ways of representing n cents.
 - 8.8 Write an algorithm to print all ways of arranging eight queens on a chess board so that none of them share the same row, column or diagonal.
+  - https://leetcode.com/problems/n-queens/description/
+  - https://leetcode.com/problems/n-queens-ii/description/
 
 *** Sorting and Searching
 - Bubble Sort
@@ -732,14 +747,20 @@ Questions:
 - *Binary Search*
 
 Questions:
-- (x) 9.1 You are given two sorted arrays, A and B, and A has a large enough buffer at the end to hold B Write a method to merge B into A in sorted order.
-- 9.3 Given a sorted array of n integers that has been rotated an unknown number of times,give an O(logn) algorithm that finds an element in the array. You may assume that the array was originally sorted in increasing order. EXAMPLE: Input: find 5 in array (15 16 19 20 25 1 3 4 5 7 10 14) Output: 8 (the index of 5 in the array)
+- 9.1 You are given two sorted arrays, A and B, and A has a large enough buffer at the end to hold B. Write a method to merge B into A in sorted order.
+  - https://leetcode.com/problems/merge-sorted-array/description/
+- 9.2 Write a method to sort an array of strings so that all the anagrams are next to each other.
+- (x) 9.3 Given a sorted array of n integers that has been rotated an unknown number of times, give an O(logn) algorithm that finds an element in the array. You may assume that the array was originally sorted in increasing order. EXAMPLE: Input: find 5 in array (15 16 19 20 25 1 3 4 5 7 10 14) Output: 8 (the index of 5 in the array)
+  - https://leetcode.com/problems/search-in-rotated-sorted-array/description/ O(lgn)
+  - https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/ O(n)
 - 9.4 If you have a 2 GB file with one string per line, which sorting algorithm would you use to sort the file and why?
-- 9.5 Given a sorted array of strings which is interspersed with empty strings, write a meth- od to find the location of a given string
+- (x) 9.5 Given a sorted array of strings which is interspersed with empty strings, write a method to find the location of a given string
   - Example: find “ball” in [“at”, “”, “”, “”, “ball”, “”, “”, “car”, “”, “”, “dad”, “”, “”] will return 4
   - Example: find “ballcar” in [“at”, “”, “”, “”, “”, “ball”, “car”, “”, “”, “dad”, “”, “”] will return -1
-- 9.6 Given a matrix in which each row and each column is sorted, write a method to find an element in it.
-- 9.7 A circus is designing a tower routine consisting of people standing atop one anoth- er’s shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her. Given the heights and weights of each person in the circus, write a method to compute the largest possible number of peo- ple in such a tower. EXAMPLE: Input (ht, wt): (65, 100) (70, 150) (56, 90) (75, 190) (60, 95) (68, 110) Output: The longest tower is length 6 and includes from top to bottom: (56, 90) (60,95) (65,100) (68,110) (70,150) (75,190)
+- (x) 9.6 Given a matrix in which each row and each column is sorted, write a method to find an element in it.
+  - https://leetcode.com/problems/search-a-2d-matrix/description/ O(lgm + lgn)
+  - https://leetcode.com/problems/search-a-2d-matrix-ii/description/ O(n+m)
+- (x) 9.7 A circus is designing a tower routine consisting of people standing atop one another’s shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her. Given the heights and weights of each person in the circus, write a method to compute the largest possible number of people in such a tower. EXAMPLE: Input (ht, wt): (65, 100) (70, 150) (56, 90) (75, 190) (60, 95) (68, 110) Output: The longest tower is length 6 and includes from top to bottom: (56, 90) (60,95) (65,100) (68,110) (70,150) (75,190)
 
 -----
 9.3
@@ -846,11 +867,15 @@ Questions:
   - Game #1: You get one shot to make the hoop
   - Game #2: You get three shots and you have to make 2 of 3 shots
   - If p is the probability of making a particular shot, for which values of p should you pick one game or the other?
-- 10.2 There are three ants on different vertices of a triangle What is the probability of colli- sion (between any two or all of them) if they start walking on the sides of the triangle? Similarly find the probability of collision with ‘n’ ants on an ‘n’ vertex polygon
-- 10.4 Write a method to implement *, - , / operations You should use only the + operator.
+- 10.2 There are three ants on different vertices of a triangle. What is the probability of collision (between any two or all of them) if they start walking on the sides of the triangle? Similarly find the probability of collision with ‘n’ ants on an ‘n’ vertex polygon
+- 10.3 Given two lines on a Cartesian plane, determine whether the two lines would intersect.
+- (x) 10.4 Write a method to implement *, - , / operations. You should use only the + operator.
 - (x) 10.5 Given two squares on a two dimensional plane, find a line that would cut these two squares in half.
 - (x) 10.6 Given a two dimensional graph with points on it, find a line which passes the most number of points.
+  - https://leetcode.com/problems/max-points-on-a-line/description/
 - (x) 10.7 Design an algorithm to find the kth number such that the only prime factors are 3, 5, and 7.
+  - https://leetcode.com/problems/ugly-number/description/
+  - https://leetcode.com/problems/ugly-number-ii/description/
 
 -----
 10.7
@@ -899,14 +924,17 @@ int main() {
 *** Testing
 *** System Design and Memory Limits
 Questions:
-- 11.1 If you were integrating a feed of end of day stock price information (open, high, low, and closing price) for 5,000 companies, how would you do it? You are responsible for the development, rollout and ongoing monitoring and maintenance of the feed. De- scribe the different methods you considered and why you would recommend your approach. The feed is delivered once per trading day in a comma-separated format via an FTP site. The feed will be used by 1000 daily users in a web application.
-- 11.2 How would you design the data structures for a very large social network (Facebook, LinkedIn, etc)? Describe how you would design an algorithm to show the connec- tion, or path, between two people (e g , Me -> Bob -> Susan -> Jason -> You).
+- 11.1 If you were integrating a feed of end of day stock price information (open, high, low, and closing price) for 5,000 companies, how would you do it? You are responsible for the development, rollout and ongoing monitoring and maintenance of the feed. Describe the different methods you considered and why you would recommend your approach. The feed is delivered once per trading day in a comma-separated format via an FTP site. The feed will be used by 1000 daily users in a web application.
+- 11.2 How would you design the data structures for a very large social network (Facebook, LinkedIn, etc)? Describe how you would design an algorithm to show the connection, or path, between two people (e g , Me -> Bob -> Susan -> Jason -> You).
+  - 我觉得可以为每个人存储2度关系，这个应该是可以接受的。比如Me, Bob, Susan(2rd by Bob)，因为2度扩展出去的人数应该不是很多比如10^6.
+  - 然后如果要找到Me->You之间关系的话，因为You, Jason, Susan(2rd By Jason). 这样只需要做两个bit set的join即可找到共同联系人，拿You的2度bits和Me的2度bits做join即可。
+  - 大部分情况下面使用这种方式都可以找到共同联系人，除非是这两个人关系特别特别远。
 - (x) 11.3 Given an input file with four billion integers, provide an algorithm to generate an integer which is not contained in the file. Assume you have 1 GB of memory. What if you have only 10 MB of memory?
   - #note: The solution provided by the book should be with a restriction that integers are not repeated. But anyway, the solution is inspiring
 - 11.4 You have an array with all the numbers from 1 to N, where N is at most 32,000. The array may have duplicate entries and you do not know what N is. With only 4KB of memory available, how would you print all duplicate elements in the array?
 - 11.5 If you were designing a web crawler, how would you avoid getting into infinite loops?
 - 11.6 You have a billion urls, where each is a huge page How do you detect the duplicate documents?
-- 11.7 You have to design a database that can store terabytes of data It should support ef- ficient range queries How would you do it?.
+- 11.7 You have to design a database that can store terabytes of data It should support efficient range queries How would you do it?.
 
 *** C++
 *** Java
