@@ -990,29 +990,38 @@ Questions:
 *** Networking
 Questions:
 - 17.1 Explain what happens, step by step, after you type a URL into a browser. Use as much detail as possible.
-- 17.2 Explain any common routing protocol in detail For example: BGP, OSPF, RIP
+- (x) 17.2 Explain any common routing protocol in detail For example: BGP, OSPF, RIP
 - 17.3 Compare and contrast the IPv4 and IPv6 protocols.
-- (x) 17.4 What is a network / subnet mask? Explain how host A sends a message / packet to host B when: (a) both are on same network and (b) both are on different networks Explain which layer makes the routing decision and how.
-- (x) 17.5 What are the differences between TCP and UDP? Explain how TCP handles reliable delivery (explain ACK mechanism), flow control (explain TCP sender’s / receiver’s win- dow) and congestion control.
+  - IPv4 has di#erent class types: A,B,C,D and E.
+  - Class A, Class B, and Class C are the three classes of addresses used on IP networks in common practice.
+  - Class D addresses are reserved for multicast.
+  - Class E addresses are simply reserved, meaning they should not be used on IP networks (used on a limited basis by some research organizations for experimental purposes).
+- (x) 17.4 What is a network / subnet mask? Explain how host A sends a message / packet to host B when: (a) both are on same network and (b) both are on different networks. Explain which layer makes the routing decision and how.
+- (x) 17.5 What are the differences between TCP and UDP? Explain how TCP handles reliable delivery (explain ACK mechanism), flow control (explain TCP sender’s / receiver’s window) and congestion control.
 
 *** Threads and Locks
+cpu affinity
+
 Questions:
 - 18.1 What’s the difference between a thread and a process?
 - 18.2 How can you measure the time spent in a context switch?
-- 18.3 Implement a singleton design pattern as a template such that, for any given class Foo, you can call Singleton::instance() and get a pointer to an instance of a singleton of type Foo. Assume the existence of a class Lock which has acquire() and release() methods. How could you make your implementation thread safe and exception safe?.
+- (x) 18.3 Implement a singleton design pattern as a template such that, for any given class Foo, you can call Singleton::instance() and get a pointer to an instance of a singleton of type Foo. Assume the existence of a class Lock which has acquire() and release() methods. How could you make your implementation thread safe and exception safe?
 - 18.4 Design a class which provides a lock only if there are no possible deadlocks.
-- 18.5 You are given a class with synchronized method A, and a normal method C If you have two threads in one instance of a program, can they call A at the same time? Can they call A and C at the same time?
+- 18.6 You are given a class with synchronized method A, and a normal method C. If you have two threads in one instance of a program, can they call A at the same time? Can they call A and C at the same time?
 
 *** Moderate Additional Review Problems
 Questions:
 - 19.1 Write a function to swap a number in place without temporary variables.
+- 19.2 Design an algorithm to figure out if someone has won in a game of tic-tac-toe.
 - (x) 19.3 Write an algorithm which computes the number of trailing zeros in n factorial.
-- 19.4 Write a method which finds the maximum of two numbers. You should not use if- else or any other comparison operator.
+  - https://leetcode.com/problems/factorial-trailing-zeroes/
+- (x) 19.4 Write a method which finds the maximum of two numbers. You should not use if-else or any other comparison operator.
 - 19.6 Given an integer between 0 and 999,999, print an English phrase that describes the integer (eg, “One Thousand, Two Hundred and Thirty Four”).
+  - https://leetcode.com/problems/integer-to-english-words/description/
 - 19.7 You are given an array of integers (both positive and negative). Find the continuous sequence with the largest sum. Return the sum.
 - 19.8 Design a method to find the frequency of occurrences of any given word in a book.
 - (x) 19.10 Write a method to generate a random number between 1 and 7, given a method that generates a random number between 1 and 5 (i e , implement rand7() using rand5()).
-- 19.11 Design an algorithm to find all pairs of integers within an array which sum to a speci- fied value.
+- 19.11 Design an algorithm to find all pairs of integers within an array which sum to a specified value.
 
 -----
 19.3
@@ -1091,11 +1100,11 @@ int main() {
 
 *** Hard Additional Review Problems
 Questions:
-- (x) 20.1 Write a function that adds two numbers You should not use + or any arithmetic op- erators.
+- (x) 20.1 Write a function that adds two numbers You should not use + or any arithmetic operators.
 - (x) 20.2 Write a method to shuffle a deck of cards. It must be a perfect shuffle - in other words, each 52! permutations of the deck has to be equally likely. Assume that you are given a random number generator which is perfect.
 - (x) 20.3 Write a method to randomly generate a set of m integers from an array of size n. Each element must have equal probability of being chosen.
 - (x) 20.4 Write a method to count the number of 2s between 0 and n.
-- 20.5 You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. Can you make the searching operation in O(1) time? What about the space complexity for your solu- tion?
+- 20.5 You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. Can you make the searching operation in O(1) time? What about the space complexity for your solution?
 - (x) 20.6 Describe an algorithm to find the largest 1 million numbers in 1 billion numbers. As- sume that the computer memory can hold all one billion numbers.
 - (x) 20.7 Write a program to find the longest word made of other words.
 - (x) 20.8 Given a string s and an array of smaller strings T, design a method to search s for each small string in T.
