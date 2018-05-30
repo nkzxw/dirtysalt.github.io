@@ -1013,6 +1013,7 @@ Questions:
 - 19.2 Design an algorithm to figure out if someone has won in a game of tic-tac-toe.
 - (x) 19.3 Write an algorithm which computes the number of trailing zeros in n factorial.
   - https://leetcode.com/problems/factorial-trailing-zeroes/
+  - ref: https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/description/
 - (x) 19.4 Write a method which finds the maximum of two numbers. You should not use if-else or any other comparison operator.
 - 19.6 Given an integer between 0 and 999,999, print an English phrase that describes the integer (eg, “One Thousand, Two Hundred and Thirty Four”).
   - https://leetcode.com/problems/integer-to-english-words/description/
@@ -1040,6 +1041,7 @@ Questions:
 - (x) 20.2 Write a method to shuffle a deck of cards. It must be a perfect shuffle - in other words, each 52! permutations of the deck has to be equally likely. Assume that you are given a random number generator which is perfect.
 - (x) 20.3 Write a method to randomly generate a set of m integers from an array of size n. Each element must have equal probability of being chosen.
 - (x) 20.4 Write a method to count the number of 2s between 0 and n.
+  - https://leetcode.com/problems/number-of-digit-one/description/
 - 20.5 You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. Can you make the searching operation in O(1) time? What about the space complexity for your solution?
 - (x) 20.6 Describe an algorithm to find the largest 1 million numbers in 1 billion numbers. Assume that the computer memory can hold all one billion numbers. *top-k selection / quick sort*
 - (x) 20.7 Write a program to find the longest word made of other words.
