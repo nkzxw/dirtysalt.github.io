@@ -14,6 +14,8 @@ class Solution(object):
             wordlist.remove(beginWord)
         if endWord in wordlist:
             wordlist.remove(endWord)
+        else:
+            return []
         wordlist = list(wordlist)
         wordlist.insert(0, beginWord)
         wordlist.append(endWord)
@@ -39,7 +41,7 @@ class Solution(object):
             pfx = ws[0][0][:-1]
             pfx_idx = 0
 
-            def fx_range(i, j):
+            def pfx_range(i, j):
                 for x in range(i, j):
                     for y in range(x+1, j):
                         a = ws[x][1]
@@ -50,17 +52,16 @@ class Solution(object):
             for i in range(1, len(ws)):
                 if ws[i][0].startswith(pfx):
                     continue
-                fx_range(pfx_idx, i)
+                pfx_range(pfx_idx, i)
                 pfx = ws[i][0][:-1]
                 pfx_idx = i
 
-            fx_range(pfx_idx, len(ws))
+            pfx_range(pfx_idx, len(ws))
 
         for off in range(0, len(beginWord)):
-            tmp_ws = map(lambda (x, idx): (x[off:] + x[:off], idx), wordlist2)
-            tmp_ws.sort(key = lambda x: x[0])
-            # print tmp_ws
-            updateG(tmp_ws)
+            ws = map(lambda (x, idx): (x[off:] + x[:off], idx), wordlist2)
+            ws.sort(key = lambda x: x[0])
+            updateG(ws)
 
         from collections import deque
         Q = deque()
