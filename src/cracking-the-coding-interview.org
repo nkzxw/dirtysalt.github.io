@@ -1105,12 +1105,11 @@ Questions:
 - 20.5 You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. Can you make the searching operation in O(1) time? What about the space complexity for your solution?
 - (x) 20.6 Describe an algorithm to find the largest 1 million numbers in 1 billion numbers. Assume that the computer memory can hold all one billion numbers. *top-k selection / quick sort*
 - (x) 20.7 Write a program to find the longest word made of other words.
-  - https://leetcode.com/problems/longest-word-in-dictionary/description/
 - (x) 20.8 Given a string s and an array of smaller strings T, design a method to search s for each small string in T. *suffix tree*
 - (x) 20.9 Numbers are randomly generated and passed to a method. Write a program to find and maintain the median value as new values are generated.
   - https://leetcode.com/problems/find-median-from-data-stream/description/
-  - https://leetcode.com/problems/sliding-window-median/description/
-  - 也可以通过平衡树来完成，查询操作是O(1），更新操作是O(lgn)
+  - ref: https://leetcode.com/problems/sliding-window-median/description/
+  - 这个问题可以通过平衡树来完成，查询操作是O(1），更新操作是O(lgn)
 - (x) 20.10 Given two words of equal length that are in a dictionary, write a method to transform one word into another word by changing only one letter at a time. The new word you get in each step must be in the dictionary.
   - https://leetcode.com/problems/word-ladder/description/
   - https://leetcode.com/problems/word-ladder-ii/description/
