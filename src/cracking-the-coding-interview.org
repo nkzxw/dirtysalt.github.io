@@ -987,6 +987,57 @@ Questions:
   - aligned_free(p) will free memory allocated by align_malloc.
 - 16.10 Write a function called my2DAlloc which allocates a two dimensional array. Minimize the number of calls to malloc and make sure that the memory is accessible by the notation arr[i][j].
 
+-----
+16.9
+
+#+BEGIN_SRC C++
+/* coding:utf-8
+ * Copyright (C) dirlt
+ */
+
+#include <cstdio>
+#include <new>
+#include <vector>
+using namespace std;
+
+void* align_malloc(int size, int alignment) {
+    // sizeof(void*) + block(alignment-1) + block(size)
+    int extra_size = sizeof(void*) + alignment - 1;
+    void *p = malloc(extra_size);
+    // align
+    void *p1 = (void*)((size_t)p + extra_size);
+    void **p2 = (void**)((size_t)p1 & (~(alignment - 1)));
+    // printf("p = %p, p1 = %p, p2 = %p\n", p, p1, p2);
+    p2[-1] = p;
+    return (void*)p2;
+}
+
+
+void align_free(void *p) {
+    void **p1 = (void**)p;
+    free(p1[-1]);
+}
+
+int main() {
+    vector<void*> pts;
+    for(int size = 10; size < 100; size += 5) {
+        for(int align = 16; align <= 128; align *= 2) {
+            void *p = align_malloc(size, align);
+            size_t addr = (size_t)p;
+            if((addr % align) != 0) {
+                printf("!!! addr = %p, align = %d\n", p, align);
+            }
+            pts.push_back(p);
+        }
+    }
+    for(int i = 0; i < pts.size(); i++) {
+        void* p = pts[i];
+        align_free(p);
+    }
+}
+
+#+END_SRC
+
 *** Networking
 Questions:
 - 17.1 Explain what happens, step by step, after you type a URL into a browser. Use as much detail as possible.
