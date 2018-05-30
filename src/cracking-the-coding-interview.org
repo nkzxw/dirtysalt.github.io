@@ -1146,46 +1146,7 @@ int main() {
 -----
 20.4
 
-优化点是 `c2r(pow-1, pow/10)` 这项其实可以预先计算出来，这样可以变为迭代算法
-#+BEGIN_SRC C++
-/* coding:utf-8
- * Copyright (C) dirlt
- */
-
-#include <cstdio>
-
-int c2(int n);
-int c2r(int n, int pow) {
-    if(n == 0) return 0;
-    int x = n / pow;
-    int y = n % pow;
-    int res = 0;
-    if(x == 2) {
-        res += (y + 1);
-    } else if(x > 2) {
-        res += pow;
-    }
-    res += x * c2r(pow-1,pow / 10) + c2(y);
-    return res;
-}
-
-int c2(int n) {
-    int pow = 1;
-    while((pow * 10) <= n) pow *= 10;
-    return c2r(n,pow);
-}
-
-int main() {
-    int ns[] = {279, 379, 579, 2012, 2002, 0};
-    for(int i = 0; ns[i]; i++) {
-        int n = ns[i];
-        printf("c2(%d) = %d\n", n, c2(n));
-    }
-    return 0;
-}
-#+END_SRC
-
-下面是Python实现的递归和迭代两个版本
+迭代版本的优化点是 `c2r(pow-1, pow/10)` 这项其实可以预先计算出来
 
 #+BEGIN_SRC Python
 #!/usr/bin/env python
@@ -1244,82 +1205,7 @@ for n in (279, 379, 579, 2012, 2010, 2009, 2002):
 -----
 20.9
 
-下面这个C++的版本有点复杂，Python版本会更加简单。
-
-#+BEGIN_SRC C++
-#include <queue>
-#include <algorithm>
-#include <vector>
-using namespace std;
-
-class Median {
- private:
-  priority_queue< int, vector<int>, less<int> > Q0;
-  priority_queue< int, vector<int>, greater<int> > Q1;
-
- public:
-  void insert(int x) {
-    if(Q0.empty()) {
-      if(Q1.empty()) {
-        Q1.push(x);
-      } else {
-        int y = Q1.top();
-        if(x < y) {
-          Q0.push(x);
-        } else {
-          Q1.pop();
-          Q0.push(y);
-          Q1.push(x);
-        }
-      }
-      return ;
-    }
-
-    int x0 = Q0.top();
-    int x1 = Q1.top();
-    if(Q0.size() == Q1.size()) {
-      if(x <= x0) {
-        Q0.pop();
-        Q0.push(x);
-        Q1.push(x0);
-      } else {
-        Q1.push(x);
-      }
-    } else {
-      if(x >= x1) {
-        Q1.pop();
-        Q1.push(x);
-        Q0.push(x1);
-      } else {
-        Q0.push(x);
-      }
-    }
-  }
-
-  double median() {
-    if(Q0.size() == Q1.size()) {
-      return (Q0.top() + Q1.top()) * 0.5;
-    } else {
-      return Q1.top();
-    }
-  }
-};
-
-int main() {
-  Median m;
-  m.insert(1);
-  m.insert(2);
-  printf("%g\n",m.median());
-  m.insert(3);
-  printf("%g\n",m.median());
-  m.insert(-3);
-  printf("%g\n",m.median());
-  return 0;
-}
-
-#+END_SRC
-
-Python版本思路大致就是，先把item放进去，然后再做balance.
+先把item放在合适的位置，然后进行balance, 这样代码上会简单清晰很多
 
 #+BEGIN_SRC Python
 #!/usr/bin/env python
@@ -1376,7 +1262,6 @@ class MedianFinder:
 假设S'(r1, c1, r2, c2)是(r1,c1)到(r2,c2)这个区域的和，而S(r, c) = S'(0,0,r,c)的话，那么有公式：
 - S(r2,c2) - S(r1,c2) - S(r2,c1) + S(r1,c1) = S'(r1+1,c1+1,r2,c2)
 - S(r,c) = 0 if r < 0 or c < 0
-但是下面的C++代码是使用另外一种方式来计算区域的和
 
 #+BEGIN_SRC C++
 int m[N][N];
