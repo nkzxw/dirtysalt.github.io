@@ -1000,11 +1000,9 @@ Questions:
 - (x) 17.5 What are the differences between TCP and UDP? Explain how TCP handles reliable delivery (explain ACK mechanism), flow control (explain TCP sender’s / receiver’s window) and congestion control.
 
 *** Threads and Locks
-cpu affinity
-
 Questions:
 - 18.1 What’s the difference between a thread and a process?
-- 18.2 How can you measure the time spent in a context switch?
+- 18.2 How can you measure the time spent in a context switch? *cpu affinity*
 - (x) 18.3 Implement a singleton design pattern as a template such that, for any given class Foo, you can call Singleton::instance() and get a pointer to an instance of a singleton of type Foo. Assume the existence of a class Lock which has acquire() and release() methods. How could you make your implementation thread safe and exception safe?
 - 18.4 Design a class which provides a lock only if there are no possible deadlocks.
 - 18.6 You are given a class with synchronized method A, and a normal method C. If you have two threads in one instance of a program, can they call A at the same time? Can they call A and C at the same time?
@@ -1105,31 +1103,42 @@ Questions:
 - (x) 20.3 Write a method to randomly generate a set of m integers from an array of size n. Each element must have equal probability of being chosen.
 - (x) 20.4 Write a method to count the number of 2s between 0 and n.
 - 20.5 You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. Can you make the searching operation in O(1) time? What about the space complexity for your solution?
-- (x) 20.6 Describe an algorithm to find the largest 1 million numbers in 1 billion numbers. As- sume that the computer memory can hold all one billion numbers.
+- (x) 20.6 Describe an algorithm to find the largest 1 million numbers in 1 billion numbers. Assume that the computer memory can hold all one billion numbers. *top-k selection / quick sort*
 - (x) 20.7 Write a program to find the longest word made of other words.
-- (x) 20.8 Given a string s and an array of smaller strings T, design a method to search s for each small string in T.
+  - https://leetcode.com/problems/longest-word-in-dictionary/description/
+- (x) 20.8 Given a string s and an array of smaller strings T, design a method to search s for each small string in T. *suffix tree*
 - (x) 20.9 Numbers are randomly generated and passed to a method. Write a program to find and maintain the median value as new values are generated.
+  - https://leetcode.com/problems/find-median-from-data-stream/description/
+  - https://leetcode.com/problems/sliding-window-median/description/
+  - 也可以通过平衡树来完成，查询操作是O(1），更新操作是O(lgn)
 - (x) 20.10 Given two words of equal length that are in a dictionary, write a method to transform one word into another word by changing only one letter at a time. The new word you get in each step must be in the dictionary.
-- (x) 20.11 Imagine you have a square matrix, where each cell is filled with either black or white. Design an algorithm to find the maximum subsquare such that all four borders are filled with black pixels.
-- (x) 20.12 Given an NxN matrix of positive and negative integers, write code to find the sub- matrix with the largest possible sum.
+  - https://leetcode.com/problems/word-ladder/description/
+  - https://leetcode.com/problems/word-ladder-ii/description/
+- 20.11 Imagine you have a square matrix, where each cell is filled with either black or white. Design an algorithm to find the maximum subsquare such that all four borders are filled with black pixels.
+- (x) 20.12 Given an NxN matrix of positive and negative integers, write code to find the submatrix with the largest possible sum.
+  - ref: https://leetcode.com/problems/maximal-rectangle
 - (x) 20.13 Given a dictionary of millions of words, give an algorithm to find the largest possible rectangle of letters such that every row forms a word (reading left to right) and every column forms a word (reading top to bottom).
 
 -----
 20.1
 
 #+BEGIN_SRC C++
+/* coding:utf-8
+ * Copyright (C) dirlt
+ */
+
 #include <cstdio>
 
 int add2(int a,int b) {
-  int sum = a ^ b;
-  int carry = (a & b) << 1;
-  if(carry == 0) return sum;
-  return add2(sum,carry);
+    int sum = a ^ b;
+    int carry = (a & b) << 1;
+    if(carry == 0) return sum;
+    return add2(sum,carry);
 }
 
 int main() {
-  printf("%d\n",add2(190,70));
-  return 0;
+    printf("%d\n",add2(190,70));
+    return 0;
 }
 
 #+END_SRC
@@ -1137,39 +1146,105 @@ int main() {
 -----
 20.4
 
+优化点是 `c2r(pow-1, pow/10)` 这项其实可以预先计算出来，这样可以变为迭代算法
 #+BEGIN_SRC C++
+/* coding:utf-8
+ * Copyright (C) dirlt
+ */
+
 #include <cstdio>
 
 int c2(int n);
 int c2r(int n, int pow) {
-  if(n == 0) return 0;
-  int x = n / pow;
-  int y = n % pow;
-  int res = 0;
-  if(x == 2) {
-    res += (y + 1);
-  } else if(x > 2) {
-    res += pow;
-  }
-  res += x * c2r(pow-1,pow / 10) + c2(y);
-  return res;
+    if(n == 0) return 0;
+    int x = n / pow;
+    int y = n % pow;
+    int res = 0;
+    if(x == 2) {
+        res += (y + 1);
+    } else if(x > 2) {
+        res += pow;
+    }
+    res += x * c2r(pow-1,pow / 10) + c2(y);
+    return res;
 }
 
 int c2(int n) {
-  int pow = 1;
-  while((pow * 10) <= n) pow *= 10;
-  return c2r(n,pow);
+    int pow = 1;
+    while((pow * 10) <= n) pow *= 10;
+    return c2r(n,pow);
 }
 
 int main() {
-  printf("%d\n",c2(279));
-  return 0;
+    int ns[] = {279, 379, 579, 2012, 2002, 0};
+    for(int i = 0; ns[i]; i++) {
+        int n = ns[i];
+        printf("c2(%d) = %d\n", n, c2(n));
+    }
+    return 0;
 }
+#+END_SRC
+
+下面是Python实现的递归和迭代两个版本
+
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+def c2r(n, pw):
+    if(n == 0):
+        return 0
+    x = n // pw
+    y = n % pw
+    res = 0
+    if (x == 2):
+        res += (y + 1)
+    elif (x > 2):
+        res += pw
+    res += x * c2r(pw - 1, pw // 10) + c2x(y)
+    return res
+
+def c2x(n):
+    pw = 1
+    while((pw * 10) <= n):
+        pw *= 10
+    return c2r(n, pw)
+
+
+def count2(n):
+    res = 0
+    pw = 1
+    pc = 0
+    while((pw * 10) <= n):
+        pw *= 10
+        pc += 1
+    while(n):
+        x = n // pw
+        y = n % pw
+        if (x >= 2):
+            if (x == 2):
+                res += (y+1)
+            else:
+                res += pw
+        res += x * pc * (pw // 10)
+        n = y
+        # print('pc = {}, pw = {}, res = {}, n = {}'.format(pc, pw, res, n))
+        pc -= 1
+        pw = pw // 10
+    return res
+
+for n in (279, 379, 579, 2012, 2010, 2009, 2002):
+    print('====================')
+    print('c2({}) = {}'.format(n, count2(n)))
+    print('c2x({}) = {}'.format(n, c2x(n)))
 
 #+END_SRC
 
 -----
 20.9
+
+下面这个C++的版本有点复杂，Python版本会更加简单。
 
 #+BEGIN_SRC C++
 #include <queue>
@@ -1244,25 +1319,64 @@ int main() {
 
 #+END_SRC
 
------
-20.11
+Python版本思路大致就是，先把item放进去，然后再做balance.
 
-#+BEGIN_SRC C++
-int m[N][N];
-for(int n=N;n>=1;n--) {
-  for(int r=0;(N-r)>=n;r++) {
-    for(int c=0;(N-c)>=n;r++) {
-      if(bound(r,c,n)) {
-        return n;
-      }
-    }
-  }
-}
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+import heapq
+
+class MedianFinder:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.lhq = []
+        self.rhq = []
+
+    def addNum(self, num):
+        """
+        :type num: int
+        :rtype: void
+        """
+        # insert first.
+        if(self.rhq and num >= self.rhq[0]):
+            heapq.heappush(self.rhq, num)
+        else:
+            heapq.heappush(self.lhq, -num)
+        # then balance.
+        if((len(self.rhq) - len(self.lhq)) == 2):
+            v = heapq.heappop(self.rhq)
+            heapq.heappush(self.lhq, -v)
+        elif((len(self.lhq) - len(self.rhq)) == 1):
+            v = heapq.heappop(self.lhq)
+            heapq.heappush(self.rhq, -v)
+
+
+    def findMedian(self):
+        """
+        :rtype: float
+        """
+        if (len(self.rhq) == len(self.lhq)):
+            if len(self.lhq) == 0:
+                return 0.0
+            return (self.rhq[0] - self.lhq[0]) * 0.5
+        else:
+            return self.rhq[0]
+
 
 #+END_SRC
 
 -----
 20.12
+
+假设S'(r1, c1, r2, c2)是(r1,c1)到(r2,c2)这个区域的和，而S(r, c) = S'(0,0,r,c)的话，那么有公式：
+- S(r2,c2) - S(r1,c2) - S(r2,c1) + S(r1,c1) = S'(r1+1,c1+1,r2,c2)
+- S(r,c) = 0 if r < 0 or c < 0
+但是下面的C++代码是使用另外一种方式来计算区域的和
 
 #+BEGIN_SRC C++
 int m[N][N];
