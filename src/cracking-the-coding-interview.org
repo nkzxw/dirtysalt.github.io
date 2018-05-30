@@ -1266,18 +1266,6 @@ class MedianFinder:
 #+BEGIN_SRC C++
 int m[N][N];
 int dp[N][N]; // dp[s][e] = sum from (0,0) to (s,e).
-for(int r=0;r<N;r++) {
-  for(int c=0;c<N;c++) {
-    int s = 0;
-    for(int i=0;i<c;i++) {
-      s += m[r][i];
-    }
-    dp[r][c] = s;
-    if(r != 0) {
-      dp[r][c] += dp[r-1][c];
-    }
-  }
-}
 
 int v = INT_MIN;
 for(int rs=0;rs<N;rs++) {
