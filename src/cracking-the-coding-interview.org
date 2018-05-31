@@ -878,50 +878,6 @@ Questions:
   - https://leetcode.com/problems/ugly-number/description/
   - https://leetcode.com/problems/ugly-number-ii/description/
 
------
-10.7
-
-#+BEGIN_SRC C++
-#include <queue>
-#include <algorithm>
-#include <vector>
-#include <cstdio>
-using namespace std;
-
-int kth(int k) {
-  priority_queue<int,vector<int>,std::greater<int> > Q3; // 3,5,7
-  priority_queue<int,vector<int>,std::greater<int> > Q5; // 5,7
-  priority_queue<int,vector<int>,std::greater<int> > Q7; // 7
-  Q3.push(3);
-  Q5.push(5);
-  Q7.push(7);
-  for(;;) {
-    int x = min(min(Q3.top(),Q5.top()),Q7.top());
-    k--;
-    if(k == 0) return x;
-    if(x == Q3.top()) {
-      Q3.pop();
-      Q3.push(x * 3);
-      Q3.push(x * 5);
-      Q3.push(x * 7);
-    } else if(x == Q5.top()) {
-      Q5.pop();
-      Q5.push(x * 5);
-      Q5.push(x * 7);
-    } else {
-      Q7.pop();
-      Q7.push(x * 7);
-    }
-  }
-}
-
-int main() {
-  printf("%d\n",kth(13));
-  return 0;
-}
-
-#+END_SRC
-
 *** System Design and Memory Limits
 Data Structures
 - Bloom Filter
@@ -987,6 +943,44 @@ Questions:
   - align_malloc(1000,128) will return a memory address that is a multiple of 128 and that points to memory of size 1000 bytes.
   - aligned_free(p) will free memory allocated by align_malloc.
 - 16.10 Write a function called my2DAlloc which allocates a two dimensional array. Minimize the number of calls to malloc and make sure that the memory is accessible by the notation arr[i][j].
+
+-----
+16.8 模拟这个过程，为了保险认为在同一时间是先写入的然后读出的。计算出来最大深度是33.
+
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+queue = []
+max_size = 0
+worker = None
+
+for t in range(0, 700):
+    if t % 4 == 0 and t < (160 * 4):
+        word, arrival = 'c#{}'.format(t // 4), t
+        print('T{:03d} ===> +++ word: {}'.format(t, word))
+        queue.append((word, arrival))
+        max_size = max(max_size, len(queue))
+
+    if worker:
+        word, arrival = worker
+        # 5ns之后才能处理下个任务.
+        if t >= (arrival + 5):
+            print('T{:03d} ===> --- word: {}'.format(t, word))
+            worker = None
+
+    if worker is None and queue:
+        word, arrival = queue[0]
+        # 4ns之后才能够读取
+        if(t >= (arrival + 4)):
+            print('T{:03d} ===> !!! word: {}'.format(t, word))
+            worker = (word, t)
+            queue = queue[1:]
+
+print('max size = {}'.format(max_size))
+
+#+END_SRC
 
 -----
 16.9
