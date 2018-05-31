@@ -10,3 +10,24 @@ class Solution(object):
         """
         import functools
         return map(list, functools.permutation(nums))
+
+
+class Solution2:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        nums.sort()
+        res = []
+        def f(nums, idx):
+            if(idx == len(nums)):
+                res.append(list(nums))
+                return
+            for i in range(idx, len(nums)):
+                nums[idx], nums[i] = nums[i], nums[idx]
+                f(nums, idx + 1)
+                nums[idx], nums[i] = nums[i], nums[idx]
+        f(nums, 0)
+        return res

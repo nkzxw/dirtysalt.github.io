@@ -39,7 +39,35 @@ class Solution(object):
             res.append(t)
         return map(list, res)
 
+class Solution2:
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        nums.sort()
+        res = []
+        seen = set()
+        def f(nums, idx):
+            if(idx == len(nums)):
+                nums_copy = tuple(nums)
+                if nums_copy not in seen:
+                    seen.add(nums_copy)
+                    res.append(list(nums_copy))
+                return
+            for i in range(idx, len(nums)):
+                if(nums[i] != nums[idx]):
+                    nums[idx], nums[i] = nums[i], nums[idx]
+                    f(nums, idx + 1)
+                    nums[idx], nums[i] = nums[i], nums[idx]
+                else:
+                    f(nums, idx + 1)
+        f(nums, 0)
+        return res
+
+
 if __name__ == '__main__':
-    s = Solution()
-    print s.permuteUnique([1,1,2])
-    print s.permuteUnique([3,3,0,0,2,3,2])
+    s = Solution2()
+    print(s.permuteUnique([1,1,2]))
+    print(s.permuteUnique([3,3,0,0,2,3,2]))
