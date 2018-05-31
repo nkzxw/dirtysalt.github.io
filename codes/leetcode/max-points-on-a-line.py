@@ -3,104 +3,120 @@
 # Copyright (C) dirlt
 
 # Definition for a point.
-class Point(object):
+class Point:
     def __init__(self, a=0, b=0):
         self.x = a
         self.y = b
 
-class Solution(object):
+INF_SLOPE = 1 << 31
+from fractions import Fraction
+
+class Line:
+    def __init__(self, slope, intercept):
+        self.slope = slope
+        self.intercept = intercept
+
+    def __eq__(self, o):
+        return self.slope == o.slope and \
+          self.intercept == o.intercept
+
+    @staticmethod
+    def make(p0, p1):
+        x = p1.x - p0.x
+        y = p1.y - p0.y
+        if x == 0:
+            return Line(INF_SLOPE, p0.x)
+        slope = Fraction(y, x)
+        intercept = p0.y - slope * p0.x
+        return Line(slope, intercept)
+
+    def __str__(self):
+        return 'Line(slope = {}, intercept = {})'.format(
+            'inf' if self.slope == INF_SLOPE else self.slope, self.intercept)
+
+    def __hash__(self):
+        return hash((self.slope, self.intercept))
+
+    def on(self, p):
+        if self.slope == INF_SLOPE:
+            return p.x == self.intercept
+        return (p.y - self.intercept) == (self.slope * p.x)
+
+
+class Solution:
     def maxPoints(self, points):
         """
         :type points: List[Point]
         :rtype: int
         """
 
-        def ok(a, b, c, debug = False):
-            u = (b.x - a.x) * (c.y - b.y)
-            v = (c.x - b.x) * (b.y - a.y)
-            if debug:
-                print u, v
-            return u == v
-
-        if not points: return 0
+        n = len(points)
+        if n <= 1: return n
         if isinstance(points[0], list):
-            points = map(lambda x: Point(x[0], x[1]), points)
-
-        class Pt(object):
-            def __init__(self, p, idx, count):
-                self.x = p.x
-                self.y = p.y
-                self.idx = idx
-                self.count = count
-
-        # dedup and count.
-        points.sort(lambda x, y: cmp(x.x, y.x) or cmp(x.y, y.y))
-        ps = []
-        pp = points[0]
-        c = 0
-        for p in points:
-            if pp.x == p.x and pp.y == p.y:
-                c += 1
-            else:
-                ps.append(Pt(pp, len(ps), c))
-                pp = p
-                c = 1
-        ps.append(Pt(pp, len(ps), c))
-
-        n = len(ps)
-        if n == 1: return ps[0].count
-
-        if False:
-            seen = set()
-            res = 0
-            for i in range(n):
-                for j in range(i + 1, n):
-                    if (i, j) in seen: continue
-                    v = 0
-                    for k in range(n):
-                        if (v + (n - k)) < res: break
-                        if ok(ps[i], ps[j], ps[k]):
-                            v += ps[k].count
-                            seen.add((j, k))
-                    res = max(res, v)
-            print 'true = ', res
-
-        def slope(a, b):
-            if a.x == b.x: return 1 << 31
-            return (b.y - a.y) * 1000.0 / (b.x - a.x)
+            points = [Point(x[0], x[1]) for x in points]
 
         from collections import defaultdict
-        d = defaultdict(list)
-        for i in range(n):
-            for j in range(i + 1, n):
-                s = slope(ps[i], ps[j])
-                d[s].append((i, j))
+        line_count = defaultdict(set)
+        for (i, p0) in enumerate(points):
+            for p1 in points[i+1:]:
+                line = Line.make(p0, p1)
+                # print('saw line {}'.format(line))
+                line_count[line].update([p0, p1])
+                # line_count[line] = line_count.get(line, 0) + 1
 
-        # print d
-        # NOTE(yan): 按照斜率group, 然后对group里面的pairs进行排序
-        # 然后遍历这个pairs, 确保后面的pairs里面有一个点在之前出现过
-        # 否则就属于另外一个line.
+        lines = list(line_count.items())
+        lines.sort(key = lambda x: -len(x[1]))
+        exp_line = lines[0][0]
+        # print(exp_line)
         res = 0
-        for s in d:
-            xs = d[s]
-            # if len(xs) >= 21:
-            #     print xs
-            #     print 'OK'
-            seen = set()
-            xs.sort(lambda x, y: cmp(x[0], y[0]) or cmp(x[1], y[1]))
-            for (i, j) in xs:
-                if i not in seen and j not in seen:
-                    v = sum(map(lambda x: ps[x].count, seen))
-                    res = max(res, v)
-                    seen.clear()
-                seen.add(i)
-                seen.add(j)
-            v = sum(map(lambda x: ps[x].count, seen))
-            res = max(res, v)
+        for p in points:
+            if exp_line.on(p):
+                res += 1
         return res
+
+    def bf(self, points):
+        n = len(points)
+        if n <= 1: return n
+        if isinstance(points[0], list):
+            points = [Point(x[0], x[1]) for x in points]
+
+        max_res = 0
+        max_line = None
+        for (i, p0) in enumerate(points):
+            for p1 in points[i+1:]:
+                line = Line.make(p0, p1)
+                res = 0
+                for p in points:
+                    if line.on(p):
+                        res += 1
+                if res > max_res:
+                    max_res = res
+                    max_line = line
+        print(max_line)
+        return max_res
 
 if __name__ == '__main__':
     s = Solution()
-    print s.maxPoints([[84,250],[0,0],[1,0],[0,-70],[0,-70],[1,-1],[21,10],[42,90],[-42,-230]])
-    print s.maxPoints([[1,1],[1,1],[1,1]])
-    print s.maxPoints([[29,87],[145,227],[400,84],[800,179],[60,950],[560,122],[-6,5],[-87,-53],[-64,-118],[-204,-388],[720,160],[-232,-228],[-72,-135],[-102,-163],[-68,-88],[-116,-95],[-34,-13],[170,437],[40,103],[0,-38],[-10,-7],[-36,-114],[238,587],[-340,-140],[-7,2],[36,586],[60,950],[-42,-597],[-4,-6],[0,18],[36,586],[18,0],[-720,-182],[240,46],[5,-6],[261,367],[-203,-193],[240,46],[400,84],[72,114],[0,62],[-42,-597],[-170,-76],[-174,-158],[68,212],[-480,-125],[5,-6],[0,-38],[174,262],[34,137],[-232,-187],[-232,-228],[232,332],[-64,-118],[-240,-68],[272,662],[-40,-67],[203,158],[-203,-164],[272,662],[56,137],[4,-1],[-18,-233],[240,46],[-3,2],[640,141],[-480,-125],[-29,17],[-64,-118],[800,179],[-56,-101],[36,586],[-64,-118],[-87,-53],[-29,17],[320,65],[7,5],[40,103],[136,362],[-320,-87],[-5,5],[-340,-688],[-232,-228],[9,1],[-27,-95],[7,-5],[58,122],[48,120],[8,35],[-272,-538],[34,137],[-800,-201],[-68,-88],[29,87],[160,27],[72,171],[261,367],[-56,-101],[-9,-2],[0,52],[-6,-7],[170,437],[-261,-210],[-48,-84],[-63,-171],[-24,-33],[-68,-88],[-204,-388],[40,103],[34,137],[-204,-388],[-400,-106]])
+    # pts = [[0, 0], [1, 0]]
+    # print(s.maxPoints(pts))
+
+    # pts = [[1,1],[2,2],[3,3]]
+    # print(s.maxPoints(pts))
+
+    # pts = [1,1],[1,1],[1,1]
+    # print(s.maxPoints(pts))
+
+    pts = [[0,0],[94911151,94911150],[94911152,94911151]]
+    print(s.maxPoints(pts))
+
+    # pts = [[84,250],[0,0],[1,0],[0,-70],[0,-70],[1,-1],[21,10],[42,90],[-42,-230]]
+    # print(s.maxPoints(pts))
+
+
+    # pts = [[29,87],[145,227],[400,84],[800,179],[60,950],[560,122],[-6,5],[-87,-53],[-64,-118],[-204,-388],[720,160],[-232,-228],[-72,-135],[-102,-163],[-68,-88],[-116,-95],[-34,-13],[170,437],[40,103],[0,-38],[-10,-7],[-36,-114],[238,587],[-340,-140],[-7,2],[36,586],[60,950],[-42,-597],[-4,-6],[0,18],[36,586],[18,0],[-720,-182],[240,46],[5,-6],[261,367],[-203,-193],[240,46],[400,84],[72,114],[0,62],[-42,-597],[-170,-76],[-174,-158],[68,212],[-480,-125],[5,-6],[0,-38],[174,262],[34,137],[-232,-187],[-232,-228],[232,332],[-64,-118],[-240,-68],[272,662],[-40,-67],[203,158],[-203,-164],[272,662],[56,137],[4,-1],[-18,-233],[240,46],[-3,2],[640,141],[-480,-125],[-29,17],[-64,-118],[800,179],[-56,-101],[36,586],[-64,-118],[-87,-53],[-29,17],[320,65],[7,5],[40,103],[136,362],[-320,-87],[-5,5],[-340,-688],[-232,-228],[9,1],[-27,-95],[7,-5],[58,122],[48,120],[8,35],[-272,-538],[34,137],[-800,-201],[-68,-88],[29,87],[160,27],[72,171],[261,367],[-56,-101],[-9,-2],[0,52],[-6,-7],[170,437],[-261,-210],[-48,-84],[-63,-171],[-24,-33],[-68,-88],[-204,-388],[40,103],[34,137],[-204,-388],[-400,-106]]
+    # print(s.maxPoints(pts))
+
+
+    # pts = [[-240,-657],[-27,-188],[-616,-247],[-264,-311],[-352,-393],[-270,-748],[3,4],[-308,-87],[150,526],[0,-13],[-7,-40],[-3,-10],[-531,-892],[-88,-147],[4,-3],[-873,-555],[-582,-360],[-539,-207],[-118,-206],[970,680],[-231,-47],[352,263],[510,143],[295,480],[-590,-990],[-236,-402],[308,233],[-60,-111],[462,313],[-270,-748],[-352,-393],[-35,-148],[-7,-40],[440,345],[388,290],[270,890],[10,-7],[60,253],[-531,-892],[388,290],[-388,-230],[340,85],[0,-13],[770,473],[0,73],[873,615],[-42,-175],[-6,-8],[49,176],[308,222],[170,27],[-485,-295],[170,27],[510,143],[-18,-156],[-63,-316],[-28,-121],[396,304],[472,774],[-14,-67],[-5,7],[-485,-295],[118,186],[-154,-7],[-7,-40],[-97,-35],[4,-9],[-18,-156],[0,-31],[-9,-124],[-300,-839],[-308,-352],[-425,-176],[-194,-100],[873,615],[413,676],[-90,-202],[220,140],[77,113],[-236,-402],[-9,-124],[63,230],[-255,-118],[472,774],[-56,-229],[90,228],[3,-8],[81,196],[970,680],[485,355],[-354,-598],[-385,-127],[-2,7],[531,872],[-680,-263],[-21,-94],[-118,-206],[616,393],[291,225],[-240,-657],[-5,-4],[1,-2],[485,355],[231,193],[-88,-147],[-291,-165],[-176,-229],[154,153],[-970,-620],[-77,33],[-60,-111],[30,162],[-18,-156],[425,114],[-177,-304],[-21,-94],[-10,9],[-352,-393],[154,153],[-220,-270],[44,-24],[-291,-165],[0,-31],[240,799],[-5,-9],[-70,-283],[-176,-229],[3,8],[-679,-425],[-385,-127],[396,304],[-308,-352],[-595,-234],[42,149],[-220,-270],[385,273],[-308,-87],[-54,-284],[680,201],[-154,-7],[-440,-475],[-531,-892],[-42,-175],[770,473],[118,186],[-385,-127],[154,153],[56,203],[-616,-247]]
+    # print(s.maxPoints(pts))
+    # print(s.bf(pts))
