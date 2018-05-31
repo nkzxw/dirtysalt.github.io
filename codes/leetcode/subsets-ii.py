@@ -15,24 +15,6 @@ class Solution(object):
             d[n] += 1
         keys = d.keys()
 
-        # res = []
-        # def f(idx, r):
-        #     if idx == len(keys):
-        #         r2 = []
-        #         for (k, v) in r:
-        #             r2.extend([k] * v)
-        #         res.append(r2)
-        #         return
-        #     k = keys[idx]
-        #     v = d[k]
-        #     for i in range(0, v + 1):
-        #         r.append((k, i))
-        #         f(idx + 1, r)
-        #         r.pop()
-
-        # r = []
-        # f(0, r)
-
         res = [[]]
         for k in keys:
             res2 = []
