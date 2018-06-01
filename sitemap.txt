@@ -79,7 +79,6 @@ https://dirtysalt.github.io/html/redis.html
 https://dirtysalt.github.io/html/mean-people-fail.html
 https://dirtysalt.github.io/html/the-dark-side-of-hadoop.html
 https://dirtysalt.github.io/html/do-you-think-you-have-gambling-problem.html
-https://dirtysalt.github.io/html/sklearn-api.html
 https://dirtysalt.github.io/html/rcfile.html
 https://dirtysalt.github.io/html/mapreduce.html
 https://dirtysalt.github.io/html/nginx.html
