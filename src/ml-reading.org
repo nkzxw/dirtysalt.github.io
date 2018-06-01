@@ -36,3 +36,7 @@ file:./images/chart-suggestions.jpg
 ** Generative Adversarial Networks: The Basic Idea
 
 file:./images/GAN-basic-idea.jpg
+
+** 如何选择机器学习算法
+
+file:images/scikit-learn-ml-map.png

@@ -1,7 +1,6 @@
 #+title: sklearn
 - home http://scikit-learn.org/stable/index.html
 - docs http://scikit-learn.org/stable/documentation.html
-- [[file:images/scikit-learn-ml-map.png][一张图说明如何选择正确算法]]
 
 ** Overview
 - [[file:./sklearn-api.org][API Tour]]
@@ -19,6 +18,7 @@
 ** Building Blocks
 http://scipy-lectures.github.io/ sklearn底层使用的三驾马车numpy, scipy, matplotlib.
 
+*** NumPy
 numpy (=import numpy as np=) 用于矩阵运算
 - https://docs.scipy.org/doc/numpy-dev/user/quickstart.html
 - http://cs231n.github.io/python-numpy-tutorial/
@@ -44,15 +44,18 @@ numpy index array:
 
 注意 * 这个operator作用在两个ndarray上的话是elementwise的，而不是我们所想的matrix dot. 如果想用matrix dot的话，可以使用 =np.dot=
 
+*** Matplotlib
 matplotlib (=import matplotlib.pyplot as plt=) 用于绘图. [[http://matplotlib.org/users/pyplot_tutorial.html][A pyplot tutorial]]
 
 这里有许多示例做 [[http://scipy-lectures.github.io/intro/matplotlib/matplotlib.html#other-types-of-plots-examples-and-exercises][参考]]. pylab功能强大相对比较原始，用户还需要编写许多代码才能画出比较漂亮的图. 可以考虑一些其他的可视化库比如ggplot或者是seaborn. [[http://pbpython.com/visualization-tools-1.html][参考链接]]
 
+*** SciPy
 scipy (=import scipy=) 复杂的科学计算
 #+BEGIN_QUOTE
 The scipy package contains various toolboxes dedicated to common issues in scientific computing. Its different submodules correspond to different applications, such as interpolation, integration, optimization, image processing, statistics, special functions, etc. scipy can be compared to other standard scientific-computing libraries, such as the GSL (GNU Scientific Library for C and C++), or Matlab's toolboxes. scipy is the core package for scientific routines in Python; it is meant to operate efficiently on numpy arrays, so that numpy and scipy work hand in hand.
 #+END_QUOTE
 
+*** Pandas
 另外了解一下 [[http://pandas.pydata.org/pandas-docs/stable/10min.html][pandas]] 也是很有必要的 ([[http://pandas.pydata.org/pandas-docs/stable/cookbook.html][cookbook]])
 - Series 可以认为是一个带有index key的ndarray.
 - DataFrame =a dict of Series objects= index, columns

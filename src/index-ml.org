@@ -12,7 +12,8 @@
     - 非常好的机器学习综合材料，涵盖的方面非常广。
     - 不太适合作为教材学习，适合作为辅助材料阅读和查漏补缺。
   - [[file:./best-practices-for-applying-deep-learning-for-novel-applications.org][Best Practices for Applying Deep Learning to Novel Applications]]
-- [[file:./sklearn.org][sklearn]] python scikit learn. 机器学习包. [[file:./sklearn-api.org][api]]
+  - [[https://developers.google.com/machine-learning/rules-of-ml/][机器学习规则 (Rules of Machine Learning)：关于机器学习工程的最佳实践]]
+- [[file:./sklearn.org][sklearn]] python scikit learn. Python的机器学习包.
 - [[file:caffe.org][caffe]] C++实现的深度学习框架，有python和matlab的扩展接口
 - [[file:nolearn.org][nolearn]] scikit-learn compatibile wrapper for neural nets. 底层可以使用不同的NN实现比如 [[file:./caffe.org][caffe]], [[https://github.com/Lasagne/Lasagne][lasagne]].
 - [[file:./beauty-of-math.org][数学之美]] wujun
