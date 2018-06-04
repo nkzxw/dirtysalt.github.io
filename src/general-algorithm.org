@@ -625,6 +625,24 @@ if __name__ == '__main__':
 
 #+END_SRC
 
+*** 神奇帽子问题
+
+A bunch of men are on an island. A genie comes down and gathers everyone together and places a magical hat on some people’s heads (i.e., at least one person has a hat). The hat is magical: it can be seen by other people, but not by the wearer of the hat himself. To remove the hat, those (and only those who have a hat) must dunk themselves underwater at exactly midnight. If there are n people and c hats, how long does it take the men to remove the hats? The men cannot tell each other (in any way) that they have a hat.
+
+FOLLOW UP Prove that your solution is correct.
+
+=====
+
+This problem seems hard, so let’s simplify it by looking at specific cases.
+
+Case c = 1: Exactly one man is wearing a hat.
+Assuming all the men are intelligent, the man with the hat should look around and realize that no one else is wearing a hat. Since the genie said that at least one person is wearing a hat, he must conclude that he is wearing a hat. Therefore, he would be able to remove it that night.
+
+Case c = 2: Exactly two men are wearing hats.
+The two men with hats see one hat, and are unsure whether c = 1 or c = 2. They know, from the previous case, that if c = 1, the hats would be removed on Night #1. Therefore, if the other man still has a hat, he must deduce that c = 2, which means that he has a hat. Both men would then remove the hats on Night #2
+
+Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2, the hats would be removed on Night #2. If they are not, they must deduce that c = 3, and therefore they have a hat. We can follow this logic for c = 4, 5, ...
+
 ** 配置topcoder
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 https://github.com/shivawu/topcoder-greed. 这个插件是一个整合包，配置起来更加方便。
 
