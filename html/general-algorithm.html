@@ -29,7 +29,7 @@
 <li><a href="#orgheadline7">2.6. CONCISE</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">3. 面试算法</a>
+<li><a href="#orgheadline18">3. 面试算法</a>
 <ul>
 <li><a href="#orgheadline9">3.1. 树最长距离</a></li>
 <li><a href="#orgheadline10">3.2. Monty Hall Problem</a></li>
@@ -39,10 +39,11 @@
 <li><a href="#orgheadline14">3.6. 赔率设计问题</a></li>
 <li><a href="#orgheadline15">3.7. 流式计算均值和方差</a></li>
 <li><a href="#orgheadline16">3.8. Poor Pigs @ leetcode</a></li>
+<li><a href="#orgheadline17">3.9. 神奇帽子问题</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">4. 配置topcoder</a></li>
-<li><a href="#orgheadline19">5. CS中最重要的32个算法</a></li>
+<li><a href="#orgheadline19">4. 配置topcoder</a></li>
+<li><a href="#orgheadline20">5. CS中最重要的32个算法</a></li>
 </ul>
 </div>
 </div>
@@ -458,8 +459,8 @@ CONCISE针对这个部分稍微改进了一下
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">3</span> 面试算法</h2>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> 面试算法</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-orgheadline9" class="outline-3">
 <h3 id="orgheadline9"><span class="section-number-3">3.1</span> 树最长距离</h3>
@@ -979,10 +980,45 @@ if __name__ == '__main__':
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.9</span> 神奇帽子问题</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+A bunch of men are on an island. A genie comes down and gathers everyone together and places a magical hat on some people’s heads (i.e., at least one person has a hat). The hat is magical: it can be seen by other people, but not by the wearer of the hat himself. To remove the hat, those (and only those who have a hat) must dunk themselves underwater at exactly midnight. If there are n people and c hats, how long does it take the men to remove the hats? The men cannot tell each other (in any way) that they have a hat.
+</p>
+
+<p>
+FOLLOW UP Prove that your solution is correct.
+</p>
+
+<p>
+<code>===</code>
+</p>
+
+<p>
+This problem seems hard, so let’s simplify it by looking at specific cases.
+</p>
+
+<p>
+Case c = 1: Exactly one man is wearing a hat.
+Assuming all the men are intelligent, the man with the hat should look around and realize that no one else is wearing a hat. Since the genie said that at least one person is wearing a hat, he must conclude that he is wearing a hat. Therefore, he would be able to remove it that night.
+</p>
+
+<p>
+Case c = 2: Exactly two men are wearing hats.
+The two men with hats see one hat, and are unsure whether c = 1 or c = 2. They know, from the previous case, that if c = 1, the hats would be removed on Night #1. Therefore, if the other man still has a hat, he must deduce that c = 2, which means that he has a hat. Both men would then remove the hats on Night #2
+</p>
+
+<p>
+Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2, the hats would be removed on Night #2. If they are not, they must deduce that c = 3, and therefore they have a hat. We can follow this logic for c = 4, 5, &#x2026;
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">4</span> 配置topcoder</h2>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">4</span> 配置topcoder</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 <a href="https://github.com/shivawu/topcoder-greed">https://github.com/shivawu/topcoder-greed</a>. 这个插件是一个整合包，配置起来更加方便。
@@ -1094,8 +1130,8 @@ UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用�
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms">http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms</a>
