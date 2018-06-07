@@ -777,6 +777,7 @@ Questions:
 <li>3.5 Implement a MyQueue class which implements a queue using two stacks.
 <ul class="org-ul">
 <li><a href="https://leetcode.com/problems/implement-queue-using-stacks/description/">https://leetcode.com/problems/implement-queue-using-stacks/description/</a></li>
+<li><a href="https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks">https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks</a></li>
 </ul></li>
 <li>(x) 3.6 Write a program to sort a stack in ascending order. You should not make any assumptions about how the stack is implemented.</li>
 </ul>
@@ -868,6 +869,52 @@ Questions:
 <li><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/description/">https://leetcode.com/problems/binary-tree-maximum-path-sum/description/</a></li>
 </ul></li>
 </ul>
+
+
+<hr  />
+<p>
+<a href="https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem">https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem</a>
+</p>
+
+<p>
+检查一棵树是否为BST. 我一开始写错的版本是，只拿root和left/right的值做比较，而不是和两边子树的最大和最小值做比较。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Python">""" Node is defined as
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+"""
+
+def checkBST(root):
+    def f(root):
+        if root is None: return True, None, None
+        data = root.data
+        min_value, max_value = data, data
+
+        if root.left:
+            lr, lmin, lmax = f(root.left)
+            if not lr or data &lt;= lmax:
+                return False, None, None
+            min_value = min(min_value, lmin)
+            max_value = max(max_value, lmax)
+
+        if root.right:
+            rr, rmin, rmax = f(root.right)
+            if not rr or data &gt;= rmin:
+                return False, None, None
+            min_value = min(min_value, rmin)
+            max_value = max(max_value, rmax)
+
+        return True, min_value, max_value
+    res, _, _ = f(root)
+    return res
+</pre>
+</div>
 
 <hr  />
 <p>
@@ -1763,6 +1810,7 @@ Questions:
 <ul class="org-ul">
 <li><a href="https://leetcode.com/problems/find-median-from-data-stream/description/">https://leetcode.com/problems/find-median-from-data-stream/description/</a></li>
 <li>ref: <a href="https://leetcode.com/problems/sliding-window-median/description/">https://leetcode.com/problems/sliding-window-median/description/</a></li>
+<li><a href="https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem">https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem</a></li>
 <li>这个问题可以通过平衡树来完成，查询操作是O(1），更新操作是O(lgn)</li>
 </ul></li>
 <li>(x) 20.10 Given two words of equal length that are in a dictionary, write a method to transform one word into another word by changing only one letter at a time. The new word you get in each step must be in the dictionary.
