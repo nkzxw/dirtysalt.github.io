@@ -1,5 +1,9 @@
 #+title: Cracking The Coding Interview
 
+https://www.hackerrank.com/domains/tutorials/cracking-the-coding-interview
+
+https://www.careercup.com/book
+
 ** Foreword
 As you get ready for your interviews, consider these suggestions:
 - Write Code on Paper
