@@ -15,16 +15,20 @@ class Graph:
 
     def find_all_distances(self, s):
         dist = [-1] * self.n
+
+        dist[s] = 0
         queue = [(s, 0)]
         queue_idx = 0
+
         while queue_idx < len(queue):
             (v, d) = queue[queue_idx]
             queue_idx += 1
-            dist[v] = d
             for v2 in self.d[v]:
                 if dist[v2] != -1:
                     continue
+                dist[v2] = d + 1
                 queue.append((v2, d + 1))
+
         dist = [x * 6 if x > 0 else -1 for x in dist]
         dist.pop(s)
         print(' '.join(map(str, dist)))
