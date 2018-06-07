@@ -354,6 +354,7 @@ Questions:
 - 3.4 In the classic problem of the Towers of Hanoi, you have 3 rods and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (e.g., each disk sits on top of an even larger one). You have the following constraints: (A) Only one disk can be moved at a time (B) A disk is slid off the top of one rod onto the next rod. (C) A disk can only be placed on top of a larger disk. Write a program to move the disks from the first rod to the last using Stacks.
 - 3.5 Implement a MyQueue class which implements a queue using two stacks.
   - https://leetcode.com/problems/implement-queue-using-stacks/description/
+  - https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks
 - (x) 3.6 Write a program to sort a stack in ascending order. You should not make any assumptions about how the stack is implemented.
 
 ------
@@ -415,6 +416,47 @@ Questions:
   - https://leetcode.com/problems/path-sum-ii/description/
   - https://leetcode.com/problems/path-sum-iii/description/
   - https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+
+
+-----
+https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem
+
+检查一棵树是否为BST. 我一开始写错的版本是，只拿root和left/right的值做比较，而不是和两边子树的最大和最小值做比较。
+
+#+BEGIN_SRC Python
+""" Node is defined as
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+"""
+
+def checkBST(root):
+    def f(root):
+        if root is None: return True, None, None
+        data = root.data
+        min_value, max_value = data, data
+
+        if root.left:
+            lr, lmin, lmax = f(root.left)
+            if not lr or data <= lmax:
+                return False, None, None
+            min_value = min(min_value, lmin)
+            max_value = max(max_value, lmax)
+
+        if root.right:
+            rr, rmin, rmax = f(root.right)
+            if not rr or data >= rmin:
+                return False, None, None
+            min_value = min(min_value, rmin)
+            max_value = max(max_value, rmax)
+
+        return True, min_value, max_value
+    res, _, _ = f(root)
+    return res
+
+#+END_SRC
 
 -----
 4.6
@@ -1097,6 +1139,7 @@ Questions:
 - (x) 20.9 Numbers are randomly generated and passed to a method. Write a program to find and maintain the median value as new values are generated.
   - https://leetcode.com/problems/find-median-from-data-stream/description/
   - ref: https://leetcode.com/problems/sliding-window-median/description/
+  - https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem
   - 这个问题可以通过平衡树来完成，查询操作是O(1），更新操作是O(lgn)
 - (x) 20.10 Given two words of equal length that are in a dictionary, write a method to transform one word into another word by changing only one letter at a time. The new word you get in each step must be in the dictionary.
   - https://leetcode.com/problems/word-ladder/description/

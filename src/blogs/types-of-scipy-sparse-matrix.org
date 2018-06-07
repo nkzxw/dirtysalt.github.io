@@ -62,3 +62,19 @@ Out[121]: array([0, 1, 3, 5, 5, 5], dtype=int32)
 m4.indices
 Out[122]: array([0, 0, 1, 0, 1], dtype=int32)
 #+END_EXAMPLE
+
+-----
+几种matrix之间相互转换的时间也是不对称的，从csc, csr -> coo转换的时间，相比coo->csc, csr的时间更短。所以如果只能使用一种中间存储格式的话，尽可能使用csc,csr而不是coo.
+
+#+BEGIN_EXAMPLE
+mat_csr
+<4609357x137344 sparse matrix of type '<type 'numpy.float32'>'
+        with 42015431 stored elements in Compressed Sparse Row format>
+
+%timeit mat_csr.tocoo()
+1 loop, best of 3: 611 ms per loop
+
+%timeit mat_coo.tocsr()
+The slowest run took 5.54 times longer than the fastest. This could mean that an intermediate result is being cached.
+1 loop, best of 3: 5.1 s per loop
+#+END_EXAMPLE
