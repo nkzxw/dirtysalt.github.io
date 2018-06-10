@@ -3,53 +3,35 @@
 # Copyright (C) dirlt
 
 
-class PrimeUtil:
-    def __init__(self, n):
-        self.n = n
-        self.table = None
+def prime_build_table(n):
+    table = [1] * (n + 1)
+    table[1] = 0
+    n2 = prime_upper_bound(n)
+    for i in range(2, n2):
+        if table[i] == 0:
+            continue
+        for j in range(2, n // i + 1):
+            table[i * j] = 0
+    return table
 
-    def build_table(self):
-        n = self.n
-        table = [1] * (n + 1)
-        table[1] = 0
-        n2 = PrimeUtil.upper_bound(n)
-        for i in range(2, n2 + 1):
-            if table[i] == 0:
-                continue
-            for j in range(2, n // i + 1):
-                table[i * j] = 0
-        self.table = table
 
-    @staticmethod
-    def upper_bound(n):
-        return min(n - 1, round(n ** 0.5) + 1)
-
-    def is_prime(self, x):
-        if not self.table:
-            return PrimeUtil.scan(x)
-        assert 0 < x < len(self.table)
-        return True if self.table[x] else False
-
-    @staticmethod
-    def scan(n):
-        if n == 1:
-            return False
-        if n == 2:
-            return True
-        ub = PrimeUtil.upper_bound(n)
-        for i in range(2, ub + 1):
-            if n % i == 0:
-                return False
-        return True
+def prime_upper_bound(n):
+    return min(n - 1, round(n ** 0.5) + 2)
 
 
 def solve(n):
-    pu = PrimeUtil(n)
-    pu.build_table()
-    for p in range(n, 1, -1):
-        if pu.is_prime(p) and n % p == 0:
-            return p
-    return n
+    ub = prime_upper_bound(n)
+    table = prime_build_table(ub)
+    last_prime = None
+    for p in range(2, ub + 1):
+        if not table[p]:
+            continue
+        if n % p == 0:
+            last_prime = p
+            while n % p == 0:
+                n = n // p
+    last_prime = n if not last_prime else max(last_prime, n)
+    return last_prime
 
 
 t = int(input().strip())
