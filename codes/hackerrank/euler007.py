@@ -21,31 +21,6 @@ def prime_upper_bound(n):
     return min(n - 1, round(n ** 0.5) + 2)
 
 
-def is_prime(n):
-    if n == 1:
-        return False
-    if n == 2:
-        return True
-    ub = prime_upper_bound(n)
-    for i in range(2, ub):
-        if n % i == 0:
-            return False
-    return True
-
-
-def gcd(a, b):
-    while True:
-        c = a % b
-        if c == 0:
-            return b
-        a, b = b, c
-
-
-def lcm(a, b):
-    c = gcd(a, b)
-    return a * b // c
-
-
 def miller_rabin(n, k=10):
     if n == 2:
         return True
@@ -74,3 +49,17 @@ def miller_rabin(n, k=10):
         if not check(a, s, d, n):
             return False
     return True
+
+
+primes = [2, 3]
+N = 10 ** 4
+test = 4
+while len(primes) < N:
+    if miller_rabin(test, k=20):
+        primes.append(test)
+    test += 1
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    print(primes[n])
