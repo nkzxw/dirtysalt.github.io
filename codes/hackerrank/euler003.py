@@ -11,8 +11,9 @@ class PrimeUtil:
     def build_table(self):
         n = self.n
         table = [1] * (n + 1)
+        table[1] = 0
         n2 = PrimeUtil.upper_bound(n)
-        for i in range(2, n2):
+        for i in range(2, n2 + 1):
             if table[i] == 0:
                 continue
             for j in range(2, n // i + 1):
@@ -21,14 +22,12 @@ class PrimeUtil:
 
     @staticmethod
     def upper_bound(n):
-        return min(n - 1, round(n ** 0.5) + 2)
+        return min(n - 1, round(n ** 0.5) + 1)
 
     def is_prime(self, x):
         if not self.table:
             return PrimeUtil.scan(x)
-        assert x < len(self.table)
-        if x == 1:
-            return False
+        assert 0 < x < len(self.table)
         return True if self.table[x] else False
 
     @staticmethod
@@ -38,17 +37,16 @@ class PrimeUtil:
         if n == 2:
             return True
         ub = PrimeUtil.upper_bound(n)
-        for i in range(2, ub):
+        for i in range(2, ub + 1):
             if n % i == 0:
                 return False
         return True
 
 
 def solve(n):
-    ub = PrimeUtil.upper_bound(n)
-    pu = PrimeUtil(ub)
+    pu = PrimeUtil(n)
     pu.build_table()
-    for p in range(ub, 1, -1):
+    for p in range(n, 1, -1):
         if pu.is_prime(p) and n % p == 0:
             return p
     return n
