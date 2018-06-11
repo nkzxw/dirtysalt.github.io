@@ -354,6 +354,8 @@ class Solution {
 UPDATE@2015-09-08: 这个问题是 [[https://en.wikipedia.org/wiki/Monty_Hall_problem][Monty Hall Problem]], 可以通过 [[file:~/repo/dirtysalt.github.io/codes/py/scripts/monty_hall.py][模拟]] 来计算结果
 
 *** 等概率选取链表元素
+https://www.geeksforgeeks.org/reservoir-sampling/
+
 等概率选取未知长度的链表中的元素，要求是只能够遍历这个链表一次。下面是代码， *注意这里的wanted会不断地被更新*
 #+BEGIN_SRC C++
 int nmatch = 0;
