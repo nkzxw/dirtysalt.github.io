@@ -3,35 +3,11 @@
 ** 机器学习和其他领域联系
 机器学习和数据挖掘，人工智能，统计学的关系
 
-file:./images/ntuml-ml-vs-dm.png file:./images/ntuml-ml-vs-ai.png file:./images/ntuml-ml-vs-st.png
+file:./images/ntuml-ml-vs-dm.png
 
-** 数据应该使用哪种图形表达
+file:./images/ntuml-ml-vs-ai.png
 
-file:./images/chart-suggestions.jpg
-
-** 目前机器学习的瓶颈有哪些
-作者：李瞬生
-链接：https://www.zhihu.com/question/22370288/answer/23223650
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。
-
-我不是专家，只能说我自己学习过程中感觉到的瓶颈。
-
-- 计算时间 在工业界的训练数据动辄上TB，每天都得train一大批的model。光从计算时间上，就限制了SVM等相对复杂算法的流行程度。个人在微软、亚马逊经常见到的是逻辑回归train天下。偶尔有特殊的问题会用上SVM，但规模很小，且training data不会每天更新。因为只有logistic regression这种程度的方法在计算上是可行的。
-
-- 模型诠释 如果是logistic regression来train的model，那么最起码人还能看到每个feature的权重。 但若使用SVM、神经网络或更复杂的方法，train出来的结果首先不说，其模型对人而言是很难进行诠释的。这也会限制商业上的应用。因为我作为卖家都不知道自己train出来的model究竟该怎样诠释，外行的买家大概也只能够不明觉厉了吧。
-
-- 过于灵活相当于没有方法 面对一个问题，可选择的机器学习模型首先就有很多。即使选定了几种方法，每一种方法还会有n多变种。比如SVM如此多的kernel、神经网络的activation function等。就算把这个选好了，还要去tune model的parameter。
-
-最可恨的是，这个流程很难总结出一套系统的经验指导。更多时候都只能trial and error。这相当于面对一个问题，临时去找方法、试各种方法一样。灵活过头了就变成玄学了。正是因为玄之又玄，机器学习养活了一大批论文灌水的人。
-
-** 关于RNN/LSTM的文章
-
-- Understanding LSTM Networks -- colah's blog : http://colah.github.io/posts/2015-08-Understanding-LSTMs/
-- Anyone Can Learn To Code an LSTM-RNN in Python (Part 1: RNN) - i am trask : https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/
-- Nikhil Buduma | A Deep Dive into Recurrent Neural Nets : http://nikhilbuduma.com/2015/01/11/a-deep-dive-into-recurrent-neural-networks/
-- The Unreasonable Effectiveness of Recurrent Neural Networks : http://karpathy.github.io/2015/05/21/rnn-effectiveness/
-- 理解 LSTM 网络 – 我爱计算机 : http://www.52cs.org/?p=1235
+file:./images/ntuml-ml-vs-st.png
 
 ** Generative Adversarial Networks: The Basic Idea
 
