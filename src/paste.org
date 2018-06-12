@@ -1,5 +1,7 @@
 #+title: Paste
 
+表白遭拒多是丑，求婚失败无非穷。
+
 -----
 [[https://blog.csdn.net/pennyliang/article/details/6172307][程序员的性格是怎么产生的？]]
 

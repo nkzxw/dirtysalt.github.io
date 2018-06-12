@@ -19,11 +19,8 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 机器学习和其他领域联系</a></li>
-<li><a href="#orgheadline2">2. 数据应该使用哪种图形表达</a></li>
-<li><a href="#orgheadline3">3. 目前机器学习的瓶颈有哪些</a></li>
-<li><a href="#orgheadline4">4. 关于RNN/LSTM的文章</a></li>
-<li><a href="#orgheadline5">5. Generative Adversarial Networks: The Basic Idea</a></li>
-<li><a href="#orgheadline6">6. 如何选择机器学习算法</a></li>
+<li><a href="#orgheadline2">2. Generative Adversarial Networks: The Basic Idea</a></li>
+<li><a href="#orgheadline3">3. 如何选择机器学习算法</a></li>
 </ul>
 </div>
 </div>
@@ -35,67 +32,29 @@
 机器学习和数据挖掘，人工智能，统计学的关系
 </p>
 
-<p>
-<img src="./images/ntuml-ml-vs-dm.png" alt="ntuml-ml-vs-dm.png" /> <img src="./images/ntuml-ml-vs-ai.png" alt="ntuml-ml-vs-ai.png" /> <img src="./images/ntuml-ml-vs-st.png" alt="ntuml-ml-vs-st.png" />
+
+<div class="figure">
+<p><img src="./images/ntuml-ml-vs-dm.png" alt="ntuml-ml-vs-dm.png" />
 </p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/ntuml-ml-vs-ai.png" alt="ntuml-ml-vs-ai.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/ntuml-ml-vs-st.png" alt="ntuml-ml-vs-st.png" />
+</p>
+</div>
 </div>
 </div>
 
 <div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 数据应该使用哪种图形表达</h2>
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Generative Adversarial Networks: The Basic Idea</h2>
 <div class="outline-text-2" id="text-2">
-
-<div class="figure">
-<p><img src="./images/chart-suggestions.jpg" alt="chart-suggestions.jpg" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 目前机器学习的瓶颈有哪些</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-作者：李瞬生
-链接：<a href="https://www.zhihu.com/question/22370288/answer/23223650">https://www.zhihu.com/question/22370288/answer/23223650</a>
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。
-</p>
-
-<p>
-我不是专家，只能说我自己学习过程中感觉到的瓶颈。
-</p>
-
-<ul class="org-ul">
-<li>计算时间 在工业界的训练数据动辄上TB，每天都得train一大批的model。光从计算时间上，就限制了SVM等相对复杂算法的流行程度。个人在微软、亚马逊经常见到的是逻辑回归train天下。偶尔有特殊的问题会用上SVM，但规模很小，且training data不会每天更新。因为只有logistic regression这种程度的方法在计算上是可行的。</li>
-
-<li>模型诠释 如果是logistic regression来train的model，那么最起码人还能看到每个feature的权重。 但若使用SVM、神经网络或更复杂的方法，train出来的结果首先不说，其模型对人而言是很难进行诠释的。这也会限制商业上的应用。因为我作为卖家都不知道自己train出来的model究竟该怎样诠释，外行的买家大概也只能够不明觉厉了吧。</li>
-
-<li>过于灵活相当于没有方法 面对一个问题，可选择的机器学习模型首先就有很多。即使选定了几种方法，每一种方法还会有n多变种。比如SVM如此多的kernel、神经网络的activation function等。就算把这个选好了，还要去tune model的parameter。</li>
-</ul>
-
-<p>
-最可恨的是，这个流程很难总结出一套系统的经验指导。更多时候都只能trial and error。这相当于面对一个问题，临时去找方法、试各种方法一样。灵活过头了就变成玄学了。正是因为玄之又玄，机器学习养活了一大批论文灌水的人。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 关于RNN/LSTM的文章</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li>Understanding LSTM Networks &#x2013; colah's blog : <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></li>
-<li>Anyone Can Learn To Code an LSTM-RNN in Python (Part 1: RNN) - i am trask : <a href="https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/">https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/</a></li>
-<li>Nikhil Buduma | A Deep Dive into Recurrent Neural Nets : <a href="http://nikhilbuduma.com/2015/01/11/a-deep-dive-into-recurrent-neural-networks/">http://nikhilbuduma.com/2015/01/11/a-deep-dive-into-recurrent-neural-networks/</a></li>
-<li>The Unreasonable Effectiveness of Recurrent Neural Networks : <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">http://karpathy.github.io/2015/05/21/rnn-effectiveness/</a></li>
-<li>理解 LSTM 网络 – 我爱计算机 : <a href="http://www.52cs.org/?p=1235">http://www.52cs.org/?p=1235</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Generative Adversarial Networks: The Basic Idea</h2>
-<div class="outline-text-2" id="text-5">
 
 <div class="figure">
 <p><img src="./images/GAN-basic-idea.jpg" alt="GAN-basic-idea.jpg" />
@@ -104,9 +63,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 如何选择机器学习算法</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> 如何选择机器学习算法</h2>
+<div class="outline-text-2" id="text-3">
 
 <div class="figure">
 <p><img src="images/scikit-learn-ml-map.png" alt="scikit-learn-ml-map.png" />
