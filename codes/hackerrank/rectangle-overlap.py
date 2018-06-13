@@ -2,6 +2,8 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+# https://www.hackerrank.com/contests/cisco-hackathon/challenges/rectangle-overlap
+
 rec1 = [int(x) for x in input().rstrip().split()]
 rec2 = [int(x) for x in input().rstrip().split()]
 
