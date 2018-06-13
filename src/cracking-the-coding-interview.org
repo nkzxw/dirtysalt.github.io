@@ -462,6 +462,28 @@ def checkBST(root):
 
 #+END_SRC
 
+我觉得上面这个写起来还是太丑了，下面是更加简洁的写法
+
+#+BEGIN_SRC C++
+
+boolean isValid(Node root) {
+    return isValidHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+}
+boolean isValidHelper(Node curr, int min, int max) {
+    if (curr.left != null) {
+        if (curr.left.value < min || !isValidHelper(curr.left, min, curr.value))
+        return false;
+    }
+    if (curr.right != null) {
+        if (curr.right.value > max || !isValidHelper(curr.right, curr.value, max))
+        return false;
+    }
+    return true;
+}
+
+#+END_SRC
+
+
 -----
 4.6
 
