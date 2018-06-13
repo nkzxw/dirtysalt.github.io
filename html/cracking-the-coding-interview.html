@@ -923,6 +923,30 @@ def checkBST(root):
 </pre>
 </div>
 
+<p>
+我觉得上面这个写起来还是太丑了，下面是更加简洁的写法
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C++"><span class="org-type">boolean</span> <span class="org-function-name">isValid</span>(<span class="org-type">Node</span> <span class="org-variable-name">root</span>) {
+    <span class="org-keyword">return</span> isValidHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+}
+<span class="org-type">boolean</span> <span class="org-function-name">isValidHelper</span>(<span class="org-type">Node</span> <span class="org-variable-name">curr</span>, <span class="org-type">int</span> <span class="org-variable-name">min</span>, <span class="org-type">int</span> <span class="org-variable-name">max</span>) {
+    <span class="org-keyword">if</span> (curr.left != null) {
+        <span class="org-keyword">if</span> (curr.left.value &lt; min || <span class="org-negation-char">!</span>isValidHelper(curr.left, min, curr.value))
+        <span class="org-keyword">return</span> <span class="org-constant">false</span>;
+    }
+    <span class="org-keyword">if</span> (curr.right != null) {
+        <span class="org-keyword">if</span> (curr.right.value &gt; max || <span class="org-negation-char">!</span>isValidHelper(curr.right, curr.value, max))
+        <span class="org-keyword">return</span> <span class="org-constant">false</span>;
+    }
+    <span class="org-keyword">return</span> <span class="org-constant">true</span>;
+}
+</pre>
+</div>
+
+
 <hr  />
 <p>
 4.6
