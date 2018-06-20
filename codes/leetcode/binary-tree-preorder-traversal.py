@@ -20,7 +20,7 @@ class Solution(object):
         rs = []
         while st:
             (r, d) = st.pop()
-            if not r: continue             
+            if not r: continue
             if d == 0:
                 rs.append(r.val)
                 st.append((r, 1))
