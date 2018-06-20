@@ -13,13 +13,8 @@ Home:
 - Robert Morris. http://pdos.csail.mit.edu/~rtm/
 - Matei Zaharia. http://people.csail.mit.edu/matei/ [[http://www.cs.berkeley.edu/~matei/][#]] Spark
 - R. Kent Dybvig. http://www.cs.indiana.edu/~dyb/ # Scheme
-- 陈寅恪 http://en.wikipedia.org/wiki/Chen_Yinke
-  - [[file:./reply-to-science-institution.org][对科学院的答复]]
-  - http://www.tudou.com/listplay/y14UtaOL_To/fqsa-SxCecE.html
-  - http://www.tudou.com/listplay/y14UtaOL_To/fqSv4ytJFsA.html
+- 陈寅恪 http://en.wikipedia.org/wiki/Chen_Yinke [[file:./reply-to-science-institution.org][对科学院的答复]]
 - 蔡元培 http://en.wikipedia.org/wiki/Cai_Yuanpei
-  - http://www.tudou.com/listplay/y14UtaOL_To/Q1xkcXDXaAo.html
-  - http://www.tudou.com/listplay/y14UtaOL_To/--wU0Hiroig.html
 
 -----
 Blog:
