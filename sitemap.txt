@@ -179,7 +179,6 @@ https://dirtysalt.github.io/html/deconstructing-recommender-systems.html
 https://dirtysalt.github.io/html/reply-to-science-institution.html
 https://dirtysalt.github.io/html/how-math-important-to-ml.html
 https://dirtysalt.github.io/html/mesos.html
-https://dirtysalt.github.io/html/cover-letter.html
 https://dirtysalt.github.io/html/how-to-beat-the-cap-theorem.html
 https://dirtysalt.github.io/html/rocksdb.html
 https://dirtysalt.github.io/html/linux-kernel-development.html
