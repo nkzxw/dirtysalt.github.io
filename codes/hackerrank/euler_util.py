@@ -2,6 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+import math
 import random
 
 import numpy as np
@@ -201,7 +202,28 @@ def intersect(p1, q1, p2, q2):
     return False
 
 
+# compute distance between two gps points.
+def haversine_distance(lat1, lon1, lat2, lon2):
+    R = 6371  # km
+
+    def to_radians(degree):
+        return degree * math.pi / 180
+
+    lat_delta = to_radians(lat2 - lat1)
+    lon_delta = to_radians(lon2 - lon1)
+
+    lat1 = to_radians(lat1)
+    lat2 = to_radians(lat2)
+
+    a = math.sin(lat_delta / 2) * math.sin(lat_delta / 2) + \
+        math.cos(lat1) * math.cos(lat2) * math.sin(lon_delta / 2) * math.sin(lon_delta / 2)
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    d = R * c  # in km
+    return d
+
+
 if __name__ == '__main__':
     # check_prime_table()
     # check_qsort()
+    # print(haversine_distance(22.520525, 113.93145, 22.530525, 113.94145))
     pass
