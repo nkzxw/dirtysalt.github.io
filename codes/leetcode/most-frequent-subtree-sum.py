@@ -36,7 +36,7 @@ class Solution:
 
         if root is None:
             return []
-        
+
         visit(root)
         res = list(counter.items())
         res.sort(key=lambda x: -x[1])
