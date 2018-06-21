@@ -40,7 +40,7 @@ class SessionThrottle(object):
 throttle = SessionThrottle(2)
 
 def get_sha1_key(s):
-    return hashlib.sha1(s).hexdigest()
+    return hashlib.sha1(s.encode('utf8')).hexdigest()
 
 def _get(url, callback, *args):
     key = get_sha1_key(url)
@@ -58,7 +58,7 @@ def _get(url, callback, *args):
 
 def parse_url_callback(r, selector):
     bs = BeautifulSoup(r.content)
-    xs = map(lambda x: x.attrs['href'], bs.select(selector))
+    xs = list(map(lambda x: x.attrs['href'], bs.select(selector)))
     content = json.dumps(xs)
     return content
 
@@ -88,10 +88,10 @@ def download(url, local):
 def main():
     docs = []
     for url in urls:
-        print url
+        print(url)
         posts = get_posts(url)
         for p in posts:
-            print '>>>', p
+            print('>>>', p)
             d = get_post(p)
             docs.append(d)
     docs = docs[::-1]
