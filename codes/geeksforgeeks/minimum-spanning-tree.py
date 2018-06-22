@@ -13,10 +13,11 @@ def solve(n, e, xs):
         c = xs[3 * i + 2]
         edges[a].append((b, c))
         edges[b].append((a, c))
-    return _solve(edges, n)
+    return kruskal_solve(edges, n)
 
 
-def _solve(edges, n):
+# prim algorithm.
+def prime_solve(edges, n):
     inf = 1 << 31
     dist = [(inf, -1, -1)] * n
     cut_nodes = set(range(n))
@@ -46,6 +47,51 @@ def _solve(edges, n):
     return res
 
 
+# kruskal algorithm.
+def kruskal_solve(edges, n):
+    parent = [-1] * n
+    es = []
+    for v in range(n):
+        for v2, d in edges[v]:
+            if v >= v2:
+                continue
+            es.append((d, v, v2))
+    es.sort(key=lambda x: x[0])
+
+    def find_parent(x):
+        while parent[x] != -1:
+            x = parent[x]
+        return x
+
+    def merge_parent(u, v):
+        # print('merge parent ({}, {})'.format(u, v))
+        p = find_parent(u)
+        # print('parent of {} = {}'.format(u, p))
+        # compress u.
+        u2 = u
+        while u2 != p:
+            tmp = parent[u2]
+            parent[u2] = p
+            u2 = tmp
+
+        # compress v.
+        v2 = v
+        while v2 != -1:
+            tmp = parent[v2]
+            parent[v2] = p
+            v2 = tmp
+
+    mst_edges = []
+    for (d, u, v) in es:
+        if find_parent(u) == find_parent(v):
+            continue
+        # print(d, u, v)
+        merge_parent(u, v)
+        mst_edges.append((d, u, v))
+    res = sum([x[0] for x in mst_edges])
+    return res
+
+
 def spanningTree(graph, n, e):
     edges = []
     for i in range(n):
@@ -54,7 +100,7 @@ def spanningTree(graph, n, e):
             if graph[i][j]:
                 nxts.append((j, graph[i][j]))
         edges.append(nxts)
-    return _solve(edges, n)
+    return kruskal_solve(edges, n)
 
 
 t = int(input())
