@@ -1,14 +1,12 @@
 #+title: blogs
 
 ** 2018
-- 201806 [[file:blogs/dedao-advantage-disadvantage-character.org][优点、缺点和特点]] 摘自得到的《硅谷来信》
 - 201805 [[file:./blogs/an-impact-guide-for-engineers.org][An Impact Guide for Engineers]] 工程师影响力指南
 - 201805 [[file:./blogs/types-of-scipy-sparse-matrix.org][scipy几种稀疏矩阵表示]]
 - 201805 [[file:blogs/tibet-travel.org][西藏(林芝-波密-拉萨)游记]]
 - 201805 [[file:blogs/skin-in-the-game-dedao.org][精英日课解读《利益悠关》]] 摘自得到的《精英日课》
 - 201805 [[file:blogs/mastering-study.org][寻常问题的精英解法-如何学习]] 摘自得到的《精英日课》
 - 201805 [[file:./blogs/why-turing-is-master.org][计算机领域大人物：艾伦·图灵牛在哪？]] 摘自得到的《硅谷来信》
-- 201805 [[file:./blogs/why-have-to-master-a-skill.org][为什么要学会一项技能？]] 摘自得到的《硅谷来信》
 - 201805 [[file:./blogs/why-study-history.org][为什么学习历史]] 摘自得到的《硅谷来信》
 - 201804 [[file:blogs/ssh-proxycommand-on-ssr.org][ssh proxycommand on ssr]]
 - 201804 [[file:blogs/getting-started-elk-beat.org][本地跑跑ELK + Beat(日志收集和指标收集)]]
@@ -19,14 +17,12 @@
 - 201803 [[file:./blogs/how-the-economic-machine-works-by-ray-dalio.org][How The Economic Machine Works By Ray Dalio]] 经济机器是如何运行的
 - 201802 [[file:./blogs/difference-between-poor-rich-on-zhihu.org][你在哪一刻体验到了真正的贫富差距？]] 摘自知乎回答
 - 201802 [[file:./blogs/python-weak-perf-matters.org][Python 的低性能问题是无法忽视的]]
-- 201802 [[file:./blogs/hard-learning.org][强力研读]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/freedom-and-affiliation.org][自由人与依附感]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/management-actually-is-engineering.org][管理其实是个工程学]] 摘自得到的《精英日课》
 - 201802 [[file:blogs/how-to-behave-systematically.org][怎样用系统下一盘大棋]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/dare-to-be-a-complicated-man.org][敢不敢做个复杂的人]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/what-you-want-child-to-read-and-what-they-really-want-to-read.org][你想让儿童读的和儿童想读的]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/civilized-adults-dont-ask-why.org][文明成年人不问为什么]] 摘自得到的《精英日课》
-- 201802 [[file:./blogs/grow-up-is-to-kill-the-monkey-king.org][成长的过程就是杀死我们心中的孙悟空]] 摘自得到的《硅谷来信》
 - 201801 [[file:./blogs/websocket-and-socketio.org][WebSocket和Socket.IO]]
 - 201801 [[file:./blogs/intro-quantum-computing.org][量子计算机初探]]
 - 201801 [[file:./blogs/wechat-auto-jump.org][微信跳一跳的自动化]]
