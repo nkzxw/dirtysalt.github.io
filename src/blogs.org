@@ -1,6 +1,7 @@
 #+title: blogs
 
 ** 2018
+- 201806 [[file:blogs/dedao-advantage-disadvantage-character.org][优点、缺点和特点]] 摘自得到的《硅谷来信》
 - 201805 [[file:./blogs/an-impact-guide-for-engineers.org][An Impact Guide for Engineers]] 工程师影响力指南
 - 201805 [[file:./blogs/types-of-scipy-sparse-matrix.org][scipy几种稀疏矩阵表示]]
 - 201805 [[file:blogs/tibet-travel.org][西藏(林芝-波密-拉萨)游记]]
@@ -23,10 +24,8 @@
 - 201802 [[file:./blogs/management-actually-is-engineering.org][管理其实是个工程学]] 摘自得到的《精英日课》
 - 201802 [[file:blogs/how-to-behave-systematically.org][怎样用系统下一盘大棋]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/dare-to-be-a-complicated-man.org][敢不敢做个复杂的人]] 摘自得到的《精英日课》
-- 201802 [[file:./blogs/reading-list-for-children.org][给小学生的书单]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/what-you-want-child-to-read-and-what-they-really-want-to-read.org][你想让儿童读的和儿童想读的]] 摘自得到的《精英日课》
 - 201802 [[file:./blogs/civilized-adults-dont-ask-why.org][文明成年人不问为什么]] 摘自得到的《精英日课》
-- 201802 [[file:./blogs/reading-list-for-undergraduate.org][给大学生的书单]] 摘自得到的《硅谷来信》
 - 201802 [[file:./blogs/grow-up-is-to-kill-the-monkey-king.org][成长的过程就是杀死我们心中的孙悟空]] 摘自得到的《硅谷来信》
 - 201801 [[file:./blogs/websocket-and-socketio.org][WebSocket和Socket.IO]]
 - 201801 [[file:./blogs/intro-quantum-computing.org][量子计算机初探]]
@@ -67,7 +66,6 @@
 - 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
 - 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
 - 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
-- 201707 [[file:./blogs/reading-list-for-college.org][我给中学生的书单]] 摘自得到的《硅谷来信》
 - 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
 - 201707 [[file:./blogs/macosx-rootless-mode.org][MacOS X Rootless Mode]]
 - 201707 [[file:./blogs/what-you-can-do-and-what-you-should-do.org][能做什么和该做什么]]
@@ -84,7 +82,7 @@
 - 201705 [[file:./blogs/ssh-tunneling-python.org][SSH Tunneling in Python]]
 - 201705 [[file:./blogs/issue-of-retry-after-field.org][Retry-After字段带来的问题]]
 - 201705 [[file:./blogs/what-a-good-ceo-looks-like.org][厉害的CEO是什么样的？]] 摘自得到的《精英日课》
-- 201705 [[file:./blogs/wujun-thoughts-on-career.org][吴军对职业发展的一些看法]] 摘自得到的《硅谷来信》
+- 201705 [[file:blogs/wujun-thoughts-on-career.org][职场上的四个误区和四个破法]] 摘自得到的《硅谷来信》
 - 201705 [[file:./blogs/use-wifi-aps-to-identify-location.org][利用WiFi热点来定位]]
 - 201704 [[file:./blogs/u-of-t-professor-geoffrey-hiton.org][U of T, Geoffrey Hinton]] 一篇关于Geoffrey Hiton的文章
 - 201704 [[file:./blogs/scaling-your-api-with-rate-limiters.org][Scaling your API with rate limiters]]
