@@ -384,7 +384,6 @@ https://dirtysalt.github.io/html/blogs/stock-price-data-sanity.html
 https://dirtysalt.github.io/html/blogs/lean-in.html
 https://dirtysalt.github.io/html/blogs/staying-healthy-while-working-remotely.html
 https://dirtysalt.github.io/html/blogs/dark-time.html
-https://dirtysalt.github.io/html/blogs/why-have-to-master-a-skill.html
 https://dirtysalt.github.io/html/blogs/poor-charlie-almanack.html
 https://dirtysalt.github.io/html/blogs/several-waters.html
 https://dirtysalt.github.io/html/blogs/have-a-baby.html
@@ -419,7 +418,6 @@ https://dirtysalt.github.io/html/blogs/availability-vs-durability.html
 https://dirtysalt.github.io/html/blogs/cross-ocean.html
 https://dirtysalt.github.io/html/blogs/modern-operating-systems.html
 https://dirtysalt.github.io/html/blogs/the-times-they-are-changing.html
-https://dirtysalt.github.io/html/blogs/reading-list-for-children.html
 https://dirtysalt.github.io/html/blogs/zhihu-hft-engineer.html
 https://dirtysalt.github.io/html/blogs/the-signal-and-the-noise.html
 https://dirtysalt.github.io/html/blogs/drive-learning.html
@@ -436,7 +434,6 @@ https://dirtysalt.github.io/html/blogs/first-foot-massage.html
 https://dirtysalt.github.io/html/blogs/zookeeper-getting-started.html
 https://dirtysalt.github.io/html/blogs/how-to-define-software-stability.html
 https://dirtysalt.github.io/html/blogs/first-10km-running.html
-https://dirtysalt.github.io/html/blogs/hard-learning.html
 https://dirtysalt.github.io/html/blogs/getting-things-done-when-you-are-only-a-grunt.html
 https://dirtysalt.github.io/html/blogs/how-to-pick-your-battles-on-a-software-team.html
 https://dirtysalt.github.io/html/blogs/build-hls-server.html
@@ -455,7 +452,6 @@ https://dirtysalt.github.io/html/blogs/professional-amateur.html
 https://dirtysalt.github.io/html/blogs/how-yelp-runs-millions-of-tests-every-day.html
 https://dirtysalt.github.io/html/blogs/calm-down-for-a-second.html
 https://dirtysalt.github.io/html/blogs/how-to-buildy=-your-personal-brand-as-a-new-developer.html
-https://dirtysalt.github.io/html/blogs/grow-up-is-to-kill-the-monkey-king.html
 https://dirtysalt.github.io/html/blogs/tool-is-to-free-people.html
 https://dirtysalt.github.io/html/blogs/jianshu-captcha.html
 https://dirtysalt.github.io/html/blogs/ssh-tunneling-python.html
@@ -678,7 +674,6 @@ https://dirtysalt.github.io/html/blogs/my-thoughts-on-startup.html
 https://dirtysalt.github.io/html/blogs/big-data-and-revolution.html
 https://dirtysalt.github.io/html/blogs/discussion-on-rs.html
 https://dirtysalt.github.io/html/blogs/my-first-moxa-wool-moxibustion.html
-https://dirtysalt.github.io/html/blogs/reading-list-for-undergraduate.html
 https://dirtysalt.github.io/html/blogs/beginning-of-a-hard-journey.html
 https://dirtysalt.github.io/html/blogs/dont-switch-to-yinxiang-note.html
 https://dirtysalt.github.io/html/blogs/getting-real.html
@@ -712,7 +707,6 @@ https://dirtysalt.github.io/html/blogs/the-hard-thing-about-hard-things.html
 https://dirtysalt.github.io/html/blogs/boost-shadowsocks-with-tcp-bbr.html
 https://dirtysalt.github.io/html/blogs/meeting-dyq.html
 https://dirtysalt.github.io/html/blogs/review-2013.html
-https://dirtysalt.github.io/html/blogs/reading-list-for-college.html
 https://dirtysalt.github.io/html/blogs/why-cant-programmers-program.html
 https://dirtysalt.github.io/html/blogs/refactoring-improving-the-design-of-existing-code.html
 https://dirtysalt.github.io/html/blogs/wechat-auto-jump.html
