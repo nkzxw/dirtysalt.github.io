@@ -1,6 +1,7 @@
 #+title: blogs
 
 ** 2018
+- 201806 [[file:interview-psychological-tricks.org][面试心理技巧(Psychological Tricks)]]
 - 201805 [[file:./blogs/an-impact-guide-for-engineers.org][An Impact Guide for Engineers]] 工程师影响力指南
 - 201805 [[file:./blogs/types-of-scipy-sparse-matrix.org][scipy几种稀疏矩阵表示]]
 - 201805 [[file:blogs/tibet-travel.org][西藏(林芝-波密-拉萨)游记]]
