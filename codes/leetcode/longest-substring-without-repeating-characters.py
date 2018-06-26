@@ -21,8 +21,9 @@ class Solution(object):
             j += 1
         return ret
 
+
 if __name__ == '__main__':
     s = Solution()
-    print s.lengthOfLongestSubstring('c')
-    print s.lengthOfLongestSubstring('')
-    print s.lengthOfLongestSubstring("jhhthogonzpheevzetkvygpvbdhcaisjpbfwslmflbopgmqmfcjdkzbmckqeskpjluhditltvzkdlap")
+    print(s.lengthOfLongestSubstring('c'))
+    print(s.lengthOfLongestSubstring(''))
+    print(s.lengthOfLongestSubstring("jhhthogonzpheevzetkvygpvbdhcaisjpbfwslmflbopgmqmfcjdkzbmckqeskpjluhditltvzkdlap"))

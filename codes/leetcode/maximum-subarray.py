@@ -20,8 +20,8 @@ class Solution(object):
         if res < 0:
             res = max(nums)
         return res
-    
+
 
 if __name__ == '__main__':
     s = Solution()
-    print s.maxSubArray([-1, -2])
+    print(s.maxSubArray([-1, -2]))
