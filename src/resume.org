@@ -12,14 +12,13 @@ Extensive experience in:
 - network programming framework design and implementation.
 - storage system design and implementation.
 - performance optimization and tuning for systems and applications.
-- system software development.
-- big data processing and analysis.
-- exploratory data analysis and machine learning.
+- big data process and analysis.
+- data mining and machine learning.
 
 Specialities:
 - proficient in C/C++, Python, Java, Scala.
 - solid knowledge of data structure and algorithm.
-- extremely familiar with system development toolchain on linux.
+- extremely familiar with system development on linux.
 - good understanding of compiler technique and related tools.
 
 * Experience
