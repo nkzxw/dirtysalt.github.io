@@ -33,4 +33,4 @@ t = int(input())
 for _ in range(t):
     a, b = input().rstrip().split()
     a, b = int(a), int(b)
-    print(solve(a, b))
+    print((solve(a, b)))

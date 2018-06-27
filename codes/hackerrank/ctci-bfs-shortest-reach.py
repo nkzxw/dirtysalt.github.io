@@ -31,7 +31,7 @@ class Graph:
 
         dist = [x * 6 if x > 0 else -1 for x in dist]
         dist.pop(s)
-        print(' '.join(map(str, dist)))
+        print((' '.join(map(str, dist))))
 
 t = int(input())
 for i in range(t):

@@ -50,4 +50,4 @@ sol = Solution()
 t = int(input())
 for _ in range(t):
     n = int(input())
-    print(sol.numberToWords(n))
+    print((sol.numberToWords(n)))

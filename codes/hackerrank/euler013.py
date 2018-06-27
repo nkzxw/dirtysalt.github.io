@@ -23,4 +23,4 @@ cases = int(input())
 values = []
 for _ in range(cases):
     values.append(input().rstrip()[::-1])
-print(solve(values))
+print((solve(values)))

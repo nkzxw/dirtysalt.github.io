@@ -16,4 +16,4 @@ t = int(input())
 for _ in range(t):
     a, b = [int(x) for x in input().rstrip().split()]
     x, y = [int(x) for x in input().rstrip().split()]
-    print(solve(a, b, x, y))
+    print((solve(a, b, x, y)))

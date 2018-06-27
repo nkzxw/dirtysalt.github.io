@@ -6,7 +6,7 @@ import sys
 fh = sys.stdin
 
 n = int(fh.readline())
-c = map(int, fh.readline().strip().split(' '))
+c = list(map(int, fh.readline().strip().split(' ')))
 
 dp = [0] * n
 
@@ -18,4 +18,4 @@ for i in range(1, n):
     else:
         dp[i] = min(dp[i-1], dp[i-2]) + 1
 
-print dp[n-1]
+print((dp[n-1]))

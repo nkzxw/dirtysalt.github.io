@@ -27,7 +27,7 @@ if __name__ == '__main__':
                 prime = False
                 break
             i += 1
-        print('Prime' if prime else 'Not prime')
+        print(('Prime' if prime else 'Not prime'))
 
 # if __name__ == '__main__':
 #     p = int(input())

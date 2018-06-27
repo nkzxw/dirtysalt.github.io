@@ -9,7 +9,7 @@ def solve(n):
         dp[i+1] += dp[i]
         dp[i+2] += dp[i]
         dp[i+3] += dp[i]
-    print(dp[n])
+    print((dp[n]))
 
 
 cases = int(input())

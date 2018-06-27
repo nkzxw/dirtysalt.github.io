@@ -33,4 +33,4 @@ for n in range(3, N + 1):
 t = int(input().strip())
 for a0 in range(t):
     n = int(input().strip())
-    print(table[n])
+    print((table[n]))

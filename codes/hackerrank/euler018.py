@@ -26,4 +26,4 @@ for _ in range(t):
     triangle = []
     for _ in range(n):
         triangle.append([int(x) for x in input().rstrip().split()])
-    print(solve(triangle))
+    print((solve(triangle)))

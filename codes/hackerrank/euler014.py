@@ -48,4 +48,4 @@ for n in range(2, N + 1):
 t = int(input())
 for _ in range(t):
     n = int(input())
-    print(starting[n])
+    print((starting[n]))

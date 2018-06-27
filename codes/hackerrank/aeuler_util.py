@@ -29,7 +29,7 @@ def check_prime_table():
         exp = is_prime(x)
         val = bool(table[x])
         if exp != val:
-            print('failed at {}. (exp = {}, val = {})'.format(x, exp, val))
+            print(('failed at {}. (exp = {}, val = {})'.format(x, exp, val)))
             break
     print('PASSED!!!')
 
@@ -102,5 +102,5 @@ def miller_rabin(n, k=10):
 
 
 if __name__ == '__main__':
-    # check_prime_table()
+    check_prime_table()
     pass

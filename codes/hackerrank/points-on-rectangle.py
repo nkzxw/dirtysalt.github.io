@@ -23,4 +23,4 @@ for _ in range(t):
     pts = []
     for _ in range(q):
         pts.append([int(x) for x in input().rstrip().split()])
-    print(solve(pts))
+    print((solve(pts)))

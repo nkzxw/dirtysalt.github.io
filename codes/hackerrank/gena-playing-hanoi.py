@@ -5,9 +5,9 @@
 import sys
 fh = sys.stdin
 n = int(fh.readline())
-a = map(lambda x: int(x) - 1,  fh.readline().strip().split(' '))
+a = [int(x) - 1 for x in fh.readline().strip().split(' ')]
 
-from Queue import Queue
+from queue import Queue
 track_set = [0] * (4 ** 10)
 Q = Queue()
 
@@ -60,4 +60,4 @@ while True:
         Q.put((h, cnt + 1))
         track_set[h] = 1
 
-print cnt
+print(cnt)

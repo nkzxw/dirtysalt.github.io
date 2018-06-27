@@ -25,4 +25,4 @@ for i in range(1, N + 1):
 t = int(input())
 for _ in range(t):
     n = int(input())
-    print(table[n])
+    print((table[n]))

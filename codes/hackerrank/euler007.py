@@ -62,4 +62,4 @@ while len(primes) < N:
 t = int(input().strip())
 for a0 in range(t):
     n = int(input().strip())
-    print(primes[n])
+    print((primes[n]))
