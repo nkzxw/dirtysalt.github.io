@@ -55,7 +55,8 @@ class Solution(object):
                 st[m + 1] = True
         return st[n]
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.wordBreak('leetcode', ['leet', 'code']))
-    print(s.wordBreak( "catsanddog", ["cat", "cats", "and", "sand", "dog"]))
+    print(s.wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]))
