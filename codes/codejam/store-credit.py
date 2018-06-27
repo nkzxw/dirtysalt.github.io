@@ -25,7 +25,7 @@ def bs(items, x, ct):
 for c in range(case_num):
     C = int(fh.readline())
     I = int(fh.readline())
-    items = map(lambda x: (x[0] + 1, int(x[1])), enumerate(fh.readline().split()))
+    items = [(x[0] + 1, int(x[1])) for x in enumerate(fh.readline().split())]
     items.sort(lambda x, y: cmp(x[1], y[1]))
     for x in items:
         if x[1] >= C:

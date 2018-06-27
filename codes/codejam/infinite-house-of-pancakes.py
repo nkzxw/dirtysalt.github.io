@@ -30,6 +30,6 @@ def f(D, ps):
 
 for c in range(case_num):
     D = int(fh.readline())
-    ps = map(lambda x: int(x), fh.readline().split())
+    ps = [int(x) for x in fh.readline().split()]
     res = f(D, ps)
     print 'Case #%d: %d' % (c + 1, res)

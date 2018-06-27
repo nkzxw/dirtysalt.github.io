@@ -10,7 +10,7 @@ for c in range(case_n):
     n = int(fh.readline())
     d = {}
     for i in range(2 * n - 1):
-        vs = map(lambda x: int(x), fh.readline().split())
+        vs = [int(x) for x in fh.readline().split()]
         for v in vs:
             d[v] = d.get(v, 0) + 1
     res = []
@@ -19,4 +19,4 @@ for c in range(case_n):
             res.append(k)
     res.sort()
     assert(len(res) == n)
-    print('Case #%d: %s' % (c + 1, ' '.join(map(lambda x: str(x), res))))
+    print('Case #%d: %s' % (c + 1, ' '.join([str(x) for x in res])))

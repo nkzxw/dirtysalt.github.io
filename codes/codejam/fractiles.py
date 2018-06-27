@@ -21,9 +21,9 @@ def f(k, c, s):
         for j in range(i, min(i + c, k)):
             x = x * k + j
         res.append(x + 1)
-    return ' '.join(map(lambda x: str(x), res))
+    return ' '.join([str(x) for x in res])
 
 for c in range(case_num):
-    (K, C, S) = map(lambda x: int(x), fh.readline().split())
+    (K, C, S) = [int(x) for x in fh.readline().split()]
     res = f(K, C, S)
     print('Case #%d: %s' % (c + 1, res))

@@ -27,7 +27,7 @@ def solve(xs):
     if buy is not None and sell is not None:
         res.append((buy, sell))
     if res:
-        return ' '.join(map(lambda x: '({} {})'.format(x[0], x[1]), res))
+        return ' '.join(['({} {})'.format(x[0], x[1]) for x in res])
     return 'No Profit'
 
 

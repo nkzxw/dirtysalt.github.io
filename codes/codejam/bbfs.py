@@ -7,7 +7,7 @@ import itertools
 def f(fwd):
     n = len(fwd)
     res = 0
-    for arr in itertools.permutations(range(n)):
+    for arr in itertools.permutations(list(range(n))):
         for i in range(1, n):
             x = arr[i-1]
             y = arr[i]
@@ -28,7 +28,7 @@ case_n = int(fh.readline())
 
 for c in range(case_n):
     n = int(fh.readline())
-    arr = map(lambda x: int(x), fh.readline().strip().split(' '))
+    arr = [int(x) for x in fh.readline().strip().split(' ')]
     fwd = [0] * n
     for (idx, v) in enumerate(arr):
         fwd[idx] = v - 1

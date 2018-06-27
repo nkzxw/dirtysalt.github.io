@@ -9,8 +9,8 @@ case_num = int(fh.readline())
 
 for c in range(case_num):
     n = int(fh.readline())
-    xs = map(lambda x: int(x), fh.readline().split())
-    ys = map(lambda x: int(x), fh.readline().split())
+    xs = [int(x) for x in fh.readline().split()]
+    ys = [int(x) for x in fh.readline().split()]
     xs.sort()
     ys.sort()
     res = 0

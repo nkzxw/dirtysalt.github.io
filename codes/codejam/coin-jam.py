@@ -27,7 +27,7 @@ def is_jam_coin(ss):
 def gen_coins(bits):
     bits -= 2
     n = 2 ** bits
-    for x in xrange(0, n):
+    for x in range(0, n):
         ss = ''
         for i in range(bits):
             ss += '1' if x % 2 else '0'
@@ -54,8 +54,8 @@ def pre_compute():
 d = pre_compute()
 case_num = int(fh.readline())
 for c in range(case_num):
-    (N, J) = map(lambda x: int(x), fh.readline().split())
+    (N, J) = [int(x) for x in fh.readline().split()]
     res = d[N][:J]
     print('Case #%d:' % (c + 1))
     for (coin, vs) in res:
-        print('%s %s' % (coin, ' '.join(map(lambda x: str(x), vs))))
+        print('%s %s' % (coin, ' '.join([str(x) for x in vs])))
