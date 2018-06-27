@@ -10,10 +10,10 @@ class Solution(object):
         """
         st = [1 << 31] * len(nums)
         st[0] = 0
-        for i in xrange(0, len(nums)):
+        for i in range(0, len(nums)):
             v = nums[i]
             # range = [i + 1, i + v]
-            for j in xrange(min(len(nums) - 1, i + v), i, -1):
+            for j in range(min(len(nums) - 1, i + v), i, -1):
                 if (st[i] + 1) < st[j]:
                     st[j] = st[i] + 1
                 else:
