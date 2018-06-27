@@ -24,9 +24,8 @@ class Solution:
 
             mask[i][j] = regid
             for (di, dj) in ((-1, 0), (1, 0), (0, 1), (0, -1)):
-                if (di + i) >=0 and (di + i) < n and \
-                  (dj + j) >=0 and (dj + j) < m:
-                  dfs(di + i, dj + j)
+                if (di + i) >= 0 and (di + i) < n and (dj + j) >= 0 and (dj + j) < m:
+                    dfs(di + i, dj + j)
 
         for i in range(n):
             for j in range(m):
