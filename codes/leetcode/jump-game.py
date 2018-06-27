@@ -8,7 +8,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        st = [1 << 31] * len(nums)
+        inf = 1 << 31
+        st = [inf] * len(nums)
         st[0] = 0
         for i in range(0, len(nums)):
             v = nums[i]
@@ -19,4 +20,4 @@ class Solution(object):
                 else:
                     # print('prune')
                     break
-        return st[len(nums) - 1] != (1 << 31)
+        return st[len(nums) - 1] != inf
