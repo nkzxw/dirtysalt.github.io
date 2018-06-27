@@ -21,21 +21,21 @@ class Solution(object):
         prev = res
 
         for i in range(0, m-1):
-            prev = prev.__next__
-            head = head.__next__
+            prev = prev.next
+            head = head.next
 
         tail = head
         pp = head        
-        head = head.__next__
+        head = head.next
         
         for i in range(m, n):
-            t = head.__next__
+            t = head.next
             head.next = pp
             pp = head
             head = t
 
         tail.next = head
         prev.next = pp
-        return res.__next__
+        return res.next
 
     

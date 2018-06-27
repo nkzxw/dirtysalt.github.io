@@ -17,18 +17,18 @@ class Solution(object):
             if p0.val < p1.val:
                 pp.next = p0
                 pp = p0
-                p0 = p0.__next__
+                p0 = p0.next
             else:
                 pp.next = p1
                 pp = p1
-                p1 = p1.__next__
+                p1 = p1.next
         if p0:
             pp.next = p0
         if p1:
             pp.next = p1
-        while pp.__next__:
-            pp = pp.__next__
-        return (dm.__next__, pp)
+        while pp.next:
+            pp = pp.next
+        return (dm.next, pp)
 
     def sortList(self, head):
         """
@@ -39,30 +39,30 @@ class Solution(object):
         p = head
         while p:
             n += 1
-            p = p.__next__
+            p = p.next
 
         dummy = ListNode(-1)
         dummy.next = head
         i = 1
         while (1 << (i - 1)) <= n:
             prev = dummy
-            p = dummy.__next__
+            p = dummy.next
 
             while p:
                 p0 = p
                 for j in range((1 << (i-1)) -1):
-                    if not p0.__next__: break
-                    p0 = p0.__next__
-                p1 = p0.__next__
+                    if not p0.next: break
+                    p0 = p0.next
+                p1 = p0.next
                 p0.next = None
 
                 nextp = None
                 if p1:
                     p2 = p1
                     for j in range((1 << (i -1) ) - 1):
-                        if not p2.__next__: break
-                        p2 = p2.__next__
-                    nextp = p2.__next__
+                        if not p2.next: break
+                        p2 = p2.next
+                    nextp = p2.next
                     p2.next = None
 
                 (h, t) = self.merge(p, p1)
@@ -73,22 +73,22 @@ class Solution(object):
             i += 1
             prev.next = None
             # print '>>>', nodes_to_list(dummy.next), i
-        return dummy.__next__
+        return dummy.next
 
 def list_to_nodes(xs):
     d = ListNode(-1)
     p = d
     for x in xs:
         p.next = ListNode(x)
-        p = p.__next__
+        p = p.next
     p.next = None
-    return d.__next__
+    return d.next
 
 def nodes_to_list(n):
     xs = []
     while n:
         xs.append(n.val)
-        n = n.__next__
+        n = n.next
     return xs
 
 if __name__ == '__main__':

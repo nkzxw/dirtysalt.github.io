@@ -18,9 +18,9 @@ class Solution(object):
         res = ListNode('dummy')
         prev = res
         while head:
-            if head.__next__ is not None:
-                cont = head.next.__next__
-                (x, y) = (head, head.__next__)
+            if head.next is not None:
+                cont = head.next.next
+                (x, y) = (head, head.next)
                 y.next = x
                 x.next = cont
                 prev.next = y
@@ -29,4 +29,4 @@ class Solution(object):
             else:
                 prev.next = head
                 break
-        return res.__next__
+        return res.next

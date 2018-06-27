@@ -20,19 +20,19 @@ class Solution(object):
         while l1 and l2:
             if l1.val < l2.val:
                 prev.next = l1
-                l1 = l1.__next__
+                l1 = l1.next
             else:
                 prev.next = l2
-                l2 = l2.__next__
-            prev = prev.__next__
+                l2 = l2.next
+            prev = prev.next
 
         while l1:
             prev.next = l1
-            l1 = l1.__next__
-            prev = prev.__next__
+            l1 = l1.next
+            prev = prev.next
         while l2:
             prev.next = l2
-            l2 = l2.__next__
-            prev = prev.__next__
+            l2 = l2.next
+            prev = prev.next
         prev.next = None
-        return res.__next__
+        return res.next

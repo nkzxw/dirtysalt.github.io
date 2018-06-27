@@ -19,5 +19,5 @@ class Solution(object):
             if hasattr(head, 'idx'): return head
             head.idx = idx
             idx += 1
-            head = head.__next__
+            head = head.next
         return None

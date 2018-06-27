@@ -24,7 +24,7 @@ class Solution(object):
             for i in range(k):
                 if head is None: break
                 st.append(head)
-                head = head.__next__
+                head = head.next
 
             if len(st) != k:
                 prev.next = st[0]
@@ -37,7 +37,7 @@ class Solution(object):
             prev = st[-1]
             st[-1].next = None
 
-        return res.__next__
+        return res.next
 
 class ListNode(object):
     def __init__(self, x):
@@ -54,7 +54,7 @@ def nodes_to_list(nodes):
     xs = []
     while nodes:
         xs.append(nodes.val)
-        nodes = nodes.__next__
+        nodes = nodes.next
     return xs
 
 if __name__ == '__main__':

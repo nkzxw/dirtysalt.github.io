@@ -26,15 +26,15 @@ class Solution(object):
             p.next = t2
             p = t2
             seen[t] = t2
-            t = t.__next__
+            t = t.next
 
         t = head
-        p = dummy.__next__
+        p = dummy.next
         while t:
             r = t.random
             r2 = seen[r] if r else None
             p.random = r2
-            t = t.__next__
-            p = p.__next__
+            t = t.next
+            p = p.next
 
-        return dummy.__next__
+        return dummy.next

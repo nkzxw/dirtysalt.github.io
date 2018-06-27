@@ -25,16 +25,16 @@ class LRUCache(object):
 
     def __str__(self):
         xs = []
-        head = self.qh.__next__
+        head = self.qh.next
         while not head is self.qt:
             xs.append(head)
-            head = head.__next__
+            head = head.next
         return ','.join(map(str, xs))
         
     def _take(self, n):
         # take it up
         pn = n.prev
-        nn = n.__next__
+        nn = n.next
         pn.next = nn
         nn.prev = pn
 
@@ -48,8 +48,8 @@ class LRUCache(object):
 
     def _evict(self):
         # print('--- evict ---')
-        n = self.qh.__next__
-        nn = n.__next__
+        n = self.qh.next
+        nn = n.next
         self.qh.next = nn
         nn.prev = self.qh
         key = n.key

@@ -31,5 +31,5 @@ class Solution:
             matched += 1
             if random.randint(0, matched - 1) == 0:
                 value = p.val
-            p = p.__next__
+            p = p.next
         return value

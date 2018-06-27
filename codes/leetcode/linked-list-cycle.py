@@ -16,10 +16,10 @@ class Solution(object):
         """
         if not head: return False
         x = head
-        y = head.__next__
+        y = head.next
         while x and y:
             if x == y: return True
-            x = x.__next__
-            y = y.__next__
-            if y: y = y.__next__
+            x = x.next
+            y = y.next
+            if y: y = y.next
         return False

@@ -22,7 +22,7 @@ class Solution(object):
             for (idx, w) in enumerate(wordDict):
                 head = root
                 for c in w:
-                    if c not in head.__next__:
+                    if c not in head.next:
                         n = Node(c)
                         head.next[c] = n
                     head = head.next[c]
@@ -33,7 +33,7 @@ class Solution(object):
             ms = []
             for j in range(i, len(s)):
                 c = s[j]
-                if c not in head.__next__:
+                if c not in head.next:
                     break
                 head = head.next[c]
                 if head.word_idx != -1:

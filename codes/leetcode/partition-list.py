@@ -28,7 +28,7 @@ class Solution(object):
             else:
                 p1.next = head
                 p1 = head
-            head = head.__next__
-        p0.next = r1.__next__
+            head = head.next
+        p0.next = r1.next
         p1.next = None
-        return r0.__next__
+        return r0.next

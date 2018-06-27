@@ -27,9 +27,9 @@ class Solution(object):
         while not pq.empty():
             (v, node) = pq.get()
             prev.next = ListNode(v)
-            prev = prev.__next__
-            node = node.__next__
+            prev = prev.next
+            node = node.next
             if node is not None:
                 pq.put((node.val, node))
 
-        return res.__next__
+        return res.next

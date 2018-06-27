@@ -19,11 +19,11 @@ class Solution(object):
         dup = None
         while head:
             if (head.val == dup) or \
-              (head.__next__ and head.val == head.next.val):
+              (head.next and head.val == head.next.val):
                 dup = head.val
             else:
                 prev.next = head
                 prev = head
-            head = head.__next__
+            head = head.next
         prev.next = None
-        return res.__next__
+        return res.next
