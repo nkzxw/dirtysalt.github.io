@@ -51,4 +51,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.findMaximumXOR([3, 10, 5, 25, 2, 8]))
+    print((s.findMaximumXOR([3, 10, 5, 25, 2, 8])))

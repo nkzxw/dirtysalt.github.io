@@ -23,7 +23,7 @@ class Solution(object):
 
         tb = []
         G = []
-        for i in xrange(n):
+        for i in range(n):
             G.append([])
             tb.append([])
 
@@ -59,7 +59,7 @@ class Solution(object):
             pfx_range(pfx_idx, len(ws))
 
         for off in range(0, len(beginWord)):
-            ws = map(lambda (x, idx): (x[off:] + x[:off], idx), wordlist2)
+            ws = [(x_idx[0][off:] + x_idx[0][:off], x_idx[1]) for x_idx in wordlist2]
             ws.sort(key = lambda x: x[0])
             updateG(ws)
 
@@ -86,11 +86,11 @@ class Solution(object):
 
         if not tb[n-1]: return []
 
-        min_dist = min(map(lambda x: x[1], tb[n-1]))
+        min_dist = min([x[1] for x in tb[n-1]])
         res = []
         def backtrace(idx, dist, r):
             if idx == 0:
-                res.append(map(lambda x: wordlist[x], reversed(r)))
+                res.append([wordlist[x] for x in reversed(r)])
                 return
 
             for (v, d) in tb[idx]:
@@ -105,6 +105,6 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.findLadders('hit', 'cog',  ["hot","dot","dog","lot","log"])
-    print s.findLadders('hot', 'dog',  ["hot",'dog'])
-    print s.findLadders("lost", "miss", ["most","mist","miss","lost","fist","fish"])
+    print(s.findLadders('hit', 'cog',  ["hot","dot","dog","lot","log"]))
+    print(s.findLadders('hot', 'dog',  ["hot",'dog']))
+    print(s.findLadders("lost", "miss", ["most","mist","miss","lost","fist","fish"]))

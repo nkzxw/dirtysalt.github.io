@@ -34,6 +34,6 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.numDecodings('12')
-    print s.numDecodings('27')
+    print(s.numDecodings('12'))
+    print(s.numDecodings('27'))
             

@@ -22,7 +22,7 @@ class Solution(object):
                 res.append((x, y))
                 x, y = a, b
         res.append((x, y))
-        return map(lambda (x, y): Interval(x, y), res)
+        return [Interval(x_y[0], x_y[1]) for x_y in res]
 
 # Definition for an interval.
 class Interval(object):
@@ -31,10 +31,10 @@ class Interval(object):
         self.end = e
 
 def list_to_intervals(xs):
-    return map(lambda x: Interval(x[0], x[1]), xs)
+    return [Interval(x[0], x[1]) for x in xs]
 
 def print_intervals(xs):
-    print ', '.join(map(lambda x: '[%d, %d]' % (x.start, x.end), xs))
+    print(', '.join(['[%d, %d]' % (x.start, x.end) for x in xs]))
     
 if __name__ == '__main__':
     s = Solution()

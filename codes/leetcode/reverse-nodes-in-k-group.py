@@ -24,7 +24,7 @@ class Solution(object):
             for i in range(k):
                 if head is None: break
                 st.append(head)
-                head = head.next
+                head = head.__next__
 
             if len(st) != k:
                 prev.next = st[0]
@@ -37,7 +37,7 @@ class Solution(object):
             prev = st[-1]
             st[-1].next = None
 
-        return res.next
+        return res.__next__
 
 class ListNode(object):
     def __init__(self, x):
@@ -45,7 +45,7 @@ class ListNode(object):
         self.next = None
 
 def list_to_nodes(xs):
-    nodes = map(lambda x: ListNode(x), xs)
+    nodes = [ListNode(x) for x in xs]
     for i in range(1, len(nodes)):
         nodes[i-1].next = nodes[i]
     return nodes[0]
@@ -54,9 +54,9 @@ def nodes_to_list(nodes):
     xs = []
     while nodes:
         xs.append(nodes.val)
-        nodes = nodes.next
+        nodes = nodes.__next__
     return xs
 
 if __name__ == '__main__':
     s = Solution()
-    print nodes_to_list(s.reverseKGroup(list_to_nodes([1,2]),2))
+    print(nodes_to_list(s.reverseKGroup(list_to_nodes([1,2]),2)))

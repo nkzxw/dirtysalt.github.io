@@ -28,4 +28,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.threeSumClosest([-1, 2, 1, -4], 1)
+    print(s.threeSumClosest([-1, 2, 1, -4], 1))

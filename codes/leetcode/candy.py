@@ -44,12 +44,12 @@ class Solution(object):
 
         ss1 = L2R(ratings)
         ss2 = L2R(ratings[::-1])[::-1]
-        ss = zip(ss1, ss2)
-        ss = map(lambda x: max(x[0], x[1]), ss)
+        ss = list(zip(ss1, ss2))
+        ss = [max(x[0], x[1]) for x in ss]
         # return ss
         return sum(ss)
 
 if __name__ == '__main__':
     s = Solution()
-    print s.candy([1,2])
-    print s.candy([1,2,2])
+    print(s.candy([1,2]))
+    print(s.candy([1,2,2]))

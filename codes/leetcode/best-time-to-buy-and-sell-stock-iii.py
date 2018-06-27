@@ -42,4 +42,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.maxProfit([2,1,2,0,1])
+    print(s.maxProfit([2,1,2,0,1]))

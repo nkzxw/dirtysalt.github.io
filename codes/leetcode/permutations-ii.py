@@ -37,7 +37,7 @@ class Solution(object):
             if t == res[-1]:
                 continue
             res.append(t)
-        return map(list, res)
+        return list(map(list, res))
 
 class Solution2:
     def permuteUnique(self, nums):
@@ -69,5 +69,5 @@ class Solution2:
 
 if __name__ == '__main__':
     s = Solution2()
-    print(s.permuteUnique([1,1,2]))
-    print(s.permuteUnique([3,3,0,0,2,3,2]))
+    print((s.permuteUnique([1,1,2])))
+    print((s.permuteUnique([3,3,0,0,2,3,2])))

@@ -22,13 +22,13 @@ class Solution(object):
         cnt = 0
         while x:
             cnt +=1
-            x = x.next
+            x = x.__next__
             
         prev = dummy
         for i in range(cnt - n):
-            prev = prev.next
-        n = prev.next
-        nn = n.next
+            prev = prev.__next__
+        n = prev.__next__
+        nn = n.__next__
         prev.next = nn
 
-        return dummy.next
+        return dummy.__next__

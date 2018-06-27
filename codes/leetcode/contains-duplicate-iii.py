@@ -35,8 +35,8 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.containsNearbyAlmostDuplicate([1, 2, 3, 1], 3, 0))
-    print(s.containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 2))
-    print(s.containsNearbyAlmostDuplicate([1, 5, 9, 1, 5, 9], 2, 3))
-    print(s.containsNearbyAlmostDuplicate([0, 10, 22, 15, 0, 5, 22, 12, 1, 5], 3, 3))
-    print(s.containsNearbyAlmostDuplicate([1, 3, 6, 2], 1, 2))
+    print((s.containsNearbyAlmostDuplicate([1, 2, 3, 1], 3, 0)))
+    print((s.containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 2)))
+    print((s.containsNearbyAlmostDuplicate([1, 5, 9, 1, 5, 9], 2, 3)))
+    print((s.containsNearbyAlmostDuplicate([0, 10, 22, 15, 0, 5, 22, 12, 1, 5], 3, 3)))
+    print((s.containsNearbyAlmostDuplicate([1, 3, 6, 2], 1, 2)))

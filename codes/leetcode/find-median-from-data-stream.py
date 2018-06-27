@@ -52,6 +52,6 @@ class MedianFinder:
 obj = MedianFinder()
 obj.addNum(1)
 obj.addNum(2)
-print(obj.findMedian())
+print((obj.findMedian()))
 obj.addNum(3)
-print(obj.findMedian())
+print((obj.findMedian()))

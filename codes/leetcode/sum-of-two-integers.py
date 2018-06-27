@@ -17,6 +17,6 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.getSum(10, 20))
-    print(s.getSum(16, 32))
+    print((s.getSum(10, 20)))
+    print((s.getSum(16, 32)))
     # print(s.getSum(-1, 1))

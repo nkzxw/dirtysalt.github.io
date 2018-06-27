@@ -13,7 +13,7 @@ class Solution(object):
         d = defaultdict(int)
         for n in nums:
             d[n] += 1
-        keys = d.keys()
+        keys = list(d.keys())
 
         res = [[]]
         for k in keys:

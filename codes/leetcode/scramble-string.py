@@ -50,5 +50,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.isScramble('great', 'rgtae')
-    print s.isScramble("abcdefghijklmn","efghijklmncadb")
+    print(s.isScramble('great', 'rgtae'))
+    print(s.isScramble("abcdefghijklmn","efghijklmncadb"))

@@ -30,11 +30,11 @@ class Solution(object):
             for j in range(0, i + 1):
                 if not pp[j][i]: continue
                 xs = st[j]
-                rs.extend(map(lambda x: x + [s[j: i+1]], xs))
+                rs.extend([x + [s[j: i+1]] for x in xs])
             st.append(rs)
 
         return st[n]
 
 if __name__ == '__main__':
     s = Solution()
-    print s.partition("aab")
+    print(s.partition("aab"))

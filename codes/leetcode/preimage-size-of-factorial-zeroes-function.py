@@ -46,4 +46,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     for K in (0, 1, 2, 5, 10):
-        print(s.preimageSizeFZF(K))
+        print((s.preimageSizeFZF(K)))

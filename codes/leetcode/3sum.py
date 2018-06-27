@@ -29,9 +29,9 @@ class Solution(object):
             res.extend(ss)
 
         res2 = set(res)
-        res = map(list, list(res2))
+        res = list(map(list, list(res2)))
         return res
 
 if __name__ == '__main__':
     s = Solution()
-    print s.threeSum([-1, 0, 1, 2, -1, -4])
+    print(s.threeSum([-1, 0, 1, 2, -1, -4]))

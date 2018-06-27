@@ -18,7 +18,7 @@ class Solution(object):
         p = head
         while p:
             st.append(p)
-            p = p.next
+            p = p.__next__
         n = len(st)
         (s, e)  = (0, n - 1)
         dummy = ListNode(-1)

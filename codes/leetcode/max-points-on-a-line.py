@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # print(s.maxPoints(pts))
 
     pts = [[0,0],[94911151,94911150],[94911152,94911151]]
-    print(s.maxPoints(pts))
+    print((s.maxPoints(pts)))
 
     # pts = [[84,250],[0,0],[1,0],[0,-70],[0,-70],[1,-1],[21,10],[42,90],[-42,-230]]
     # print(s.maxPoints(pts))

@@ -17,7 +17,7 @@ class Solution(object):
             idx = x * c + y
             ss.append((s[i], idx))
         ss.sort(lambda x, y: cmp(x[1], y[1]))
-        ss2 = map(lambda x: x[0], ss)
+        ss2 = [x[0] for x in ss]
         return ''.join(ss2)
 
     def xth(self, x, n):
@@ -30,4 +30,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.convert("PAYPALISHIRING", 3)
+    print(s.convert("PAYPALISHIRING", 3))

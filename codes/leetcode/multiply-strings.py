@@ -36,5 +36,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.multiply('123', '456'), 123 * 456
-    print s.multiply('1236789', '456123'), 1236789 * 456123
+    print(s.multiply('123', '456'), 123 * 456)
+    print(s.multiply('1236789', '456123'), 1236789 * 456123)

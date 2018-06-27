@@ -8,5 +8,5 @@ class Solution(object):
         :type s: st
         :rtype: str
         """
-        ss = filter(lambda x: x, s.split(' '))
+        ss = [x for x in s.split(' ') if x]
         return ' '.join(ss[::-1])

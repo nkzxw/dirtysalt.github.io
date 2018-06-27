@@ -51,4 +51,4 @@ if __name__ == '__main__':
     # import numpy as np
     # matrix = map(list, np.array("1 0 1 0 0 1 0 1 1 1 1 1 1 1 1 1 0 0 1 0".split()).reshape((4, 5)))
     # print s.maximalRectangle(matrix)
-    print s.maximalRectangle([["1"]])
+    print(s.maximalRectangle([["1"]]))

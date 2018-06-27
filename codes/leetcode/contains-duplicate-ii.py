@@ -30,4 +30,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.containsNearbyDuplicate([1, 2, 3, 1], 3))
+    print((s.containsNearbyDuplicate([1, 2, 3, 1], 3)))

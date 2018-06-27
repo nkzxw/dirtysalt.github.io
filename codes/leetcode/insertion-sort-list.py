@@ -17,14 +17,14 @@ class Solution(object):
         dummy = ListNode(-1)
         while head:
             p = head
-            head = head.next
+            head = head.__next__
 
             pp = dummy
-            while pp.next:
+            while pp.__next__:
                 if p.val > pp.next.val:
-                    pp = pp.next
+                    pp = pp.__next__
                 else:
                     break
-            p.next = pp.next
+            p.next = pp.__next__
             pp.next = p
-        return dummy.next
+        return dummy.__next__

@@ -60,4 +60,4 @@ if __name__ == '__main__':
   ['S','F','C','S'],
   ['A','D','E','E']
 ]
-    print s.exist(board, 'ABCCED')
+    print(s.exist(board, 'ABCCED'))

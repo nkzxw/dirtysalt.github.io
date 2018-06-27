@@ -24,7 +24,7 @@ class Solution(object):
         nums = []
         while head:
             nums.append(head.val)
-            head = head.next
+            head = head.__next__
 
         def f(nums):
             if not nums: return None

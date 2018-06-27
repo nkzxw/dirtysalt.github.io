@@ -36,10 +36,10 @@ class Solution(object):
             for i in range(0, n):
                 m.append(['.'] * n)
                 m[-1][r[i]] = 'Q'
-            res2.append(map(lambda x: ''.join(x), m))
+            res2.append([''.join(x) for x in m])
 
         return res2
 
 if __name__ == '__main__':
     s = Solution()
-    print s.solveNQueens(4)
+    print(s.solveNQueens(4))

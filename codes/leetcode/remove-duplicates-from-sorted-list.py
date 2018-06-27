@@ -17,11 +17,11 @@ class Solution(object):
         if not head: return head
         res = head
         prev = res
-        head = head.next
+        head = head.__next__
         while head:
             if head.val != prev.val:
                 prev.next = head
                 prev = head
-            head = head.next
+            head = head.__next__
         prev.next = None
         return res

@@ -8,7 +8,7 @@ class Solution(object):
         :type path: str
         :rtype: str
         """
-        ps = filter(lambda x: x, path.split('/'))
+        ps = [x for x in path.split('/') if x]
         ps2 = []
         for p in ps:
             if p == '.':
@@ -23,4 +23,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.simplifyPath('/')
+    print(s.simplifyPath('/'))

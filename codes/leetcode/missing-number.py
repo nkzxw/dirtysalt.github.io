@@ -20,4 +20,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.missingNumber([3, 0, 1]))
+    print((s.missingNumber([3, 0, 1])))

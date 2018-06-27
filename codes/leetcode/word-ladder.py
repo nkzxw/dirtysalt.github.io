@@ -22,7 +22,7 @@ class Solution(object):
         n = len(wordList)
 
         G = []
-        for i in xrange(n):
+        for i in range(n):
             G.append([])
 
         # NOTE(yan): 这里计算G有一些技巧，如果简单地O(n^2)去计算两个word是否相差一个字符的话
@@ -58,7 +58,7 @@ class Solution(object):
 
         # iter = k
         for off in range(0, len(beginWord)):
-            ws = map(lambda (x, idx): (x[off:] + x[:off], idx), wordList2)
+            ws = [(x_idx[0][off:] + x_idx[0][:off], x_idx[1]) for x_idx in wordList2]
             # O(nlgn * k)
             ws.sort(key = lambda x: x[0])
             # O(n)

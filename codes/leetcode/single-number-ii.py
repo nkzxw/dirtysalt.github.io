@@ -23,5 +23,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.singleNumber([1])
-    print s.singleNumber([-2,-2,1,1,-3,1,-3,-3,-4,-2])
+    print(s.singleNumber([1]))
+    print(s.singleNumber([-2,-2,1,1,-3,1,-3,-3,-4,-2]))

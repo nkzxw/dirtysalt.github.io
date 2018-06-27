@@ -11,7 +11,7 @@ class Solution(object):
         v = 1
         for i in range(1, n):
             v = self.next_value(v)
-            print v
+            print(v)
         return str(v)
 
     def next_value(self, n):
@@ -37,4 +37,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.countAndSay(10)
+    print(s.countAndSay(10))

@@ -29,4 +29,4 @@ class Solution(object):
                 res.append((x, y))
                 x, y = a, b
         res.append((x, y))
-        return map(lambda (x, y): Interval(x, y), res)
+        return [Interval(x_y[0], x_y[1]) for x_y in res]

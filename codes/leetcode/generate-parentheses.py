@@ -21,10 +21,10 @@ class Solution(object):
                     res2.append((s + ')', st - 1))
             res = res2
             n -= 1
-        return map(lambda x: x[0], res)
+        return [x[0] for x in res]
 
 if __name__ == '__main__':
     s = Solution()
-    print s.generateParenthesis(3)
-    print s.generateParenthesis(1)
-    print s.generateParenthesis(5)
+    print(s.generateParenthesis(3))
+    print(s.generateParenthesis(1))
+    print(s.generateParenthesis(5))

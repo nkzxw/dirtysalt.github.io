@@ -28,4 +28,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.productExceptSelf([1, 2, 3, 4]))
+    print((s.productExceptSelf([1, 2, 3, 4])))

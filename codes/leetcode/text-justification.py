@@ -47,4 +47,4 @@ if __name__ == '__main__':
     s = Solution()
     # print s.fullJustify(["This", "is", "an", "example", "of", "text", "justification."], 16)
     # print s.fullJustify(["What","must","be","shall","be."], 12)
-    print s.fullJustify(["Don't","go","around","saying","the","world","owes","you","a","living;","the","world","owes","you","nothing;","it","was","here","first."], 30)
+    print(s.fullJustify(["Don't","go","around","saying","the","world","owes","you","a","living;","the","world","owes","you","nothing;","it","was","here","first."], 30))

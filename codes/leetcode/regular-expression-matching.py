@@ -55,14 +55,14 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.isMatch("ab", ".*")
-    print s.st
-    print '---'
-    print s.isMatch("aab", "c*a*b")
-    print s.st
-    print '---'
-    print s.isMatch("aaa", "a.a")
-    print s.st
-    print '---'
-    print s.isMatch("", ".")
-    print s.st
+    print(s.isMatch("ab", ".*"))
+    print(s.st)
+    print('---')
+    print(s.isMatch("aab", "c*a*b"))
+    print(s.st)
+    print('---')
+    print(s.isMatch("aaa", "a.a"))
+    print(s.st)
+    print('---')
+    print(s.isMatch("", "."))
+    print(s.st)

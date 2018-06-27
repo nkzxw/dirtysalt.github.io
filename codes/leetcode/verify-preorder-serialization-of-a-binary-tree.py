@@ -68,4 +68,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     preorder = "9,3,4,#,#,1,#,#,2,#,6,#,#"
-    print(s.isValidSerialization(preorder))
+    print((s.isValidSerialization(preorder)))

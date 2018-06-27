@@ -48,4 +48,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     for n in (1, 12, 123, 12345, 123456, 1234567, 12345678, 123456789):
-        print(s.numberToWords(n))
+        print((s.numberToWords(n)))

@@ -81,4 +81,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.maxArea([2, 3, 10, 5, 7, 8, 9]))
+    print((s.maxArea([2, 3, 10, 5, 7, 8, 9])))

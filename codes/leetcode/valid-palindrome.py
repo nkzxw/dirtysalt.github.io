@@ -8,5 +8,5 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = map(lambda x: x.lower(), filter(lambda x: x.isalnum(), s))
+        s = [x.lower() for x in [x for x in s if x.isalnum()]]
         return s == s[::-1]

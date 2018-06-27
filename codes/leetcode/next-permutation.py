@@ -23,7 +23,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.nextPermutation([1,2,3])
-    print s.nextPermutation([3,2,1])
-    print s.nextPermutation([1,1,5])
-    print s.nextPermutation([1,1,5,4,0,4])
+    print(s.nextPermutation([1,2,3]))
+    print(s.nextPermutation([3,2,1]))
+    print(s.nextPermutation([1,1,5]))
+    print(s.nextPermutation([1,1,5,4,0,4]))

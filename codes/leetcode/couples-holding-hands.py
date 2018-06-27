@@ -12,7 +12,7 @@ class Solution:
         s = 0
         res = 0
         while s < len(row):
-            print(row, s)
+            print((row, s))
 
             a = row[s]
             b = row[s + 1]

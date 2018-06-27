@@ -21,7 +21,7 @@ class Solution(object):
         while x:
             n += 1
             pp = x
-            x = x.next
+            x = x.__next__
 
         if n == 0: return head
         k = k % n
@@ -29,8 +29,8 @@ class Solution(object):
 
         x = head
         for i in range(0, n - k - 1):
-            x = x.next
-        p = x.next
+            x = x.__next__
+        p = x.__next__
         pp.next = head
         x.next = None
         return p

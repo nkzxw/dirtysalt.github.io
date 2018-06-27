@@ -36,19 +36,19 @@ class Solution(object):
 
             i += 1
             j += 1
-        res = map(lambda (x, y): matrix[x][y], res)
+        res = [matrix[x_y[0]][x_y[1]] for x_y in res]
         return res
 
 if __name__ == '__main__':
     s = Solution()
-    print s.spiralOrder([
+    print(s.spiralOrder([
  [ 1, 2, 3 ],
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
-])
+]))
 
-    print s.spiralOrder([
+    print(s.spiralOrder([
  [ 1, 2, 3, 4, 5 ],
  [ 4, 5, 6, 7, 8 ],
  [ 7, 8, 9, 10, 11 ]
-])
+]))

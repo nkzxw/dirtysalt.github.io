@@ -48,5 +48,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.generateMatrix(3)
-    print s.generateMatrix(8)    
+    print(s.generateMatrix(3))
+    print(s.generateMatrix(8))    

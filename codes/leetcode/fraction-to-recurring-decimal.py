@@ -55,10 +55,10 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.fractionToDecimal(20, 3))
-    print(s.fractionToDecimal(-20, 3))
-    print(s.fractionToDecimal(2, 3))
-    print(s.fractionToDecimal(1, 2))
-    print(s.fractionToDecimal(2, 1))
-    print(s.fractionToDecimal(1379, 8773))
-    print(s.fractionToDecimal(-1379, 8773))
+    print((s.fractionToDecimal(20, 3)))
+    print((s.fractionToDecimal(-20, 3)))
+    print((s.fractionToDecimal(2, 3)))
+    print((s.fractionToDecimal(1, 2)))
+    print((s.fractionToDecimal(2, 1)))
+    print((s.fractionToDecimal(1379, 8773)))
+    print((s.fractionToDecimal(-1379, 8773)))

@@ -8,7 +8,7 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        ss = map(lambda x: (''.join(sorted(x)), x), strs)
+        ss = [(''.join(sorted(x)), x) for x in strs]
         ss.sort(key = lambda x: x[0])
 
         res = []
@@ -26,4 +26,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])
+    print(s.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

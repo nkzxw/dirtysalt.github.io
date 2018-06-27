@@ -13,7 +13,7 @@ class Solution(object):
         def fx(s, off, p, r):
             if p == 4 or off == len(s):
                 if p == 4 and off == len(s):
-                    res.append('.'.join(map(lambda x: str(x), r)))
+                    res.append('.'.join([str(x) for x in r]))
                 return
 
             if s[off] == '0':
@@ -35,7 +35,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.restoreIpAddresses('25525511135')
-    print s.restoreIpAddresses('1111')
-    print s.restoreIpAddresses('0000')
-    print s.restoreIpAddresses('00000')
+    print(s.restoreIpAddresses('25525511135'))
+    print(s.restoreIpAddresses('1111'))
+    print(s.restoreIpAddresses('0000'))
+    print(s.restoreIpAddresses('00000'))

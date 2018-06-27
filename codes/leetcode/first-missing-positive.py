@@ -9,7 +9,7 @@ class Solution(object):
         :rtype: int
         """
         # TODO(yan): FIX ME. not O(N)
-        nums = filter(lambda x: x > 0, nums)
+        nums = [x for x in nums if x > 0]
         nums.sort()
         if len(nums) == 0: return 1
 
@@ -27,7 +27,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.firstMissingPositive([1,2,0])
-    print s.firstMissingPositive([3, 4, 1, -1])
-    print s.firstMissingPositive([1, 1000])
-    print s.firstMissingPositive([1, 2, 1000])
+    print(s.firstMissingPositive([1,2,0]))
+    print(s.firstMissingPositive([3, 4, 1, -1]))
+    print(s.firstMissingPositive([1, 1000]))
+    print(s.firstMissingPositive([1, 2, 1000]))

@@ -31,7 +31,7 @@ class Solution(object):
         res0.sort(key = lambda x: x[0])
 
         res1 = self.single_side(heights[::-1])
-        res1 = map(lambda x: (n - 1 - x[0], n - 1 - x[1]), res1)
+        res1 = [(n - 1 - x[0], n - 1 - x[1]) for x in res1]
         res1.sort(key = lambda x: x[0])
 
         res = 0
@@ -71,5 +71,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.largestRectangleArea([2,1,5,6,2,3])
-    print s.largestRectangleArea([2,1,2])
+    print(s.largestRectangleArea([2,1,5,6,2,3]))
+    print(s.largestRectangleArea([2,1,2]))

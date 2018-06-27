@@ -50,7 +50,7 @@ class Solution(object):
         nw = len(words[0]) * len(words)
         if len(s) < nw: return []
 
-        pf_sign = sum(map(lambda x: ord(x), ''.join(words)))
+        pf_sign = sum([ord(x) for x in ''.join(words)])
         res = []
 
         sign = 0
@@ -82,7 +82,7 @@ class Solution(object):
             #     words_dict[ss] -= 1
             # return True
 
-        res = filter(lambda idx: post_check(idx), res)
+        res = [idx for idx in res if post_check(idx)]
 
         return res
 
@@ -112,5 +112,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.findSubstring("barfoothefoobarman", ["foo", 'bar'])
-    print s.findSubstring("wordgoodgoodgoodbestword",["word","good","best","good"])
+    print(s.findSubstring("barfoothefoobarman", ["foo", 'bar']))
+    print(s.findSubstring("wordgoodgoodgoodbestword",["word","good","best","good"]))

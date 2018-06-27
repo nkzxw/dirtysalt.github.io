@@ -86,6 +86,6 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.minWindow('ADOBECODEBANC', 'ABC'))
-    print(s.minWindow("bba", "ab"))
-    print(s.minWindow("aa", "aa"))
+    print((s.minWindow('ADOBECODEBANC', 'ABC')))
+    print((s.minWindow("bba", "ab")))
+    print((s.minWindow("aa", "aa")))

@@ -24,4 +24,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.addBinary('111', '10')
+    print(s.addBinary('111', '10'))

@@ -24,9 +24,9 @@ class Solution(object):
                     elif _sum > target: l -= 1
                     else: k += 1
         res2 = set(res)
-        res = map(list, res2)
+        res = list(map(list, res2))
         return res
 
 if __name__ == '__main__':
     s = Solution()
-    print s.fourSum([1, 0, -1, 0, -2, 2], 0)
+    print(s.fourSum([1, 0, -1, 0, -2, 2], 0))

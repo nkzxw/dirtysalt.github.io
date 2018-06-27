@@ -10,7 +10,7 @@ class Solution(object):
         :rtype: str
         """
         k = k - 1
-        seqs = range(1, n + 1)
+        seqs = list(range(1, n + 1))
         bases = [1]
         for i in range(2, n):
             bases.append(bases[-1] * i)
@@ -26,4 +26,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.getPermutation(3, 3)
+    print(s.getPermutation(3, 3))

@@ -143,10 +143,10 @@ class Solution:
 
 if __name__ == '__main__':
     s= Solution()
-    print(s.addOperators('12345', 147))
-    print(s.addOperators('123', 6))
-    print(s.addOperators('232', 8))
-    print(s.addOperators('12345', 6))
-    print(s.addOperators('105', 5))
-    print(s.addOperators('3456237490', 9191))
-    print(s.addOperators('123456789', 45))
+    print((s.addOperators('12345', 147)))
+    print((s.addOperators('123', 6)))
+    print((s.addOperators('232', 8)))
+    print((s.addOperators('12345', 6)))
+    print((s.addOperators('105', 5)))
+    print((s.addOperators('3456237490', 9191)))
+    print((s.addOperators('123456789', 45)))

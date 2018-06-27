@@ -9,7 +9,7 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         import functools
-        return map(list, functools.permutation(nums))
+        return list(map(list, functools.permutation(nums)))
 
 
 class Solution2:

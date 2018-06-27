@@ -9,7 +9,7 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        candidates = filter(lambda x: x <= target, candidates)
+        candidates = [x for x in candidates if x <= target]
         if not candidates: return []
         
         candidates.sort()
@@ -41,4 +41,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.combinationSum([2,3,6,7], 7)
+    print(s.combinationSum([2,3,6,7], 7))

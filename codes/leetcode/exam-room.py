@@ -77,6 +77,6 @@ if __name__ == '__main__':
         if act == 'ExamRoom':
             sol = ExamRoom(val[0])
         elif act == 'seat':
-            print(sol.seat())
+            print((sol.seat()))
         else:
             sol.leave(val[0])

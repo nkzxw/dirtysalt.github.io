@@ -21,4 +21,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.poorPigs(1000, 15, 60))
+    print((s.poorPigs(1000, 15, 60)))

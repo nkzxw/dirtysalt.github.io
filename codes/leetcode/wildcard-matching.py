@@ -148,11 +148,11 @@ class Solution(object):
         st[0][0] = 1
         swt = 0
 
-        for j in xrange(1, len(ps)):
+        for j in range(1, len(ps)):
             aft = 1 - swt
             if ps[j] == '*':
                 v = 0
-                for i in xrange(0, len(s)):
+                for i in range(0, len(s)):
                     v |= st[swt][i]
                     st[aft][i] = v
             else:
@@ -181,11 +181,11 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.isMatch("abc", "abc*defghijk")
-    print s.isMatch("aa", "aa")
-    print s.isMatch("aa", "*")
-    print s.isMatch("aab", "c*a*b")
-    print s.isMatch("ab", "?*")
-    print s.isMatch("", "?")
-    print s.isMatch("b","*?*?")
-    print s.isMatch('a' * 5000, '*' + 'a' * 4999 + '*')
+    print(s.isMatch("abc", "abc*defghijk"))
+    print(s.isMatch("aa", "aa"))
+    print(s.isMatch("aa", "*"))
+    print(s.isMatch("aab", "c*a*b"))
+    print(s.isMatch("ab", "?*"))
+    print(s.isMatch("", "?"))
+    print(s.isMatch("b","*?*?"))
+    print(s.isMatch('a' * 5000, '*' + 'a' * 4999 + '*'))

@@ -9,8 +9,8 @@ class Solution(object):
         :type cost: List[int]
         :rtype: int
         """
-        ss = zip(gas, cost)
-        net = map(lambda x: x[0] - x[1], ss)
+        ss = list(zip(gas, cost))
+        net = [x[0] - x[1] for x in ss]
         seen = set()
 
         def ok(s):

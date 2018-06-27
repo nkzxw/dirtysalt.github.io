@@ -22,5 +22,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = Solution()
-    print s.intToRoman(77)
-    print s.intToRoman(41)
+    print(s.intToRoman(77))
+    print(s.intToRoman(41))

@@ -8,7 +8,7 @@
 #         self.val = x
 #         self.next = None
 
-from Queue import PriorityQueue as PQ
+from queue import PriorityQueue as PQ
 
 class Solution(object):
     def mergeKLists(self, lists):
@@ -27,9 +27,9 @@ class Solution(object):
         while not pq.empty():
             (v, node) = pq.get()
             prev.next = ListNode(v)
-            prev = prev.next
-            node = node.next
+            prev = prev.__next__
+            node = node.__next__
             if node is not None:
                 pq.put((node.val, node))
 
-        return res.next
+        return res.__next__

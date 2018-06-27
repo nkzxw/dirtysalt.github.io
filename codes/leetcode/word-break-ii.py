@@ -22,7 +22,7 @@ class Solution(object):
             for (idx, w) in enumerate(wordDict):
                 head = root
                 for c in w:
-                    if c not in head.next:
+                    if c not in head.__next__:
                         n = Node(c)
                         head.next[c] = n
                     head = head.next[c]
@@ -33,7 +33,7 @@ class Solution(object):
             ms = []
             for j in range(i, len(s)):
                 c = s[j]
-                if c not in head.next:
+                if c not in head.__next__:
                     break
                 head = head.next[c]
                 if head.word_idx != -1:
@@ -42,7 +42,7 @@ class Solution(object):
 
         n = len(s)
         index = buildIndex(wordDict)
-        print 'build index OK'
+        print('build index OK')
 
         st = []
         for i in range(n + 1):
@@ -66,13 +66,13 @@ class Solution(object):
             if not rs: continue
             ms = tryMatch(s, i, index)
             for m in ms:
-                st[i + len(wordDict[m])].extend(map(lambda x: x + [m], rs))
+                st[i + len(wordDict[m])].extend([x + [m] for x in rs])
 
-        return map(lambda x: ' '.join(map(lambda y: wordDict[y], x)), st[n])
+        return [' '.join([wordDict[y] for y in x]) for x in st[n]]
 
 if __name__ == '__main__':
     s = Solution()
-    print s.wordBreak('leetcode', ['leet', 'code'])
-    print s.wordBreak( "catsanddog", ["cat", "cats", "and", "sand", "dog"])
-    print s.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"])
-    print s.wordBreak("aaaaaaaa",["aaaa","aa","a"])
+    print(s.wordBreak('leetcode', ['leet', 'code']))
+    print(s.wordBreak( "catsanddog", ["cat", "cats", "and", "sand", "dog"]))
+    print(s.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]))
+    print(s.wordBreak("aaaaaaaa",["aaaa","aa","a"]))

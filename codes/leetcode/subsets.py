@@ -10,9 +10,9 @@ class Solution(object):
         """
         res = [[]]
         for n in nums:
-            res.extend(map(lambda x: x + [n], res))
+            res.extend([x + [n] for x in res])
         return res
 
 if __name__ == '__main__':
     s = Solution()
-    print s.subsets([1,2,3])
+    print(s.subsets([1,2,3]))

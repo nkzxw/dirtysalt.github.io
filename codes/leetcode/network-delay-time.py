@@ -49,4 +49,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     # print(s.networkDelayTime([[1,2,1]], 2, 2))
-    print(s.networkDelayTime([[2,1,1],[2,3,1],[3,4,1]], 4, 2))
+    print((s.networkDelayTime([[2,1,1],[2,3,1],[3,4,1]], 4, 2)))

@@ -10,7 +10,7 @@ class Solution(object):
         """
 
         if isinstance(board[0], str):
-            board = map(lambda x: list(x), board)
+            board = [list(x) for x in board]
 
         row_st = []
         col_st = []
