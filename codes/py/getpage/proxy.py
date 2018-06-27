@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 import requests
 import logging
-from utils import wait_b4_try
+from .utils import wait_b4_try
 from traceback import format_exc
 
 PROXY_HOST_ADDR = 'http://spider.haoma.sogou.com.z.sogou-op.org'
@@ -26,7 +26,7 @@ def get_proxy(retry = 3):
     url = PROXY_HOST_ADDR + PROXY_GET_PATH
     LOG.info('Getting proxy server via ' + url)
     proxy = None
-    for i in xrange(retry):
+    for i in range(retry):
         # network environment for this should be good
         # so let's wait a little longer
         # instead of overwhealming the server
@@ -42,7 +42,7 @@ def get_proxy(retry = 3):
                 break
             else:
                 LOG.error('Got proxy in invalid format: ' + resp.text)
-        except Exception, e:
+        except Exception as e:
             LOG.debug(format_exc())
             LOG.error('Failed to get proxy with exception: ' + str(e))
     if proxy:

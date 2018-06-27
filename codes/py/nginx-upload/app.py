@@ -24,13 +24,13 @@ class upload:
     def POST(self):
         s = ''
         winput = web.input()
-        for k in winput.keys():
+        for k in list(winput.keys()):
             s += '<li>%s = %s</li>' % (k, cgi.escape(str(winput[k])))
         ctx_s = ''
-        for k in web.ctx.keys():
+        for k in list(web.ctx.keys()):
             ctx_s += '<li>%s = %s</li>' % (k, cgi.escape(str(web.ctx[k])))
         env_s = ''
-        for k in web.ctx.environ.keys():
+        for k in list(web.ctx.environ.keys()):
             env_s += '<li>%s = %s</li>' % (k, cgi.escape(str(web.ctx.environ[k])))
         html = """<html><body><p>web input<br/><ul>%s</ul></p>
         <p>web ctx<br/><ul>%s</ul></p>

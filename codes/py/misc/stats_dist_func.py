@@ -22,11 +22,11 @@ def pdf(ps):
         off = int((p - mn) / interval)
         if off >= bucket_n: off = bucket_n - 1
         vs[off] += 1
-    vs = map(lambda x: x * 1.0 / len(ps), vs)
+    vs = [x * 1.0 / len(ps) for x in vs]
     return vs
 
 def plot_points(func, N = 10000):
-    ps = [func() for i in xrange(0, N)]
+    ps = [func() for i in range(0, N)]
     vs = cdf(ps)
     plt.subplot(2,1,1)
     plt.plot(ps, vs)

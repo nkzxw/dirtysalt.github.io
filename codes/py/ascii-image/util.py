@@ -134,7 +134,7 @@ def image2html(im, constrast = True, font_color = False):
     bcolor = 'black' if constrast else 'white';
     ss = image2ascii(im, constrast = constrast)
     if not font_color:
-        s = '</br>\n'.join(map(lambda x: cgi.escape(x), ss))
+        s = '</br>\n'.join([cgi.escape(x) for x in ss])
     else:
         (w, h) = im.size
         ys = []

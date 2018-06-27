@@ -136,7 +136,7 @@ def tree_to_dict(tree):
     if tree.ft_index  is not None:
         d['ft_index'] = tree.ft_index
     d['label'] = tree.default_label
-    for (v, node) in tree.nodes.items():
+    for (v, node) in list(tree.nodes.items()):
         d['ft_value_%s' % v] = tree_to_dict(node)
     return d
 

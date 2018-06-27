@@ -58,7 +58,7 @@ def _get(url, callback, *args):
 
 def parse_url_callback(r, selector):
     bs = BeautifulSoup(r.content)
-    xs = list(map(lambda x: x.attrs['href'], bs.select(selector)))
+    xs = list([x.attrs['href'] for x in bs.select(selector)])
     content = json.dumps(xs)
     return content
 
@@ -111,7 +111,7 @@ def main():
             shell.append('if [ ! -f %s ]; then wget "%s" -O %s; fi' % (aud, audio, aud))
 
     with open('mysluttysecret.sh', 'w') as fh:
-        fh.writelines(map(lambda x: x + '\n', shell))
+        fh.writelines([x + '\n' for x in shell])
 
 if __name__ == '__main__':
     main()

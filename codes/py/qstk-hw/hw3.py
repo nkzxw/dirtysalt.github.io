@@ -19,7 +19,7 @@ def simulate(orders, amount):
     dt_start = orders[0][0]
     dt_end = orders[-1][0]
     # print(dt_start, dt_end)
-    ls_symbols = list(set(map(lambda x: x[1], orders)))
+    ls_symbols = list(set([x[1] for x in orders]))
     dt_timeofday = dt.timedelta(hours=16)
     ldt_timestamps = du.getNYSEdays(
         dt_start, dt_end + dt.timedelta(hours=24), dt_timeofday)
@@ -50,7 +50,7 @@ def simulate(orders, amount):
                     stocks[sym] = -qty
             order_idx += 1
         total = cash
-        for sym in stocks.keys():
+        for sym in list(stocks.keys()):
             qty = stocks[sym]
             price = df_price[sym].ix[ts]
             total += qty * price
@@ -104,9 +104,9 @@ def read_orders(fname):
 
 
 def output_values(ldt_timestamps, values):
-    rs = zip(ldt_timestamps, values)
-    lines = map(lambda x: '%d,%d,%d,%d' %
-                (x[0].year, x[0].month, x[0].day, x[1]), rs)
+    rs = list(zip(ldt_timestamps, values))
+    lines = ['%d,%d,%d,%d' %
+                (x[0].year, x[0].month, x[0].day, x[1]) for x in rs]
     for x in lines:
         print(x)
 

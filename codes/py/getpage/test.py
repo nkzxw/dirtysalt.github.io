@@ -3,8 +3,8 @@
 import logging
 import unittest
 
-import getpage
-from page import Page
+from . import getpage
+from .page import Page
 
 LOG = logging.getLogger(__name__)
 logging.basicConfig(level = logging.DEBUG)

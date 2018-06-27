@@ -2,10 +2,10 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-import cookielib
+import http.cookiejar
 import requests
 from bs4 import BeautifulSoup
-import cPickle
+import pickle
 import jinja2
 import traceback
 
@@ -17,8 +17,8 @@ def get_article_links():
     data = open('wenzhang_full.html').read()
     bs = BeautifulSoup(data)
     links = [x.attrs['href'] for x in bs.select('._photoLink')]
-    links = filter(lambda x: x.startswith('http://wenzhang.baidu.com') or \
-                   x.startswith('https://wenzhang.baidu.com'), links)
+    links = [x for x in links if x.startswith('http://wenzhang.baidu.com') or \
+                   x.startswith('https://wenzhang.baidu.com')]
     return links
 
 def link_to_cache_key(link):
@@ -42,7 +42,7 @@ def download_article(ss, link):
 
 def do_donwload(links):
     ss = requests.session()
-    cj = cookielib.LWPCookieJar()
+    cj = http.cookiejar.LWPCookieJar()
     cj.load('cookies.txt', ignore_discard = True, ignore_expires = True)
     ss.cookies = cj
 

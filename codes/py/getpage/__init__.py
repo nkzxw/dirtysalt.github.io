@@ -18,7 +18,7 @@ __copyright__ = 'Copyright 2015 Sogou, Inc.'
 from .utils import random_agent, req_args, wait_b4_try, guess_response_encoding
 from .page import page_from_resp, Page
 from .proxy import get_proxy, report_proxy_status
-from getpage import get
+from .getpage import get
 
 #from .loghandler import CassandraHandler
 

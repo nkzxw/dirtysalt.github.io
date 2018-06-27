@@ -8,9 +8,9 @@ import logging
 from requests.exceptions import *
 from time import time
 from traceback import format_exc
-from utils import *
-from page import page_from_resp, Page
-from proxy import get_proxy, report_proxy_status
+from .utils import *
+from .page import page_from_resp, Page
+from .proxy import get_proxy, report_proxy_status
 
 LOG = logging.getLogger(__name__)
 
@@ -41,9 +41,9 @@ def _get_page_requests(url, proxy = '', fpfirst = False, headers = None):
                 # sleep some random time before requesting again
                 sleep(random.uniform(2, 4))
         resp = session.get(url, **rargs)
-    except RequestException, e:
+    except RequestException as e:
         LOG.info(str(e))
-    except Exception, e:
+    except Exception as e:
         LOG.critical('Unexpected exceptions encountered.')
         LOG.critical(str(e))
         LOG.debug(format_exc())

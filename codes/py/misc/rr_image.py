@@ -70,7 +70,7 @@ def get_album_urls():
             f(url)
 
         with open(cache, 'w') as fh:
-            fh.writelines(map(lambda x: x + '\n', urls))
+            fh.writelines([x + '\n' for x in urls])
         return urls
 
     with open(cache) as fh:
@@ -100,7 +100,7 @@ def get_image_urls(album_url):
         curpage += 1
 
     with open(cache, 'w') as fh:
-        fh.writelines(map(lambda x: x + '\n', images))
+        fh.writelines([x + '\n' for x in images])
     return images
 
 DOWNLOAD_URL_RE = re.compile(r'"large":"([^"]+)"')

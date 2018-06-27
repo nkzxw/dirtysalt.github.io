@@ -28,7 +28,7 @@ random.seed(100)
 N = 100000
 DOORS = 3
 (v1, v2) = (0, 0)
-for x in xrange(0, N):
+for x in range(0, N):
     (u1, u2) =  run_once(DOORS)
     v1 += u1
     v2 += u2

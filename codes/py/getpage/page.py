@@ -3,7 +3,7 @@
 
 from time import time
 from chardet import detect
-from utils import guess_response_encoding as guess_enc
+from .utils import guess_response_encoding as guess_enc
 
 def page_from_resp(resp, encoding = None):
     '''
@@ -39,7 +39,7 @@ class Page(object):
     @property
     def text(self):
         if not self.content:
-            return u''
+            return ''
         enc = self.encoding or detect(self.content)['encoding']
         try:
             text = self.content.decode(enc, 'replace')

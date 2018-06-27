@@ -24,7 +24,7 @@ YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
 import hashlib
-import cPickle as pickle
+import pickle as pickle
 import pandas as pd
 def get_sign(s):
     if not isinstance(s, str):
@@ -156,10 +156,10 @@ if __name__ == "__main__":
     try:
         # youtube_search(args)
         results = youtube_search_all(args)
-        tags = youtube_videos_tags(map(lambda x: x['videoId'], results))
+        tags = youtube_videos_tags([x['videoId'] for x in results])
         for r in results:
             r['tags'] = (', '.join(tags[r['videoId']])).encode('utf8')
         df = pd.DataFrame(results, columns = ('videoId', 'title', 'description', 'tags'))
         df.to_csv(args.output_file, index = False)
-    except HttpError, e:
+    except HttpError as e:
         print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)

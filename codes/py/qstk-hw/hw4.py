@@ -75,7 +75,7 @@ def test_data():
 
     ls_keys = ['close', 'actual_close']
     ldf_data = dataobj.get_data(ldt_timestamps, ls_symbols, ls_keys)
-    d_data = dict(zip(ls_keys, ldf_data))
+    d_data = dict(list(zip(ls_keys, ldf_data)))
 
     for s_key in ls_keys:
         d_data[s_key] = d_data[s_key].fillna(method='ffill')

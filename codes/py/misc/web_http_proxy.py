@@ -5,7 +5,7 @@
 import flask
 from flask import stream_with_context, Response, request
 import requests
-import urlparse
+import urllib.parse
 
 app = flask.Flask(__name__)
 
@@ -15,7 +15,7 @@ def do_stream():
     url = request.args.get('u', None)
     headers = dict(request.headers)
     print(headers)
-    r = urlparse.urlparse(url)
+    r = urllib.parse.urlparse(url)
     host = r.netloc
     headers['Host'] = host
     r = requests.request(url=url, method=request.method, headers=headers, stream=True)

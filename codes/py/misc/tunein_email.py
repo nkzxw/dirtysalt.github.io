@@ -48,7 +48,7 @@ Belgium http://tunein.com/radio/Belgium-r100304/
 Austria http://tunein.com/radio/Austria-r101221/
 United-States http://tunein.com/radio/United-States-r100436/""".split('\n')
 
-urls = map(lambda x: map(lambda y: y.strip(), x.split()), urls)
+urls = [[y.strip() for y in x.split()] for x in urls]
 
 class SessionThrottle(object):
     def __init__(self, rate_limit):
@@ -94,7 +94,7 @@ def request_url_callback(url):
 def parse_url_callback(url, selector):
     content = _get(get_sha1_key(url), request_url_callback, (url, ))
     bs = BeautifulSoup(content)
-    xs = map(lambda x: x.attrs['href'], bs.select(selector))
+    xs = [x.attrs['href'] for x in bs.select(selector)]
     content = json.dumps(xs)
     return content
 
@@ -102,14 +102,14 @@ def get_states(url):
     key = get_sha1_key('tunein-state-' + url)
     content = _get(key, parse_url_callback, (url, '#mainContent > div > div.group.clearfix.linkmatrix > ul > li > a'))
     xs = json.loads(content)
-    links = map(lambda x: 'http://tunein.com' + x, xs)
+    links = ['http://tunein.com' + x for x in xs]
     return links
 
 def get_stations(url):
     key = get_sha1_key('tunein-station-' + url)
     content = _get(key, parse_url_callback, (url, '#mainContent > div > div > ul > li > a'))
     xs = json.loads(content)
-    links = map(lambda x: 'http://tunein.com' + x, xs)
+    links = ['http://tunein.com' + x for x in xs]
     return links
 
 import re
@@ -156,7 +156,7 @@ def main():
             emails = d[key]
             lines = list(emails)
             lines.insert(0, '>>>>> country (%s) <<<<<' % key)
-            fh.writelines(map(lambda x: x + '\n', lines))
+            fh.writelines([x + '\n' for x in lines])
 
 if __name__ == '__main__':
     main()

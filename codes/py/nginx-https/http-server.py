@@ -2,10 +2,10 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-import BaseHTTPServer
+import http.server
 
 
-class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
+class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         print '===================='
@@ -17,8 +17,8 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
         self.wfile.write(content)
 
 import sys
-def run(server_class=BaseHTTPServer.HTTPServer,
-        handler_class=BaseHTTPServer.BaseHTTPRequestHandler):
+def run(server_class=http.server.HTTPServer,
+        handler_class=http.server.BaseHTTPRequestHandler):
     port = 18888
     if len(sys.argv) > 1:
         port = int(sys.argv[1])

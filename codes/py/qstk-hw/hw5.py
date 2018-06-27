@@ -20,7 +20,7 @@ def get_close_price(dt_start, dt_end, ls_symbols):
     c_dataobj = da.DataAccess('Yahoo')
     ls_keys = ['close']
     ldf_data = c_dataobj.get_data(ldt_timestamps, ls_symbols, ls_keys)
-    d_data = dict(zip(ls_keys, ldf_data))
+    d_data = dict(list(zip(ls_keys, ldf_data)))
 
     # Filling the data for NAN
     for s_key in ls_keys:

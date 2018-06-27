@@ -20,7 +20,7 @@ def load_test_data():
 
 
 def get_image_data(data):
-    fields = list(filter(lambda x: x.startswith('pixel'), data.columns))
+    fields = list([x for x in data.columns if x.startswith('pixel')])
     pixels = data[fields].values
     return pixels
 

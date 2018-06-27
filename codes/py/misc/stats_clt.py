@@ -18,7 +18,7 @@ def pdf(ps):
         off = int((p - mn) / interval)
         if off >= bucket_n: off = bucket_n - 1
         vs[off] += 1
-    vs = map(lambda x: x * 1.0 / len(ps), vs)
+    vs = [x * 1.0 / len(ps) for x in vs]
     return vs
 
 streams = [{'func': random.expovariate,
@@ -32,11 +32,11 @@ def gen():
     for s in streams:
         f = s['func']
         args = s['args']
-        values.extend(map(lambda x: apply(f, x), args))
+        values.extend([f(*x) for x in args])
     return sum(values) * 1.0 / len(values)
 
 N = 10000
-ps = np.array([gen() for i in xrange(0, N)])
+ps = np.array([gen() for i in range(0, N)])
 vs = np.array(pdf(ps))
 xs = np.arange(ps.min(), ps.max(), (ps.max() - ps.min()) * 1.0 / vs.size)
 print('mean = {}, std ={}'.format(ps.mean(), ps.std()))

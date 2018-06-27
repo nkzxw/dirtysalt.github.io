@@ -5,7 +5,7 @@
 from gevent import monkey
 monkey.patch_socket()
 import gevent
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 # transparent
 # remote_proxy = ('http', '124.206.164.180:3128')
@@ -25,10 +25,10 @@ req_url = 'http://itunes.apple.com/lookup?id=917918570'
 def req_with_proxy_0(url, proxy):
     print 'r0 proxy = {} ...'.format(proxy)
     (type, addr) = proxy
-    proxy_handler = urllib2.ProxyHandler({type: addr})
-    opener = urllib2.build_opener(proxy_handler)
-    urllib2.install_opener(opener)
-    response = urllib2.urlopen(url)
+    proxy_handler = urllib.request.ProxyHandler({type: addr})
+    opener = urllib.request.build_opener(proxy_handler)
+    urllib.request.install_opener(opener)
+    response = urllib.request.urlopen(url)
     data = response.read()
     response.close()
     print 'r0 proxy = {} done'.format(proxy)
@@ -38,9 +38,9 @@ def req_with_proxy_0(url, proxy):
 def req_with_proxy_1(url, proxy):
     print 'r1 proxy = {} ...'.format(proxy)
     (type, addr) = proxy
-    req = urllib2.Request(url)
+    req = urllib.request.Request(url)
     req.set_proxy(addr, type)
-    f = urllib2.urlopen(req)
+    f = urllib.request.urlopen(req)
     data = f.read()
     f.close()
     print 'r1 proxy = {} done'.format(proxy)

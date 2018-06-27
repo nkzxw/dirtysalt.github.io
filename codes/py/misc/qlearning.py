@@ -32,7 +32,7 @@ def do_iterate(alpha = 0.1):
     for i in range(100):
     # while state != (n_state - 1):
     # 如果都是在final statet停止的话，那么这一步实际上得不到加强
-        actions = map(lambda x: x[0], filter(lambda x: x[1] != -1, enumerate(R[state])))
+        actions = [x[0] for x in [x for x in enumerate(R[state]) if x[1] != -1]]
         action = actions[random.randint(0, len(actions) - 1)]
         new_state = action
         reward = R[state][action]

@@ -19,9 +19,9 @@ def pp(docs):
     def f(x):
         x = re.sub('[^a-zA-Z]', ' ', x)
         words = x.lower().split(' ')
-        words = filter(lambda x: re.match(r'(?u)\b\w\w+\b', x), words)
+        words = [x for x in words if re.match(r'(?u)\b\w\w+\b', x)]
         return words
-    docs = map(lambda x: f(x), docs)
+    docs = [f(x) for x in docs]
     return docs
 
 docs = pp(docs)
@@ -34,9 +34,9 @@ def tfidf():
             if w not in word_dict:
                 word_dict[w] = word_idx
                 word_idx += 1
-    feature_names = word_dict.items()
+    feature_names = list(word_dict.items())
     feature_names.sort(lambda x, y: cmp(x[1], y[1]))
-    feature_names = map(lambda x: x[0], feature_names)
+    feature_names = [x[0] for x in feature_names]
 
     nw = len(word_dict)
     nd = len(docs)
@@ -73,7 +73,7 @@ def tfidf():
 def tfidf2():
     # vectorizer = CountVectorizer(analyzer = 'word')
     vectorizer = TfidfVectorizer(analyzer = 'word', norm = None)
-    d = vectorizer.fit_transform(map(lambda x: ' '.join(x), docs))
+    d = vectorizer.fit_transform([' '.join(x) for x in docs])
     feature_names = vectorizer.get_feature_names()
     # print vectorizer.idf_
     return d, feature_names
