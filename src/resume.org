@@ -23,11 +23,11 @@ Specialities:
 * Experience
 ** Software Engineer, [[http://castbox.fm/][CastBox.FM]], 2016.4 - (Head of Backend Development)
 
-- build backend infrastructure, including:
-  - web server, web crawler, database, monitoring, performance tuning.
-  - built on AWS low-level services: ec2, s3, cloudfront, athena etc.
-  - use Python which is a very productive language and has a great ecosystem.
-- apply machine learning to recommend channels/episodes to users.
+- crawler system.
+
+- search system.
+
+- recommender system.
 
 ** Software Engineer, [[http://logzilla.net/][Logzilla]], 2015.4 - 2015.8 (Remote, as Consultant)
 
