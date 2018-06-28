@@ -18,13 +18,17 @@ class Solution(object):
                 y = nums[k]
                 z = nums[j]
                 _sum = x + y + z
-                dist = _sum - target                
+                dist = _sum - target
                 if res is None or abs(res - target) > abs(dist):
                     res = _sum
-                if dist == 0: return res
-                elif dist > 0: j-=1
-                else: k+=1
+                if dist == 0:
+                    return res
+                elif dist > 0:
+                    j -= 1
+                else:
+                    k += 1
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

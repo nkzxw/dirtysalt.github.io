@@ -25,12 +25,13 @@ class Solution(object):
 
         for i in range(1, n + 1):
             for j in range(1, m + 1):
-                st[i][j] = (st[i-1][j] and s1[i-1] == s3[i+j-1]) or \
-                  (st[i][j-1] and s2[j-1] == s3[i+j-1])
+                st[i][j] = (st[i - 1][j] and s1[i - 1] == s3[i + j - 1]) or \
+                           (st[i][j - 1] and s2[j - 1] == s3[i + j - 1])
 
         # for x in st:
         #     print x
         return st[n][m]
+
 
 if __name__ == '__main__':
     s = Solution()

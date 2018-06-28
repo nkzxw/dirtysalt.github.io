@@ -33,15 +33,16 @@ class Graph:
         dist.pop(s)
         print((' '.join(map(str, dist))))
 
+
 t = int(input())
 for i in range(t):
-    n,m = [int(value) for value in input().split()]
+    n, m = [int(value) for value in input().split()]
     graph = Graph(n)
     for i in range(m):
-        x,y = [int(x) for x in input().split()]
-        graph.connect(x-1,y-1)
+        x, y = [int(x) for x in input().split()]
+        graph.connect(x - 1, y - 1)
     try:
         s = int(input())
     except Exception:
         s = 1
-    graph.find_all_distances(s-1)
+    graph.find_all_distances(s - 1)

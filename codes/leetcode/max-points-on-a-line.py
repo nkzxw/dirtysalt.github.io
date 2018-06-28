@@ -8,8 +8,10 @@ class Point:
         self.x = a
         self.y = b
 
+
 INF_SLOPE = 1 << 31
 from fractions import Fraction
+
 
 class Line:
     def __init__(self, slope, intercept):
@@ -18,7 +20,7 @@ class Line:
 
     def __eq__(self, o):
         return self.slope == o.slope and \
-          self.intercept == o.intercept
+               self.intercept == o.intercept
 
     @staticmethod
     def make(p0, p1):
@@ -58,14 +60,14 @@ class Solution:
         from collections import defaultdict
         line_count = defaultdict(set)
         for (i, p0) in enumerate(points):
-            for p1 in points[i+1:]:
+            for p1 in points[i + 1:]:
                 line = Line.make(p0, p1)
                 # print('saw line {}'.format(line))
                 line_count[line].update([p0, p1])
                 # line_count[line] = line_count.get(line, 0) + 1
 
         lines = list(line_count.items())
-        lines.sort(key = lambda x: -len(x[1]))
+        lines.sort(key=lambda x: -len(x[1]))
         exp_line = lines[0][0]
         # print(exp_line)
         res = 0
@@ -83,7 +85,7 @@ class Solution:
         max_res = 0
         max_line = None
         for (i, p0) in enumerate(points):
-            for p1 in points[i+1:]:
+            for p1 in points[i + 1:]:
                 line = Line.make(p0, p1)
                 res = 0
                 for p in points:
@@ -94,6 +96,7 @@ class Solution:
                     max_line = line
         print(max_line)
         return max_res
+
 
 if __name__ == '__main__':
     s = Solution()
@@ -106,7 +109,7 @@ if __name__ == '__main__':
     # pts = [1,1],[1,1],[1,1]
     # print(s.maxPoints(pts))
 
-    pts = [[0,0],[94911151,94911150],[94911152,94911151]]
+    pts = [[0, 0], [94911151, 94911150], [94911152, 94911151]]
     print((s.maxPoints(pts)))
 
     # pts = [[84,250],[0,0],[1,0],[0,-70],[0,-70],[1,-1],[21,10],[42,90],[-42,-230]]

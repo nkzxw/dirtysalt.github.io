@@ -51,4 +51,3 @@ class Solution(object):
             fx(root.right)
 
         fx(root)
-    

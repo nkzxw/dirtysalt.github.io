@@ -9,19 +9,19 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        a = self.bs(nums, target, eqf = 'backward')
+        a = self.bs(nums, target, eqf='backward')
         if a == -1: return [-1, -1]
-        b = self.bs(nums, target, eqf = 'forward')
+        b = self.bs(nums, target, eqf='forward')
         return [a, b]
 
-    def bs(self, nums, target, eqf = 'forward'):
+    def bs(self, nums, target, eqf='forward'):
         (s, e) = (0, len(nums) - 1)
         while s <= e:
             m = (s + e) / 2
             if nums[m] == target:
                 if eqf == 'forward' and (m + 1) < len(nums) and nums[m + 1] == target:
                     s = m + 1
-                elif eqf == 'backward' and (m - 1) >=0 and nums[m-1] == target:
+                elif eqf == 'backward' and (m - 1) >= 0 and nums[m - 1] == target:
                     e = m - 1
                 else:
                     return m
@@ -30,6 +30,7 @@ class Solution(object):
             else:
                 s = m + 1
         return -1
+
 
 if __name__ == '__main__':
     s = Solution()

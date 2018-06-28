@@ -17,13 +17,13 @@ def solve(exp):
 
     MOD = 1003
     for k in range(3, n + 1, 2):
-        for i in range(0, n-k+1, 2):
+        for i in range(0, n - k + 1, 2):
             j = i + k
             # exp[i..j]
             res_true, res_false = 0, 0
-            for op_idx in range(i+1, j-1, 2):
-                va = dp[i][op_idx-1]
-                vb = dp[op_idx+1][j-1]
+            for op_idx in range(i + 1, j - 1, 2):
+                va = dp[i][op_idx - 1]
+                vb = dp[op_idx + 1][j - 1]
                 op = exp[op_idx]
                 if op == '&':
                     res_true += va[0] * vb[0]
@@ -38,9 +38,8 @@ def solve(exp):
                     assert op in '&|^'
             res_true %= MOD
             res_false %= MOD
-            dp[i][j-1] = (res_true, res_false)
-    return dp[0][n-1][0]
-
+            dp[i][j - 1] = (res_true, res_false)
+    return dp[0][n - 1][0]
 
 
 t = int(input())

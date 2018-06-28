@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-import math,string,itertools,fractions,heapq,collections,re,array,bisect
+
 
 class ChessMatch:
     def bestExpectedScore(self, teamA, teamB, lim):
         return 0.0
 
+
 # CUT begin
 # TEST CODE FOR PYTHON {{{
-import sys, time, math
+import math
+import sys
+import time
+
 
 def tc_equal(expected, received):
     try:
@@ -25,13 +29,15 @@ def tc_equal(expected, received):
     except:
         return False
 
+
 def pretty_str(x):
     if type(x) == str:
         return '"%s"' % x
     elif type(x) == tuple:
-        return '(%s)' % (','.join( (pretty_str(y) for y in x) ) )
+        return '(%s)' % (','.join((pretty_str(y) for y in x)))
     else:
         return str(x)
+
 
 def do_test(teamA, teamB, lim, __expected):
     startTime = time.time()
@@ -42,7 +48,7 @@ def do_test(teamA, teamB, lim, __expected):
     except:
         import traceback
         exception = traceback.format_exc()
-    elapsed = time.time() - startTime   # in sec
+    elapsed = time.time() - startTime  # in sec
 
     if exception is not None:
         sys.stdout.write("RUNTIME ERROR: \n")
@@ -57,6 +63,7 @@ def do_test(teamA, teamB, lim, __expected):
         sys.stdout.write("           Expected: " + pretty_str(__expected) + "\n")
         sys.stdout.write("           Received: " + pretty_str(__result) + "\n")
         return 0
+
 
 def run_tests():
     sys.stdout.write("ChessMatch (1000 Points)\n\n")
@@ -93,8 +100,9 @@ def run_tests():
     T = time.time() - 1528419798
     PT, TT = (T / 60.0, 75.0)
     points = 1000 * (0.3 + (0.7 * TT * TT) / (10.0 * PT * PT + TT * TT))
-    sys.stdout.write("Time   : %d minutes %d secs\n" % (int(T/60), T%60))
+    sys.stdout.write("Time   : %d minutes %d secs\n" % (int(T / 60), T % 60))
     sys.stdout.write("Score  : %.2f points\n" % points)
+
 
 if __name__ == '__main__':
     run_tests()

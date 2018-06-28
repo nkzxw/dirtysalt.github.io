@@ -11,7 +11,7 @@ class Solution(object):
         if n == 0: return []
         res = []
         res.append(('(', 1))
-        n = 2 * n - 1 # left characters.
+        n = 2 * n - 1  # left characters.
         while n:
             res2 = []
             for (s, st) in res:
@@ -22,6 +22,7 @@ class Solution(object):
             res = res2
             n -= 1
         return [x[0] for x in res]
+
 
 if __name__ == '__main__':
     s = Solution()

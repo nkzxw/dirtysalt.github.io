@@ -3,14 +3,17 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 case_num = int(fh.readline())
 
+
 def flip_one(ss, target):
     idx = len(ss) - 1
-    while idx >=0 and ss[idx] == target:
+    while idx >= 0 and ss[idx] == target:
         idx -= 1
     return idx
+
 
 def flip(ss):
     target = '+'
@@ -23,6 +26,7 @@ def flip(ss):
         ss = ss[:idx]
         target = '-' if target == '+' else '+'
     return res
+
 
 for c in range(case_num):
     ss = fh.readline().strip()

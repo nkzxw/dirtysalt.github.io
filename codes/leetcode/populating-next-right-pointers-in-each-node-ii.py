@@ -23,7 +23,7 @@ class Solution:
             (t, d) = Q.popleft()
             if not t: continue
 
-            while len(st) < (d+1):
+            while len(st) < (d + 1):
                 st.append(None)
             if st[d] is not None:
                 st[d].next = t
@@ -33,5 +33,3 @@ class Solution:
             Q.append((t.right, d + 1))
         for x in st:
             x.next = None
-
-        

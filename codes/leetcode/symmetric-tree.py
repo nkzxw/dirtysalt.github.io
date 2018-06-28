@@ -15,6 +15,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+
         def sym(a, b):
             if not a and not b: return True
             if not a or not b: return False

@@ -49,7 +49,8 @@ class Solution(object):
         # return ss
         return sum(ss)
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.candy([1,2]))
-    print(s.candy([1,2,2]))
+    print(s.candy([1, 2]))
+    print(s.candy([1, 2, 2]))

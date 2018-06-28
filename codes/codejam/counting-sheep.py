@@ -3,8 +3,10 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 case_num = int(fh.readline())
+
 
 def f(n):
     sv = set()
@@ -21,6 +23,7 @@ def f(n):
                 return v
             v2 /= 10
         v += n
+
 
 for c in range(case_num):
     n = int(fh.readline())

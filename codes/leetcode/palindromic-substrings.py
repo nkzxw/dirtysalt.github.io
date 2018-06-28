@@ -23,7 +23,7 @@ class Solution:
                     dp[i][j] = 1
                 elif s[i] == s[j]:
                     if (i + 1) <= (j - 1):
-                        dp[i][j] = dp[i+1][j-1]
+                        dp[i][j] = dp[i + 1][j - 1]
                     else:
                         dp[i][j] = 1
 
@@ -34,6 +34,7 @@ class Solution:
                     # print('({}, {})'.format(i, j))
                     res += 1
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

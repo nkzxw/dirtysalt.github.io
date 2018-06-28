@@ -24,6 +24,7 @@ class Solution(object):
         res.append(seqs[0])
         return ''.join(map(str, res))
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.getPermutation(3, 3))

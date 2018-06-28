@@ -3,6 +3,7 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 case_n = int(fh.readline())
 
@@ -18,5 +19,5 @@ for c in range(case_n):
         if d[k] % 2:
             res.append(k)
     res.sort()
-    assert(len(res) == n)
+    assert (len(res) == n)
     print(('Case #%d: %s' % (c + 1, ' '.join([str(x) for x in res]))))

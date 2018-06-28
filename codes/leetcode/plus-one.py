@@ -9,7 +9,7 @@ class Solution(object):
         :rtype: List[int]
         """
         f = 1
-        for i in range(len(digits) -1 , -1, -1):
+        for i in range(len(digits) - 1, -1, -1):
             f += digits[i]
             digits[i] = f % 10
             f = f / 10

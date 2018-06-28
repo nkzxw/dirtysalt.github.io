@@ -20,15 +20,17 @@ class Solution(object):
                 ok = True
                 for j in range(0, idx):
                     if r[j] == i or \
-                      abs(r[j] - r[idx]) == abs(idx - j):
-                      ok = False
-                      break
+                                    abs(r[j] - r[idx]) == abs(idx - j):
+                        ok = False
+                        break
 
                 if ok:
                     f(idx + 1, r)
+
         r = [0] * n
         f(0, r)
         return res[0]
+
 
 if __name__ == '__main__':
     s = Solution()

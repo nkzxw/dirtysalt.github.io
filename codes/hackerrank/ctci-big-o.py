@@ -2,15 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-
+# !/bin/python3
 
 if __name__ == '__main__':
     p = int(input())
@@ -22,8 +14,8 @@ if __name__ == '__main__':
             continue
         prime = True
         i = 2
-        while(i * i <= n):
-            if (n % i ) == 0:
+        while (i * i <= n):
+            if (n % i) == 0:
                 prime = False
                 break
             i += 1

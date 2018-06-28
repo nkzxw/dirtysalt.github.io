@@ -26,6 +26,7 @@ class Solution(object):
         f(0, r)
         return res
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.combine(4, 2))

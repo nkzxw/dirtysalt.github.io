@@ -36,6 +36,7 @@ class Solution(object):
                 s = m + 1
         return False
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.searchMatrix([[1],[3],[5]], 4))
+    print(s.searchMatrix([[1], [3], [5]], 4))

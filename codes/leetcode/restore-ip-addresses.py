@@ -10,6 +10,7 @@ class Solution(object):
         """
 
         res = []
+
         def fx(s, off, p, r):
             if p == 4 or off == len(s):
                 if p == 4 and off == len(s):
@@ -29,9 +30,11 @@ class Solution(object):
                     r.append(v)
                     fx(s, i + 1, p + 1, r)
                     r.pop()
+
         r = []
         fx(s, 0, 0, r)
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

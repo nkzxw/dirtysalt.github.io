@@ -25,9 +25,9 @@ class Solution(object):
 
         for i in range(1, n):
             for j in range(1, m):
-                v = st[i-1][j-1] + (1 if word1[i] != word2[j] else 0)
-                v = min(v, st[i-1][j] + 1)
-                v = min(v, st[i][j-1] + 1)
+                v = st[i - 1][j - 1] + (1 if word1[i] != word2[j] else 0)
+                v = min(v, st[i - 1][j] + 1)
+                v = min(v, st[i][j - 1] + 1)
                 st[i][j] = v
 
-        return st[n-1][m-1]
+        return st[n - 1][m - 1]

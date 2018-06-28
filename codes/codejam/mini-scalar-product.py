@@ -15,5 +15,5 @@ for c in range(case_num):
     ys.sort()
     res = 0
     for idx in range(n):
-        res += xs[idx] * ys[n-1-idx]
+        res += xs[idx] * ys[n - 1 - idx]
     print('Case #%d: %d' % (c + 1, res))

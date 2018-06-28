@@ -25,26 +25,27 @@ class Solution(object):
         for i in range(m):
             csum[i][0] = 0
             for j in range(n):
-                csum[i][j+1] = csum[i][j] + int(matrix[j][i])
+                csum[i][j + 1] = csum[i][j] + int(matrix[j][i])
 
         # print csum
         def f(rx, ry):
             cnt = 0
             res = 0
             for i in range(m):
-                v = csum[i][ry+1] - csum[i][rx]
+                v = csum[i][ry + 1] - csum[i][rx]
                 if v == (ry - rx + 1):
                     cnt += 1
                     res = max(res, cnt)
                 else:
-                    cnt  = 0
+                    cnt = 0
             return res * (ry - rx + 1)
 
         res = 0
         for i in range(n):
             for j in range(i, n):
-               res = max(res, f(i, j))
+                res = max(res, f(i, j))
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

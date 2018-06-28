@@ -12,6 +12,7 @@ class Solution(object):
         res = []
         for i in range(0, len(nums)):
             a = nums[i]
+
             def search(x, s, e):
                 y = - x
                 ss = []
@@ -25,12 +26,14 @@ class Solution(object):
                     else:
                         s += 1
                 return ss
-            ss = search(a, i+1, len(nums) - 1)
+
+            ss = search(a, i + 1, len(nums) - 1)
             res.extend(ss)
 
         res2 = set(res)
         res = list(map(list, list(res2)))
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

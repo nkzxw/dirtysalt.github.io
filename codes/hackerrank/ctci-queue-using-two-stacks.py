@@ -25,6 +25,7 @@ class MyQueue(object):
         self.adjust_order('push')
         self.s0.append(value)
 
+
 queue = MyQueue()
 t = int(input())
 for line in range(t):

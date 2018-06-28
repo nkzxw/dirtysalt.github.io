@@ -23,9 +23,9 @@ class Solution(object):
                 for i in range(len(res), d):
                     res.append([])
             if d % 2 == 1:
-                res[d-1].append(root.val)
+                res[d - 1].append(root.val)
             else:
-                res[d-1].insert(0, root.val)
+                res[d - 1].insert(0, root.val)
             travel(root.left, d + 1)
             travel(root.right, d + 1)
 

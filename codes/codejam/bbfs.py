@@ -4,17 +4,18 @@
 
 import itertools
 
+
 def f(fwd):
     n = len(fwd)
     res = 0
     for arr in itertools.permutations(list(range(n))):
         for i in range(1, n):
-            x = arr[i-1]
+            x = arr[i - 1]
             y = arr[i]
             z = arr[0]
             u = arr[1]
             if (fwd[y] == x or fwd[y] == z) and \
-                (fwd[z] == u or fwd[z] == y):
+                    (fwd[z] == u or fwd[z] == y):
                 res = max(res, i + 1)
             if (i + 1) != n and not (fwd[y] == x or fwd[y] == arr[i + 1]):
                 break
@@ -22,7 +23,9 @@ def f(fwd):
             break
     return res
 
+
 import sys
+
 fh = sys.stdin
 case_n = int(fh.readline())
 

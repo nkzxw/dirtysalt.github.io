@@ -2,18 +2,13 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-import math
-import os
-import random
-import re
-import sys
 
 class TrieNode:
     def __init__(self):
         self.count = 0
         self.ss = [None] * 26
 
-    def build(self, s, match = False):
+    def build(self, s, match=False):
         root = self
         for c in s:
             idx = ord(c) - ord('a')
@@ -50,5 +45,5 @@ if __name__ == '__main__':
             trie.build(contact)
 
         elif op == 'find':
-            ok, count = trie.build(contact, match = True)
+            ok, count = trie.build(contact, match=True)
             print(count)

@@ -29,9 +29,10 @@ class Solution(object):
             # res = -(res + (1 if x > 0 else 0))
         return min(res, max_int)
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.divide(-14, 3), -14/3)
-    print(s.divide(-14, -3), -14/-3)
-    print(s.divide(14, 3), 14/3)
-    print(s.divide(14, -3), 14/-3)
+    print(s.divide(-14, 3), -14 / 3)
+    print(s.divide(-14, -3), -14 / -3)
+    print(s.divide(14, 3), 14 / 3)
+    print(s.divide(14, -3), 14 / -3)

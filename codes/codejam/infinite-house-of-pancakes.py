@@ -3,8 +3,10 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 case_num = int(fh.readline())
+
 
 def f(D, ps):
     bits = [0] * 1001
@@ -27,6 +29,7 @@ def f(D, ps):
         while not bits[mp]:
             mp -= 1
     return res
+
 
 for c in range(case_num):
     D = int(fh.readline())

@@ -37,18 +37,19 @@ class Solution(object):
             x = ''.join(sorted(s1[:i]))
             y = ''.join(sorted(s2[:i]))
             if x == y and \
-              self.isScramble(s1[:i], s2[:i]) and \
-              self.isScramble(s1[i:], s2[i:]):
+                    self.isScramble(s1[:i], s2[:i]) and \
+                    self.isScramble(s1[i:], s2[i:]):
                 return True
 
             y = ''.join(sorted(s2[-i:]))
             if x == y and \
-              self.isScramble(s1[:i], s2[-i:]) and \
-              self.isScramble(s1[i:], s2[:-i]):
+                    self.isScramble(s1[:i], s2[-i:]) and \
+                    self.isScramble(s1[i:], s2[:-i]):
                 return True
         return False
+
 
 if __name__ == '__main__':
     s = Solution()
     print(s.isScramble('great', 'rgtae'))
-    print(s.isScramble("abcdefghijklmn","efghijklmncadb"))
+    print(s.isScramble("abcdefghijklmn", "efghijklmncadb"))

@@ -17,11 +17,12 @@ class Solution(object):
             if not st: return False
             p = st.pop()
             if (c == ')' and p == '(') or \
-                (c == '}' and p == '{') or \
-                (c == ']' and p == '['):
+                    (c == '}' and p == '{') or \
+                    (c == ']' and p == '['):
                 continue
             return False
         return not st
+
 
 if __name__ == '__main__':
     s = Solution()

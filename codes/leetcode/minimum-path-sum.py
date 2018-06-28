@@ -16,12 +16,13 @@ class Solution(object):
 
         for i in range(0, n):
             for j in range(0, m):
-                st[1-swt][j] = min(st[swt][j], st[1-swt][j-1] if j > 0 else 1 << 31) + \
-                  grid[i][j]
+                st[1 - swt][j] = min(st[swt][j], st[1 - swt][j - 1] if j > 0 else 1 << 31) + \
+                                 grid[i][j]
             swt = 1 - swt
 
-        return st[swt][m-1]
+        return st[swt][m - 1]
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.minPathSum([[1,3,1],[1,5,1],[4,2,1]]))
+    print(s.minPathSum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]))

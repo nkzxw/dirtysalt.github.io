@@ -10,7 +10,7 @@ class Solution:
         """
         k = 5
         res = 0
-        while(k <= n):
+        while (k <= n):
             res += n // k
             k = k * 5
         return res

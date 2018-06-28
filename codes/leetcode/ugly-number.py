@@ -13,7 +13,7 @@ class Solution(object):
 
         while num != 1:
             match = False
-            for p in (2,3,5):
+            for p in (2, 3, 5):
                 if num % p == 0:
                     match = True
                     num /= p

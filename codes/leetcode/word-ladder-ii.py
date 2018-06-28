@@ -43,7 +43,7 @@ class Solution(object):
 
             def pfx_range(i, j):
                 for x in range(i, j):
-                    for y in range(x+1, j):
+                    for y in range(x + 1, j):
                         a = ws[x][1]
                         b = ws[y][1]
                         G[a].append(b)
@@ -60,7 +60,7 @@ class Solution(object):
 
         for off in range(0, len(beginWord)):
             ws = [(x_idx[0][off:] + x_idx[0][:off], x_idx[1]) for x_idx in wordlist2]
-            ws.sort(key = lambda x: x[0])
+            ws.sort(key=lambda x: x[0])
             updateG(ws)
 
         from collections import deque
@@ -71,7 +71,7 @@ class Solution(object):
 
         while len(Q):
             (v, d) = Q.popleft()
-            if v == (n-1):
+            if v == (n - 1):
                 break
 
             v2s = G[v]
@@ -84,10 +84,11 @@ class Solution(object):
         # for i in range(n):
         #     print '{} -> {}'.format(i, tb[i])
 
-        if not tb[n-1]: return []
+        if not tb[n - 1]: return []
 
-        min_dist = min([x[1] for x in tb[n-1]])
+        min_dist = min([x[1] for x in tb[n - 1]])
         res = []
+
         def backtrace(idx, dist, r):
             if idx == 0:
                 res.append([wordlist[x] for x in reversed(r)])
@@ -99,12 +100,14 @@ class Solution(object):
                 r.append(v)
                 backtrace(v, dist - 1, r)
                 r.pop()
-        r = [n-1]
-        backtrace(n-1, min_dist, r)
+
+        r = [n - 1]
+        backtrace(n - 1, min_dist, r)
         return res
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.findLadders('hit', 'cog',  ["hot","dot","dog","lot","log"]))
-    print(s.findLadders('hot', 'dog',  ["hot",'dog']))
-    print(s.findLadders("lost", "miss", ["most","mist","miss","lost","fist","fish"]))
+    print(s.findLadders('hit', 'cog', ["hot", "dot", "dog", "lot", "log"]))
+    print(s.findLadders('hot', 'dog', ["hot", 'dog']))
+    print(s.findLadders("lost", "miss", ["most", "mist", "miss", "lost", "fist", "fish"]))

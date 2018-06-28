@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import math,string,itertools,fractions,heapq,collections,re,array,bisect
+
 
 class TheRoundCityDiv2:
     def find(self, r):
@@ -8,16 +8,20 @@ class TheRoundCityDiv2:
 
         for x in range(-r, r + 1):
             y = int((r2 - x * x) ** 0.5)
-            while(((x * x) + (y + 1) * (y + 1)) <= r2):
+            while (((x * x) + (y + 1) * (y + 1)) <= r2):
                 y += 1
             res += 2 * y + 1
             if x == 0:
                 res -= 1
         return res
 
+
 # CUT begin
 # TEST CODE FOR PYTHON {{{
-import sys, time, math
+import math
+import sys
+import time
+
 
 def tc_equal(expected, received):
     try:
@@ -35,13 +39,15 @@ def tc_equal(expected, received):
     except:
         return False
 
+
 def pretty_str(x):
     if type(x) == str:
         return '"%s"' % x
     elif type(x) == tuple:
-        return '(%s)' % (','.join( (pretty_str(y) for y in x) ) )
+        return '(%s)' % (','.join((pretty_str(y) for y in x)))
     else:
         return str(x)
+
 
 def do_test(r, __expected):
     startTime = time.time()
@@ -52,7 +58,7 @@ def do_test(r, __expected):
     except:
         import traceback
         exception = traceback.format_exc()
-    elapsed = time.time() - startTime   # in sec
+    elapsed = time.time() - startTime  # in sec
 
     if exception is not None:
         sys.stdout.write("RUNTIME ERROR: \n")
@@ -67,6 +73,7 @@ def do_test(r, __expected):
         sys.stdout.write("           Expected: " + pretty_str(__expected) + "\n")
         sys.stdout.write("           Received: " + pretty_str(__result) + "\n")
         return 0
+
 
 def run_tests():
     sys.stdout.write("TheRoundCityDiv2 (250 Points)\n\n")
@@ -95,8 +102,9 @@ def run_tests():
     T = time.time() - 1526549982
     PT, TT = (T / 60.0, 75.0)
     points = 250 * (0.3 + (0.7 * TT * TT) / (10.0 * PT * PT + TT * TT))
-    sys.stdout.write("Time   : %d minutes %d secs\n" % (int(T/60), T%60))
+    sys.stdout.write("Time   : %d minutes %d secs\n" % (int(T / 60), T % 60))
     sys.stdout.write("Score  : %.2f points\n" % points)
+
 
 if __name__ == '__main__':
     run_tests()

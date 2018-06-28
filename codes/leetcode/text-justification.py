@@ -33,7 +33,7 @@ class Solution(object):
                 avg = rest / (len(r) - 1)
                 left = rest - avg * (len(r) - 1)
                 if left:
-                    s = (' ' * (1 + avg)).join(r[:left]) + ' ' * (1 + avg) +  (' ' * avg).join(r[left:])
+                    s = (' ' * (1 + avg)).join(r[:left]) + ' ' * (1 + avg) + (' ' * avg).join(r[left:])
                 else:
                     s = (' ' * avg).join(r)
             gp2.append(s)
@@ -43,8 +43,11 @@ class Solution(object):
         gp2.append(' '.join(gp[-1]) + ' ' * rest)
         return gp2
 
+
 if __name__ == '__main__':
     s = Solution()
     # print s.fullJustify(["This", "is", "an", "example", "of", "text", "justification."], 16)
     # print s.fullJustify(["What","must","be","shall","be."], 12)
-    print(s.fullJustify(["Don't","go","around","saying","the","world","owes","you","a","living;","the","world","owes","you","nothing;","it","was","here","first."], 30))
+    print(s.fullJustify(
+        ["Don't", "go", "around", "saying", "the", "world", "owes", "you", "a", "living;", "the", "world", "owes",
+         "you", "nothing;", "it", "was", "here", "first."], 30))

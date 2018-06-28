@@ -18,7 +18,6 @@ class Solution:
             if s[0] == '0' and len(s) >= 2: return False
             return True
 
-
         def flip(s):
             s = s.replace('+', '%')
             s = s.replace('-', '+')
@@ -45,7 +44,6 @@ class Solution:
             res = f(num)
             mem[key] = res
             return res
-
 
         def solve(num, target):
             key = '+.{}.{}'.format(num, target)
@@ -142,7 +140,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s= Solution()
+    s = Solution()
     print((s.addOperators('12345', 147)))
     print((s.addOperators('123', 6)))
     print((s.addOperators('232', 8)))

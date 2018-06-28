@@ -8,6 +8,7 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution(object):
     def merge(self, p0, p1):
         # print nodes_to_list(p0), nodes_to_list(p1)
@@ -50,7 +51,7 @@ class Solution(object):
 
             while p:
                 p0 = p
-                for j in range((1 << (i-1)) -1):
+                for j in range((1 << (i - 1)) - 1):
                     if not p0.next: break
                     p0 = p0.next
                 p1 = p0.next
@@ -59,7 +60,7 @@ class Solution(object):
                 nextp = None
                 if p1:
                     p2 = p1
-                    for j in range((1 << (i -1) ) - 1):
+                    for j in range((1 << (i - 1)) - 1):
                         if not p2.next: break
                         p2 = p2.next
                     nextp = p2.next
@@ -75,6 +76,7 @@ class Solution(object):
             # print '>>>', nodes_to_list(dummy.next), i
         return dummy.next
 
+
 def list_to_nodes(xs):
     d = ListNode(-1)
     p = d
@@ -84,6 +86,7 @@ def list_to_nodes(xs):
     p.next = None
     return d.next
 
+
 def nodes_to_list(n):
     xs = []
     while n:
@@ -91,6 +94,7 @@ def nodes_to_list(n):
         n = n.next
     return xs
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(nodes_to_list(s.sortList(list_to_nodes([5, 4,3,1,2,]))))
+    print(nodes_to_list(s.sortList(list_to_nodes([5, 4, 3, 1, 2, ]))))

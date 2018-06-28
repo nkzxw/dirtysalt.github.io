@@ -13,6 +13,6 @@ class Solution(object):
         for i in range(1, n + 1):
             v = 0
             for j in range(0, i):
-                v += st[j] * st[i-1-j]
+                v += st[j] * st[i - 1 - j]
             st[i] = v
         return st[n]

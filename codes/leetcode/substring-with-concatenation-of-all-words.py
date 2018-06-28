@@ -65,7 +65,7 @@ class Solution(object):
         def post_check(idx):
             xs = []
             for i in range(0, len(words)):
-                xs.append(s[idx + i*len(words[0]): idx + (i+1)*len(words[0])])
+                xs.append(s[idx + i * len(words[0]): idx + (i + 1) * len(words[0])])
             xs.sort()
             ss = ''.join(xs)
             return ss == sws
@@ -85,6 +85,7 @@ class Solution(object):
         res = [idx for idx in res if post_check(idx)]
 
         return res
+
 
 # class Solution(object):
 #     def findSubstring(self, s, words):
@@ -113,4 +114,4 @@ class Solution(object):
 if __name__ == '__main__':
     s = Solution()
     print(s.findSubstring("barfoothefoobarman", ["foo", 'bar']))
-    print(s.findSubstring("wordgoodgoodgoodbestword",["word","good","best","good"]))
+    print(s.findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "good"]))

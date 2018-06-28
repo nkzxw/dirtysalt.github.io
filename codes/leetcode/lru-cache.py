@@ -9,8 +9,9 @@ class LRUCache(object):
             self.value = value
             self.prev = None
             self.next = None
+
         def __str__(self):
-            return '(%s, %s)'% (self.key, self.value)
+            return '(%s, %s)' % (self.key, self.value)
 
     def __init__(self, capacity):
         """
@@ -30,7 +31,7 @@ class LRUCache(object):
             xs.append(head)
             head = head.next
         return ','.join(map(str, xs))
-        
+
     def _take(self, n):
         # take it up
         pn = n.prev
@@ -84,6 +85,7 @@ class LRUCache(object):
             n.value = value
         self._put(n)
         # print self
+
 
 if __name__ == '__main__':
     s = LRUCache(2)

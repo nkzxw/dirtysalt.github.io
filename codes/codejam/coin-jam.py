@@ -4,7 +4,9 @@
 
 
 import sys
+
 fh = sys.stdin
+
 
 def is_prime(v):
     n = int(v ** 0.5)
@@ -13,6 +15,7 @@ def is_prime(v):
         if v % x == 0:
             return x
     return 0
+
 
 def is_jam_coin(ss):
     res = []
@@ -24,6 +27,7 @@ def is_jam_coin(ss):
         res.append(x)
     return res
 
+
 def gen_coins(bits):
     bits -= 2
     n = 2 ** bits
@@ -33,6 +37,7 @@ def gen_coins(bits):
             ss += '1' if x % 2 else '0'
             x /= 2
         yield '1' + ss + '1'
+
 
 def pre_compute():
     d = {}
@@ -50,6 +55,7 @@ def pre_compute():
         d[bits] = res
         # print 'OK'
     return d
+
 
 d = pre_compute()
 case_num = int(fh.readline())

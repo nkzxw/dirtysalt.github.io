@@ -21,8 +21,9 @@ class Solution(object):
                     break
         return st[len(nums) - 1]
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.jump([2,3,1,1,4]))
-    print(s.jump([1,2,3]))
+    print(s.jump([2, 3, 1, 1, 4]))
+    print(s.jump([1, 2, 3]))
     print(s.jump([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1, 0]))

@@ -21,11 +21,14 @@ class Solution(object):
                     if _sum == target:
                         res.append((nums[i], nums[j], nums[k], nums[l]))
                         k += 1
-                    elif _sum > target: l -= 1
-                    else: k += 1
+                    elif _sum > target:
+                        l -= 1
+                    else:
+                        k += 1
         res2 = set(res)
         res = list(map(list, res2))
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

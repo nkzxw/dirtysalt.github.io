@@ -14,7 +14,7 @@ class Solution(object):
             r2 = []
             r2.append(r[0])
             for i in range(0, len(r) - 1):
-                r2.append(r[i] + r[i+1])
+                r2.append(r[i] + r[i + 1])
             r2.append(r[-1])
             r = r2
         return r

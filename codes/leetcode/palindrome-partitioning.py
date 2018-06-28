@@ -22,7 +22,7 @@ class Solution(object):
             for i in range(0, n - sz + 1):
                 j = i + sz - 1
                 if s[i] != s[j]: continue
-                pp[i][j] = pp[i+1][j-1] if (i + 1) <= (j - 1) else 1
+                pp[i][j] = pp[i + 1][j - 1] if (i + 1) <= (j - 1) else 1
 
         for i in range(n):
             # search palindrome backward.
@@ -30,10 +30,11 @@ class Solution(object):
             for j in range(0, i + 1):
                 if not pp[j][i]: continue
                 xs = st[j]
-                rs.extend([x + [s[j: i+1]] for x in xs])
+                rs.extend([x + [s[j: i + 1]] for x in xs])
             st.append(rs)
 
         return st[n]
+
 
 if __name__ == '__main__':
     s = Solution()

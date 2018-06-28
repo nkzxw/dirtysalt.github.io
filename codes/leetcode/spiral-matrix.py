@@ -23,14 +23,14 @@ class Solution(object):
             if len(res) == n * m: break
 
             for r in range(i + 1, n - i):
-                res.append((r, m-1-j))
+                res.append((r, m - 1 - j))
             if len(res) == n * m: break
 
-            for c in range(m-2-j, j-1, -1):
-                res.append((n-1-i, c))
+            for c in range(m - 2 - j, j - 1, -1):
+                res.append((n - 1 - i, c))
             if len(res) == n * m: break
 
-            for r in range(n-2-i, i, -1):
+            for r in range(n - 2 - i, i, -1):
                 res.append((r, j))
             if len(res) == n * m: break
 
@@ -39,16 +39,17 @@ class Solution(object):
         res = [matrix[x_y[0]][x_y[1]] for x_y in res]
         return res
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.spiralOrder([
- [ 1, 2, 3 ],
- [ 4, 5, 6 ],
- [ 7, 8, 9 ]
-]))
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]))
 
     print(s.spiralOrder([
- [ 1, 2, 3, 4, 5 ],
- [ 4, 5, 6, 7, 8 ],
- [ 7, 8, 9, 10, 11 ]
-]))
+        [1, 2, 3, 4, 5],
+        [4, 5, 6, 7, 8],
+        [7, 8, 9, 10, 11]
+    ]))

@@ -16,14 +16,14 @@ class Solution:
             edges.append([])
 
         for (u, v, w) in times:
-            edges[u-1].append((v-1, w))
+            edges[u - 1].append((v - 1, w))
 
         INT_MAX = 1 << 31
         sd = [INT_MAX] * N
         K = K - 1
         sd[K] = 0
         nodes = set(range(0, N))
-        for (v,w) in edges[K]:
+        for (v, w) in edges[K]:
             sd[v] = sd[K] + w
         nodes.remove(K)
 
@@ -46,7 +46,8 @@ class Solution:
             return -1
         return max_sd
 
+
 if __name__ == '__main__':
     s = Solution()
     # print(s.networkDelayTime([[1,2,1]], 2, 2))
-    print((s.networkDelayTime([[2,1,1],[2,3,1],[3,4,1]], 4, 2)))
+    print((s.networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2)))

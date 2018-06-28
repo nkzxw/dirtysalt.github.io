@@ -4,6 +4,7 @@
 
 import string
 
+
 def solve(s):
     s = list(s)
     tmp = [(idx, c) for (idx, c) in enumerate(s) if c in string.ascii_letters]
@@ -16,6 +17,7 @@ def solve(s):
         b += 1
         e -= 1
     return ''.join(s)
+
 
 t = int(input())
 for _ in range(t):

@@ -28,19 +28,19 @@ class Solution(object):
         if n == 0: return 0
 
         res0 = self.single_side(heights)
-        res0.sort(key = lambda x: x[0])
+        res0.sort(key=lambda x: x[0])
 
         res1 = self.single_side(heights[::-1])
         res1 = [(n - 1 - x[0], n - 1 - x[1]) for x in res1]
-        res1.sort(key = lambda x: x[0])
+        res1.sort(key=lambda x: x[0])
 
         res = 0
         for i in range(0, len(heights)):
             h = heights[i]
             (x, y) = res0[i]
             (a, b) = res1[i]
-            assert(x == a)
-            assert(b <= y)
+            assert (x == a)
+            assert (b <= y)
             res = max((y - b + 1) * h, res)
         return res
 
@@ -69,7 +69,8 @@ class Solution(object):
             res.append((off, len(heights) - 1))
         return res
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.largestRectangleArea([2,1,5,6,2,3]))
-    print(s.largestRectangleArea([2,1,2]))
+    print(s.largestRectangleArea([2, 1, 5, 6, 2, 3]))
+    print(s.largestRectangleArea([2, 1, 2]))

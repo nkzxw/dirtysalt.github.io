@@ -41,7 +41,7 @@ class Solution(object):
 
             def pfx_range(i, j):
                 for x in range(i, j):
-                    for y in range(x+1, j):
+                    for y in range(x + 1, j):
                         a = ws[x][1]
                         b = ws[y][1]
                         G[a].append(b)
@@ -60,7 +60,7 @@ class Solution(object):
         for off in range(0, len(beginWord)):
             ws = [(x_idx[0][off:] + x_idx[0][:off], x_idx[1]) for x_idx in wordList2]
             # O(nlgn * k)
-            ws.sort(key = lambda x: x[0])
+            ws.sort(key=lambda x: x[0])
             # O(n)
             updateG(ws)
 
@@ -72,7 +72,7 @@ class Solution(object):
 
         while len(Q):
             (v, d) = Q.popleft()
-            if v == (n-1):
+            if v == (n - 1):
                 return d + 1
             v2s = G[v]
             for v2 in v2s:

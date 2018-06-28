@@ -22,6 +22,7 @@ def solve(n, graph):
             ins[v] -= 1
     return res
 
+
 topoSort = solve
 
 t = int(input())

@@ -3,8 +3,10 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 case_n = int(fh.readline())
+
 
 def f(s):
     res = ''
@@ -12,6 +14,7 @@ def f(s):
         ss = max(res + x, x + res)
         res = ss
     return res
+
 
 for c in range(case_n):
     s = fh.readline().strip()

@@ -27,18 +27,18 @@ class Solution(object):
 
         for i in range(0, len(s)):
             for j in range(1, len(p)):
-                if p[j] != '*' and (j+1) < len(p) and p[j+1] == '*':
+                if p[j] != '*' and (j + 1) < len(p) and p[j + 1] == '*':
                     continue
 
                 def f():
                     if p[j] == '*':
-                        if st[i][j-2]:
+                        if st[i][j - 2]:
                             return 1
 
                         match = 0
                         for x in range(i, 0, -1):
-                            if p[j-1] == s[x] or p[j-1] == '.':
-                                if st[x-1][j-2]:
+                            if p[j - 1] == s[x] or p[j - 1] == '.':
+                                if st[x - 1][j - 2]:
                                     match = 1
                                     break
                             else:
@@ -46,12 +46,13 @@ class Solution(object):
                                 break
                         return match
                     if i == 0: return 0
-                    return int((p[j] == s[i] or p[j] == '.') and st[i-1][j-1])
+                    return int((p[j] == s[i] or p[j] == '.') and st[i - 1][j - 1])
 
                 match = f()
                 st[i][j] = match
 
-        return bool(st[len(s)-1][len(p)-1])
+        return bool(st[len(s) - 1][len(p) - 1])
+
 
 if __name__ == '__main__':
     s = Solution()

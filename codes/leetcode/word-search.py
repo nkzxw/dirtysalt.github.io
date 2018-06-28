@@ -9,6 +9,7 @@ class Solution(object):
         :type word: str
         :rtype: bool
         """
+
         def f(i, j):
             traces = []
             visited = set()
@@ -25,11 +26,11 @@ class Solution(object):
                 while True:
                     d += 1
                     ni, nj = i, j
-                    if d == 1: # right
+                    if d == 1:  # right
                         nj += 1
-                    elif d == 2: # down
+                    elif d == 2:  # down
                         ni += 1
-                    elif d == 3: # up
+                    elif d == 3:  # up
                         ni -= 1
                     elif d == 4:
                         nj -= 1
@@ -38,7 +39,7 @@ class Solution(object):
                         break
 
                     if ni < 0 or nj < 0 or ni >= len(board) or nj >= len(board[0]) or \
-                      (ni, nj) in visited or board[ni][nj] != word[idx+1]:
+                                    (ni, nj) in visited or board[ni][nj] != word[idx + 1]:
                         continue
                     else:
                         traces.append((i, j, idx, d))
@@ -53,11 +54,12 @@ class Solution(object):
                 if f(i, j): return True
         return False
 
+
 if __name__ == '__main__':
     s = Solution()
     board = [
-  ['A','B','C','E'],
-  ['S','F','C','S'],
-  ['A','D','E','E']
-]
+        ['A', 'B', 'C', 'E'],
+        ['S', 'F', 'C', 'S'],
+        ['A', 'D', 'E', 'E']
+    ]
     print(s.exist(board, 'ABCCED'))

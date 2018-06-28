@@ -3,6 +3,7 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 
 n = int(fh.readline())
@@ -14,8 +15,8 @@ for i in range(1, n):
     if c[i] == 1:
         dp[i] = 1 << 31
     elif i == 1:
-        dp[i] = dp[i-1] + 1
+        dp[i] = dp[i - 1] + 1
     else:
-        dp[i] = min(dp[i-1], dp[i-2]) + 1
+        dp[i] = min(dp[i - 1], dp[i - 2]) + 1
 
-print((dp[n-1]))
+print((dp[n - 1]))

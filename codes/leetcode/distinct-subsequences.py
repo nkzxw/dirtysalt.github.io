@@ -16,17 +16,17 @@ class Solution(object):
         for i in range(n):
             st.append([1] + [0] * (m - 1))
 
-
         for i in range(1, n):
             for j in range(1, m):
                 # st[i][j] involves with s[i-1][ and t[j-1]
-                st[i][j] = st[i-1][j]
-                if s[i-1] == t[j-1]:
-                    st[i][j] += st[i-1][j-1]
+                st[i][j] = st[i - 1][j]
+                if s[i - 1] == t[j - 1]:
+                    st[i][j] += st[i - 1][j - 1]
 
         # for i in range(n):
         #     print st[i]
-        return st[n-1][m-1]
+        return st[n - 1][m - 1]
+
 
 if __name__ == '__main__':
     s = Solution()

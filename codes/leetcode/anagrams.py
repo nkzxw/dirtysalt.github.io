@@ -9,7 +9,7 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         ss = [(''.join(sorted(x)), x) for x in strs]
-        ss.sort(key = lambda x: x[0])
+        ss.sort(key=lambda x: x[0])
 
         res = []
         g = []
@@ -23,6 +23,7 @@ class Solution(object):
             g.append(s)
         if g: res.append(g)
         return res
+
 
 if __name__ == '__main__':
     s = Solution()

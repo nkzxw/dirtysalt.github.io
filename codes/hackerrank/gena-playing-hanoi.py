@@ -3,13 +3,16 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 n = int(fh.readline())
 a = [int(x) - 1 for x in fh.readline().strip().split(' ')]
 
 from queue import Queue
+
 track_set = [0] * (4 ** 10)
 Q = Queue()
+
 
 def possible_moves(a):
     d = [-1] * 4
@@ -28,11 +31,13 @@ def possible_moves(a):
     # print states
     return states
 
+
 def hx(a):
     v = 0
     for x in a[::-1]:
         v = v * 4 + x
     return v
+
 
 def fx(h):
     a = []
@@ -40,6 +45,7 @@ def fx(h):
         a.append(h % 4)
         h /= 4
     return a
+
 
 # h = hx([0,3,1])
 # print fx(h)

@@ -162,13 +162,13 @@ class Solution(object):
                 for i in range(1, len(s) + 1 - ps_size):
                     end = i + ps_size - 1
                     if self.string_match(s[i: i + ps_size], ps[j]):
-                        st[aft][end] = st[swt][i-1]
+                        st[aft][end] = st[swt][i - 1]
                     else:
                         st[aft][end] = 0
             swt = aft
             # print st
 
-        return bool(st[swt][len(s)-1])
+        return bool(st[swt][len(s) - 1])
 
     def string_match(self, a, b):
         # print('a = {}, b = {}'.format(a, b))
@@ -187,5 +187,5 @@ if __name__ == '__main__':
     print(s.isMatch("aab", "c*a*b"))
     print(s.isMatch("ab", "?*"))
     print(s.isMatch("", "?"))
-    print(s.isMatch("b","*?*?"))
+    print(s.isMatch("b", "*?*?"))
     print(s.isMatch('a' * 5000, '*' + 'a' * 4999 + '*'))

@@ -3,6 +3,7 @@
 # Copyright (C) dirlt
 
 import sys
+
 fh = sys.stdin
 
 case_num = int(fh.readline())

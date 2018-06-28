@@ -35,6 +35,7 @@ class Solution(object):
             s = '%d%d' % (cnt, v) + s
         return int(s)
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.countAndSay(10))

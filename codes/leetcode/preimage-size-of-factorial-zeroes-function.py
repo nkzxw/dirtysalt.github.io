@@ -20,13 +20,12 @@ class Solution:
                 k *= 5
             return res
 
-
         # find low bound.
         l, r = 0, 5 * (K + 1)
-        while(l <= r):
+        while (l <= r):
             m = (l + r) // 2
             c = zeros(m)
-            if(c < K):
+            if (c < K):
                 l = m + 1
             else:
                 r = m - 1
@@ -42,6 +41,7 @@ class Solution:
                 l = m + 1
         rb = r
         return (rb - lb + 1)
+
 
 if __name__ == '__main__':
     s = Solution()

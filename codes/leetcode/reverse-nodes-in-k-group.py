@@ -32,23 +32,26 @@ class Solution(object):
 
             st = st[::-1]
             for i in range(1, len(st)):
-                st[i-1].next = st[i]
+                st[i - 1].next = st[i]
             prev.next = st[0]
             prev = st[-1]
             st[-1].next = None
 
         return res.next
 
+
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
 
+
 def list_to_nodes(xs):
     nodes = [ListNode(x) for x in xs]
     for i in range(1, len(nodes)):
-        nodes[i-1].next = nodes[i]
+        nodes[i - 1].next = nodes[i]
     return nodes[0]
+
 
 def nodes_to_list(nodes):
     xs = []
@@ -57,6 +60,7 @@ def nodes_to_list(nodes):
         nodes = nodes.next
     return xs
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(nodes_to_list(s.reverseKGroup(list_to_nodes([1,2]),2)))
+    print(nodes_to_list(s.reverseKGroup(list_to_nodes([1, 2]), 2)))

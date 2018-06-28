@@ -2,14 +2,11 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-#!/bin/python3
+# !/bin/python3
 
-import math
 import os
-import random
-import re
-import sys
 from collections import Counter
+
 
 # Complete the maxRegion function below.
 def maxRegion(grid):
@@ -29,9 +26,9 @@ def maxRegion(grid):
         for (di, dj) in [(x, y) for x in range(-1, 2) for y in range(-1, 2)]:
             if di == 0 and dj == 0:
                 continue
-            if (di + i) >=0 and (di + i) < n and \
-              (dj + j) >=0 and (dj + j) < m:
-              dfs(di + i, dj + j)
+            if (di + i) >= 0 and (di + i) < n and \
+                            (dj + j) >= 0 and (dj + j) < m:
+                dfs(di + i, dj + j)
 
     for i in range(n):
         for j in range(m):
@@ -47,6 +44,7 @@ def maxRegion(grid):
 
     top = counter.most_common(1)
     return top[0][1]
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

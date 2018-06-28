@@ -20,9 +20,9 @@ class Solution(object):
                 ok = True
                 for j in range(0, idx):
                     if r[j] == i or \
-                      abs(r[j] - r[idx]) == abs(idx - j):
-                      ok = False
-                      break
+                                    abs(r[j] - r[idx]) == abs(idx - j):
+                        ok = False
+                        break
 
                 if ok:
                     f(idx + 1, r)
@@ -39,6 +39,7 @@ class Solution(object):
             res2.append([''.join(x) for x in m])
 
         return res2
+
 
 if __name__ == '__main__':
     s = Solution()

@@ -23,6 +23,7 @@ class Solution(object):
                     bs.add((i, j))
 
         seen = set()
+
         def visit(r, c):
             st = []
             st.append((r, c, 0))
@@ -45,9 +46,9 @@ class Solution(object):
                 st.append((i, j, d))
 
                 if ni < 0 or ni >= n or \
-                  nj < 0 or nj >= m or \
-                    board[ni][nj] == 'X' or \
-                    (ni, nj) in seen:
+                                nj < 0 or nj >= m or \
+                                board[ni][nj] == 'X' or \
+                                (ni, nj) in seen:
                     continue
 
                 st.append((ni, nj, 0))
@@ -67,8 +68,9 @@ class Solution(object):
                 if ss[j] == 'O':
                     ss[j] = 'X'
             board[i] = ''.join(ss)
-        # print board
+            # print board
+
 
 if __name__ == '__main__':
     s = Solution()
-    s.solve(["XXXX","XOOX","XXOX","XOXX"])
+    s.solve(["XXXX", "XOOX", "XXOX", "XOXX"])

@@ -9,7 +9,7 @@ class Solution(object):
         # 从中间划分，从不同方向看形成两个岭(ridge)
         max_idx = None
         max_h = -1
-        for (i,h) in enumerate(height):
+        for (i, h) in enumerate(height):
             if h > max_h:
                 max_idx = i
                 max_h = h
@@ -33,8 +33,9 @@ class Solution(object):
             (i, j) = (j, j + 1)
         return res
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.trap([4,2,3]))
-    print(s.trap([0,1,0,2,1,0,1,3,2,1,2,1]))
-    print(s.trap([6,4,2,0,3,2,0,3,1,4,5,3,2,7,5,3,0,1,2,1,3,4,6,8,1,3]))
+    print(s.trap([4, 2, 3]))
+    print(s.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))
+    print(s.trap([6, 4, 2, 0, 3, 2, 0, 3, 1, 4, 5, 3, 2, 7, 5, 3, 0, 1, 2, 1, 3, 4, 6, 8, 1, 3]))

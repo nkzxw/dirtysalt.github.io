@@ -4,8 +4,8 @@
 
 import heapq
 
-class MedianFinder:
 
+class MedianFinder:
     def __init__(self):
         """
         initialize your data structure here.
@@ -19,18 +19,17 @@ class MedianFinder:
         :rtype: void
         """
         # insert first.
-        if(self.rhq and num >= self.rhq[0]):
+        if (self.rhq and num >= self.rhq[0]):
             heapq.heappush(self.rhq, num)
         else:
             heapq.heappush(self.lhq, -num)
         # then balance.
-        if((len(self.rhq) - len(self.lhq)) == 2):
+        if ((len(self.rhq) - len(self.lhq)) == 2):
             v = heapq.heappop(self.rhq)
             heapq.heappush(self.lhq, -v)
-        elif((len(self.lhq) - len(self.rhq)) == 1):
+        elif ((len(self.lhq) - len(self.rhq)) == 1):
             v = heapq.heappop(self.lhq)
             heapq.heappush(self.rhq, -v)
-
 
     def findMedian(self):
         """

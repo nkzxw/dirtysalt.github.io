@@ -56,7 +56,7 @@ class Solution(object):
     def locate_pivot(self, nums):
         p = 1
         while p < len(nums):
-            if nums[p-1] > nums[p]:
-                return p-1
+            if nums[p - 1] > nums[p]:
+                return p - 1
             p += 1
         return len(nums) / 2

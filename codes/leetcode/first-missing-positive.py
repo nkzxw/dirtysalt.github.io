@@ -25,9 +25,10 @@ class Solution(object):
                 exp += 1
         return c + 1
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.firstMissingPositive([1,2,0]))
+    print(s.firstMissingPositive([1, 2, 0]))
     print(s.firstMissingPositive([3, 4, 1, -1]))
     print(s.firstMissingPositive([1, 1000]))
     print(s.firstMissingPositive([1, 2, 1000]))

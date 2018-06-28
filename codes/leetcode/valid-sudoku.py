@@ -29,7 +29,7 @@ class Solution(object):
             for j in range(0, 9, 3):
                 d = set()
                 for x in range(i, i + 3):
-                    for y in range(j , j+ 3):
+                    for y in range(j, j + 3):
                         c = board[x][y]
                         if c == '.': continue
                         if c in d: return False
@@ -37,6 +37,9 @@ class Solution(object):
 
         return True
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.isValidSudoku(["..4...63.",".........","5......9.","...56....","4.3.....1","...7.....","...5.....",".........","........."]))
+    print(s.isValidSudoku(
+        ["..4...63.", ".........", "5......9.", "...56....", "4.3.....1", "...7.....", "...5.....", ".........",
+         "........."]))

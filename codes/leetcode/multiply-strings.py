@@ -29,10 +29,11 @@ class Solution(object):
             flag = v / 10
 
         while flag:
-            adds.append(str(flag  % 10))
+            adds.append(str(flag % 10))
             flag /= 10
 
         return ''.join(reversed(adds))
+
 
 if __name__ == '__main__':
     s = Solution()

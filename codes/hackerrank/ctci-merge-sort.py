@@ -2,13 +2,10 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-#!/bin/python3
+# !/bin/python3
 
-import math
 import os
-import random
-import re
-import sys
+
 
 # NOTE(yan): 这个算法没有问题，但是在HR上面使用Python3没有办法通过
 # 幸好语法上和Pypy是完全兼容的，使用PyPy3就可以通过
@@ -17,6 +14,7 @@ import sys
 def countInversions(arr):
     res = _countInversions(arr, 0, len(arr))
     return res
+
 
 def _countInversions(arr, s, e):
     n = (e - s)

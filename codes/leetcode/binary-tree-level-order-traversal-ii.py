@@ -22,7 +22,7 @@ class Solution(object):
             if len(res) < d:
                 for i in range(len(res), d):
                     res.append([])
-            res[d-1].append(root.val)
+            res[d - 1].append(root.val)
             travel(root.left, d + 1)
             travel(root.right, d + 1)
 

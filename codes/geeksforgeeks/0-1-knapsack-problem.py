@@ -11,9 +11,9 @@ def solve(vals, wts, n, W):
         val = vals[i]
         wt = wts[i]
         for w in range(0, W + 1):
-            dp[1-now][w] = dp[now][w]
+            dp[1 - now][w] = dp[now][w]
         for w in range(0, W + 1 - wt):
-            dp[1-now][w+wt] = max(dp[1-now][w+wt], dp[now][w] + val)
+            dp[1 - now][w + wt] = max(dp[1 - now][w + wt], dp[now][w] + val)
         now = 1 - now
     return max(dp[now])
 

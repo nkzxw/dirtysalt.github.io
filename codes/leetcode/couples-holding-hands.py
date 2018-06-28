@@ -17,7 +17,7 @@ class Solution:
             a = row[s]
             b = row[s + 1]
             if a > b:
-                a, b = b , a
+                a, b = b, a
             # pairs.
             if (b - a) == 1 and a % 2 == 0:
                 s += 2
@@ -29,7 +29,7 @@ class Solution:
             else:
                 exp = a - 1
 
-            tmp = row[s+2:].index(exp)
+            tmp = row[s + 2:].index(exp)
             tmp += s + 2
             row[s + 1], row[tmp] = row[tmp], row[s + 1]
             s += 2

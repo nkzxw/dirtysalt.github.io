@@ -37,8 +37,8 @@ class Solution(object):
             m = (s + e) / 2
             # 100 percent sure.
             if ((m - 1) >= 0 and nums[m] > nums[m - 1]) and \
-                ((m + 1) < len(nums) and nums[m] > nums[m + 1]):
-                 return m
+                    ((m + 1) < len(nums) and nums[m] > nums[m + 1]):
+                return m
 
             if nums[m] > nums[e]:
                 s = m
@@ -47,19 +47,22 @@ class Solution(object):
 
         # special cases.
         if (e - s) == 1:
-            if nums[s] < nums[e]: return e
-            else: return s
+            if nums[s] < nums[e]:
+                return e
+            else:
+                return s
         else:
             return s
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.locate_pivot([4,5,6,7,0,1,2]))
+    print(s.locate_pivot([4, 5, 6, 7, 0, 1, 2]))
     print(s.locate_pivot([2, 0, 1]))
-    print(s.search([4,5,6,7,0,1,2], 2))
-    print(s.locate_pivot([1,3]))
-    print(s.search([1,3], 0))
+    print(s.search([4, 5, 6, 7, 0, 1, 2], 2))
+    print(s.locate_pivot([1, 3]))
+    print(s.search([1, 3], 0))
     print(s.locate_pivot([1]))
     print(s.search([1], 0))
-    print(s.locate_pivot([8,9,2,3,4]))
-    print(s.locate_pivot([4,5,6,7,8,1,2,3]))
+    print(s.locate_pivot([8, 9, 2, 3, 4]))
+    print(s.locate_pivot([4, 5, 6, 7, 8, 1, 2, 3]))

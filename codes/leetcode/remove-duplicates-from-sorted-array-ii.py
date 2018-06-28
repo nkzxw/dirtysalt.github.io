@@ -24,7 +24,8 @@ class Solution(object):
         res.extend([prev] * (1 + got_dup))
         return res
 
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.removeDuplicates([1,1,1,2]))
+    print(s.removeDuplicates([1, 1, 1, 2]))
     print(s.removeDuplicates([1]))
