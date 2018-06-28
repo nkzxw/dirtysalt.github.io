@@ -14,7 +14,10 @@ class Solution(object):
         while s <= e:
             m = (s + e) / 2
             v = m * m
-            if v == x: return m
-            elif v > x: e = m - 1
-            else: s = m + 1
+            if v == x:
+                return m
+            elif v > x:
+                e = m - 1
+            else:
+                s = m + 1
         return e

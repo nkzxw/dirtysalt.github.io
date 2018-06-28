@@ -21,7 +21,8 @@ class Solution(object):
         if invert: y = 1.0 / y
         return y
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.myPow(5.0, 5))
-    print(s.myPow(5.0, -5))    
+    print(s.myPow(5.0, -5))

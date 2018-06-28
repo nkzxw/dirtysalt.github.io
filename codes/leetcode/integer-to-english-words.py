@@ -24,7 +24,7 @@ class Solution:
             "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
         ]
 
-        words2 = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy","Eighty", "Ninety"]
+        words2 = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
 
         def speak(num):
             res = []
@@ -35,7 +35,7 @@ class Solution:
                 res.append(words[num % 10])
             else:
                 for (pw, name) in pws:
-                    if(num >= pw):
+                    if (num >= pw):
                         res.extend(speak(num // pw))
                         res.append(name)
                         num %= pw
@@ -44,6 +44,7 @@ class Solution:
 
         res = [x for x in speak(num) if x]
         return ' '.join(res)
+
 
 if __name__ == '__main__':
     s = Solution()
