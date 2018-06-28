@@ -52,7 +52,7 @@
 - [[file:./blogs/growth-hacker.org][增长黑客(Growth Hacker)]] by 范冰
 - [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
 - [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by 吴军
-- [[file:./blogs/why-cn-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
+- [[file:blogs/why-chinese-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
 - [[file:./blogs/the-facebook-effect.org][Facebook效应(The Facebook Effect)]]
 - [[file:./blogs/the-economic-naturalist.org][牛奶可乐经济学(The Economic Naturalist)]]
 - [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
