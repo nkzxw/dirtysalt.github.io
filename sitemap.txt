@@ -361,6 +361,7 @@ https://dirtysalt.github.io/html/blogs/rework.html
 https://dirtysalt.github.io/html/blogs/sonos-streaming-basics.html
 https://dirtysalt.github.io/html/blogs/to-death.html
 https://dirtysalt.github.io/html/blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.html
+https://dirtysalt.github.io/html/blogs/why-chinese-people-anxious.html
 https://dirtysalt.github.io/html/blogs/boots-of-spanish-leather.html
 https://dirtysalt.github.io/html/blogs/convict-conditioning.html
 https://dirtysalt.github.io/html/blogs/wu-qing-yuan-bio.html
@@ -394,7 +395,6 @@ https://dirtysalt.github.io/html/blogs/principles.html
 https://dirtysalt.github.io/html/blogs/life-span-of-ssd.html
 https://dirtysalt.github.io/html/blogs/ostep-virt-cpu.html
 https://dirtysalt.github.io/html/blogs/wujun-thoughts-on-career.html
-https://dirtysalt.github.io/html/blogs/why-cn-people-anxious.html
 https://dirtysalt.github.io/html/blogs/a-decade-at-google.html
 https://dirtysalt.github.io/html/blogs/wolf-totem.html
 https://dirtysalt.github.io/html/blogs/difference-between-poor-rich-on-zhihu.html
