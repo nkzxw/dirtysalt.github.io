@@ -22,7 +22,7 @@ class Solution(object):
             for i in range(0, n - sz + 1):
                 j = i + sz - 1
                 if s[i] != s[j]: continue
-                pp[i][j] = pp[i+1][j-1] if (i + 1) <= (j - 1) else 1
+                pp[i][j] = pp[i + 1][j - 1] if (i + 1) <= (j - 1) else 1
 
         for i in range(n):
             # search palindrome backward.
@@ -31,9 +31,5 @@ class Solution(object):
                 if not pp[j][i]: continue
                 res = min(res, st[j])
             st.append(res + 1)
-    
-        return st[n] - 1
 
-if __name__ == '__main__':
-    s = Solution()
-    print(s.partition("aab"))
+        return st[n] - 1

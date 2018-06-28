@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # coding:utf-8
 # Copyright (C) dirlt
+import functools
+
+
+def cmp(x, y):
+    if x < y:
+        return -1
+    elif x > y:
+        return 1
+    return 0
+
 
 class Solution(object):
     def convert(self, s, numRows):
@@ -16,7 +26,7 @@ class Solution(object):
             (x, y) = self.xth(i, numRows)
             idx = x * c + y
             ss.append((s[i], idx))
-        ss.sort(lambda x, y: cmp(x[1], y[1]))
+        ss.sort(key=functools.cmp_to_key(lambda x, y: cmp(x[1], y[1])))
         ss2 = [x[0] for x in ss]
         return ''.join(ss2)
 
@@ -27,6 +37,7 @@ class Solution(object):
         if i >= (n - 1):
             i = u - i
         return (i, j)
+
 
 if __name__ == '__main__':
     s = Solution()
