@@ -43,7 +43,7 @@
 
 ** 软件工程师, Remote, 2014.4 - 2015.8
 - [[http://logzilla.net/][Logzilla]], 2015.4 - 2015.8. 重写原有事件数据(event data)存储引擎。在每秒写入事件数量指标上，SSD上从500K提升到3M，HDD上从100K提升到1.2M.
-- [[http://galeracluster.com/][Galera]], 2014.4 - 2014.11.
+- [[http://galeracluster.com/][Galera]], 2014.4 - 2014.11. 针对DC断电这种情况改进集群恢复机制，将集群恢复时间从30s降低到3s以内。
 
 ** [[file:images/baidu-inf-com-2010q4.jpg][高级软件工程师, 百度, 2008.8 - 2012.6]]
 

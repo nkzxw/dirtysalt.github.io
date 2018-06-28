@@ -32,7 +32,6 @@ Specialities:
 
 - recommender system. By analysis user subscription data and applying collaborative filtering algorithm, we can recommender users podcasts that they may like and find similiar podcasts. We use LightFM python library and apply WARP algorithm on user subscribption data in recent 3 months. With fine tuning of parameters and A/B Testing, we raise CTR of user recommended podcasts from 2.16% to 4.52%, and CTR of similar podcasts from 1.90% to 3.19%.
 
-
 ** Software Engineer, [[http://logzilla.net/][Logzilla]], 2015.4 - 2015.8 (Remote, as Consultant)
 
 A real time event analytical platform.
@@ -43,6 +42,8 @@ A real time event analytical platform.
 ** Software Engineer, [[http://galeracluster.com/][Galera]], 2014.4 - 2014.11 (Remote, as Consultant)
 
 A drop-in plugin of MySQL multi-master.
+
+Optimize cluster recovery process regarding to data ceneter outage case, and reduce recovery time from 30s to less than 3s.
 
 ** Software Architect, Data Platform, Umeng, 2012.6 - 2016.4
 
