@@ -25,4 +25,4 @@ def f(n):
 for c in range(case_num):
     n = int(fh.readline())
     res = f(n)
-    print('Case #%d: %s' % (c + 1, res))
+    print(('Case #%d: %s' % (c + 1, res)))

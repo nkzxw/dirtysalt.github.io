@@ -32,4 +32,4 @@ for c in range(case_num):
     D = int(fh.readline())
     ps = [int(x) for x in fh.readline().split()]
     res = f(D, ps)
-    print 'Case #%d: %d' % (c + 1, res)
+    print('Case #%d: %d' % (c + 1, res))

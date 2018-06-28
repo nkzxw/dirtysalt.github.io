@@ -3,11 +3,12 @@
 # Copyright (C) dirlt
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 
 class Solution(object):
     def buildTree(self, preorder, inorder):
@@ -18,7 +19,7 @@ class Solution(object):
         """
         # we have to do it iteratively.
 
-        assert(len(preorder) == len(inorder))
+        assert (len(preorder) == len(inorder))
         n = len(preorder)
         root = TreeNode('dummy')
         st = []
@@ -31,8 +32,8 @@ class Solution(object):
                 x = po[0]
                 p = io.index(x)
                 t = TreeNode(x)
-                st.append((po[1:p+1], io[0:p], t, 'left'))
-                st.append((po[p+1:], io[p+1:], t, 'right'))
+                st.append((po[1:p + 1], io[0:p], t, 'left'))
+                st.append((po[p + 1:], io[p + 1:], t, 'right'))
             else:
                 t = None
             if lr == 'left':

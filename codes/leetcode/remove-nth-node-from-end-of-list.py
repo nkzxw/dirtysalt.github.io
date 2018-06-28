@@ -3,10 +3,11 @@
 # Copyright (C) dirlt
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution(object):
     def removeNthFromEnd(self, head, n):
@@ -17,13 +18,13 @@ class Solution(object):
         """
         dummy = ListNode(-1)
         dummy.next = head
-        
+
         x = head
         cnt = 0
         while x:
-            cnt +=1
+            cnt += 1
             x = x.next
-            
+
         prev = dummy
         for i in range(cnt - n):
             prev = prev.next

@@ -19,4 +19,4 @@ for c in range(case_num):
             res += i - cum
             cum += (i - cum)
         cum += x
-    print 'Case #%d: %d' % (c + 1, res)
+    print('Case #%d: %d' % (c + 1, res))

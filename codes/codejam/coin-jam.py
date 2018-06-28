@@ -56,6 +56,6 @@ case_num = int(fh.readline())
 for c in range(case_num):
     (N, J) = [int(x) for x in fh.readline().split()]
     res = d[N][:J]
-    print('Case #%d:' % (c + 1))
+    print(('Case #%d:' % (c + 1)))
     for (coin, vs) in res:
-        print('%s %s' % (coin, ' '.join([str(x) for x in vs])))
+        print(('%s %s' % (coin, ' '.join([str(x) for x in vs]))))

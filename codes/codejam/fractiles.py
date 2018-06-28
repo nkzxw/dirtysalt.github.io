@@ -26,4 +26,4 @@ def f(k, c, s):
 for c in range(case_num):
     (K, C, S) = [int(x) for x in fh.readline().split()]
     res = f(K, C, S)
-    print('Case #%d: %s' % (c + 1, res))
+    print(('Case #%d: %s' % (c + 1, res)))

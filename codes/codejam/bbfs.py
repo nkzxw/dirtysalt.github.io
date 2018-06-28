@@ -33,4 +33,4 @@ for c in range(case_n):
     for (idx, v) in enumerate(arr):
         fwd[idx] = v - 1
     res = f(fwd)
-    print('Case #%d: %d' % (c + 1, res))
+    print(('Case #%d: %d' % (c + 1, res)))

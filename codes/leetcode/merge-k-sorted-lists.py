@@ -2,13 +2,15 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
 from queue import PriorityQueue as PQ
+
+
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution(object):
     def mergeKLists(self, lists):
@@ -18,7 +20,7 @@ class Solution(object):
         """
         pq = PQ()
         n = len(lists)
-        res = ListNode('header')
+        res = ListNode('head')
         prev = res
         for i in range(0, n):
             if lists[i] is None: continue

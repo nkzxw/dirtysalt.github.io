@@ -27,4 +27,4 @@ def flip(ss):
 for c in range(case_num):
     ss = fh.readline().strip()
     res = flip(ss)
-    print('Case #%d: %d' % (c + 1, res))
+    print(('Case #%d: %d' % (c + 1, res)))

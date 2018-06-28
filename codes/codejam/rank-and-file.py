@@ -19,4 +19,4 @@ for c in range(case_n):
             res.append(k)
     res.sort()
     assert(len(res) == n)
-    print('Case #%d: %s' % (c + 1, ' '.join([str(x) for x in res])))
+    print(('Case #%d: %s' % (c + 1, ' '.join([str(x) for x in res]))))

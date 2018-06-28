@@ -3,11 +3,12 @@
 # Copyright (C) dirlt
 
 # Definition for singly-linked list with a random pointer.
-# class RandomListNode(object):
-#     def __init__(self, x):
-#         self.label = x
-#         self.next = None
-#         self.random = None
+class RandomListNode(object):
+    def __init__(self, x):
+        self.label = x
+        self.next = None
+        self.random = None
+
 
 class Solution(object):
     def copyRandomList(self, head):
@@ -18,9 +19,9 @@ class Solution(object):
 
         seen = {}
         dummy = RandomListNode(0)
-        
+
         p = dummy
-        t = head        
+        t = head
         while t:
             t2 = RandomListNode(t.label)
             p.next = t2

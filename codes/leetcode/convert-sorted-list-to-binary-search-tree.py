@@ -3,17 +3,19 @@
 # Copyright (C) dirlt
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 
 class Solution(object):
     def sortedListToBST(self, head):
@@ -29,9 +31,9 @@ class Solution(object):
         def f(nums):
             if not nums: return None
             n = len(nums)
-            lt = f(nums[:n/2])
-            rt = f(nums[n/2+1:])
-            t = TreeNode(nums[n/2])
+            lt = f(nums[:n / 2])
+            rt = f(nums[n / 2 + 1:])
+            t = TreeNode(nums[n / 2])
             t.left = lt
             t.right = rt
             return t

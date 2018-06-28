@@ -16,4 +16,4 @@ def f(s):
 for c in range(case_n):
     s = fh.readline().strip()
     res = f(s)
-    print('Case #%d: %s' % (c + 1, res))
+    print(('Case #%d: %s' % (c + 1, res)))

@@ -3,10 +3,11 @@
 # Copyright (C) dirlt
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution(object):
     def deleteDuplicates(self, head):
@@ -19,7 +20,7 @@ class Solution(object):
         dup = None
         while head:
             if (head.val == dup) or \
-              (head.next and head.val == head.next.val):
+                    (head.next and head.val == head.next.val):
                 dup = head.val
             else:
                 prev.next = head
