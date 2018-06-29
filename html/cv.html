@@ -3,7 +3,6 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-28 四 12:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yan Zhang's CV</title>
@@ -80,7 +79,7 @@ Specialities:
 <h3 id="orgheadline3"><span class="section-number-3">3.1</span> Software Engineer, <a href="http://castbox.fm/">CastBox.FM</a>, 2016.4 - (Head of Backend Development)</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>crawler system. It fetchs podcasts available on internet, synchornizes with them, and notifiy uses once new episodes are available. The software stacks includes Python, Requests, Beautifulsoup, FeedParser, Squid, MongoDB et. By collecting RSS feeds submitted by users and search keywords, the number of podcasts in our database has been increased from 200k to 60k, and the number of episodes has been increased from 20m to 40m. By applying machine learning algorithm RandomForest on released date of episodes in the past, we can predict the future released date and increase responsiveness, new episodes will be fetched by our crawler in 5 minutes once they are released by podcasters, and users on app will be notified at the same time. Meanwhile we optimize images of episodes by compressing and cropping them, reduce the size of images from MB level to less than 300KB, which saves network traffic and reduces image loading time on mobile app.</li>
+<li>crawler system. It fetchs podcasts available on internet, synchornizes with them, and notifiy uses once new episodes are available. The software stacks includes Python, Requests, Beautifulsoup, FeedParser, Squid, MongoDB et. By collecting RSS feeds submitted by users and search keywords, the number of podcasts in our database has been increased from 200k to 60k, and the number of episodes has been increased from 20m to 40m. By applying machine learning algorithm on released date of episodes in the past, we can predict the future released date and increase responsiveness, new episodes will be fetched by our crawler in 5 minutes once they are released by podcasters, and users on app will be notified at the same time. Meanwhile we optimize images of episodes by compressing and cropping them, reduce the size of images from MB level to less than 300KB, which saves network traffic and reduces image loading time on mobile app.</li>
 
 <li>search system. Users can search podcasts and episodes by keywords and get keyword suggestions. It's developed on ElasticSearch, and supports up to 12 languaes including english, portuguese, spanish, german, dutch, CJK etc. Data shows us more than 1/3 users subscription comes from search system, so we put much efforts on improving and optimizing search system from following aspects.
 <ul class="org-ul">
@@ -151,7 +150,7 @@ Optimize cluster recovery process regarding to data ceneter outage case, and red
 <ul class="org-ul">
 <li>"dstream", an in-house distributed realtime stream processing system in C++ like Twitter's Storm and Yahoo!'s S4. The alpha version of DStream with 10 nodes can process 1 million tuples per second while keep the latency less than 100ms.</li>
 
-<li>"<a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/cc/itachi/">itachi</a>", an open-source high performance asynchronous network programming framework in C++.</li>
+<li>"<a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/cc/itachi/">itachi</a>", an open-source high performance asynchronous network programming framework in C++.</li>
 
 <li>"comake2", an in-house build system in Python, takes advantages of some open-source build systems such as SCons, CMake, Google's GYP, Boost's Jam etc. It has been wildly used in Baidu for continuous integration.</li>
 
@@ -179,5 +178,5 @@ Optimize cluster recovery process regarding to data ceneter outage case, and red
 </div>
 </div>
 </div>
-</body>
+<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/cv.html';this.page.identifier = 'cv.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
 </html>

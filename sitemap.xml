@@ -27,7 +27,6 @@
 <url><loc>https://dirtysalt.github.io/html/lessons-learned-while-working-on-large-scale-server-softwarre.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/oprofile-obsolete.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/backblaze-storage-pod.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/resume.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ssd-gc-and-trim.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/7-tips-for-improving-mapreduce-performance.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/systems-software-research-is-irrelevant.html</loc></url>
@@ -151,6 +150,7 @@
 <url><loc>https://dirtysalt.github.io/html/docker.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/history-of-apache-storm-and-lessons-learned.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/machine-learning-tom-mitchell.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/cn-cv.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ml-class.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-a-production-machine-learning-infrastructure.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/pic.html</loc></url>
@@ -201,6 +201,7 @@
 <url><loc>https://dirtysalt.github.io/html/busting-4-modern-hardware-myths-are-memory-hdds-and-ssds-really-random-access.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/how-did-you-learn-so-much-stuff.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/general-algorithm.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/cv.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/best-practices-for-applying-deep-learning-for-novel-applications.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/optimizing-software-in-cpp.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/financial-markets-class.html</loc></url>
@@ -338,7 +339,6 @@
 <url><loc>https://dirtysalt.github.io/html/azkaban.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/impala.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/thoughts-on-prog-lang.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/resume-cn.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-a-terabyte-scale-data-cycle-at-linkedin-with-hadoop-and-project-voldemort.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/galera-code.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/designs-lessons-and-advice-from-building-large-distributed-systems.html</loc></url>
