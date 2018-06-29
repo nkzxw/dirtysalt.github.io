@@ -178,6 +178,7 @@ https://dirtysalt.github.io/html/hbase-write-path.html
 https://dirtysalt.github.io/html/beauty-of-math.html
 https://dirtysalt.github.io/html/deconstructing-recommender-systems.html
 https://dirtysalt.github.io/html/reply-to-science-institution.html
+https://dirtysalt.github.io/html/aws_products.html
 https://dirtysalt.github.io/html/how-math-important-to-ml.html
 https://dirtysalt.github.io/html/mesos.html
 https://dirtysalt.github.io/html/how-to-beat-the-cap-theorem.html
@@ -564,6 +565,7 @@ https://dirtysalt.github.io/html/blogs/principle-of-alloc-time-for-work.html
 https://dirtysalt.github.io/html/blogs/equipped-with-ssd.html
 https://dirtysalt.github.io/html/blogs/squid-https-forwarding-proxy.html
 https://dirtysalt.github.io/html/blogs/mobile-foreign-business.html
+https://dirtysalt.github.io/html/blogs/binary-indexed-tree.html
 https://dirtysalt.github.io/html/blogs/on-the-future-of-neural-networks.html
 https://dirtysalt.github.io/html/blogs/how-to-win-friends-and-influence-people.html
 https://dirtysalt.github.io/html/blogs/timeline-at-scale-in-twitter.html
