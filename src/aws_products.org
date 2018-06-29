@@ -1366,10 +1366,7 @@ Internet 上的 DNS 系统与电话簿非常相似，它管理着名称和数字
 
 Amazon Route 53 的设计具有速度快、使用方便，而且经济高效的的特点。它使用 DNS 服务器的全球网络响应 DNS 查询，延迟时间非常短。对域的查询将自动路由到最近的 DNS 服务器，因此能以尽可能最佳的性能进行响应。借助 Amazon Route 53，您可以通过 AWS 管理控制台或易用的 API 创建和管理您的公用 DNS 记录。如果您需要域名，不妨使用 Amazon Route 53 来寻找合适的名称并进行注册。您还可以将现有的域转移到 Amazon Route 53 中进行管理。它还可以与其他 Amazon Web Services 集成。例如，将 AWS Identity and Access Management (IAM) 服务与 Amazon Route 53 配合使用时，您可以控制组织中有哪些人可以更改您的 DNS 记录。与其他 Amazon Web Services 类似，使用 Amazon Route 53 不需要签订长期合同或支付最低使用费用，而只需为以下项目付费：通过服务所管理的域、服务应答的查询的数目、通过 Amazon Route 53 注册的域名。
 
-易于使用且经济实惠的全球流量管理：基于 
-               
-                 地理距离 
-               延迟、运行状况和其他考虑因素将终端用户路由到应用程序的最佳终端节点。
+易于使用且经济实惠的全球流量管理：基于地理距离延迟、运行状况和其他考虑因素将终端用户路由到应用程序的最佳终端节点。
 
 Amazon Route 53 可以监控应用程序的运行状况和性能，还能监控 Web 服务器和其他资源。
 
@@ -1761,7 +1758,7 @@ AWS Auto Scaling 可以监控您的应用程序并自动调整容量，以便以
 
 AWS Auto Scaling 可以帮助您优化使用 AWS 服务时的利用率和成本效率，因此您只需为实际需要的资源付费。当需求下降时，AWS Auto Scaling 将自动删除任何多余的资源容量，避免您超支。AWS Auto Scaling 可以免费使用，并让您能够优化 AWS 环境的成本。
 
-使用 AWS Auto Scaling，您可以从单个统一界面中  为支持应用程序的所有可扩展资源配置自动扩展。
+使用 AWS Auto Scaling，您可以从单个统一界面中为支持应用程序的所有可扩展资源配置自动扩展。
 
 AWS Auto Scaling 可以扫描您的应用程序以便识别可以扩展的所有资源， 让您发现优化性能和成本的新机会。
 
@@ -1778,14 +1775,6 @@ AWS CloudFormation 云资源服务可使开发人员和系统管理员轻松有�
 将应用程序拆分成微服务时，如何快速可靠地进行拆分？了解 TechnologyOne 如何使用 AWS CloudFormation 和 Application Load Balancer 在一天内完成拆分。
 
 来自 Cloudreach 的 Adam 介绍 Sceptre 如何使用 AWS CloudFormation 使客户能够创建和管理他们自己的应用程序环境。
-
-Lemongrass 为它们的 
-            
-              MiCloud 
-             产品引入了一项新功能，可为客户的 SAP 环境实现快速、自动化的系统复制。 
-            
-              MiCloud 
-             System 副本利用 EC2、CloudFormation 和 IAM 构建。
 
 FileMaker 介绍他们如何为 SMB 客户构建可自动扩展 FileMaker 以处理激增事件的解决方案。该解决方案利用 AWS Marketplace (FileMaker 在其中列出了其软件) 以及 AWS CloudFormation 来在 AWS 上部署 FileMaker 环境并调整其规模。
 
@@ -4569,4 +4558,3 @@ Amazon Web Services (AWS) 是 Amazon.com 的一个充满活力、不断壮大的
 Amazon.com 是一个倡导机会均等和扶持行动的雇主，反对少数民族成员、妇女、残疾人士、退伍军人、性取向和性身份歧视。
 
 #+END_QUOTE
-
