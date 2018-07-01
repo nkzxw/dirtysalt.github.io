@@ -85,7 +85,6 @@
 - 201702 [[file:./blogs/my-thoughts-on-startup.org][创业/小公司的优点和缺点]]
 - 201702 [[file:blogs/abandoned-probabilistic-option.org][被放弃的概率权]]
 - 201701 [[file:./blogs/boots-of-spanish-leather.org][Boots of Spanish Leather]] by Bob Dylan
-- 201701 [[file:blogs/sth-about-chords.org][一些关于和弦的东西]]
 - 201701 [[file:./blogs/is-there-a-simple-algorithm-for-intelligence.org][Is there a simple algorithm for intelligence?]] By Michael Nielsen
 - 201701 [[file:./blogs/on-the-future-of-neural-networks.org][On the future of neural networks]] By Michael Nielsen
 - 201701 [[file:./blogs/on-stories-in-neural-networks.org][On stories in neural networks]] By Michael Nielsen
