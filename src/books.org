@@ -39,18 +39,17 @@
 - [[file:blogs/the-instant-economist.org][斯坦福极简经济学(The Instant Economist)]] by 蒂莫西·泰勒
 - [[file:./blogs/the-black-box-society.org][黑箱社会(The Black Box Society)]] by Frank Pasquale
 - [[file:./blogs/the-times-of-intelligence.org][智能时代]] by 吴军
-- [[file:./blogs/zhihu-hft-engineer.org][我是高频交易工程师：知乎董可人自选集]]
 - [[file:./blogs/zhihu-daily-economy.org][知乎周刊-日常经济学]]
 - [[file:./blogs/the-shortest-history-of-europe.org][极简欧洲史]] by John Hirst
 - [[file:./blogs/how-google-works.org][谷歌是如何运营的(How Google Works)]] by Eric Schmidt
 - [[file:./blogs/the-paypal-wars.org][支付战争(The PayPal Wars)]] by Eric Jackson
 - [[file:./blogs/from-zero-to-one.org][从0到1(From Zero To One)]] by Peter Thiel
-- [[file:./blogs/the-great-game.org][伟大的博弈: 华尔街金融帝国的崛起(The Great Game: The Emergence of Wall Street as a World Power)]] by John Gordon
+- [[file:blogs/the-great-game.org][伟大的博弈: 华尔街金融帝国的崛起]] by John Gordon
 - [[file:./blogs/lean-in.org][向前一步(Lean In)]] by Sheryl Sandberg
 - [[file:./blogs/reminiscences-of-stock-broker.org][股票作手回忆录(Reminiscences of stock broker)]] by Jesse Livermore
 - [[file:./blogs/the-men-who-built-america.org][谁建造了美国(The men who built America)]] by 网易公开课
 - [[file:./blogs/growth-hacker.org][增长黑客(Growth Hacker)]] by 范冰
-- [[file:./blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术(The Signal and the Noise: Why Most Predictions Fail but Some Don't)]] by Nate Silver
+- [[file:blogs/the-signal-and-the-noise.org][信号与噪声: 大数据时代预测的科学与艺术]] by Nate Silver
 - [[file:./blogs/civilizations-and-enlightenments.org][文明之光]] by 吴军
 - [[file:blogs/why-chinese-people-anxious.org][中国人的焦虑从哪里来]] by 茅于轼
 - [[file:./blogs/the-facebook-effect.org][Facebook效应(The Facebook Effect)]]

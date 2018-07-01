@@ -418,7 +418,6 @@ https://dirtysalt.github.io/html/blogs/availability-vs-durability.html
 https://dirtysalt.github.io/html/blogs/cross-ocean.html
 https://dirtysalt.github.io/html/blogs/modern-operating-systems.html
 https://dirtysalt.github.io/html/blogs/the-times-they-are-changing.html
-https://dirtysalt.github.io/html/blogs/zhihu-hft-engineer.html
 https://dirtysalt.github.io/html/blogs/the-signal-and-the-noise.html
 https://dirtysalt.github.io/html/blogs/drive-learning.html
 https://dirtysalt.github.io/html/blogs/antifragile.html
