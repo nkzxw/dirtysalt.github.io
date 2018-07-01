@@ -368,11 +368,9 @@ https://dirtysalt.github.io/html/blogs/convict-conditioning.html
 https://dirtysalt.github.io/html/blogs/wu-qing-yuan-bio.html
 https://dirtysalt.github.io/html/blogs/spark-master-ui.html
 https://dirtysalt.github.io/html/blogs/do-we-need-exercise.html
-https://dirtysalt.github.io/html/blogs/what-a-good-ceo-looks-like.html
 https://dirtysalt.github.io/html/blogs/getting-started-elk-beat.html
 https://dirtysalt.github.io/html/blogs/dear-andreas.html
 https://dirtysalt.github.io/html/blogs/telstra-billboard-of-love.html
-https://dirtysalt.github.io/html/blogs/have-a-rest-strategically.html
 https://dirtysalt.github.io/html/blogs/thinking-fast-and-slow.html
 https://dirtysalt.github.io/html/blogs/tibet-travel.html
 https://dirtysalt.github.io/html/blogs/websocket-and-socketio.html
@@ -460,7 +458,6 @@ https://dirtysalt.github.io/html/blogs/ssh-tunneling-python.html
 https://dirtysalt.github.io/html/blogs/ten-rules-for-open-source-success.html
 https://dirtysalt.github.io/html/blogs/star-wars.html
 https://dirtysalt.github.io/html/blogs/switch-back-to-windows.html
-https://dirtysalt.github.io/html/blogs/why-buddhism-true-4.html
 https://dirtysalt.github.io/html/blogs/software-2.html
 https://dirtysalt.github.io/html/blogs/majority-of-silent-people.html
 https://dirtysalt.github.io/html/blogs/starters-and-maintainers.html
@@ -471,7 +468,6 @@ https://dirtysalt.github.io/html/blogs/the-feynman-technique-the-best-way-to-lea
 https://dirtysalt.github.io/html/blogs/america-alone-talk.html
 https://dirtysalt.github.io/html/blogs/on-computational-investing.html
 https://dirtysalt.github.io/html/blogs/simple-made-easy.html
-https://dirtysalt.github.io/html/blogs/freedom-and-affiliation.html
 https://dirtysalt.github.io/html/blogs/nginx-forwarding-proxy.html
 https://dirtysalt.github.io/html/blogs/got6-is-coming.html
 https://dirtysalt.github.io/html/blogs/programmers-are-distraction-for-your-startup.html
@@ -543,11 +539,9 @@ https://dirtysalt.github.io/html/blogs/zj-travel.html
 https://dirtysalt.github.io/html/blogs/10-lessons-from-10-years-of-aws.html
 https://dirtysalt.github.io/html/blogs/mxnet-neural-art.html
 https://dirtysalt.github.io/html/blogs/ostep-con-cv.html
-https://dirtysalt.github.io/html/blogs/dare-to-be-a-complicated-man.html
 https://dirtysalt.github.io/html/blogs/talk-with-nenad.html
 https://dirtysalt.github.io/html/blogs/a-possible-impl-of-abtest-sys.html
 https://dirtysalt.github.io/html/blogs/do-house-work-as-leisure.html
-https://dirtysalt.github.io/html/blogs/sth-about-chords.html
 https://dirtysalt.github.io/html/blogs/peter-thiel-on-competition.html
 https://dirtysalt.github.io/html/blogs/eureka-on-career.html
 https://dirtysalt.github.io/html/blogs/intro-quantum-computing.html
@@ -609,7 +603,6 @@ https://dirtysalt.github.io/html/blogs/lessons-learned-writing-highly-available-
 https://dirtysalt.github.io/html/blogs/why-i-work-remotely-hint-it-has-nothing-to-do-with-productivity.html
 https://dirtysalt.github.io/html/blogs/authority-and-merit.html
 https://dirtysalt.github.io/html/blogs/the-catcher-in-the-rye.html
-https://dirtysalt.github.io/html/blogs/how-to-behave-systematically.html
 https://dirtysalt.github.io/html/blogs/geoffrey-hinton-interview-in-coursera.html
 https://dirtysalt.github.io/html/blogs/baidu-bit-shanghai-route.html
 https://dirtysalt.github.io/html/blogs/struggle-with-ubuntu.html
@@ -681,7 +674,6 @@ https://dirtysalt.github.io/html/blogs/beginning-of-a-hard-journey.html
 https://dirtysalt.github.io/html/blogs/dont-switch-to-yinxiang-note.html
 https://dirtysalt.github.io/html/blogs/getting-real.html
 https://dirtysalt.github.io/html/blogs/the-black-box-society.html
-https://dirtysalt.github.io/html/blogs/what-you-want-child-to-read-and-what-they-really-want-to-read.html
 https://dirtysalt.github.io/html/blogs/the-men-who-built-america.html
 https://dirtysalt.github.io/html/blogs/republic-and-democracy.html
 https://dirtysalt.github.io/html/blogs/math-read.html
@@ -724,7 +716,6 @@ https://dirtysalt.github.io/html/blogs/car.html
 https://dirtysalt.github.io/html/blogs/the-instant-economist.html
 https://dirtysalt.github.io/html/blogs/nginx-https-redirect-loop.html
 https://dirtysalt.github.io/html/blogs/why-cd-just-keeps-on-giving.html
-https://dirtysalt.github.io/html/blogs/story-telling-and-obtain-experience.html
 https://dirtysalt.github.io/html/blogs/the-future-of-programming.html
 https://dirtysalt.github.io/html/blogs/management-actually-is-engineering.html
 https://dirtysalt.github.io/html/blogs/review-2009.html
@@ -741,4 +732,3 @@ https://dirtysalt.github.io/html/blogs/a-little-architecture.html
 https://dirtysalt.github.io/html/blogs/helsinki-travel.html
 https://dirtysalt.github.io/html/blogs/not-easy-as-you-think.html
 https://dirtysalt.github.io/html/blogs/probability-paradox-by-peter-norvig.html
-https://dirtysalt.github.io/html/blogs/civilized-adults-dont-ask-why.html
