@@ -56,8 +56,7 @@ Extensive experience in:
 <li>network programming framework design and implementation.</li>
 <li>storage system design and implementation.</li>
 <li>performance optimization and tuning for systems and applications.</li>
-<li>big data process and analysis.</li>
-<li>data mining and machine learning.</li>
+<li>big data process and analysis, data mining and machine learning.</li>
 </ul>
 
 <p>
@@ -134,7 +133,7 @@ Optimize cluster recovery process regarding data center outage case, and reduce 
 <li>algorithm. use HyperLogLog algorithm instead of using set to calculate cardinality for better performance and any-time-range query ability.</li>
 <li>system. turn off MapReduce speculative mode when reading data from HBase.</li>
 <li>language. use JNI instead of pure Java code to accelerate CPU computation.</li>
-<li>kernel. change kernel parameters like /proc/sys/vm/zone_reclaim_mode and /sys/kernel/mm/redhat_transparent_hugepage/enabled.</li>
+<li>kernel. configure kernel parameters like /proc/sys/vm/zone_reclaim_mode and /sys/kernel/mm/redhat_transparent_hugepage/enabled.</li>
 </ol></li>
 
 <li>"fast-hbase-rest", an asynchronous high-performance HTTP server written in Netty for easily accessing HBase in multiple languages by using Google Protocol-Buffers. Since HBase only provides underlying block cache, FastHBaseRest implements item cache on application level using Google Guava for better read performance. Comparing to HBase embedded HTTP server('hbase rest'), the access latency is 20% lower and transfer size is 40% lower. Meanwhile it has more capabilities like request rewriting.</li>
@@ -148,13 +147,13 @@ Optimize cluster recovery process regarding data center outage case, and reduce 
 <h3 id="orgheadline7"><span class="section-number-3">3.5</span> <a href="images/baidu-inf-com-2010q4.jpg">Senior Software Engineer</a>, <a href="https://www.baidu.com/">Baidu</a>, 2008.7 - 2012.6</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
-<li>DStream, an in-house distributed real-time stream processing system in C++ like Twitter's Storm and Yahoo!'s S4. The alpha version of DStream with 10 nodes can process 1 million tuples per second while keeping the latency less than 100ms.</li>
+<li>DStream, an in-house distributed real-time stream processing system in C++ like Twitter's Storm and Yahoo!'s S4. The alpha version of 10 nodes cluster can process 1 million tuples per second while keeping the latency less than 100ms.</li>
 
 <li>Itachi, an open-source high-performance asynchronous network programming framework in C++.</li>
 
 <li>Comake2, an in-house build system in Python, takes advantages of some open-source build systems such as SCons, CMake, Google's GYP, Boost's Jam etc. It has been wildly used in Baidu for continuous integration.</li>
 
-<li>Infpack, an in-house data exchange format in C++, exceeds Google's Protocol-Buffers and Facebook's Thrift on the speed of serialization and deserialization about 20~30% faster while with 10~20% smaller size. Its generated code is carefully hand-tuned so implementation is very efficient.</li>
+<li>Infpack, an in-house data exchange format in C++. Comparing to Google's Protocol-Buffers and Facebook's Thrift, the speed of serialization and deserialization is about 20~30% faster while size is 10~20% smaller. The generated code is carefully hand-tuned so implementation is very efficient.</li>
 
 <li>DDBS(distributed database system), an in-house distributed relational database system. I mainly worked on SQL parser to extend syntax for more capability and implementing a SPASS(single point automatic switch system) for its fault-tolerant feature.</li>
 
