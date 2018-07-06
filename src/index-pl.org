@@ -1,6 +1,8 @@
 #+title: Programming Language
 
-- [[file:thoughts-on-prog-lang.org][thoughts on programming language]] [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])
+- [[file:thoughts-on-prog-lang.org][thoughts on programming language]]
+- compiler course [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])
+- [[file:continuation.org][continuation]]
 - [[file:build-system.org][build-system]] 在实现Baidu in-house的构建工具 [[http://wenku.baidu.com/view/19f3d535284ac850ad0242cc.html][comake2]] 之前做的构建系统调研总结.
 - [[file:swig.org][swig]] C/C++多语言扩展接口生成器. 使用起来非常方便, 但是本身不太完善, 比较适合用于原型系统.
 - [[file:cpp.org][C/C++]]

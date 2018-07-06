@@ -37,9 +37,8 @@
   - [[file:./linux-system-and-performance-monitoring.org][Linux System and Performance Monitoring]]
   - [[http://www.brendangregg.com/linuxperf.html][Linux Performance Tools]] by Brendan Gregg.
   - [[file:./thinking-clearly-about-performance.org][Thinking Clearly about Performance]] by Cary Millsap.
-- [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]] / [[file:continuation.org][continuation]]
+- [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]]
   - [[file:./concurrency-hazards.org][Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code]]
-  - [[file:./images/single-multi-thread-event-driven.jpg][One picture explain Single-Thread, Multiple-Thread, Event-Driven]]
   - [[file:./images/gevent-tutorial/index.html][gevent-tutorial]] gevent的教程，里面涉及到很多和并发相关的概念和组件。
 - [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:./blogs/struggle-with-ubuntu.org][之前有过痛苦的经历]] . 主要记录自己使用出现的问题.
 - [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.

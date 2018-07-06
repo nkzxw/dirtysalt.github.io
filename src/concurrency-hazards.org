@@ -1,4 +1,5 @@
 #+title: Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code
+
 http://msdn.microsoft.com/en-us/magazine/cc817398.aspx
 
 update@201509: 链接已经失效
@@ -14,4 +15,3 @@ update@201509: 链接已经失效
   - Immutablity.数据不可变性
   - Purity.方法没有side-effect
   - Isolation.每个线程只有自己独立的数据.
-
