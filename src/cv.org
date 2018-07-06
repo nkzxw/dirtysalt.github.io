@@ -22,12 +22,12 @@ Specialties:
 * Experience
 ** Software Engineer, Head of Backend Development, [[http://castbox.fm/][CastBox.FM]], 2016.4 - Present
 
-- crawler system. It crawls podcasts available on the internet and notify uses once new episodes are available. The software stacks include Python, Requests, Beautifulsoup, FeedParser, Squid, Redis, MongoDB etc. By collecting RSS feeds submitted by users and search query, the number of podcasts in the database has been increased from 200K to 600K, and the number of episodes has been increased from 20M to 40M. By applying machine learning algorithm on the released date of episodes in the past, we predict the future released date and increase responsiveness, that new episodes can be fetched by our crawler in 5 minutes after they are released by podcasters, and users on the app will be notified just in time. Meanwhile, we optimize images of episodes by compression and cropping, reduce the size of images from MB to less than 300KB without much loss on image quality, which saves network traffic and reduces image loading time on the mobile app.
+- crawler system. It crawls podcasts available on the internet and notifies uses once new episodes are available. The software stacks include Python, Requests, Beautifulsoup, FeedParser, Squid, Redis, MongoDB etc. By collecting RSS feeds submitted by users and search query, the number of podcasts in the database has been increased from 200K to 600K, and the number of episodes has been increased from 20M to 40M. By applying machine learning algorithm on the released date of episodes in the past, we predict the future released date and increase responsiveness, that new episodes can be fetched by our crawler in 5 minutes after they are released by podcasters, and users on the app will be notified just in time. Meanwhile, we optimize images of episodes by compression and cropping, reduce the size of images from MB to less than 300KB without much loss on image quality, which saves network traffic and reduces image loading time on the mobile app.
 
 - search system. Users can search for podcasts and episodes by keywords and be provided keyword suggestions. It's developed on ElasticSearch and supports up to 12 languages including English, Portuguese, Spanish, German, Dutch, CJK etc. Data shows us more than 1/3 users subscription comes from the search system, so we put many efforts on improving and optimizing search system from following aspects.
-  - Index freshness. Once new episodes are fetched by our crawler system, message will be put into the message queue(Redis) and triggers indexing system. The latency of the whole pipeline is less than 10 seconds and more than 20k episodes are indexed per day.
-  - Search latency. By using cache effectively and fine-tuning Elasticsearch, we control the latency of search API under 200ms and the latency of suggestion API under 10ms.
-  - Search relevance. Besides document relevance score returned by Elasticsearch, we add many signals including play numbers and subscription numbers in the past in recent days, to get a better relevance score.
+  - index freshness. Once an episode is fetched by our crawler system, a message will be put into the message queue(Redis) and triggers the indexing system. The latency of the whole pipeline is less than 10 seconds and more than 20k episodes are indexed per day.
+  - search latency. By using cache effectively and fine-tuning Elasticsearch, we control the latency of search API under 200ms and the latency of suggestion API under 10ms.
+  - search relevance. Besides document relevance score returned by Elasticsearch, we add many signals including play numbers and subscription numbers in the past in recent days, to get a better relevance score.
 
 - recommender system. By analysis user subscription data and applying collaborative filtering algorithm, we can recommend users podcasts that they may like and find similar podcasts. We use LightFM python library and apply WARP algorithm on user subscription data in recent 3 months. With fine tuning of parameters and A/B Testing, we raise CTR of user recommended podcasts from 2.16% to 4.52%, and CTR of similar podcasts from 1.90% to 3.19%.
 
@@ -35,7 +35,7 @@ Specialties:
 
 A real-time event analytical platform.
 
-- performance tuning to support ~200K eps(event per second) ingestion.
+- performance tuning to support ~200K eps(event per second).
 - implement a new event storage engine to support ~1M eps(event per second).
 
 ** Software Engineer, [[http://galeracluster.com/][Galera]], 2014.4 - 2014.11 (Remote, as Consultant)
@@ -57,9 +57,9 @@ Optimize cluster recovery process regarding data center outage case, and reduce 
   4. language. use JNI instead of pure Java code to accelerate CPU computation.
   5. kernel. configure kernel parameters like /proc/sys/vm/zone_reclaim_mode and /sys/kernel/mm/redhat_transparent_hugepage/enabled.
 
-- FastHBaseRest, an asynchronous high-performance HTTP server written in Netty for easily accessing HBase in multiple languages by using Google Protocol-Buffers. Since HBase only provides underlying block cache, FastHBaseRest implements item cache on application level using Google Guava for better read performance. Comparing to HBase embedded HTTP server('hbase rest'), the access latency is 20% lower and transfer size is 40% lower. Meanwhile it has more capabilities like request rewriting.
+- FastHBaseRest, an asynchronous high-performance HTTP server written in Netty for easily accessing HBase in multiple languages by using Google Protocol-Buffers. Since HBase only provides underlying block cache, FastHBaseRest implements item cache on application level using Google Guava for better read performance. Comparing to HBase embedded HTTP server('hbase rest'), the access latency is 20% lower and transfer size is 40% lower. Meanwhile, it has more capabilities like request rewriting.
 
-- usched, an internal job scheduler system written from scratch to arrange jobs which are codependent. It defines and implements a DSL called JDL(Job Description Language) which is used to describe dependencies between jobs and properties of jobs. It runs as an HTTP server and provides a web-console to manage jobs including submissions and running status dashboard etc. Thousand MapReduce jobs are scheduled by USched each day while the latency is below 5sec.
+- usched, an internal job scheduler system to arrange jobs which are codependent. It defines and implements a DSL called JDL(Job Description Language) which is used to describe dependencies between jobs and properties of jobs. It runs as an HTTP server and provides a web-console to manage jobs including submissions and running status dashboard etc. Thousand MapReduce jobs are scheduled by USched each day while the latency is below 5sec.
 
 ** [[file:images/baidu-inf-com-2010q4.jpg][Senior Software Engineer]], [[https://www.baidu.com/][Baidu]], 2008.7 - 2012.6
 
