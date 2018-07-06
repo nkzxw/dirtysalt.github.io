@@ -3,6 +3,3 @@
 file:./images/the-google-software-stack.png
 
 file:./images/the-facebook-software-stack.png
-
-
-
