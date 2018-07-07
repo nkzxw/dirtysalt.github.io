@@ -32,13 +32,11 @@ Second, many algorithms are non-trivial to scale out efficiently. For example, c
 While vanilla Hadoop performs poorly in a scale-up configurations, a series of optimizations makes it com- petitive with scale-out. Broadly, we remove the initial data load bottleneck by showing that it is cost-effective to replace disk by SSDs for local storage. We then show that simple tuning of memory heap sizes results in dra- matic improvements in performance. Finally, we show several small optimizations that eliminate the “shuffle bottleneck”.
 #+END_QUOTE
 
-
 ** Job sizes and example jobs
 
 这节作者选了几个比较典型的分析jobs，附上input/shuffle/output数据量大小。具体每个job在论文里面有详细的描述。
 
 file:../images/scale-up-vs-out-jobs.png
-
 
 ** Optimizing for scale-up
 
@@ -55,7 +53,6 @@ In a cluster, this is a reasonable throttling scheme to avoid a single node gett
 #+END_QUOTE
 
 ** Evaluation
-
 ** Discussion
 
 public cluster(cloud)和private cluster的区别主要是两个方面：
