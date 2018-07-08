@@ -34,6 +34,7 @@
   - [[http://lwn.net/Articles/250967/][What every programmer should know about memory]] by Ulrich Drepper([[https://sourceware.org/bugzilla/show_bug.cgi?id=4980][fun]]).
   - [[file:tcmalloc.org][tcmalloc]] Google的开源线程缓存内存分配器，解决多线程下面内存分配效率问题。
   - [[file:sanitizer.org][sanitizer]] Google的C++动态分析工具，可以检测内存泄漏，内存无效使用以及多线程数据竞争.
+
 - [[file:sysperf.org][system-performance]] 系统性能相关
   - [[file:perf.org][perf]] / [[file:oprofile.org][oprofile]] ([[file:oprofile-obsolete.org][old version]]) 系统级别profiler.
   - [[file:systemtap.org][systemtap]] 通过将探测(probe)语句编译成为内核驱动来观察系统运行情况.
@@ -43,9 +44,12 @@
   - [[file:./linux-system-and-performance-monitoring.org][Linux System and Performance Monitoring]]
   - [[http://www.brendangregg.com/linuxperf.html][Linux Performance Tools]] by Brendan Gregg.
   - [[file:./thinking-clearly-about-performance.org][Thinking Clearly about Performance]] by Cary Millsap.
+
 - [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]]
+  - [[https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html][Is Parallel Programming Hard, And, If So, What Can You Do About It?]]
   - [[file:./concurrency-hazards.org][Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code]]
-  - [[file:./images/gevent-tutorial/index.html][gevent-tutorial]] gevent的教程，里面涉及到很多和并发相关的概念和组件。
+  - [[file:./images/gevent-tutorial/index.html][gevent For the Working Python Developer]]
+
 - [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:./blogs/struggle-with-ubuntu.org][之前有过痛苦的经历]] . 主要记录自己使用出现的问题.
 - [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.
 - [[file:docker.org][docker]] 基于lxc(linux container)的分发应用工具和平台.
