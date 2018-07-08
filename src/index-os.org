@@ -21,10 +21,10 @@
 
 
 - [[file:linux.org][linux]]
-  - [[file:pic.org][pic-code]] PIC位置无关代码内部的原理以及和动态库之间的关系
+  - [[file:pic-code.org][pic-code]] PIC位置无关代码内部的原理以及和动态库之间的关系
   - [[file:gcc-asm.org][gcc-assembly]] GCC内嵌汇编代码
-  - [[file:encoding.org][encoding]] GB2312/GBK/GB18030/Unicode/UTF16/UTF32/UTF8这几种字符编码格式
-  - [[file:linux-proc.org][linux /proc filesystem]] Linux /proc文件系统
+  - [[file:char-encoding.org][char-encoding]] GB2312/GBK/GB18030/Unicode/UTF16/UTF32/UTF8这几种字符编码格式
+  - [[file:linux-proc-fs.org][linux-proc-fs]] Linux /proc文件系统
   - [[file:linux-tools.org][linux-tools]] Linux系统下的一些常用工具. see [[file:images/unixtoolbox-zh-cn.xhtml][unix-toolbox]]
 
 - [[file:memory.org][memory]] 内存相关
