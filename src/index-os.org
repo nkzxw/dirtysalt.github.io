@@ -62,5 +62,5 @@
 - [[file:./sphinx-search.org][sphinx]] C++实现的全文检索引擎，可以很容易地替换掉MySQL内置的全文检索(FTS)实现
 - [[file:./graphite.org][graphite]] 和 [[file:./opentsdb.org][OpenTSDB]] 类似, 时间序列(time series)数据库, 但是主要用于监控.
 - [[file:git.org][git]] 分布式版本控制系统. 最开始用于管理linux kernel, 现在许多开源软件托管在github上使用git管理.
-- [[file:elastic-search.org][ElasticSearch]] 支持分布式的搜索引擎. 性能良好，开箱即用，社区活跃.
+- [[file:elastic-search.org][ElasticSearch]] 分布式的搜索引擎
 - [[file:./ffmpeg.org][ffmpeg]] 视频/音频处理的瑞士军刀.
