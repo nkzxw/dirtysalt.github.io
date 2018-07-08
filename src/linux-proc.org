@@ -816,15 +816,15 @@ Node 0, zone   Normal
 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
 *** /proc/sys/vm/overcommit_memory
-   - OVERCOMMIT_GUESS=0
-     - Heuristic overcommit handling. Obvious overcommits of address space are refused. Used for a typical system. It ensures a seriously wild allocation fails while allowing overcommit to reduce swap usage. root is allowed to allocate slighly more memory in this mode. This is the default.
-     - 用户申请内存的时候, 系统会"启发式"地判断是否通过.
-   - OVERCOMMIT_ALWAYS=1
-     - Always overcommit. Appropriate for some scientific applications.
-     - 用户申请内存的时候, 系统不进行任何检查, 直接通过.
-   - OVERCOMMIT_NEVER=2
-     - Don't overcommit. The total address space commit for the system is not permitted to exceed swap + a configurable percentage (default is 50) of physical RAM. Depending on the percentage you use, in most situations this means a process will not be killed while accessing pages but will receive errors on memory allocation as appropriate.
-     - 用户一次申请内存的大小不允许超过"可用内存"的大小, 计算这个"可用内存"使用overcommit_ratio参数. (Physical-RAM-Size) * ratio / 100 + (Swap-Size).
+- OVERCOMMIT_GUESS=0
+  - Heuristic overcommit handling. Obvious overcommits of address space are refused. Used for a typical system. It ensures a seriously wild allocation fails while allowing overcommit to reduce swap usage. root is allowed to allocate slighly more memory in this mode. This is the default.
+  - 用户申请内存的时候, 系统会"启发式"地判断是否通过.
+- OVERCOMMIT_ALWAYS=1
+  - Always overcommit. Appropriate for some scientific applications.
+  - 用户申请内存的时候, 系统不进行任何检查, 直接通过.
+- OVERCOMMIT_NEVER=2
+  - Don't overcommit. The total address space commit for the system is not permitted to exceed swap + a configurable percentage (default is 50) of physical RAM. Depending on the percentage you use, in most situations this means a process will not be killed while accessing pages but will receive errors on memory allocation as appropriate.
+  - 用户一次申请内存的大小不允许超过"可用内存"的大小, 计算这个"可用内存"使用overcommit_ratio参数. (Physical-RAM-Size) * ratio / 100 + (Swap-Size).
 
 *** /proc/sys/vm/swappiness
 使用swap分区程度. 设置为0表示, 系统会尽可能地减少page swap in/out操作(但不保证不使用swap分区).
@@ -840,8 +840,8 @@ https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 进程写操作时触发: 系统脏页比例超过dirty_ratio, 或者大小超过dirty_bytes.
 
 后台pdflush(page dirty)定时检测: 时间周期是dirty_write_centisecs.
-   - 系统脏页比例超过dirty_background_ratio, 或是大小超过dirty_background_bytes
-   - 必须将时间超过dirty_expire_centisecs的脏页刷到磁盘
+- 系统脏页比例超过dirty_background_ratio, 或是大小超过dirty_background_bytes
+- 必须将时间超过dirty_expire_centisecs的脏页刷到磁盘
 
 *** /proc/sys/vm/laptop_mode
 膝上型计算机模式.
@@ -852,29 +852,29 @@ https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
 *** /proc/sys/vm/drop_caches
 用来释放kernel保存的buffers和cached. 其中buffers缓存inode(block cache), cached缓存文件页面(page cache)
-   - 0 // 释放cached memory
-   - 1 // 释放buffers
-   - 2 // 释放两者
+- 0 // 释放cached memory
+- 1 // 释放buffers
+- 2 // 释放两者
 为了防止数据丢失，可以在修改这个文件之前先调用sync强制写盘.
 
 *** /proc/sys/vm/panic_on_oom
-   - OOM Killer - linux-mm.org Wiki http://linux-mm.org/OOM_Killer
-   - Taming the OOM killer [LWN.net] http://lwn.net/Articles/317814/
-     - /proc/sys/vm/oom_victim 通过在这个地方指定名字来优先kill
-     - OOM control group (cgroup) 通过将process划分到某个group为这个group制定权值
-     - mem_notify 如果出现OOM情况的话可以通知到userspace
-     - cgroup OOM notifier 允许某个task来监控一群tasks，如果出现OOM的话会通知这个task
-     - /dev/mem_notify 这个设备文件上面包含内存事件，task可以poll这个文件来获取通知
-   - Linux 的 Out-of-Memory (OOM) Killer - DBA Notes http://www.dbanotes.net/database/linux_outofmemory_oom_killer.html
-   - OOM killer "Out of Memory: Killed process" SOLUTIONS / SUMMARY http://www.redaht.com/archives/redhat-list/2007-August/msg00060.html
-   - LinuxDevCenter.com: When Linux Runs Out of Memory http://linuxdevcenter.com/lpt/a/6808
-   - Respite from the OOM killer [LWN.net] http://lwn.net/Articles/104179/
+- OOM Killer - linux-mm.org Wiki http://linux-mm.org/OOM_Killer
+- Taming the OOM killer [LWN.net] http://lwn.net/Articles/317814/
+  - /proc/sys/vm/oom_victim 通过在这个地方指定名字来优先kill
+  - OOM control group (cgroup) 通过将process划分到某个group为这个group制定权值
+  - mem_notify 如果出现OOM情况的话可以通知到userspace
+  - cgroup OOM notifier 允许某个task来监控一群tasks，如果出现OOM的话会通知这个task
+  - /dev/mem_notify 这个设备文件上面包含内存事件，task可以poll这个文件来获取通知
+- Linux 的 Out-of-Memory (OOM) Killer - DBA Notes http://www.dbanotes.net/database/linux_outofmemory_oom_killer.html
+- OOM killer "Out of Memory: Killed process" SOLUTIONS / SUMMARY http://www.redaht.com/archives/redhat-list/2007-August/msg00060.html
+- LinuxDevCenter.com: When Linux Runs Out of Memory http://linuxdevcenter.com/lpt/a/6808
+- Respite from the OOM killer [LWN.net] http://lwn.net/Articles/104179/
 
 This enables or disables panic on out-of-memory feature.
-   - If this is set to 0, the kernel will kill some rogue process, called oom_killer.  Usually, oom_killer can kill rogue processes and system will survive.
-   - If this is set to 1, the kernel panics when out-of-memory happens. However, if a process limits using nodes by mempolicy/cpusets, and those nodes become memory exhaustion status, one process may be killed by oom-killer. No panic occurs in this case. Because other nodes' memory may be free. This means system total status may be not fatal yet.
-   - If this is set to 2, the kernel panics compulsorily even on the above-mentioned.
-   - The default value is 0. 1 and 2 are for failover of clustering. Please select either according to your policy of failover.
+- If this is set to 0, the kernel will kill some rogue process, called oom_killer.  Usually, oom_killer can kill rogue processes and system will survive.
+- If this is set to 1, the kernel panics when out-of-memory happens. However, if a process limits using nodes by mempolicy/cpusets, and those nodes become memory exhaustion status, one process may be killed by oom-killer. No panic occurs in this case. Because other nodes' memory may be free. This means system total status may be not fatal yet.
+- If this is set to 2, the kernel panics compulsorily even on the above-mentioned.
+- The default value is 0. 1 and 2 are for failover of clustering. Please select either according to your policy of failover.
 
 ** /proc/sys/net
 https://www.kernel.org/doc/Documentation/sysctl/net.txt
@@ -926,8 +926,8 @@ Sometimes tasks under Linux are blocked forever (essentially hung). Recent Linux
 The infrastructure is based on a single kernel thread named as “khungtaskd”. So if you do a ps in your system and see that there is entry like [khungtaskd] you know it is there. I have one in my system: "136 root SW [khungtaskd]"
 
 The loop of the khungtaskd daemon is a call to the scheduler for waking it up after ever 120 seconds (default value). The core algorithm is like this:
-   1. Iterate over all the tasks in the system which are marked as TASK_UNINTERRUPTIBLE (additionally it does not consider UNINTERRUPTIBLE frozen tasks & UNINTERRUPTIBLE tasks that are newly created and never been scheduled out).
-   2. If a task has not been switched out by the scheduler atleast once in the last 120 seconds it is considered as a hung task and its stack dump is displayed. If CONFIG_LOCKDEP is defined then it will also show all the locks the hung task is holding.
+1. Iterate over all the tasks in the system which are marked as TASK_UNINTERRUPTIBLE (additionally it does not consider UNINTERRUPTIBLE frozen tasks & UNINTERRUPTIBLE tasks that are newly created and never been scheduled out).
+2. If a task has not been switched out by the scheduler atleast once in the last 120 seconds it is considered as a hung task and its stack dump is displayed. If CONFIG_LOCKDEP is defined then it will also show all the locks the hung task is holding.
 
 One can change the sampling interval of khungtaskd through the sysctl interface /proc/sys/kernel/hung_task_timeout_secs.
 #+END_QUOTE

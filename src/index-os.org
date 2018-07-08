@@ -14,16 +14,19 @@
   - [[file:linux-kernel-development.org][Linux内核设计与实现(Linux Kernel Development)]] by Robert Love
   - [[file:./earlybird-realtime-search-at-twitter.org][Earlybird: Real-Time Search at Twitter]] twitter实时检索系统
   - [[http://www.amazon.com/UNIX-Systems-Modern-Architectures-Multiprocessing/dp/0201633388][现代体系结构上的UNIX系统]] [[http://book.douban.com/subject/1229889/][(内核程序员的SMP和Caching技术)]]
-  - A COMMENTARY ON THE SIXTH EDITION UNIX OPERATING SYSTEM [[http://warsus.github.io/lions-/][第六版莱昂斯 Unix 操作系统评述]]
+  - [[http://warsus.github.io/lions-/][第六版莱昂斯 Unix 操作系统评述(A COMMENTARY ON THE SIXTH EDITION UNIX OPERATING SYSTEM)]]
+  - [[file:tcp-on-linux.org][TCP Implementation in Linux: A Brief Tutorial]]
+  - [[file:simd.org][SIMD]] Single Instruction Muitple Data 单指令多数据
+  - [[file:apue.org][APUE]] Unix环境高级编程(Advanced Programming Unix Environment), W. Richard Stevens的神作
 
-- [[file:simd.org][SIMD]] Single Instruction Muitple Data 单指令多数据
-- [[file:apue.org][APUE]] Unix环境高级编程(Advanced Programming Unix Environment),W. Richard Stevens的神作。笔记里面没有包含书最后的几个部分，比如终端，打印机等，因为我觉得可能大家都不太需要这个东西了。我还尝试将一些跨章节的概念整合到一起，这样比较容易从总体把握Unix编程环境。
-- [[file:linux.org][linux]] 将原来[[file:apue.org][APUE]] 和 [[file:unp.org][UNP]] 中的一部分内容放在这里面来了，这样可以保持这两篇内容比较稳定。
-  - [[file:pic.org][pic-code]] 分析了一下PIC位置无关代码内部的原理以及和动态库之间的关系。通过阅读<深入理解计算机系统>并且结合实际的例子总结出来的。
-  - [[file:gcc-asm.org][gcc-assembly]] 如何编写GCC内嵌汇编，以及一些关于GCC内嵌汇编的文章，主要是参考了<GCC Manual>. 但是自己对这个依然不是很了解。
-  - [[file:encoding.org][encoding]] 介绍了GB2312/GBK/GB18030/Unicode/UTF16/UTF32/UTF8这几种字符编码格式。还是觉得UTF8在设计以及实现上都相对更加合理。
-  - [[file:linux-proc.org][linux /proc]] /proc文件系统
+
+- [[file:linux.org][linux]]
+  - [[file:pic.org][pic-code]] PIC位置无关代码内部的原理以及和动态库之间的关系
+  - [[file:gcc-asm.org][gcc-assembly]] GCC内嵌汇编代码
+  - [[file:encoding.org][encoding]] GB2312/GBK/GB18030/Unicode/UTF16/UTF32/UTF8这几种字符编码格式
+  - [[file:linux-proc.org][linux /proc filesystem]] Linux /proc文件系统
   - [[file:linux-tools.org][linux-tools]] Linux系统下的一些常用工具. see [[file:images/unixtoolbox-zh-cn.xhtml][unix-toolbox]]
+
 - [[file:memory.org][memory]] 内存相关
   - [[file:./numa.org][NUMA]] Non-Uniform Memory Access. 非一致性内存访问
   - [[file:numa-an-overview.org][NUMA An Overview]] 关于NUMA的介绍性文章
