@@ -62,17 +62,17 @@ oprofile由下面三个部分组成
 因为这些版本的Linux内核已经自带了oprofile驱动。
 
 使用步骤非常简单，大致如下：
-   - 使用opcontrol启动daemon并且开始采样
-   - 执行应用程序
-   - 使用opcontrol dump出剖分数据
-   - 使用opcontrol停止采样并且关闭daemon程序
-   - 使用opreport和opannotate查看结果
-   - #note: 使用oprofile需要root权限
+- 使用opcontrol启动daemon并且开始采样
+- 执行应用程序
+- 使用opcontrol dump出剖分数据
+- 使用opcontrol停止采样并且关闭daemon程序
+- 使用opreport和opannotate查看结果
+- #note: 使用oprofile需要root权限
 
 之前写过一个脚本来包装整个过程。只用它来对应用程序做过profile, 没有对kernel做过profile. 脚本会：
-   - 生成profile汇总报表
-   - 对源代码进行标注
-   - 对汇编代码进行标注
+- 生成profile汇总报表
+- 对源代码进行标注
+- 对汇编代码进行标注
 #+BEGIN_SRC Shell
 # deprecated !!!
 easy_oprofile() {
@@ -105,38 +105,38 @@ easy_oprofile() {
 ** Notes
 *** opcontrol
 常用命令参数如下：
-   - --reset # 清除session数据
-   - --no-vmlinux|--vmlinux=/boot/vmlinux-2.6.9.2_9-0-0-0 # 选择内核镜像剖分内核
-   - --deinit # 卸载oprofile device driver
-   - --init # 加载oprofile device driver
-   - --setup # 设置oprofile默认参数，保存在/root/.oprofile/daemonrc下面
-   - --status # 显示配置信息
-   - --start-daemon # 启动daemon程序
-   - --shutdown # 停止采样并且关闭daemon程序
-   - --start # 启动daemon程序并且开始采样
-   - --stop # 停止采样
-   - --dump # 控制daemon程序dump所收集的sample数据
-   - --list-event # 显示所支持事件
-   - --help # 帮助
-   - --buffer-size|--buffer-watershed|--cpu-buffer-size=<size> # 内核采样sample的buffer大小
-   - --event=<eventspec> # 设置采样事件，可以指定多次
-   - --separate=none|lib|kernel|cpu|all # 剖分信息划分(none)
-      - none # 按照应用程序划分
-      - lib # 按照library划分
-      - kernel # 按照内核态和用户态划分
-      - thread # 按照每个线程划分
-      - cpu # 按照每个CPU划分
-      - all # 按照上面所有都划分
-   - --image=image,[image]|"all" # 只profile某些特定的binary
-   - --session-dir=<dir> # 存放session目录(/var/lib/oprofile)
-   - --save=<session-name> # 保存session
+- --reset # 清除session数据
+- --no-vmlinux|--vmlinux=/boot/vmlinux-2.6.9.2_9-0-0-0 # 选择内核镜像剖分内核
+- --deinit # 卸载oprofile device driver
+- --init # 加载oprofile device driver
+- --setup # 设置oprofile默认参数，保存在/root/.oprofile/daemonrc下面
+- --status # 显示配置信息
+- --start-daemon # 启动daemon程序
+- --shutdown # 停止采样并且关闭daemon程序
+- --start # 启动daemon程序并且开始采样
+- --stop # 停止采样
+- --dump # 控制daemon程序dump所收集的sample数据
+- --list-event # 显示所支持事件
+- --help # 帮助
+- --buffer-size|--buffer-watershed|--cpu-buffer-size=<size> # 内核采样sample的buffer大小
+- --event=<eventspec> # 设置采样事件，可以指定多次
+- --separate=none|lib|kernel|cpu|all # 剖分信息划分(none)
+   - none # 按照应用程序划分
+   - lib # 按照library划分
+   - kernel # 按照内核态和用户态划分
+   - thread # 按照每个线程划分
+   - cpu # 按照每个CPU划分
+   - all # 按照上面所有都划分
+- --image=image,[image]|"all" # 只profile某些特定的binary
+- --session-dir=<dir> # 存放session目录(/var/lib/oprofile)
+- --save=<session-name> # 保存session
 
 常用用法如下：
-   - opcontrol --reset # 清除之前session
-   - opcontrol --start --no-vmlinux --image=image --separate=lib  # 开启daemon程序并且剖析
-   - 执行程序
-   - opcontrol --dump # dump剖析数据
-   - opcontrol --shutdown  # 停止采样并且关闭daemon程序
+- opcontrol --reset # 清除之前session
+- opcontrol --start --no-vmlinux --image=image --separate=lib  # 开启daemon程序并且剖析
+- 执行程序
+- opcontrol --dump # dump剖析数据
+- opcontrol --shutdown  # 停止采样并且关闭daemon程序
 
 执行一次opcontrol --start,所使用的参数就会记录在/root/.oprofile/daemonrc文件。效果就等同于首先调用opcontrol --setup, 然后调用opcontrol --start.
 
@@ -144,46 +144,46 @@ easy_oprofile() {
 opreport包含两类参数，一类是过滤参数用于通知应用打印出关于哪些方面的信息，一类是命令参数是关于如何打印出这方面的信息。
 
 常用过滤参数如下，过滤参数值可以使用glob风格来指定：
-   - session|session-exclude:sessionlist # 按照session名称过滤
-   - image|image-exclude:imagelist # 按照imgae名字过滤
-   - event:eventlist # 按照event进行过滤
-   - count:countlist # 按照计数器进行过滤
-   - unit-mask:masklist # 按照mask进行过滤
-   - cpu:cpulist # 按照cpu编号过滤
-   - tgid:pidlist # 按照进程号过滤
-   - tid:tidlist # 按照线程号过滤
+- session|session-exclude:sessionlist # 按照session名称过滤
+- image|image-exclude:imagelist # 按照imgae名字过滤
+- event:eventlist # 按照event进行过滤
+- count:countlist # 按照计数器进行过滤
+- unit-mask:masklist # 按照mask进行过滤
+- cpu:cpulist # 按照cpu编号过滤
+- tgid:pidlist # 按照进程号过滤
+- tid:tidlist # 按照线程号过滤
 
 常用命令参数如下：
-   - -g|--debug-info # 显示每个symbol的文件和行号
-   - -D|--demangle=none|normal|smart # 对C++名字解构(normal)
-   - -i|--include-symbols|-e|--exclude-symbols # 符号选择
-   - -h|--help # 帮助信息
-   - -f|--long-filenames # 显示长文件名
-   - -r|--requote-sort # 反向输出
-   - -l|--symbols # 显示symbol而不是binary image
-   - -o|--output-file # 输出文件
-   - -t|--threshold # sample的percentage超过这个值才显示
-   - -X|--xml # 产生XML输出信息
-   - --session-dir=<dir> # 存放session目录(/var/lib/oprofile)
+- -g|--debug-info # 显示每个symbol的文件和行号
+- -D|--demangle=none|normal|smart # 对C++名字解构(normal)
+- -i|--include-symbols|-e|--exclude-symbols # 符号选择
+- -h|--help # 帮助信息
+- -f|--long-filenames # 显示长文件名
+- -r|--requote-sort # 反向输出
+- -l|--symbols # 显示symbol而不是binary image
+- -o|--output-file # 输出文件
+- -t|--threshold # sample的percentage超过这个值才显示
+- -X|--xml # 产生XML输出信息
+- --session-dir=<dir> # 存放session目录(/var/lib/oprofile)
 
 常用用法如下：
-   - opreport -l image:<image> -o profile.log # 产生profile.log.
+- opreport -l image:<image> -o profile.log # 产生profile.log.
 
 *** opannotate
 常用命令参数如下：
-   - -a|--assembly # 产生汇编文件注释
-   - -b|--base-dirs # 将被strip掉的调试信息中源文件绝对路径前缀
-   - -d|--search-dirs # 源文件搜索路径
-     - 这两个选项配合使用场景是，如果我是用/tmp/a.cc编译出来的话，那么debug信息里面存放的就是/tmp/a.cc的路径。如果我们源代码在其他路径比如/home/tmp/a.cc的话，那么就不能够进行annotate.
-     - 这个问题可以使用上面两个参数解决。我们可以指定-b /tmp -d /home/tmp,这样debug信息中首先将/tmp stripped掉，然后拿a.cc在/home/tmp下面搜索。
-   - -D|--demangle=none|normal|smart # 对C++名字解构(normal)
-   - -i|--include-symbols|-e|--exclude-symbols # 符号选择
-   - --include-file|--exclude-file # 文件选择
-   - -t|--threshold # sample的percentage超过这个值才显示
-   - -s|--source # 产生源文件注释
-   - -o|--output-dir # 输出目录
-   - --help|--usage # 帮助信息
+- -a|--assembly # 产生汇编文件注释
+- -b|--base-dirs # 将被strip掉的调试信息中源文件绝对路径前缀
+- -d|--search-dirs # 源文件搜索路径
+  - 这两个选项配合使用场景是，如果我是用/tmp/a.cc编译出来的话，那么debug信息里面存放的就是/tmp/a.cc的路径。如果我们源代码在其他路径比如/home/tmp/a.cc的话，那么就不能够进行annotate.
+  - 这个问题可以使用上面两个参数解决。我们可以指定-b /tmp -d /home/tmp,这样debug信息中首先将/tmp stripped掉，然后拿a.cc在/home/tmp下面搜索。
+- -D|--demangle=none|normal|smart # 对C++名字解构(normal)
+- -i|--include-symbols|-e|--exclude-symbols # 符号选择
+- --include-file|--exclude-file # 文件选择
+- -t|--threshold # sample的percentage超过这个值才显示
+- -s|--source # 产生源文件注释
+- -o|--output-dir # 输出目录
+- --help|--usage # 帮助信息
 
 常用方法如下:
-   - opannotate -a <image> > profile.asm # 产生汇编文件注释.profile.asm是结果.
-   - opannotate -s --output-dir=. <image> # 产生源文件注释.在当前目录下面产生.
+- opannotate -a <image> > profile.asm # 产生汇编文件注释.profile.asm是结果.
+- opannotate -s --output-dir=. <image> # 产生源文件注释.在当前目录下面产生.

@@ -1,4 +1,4 @@
-#+title: Elasticsearch
+#+title: ElasticSearch
 
 - https://www.elastic.co/
 - [[https://www.gitbook.com/book/looly/elasticsearch-the-definitive-guide-cn/details][Elasticsearch 权威指南（中文版）]]

@@ -10,15 +10,15 @@
 启动之后可以使用ssh vagrant@localhost -p2222连接上。默认帐号和密码都是vagrant, 并且是sudo权限。Vagrantfile所在的目录也会被挂载到/vagrant下面。
 
 常用命令
-   - vagrant box add <name> <url> # 添加虚拟机
-   - vagrant init  # 初始化，同时在本地目录产生Vagrantfile配置文件
-   - vagrant up  # 启动虚拟机
-   - vagrant halt  # 关闭虚拟机
-   - vagrant reload  # 重启虚拟机
-   - vagrant ssh  # SSH 至虚拟机
-   - vagrant status  # 查看虚拟机运行状态
-   - vagrant destroy  # 销毁当前虚拟机
-   - vagrant package # 将当前虚拟机打包
+- vagrant box add <name> <url> # 添加虚拟机
+- vagrant init  # 初始化，同时在本地目录产生Vagrantfile配置文件
+- vagrant up  # 启动虚拟机
+- vagrant halt  # 关闭虚拟机
+- vagrant reload  # 重启虚拟机
+- vagrant ssh  # SSH 至虚拟机
+- vagrant status  # 查看虚拟机运行状态
+- vagrant destroy  # 销毁当前虚拟机
+- vagrant package # 将当前虚拟机打包
 
 ** 启动多台虚拟机
 http://docs.vagrantup.com/v2/multi-machine/index.html

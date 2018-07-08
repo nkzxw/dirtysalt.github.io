@@ -16,58 +16,58 @@ git分为远程仓库和本地仓库。可以从不同的远程仓库拉下内�
 
 -----
 本地仓库. git本地仓库由下面三棵树构成：
-   - 工作目录(working directory/WD).我们实际持有的文件。分为untracked和tracked两类。
-   - 缓存区(index/stage,INDEX).临时保存我们所做的修改。
-   - HEAD.指向我们最后一次提交的结果。
+- 工作目录(working directory/WD).我们实际持有的文件。分为untracked和tracked两类。
+- 缓存区(index/stage,INDEX).临时保存我们所做的修改。
+- HEAD.指向我们最后一次提交的结果。
 整个变化过程是这样的：WD -> "git add" -> INDEX -> "git commit" -> HEAD
 
-   - git init 初始化本地git仓库
-   - git clone <repo> 克隆到本地git仓库
-   - git add <files> 将WD放入INDEX（不管是tracked还是untracked）
-   - git commit 将INDEX放入HEAD
-   - git commit -a <files> 将WD放入INDEX和HEAD（对于已经tracked的文件）
-   - git commit --amend 修改最后一次提交
-   - git checkout -- <files> 放弃本地修改，将INDEX移到WD
-   - git checkout HEAD -- <files> 放弃本地修改，HEAD移到INDEX和WD
-   - git diff WD和INDEX差别
-   - git diff --cached INDEX和HEAD差别
-   - git diff > {patch} / git apply [-R] {patch} # 制作patch以及应用patch. -R可以撤销patch.
-   - git reset HEAD <files> 保留本地修改，取消INDEX
-   - git reset --hard <commit-id> # 回退到某个commit-id，包括commit/index信息.
-   - git reset --soft <commit-id> # 回退到某个commit-id，只是commit不包括index.
-   - #note: commit-id只能是本地commit. 可以使用HEAD^1这样类似游标方式
-   - git rm <files> 从HEAD删除
-   - git rm --cached <files> 从INDEX删除 (从仓库里面删除但是不删除本地文件)
-   - git mv 重命名文件
-   - git log 察看日志
+- git init 初始化本地git仓库
+- git clone <repo> 克隆到本地git仓库
+- git add <files> 将WD放入INDEX（不管是tracked还是untracked）
+- git commit 将INDEX放入HEAD
+- git commit -a <files> 将WD放入INDEX和HEAD（对于已经tracked的文件）
+- git commit --amend 修改最后一次提交
+- git checkout -- <files> 放弃本地修改，将INDEX移到WD
+- git checkout HEAD -- <files> 放弃本地修改，HEAD移到INDEX和WD
+- git diff WD和INDEX差别
+- git diff --cached INDEX和HEAD差别
+- git diff > {patch} / git apply [-R] {patch} # 制作patch以及应用patch. -R可以撤销patch.
+- git reset HEAD <files> 保留本地修改，取消INDEX
+- git reset --hard <commit-id> # 回退到某个commit-id，包括commit/index信息.
+- git reset --soft <commit-id> # 回退到某个commit-id，只是commit不包括index.
+- #note: commit-id只能是本地commit. 可以使用HEAD^1这样类似游标方式
+- git rm <files> 从HEAD删除
+- git rm --cached <files> 从INDEX删除 (从仓库里面删除但是不删除本地文件)
+- git mv 重命名文件
+- git log 察看日志
 
 -----
 远程仓库
-   - git remote -v 显示远程仓库信息（本地信息）
-   - git remote add <alias> <path> 添加远程仓库
-   - git remote show <repo> 显示远程仓库信息（远程信息）
-   - git remote rename <old> <new>
-   - git remote rm <repo> 删除某个远程仓库
+- git remote -v 显示远程仓库信息（本地信息）
+- git remote add <alias> <path> 添加远程仓库
+- git remote show <repo> 显示远程仓库信息（远程信息）
+- git remote rename <old> <new>
+- git remote rm <repo> 删除某个远程仓库
 
 ** git branch
 默认来说git包含一个master分支，也可以很容易地创建和删除分支。当从远程clone到本地的时候，
 会将远程repo里面所有的分支内容全部clone到本地，维护所有版本信息以及历史文件，所以本地切换分支非常快。
 
-   - git checkout <branch> 切换分支
-   - git checkout -b <branch> <commit-id> 创建并且切换分支，可以指定这个branch以哪个commit-id为起点
-   - git branch -va 察看当前所有分支包括本地和远程
-   - git branch <branch> 创建分支
-   - git branch -d <branch> 删除分支 / -D <branch> 强制删除分支
-   - git push <repo> <branch> 将本地branch HEAD信息推送到远程repo的branch.
-   - git push -f # 如果本地某个commit已经提交到server, 但是想修改这个commit并且重新push, 可以使用在这个命令. not recommended
-   - git push <repo> :<branch> 将删除分支信息推送。这个可以这样理解: ':'表示null,将null推到branch相当于清空branch
-   - git pull <repo> [<branch>] 将远程repo合并到本地HEAD.
-   - git merge <branch> 将本地branch进行合并
-     - --no-ff 将多个commit合并成为一个commit（不进行fast-forward)
-     - --squash 将多个commit合并在一起放在WD, 之后需要用户手动发起commit.
-   - git cherry-pick <commit-id> # pick commit to merge
-   - git fetch <repo> <branch> 将远程repo的branch拉到本地但是并不进行任何修改
-     - -p/--prune 如果远端删除分支的话，那么也删除本地分支
+- git checkout <branch> 切换分支
+- git checkout -b <branch> <commit-id> 创建并且切换分支，可以指定这个branch以哪个commit-id为起点
+- git branch -va 察看当前所有分支包括本地和远程
+- git branch <branch> 创建分支
+- git branch -d <branch> 删除分支 / -D <branch> 强制删除分支
+- git push <repo> <branch> 将本地branch HEAD信息推送到远程repo的branch.
+- git push -f # 如果本地某个commit已经提交到server, 但是想修改这个commit并且重新push, 可以使用在这个命令. not recommended
+- git push <repo> :<branch> 将删除分支信息推送。这个可以这样理解: ':'表示null,将null推到branch相当于清空branch
+- git pull <repo> [<branch>] 将远程repo合并到本地HEAD.
+- git merge <branch> 将本地branch进行合并
+  - --no-ff 将多个commit合并成为一个commit（不进行fast-forward)
+  - --squash 将多个commit合并在一起放在WD, 之后需要用户手动发起commit.
+- git cherry-pick <commit-id> # pick commit to merge
+- git fetch <repo> <branch> 将远程repo的branch拉到本地但是并不进行任何修改
+  - -p/--prune 如果远端删除分支的话，那么也删除本地分支
 
 如果合并过来的分支，是当前分支的child的话，那么执行fast-forward合并（除非指定--no-ff)，否则会执行普通的合并生成一个新的node，这个node是两个分支的共同child。
 
@@ -76,47 +76,47 @@ git分为远程仓库和本地仓库。可以从不同的远程仓库拉下内�
 ** git tag
 Git使用的标签有两种类型：轻量级的（lightweight）和含附注的（annotated）。轻量级标签就像是个不会变化的分支，实际上它就是个指向特 定提交对象的引用。而含附注标签，实际上是存储在仓库中的一个独立对象，它有自身的校验和信息，包含着标签的名字，电子邮件地址和日期，以及标签说明，标签本身也允许使用 GNU Privacy Guard (GPG) 来签署或验证。一般我们都建议使用含附注型的标签，以便保留相关信息；当然，如果只是临时性加注标签，或者不需要旁注额外信息，用轻量级标签也没问题。
 
-   - git tag 列出所有的标签
-   - git show <tag-name> 察看相应标签的版本信息
-   - git tag -a <tag-name> -m <comment> [<sha1>] 添加含附注的标签
-   - git tag <tag-name> [<sha1>] 添加轻量标签
-   - git push <repo> <tag-name> /--tags 推送某个标签或者是全部的标签
+- git tag 列出所有的标签
+- git show <tag-name> 察看相应标签的版本信息
+- git tag -a <tag-name> -m <comment> [<sha1>] 添加含附注的标签
+- git tag <tag-name> [<sha1>] 添加轻量标签
+- git push <repo> <tag-name> /--tags 推送某个标签或者是全部的标签
 
 ** git flow
 参考资源
-   - Git flow 开发流程。http://ihower.tw/blog/archives/5140/
-   - A successful Git branching model. http://nvie.com/posts/a-successful-git-branching-model/
-   - Git分支管理策略 http://www.ruanyifeng.com/blog/2012/07/git.html
+- Git flow 开发流程。http://ihower.tw/blog/archives/5140/
+- A successful Git branching model. http://nvie.com/posts/a-successful-git-branching-model/
+- Git分支管理策略 http://www.ruanyifeng.com/blog/2012/07/git.html
 
 git-flow主要推行的就是一种开发方式，然后通过工具来配合这种开发方式。git-flow分为下面几类分支：
-   - master 线上使用版本始终都是ready状态。
-   - develop 作为开发基线版本。
-   - feature 专门用于开发特性(可以有很多).
-   - release 开发到一定阶段发布的版本，作为master candidate.(直接在上面做bug修复)
-   - hotfix master上面出现bug临时修复(可以有很多).
+- master 线上使用版本始终都是ready状态。
+- develop 作为开发基线版本。
+- feature 专门用于开发特性(可以有很多).
+- release 开发到一定阶段发布的版本，作为master candidate.(直接在上面做bug修复)
+- hotfix master上面出现bug临时修复(可以有很多).
 
 然后说说各个分支之间的关系(这个在链接里面给出的图表示非常清楚)
-   - master
-     - 第一个版本之后，就会从master开出develop
-     - release OK会merge回master.
-     - hotfix OK会merge回master.
-   - develop
-     - hotfix OK会merge回develop.
-     - feature开发完毕会merge回develop，
-     - release做完bug fix之后会merge回develop.
-     - 从develop可以开出新的feature分支。
-     - develop OK之后可以开出release.
-   - feature
-     - 从develop开出
-     - OK之后会合并到develop
-   - release
-     - 从develop开出
-     - 期间测试发现的问题会在上面修复
-     - 修复会同时merge回develop
-     - OK之后会合并到master
-   - hotfix
-     - 从master开出
-     - OK之后合并到master和develop
+- master
+  - 第一个版本之后，就会从master开出develop
+  - release OK会merge回master.
+  - hotfix OK会merge回master.
+- develop
+  - hotfix OK会merge回develop.
+  - feature开发完毕会merge回develop，
+  - release做完bug fix之后会merge回develop.
+  - 从develop可以开出新的feature分支。
+  - develop OK之后可以开出release.
+- feature
+  - 从develop开出
+  - OK之后会合并到develop
+- release
+  - 从develop开出
+  - 期间测试发现的问题会在上面修复
+  - 修复会同时merge回develop
+  - OK之后会合并到master
+- hotfix
+  - 从master开出
+  - OK之后合并到master和develop
 关系还是非常清楚的(不过我这里可能描述比较混乱).
 
 ** tips

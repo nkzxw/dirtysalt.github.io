@@ -593,9 +593,9 @@ http://www.imagemagick.org/script/index.php
 使用vmware disk expand似乎不太好用，虽然磁盘空间增大了，但是df -h发现识别的硬盘大小还是一样（可能需要重新格式化才行）：（。
 
 另外一个办法，就是在vmware下面再增加一个disk. 128G,识别为/dev/sdb。然后在linux下面
-   1. fdisk为/dev/sdb创建分区，partition number=1.
-   2. partprobe /dev/sdb1 （？具体什么用途我也不太清楚，inform OS partition table changed)
-   3. mkfs.ext4 /dev/sdb1 格式化文件系统
+1. fdisk为/dev/sdb创建分区，partition number=1.
+2. partprobe /dev/sdb1 （？具体什么用途我也不太清楚，inform OS partition table changed)
+3. mkfs.ext4 /dev/sdb1 格式化文件系统
 产生这个硬盘之后，可以首先将自己的$HOME重命名，然后mount /dev/sdb1 $HOME.
 
 接着将原来数据copy过去，最好使用cp -r .*这样可以copy隐藏文件。然后需要chown owner:owner .* -R来修改权限（因为这个步骤通常是root操作的）。然后将原来的数据删除即可。

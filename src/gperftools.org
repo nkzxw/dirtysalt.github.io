@@ -13,14 +13,14 @@ http://gperftools.googlecode.com/svn/trunk/doc/heap_checker.html
 http://gperftools.googlecode.com/svn/trunk/doc/heapprofile.html
 
 This is the heap profiler we use at Google, to explore how C++ programs manage memory. This facility can be useful for
-   - Figuring out what is in the program heap at any given time
-   - Locating memory leaks
-   - Finding places that do a lot of allocation
+- Figuring out what is in the program heap at any given time
+- Locating memory leaks
+- Finding places that do a lot of allocation
 The profiling system instruments all allocations and frees. It keeps track of various pieces of information per allocation site. An allocation site is defined as the active stack trace at the call to malloc, calloc, realloc, or, new.（定位程序在哪些地方分配了内存以及分配多少内存，当然也可以用作检测内存泄漏）
 
 有两种调用方式：
-   - 环境变量 HEAPPROFILE=<profile-path> ./a.out
-   - 函数API functions in <gperftools/heap-profiler.h> (HeapProfilerStart, HeapProfilerStop etc)
+- 环境变量 HEAPPROFILE=<profile-path> ./a.out
+- 函数API functions in <gperftools/heap-profiler.h> (HeapProfilerStart, HeapProfilerStop etc)
 下面是一些控制行为的环境变量. 分配量超过某个阈值/使用量超过某个阈值/定时器都会触发dump.
 | env                              | default                     | comment                                                                                                               |
 |----------------------------------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------|
@@ -46,8 +46,8 @@ HEAP_PROFILE_MMAP = NOTE: this causes the profiler to profile calls internal to 
 file:./images/gperftools-heap-profiler-0.png
 
 A few explanations:
-   - GFS_MasterChunk::AddServer accounts for 255.6 MB of the live memory, which is 25% of the total live memory.
-   - GFS_MasterChunkTable::UpdateState is directly accountable for 176.2 MB of the live memory (i.e., it directly allocated 176.2 MB that has not been freed yet). Furthermore, it and its callees are responsible for 729.9 MB. The labels on the outgoing edges give a good indication of the amount allocated by each callee.
+- GFS_MasterChunk::AddServer accounts for 255.6 MB of the live memory, which is 25% of the total live memory.
+- GFS_MasterChunkTable::UpdateState is directly accountable for 176.2 MB of the live memory (i.e., it directly allocated 176.2 MB that has not been freed yet). Furthermore, it and its callees are responsible for 729.9 MB. The labels on the outgoing edges give a good indication of the amount allocated by each callee.
 
 下面是一个文字输出样例
 #+BEGIN_EXAMPLE
@@ -60,22 +60,22 @@ A few explanations:
     49.5   4.8%  88.0%     49.5   4.8% hashtable::resize
    ...
 #+END_EXAMPLE
-   - The first column contains the direct memory use in MB.
-   - The fourth column contains memory use by the procedure and all of its callees.
-   - The second and fifth columns are just percentage representations of the numbers in the first and fourth columns.
-   - The third column is a cumulative sum of the second column (i.e., the kth entry in the third column is the sum of the first k entries in the second column.)
+- The first column contains the direct memory use in MB.
+- The fourth column contains memory use by the procedure and all of its callees.
+- The second and fifth columns are just percentage representations of the numbers in the first and fourth columns.
+- The third column is a cumulative sum of the second column (i.e., the kth entry in the third column is the sum of the first k entries in the second column.)
 
 在Caveats小节里面有一些使用heap-profiler需要注意的问题，我觉得有两个需要比较重要：
-   - If the program linked in a library that was not compiled with enough symbolic information, all samples associated with the library may be charged to the last symbol found in the program before the library. This will artificially inflate the count for that symbol.
-   - Several libraries, such as some STL implementations, do their own memory management. This may cause strange profiling results. We have code in libtcmalloc to cause STL to use tcmalloc for memory management (which in our tests is better than STL's internal management), though it only works for some STL implementations.
+- If the program linked in a library that was not compiled with enough symbolic information, all samples associated with the library may be charged to the last symbol found in the program before the library. This will artificially inflate the count for that symbol.
+- Several libraries, such as some STL implementations, do their own memory management. This may cause strange profiling results. We have code in libtcmalloc to cause STL to use tcmalloc for memory management (which in our tests is better than STL's internal management), though it only works for some STL implementations.
 
 ** cpu profiler
 http://gperftools.googlecode.com/svn/trunk/doc/cpuprofile.html
 
 有三种调用方式：
-   - CPUPROFILE=<profile-path> ./a.out
-   - CPUPROFILE=<profile-path> CPUPROFILESIGNAL=12 ./a.out & 然后使用kill -12 <pid>来启动profiler, 之后使用kill -12 <pid>来关闭profiler
-   - functions in <gperftools/profiler.h> (ProfilerStart, ProfilerStop etc)
+- CPUPROFILE=<profile-path> ./a.out
+- CPUPROFILE=<profile-path> CPUPROFILESIGNAL=12 ./a.out & 然后使用kill -12 <pid>来启动profiler, 之后使用kill -12 <pid>来关闭profiler
+- functions in <gperftools/profiler.h> (ProfilerStart, ProfilerStop etc)
 可以通过环境变量 CPUPROFILE_FREQUENCY = x(default = 100) 来控制采样率。默认是100次/s.
 
 最终展现方式有三种：1) text 2) graph 3) callgrind. 下面是文本输出例子
@@ -83,22 +83,22 @@ http://gperftools.googlecode.com/svn/trunk/doc/cpuprofile.html
 14   2.1%  17.2%       58   8.7% std::_Rb_tree::find
 #+END_EXAMPLE
 每个字段含义分别是：（其中第三个字段含义和heap-profiler文本输出中第三个字段含义是相同的）
-   - Number of profiling samples in this function # 当前函数采样次数
-   - Percentage of profiling samples in this function # 采样百分比
-   - Percentage of profiling samples in the functions printed so far # 看heapprofiler中的解释，第k行值是前面k行的采样百分比总和
-   - Number of profiling samples in this function and its callees # 当前函数（包括子调用）累积采样次数
-   - Percentage of profiling samples in this function and its callees # 累积采样百分比
-   - Function name
+- Number of profiling samples in this function # 当前函数采样次数
+- Percentage of profiling samples in this function # 采样百分比
+- Percentage of profiling samples in the functions printed so far # 看heapprofiler中的解释，第k行值是前面k行的采样百分比总和
+- Number of profiling samples in this function and its callees # 当前函数（包括子调用）累积采样次数
+- Percentage of profiling samples in this function and its callees # 累积采样百分比
+- Function name
 
 下面是图形输出例子
 
 file:./images/gperftools-cpu-profier-0.gif
 
 每个节点的含义是：
-   - Class Name
-   - Method Name
-   - local (percentage)
-   - of cumulative (percentage)
+- Class Name
+- Method Name
+- local (percentage)
+- of cumulative (percentage)
 local/cum中数值是指采样到的次数。如果采样率是100的话，那么每次采样可以认为是0.01s. header信息中
 #+BEGIN_EXAMPLE
  /tmp/profiler2_unittest
@@ -117,9 +117,9 @@ local/cum中数值是指采样到的次数。如果采样率是100的话，那�
 The cost is specified in 'hits', i.e. how many times a function appears in the recorded call stack information. The 'calls' from function a to b record how many times function b was found in the stack traces directly below function a.
 
 在Caveats小节里面有一些使用cpu-profiler需要注意的问题，我觉得有三个需要比较重要：
-   - If the program exits because of a signal, the generated profile will be incomplete, and may perhaps be completely empty.
-   - The displayed graph may have disconnected regions because of the edge-dropping heuristics described above.
-   - If the program linked in a library that was not compiled with enough symbolic information, all samples associated with the library may be charged to the last symbol found in the program before the library. This will artificially inflate the count for that symbol.
+- If the program exits because of a signal, the generated profile will be incomplete, and may perhaps be completely empty.
+- The displayed graph may have disconnected regions because of the edge-dropping heuristics described above.
+- If the program linked in a library that was not compiled with enough symbolic information, all samples associated with the library may be charged to the last symbol found in the program before the library. This will artificially inflate the count for that symbol.
 
 ** google pprof
 heap-profiler以及cpu-profiler输出文件都需要pprof来查看. profile文件输出格式 http://gperftools.googlecode.com/svn/trunk/doc/cpuprofile-fileformat.html

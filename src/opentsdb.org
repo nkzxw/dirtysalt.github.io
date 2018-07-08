@@ -1,21 +1,21 @@
 #+title: OpenTSDB
-- Homepage: http://opentsdb.net/index.html 
-- Overview: http://opentsdb.net/overview.html 
+- Homepage: http://opentsdb.net/index.html
+- Overview: http://opentsdb.net/overview.html
 - Manual: http://opentsdb.net/manual.html
 
 ** Overview
 file:./images/opentsdb-architecture.png
 
 从上图来看整个架构还是比较简单的
-   - Collector as agent. (python framework tcollector https://github.com/OpenTSDB/tcollector)
-   - TSD as server.
-   - HBase as database.
+- Collector as agent. (python framework tcollector https://github.com/OpenTSDB/tcollector)
+- TSD as server.
+- HBase as database.
 
 collector在每个机器上面做数据采集，采集数据点称为data point. 包含下面几个部分：
-   - A metric name.
-   - A UNIX timestamp (seconds since Epoch).
-   - A value (64 bit integer or double-precision floating point value).
-   - A set of tags (key-value pairs) that annotate this data point. *tags非常重要，能够提供描述信息*
+- A metric name.
+- A UNIX timestamp (seconds since Epoch).
+- A value (64 bit integer or double-precision floating point value).
+- A set of tags (key-value pairs) that annotate this data point. *tags非常重要，能够提供描述信息*
 
 #+BEGIN_EXAMPLE
 mysql.bytes_received 1287333217  327810227706 schema=foo host=db1
@@ -38,21 +38,21 @@ myservice.latency.avg 1292148123 42 reqtype=foo host=web42
 #+END_EXAMPLE
 
 row表示格式为： *每个数字对应1 byte*
-   - [0, 0, -69] metric ID
-   - [77, 4, -99, 32] base timestamp = 1292148000
-     - *timestamps in the row key are rounded down to a 60 minute boundary*
-     - *也就是说对于同一个小时的metric + tags相同的数据都会存放在一个row下面*
-   - [0, 0, 1] "reqtype" index
-   - [0, 1, 11] "foo" index
-   - [0, 0, 2] "host" index
-   - [0, -7, 42] "web42" index
+- [0, 0, -69] metric ID
+- [77, 4, -99, 32] base timestamp = 1292148000
+  - *timestamps in the row key are rounded down to a 60 minute boundary*
+  - *也就是说对于同一个小时的metric + tags相同的数据都会存放在一个row下面*
+- [0, 0, 1] "reqtype" index
+- [0, 1, 11] "foo" index
+- [0, 0, 2] "host" index
+- [0, -7, 42] "web42" index
 #note: 可以看到，对于metric + tags相同的数据都会连续存放，且metic相同的数据也会连续存放，这样对于scan以及做aggregation都非常有帮助
 
 column qualifier占用2 bytes，表示格式为：
-   - 12 bits delta in seconds.(相对row表示的小时的delta, 最多2^ 12 = 4096 > 3600因此没有问题）
-   - 4 bits
-     - 1 bit (long or double) 
-     - 3 bits (reserved)
+- 12 bits delta in seconds.(相对row表示的小时的delta, 最多2^ 12 = 4096 > 3600因此没有问题）
+- 4 bits
+  - 1 bit (long or double)
+  - 3 bits (reserved)
 value使用8bytes存储，既可以存储long,也可以存储double.
 
 #+BEGIN_EXAMPLE
@@ -71,24 +71,24 @@ $ ./tsdb scan 2010/11/07-23:00 sum test
 #+END_EXAMPLE
 
 关于schema后期改进有一下几点：
-   - variant length coding 来表示value
-   - run length encoding 来压缩column qialifier以及value. 因为qualifier之间非常近似，因此压缩效果会非常明显。
+- variant length coding 来表示value
+- run length encoding 来压缩column qialifier以及value. 因为qualifier之间非常近似，因此压缩效果会非常明显。
 
 ** Query
 下面是整个query的过程：
-   - A metric name for which to retrieve data;
-   - A start time;
-   - A stop time (optional, if not set, assumed to be "now");
-   - A possibly empty set of tags to filter the data (e.g. host=foo, or wildcards such as host=*); *可以根据tag做筛选，放在time range之后是schema design导致的*
-   - An aggregation function (e.g. sum or avg); *所谓的聚合是将相同tags下面数据进行聚合*
-   - Whether or not to get the "rate of change" the data (in mathematical terms: the first derivative).
-   - Optionally: a downsampling interval (e.g. 10 minutes) and downsampling function (e.g. avg) *downsampling就是下采样*
+- A metric name for which to retrieve data;
+- A start time;
+- A stop time (optional, if not set, assumed to be "now");
+- A possibly empty set of tags to filter the data (e.g. host=foo, or wildcards such as host=*); *可以根据tag做筛选，放在time range之后是schema design导致的*
+- An aggregation function (e.g. sum or avg); *所谓的聚合是将相同tags下面数据进行聚合*
+- Whether or not to get the "rate of change" the data (in mathematical terms: the first derivative).
+- Optionally: a downsampling interval (e.g. 10 minutes) and downsampling function (e.g. avg) *downsampling就是下采样*
 
 具体实现如下：
-   - Open a scanner, set with a start key composed of the metric requested and the start time.
-   - The scanner is configured to stop at a key corresponding to the stop time and to filter out rows containing data with tags that don't match the tags we're looking for.
-   - If any multiple choice tags (e.g. host=foo|bar) or wildcard tags are used (e.g. host=*, which is akin to a GROUP BY in SQL), sort the rows in groups accordingly. *按照tags进行排序，因此内部tag应该也是排好序的*
-   - For each group, repeated the remaining steps:
-     - Apply the downsample function, if there is one. For instance 10m-avg will collapse each consecutive chunk of 600 second worth of data down to one data point using the average.
-     - Aggregate the values of the different time series together (for instance sum will sum up all the time series that wound up being together in this group &ldash; this requires that you understand how to perform such operations on time series in a sound fashion, see below).
-     - If the rate of change was requested, compute that using the previous value returned.
+- Open a scanner, set with a start key composed of the metric requested and the start time.
+- The scanner is configured to stop at a key corresponding to the stop time and to filter out rows containing data with tags that don't match the tags we're looking for.
+- If any multiple choice tags (e.g. host=foo|bar) or wildcard tags are used (e.g. host=*, which is akin to a GROUP BY in SQL), sort the rows in groups accordingly. *按照tags进行排序，因此内部tag应该也是排好序的*
+- For each group, repeated the remaining steps:
+  - Apply the downsample function, if there is one. For instance 10m-avg will collapse each consecutive chunk of 600 second worth of data down to one data point using the average.
+  - Aggregate the values of the different time series together (for instance sum will sum up all the time series that wound up being together in this group &ldash; this requires that you understand how to perform such operations on time series in a sound fashion, see below).
+  - If the rate of change was requested, compute that using the previous value returned.

@@ -32,19 +32,19 @@ http://duartes.org/gustavo/blog/post/what-your-computer-does-while-you-wait
 ** Numbers Everyone Should Know
 [[file:./designs-lessons-and-advice-from-building-large-distributed-systems.org][Designs, Lessons and Advice from Building Large Distributed Systems]] @ladis-2009 jeff dean
 
-   - L1 cache reference 0.5 ns
-   - Branch mispredict 5 ns
-   - L2 cache reference 7 ns
-   - Mutex lock/unlock 100 ns
-   - Main memory reference 100 ns
-   - Compress 1K bytes with Zippy 10,000 ns
-   - Send 2K bytes over 1 Gbps network 20,000 ns
-   - Read 1 MB sequentially from memory 250,000 ns
-   - Round trip within same datacenter 500,000 ns
-   - Disk seek 10,000,000 ns
-   - Read 1 MB sequentially from network 10,000,000 ns
-   - Read 1 MB sequentially from disk 30,000,000 ns
-   - Send packet CA->Netherlands->CA 150,000,000 ns
+- L1 cache reference 0.5 ns
+- Branch mispredict 5 ns
+- L2 cache reference 7 ns
+- Mutex lock/unlock 100 ns
+- Main memory reference 100 ns
+- Compress 1K bytes with Zippy 10,000 ns
+- Send 2K bytes over 1 Gbps network 20,000 ns
+- Read 1 MB sequentially from memory 250,000 ns
+- Round trip within same datacenter 500,000 ns
+- Disk seek 10,000,000 ns
+- Read 1 MB sequentially from network 10,000,000 ns
+- Read 1 MB sequentially from disk 30,000,000 ns
+- Send packet CA->Netherlands->CA 150,000,000 ns
 
 file:./images/numbers-everyone-should-know.jpg
 
@@ -52,33 +52,33 @@ file:./images/numbers-everyone-should-know.jpg
 [[file:./designs-lessons-and-advice-from-building-large-distributed-systems.org][Designs, Lessons and Advice from Building Large Distributed Systems]] @ladis-2009 jeff dean
 
 Typical first year for a new cluster:
-   - ~0.5 overheating (power down most machines in <5 mins, ~1-2 days to recover)
-   - ~1 PDU failure (~500-1000 machines suddenly disappear, ~6 hours to come back)
-   - ~1 rack-move (plenty of warning, ~500-1000 machines powered down, ~6 hours)
-   - ~1 network rewiring (rolling ~5% of machines down over 2-day span)
-   - ~20 rack failures (40-80 machines instantly disappear, 1-6 hours to get back)
-   - ~5 racks go wonky (40-80 machines see 50% packetloss)
-   - ~8 network maintenances (4 might cause ~30-minute random connectivity losses)
-   - ~12 router reloads (takes out DNS and external vips for a couple minutes)
-   - ~3 router failures (have to immediately pull traffic for an hour)
-   - ~dozens of minor 30-second blips for dns
-   - ~1000 individual machine failures
-   - ~thousands of hard drive failures
-   - slow disks, bad memory, misconfigured machines, flaky machines, etc.
-   - Long distance links: wild dogs, sharks, dead horses, drunken hunters, etc.
+- ~0.5 overheating (power down most machines in <5 mins, ~1-2 days to recover)
+- ~1 PDU failure (~500-1000 machines suddenly disappear, ~6 hours to come back)
+- ~1 rack-move (plenty of warning, ~500-1000 machines powered down, ~6 hours)
+- ~1 network rewiring (rolling ~5% of machines down over 2-day span)
+- ~20 rack failures (40-80 machines instantly disappear, 1-6 hours to get back)
+- ~5 racks go wonky (40-80 machines see 50% packetloss)
+- ~8 network maintenances (4 might cause ~30-minute random connectivity losses)
+- ~12 router reloads (takes out DNS and external vips for a couple minutes)
+- ~3 router failures (have to immediately pull traffic for an hour)
+- ~dozens of minor 30-second blips for dns
+- ~1000 individual machine failures
+- ~thousands of hard drive failures
+- slow disks, bad memory, misconfigured machines, flaky machines, etc.
+- Long distance links: wild dogs, sharks, dead horses, drunken hunters, etc.
 
 ** 延迟和带宽
 延迟指原子信息通过介质所需要的时间，带宽指信息在介质中传播的速度。如果我们以浏览Web页面为例的话，如果等待长时间才开始显示一个页面，但立刻就全部出现了，这说明网络的延迟比较大，带宽还不错。如果页面立刻开始出现，但是花了很长时间才全部显示出来，这说明网络的延迟还可以，但带宽较小。
 
 对于网络传输来说，网卡，传输线路以及交换机路由器本身都是有延迟和带宽指标的。我没有办法获得所有这些指标的具体数据，只能够就我所知道的稍微说说。对于网卡来说，延迟取决于系统负载和所处网络拥塞程度。更细程度考量的话可能就是从user buffer->kernel buffer->device buffer同时考虑系统完成这件事情调度时间比如TCP_NODELAY和TCP_CORK带来的影响，我猜想的:（。网卡带宽就是所谓的千兆网卡(1000Mbps)和万兆网卡(10000Mbps).对于传输线路来说，如果是光纤的话那么传播速度是光速，在光纤中传播距离可能是实际距离的1.1-1.2倍(估计，因为不可能走直线).假设天津机房和北京机房距离150km,那么延迟为150km / 光速(3*10^5km/s) * 1.2(实际距离比率) = 0.6ms.不过考虑同事告诉我说这样计算可能是不太准确的，撇开铺线的实际距离不谈，光纤每段上会加一个中继器来增强光信号，这样计算实际上是不准确的。他友好地给我说了一下北京机房<->天津机房RTT大概10ms.最后就是交换机路由器。很少有人关注这个单项指标，因为这个取决于内部机房机架是怎么部署的，大家更关心的是从同机房两个机架上服务器延迟多少，带宽多少。而事实证明(实际上是同事告诉我的)延迟基本没有，带宽取决于服务器网卡带宽。
 
-   - ping本机0.01ms
-   - ping同机房机器0.1ms
-   - ping同城机器1ms
-   - ping不同城机器20ms
-   - 北（南）方ping南（北）方机器50ms
-   - ping外国机器200ms
-   - ping不通是因为GFW
+- ping本机0.01ms
+- ping同机房机器0.1ms
+- ping同城机器1ms
+- ping不同城机器20ms
+- 北（南）方ping南（北）方机器50ms
+- ping外国机器200ms
+- ping不通是因为GFW
 
 ** 存储系统IOPS
 http://rickardnobel.se/storage-performance-iops-latency-throughput/

@@ -1,6 +1,6 @@
 #+title: graphite
 
-- https://graphite.readthedocs.org/en/latest/
+https://graphite.readthedocs.org/en/latest/
 
 ** Overview
 Graphite consists of 3 software components:

@@ -1,5 +1,1 @@
 #+title: concurrency
-
-** One picture explain Single-Thread, Multiple-Thread, Event-Driven
-
-file:../images/single-multi-thread-event-driven.jpg
