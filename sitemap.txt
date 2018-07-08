@@ -74,6 +74,7 @@ https://dirtysalt.github.io/html/dynamo.html
 https://dirtysalt.github.io/html/muduo.html
 https://dirtysalt.github.io/html/bitcoin.html
 https://dirtysalt.github.io/html/paste.html
+https://dirtysalt.github.io/html/char-encoding.html
 https://dirtysalt.github.io/html/developers-who-can-build-things-from-scratch.html
 https://dirtysalt.github.io/html/on-designing-and-deploying-internet-scale-services.html
 https://dirtysalt.github.io/html/redis.html
@@ -127,7 +128,6 @@ https://dirtysalt.github.io/html/neural-networks-and-deep-learning.html
 https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html
 https://dirtysalt.github.io/html/why-google-stores-billions-of-lines-of-code-in-a-single-repository.html
 https://dirtysalt.github.io/html/dremel.html
-https://dirtysalt.github.io/html/linux-proc.html
 https://dirtysalt.github.io/html/hbase-log-splitting.html
 https://dirtysalt.github.io/html/a-conversation-with-werner-vogels.html
 https://dirtysalt.github.io/html/dbms-intro.html
@@ -151,7 +151,6 @@ https://dirtysalt.github.io/html/machine-learning-tom-mitchell.html
 https://dirtysalt.github.io/html/cn-cv.html
 https://dirtysalt.github.io/html/ml-class.html
 https://dirtysalt.github.io/html/building-a-production-machine-learning-infrastructure.html
-https://dirtysalt.github.io/html/pic.html
 https://dirtysalt.github.io/html/corona.html
 https://dirtysalt.github.io/html/your-server-as-a-function.html
 https://dirtysalt.github.io/html/pregel.html
@@ -171,6 +170,7 @@ https://dirtysalt.github.io/html/the-cpp-prog-lang.html
 https://dirtysalt.github.io/html/streambase.html
 https://dirtysalt.github.io/html/building-machine-learning-systems-with-python.html
 https://dirtysalt.github.io/html/sphinx-search.html
+https://dirtysalt.github.io/html/linux-proc-fs.html
 https://dirtysalt.github.io/html/in-house-programmer.html
 https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html
 https://dirtysalt.github.io/html/index-np.html
@@ -189,6 +189,7 @@ https://dirtysalt.github.io/html/vagrant.html
 https://dirtysalt.github.io/html/a-tour-inside-cloudflare-latest-generation-servers.html
 https://dirtysalt.github.io/html/index-ml.html
 https://dirtysalt.github.io/html/omega.html
+https://dirtysalt.github.io/html/pic-code.html
 https://dirtysalt.github.io/html/graphite.html
 https://dirtysalt.github.io/html/borg.html
 https://dirtysalt.github.io/html/hbase-configuration.html
@@ -287,7 +288,6 @@ https://dirtysalt.github.io/html/questioning-the-lambda-architecture.html
 https://dirtysalt.github.io/html/lock.html
 https://dirtysalt.github.io/html/build-system.html
 https://dirtysalt.github.io/html/druid-design-doc.html
-https://dirtysalt.github.io/html/encoding.html
 https://dirtysalt.github.io/html/complexity-is-the-enemy.html
 https://dirtysalt.github.io/html/the-seasoned-schemer.html
 https://dirtysalt.github.io/html/orcfile.html

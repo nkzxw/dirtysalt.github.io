@@ -76,6 +76,7 @@
 <url><loc>https://dirtysalt.github.io/html/muduo.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/bitcoin.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/paste.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/char-encoding.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/developers-who-can-build-things-from-scratch.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/on-designing-and-deploying-internet-scale-services.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/redis.html</loc></url>
@@ -129,7 +130,6 @@
 <url><loc>https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/why-google-stores-billions-of-lines-of-code-in-a-single-repository.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/dremel.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/linux-proc.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hbase-log-splitting.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/a-conversation-with-werner-vogels.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/dbms-intro.html</loc></url>
@@ -153,7 +153,6 @@
 <url><loc>https://dirtysalt.github.io/html/cn-cv.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/ml-class.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-a-production-machine-learning-infrastructure.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/pic.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/corona.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/your-server-as-a-function.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/pregel.html</loc></url>
@@ -173,6 +172,7 @@
 <url><loc>https://dirtysalt.github.io/html/streambase.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-machine-learning-systems-with-python.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/sphinx-search.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/linux-proc-fs.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/in-house-programmer.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/google-cluster-computing-faculty-traning-workshop.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/index-np.html</loc></url>
@@ -191,6 +191,7 @@
 <url><loc>https://dirtysalt.github.io/html/a-tour-inside-cloudflare-latest-generation-servers.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/index-ml.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/omega.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/pic-code.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/graphite.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/borg.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hbase-configuration.html</loc></url>
@@ -289,7 +290,6 @@
 <url><loc>https://dirtysalt.github.io/html/lock.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/build-system.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/druid-design-doc.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/encoding.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/complexity-is-the-enemy.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/the-seasoned-schemer.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/orcfile.html</loc></url>
