@@ -3,19 +3,19 @@ http://software.schmorp.de/pkg/libev.html
 
 ** Overview
 libev所实现的功能就是一个强大的reactor, 可以notify的事件主要包括下面这些：
-   - ev_io // IO可读可写
-   - ev_stat // 文件属性变化
-   - ev_async // 激活线程
-   - ev_signal // 信号处理
-   - ev_timer // 定时器
-   - ev_periodic // 周期任务
-   - ev_child // 子进程状态变化
-   - ev_fork // 开辟进程
-   - ev_cleanup // event loop退出触发事件
-   - ev_idle // 每次event loop空闲触发事件
-   - ev_embed // ???
-   - ev_prepare // 每次event loop之前事件
-   - ev_check // 每次event loop之后事件
+- ev_io // IO可读可写
+- ev_stat // 文件属性变化
+- ev_async // 激活线程
+- ev_signal // 信号处理
+- ev_timer // 定时器
+- ev_periodic // 周期任务
+- ev_child // 子进程状态变化
+- ev_fork // 开辟进程
+- ev_cleanup // event loop退出触发事件
+- ev_idle // 每次event loop空闲触发事件
+- ev_embed // ???
+- ev_prepare // 每次event loop之前事件
+- ev_check // 每次event loop之后事件
 
 代码风格相当严谨而且排版也非常工整，并且从域名看出作者是德国人。但是内部使用了大量的宏造成阅读代码并不是非常方便。
 并且从代码角度分析，应该是一开始支持有一个默认的event_loop,但是随着多核产生实际应用中可能会使用到多个event_loop,
@@ -67,15 +67,15 @@ void ev_set_userdata (EV_P_ void *data);
 void *ev_userdata (EV_P);
 #+END_SRC
 我们这里主要关注一下flags.这里面主要是选择使用什么backend来进行poll操作，可以选择的有：
-   - EVBACKEND_SELECT
-   - EVBACKEND_POLL
-   - EVBACKEND_EPOLL // 通常我们选择这个
-   - EVBACKEND_KQUEUE
-   - EVBACKEND_DEVPOLL
-   - EVBACKEND_PORT
+- EVBACKEND_SELECT
+- EVBACKEND_POLL
+- EVBACKEND_EPOLL // 通常我们选择这个
+- EVBACKEND_KQUEUE
+- EVBACKEND_DEVPOLL
+- EVBACKEND_PORT
 但是还有三个比较重要选项：
-   - EVFLAG_NOINOTIFY // 不适用inofity调用来使用ev_stat.这样可以减少fd使用。
-   - EVFLAG_SIGNALFD // 使用signalfd来检测信号是否发生，同样这样可以减少fd使用。
+- EVFLAG_NOINOTIFY // 不适用inofity调用来使用ev_stat.这样可以减少fd使用。
+- EVFLAG_SIGNALFD // 使用signalfd来检测信号是否发生，同样这样可以减少fd使用。
 大部分时候我们使用EVFLAG_AUTO(0)一般就足够满足需求了，从代码角度来看如果支持epoll的话那么首先会选择epoll.
 因为在watcher的回调函数里面是可以知道当前event_loop的，这样就可以获得自定义数据。然后我们看看这个event_loop如何运行和停止的
 #+BEGIN_SRC C++
@@ -83,12 +83,12 @@ void ev_run (EV_P_ int flags);
 void ev_break (EV_P_ int how);
 #+END_SRC
 同样我们这里比较关注flags和how这两个参数。flags有下面这几个：
-   - 0.默认值。一直循环进行处理，直到外部引用计数==0或者是显示退出。
-   - EVRUN_NOWAIT.运行一次，poll时候不会等待。如果有pending事件进行处理，否则立即返回。
-   - EVRUN_ONCE.运行一次，poll时候会等待至少一个event发生，处理完成之后返回。
+- 0.默认值。一直循环进行处理，直到外部引用计数==0或者是显示退出。
+- EVRUN_NOWAIT.运行一次，poll时候不会等待。如果有pending事件进行处理，否则立即返回。
+- EVRUN_ONCE.运行一次，poll时候会等待至少一个event发生，处理完成之后返回。
 而how有下面这几个：
-   - EVBREAK_ONE.只是退出一次ev_run这个调用。通常来说使用这个就可以了。
-   - EVBREAK_ALL.退出所有的ev_run调用。这种情况存在于ev_run在pengding处理时候会递归调用。
+- EVBREAK_ONE.只是退出一次ev_run这个调用。通常来说使用这个就可以了。
+- EVBREAK_ALL.退出所有的ev_run调用。这种情况存在于ev_run在pengding处理时候会递归调用。
 在backend/epoll底层每次epoll_wait时候，libev提供了接口回调可以在epoll_wait前后调用
 #+BEGIN_SRC C++
 void ev_set_loop_release_cb (loop, void (*release)(EV_P), void (*acquire)(EV_P))
@@ -130,10 +130,10 @@ bool ev_is_pending (ev_TYPE *watcher); // watcher是否pending.
 int ev_clear_pending (loop, ev_TYPE *watcher); // 清除watcher pending状态并且返回事件
 #+END_SRC
 wacther的状态有下面这么几种：
-   - initialiased.调用init函数初始化
-   - active.调用start进行注册
-   - pending.已经触发事件但是没有处理
-   - inactive.调用stop注销。这个状态等同于initialised这个状态。
+- initialiased.调用init函数初始化
+- active.调用start进行注册
+- pending.已经触发事件但是没有处理
+- inactive.调用stop注销。这个状态等同于initialised这个状态。
 其实关于每个watcher具体是怎么实现的没有太多意思，因为大部分现有代码都差不多。会在下一节说说内部数据结构是怎么安排的，
 了解内部数据结构以及过程之后很多问题就可以避免了，比如"The special problem of disappearing file descriptors"这类问题。
 
@@ -223,13 +223,13 @@ ev_run (EV_P_ int flags)
 }
 #+END_SRC
 我们可以总结一下大致步骤，其实和大部分的event loop写出来差不多。
-   - 首先触发那些已经pending的watchers.
-   - 判断是否loop_done
-   - fd_reify.这个后面会单独说。
-   - 计算出waittime并且进行必要的sleep.
-   - backend_poll开始轮询,并且整理好pending事件
-   - timers_reify.这个和fd_reify不同
-   - 调用EV_INVOKE_PENDING来触发pending的io事件
+- 首先触发那些已经pending的watchers.
+- 判断是否loop_done
+- fd_reify.这个后面会单独说。
+- 计算出waittime并且进行必要的sleep.
+- backend_poll开始轮询,并且整理好pending事件
+- timers_reify.这个和fd_reify不同
+- 调用EV_INVOKE_PENDING来触发pending的io事件
 非常简单。接下来我们看看fd_reify,backend_poll,timers_reify以及EV_INVOKE_PENDING.
 
 *** fd_reify

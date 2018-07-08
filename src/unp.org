@@ -2,18 +2,18 @@
 ** 简介
 *** 网络模型
 OSI(open systems interconnection,开放系统互连)模型是一种网络模型，是按照下面这样的方式划分的：
-   - 应用层
-   - 表示层
-   - 会话层
-   - 传输层
-   - 网络层
-   - 数据链路层
-   - 物理层
+- 应用层
+- 表示层
+- 会话层
+- 传输层
+- 网络层
+- 数据链路层
+- 物理层
 在现实中对应关系是这样的：
-   - 数据链路层和物理层是随系统提供的设备驱动程序和网络硬件。
-   - 网络层对应IPv4,IPv6.
-   - 传输层对应TCP,UDP.
-   - 会话层，表示层以及应用层对应我们具体的应用。
+- 数据链路层和物理层是随系统提供的设备驱动程序和网络硬件。
+- 网络层对应IPv4,IPv6.
+- 传输层对应TCP,UDP.
+- 会话层，表示层以及应用层对应我们具体的应用。
 我们使用的套接字编程模型，就是对于传输层，网络层操作的封装，而对于这里也是系统调用和用户调用的区分点。
 但是在Linux系统上，在这层界面这里也打了一个洞，允许我们使用SOCK_RAW选项来直接操作网络层。
 
@@ -215,9 +215,9 @@ int main(){
 **** 端口号
 IP用于标识通讯的机器，而端口号用于标识通信的进程。IANA(the Internet Assigned Numbers Authority,因特网分配数值权威机构)
 维护着一个端口号分配状况清单，端口号被分为下面3段：
-   - 众所周知的端口号(well-known port)[0,1023],这些端口由IANA分配和控制。对于系统来说，使用这些端口通常需要root权限。
-   - 已登记的端口号(registered port)[1024,49151],这些端口不由IANA分配，但是由IANA登记并且提供它们使用清单。
-   - 动态端口(dynamic port)[49152,65535],IANA不管这些端口，我们可以自由使用，通常也称临时端口(ephemeral port).
+- 众所周知的端口号(well-known port)[0,1023],这些端口由IANA分配和控制。对于系统来说，使用这些端口通常需要root权限。
+- 已登记的端口号(registered port)[1024,49151],这些端口不由IANA分配，但是由IANA登记并且提供它们使用清单。
+- 动态端口(dynamic port)[49152,65535],IANA不管这些端口，我们可以自由使用，通常也称临时端口(ephemeral port).
 注意对于不同的传输层协议，端口是可以复用的。
 
 #+BEGIN_SRC C++
@@ -426,9 +426,9 @@ default         192.168.189.2   0.0.0.0         UG    0      0        0 eth1
 Local address is already in use.
 
 发生这种情况通常是本地可用的port都使用完。可以通过下面这些办法解决：
-   - 修改本地可用的port数量
-   - 加快回收处于TIME_WAIT连接
-   - 安全复用处于TIME_WAIT连接
+- 修改本地可用的port数量
+- 加快回收处于TIME_WAIT连接
+- 安全复用处于TIME_WAIT连接
 
 *** bind
 将套接字和一个本地协议地址进行绑定。
@@ -478,8 +478,8 @@ extern int listen (int __fd, int __n) __THROW;
 变为被动状态之后，服务端等待客户端进行connnect(发送SYN分节).从收到SYN分节，到被accept进行处理
 这段过程中连接上的客户端，服务端是需要保存这些连接的。服务端需要将这些连接保存在一个队列内部，
 这个队列内部包括的连接状态分别是：
-   - 接收到SYN分节，返回了ACK分节和自己的SYN分节。连接处于SYN_RCVD状态。incomplete queue.
-   - 三次握手完成，等到accept进行处理。连接处理ESTABLELISHED状态。complete queue.
+- 接收到SYN分节，返回了ACK分节和自己的SYN分节。连接处于SYN_RCVD状态。incomplete queue.
+- 三次握手完成，等到accept进行处理。连接处理ESTABLELISHED状态。complete queue.
 在队列里面并没有分配fd,只是保存了连接的状态，直到accept之后才正式分配fd.至于这个队列的长度，就是
 listen调用里面第二个参数n的含义，通常我们称为backlog.但是对于这个解释是历史上BSD的解释。
 
@@ -621,9 +621,9 @@ write failed:Broken pipe
 *** option
 **** 概览
 对于套接字选项的获取和设置，我们最常用的函数包括：
-   - getsockopt/setsockopt.
-   - fcntl.
-   - ioctl.
+- getsockopt/setsockopt.
+- fcntl.
+- ioctl.
 本节讨论的所有选项都是通过getsockopt/setsockopt来操作的，对于fcntl/ioctl会在其他地方进行讨论。
 #+BEGIN_SRC C++
 //#include <sys/socket.h>
@@ -679,8 +679,8 @@ TCP_CORK:off
 **** SO_ERROR
 当一个套接字发生错误时，那么协议模块内部so_error会被设置成为Exx错误码，我们称它为套接字的待处理错误(pending error).
 内核能够以下面两种方式之一立刻通知进程这个错误：
-   - IO复用通知可读可写
-   - 信号驱动IO发起SIGIO信号
+- IO复用通知可读可写
+- 信号驱动IO发起SIGIO信号
 通知之后我们可以使用getsockopt来获取这个错误，也可以直接进行读写然后来得到这个错误，然后so_error清零。
 如果使用读写来获得这个错误的话，如果有数据进行读写的话那么正常进行，如果没有的话那么返回-1,并且errno会被置为so_error。
 对于读取的话如果是正常关闭连接的话，那么read返回为0,如果为异常关闭比如RST分节的话，那么会返回对应的错误。
@@ -691,9 +691,9 @@ TCP_CORK:off
 如果服务端不检测出半开连接的话那么就会维持连接最终耗尽资源。当然在应用层服务端可自己来进行这个保活(keepalive)机制的实现，
 但是TCP内部也自带这样的机制。如果设置了这个选项的话，一段时间内套接字任一方向没有数据交换的话，那么TCP会自动给对端发送
 保持存活探测分节(keep-alive probe),这个分节对端必须相应，结果会有三种情况：
-   - 响应ACK，对端存活
-   - 响应RST，对端可能已经崩溃重启，so_error置为ECONNRESET.
-   - 对端没有响应，那么按照TCP重传机制重传，最终错误可能为ETIMEOUT(超时),ENETUNREACH(路由错误).
+- 响应ACK，对端存活
+- 响应RST，对端可能已经崩溃重启，so_error置为ECONNRESET.
+- 对端没有响应，那么按照TCP重传机制重传，最终错误可能为ETIMEOUT(超时),ENETUNREACH(路由错误).
 如果产生错误的话，如果我们使用IO复用/信号驱动IO的话，我们是可以立刻检测到的并且进行响应处理。
 
 **** SO_LINGER
@@ -736,11 +736,11 @@ struct linger
 
 **** SO_RCVTIMEO/SO_SNDTIMEO
 可以设置针对这个套接字的读写超时，影响的函数包括：
-   - read/write
-   - readv/writev
-   - recv/send
-   - recvfrom/sendto
-   - recvmsg/sendmsg
+- read/write
+- readv/writev
+- recv/send
+- recvfrom/sendto
+- recvmsg/sendmsg
 设置超时的结构是struct timeval.
 
 **** SO_REUSEADDR
@@ -852,35 +852,35 @@ quick ACK是相对于delay ACK来说的。delay ACK算法就是说，接收到�
 对于模型的解释，我们假设情况是read(buf,x)和write(buf,x).
 **** 阻塞IO(blocking IO)
 这个是最流行的IO模型，默认情形下面所有的套接字都是阻塞的。read(buf,x)行为是：
-   - 用户调用read(buf,x)阻塞
-   - 系统调用sysread
-   - 如果kernel_buffer没有数据的话，那么一直阻塞直到有数据产生为止。
-   - 当有数据产生假设y个字节的话，z=y>x?x:y,然后memcopy(buf,kernel_buffer,z)
-   - 系统调用sysread返回，读取z个字节。
-   - 用户调用read(buf,x)返回
+- 用户调用read(buf,x)阻塞
+- 系统调用sysread
+- 如果kernel_buffer没有数据的话，那么一直阻塞直到有数据产生为止。
+- 当有数据产生假设y个字节的话，z=y>x?x:y,然后memcopy(buf,kernel_buffer,z)
+- 系统调用sysread返回，读取z个字节。
+- 用户调用read(buf,x)返回
 而write(x)行为是：
-   - 用户调用write(buf,x)阻塞
-   - 系统调用syswrite
-   - 如果kernel buffer没有空间的话，那么一直阻塞直到有空间为止。
-   - 假设有y个字节的可用空间，z=y>x?x:y,然后memcopy(kernel_buffer,buf,z)
-   - 系统调用sywrite返回，写入z个字节。
-   - 用户调用write(buf,x)返回
+- 用户调用write(buf,x)阻塞
+- 系统调用syswrite
+- 如果kernel buffer没有空间的话，那么一直阻塞直到有空间为止。
+- 假设有y个字节的可用空间，z=y>x?x:y,然后memcopy(kernel_buffer,buf,z)
+- 系统调用sywrite返回，写入z个字节。
+- 用户调用write(buf,x)返回
 
 **** 非阻塞IO(nonblocking IO)
 非阻塞IO和阻塞IO执行逻辑上非常相似，只不过在等待数据/空间时候逻辑稍有不同。read(buf,x)行为是：
-   - 用户调用read(buf,x)阻塞
-   - 系统调用sysread
-   - 如果kernel_buffer没有数据的话，那么返回EWOULDBLOCK/EAGAIN.
-   - 当有数据产生假设y个字节的话，z=y>x?x:y,然后memcopy(buf,kernel_buffer,z)
-   - 系统调用sysread返回，读取z个字节。
-   - 用户调用read(buf,x)返回
+- 用户调用read(buf,x)阻塞
+- 系统调用sysread
+- 如果kernel_buffer没有数据的话，那么返回EWOULDBLOCK/EAGAIN.
+- 当有数据产生假设y个字节的话，z=y>x?x:y,然后memcopy(buf,kernel_buffer,z)
+- 系统调用sysread返回，读取z个字节。
+- 用户调用read(buf,x)返回
 而write(x)行为是：
-   - 用户调用write(buf,x)阻塞
-   - 系统调用syswrite
-   - 如果kernel buffer没有空间的话，那么返回EWOULDBLOCK/EAGAIN.
-   - 假设有y个字节的可用空间，z=y>x?x:y,然后memcopy(kernel_buffer,buf,z)
-   - 系统调用sywrite返回，写入z个字节。
-   - 用户调用write(buf,x)返回
+- 用户调用write(buf,x)阻塞
+- 系统调用syswrite
+- 如果kernel buffer没有空间的话，那么返回EWOULDBLOCK/EAGAIN.
+- 假设有y个字节的可用空间，z=y>x?x:y,然后memcopy(kernel_buffer,buf,z)
+- 系统调用sywrite返回，写入z个字节。
+- 用户调用write(buf,x)返回
 然后上层进行轮询检查是否有数据可读或者是空间可用。
 
 设置非阻塞IO的话可以使用如下代码：
@@ -1188,15 +1188,15 @@ extern ssize_t sendmsg (int __fd, __const struct msghdr *__message,
 extern ssize_t recvmsg (int __fd, struct msghdr *__message, int __flags);
 #+END_SRC
 其中flags和send/recv的flags含义相同，我们主要看看msghdr里面的部分：
-   - msg_name/msg_namelen表示套接字地址和长度
-   - msg_iov/msg_iovlen表示io vector的读写部分。
-   - msg_control/msg_controllen表示辅助数据的长度
-   - msg_flags表示recvmsg返回的标记。
+- msg_name/msg_namelen表示套接字地址和长度
+- msg_iov/msg_iovlen表示io vector的读写部分。
+- msg_control/msg_controllen表示辅助数据的长度
+- msg_flags表示recvmsg返回的标记。
 我们这里不过多使用辅助数据是什么，但是可以看看辅助数据结构。msg_control是由多个cmsghdr组成的，
 我们可以使用下面的宏来遍历进行访问：
-   - CMSG_DATA(cmsg).数据
-   - CMSG_FIRSTHDR(hdr)
-   - CMSG_NXTHDR(cmsg,hdr).
+- CMSG_DATA(cmsg).数据
+- CMSG_FIRSTHDR(hdr)
+- CMSG_NXTHDR(cmsg,hdr).
 
 ***** epoll
 #todo:
@@ -1204,8 +1204,8 @@ extern ssize_t recvmsg (int __fd, struct msghdr *__message, int __flags);
 *** conversion
 **** 使用说明
 关于名字与地址转换，我们这里只关注主机名和IP地址之间的转换接口。至于实现方面的话，大致有两种方式：
-   - 本地配置文件比如/etc/hosts，优先使用。
-   - 采用类似DNS这样的解析服务，可以认为是一个分布式有层级关系的名字解析集群，
+- 本地配置文件比如/etc/hosts，优先使用。
+- 采用类似DNS这样的解析服务，可以认为是一个分布式有层级关系的名字解析集群，
 不过具体顺序的话，在/etc/host.conf里面可以查看。
 
 #+BEGIN_SRC C++
@@ -1355,12 +1355,12 @@ TCP(Transmission Control Protocol,传输控制协议)相对于UDP来说更加复
 发送和接收速度会存在差异，如果缺乏流量控制相互通信的话，那么一端数据可能就直接被丢弃了，通过流量控制
 可以考虑发送端本端tcp kernel buffer有多少空间，这样可以限制对端发送速度。最后TCP连接是全双工的，也就是说，
 在同一个连接上，双端可以交换信息。总结起来，TCP特点有下面这些：
-   - 面向链接
-   - 有序字节流
-   - 可靠性
-   - 超时机制
-   - 流量控制
-   - 全双工
+- 面向链接
+- 有序字节流
+- 可靠性
+- 超时机制
+- 流量控制
+- 全双工
 
 *** TCP首部
 TCP首部数据格式如下，如果不计可选字段的话占用20个字节（通常来说也就是占用20个字节）
@@ -1390,9 +1390,9 @@ struct tcp_header_t{
 
 **** RST分节
 产生RST分节通常有下面几个情况：
-   - 连接或者是发送到到某个没有监听对应端口的服务器上。内部产生一个ICMP端口不可达信息而TCP则使用复位。
-   - 想主动取消一个已有连接。通常来说我们是等待数据发送完成之后发送FIN称为有序释放(orderly release),否则称为异常释放(abortive release).
-   - TCP接收到一个根本不存在该连接上的分组。通常这种情况是比如server掉电重启，而client认为连接还存在然后发送分组，这种情况称为
+- 连接或者是发送到到某个没有监听对应端口的服务器上。内部产生一个ICMP端口不可达信息而TCP则使用复位。
+- 想主动取消一个已有连接。通常来说我们是等待数据发送完成之后发送FIN称为有序释放(orderly release),否则称为异常释放(abortive release).
+- TCP接收到一个根本不存在该连接上的分组。通常这种情况是比如server掉电重启，而client认为连接还存在然后发送分组，这种情况称为
 半打开连接(half-open connection),server会以RST分节响应。
 
 **** PSH分节
@@ -1405,9 +1405,9 @@ struct tcp_header_t{
 file:./images/tcp-status-transmission.png
 
 注意这里的图表示和TCP/IP详解v1里面的图有点不同，少了两条通路
-   - SYN_RCVD->FIN_WAIT1,TCP/IPv1可以直接发送FIN分节。就是假设一个client连接上但是没有完成三次握手但是放在incomplete queue里面，然后服务器主动将这个连接断开。
+- SYN_RCVD->FIN_WAIT1,TCP/IPv1可以直接发送FIN分节。就是假设一个client连接上但是没有完成三次握手但是放在incomplete queue里面，然后服务器主动将这个连接断开。
 这个至少在应用层面上是很少见的。我们不考虑。
-   - SYN_SENT->SYN_RCVD,TCP/IPv1可以直接接收到SYN并且返回SYN/ACK分节。这个同时打开的情况。这个在应用层面上也很少见。
+- SYN_SENT->SYN_RCVD,TCP/IPv1可以直接接收到SYN并且返回SYN/ACK分节。这个同时打开的情况。这个在应用层面上也很少见。
 不过作者也说很多BSD的TCP实现都不能够正确支持这种同时打开的情况，即使实现也没有很少地测试过。我们不考虑。
 
 另外一种少见的情况就是同时关闭，都从ESTABLISHED进入FIN_WAIT_1状态，同样我们不考虑。
@@ -1419,19 +1419,19 @@ file:./images/tcp-connection-flow.jpg
 首先服务器必须准备好接受外来的连接，这个过程称为被动打开(passive open),通常包括socket,bind,listen,accept这4个步骤。
 而客户端通过调用socket,connect来链接服务端，这个过程称为主动打开(active open).建立连接的过程大致是这样的，下面我们使用
 A表示active一端(通常为client)，P表示passive一端(通常为server).
-   - A->P SYN/x.
-   - P->A ACK/x+1,SYN/y.
-   - A->P ACK/y+1.
+- A->P SYN/x.
+- P->A ACK/x+1,SYN/y.
+- A->P ACK/y+1.
 这个过程称为三次握手(three-way handshake).在三次握手时候交换MSS和窗口大小信息。对于这个x的选择是系统自动产生的，为了防止
 在网络中被延迟的分组在以后又被传送而导致链接另外一方做出错误解释的话，这个x必须每次尽可能地不同。系统会维护一个ISN(initial sequence number),
 是一个32bit计数器每4ms+1.
 
 在关闭连接时候，主动调用close的一段称为主动关闭(active close),而接收到FIN分节的一端执行关闭称为被动关闭(passive close).
 关闭链接的过称大致是这样的，同样使用A表示active一端(通常为client)，P表示passive一端(通常为server).
-   - A->P FIN/x(active调用close).
-   - P->A ACK/x+1
-   - P->A FIN/y(passive调用close)
-   - A->P ACK/y+1
+- A->P FIN/x(active调用close).
+- P->A ACK/x+1
+- P->A FIN/y(passive调用close)
+- A->P ACK/y+1
 
 **** TIME_WAIT状态
 Coping with the TCP TIME-WAIT state on busy Linux servers | Vincent Bernat : http://vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html
@@ -1439,8 +1439,8 @@ Coping with the TCP TIME-WAIT state on busy Linux servers | Vincent Bernat : htt
 有关TCP状态中最不容易理解的就是TIME_WAIT这个状态了，这个状态是主动执行关闭的话会经历的状态，在这个状态停留时间
 是最长分节生命期(maximum segment liftime,MSL)的两倍，我们称为2MSL.MSL意思是任何一个IP数据报可能停留在网络中存活
 的最长时间，这个时间是一个有限值，不同系统设置不同。RFC建议值是2min，而BSD的传统实现是30s.TIME_WAIT状态存在有两个理由：
-   - 可靠地实现TCP全双工连接终止。
-   - 允许老的重复分组在网络中消失。
+- 可靠地实现TCP全双工连接终止。
+- 允许老的重复分组在网络中消失。
 这里有一个定时器称为2MSL定时器。
 
 首先看第一个理由。如果最后passive调用close的话发出FIN分节并且active一端收到，但是响应ACK丢失的话，那么passive一端
@@ -1474,14 +1474,14 @@ TFO在client开始SYN的时候允许设在TCP选项上面设置TFO option，然�
 
 然后RFC793虽然规定了 SYN可以带上数据，但是请求必须在3WHS之后才能够处理（一方面是为了防止过时的SYN，另外一方面是为了防止SYN flood attack)。但是TFO的实现允许在SYN就带上数据并且立刻处理，可以查看pdf里面TFO过程。为了防止SYN flood attack使用了cookie机制进行验证。而TFO并不防止过时的SYN这样的请求，允许SYN+数据发送多次并且响应，这就要求了server有能力确定是否开启TFO（server如果判断请求是幂等的话，那么就可以开启TFO)。
 
-   Rather than trying to capture all the dubious SYN packets to make TFO
-   100% compatible with TCP semantics, we've made a design decision
-   early on to accept old SYN packets with data, i.e., to allow TFO for
-   a class of applications that are tolerant of duplicate SYN packets
-   with data, e.g., idempotent or query type transactions. We believe
-   this is the right design trade-off balancing complexity with
-   usefulness. There is a large class of applications that can tolerate
-   dubious transaction requests.
+Rather than trying to capture all the dubious SYN packets to make TFO
+100% compatible with TCP semantics, we've made a design decision
+early on to accept old SYN packets with data, i.e., to allow TFO for
+a class of applications that are tolerant of duplicate SYN packets
+with data, e.g., idempotent or query type transactions. We believe
+this is the right design trade-off balancing complexity with
+usefulness. There is a large class of applications that can tolerate
+dubious transaction requests.
 
 *** 流量控制
 **** 滑动窗口
@@ -1521,22 +1521,22 @@ ACK为x的话，那么就可以认为x以前的所有数据都已经被确认了
 
 **** 拥塞避免算法
 拥塞避免算法通常和慢启动算法一起使用。慢启动算法里面有两个问题没有解决：
-   - 如果出现拥塞分组丢失的话，那么cwnd如何进行调整。
-   - 当cwnd如果超过某个界限的话，那么每收到一个ACK就+1的话，拥塞窗口过大就没有太大的意义了。
+- 如果出现拥塞分组丢失的话，那么cwnd如何进行调整。
+- 当cwnd如果超过某个界限的话，那么每收到一个ACK就+1的话，拥塞窗口过大就没有太大的意义了。
 本质来说慢启动算法只是考虑到了启动初期这段时间的发送方式，而没有考虑到平稳之后以及出现拥塞之后的调整方式，拥塞避免算法解决了这些问题。
 拥塞避免算法和慢启动算法是两个不同目的和独立的算法，但是当拥塞发生的时候我们希望降低分组进入网络的传输速度，这点可以通过慢启动来解决。
 因为在实际中，通常慢启动算法和拥塞避免算法是一起工作的。我们假定由于分组收到损坏而引起的丢失是非常少的(<1%),所以我们认为分组丢失通常意味着
 源和目的之间的某处网络发生了拥塞。分组丢失通常有两种指示：
-   - 超时重传。
-   - 收到重复需要确认。(也可能因为分片乱序造成)
+- 超时重传。
+- 收到重复需要确认。(也可能因为分片乱序造成)
 在TCP层通过判断这两个条件出发来确定是否发生拥塞。
 
 为此我们必须规定一个阈值，超过这个阈值之后那么就不属于慢速启动的范围了，而属于如何控制住拥塞的范围了应该使用另外一种策略来控制拥塞窗口。
 从另外一个角度来说，可以认为这个阈值反应了当前传输网络所处的一个环境。这个阈值我们这里称为ssthresh(slow start threshold,慢启动阈值).
 然后我们在来仔细回顾一下3个参数的含义：
-   - receiver-window-size.接收端窗口大小，这个属于接收方进行的流量控制。
-   - cwnd.拥塞窗口，这个属于发送端进行的流量控制。
-   - ssthresh.慢启动阈值，这个用来界定当前发送情况是慢启动还是拥塞避免。
+- receiver-window-size.接收端窗口大小，这个属于接收方进行的流量控制。
+- cwnd.拥塞窗口，这个属于发送端进行的流量控制。
+- ssthresh.慢启动阈值，这个用来界定当前发送情况是慢启动还是拥塞避免。
 那么工作逻辑是这样的：
 #+BEGIN_SRC Python
 max_segment_size=536
@@ -1570,8 +1570,8 @@ def handle_ack(connection): # 正常ACK
 
 **** 快速重传算法
 如果接收端返回的是重复序号ACK的话，通常有两种情况：
-   - 分组乱序到达
-   - 分组部分缺失
+- 分组乱序到达
+- 分组部分缺失
 本质上都是因为分组没有按照顺序到达，但是第一种情况是之后终究会到达，而第二种情况就是永远不会到达。对于第二种情况的话，如果我们没有特殊处理的话，
 我们只能够等待重传定时器超时然后再发起重传。我们可以针对这种情况快速地进行重传，不过我们需要找准如何区分情况1,2的界限，快速重传算法规定的就是这个界限。
 如果相同的ACK到来>=3次的话，那么就认为是情况2,那么这个时候就可以立即发起重传，而不用等待重传定时器超时，这个就是快速重传算法。
@@ -1580,9 +1580,9 @@ def handle_ack(connection): # 正常ACK
 快速重传算法一旦发现需要重传的话，那么立刻会调用快速恢复算法。使用的是拥塞算法部分的主体而不是慢启动算法部分的主体，原因也非常简单，
 就是因为触发快速重传算法，是因为接收端返回了重复的ACK并且将之前发送端发送的数据丢弃了，所以网络应该处于一个非拥塞并且流畅的状态。
 那么这个时候我们可以适当扩大拥塞窗口的大小，快速地发送缺失的部分来进行重传。这里我们需要对于拥塞算法部分进行一些修改。
-   - 当第一次收到3ACK的时候，ssthresh减半，然后cwnd=ssthresh/max_segment_size+3，重传丢失报文。
-   - 如果见到的还是重复ACK的话，那么cwnd+=1.
-   - 如果是接收到数据ACK的话，那么cwnd=ssthresh/max_segment_size.这个时候回复正常。
+- 当第一次收到3ACK的时候，ssthresh减半，然后cwnd=ssthresh/max_segment_size+3，重传丢失报文。
+- 如果见到的还是重复ACK的话，那么cwnd+=1.
+- 如果是接收到数据ACK的话，那么cwnd=ssthresh/max_segment_size.这个时候回复正常。
 参数我们没有必要深究，之所以这个时候可以cwnd+=1不断地提高拥塞窗口大小，是因为这个如果接收到还是重复ACK的话，那么对端是会将刚才发送的数据丢弃的，
 网络上面是有流动数据而没有发生拥塞，这个原因和为什么3ACK之后就可以使用拥塞避免而不是慢启动原因是一样的。思想就是一旦我们需要快速重传的话，我们应该
 尽可能地提高拥塞窗口大小，一旦正常运行的话那么将拥塞窗口回复原来的水平，使用原有逻辑。
@@ -1633,10 +1633,10 @@ RTO=R+4D
 保活定时器通常都是服务器端使用的。假设有很多客户端连接上了服务端，但是这些客户端直接网络断开了，而服务器认为这些客户端一直还存在，
 在服务器还维持非常多的连接占用资源。为了解决这个问题，TCP为每个连接底层维护了一个保活定时器，通常是在没有接受任何分段的2个小时后发送一个保活分段。
 这个保活分段就是一个带有特殊数据的ACK分节/或者是要求相应的ACK分节，结果会有下面这几种：
-   - 客户端正常响应，响应正常的ACK分节。
-   - 客户端主机崩溃，现在关闭或者是正在重启，但是在路由表内可见。那么每个75s内会重发一次，发送10次之后连接超时。
-   - 客户端主机崩溃，但是已经启动完毕。那么直接返回RST分节。
-   - 客户端主机正常允许，但是从路由表中删除了。底层TCP会接收到ICMP的主机不可达错误。
+- 客户端正常响应，响应正常的ACK分节。
+- 客户端主机崩溃，现在关闭或者是正在重启，但是在路由表内可见。那么每个75s内会重发一次，发送10次之后连接超时。
+- 客户端主机崩溃，但是已经启动完毕。那么直接返回RST分节。
+- 客户端主机正常允许，但是从路由表中删除了。底层TCP会接收到ICMP的主机不可达错误。
 所有这些错误通知服务端的方式应该都是置连接为可读/可写，然后发起read/write的时候服务端就会检测到这个错误。
 
 *** 读写数据
@@ -1664,11 +1664,11 @@ UDP不保证UDP数据报会到达最终目的地，并且不保证到达顺序�
 而这些都是TCP所有的特点。每个UDP数据报都有一个长度，如果数据报正确到达目的地的话那么数据报长度也会一起传递给应用程序，
 而TCP因为是面向流的，所以需要自己在应用程序上进行切分，除此之外UDP因为是面向无连接的，所以可以相对来说比较灵活并且省去了建立链接的开销。
 UDP可以是全双工的，只要在UDP层面上提供链接这样的概念。总结起来，UDP特点有下面这些：
-   - 无连接
-   - 面向记录
-   - 不保证可靠和有序
-   - 无流量控制
-   - 全双工
+- 无连接
+- 面向记录
+- 不保证可靠和有序
+- 无流量控制
+- 全双工
 
 *** 读写数据
 **** 读数据

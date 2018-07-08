@@ -3,19 +3,19 @@
 http://code.google.com/p/muduo/
 
 在分析muduo之前必须了解一下作者的想法：http://www.cnblogs.com/Solstice/archive/2010/08/29/muduo_net_lib.html
-   - 线程安全，支持多核多线程
-   - 不考虑可移植性，不跨平台，只支持 Linux，不支持 Windows。 // 支持Windows有时候代价太大了
-   - 在不增加复杂度的前提下可以支持 FreeBSD/Darwin，方便将来用 Mac 作为开发用机，但不为它做性能优化。也就是说 IO multiplexing 使用 poll 和 epoll。
-   - 主要支持 x86-64，兼顾 IA32
-   - 不支持 UDP，只支持 TCP
-   - 不支持 IPv6，只支持 IPv4
-   - 不考虑广域网应用，只考虑局域网 // 不会存在慢连接，所以即使是阻塞读也不会花去太长时间用在阻塞上面
-   - 只支持一种使用模式：non-blocking IO + one event loop per thread，不考虑阻塞 IO
-   - API 简单易用，只暴露具体类和标准库里的类，不使用 non-trivial templates，也不使用虚函数 // GP而非OO
-   - 只满足常用需求的 90%，不面面俱到，必要的时候以 app 来适应 lib
-   - 只做 library，不做成 framework
-   - 争取全部代码在 5000 行以内（不含测试）
-   - 以上条件都满足时，可以考虑搭配 Google Protocol Buffers RPC // RPC可以简化很多东西
+- 线程安全，支持多核多线程
+- 不考虑可移植性，不跨平台，只支持 Linux，不支持 Windows。 // 支持Windows有时候代价太大了
+- 在不增加复杂度的前提下可以支持 FreeBSD/Darwin，方便将来用 Mac 作为开发用机，但不为它做性能优化。也就是说 IO multiplexing 使用 poll 和 epoll。
+- 主要支持 x86-64，兼顾 IA32
+- 不支持 UDP，只支持 TCP
+- 不支持 IPv6，只支持 IPv4
+- 不考虑广域网应用，只考虑局域网 // 不会存在慢连接，所以即使是阻塞读也不会花去太长时间用在阻塞上面
+- 只支持一种使用模式：non-blocking IO + one event loop per thread，不考虑阻塞 IO
+- API 简单易用，只暴露具体类和标准库里的类，不使用 non-trivial templates，也不使用虚函数 // GP而非OO
+- 只满足常用需求的 90%，不面面俱到，必要的时候以 app 来适应 lib
+- 只做 library，不做成 framework
+- 争取全部代码在 5000 行以内（不含测试）
+- 以上条件都满足时，可以考虑搭配 Google Protocol Buffers RPC // RPC可以简化很多东西
 muduo使用了很多新的Linux内核特性，包括使用signalfd和timerfd来触发信号以及定时器，所以代码上相对于于hpserver好看很多了。但是里面使用了boost::bind以及boost一些东西，
 因为个人对于这个部分不是很清楚，所以很多地方并不是非常理解。muduo和hpserver一样也引入了很多概念，了解这些概念也非常有帮助。muduo做了线程管理，但是仅仅做了event loop
 的线程管理，没有做工作线程的管理。所以工作线程还是需要自己管理。异步队列在base目录下面也实现了。所以基本上可以认为muduo里面包含了很多网络编程框架需要的组件。
@@ -25,11 +25,11 @@ muduo将hpserver下面的event item和event handler以及handle都在一起，�
 base下面都是一些关于多线程编程方面需要使用的组件
 http://www.cnblogs.com/Solstice/archive/2010/08/21/muduo_thread_lib.html
 包括下面这些文件：
-   - Atomic.h // 原子操作，里面的CAS没有使用汇编而是使用__sync_val_compare_and_swap这个GCC内置函数
-   - BlockingQueue.h // 异步队列，底层使用std::deque来实现，没有大小限制
-   - BoundedBlockingQueue.h // 异步队列，但是使用循环数组来实现，有大小限制
-   - Condition.h // pthread_cond封装
-   - CountDownLatch.h // 可以用作类似于起跑线机制，值得学习一下
+- Atomic.h // 原子操作，里面的CAS没有使用汇编而是使用__sync_val_compare_and_swap这个GCC内置函数
+- BlockingQueue.h // 异步队列，底层使用std::deque来实现，没有大小限制
+- BoundedBlockingQueue.h // 异步队列，但是使用循环数组来实现，有大小限制
+- Condition.h // pthread_cond封装
+- CountDownLatch.h // 可以用作类似于起跑线机制，值得学习一下
 #+BEGIN_SRC C++
 void CountDownLatch::wait() // latchdown之后然后调用wait.等待最后一个线程notifyAll,
 // 然后多个线程同时解除锁定就可以同时开始执行了
@@ -49,10 +49,10 @@ void CountDownLatch::countDown() // 每个线程在开始都latchdown,最后一�
     }
 }
 #+END_SRC
-   - Logging.h // 日志
-   - Mutex.h // 互斥锁
-   - ProcessInfo.h // 进程信息
-   - Singleton.h // 单例模式，实现上比较有特色
+- Logging.h // 日志
+- Mutex.h // 互斥锁
+- ProcessInfo.h // 进程信息
+- Singleton.h // 单例模式，实现上比较有特色
 #+BEGIN_SRC C++
   static T& instance()
   {
@@ -60,10 +60,10 @@ void CountDownLatch::countDown() // 每个线程在开始都latchdown,最后一�
     return *value_;
   }
 #+END_SRC
-   - Thread.h // 线程封装,内部有一个static变量记录当前创建了多少个线程
-   - ThreadLocal.h // 线程局部变量封装，不用在使用pthread_get/setspecific
-   - ThreadLocalSignleton.h // 线程局部单例，不用考虑多个线程同时创建
-   - ThreadPool.h // 线程池包装，内部维护了一个异步队列，多个线程的工作就是取出task来执行
+- Thread.h // 线程封装,内部有一个static变量记录当前创建了多少个线程
+- ThreadLocal.h // 线程局部变量封装，不用在使用pthread_get/setspecific
+- ThreadLocalSignleton.h // 线程局部单例，不用考虑多个线程同时创建
+- ThreadPool.h // 线程池包装，内部维护了一个异步队列，多个线程的工作就是取出task来执行
 #+BEGIN_SRC C++
 // 外部丢入Task放到线程池内部
 void ThreadPool::run(const Task& task)

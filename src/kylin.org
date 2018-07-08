@@ -173,12 +173,12 @@ int main() {
 
 *** futex
 关于futex的话可以看看下面这些链接
-   - http://en.wikipedia.org/wiki/Futex
-   - http://linux.die.net/man/2/futex
-   - http://blog.csdn.net/Javadino/article/details/2891385
-   - http://blog.csdn.net/Javadino/article/details/2891388
-   - http://blog.csdn.net/Javadino/article/details/2891399
-   - http://people.redhat.com/drepper/futex.pdf
+- http://en.wikipedia.org/wiki/Futex
+- http://linux.die.net/man/2/futex
+- http://blog.csdn.net/Javadino/article/details/2891385
+- http://blog.csdn.net/Javadino/article/details/2891388
+- http://blog.csdn.net/Javadino/article/details/2891399
+- http://people.redhat.com/drepper/futex.pdf
 尤其是最后一篇文章可以好好看看，讲到了关于如何使用futex.futex使用需要用户态和内核态的配合，用户态处理一些uncontented case,
 而对于contented case的话交给内核态处理。在实际应用上发现大部分情况都是uncontented case都可以在用户态解决而不用陷入内核态。
 如果想要深入了解的话，看看pthread里面同步组件的实现。
@@ -403,17 +403,17 @@ public:
 };
 #+END_SRC
 对于用户来说使用过程大致是这样的：
-   - 创建一个CAsyncClient client实例.当然是我们自己需要继承CAsyncClient重写自己的类。
-   - 创建一个AsyncContext ctx(或者是集成AsyncContext).然后将ctx和client绑定。
-   - 发起调用op，传入这个ctx，为了方便理解包装成为Task(op,ctx)放入线程池。可能会设置nAction字段。
-   - 线程池取出Task,结合ctx调用op.将op返回值放入APF_ERROR里面。
-   - 然后根据ctx关联的client,调用client的OnCompletion方法。
-   - 调用OnCompletion方法的话会根据ctx里面的标记，可以直接在工作线程调用，也可以丢入CPU线程调用。
+- 创建一个CAsyncClient client实例.当然是我们自己需要继承CAsyncClient重写自己的类。
+- 创建一个AsyncContext ctx(或者是集成AsyncContext).然后将ctx和client绑定。
+- 发起调用op，传入这个ctx，为了方便理解包装成为Task(op,ctx)放入线程池。可能会设置nAction字段。
+- 线程池取出Task,结合ctx调用op.将op返回值放入APF_ERROR里面。
+- 然后根据ctx关联的client,调用client的OnCompletion方法。
+- 调用OnCompletion方法的话会根据ctx里面的标记，可以直接在工作线程调用，也可以丢入CPU线程调用。
 可以看到在实现时候，最好一个client就绑定几个相关的ctx最方便了。这里有一个地方需要特别关注就是引用计数。因为C++本身没有GC实现，所以我们必须自己来管理内存分配和释放。
 因为client可以一次多个调用，而在OnCompletion里面根本不知道谁先完成谁后完成，也就不能够确定释放责任了。通过引用计数可以很好地解决这个问题。
 如果我们直接继承CAsyncClient的话，内部是有引用计数实现的，非常方便我们只需要如何适当地使用就OK了。关于如何适当使用，谢谢sunxiao同学在这里的建议。
-   - 一旦发起一次异步调用，那么首先AddRef().当然需要确保这个调用内部没有帮助我们AddRef.
-   - 我们不需要显示地DecRef(),因为这个事情在线程池fProc里面调用了Release.
+- 一旦发起一次异步调用，那么首先AddRef().当然需要确保这个调用内部没有帮助我们AddRef.
+- 我们不需要显示地DecRef(),因为这个事情在线程池fProc里面调用了Release.
 
 *** ThreadPool
 **** Overview
@@ -444,9 +444,9 @@ class CThreadPool
 };
 #+END_SRC
 对于线程池部分的话我们比较关心这么几件事情：
-   - 如何增加删除线程的
-   - 线程是如何进行工作的
-   - 如何往线程里面增加取消任务
+- 如何增加删除线程的
+- 线程是如何进行工作的
+- 如何往线程里面增加取消任务
 
 **** How Thread Works
 了解线程是怎么工作的，可以看看线程执行的函数是怎么定义的
@@ -2136,15 +2136,15 @@ void CNetworkMan::Write(NetContext* pCtx, NetRequest* pReq)
 #+END_SRC
 
 **** SocketState
-   - SS_VOID = 0, // 初始状态
-   - SS_LISTENING_0,  // 发起listen操作
-   - SS_LISTENING, // 执行listen之后
-   - SS_CONNECTING_0, // 发起connect操作
-   - SS_CONNECTING, // 执行connect之后,下一步是SS_CONNECTED,但是下次发起write操作
-   - SS_CONNECTED_0, // 启动monitor操作,下一步是SS_CONNECTED,但是下次发起read操作
-   - SS_CONNECTED, // 连接建立成功
-   - SS_ERROR, // socket错误
-   - SS_SHUTDOWN, // 对端已经关闭
+- SS_VOID = 0, // 初始状态
+- SS_LISTENING_0,  // 发起listen操作
+- SS_LISTENING, // 执行listen之后
+- SS_CONNECTING_0, // 发起connect操作
+- SS_CONNECTING, // 执行connect之后,下一步是SS_CONNECTED,但是下次发起write操作
+- SS_CONNECTED_0, // 启动monitor操作,下一步是SS_CONNECTED,但是下次发起read操作
+- SS_CONNECTED, // 连接建立成功
+- SS_ERROR, // socket错误
+- SS_SHUTDOWN, // 对端已经关闭
 
 *** EPoller
 **** Overview
@@ -3059,11 +3059,11 @@ void CSocketV::OnCompletion(AsyncContext* pContext)
 
 **** Summary
 个人觉得kylin的网络异步部分就是spaghetti,所有的nAction以及nErrCode都是相互缠绕.我们可以假设我们的场景类似于RPC然后考虑一下应该如何处理。
-   - OnConnected(APF_ERROR nErrCode).如果nErrCode!=APFE_OK的话那么Close,否则认为连接成功.错误交给OnBorken处理
-   - OnListened(SOCKET s, SOCKADDR_IN* pSockAddrIn).建立连接即可。
-   - OnWritten(APF_ERROR nErrCode, NetRequest* pReq).如果nErrCode!=APFE_OK的话，那么Close连接。
-   - OnRead(APF_ERROR nErrCode, NetRequest* pReq).如果nErrCode=APFE_NOTIFY的话那么发起Read,如果=APFE_OK的话那么处理，其他情况下面Close连接。
-   - OnBroken(APF_ERROR nErrCode).直接Close即可，但是可以根据nErrCode来判断原因.可能是客户端正常关闭.通常最后需要Release一下，释放这个连接。
+- OnConnected(APF_ERROR nErrCode).如果nErrCode!=APFE_OK的话那么Close,否则认为连接成功.错误交给OnBorken处理
+- OnListened(SOCKET s, SOCKADDR_IN* pSockAddrIn).建立连接即可。
+- OnWritten(APF_ERROR nErrCode, NetRequest* pReq).如果nErrCode!=APFE_OK的话，那么Close连接。
+- OnRead(APF_ERROR nErrCode, NetRequest* pReq).如果nErrCode=APFE_NOTIFY的话那么发起Read,如果=APFE_OK的话那么处理，其他情况下面Close连接。
+- OnBroken(APF_ERROR nErrCode).直接Close即可，但是可以根据nErrCode来判断原因.可能是客户端正常关闭.通常最后需要Release一下，释放这个连接。
 关于具体使用的话可以仔细参考demo/echo.
 
 ** demo

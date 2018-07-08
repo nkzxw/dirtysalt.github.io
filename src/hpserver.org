@@ -3,13 +3,13 @@ http://code.google.com/p/hpserver/
 
 虽然主页上介绍"HPServer is a free, open-source light-weighted framework for concurrent networking software. "，但是实际上hpserver完成事情是相当有限的。
 类似于libevent,没有管理线程，内部也没有异步队列的实现。所以基本上可以认为就是一个libevent的简单实现。hpserver的特点有下面这些：
-   - object-oriented;
-   - high-performance;
-   - cross-platform, support windows & linux;
-   - event-driven;
-   - support I/O events, timer, and signals;  // 支持IO事件，定时器和信号
-   - support acceptor-connector pattern internally, which will faciliates your programming;
-   - support multithread; // 这里所谓的支持多线程猜想意思应该就是允许我们开辟多个reactor对象在多个线程里面使用
+- object-oriented;
+- high-performance;
+- cross-platform, support windows & linux;
+- event-driven;
+- support I/O events, timer, and signals;  // 支持IO事件，定时器和信号
+- support acceptor-connector pattern internally, which will faciliates your programming;
+- support multithread; // 这里所谓的支持多线程猜想意思应该就是允许我们开辟多个reactor对象在多个线程里面使用
 hpserver的类设计个人感觉有点麻烦，而且在信号处理方面类设计并不优雅。hpserver引入很多概念，了解这些概念倒是非常有帮助。hpserver设计的时候将
 event handler,event item,handle(fd或者是信号编号)分开了，但是阅读代码就会发现这些东西都是1:1:1进行绑定的。对于IO来说还可以接受，但是对于信号处理就非常悲剧了，
 因为对于每一种信号必须产生一个EventHandler实例。不过还好我们关注的信号还是比较有限的，所以开辟的EventHandler还不算太多。这个从samples/signal-handler.cpp就可以看出来。

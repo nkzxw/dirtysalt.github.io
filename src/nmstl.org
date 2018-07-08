@@ -14,22 +14,22 @@ NMSTL和Asio一样都是template-heavy code,大部分都是头文件。NMSTL设�
 #+END_EXAMPLE
 
 下面是NMSTL主要文件列表，这里给出简要的说明
-   - atomic.原子操作。
-   - callback.回调函数封装(boost::bind).
-   - debug.调试和日志工具。
-   - internal.主要是提供对象的to_string等方法，要求对象本身提供as_string这样的方法。
-   - io.提供各种buffer,并且提供IOHandle封装各种读写操作。IOHandle里面有fd并且有对fd引用计数。
-   - ioevent.select实现的reactor.每个fd绑定到IOHandler上面，一旦触发可读可写使用调用对应IOHandler的ravil和wavil事件。
-   - net.网络地址和socket相关操作。
-   - netioevent.封装网络异步IO操作。实现上和muduo非常相似，对MsgHandler稍加修改可以支持HTTP协议，而MsgHandler本身比较适合RPC.
-   - ntime.时间封装。
-   - ptr.多线程安全指针(boost::shared_ptr).内部有引用计数。
-   - rpc.RPC实现，没有仔细阅读。
-   - seda.提出SEDAStage这个概念允许将多个操作串联起来，然后可以配合线程池和异步队列动态修改工作线程。
-   - serial.序列化和反序列化部分，没有仔细阅读。
-   - terminal.封装终端异步IO操作，使用了readline库，没有仔细阅读。
-   - thread.线程方面封装，锁，条件变量，线程和线程池。
-   - tqueue.异步队列。
+- atomic.原子操作。
+- callback.回调函数封装(boost::bind).
+- debug.调试和日志工具。
+- internal.主要是提供对象的to_string等方法，要求对象本身提供as_string这样的方法。
+- io.提供各种buffer,并且提供IOHandle封装各种读写操作。IOHandle里面有fd并且有对fd引用计数。
+- ioevent.select实现的reactor.每个fd绑定到IOHandler上面，一旦触发可读可写使用调用对应IOHandler的ravil和wavil事件。
+- net.网络地址和socket相关操作。
+- netioevent.封装网络异步IO操作。实现上和muduo非常相似，对MsgHandler稍加修改可以支持HTTP协议，而MsgHandler本身比较适合RPC.
+- ntime.时间封装。
+- ptr.多线程安全指针(boost::shared_ptr).内部有引用计数。
+- rpc.RPC实现，没有仔细阅读。
+- seda.提出SEDAStage这个概念允许将多个操作串联起来，然后可以配合线程池和异步队列动态修改工作线程。
+- serial.序列化和反序列化部分，没有仔细阅读。
+- terminal.封装终端异步IO操作，使用了readline库，没有仔细阅读。
+- thread.线程方面封装，锁，条件变量，线程和线程池。
+- tqueue.异步队列。
 
 ** SEDA
 http://www.eecs.harvard.edu/~mdw/proj/seda/.
@@ -104,9 +104,9 @@ class SEDAStage : public SEDAStage<In, void> {
 
 ** 动态线程池
 首先SEDAStage对于动态线程池有三个指标
-   - min_threads.
-   - max_threads.
-   - reached_capacity(rc).
+- min_threads.
+- max_threads.
+- reached_capacity(rc).
 我们主要关注第三个参数。rc初始化为0.然后我们开始进行输出In对象
 
 *** 增加线程
