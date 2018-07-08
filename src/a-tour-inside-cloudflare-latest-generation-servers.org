@@ -3,13 +3,13 @@
 http://blog.cloudflare.com/a-tour-inside-cloudflares-latest-generation-servers
 
 ** Introduction
-   - CloudFlare operates at a significant scale, handling more than a trillion requests through our network every month. To ensure this is as efficient as possible, we own and operate all the equipment in our 23 locations around the world in order to process the volume of traffic that flows through our network.（cloudflare主要是做CDN）
-   - We spend a significant amount of time specing and, in some cases, designing the hardware that makes up our network. At the edge of CloudFlare's network we run three main components: routers, switches, and servers.（自己做路由器，交换机和服务器）
-   - On regular intervals, we will take everything we've learned about a last generation of hardware and refresh each component with a next generation.（不断迭代改善自己的服务器组件）
-   - For servers, we are on our fourth generation (G4) of servers. 
-     - Our first generation (G1) servers were stock Dell PowerEdge servers. We deployed these in early 2010 while we were building the beta of CloudFlare.
-     -  We learned quickly from that experience and then worked with a company called ZT Systems to build our G2 servers, which we deployed just before our public launch in September 2010. 
-     - In 2011, we worked with HP to build our G3 servers. We deployed that generation through mid 2012, forming the core of our current network of 23 data centers worldwide. In the Fall of 2012 we started working with vendors to take everything we'd learned about running a network to date and roll out newest generation of servers.
+- CloudFlare operates at a significant scale, handling more than a trillion requests through our network every month. To ensure this is as efficient as possible, we own and operate all the equipment in our 23 locations around the world in order to process the volume of traffic that flows through our network.（cloudflare主要是做CDN）
+- We spend a significant amount of time specing and, in some cases, designing the hardware that makes up our network. At the edge of CloudFlare's network we run three main components: routers, switches, and servers.（自己做路由器，交换机和服务器）
+- On regular intervals, we will take everything we've learned about a last generation of hardware and refresh each component with a next generation.（不断迭代改善自己的服务器组件）
+- For servers, we are on our fourth generation (G4) of servers.
+  - Our first generation (G1) servers were stock Dell PowerEdge servers. We deployed these in early 2010 while we were building the beta of CloudFlare.
+  -  We learned quickly from that experience and then worked with a company called ZT Systems to build our G2 servers, which we deployed just before our public launch in September 2010.
+  - In 2011, we worked with HP to build our G3 servers. We deployed that generation through mid 2012, forming the core of our current network of 23 data centers worldwide. In the Fall of 2012 we started working with vendors to take everything we'd learned about running a network to date and roll out newest generation of servers.
 
 ** Generation 3
 Before looking at G4 it's important to understand what we learned about our previous generation of servers.

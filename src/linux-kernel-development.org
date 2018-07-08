@@ -1,4 +1,4 @@
-#+title: Linux Kernel Development
+#+title: Linux内核设计与实现(Linux Kernel Development)
 
 ** C1 Linux内核简介
 每个处理器在任何指定时间点上活动必然是其中一种:

@@ -327,3 +327,79 @@ void v(sema_t* sema)
   unlock(&sema->lock);
 }
 #+END_SRC
+** syslog on cpu
+*** Core power limit notifaction
+#+BEGIN_EXAMPLE
+May 12 12:29:12 dp57 kernel: CPU1: Core power limit notification (total events = 42322)
+May 12 12:29:12 dp57 kernel: CPU17: Core power limit notification (total events = 42321)
+May 12 12:29:12 dp57 kernel: CPU5: Core power limit notification (total events = 42328)
+May 12 12:29:12 dp57 kernel: CPU21: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU19: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU3: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU7: Core power limit notification (total events = 42323)
+May 12 12:29:12 dp57 kernel: CPU23: Core power limit notification (total events = 42322)
+May 12 12:29:12 dp57 kernel: CPU25: Core power limit notification (total events = 42226)
+May 12 12:29:12 dp57 kernel: CPU9: Core power limit notification (total events = 42222)
+May 12 12:29:12 dp57 kernel: CPU11: Core power limit notification (total events = 42222)
+May 12 12:29:12 dp57 kernel: CPU27: Core power limit notification (total events = 42219)
+May 12 12:29:12 dp57 kernel: CPU13: Core power limit notification (total events = 42321)
+May 12 12:29:12 dp57 kernel: CPU29: Core power limit notification (total events = 42307)
+May 12 12:29:12 dp57 kernel: CPU15: Core power limit notification (total events = 42556)
+May 12 12:29:12 dp57 kernel: CPU31: Core power limit notification (total events = 42550)
+#+END_EXAMPLE
+
+*** Package power limit notification
+#+BEGIN_EXAMPLE
+May 12 12:29:12 dp57 kernel: CPU17: Package power limit notification (total events = 42377)
+May 12 12:29:12 dp57 kernel: CPU5: Package power limit notification (total events = 42612)
+May 12 12:29:12 dp57 kernel: CPU21: Package power limit notification (total events = 42615)
+May 12 12:29:12 dp57 kernel: CPU19: Package power limit notification (total events = 42553)
+May 12 12:29:12 dp57 kernel: CPU3: Package power limit notification (total events = 42543)
+May 12 12:29:12 dp57 kernel: CPU7: Package power limit notification (total events = 42661)
+May 12 12:29:12 dp57 kernel: CPU23: Package power limit notification (total events = 42667)
+May 12 12:29:12 dp57 kernel: CPU25: Package power limit notification (total events = 42707)
+May 12 12:29:12 dp57 kernel: CPU9: Package power limit notification (total events = 42706)
+May 12 12:29:12 dp57 kernel: CPU11: Package power limit notification (total events = 42705)
+May 12 12:29:12 dp57 kernel: CPU27: Package power limit notification (total events = 42731)
+May 12 12:29:12 dp57 kernel: CPU13: Package power limit notification (total events = 42619)
+May 12 12:29:12 dp57 kernel: CPU29: Package power limit notification (total events = 42627)
+May 12 12:29:12 dp57 kernel: CPU15: Package power limit notification (total events = 42623)
+May 12 12:29:12 dp57 kernel: CPU31: Package power limit notification (total events = 42644)
+May 12 12:29:12 dp57 kernel: CPU1: Package power limit notification (total events = 42360
+#+END_EXAMPLE
+
+*** below trip temperature. Throttling disabled
+#+BEGIN_EXAMPLE
+May 12 12:29:40 dp57 mcelog: Processor 17 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 5 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 21 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 19 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 3 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 7 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 23 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 25 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 9 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 11 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 27 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 13 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 29 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 15 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 17 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 31 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 5 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 21 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 19 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 3 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 7 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 23 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 25 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 9 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 11 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 27 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 13 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 29 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 15 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 31 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
+#+END_EXAMPLE
