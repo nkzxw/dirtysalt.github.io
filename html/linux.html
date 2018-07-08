@@ -19,27 +19,24 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. vmlinuz</a></li>
-<li><a href="#orgheadline6">2. TCP IO</a>
+<li><a href="#orgheadline2">2. linux io/storage stack</a></li>
+<li><a href="#orgheadline3">3. program exit code</a></li>
+<li><a href="#orgheadline4">4. dp8网卡问题</a></li>
+<li><a href="#orgheadline5">5. 修改资源限制</a></li>
+<li><a href="#orgheadline6">6. CPU温度过高</a></li>
+<li><a href="#orgheadline7">7. sync hangup</a></li>
+<li><a href="#orgheadline8">8. upgrade glibc</a></li>
+<li><a href="#orgheadline9">9. 允许不在tty上执行sudo</a></li>
+<li><a href="#orgheadline10">10. ssh proxy</a></li>
+<li><a href="#orgheadline11">11. 修改最大打开文件句柄数</a></li>
+<li><a href="#orgheadline12">12. apt-get hang</a></li>
+<li><a href="#orgheadline16">13. syslog on cpu</a>
 <ul>
-<li><a href="#orgheadline2">2.1. create connection</a></li>
-<li><a href="#orgheadline3">2.2. packet reception</a></li>
-<li><a href="#orgheadline4">2.3. packet transmission</a></li>
-<li><a href="#orgheadline5">2.4. congestion control</a></li>
+<li><a href="#orgheadline13">13.1. Core power limit notifaction</a></li>
+<li><a href="#orgheadline14">13.2. Package power limit notification</a></li>
+<li><a href="#orgheadline15">13.3. below trip temperature. Throttling disabled</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">3. kernel panic</a></li>
-<li><a href="#orgheadline8">4. Disk IO</a></li>
-<li><a href="#orgheadline9">5. 程序返回值问题</a></li>
-<li><a href="#orgheadline10">6. dp8网卡问题</a></li>
-<li><a href="#orgheadline11">7. 修改资源限制</a></li>
-<li><a href="#orgheadline12">8. CPU温度过高</a></li>
-<li><a href="#orgheadline13">9. sync hangup</a></li>
-<li><a href="#orgheadline14">10. 更换glibc</a></li>
-<li><a href="#orgheadline15">11. 允许不在tty上执行sudo</a></li>
-<li><a href="#orgheadline16">12. ssh proxy</a></li>
-<li><a href="#orgheadline17">13. 修改最大打开文件句柄数</a></li>
-<li><a href="#orgheadline18">14. apt-get hang</a></li>
-<li><a href="#orgheadline19">15. 使用自选锁来实现信号量</a></li>
 </ul>
 </div>
 </div>
@@ -60,195 +57,18 @@ zImage(vmlinuz)和bzImage(vmlinuz)都是用gzip压缩的。它们不仅是一个
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">2</span> TCP IO</h2>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> linux io/storage stack</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf">http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf</a>
-</p>
-</div>
-
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> create connection</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-下面摘自 "<a href="http://blog.sina.com.cn/s/blog_e59371cc0102vg4n.html">Linux TCP队列相关参数的总结</a>":
-</p>
-
-
-<div class="figure">
-<p><img src="./images/tcp-create-connection.png" alt="tcp-create-connection.png" />
-</p>
-</div>
-
-<p>
-简单看下连接的建立过程，客户端向server发送SYN包，server回复SYN＋ACK，同时将这个处于SYN_RECV状态的连接保存到半连接队列。客户端返回ACK包完成三次握手，server将ESTABLISHED状态的连接移入accept队列，等待应用调用accept()。可以看到建立连接涉及两个队列：
-</p>
-<ul class="org-ul">
-<li>半连接队列，保存SYN_RECV状态的连接。队列长度由net.ipv4.tcp_max_syn_backlog设置。</li>
-<li>accept队列，保存ESTABLISHED状态的连接。队列长度为min(net.core.somaxconn, backlog). # listen(sockfd, backlog)</li>
-</ul>
-
-<p>
-另外，为了应对SYN flooding（即客户端只发送SYN包发起握手而不回应ACK完成连接建立，填满server端的半连接队列，让它无法处理正常的握手请求），Linux实现了一种称为SYN cookie的机制，通过net.ipv4.tcp_syncookies控制，设置为1表示开启。简单说SYN cookie就是将连接信息编码在ISN(initial sequence number)中返回给客户端，这时server不需要将半连接保存在队列中，而是利用客户端随后发来的ACK带回的ISN还原连接信息，以完成连接的建立，避免了半连接队列被攻击SYN包填满。对于一去不复返的客户端握手，不理它就是了。
+<img src="./images/Linux-io-stack-diagram.png" alt="Linux-io-stack-diagram.png" /> <img src="./images/Linux-storage-stack-diagram.png" alt="Linux-storage-stack-diagram.png" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> packet reception</h3>
-<div class="outline-text-3" id="text-2-2">
-
-<div class="figure">
-<p><img src="./images/tcp-packet-reception.png" alt="tcp-packet-reception.png" />
-</p>
-</div>
-
-<p>
-整个流程大致如下：
-</p>
-<ul class="org-ul">
-<li>linux里面使用sk_buff数据结构来描述packet.</li>
-<li>NIC检测到packet到达，从Kernel Memory(sk_buffs)分配sk_buff数据结构，调用DMA Engine将packet放到sk_buff数据结构里面 #note: NIC检测有packet到达和有packet发送，都不是触发而是主动poll的方式来完成的</li>
-<li>将sk_buff并且加入rx_ring这个ring_buffer里面。如果rx_ring满了的话那么将packet丢弃。</li>
-<li>当DMA Engine完成处理之后， <b>NIC通过向CPU发起中断</b> 通知kernel进行处理。</li>
-<li>kernel将这个packet传递给IP层进行处理。IP层需要将信息组装成为ip packet。如果ip packet是tcp的话那么放到socket backlog里面。如果socket backlog满了的话那么将ip packet丢弃。 <b>copy packet data to ip buffer to form ip packet</b> #note: 这个步骤完成之后IP layer就可以释放sk_buffer结构</li>
-<li>tcp layer从socket backlog里面取出tcp packet， <b>copy ip packet tcp recv buffer to form tcp packet</b></li>
-<li>tcp recv buffer交给application layer处理， <b>copy tcp recv buffer to app buffer to form app packet</b></li>
-<li>其中内核参数有
-<ul class="org-ul">
-<li>/proc/sys/net/ipv4/tcp_rmem # tcp recv buffer大小</li>
-<li>/proc/sys/net/core/netdev_max_backlog # 图中socket backlog大小，和accept系统调用的backlog区分开。</li>
-</ul></li>
-</ul>
-
-<p>
-下面这些是从文章摘取出来的
-</p>
-<ul class="org-ul">
-<li><a href="http://blog.sina.com.cn/s/blog_e59371cc0102vg4n.html">Linux TCP队列相关参数的总结</a></li>
-<li><a href="https://www.suse.com/documentation/sles11/book_sle_tuning/data/sec_tuning_network_buffers.html">https://www.suse.com/documentation/sles11/book_sle_tuning/data/sec_tuning_network_buffers.html</a></li>
-</ul>
-
-<blockquote>
-<p>
-Linux在2.6.17以后增加了recv Buffer自动调节机制，recv buffer的实际大小会自动在最小值和最大值之间浮动，以期找到性能和资源的平衡点，因此大多数情况下不建议将recv buffer手工设置成固定值。
-</p>
-
-<p>
-当net.ipv4.tcp_moderate_rcvbuf设置为1时，自动调节机制生效，每个TCP连接的recv Buffer由下面的3元数组指定：net.ipv4.tcp_rmem = (min, default, max). 最初recv buffer被设置为&lt;default&gt;，同时这个缺省值会覆盖net.core.rmem_default的设置。随后recv buffer根据实际情况在最大值和最小值之间动态调节。在缓冲的动态调优机制开启的情况下，我们将net.ipv4.tcp_rmem的最大值设置为BDP(Bandwidth-Delay Product)。
-</p>
-
-<p>
-当net.ipv4.tcp_moderate_rcvbuf被设置为0，或者设置了socket选项SO_RCVBUF，缓冲的动态调节机制被关闭。recv buffer的缺省值由net.core.rmem_default设置，但如果设置了net.ipv4.tcp_rmem，缺省值则被覆盖。可以通过系统调用setsockopt()设置recv buffer的最大值为net.core.rmem_max。在缓冲动态调节机制关闭的情况下，建议把缓冲的缺省值设置为BDP。
-</p>
-
-<p>
-发送端缓冲的自动调节机制很早就已经实现，并且是无条件开启，没有参数去设置。如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调节。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF的最大值由net.core.wmem_max限制。
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> packet transmission</h3>
-<div class="outline-text-3" id="text-2-3">
-
-<div class="figure">
-<p><img src="./images/tcp-packet-transmission.png" alt="tcp-packet-transmission.png" />
-</p>
-</div>
-
-<p>
-整个流程大致如下：
-</p>
-<ul class="org-ul">
-<li>application layer将数据copy到tcp send buffer里面，如果空间不够的话那么就会出现阻塞。 <b>copy app buffer to tcp send buffer as app packet</b></li>
-<li>tcp layer等待tcp send buffer存在数据或者是需要做ack的时候，组装ip packet推送到IP layer <b>copy tcp send buffer to ip send buffer as tcp packet</b></li>
-<li>IP layer从kernel memory申请sk_buffer，将ip data包装成为packet data，然后塞到qdisc(txqueuelen控制队列长度）里面（指针）。如果队列满的话那么就会出现阻塞，反馈到tcp layer阻塞。 <b>copy ip send buffer to packet data as ip packet</b></li>
-<li>NIC driver如果检测到qdisc有数据的话，调用NIC DMA Engine将packet发送出去。发送完成之后NIC向CPU发起中断释放packet data内存到Kernel Memory</li>
-<li>其中内核参数有：
-<ul class="org-ul">
-<li>/proc/sys/net/ipv4/tcp_wmem 这个和rmem非常类似</li>
-<li>#note: 与上面类比，相关参数还有net.core.wmem_default和net.core.wmem_max.</li>
-</ul></li>
-</ul>
-
-<p>
-#note: 在wangyx的帮助下, qdisc队列长度参数txqueuelen这个配置在ifconfig下面找到了. txqueuelen = 1000.
-</p>
-<pre class="example">
-➜  ~  ifconfig
-eth0      Link encap:Ethernet  HWaddr 12:31:40:00:49:d1
-          inet addr:10.170.78.31  Bcast:10.170.79.255  Mask:255.255.254.0
-          inet6 addr: fe80::1031:40ff:fe00:49d1/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:13028359 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:9504902 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:2464083770 (2.4 GB)  TX bytes:20165782073 (20.1 GB)
-          Interrupt:25
-</pre>
-
-<p>
-下面摘自: <a href="http://blog.sina.com.cn/s/blog_e59371cc0102vg4n.html">Linux TCP队列相关参数的总结</a>
-</p>
-<blockquote>
-<p>
-QDisc（queueing discipline ）位于IP层和网卡的ring buffer之间。我们已经知道，ring buffer是一个简单的FIFO队列，这种设计使网卡的驱动层保持简单和快速。而QDisc实现了流量管理的高级功能，包括流量分类，优先级和流量整形（rate-shaping）。可以使用tc命令配置QDisc。
-</p>
-
-<p>
-QDisc的队列长度由txqueuelen设置，和接收数据包的队列长度由内核参数net.core.netdev_max_backlog控制所不同，txqueuelen是和网卡关联
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> congestion control</h3>
-<div class="outline-text-3" id="text-2-4">
-
-<div class="figure">
-<p><img src="./images/tcp-congestion-control.png" alt="tcp-congestion-control.png" />
-</p>
-</div>
-
-<ul class="org-ul">
-<li>初始状态是slow start</li>
-<li>cwnd(congestion window) 拥塞窗口，表示一次最多发送的数据包多少。</li>
-<li>ssthresh(slow start threshold) 慢速启动阈值。</li>
-<li>MSS(maximum segment size) 最大分节大小，和传输网络的MTU相关。</li>
-<li><a href="http://www.zhihu.com/question/21813579">为什么多 TCP 连接分块下载比单连接下载快？</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">3</span> kernel panic</h2>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> program exit code</h2>
 <div class="outline-text-2" id="text-3">
-
-<div class="figure">
-<p><img src="./images/kernel-panic-not-syncing-attempted-to-kill-init.png" alt="kernel-panic-not-syncing-attempted-to-kill-init.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">4</span> Disk IO</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./images/Linux-io-stack-diagram.png">Linux IO Stack Diagram</a></li>
-<li><a href="./images/Linux-storage-stack-diagram.png">Linux Storage Stack Diagram</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">5</span> 程序返回值问题</h2>
-<div class="outline-text-2" id="text-5">
 <p>
 首先看下面一段Java程序
 </p>
@@ -305,9 +125,9 @@ exit(code)
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">6</span> dp8网卡问题</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> dp8网卡问题</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 当时dp8的网络流量从一个非常大的值变为非常小的值，检查/proc/net/netstat，以下几个统计数值dp8和其他机器差距较大（相差1-2个数量级）：
 </p>
@@ -363,9 +183,9 @@ dp@dp8:~$ dmesg | grep eth0
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">7</span> 修改资源限制</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> 修改资源限制</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 临时的修改方式可以通过ulimit来进行修改，也可以通过修改文件/etc/security/limits.conf来永久修改
 </p>
@@ -377,9 +197,9 @@ hadoop - nproc 40960
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">8</span> CPU温度过高</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> CPU温度过高</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 这个问题是我在Ubuntu PC上面遇到的，明显的感觉就是运行速度变慢。然后在syslog里面出现如下日志：
 </p>
@@ -393,9 +213,9 @@ May  2 18:24:21 umeng-ubuntu-pc kernel: [ 1188.717622] CPU3: Package temperature
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">9</span> sync hangup</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> sync hangup</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>kill -KILL fails to kill process : <a href="http://lists.freebsd.org/pipermail/freebsd-questions/2008-September/182821.html">http://lists.freebsd.org/pipermail/freebsd-questions/2008-September/182821.html</a></li>
 <li>Linux-Kernel Archive: Bug: sync's hangup forever in call_rwsem_down_read_failed : <a href="http://lkml.indiana.edu/hypermail/linux/kernel/1011.2/04099.html">http://lkml.indiana.edu/hypermail/linux/kernel/1011.2/04099.html</a></li>
@@ -403,12 +223,12 @@ May  2 18:24:21 umeng-ubuntu-pc kernel: [ 1188.717622] CPU3: Package temperature
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">10</span> 更换glibc</h2>
-<div class="outline-text-2" id="text-10">
-<ul class="org-ul">
-<li>linux - How to recover after deleting the symbolic link libc.so.6? - Stack Overflow : <a href="http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6">http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6</a></li>
-</ul>
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> upgrade glibc</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+linux - How to recover after deleting the symbolic link libc.so.6? - Stack Overflow : <a href="http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6">http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6</a>
+</p>
 
 <p>
 @2013-05-23 <a href="https://docs.google.com/a/umeng.com/document/d/12dzJ3OhVlrEax3yIdz0k08F8tM8DDQva1wdrD3K49PI/edit">https://docs.google.com/a/umeng.com/document/d/12dzJ3OhVlrEax3yIdz0k08F8tM8DDQva1wdrD3K49PI/edit</a> 怀疑glibc版本存在问题，在dp45上操作但是出现问题。
@@ -460,9 +280,9 @@ A copy of the C library was found in an unexpected directory | Blog : <a href="h
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">11</span> 允许不在tty上执行sudo</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">9</span> 允许不在tty上执行sudo</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 修改/etc/sudoers文件，注释掉
 </p>
@@ -472,9 +292,9 @@ Defaults requiretty
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">12</span> ssh proxy</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> ssh proxy</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 <a href="http://serverfault.com/questions/37629/how-do-i-do-multihop-scp-transfers">http://serverfault.com/questions/37629/how-do-i-do-multihop-scp-transfers</a>
 </p>
@@ -512,9 +332,9 @@ UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">13</span> 修改最大打开文件句柄数</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">11</span> 修改最大打开文件句柄数</h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><a href="http://blog.csdn.net/superchanon/article/details/13303705">http://blog.csdn.net/superchanon/article/details/13303705</a></li>
 <li><a href="http://unix.stackexchange.com/questions/127777/how-to-configure-the-process-open-file-limit-of-a-user">http://unix.stackexchange.com/questions/127777/how-to-configure-the-process-open-file-limit-of-a-user</a></li>
@@ -540,9 +360,9 @@ UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">14</span> apt-get hang</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">12</span> apt-get hang</h2>
+<div class="outline-text-2" id="text-12">
 <p>
 在使用ubuntu的apt-get时候，可能会出现一些异常的状况，我们直接终止了apt-get。但是这个时候apt-get软件本身出于一个不正常的状态，导致之后不能够启动apt-get。如果观察进程的话会出现下面一些可疑的进程
 </p>
@@ -563,50 +383,93 @@ dp       30586  0.0  0.0   7628  1020 pts/2    S+   08:59   0:00 grep --color=au
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">15</span> 使用自选锁来实现信号量</h2>
-<div class="outline-text-2" id="text-15">
-<div class="org-src-container">
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">13</span> syslog on cpu</h2>
+<div class="outline-text-2" id="text-13">
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">13.1</span> Core power limit notifaction</h3>
+<div class="outline-text-3" id="text-13-1">
+<pre class="example">
+May 12 12:29:12 dp57 kernel: CPU1: Core power limit notification (total events = 42322)
+May 12 12:29:12 dp57 kernel: CPU17: Core power limit notification (total events = 42321)
+May 12 12:29:12 dp57 kernel: CPU5: Core power limit notification (total events = 42328)
+May 12 12:29:12 dp57 kernel: CPU21: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU19: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU3: Core power limit notification (total events = 42327)
+May 12 12:29:12 dp57 kernel: CPU7: Core power limit notification (total events = 42323)
+May 12 12:29:12 dp57 kernel: CPU23: Core power limit notification (total events = 42322)
+May 12 12:29:12 dp57 kernel: CPU25: Core power limit notification (total events = 42226)
+May 12 12:29:12 dp57 kernel: CPU9: Core power limit notification (total events = 42222)
+May 12 12:29:12 dp57 kernel: CPU11: Core power limit notification (total events = 42222)
+May 12 12:29:12 dp57 kernel: CPU27: Core power limit notification (total events = 42219)
+May 12 12:29:12 dp57 kernel: CPU13: Core power limit notification (total events = 42321)
+May 12 12:29:12 dp57 kernel: CPU29: Core power limit notification (total events = 42307)
+May 12 12:29:12 dp57 kernel: CPU15: Core power limit notification (total events = 42556)
+May 12 12:29:12 dp57 kernel: CPU31: Core power limit notification (total events = 42550)
+</pre>
+</div>
+</div>
 
-<pre class="src src-C++"><span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">sema</span>
-{
-  <span class="org-type">lock_t</span> <span class="org-variable-name">lock</span>;
-  <span class="org-type">int</span> <span class="org-variable-name">count</span>;
-  <span class="org-type">queue</span> <span class="org-variable-name">q</span>;
-} <span class="org-type">sema_t</span>;
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">13.2</span> Package power limit notification</h3>
+<div class="outline-text-3" id="text-13-2">
+<pre class="example">
+May 12 12:29:12 dp57 kernel: CPU17: Package power limit notification (total events = 42377)
+May 12 12:29:12 dp57 kernel: CPU5: Package power limit notification (total events = 42612)
+May 12 12:29:12 dp57 kernel: CPU21: Package power limit notification (total events = 42615)
+May 12 12:29:12 dp57 kernel: CPU19: Package power limit notification (total events = 42553)
+May 12 12:29:12 dp57 kernel: CPU3: Package power limit notification (total events = 42543)
+May 12 12:29:12 dp57 kernel: CPU7: Package power limit notification (total events = 42661)
+May 12 12:29:12 dp57 kernel: CPU23: Package power limit notification (total events = 42667)
+May 12 12:29:12 dp57 kernel: CPU25: Package power limit notification (total events = 42707)
+May 12 12:29:12 dp57 kernel: CPU9: Package power limit notification (total events = 42706)
+May 12 12:29:12 dp57 kernel: CPU11: Package power limit notification (total events = 42705)
+May 12 12:29:12 dp57 kernel: CPU27: Package power limit notification (total events = 42731)
+May 12 12:29:12 dp57 kernel: CPU13: Package power limit notification (total events = 42619)
+May 12 12:29:12 dp57 kernel: CPU29: Package power limit notification (total events = 42627)
+May 12 12:29:12 dp57 kernel: CPU15: Package power limit notification (total events = 42623)
+May 12 12:29:12 dp57 kernel: CPU31: Package power limit notification (total events = 42644)
+May 12 12:29:12 dp57 kernel: CPU1: Package power limit notification (total events = 42360
+</pre>
+</div>
+</div>
 
-<span class="org-type">void</span> <span class="org-function-name">init_sema</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>, <span class="org-type">int</span> <span class="org-variable-name">init_cnt</span>)
-{
-  init_lock(&amp;sema-&gt;lock);
-  init_queue(&amp;sema-&gt;q);
-  sema-&gt;count=init_cnt;
-}
-
-<span class="org-type">void</span> <span class="org-function-name">p</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>)
-{
-  lock(&amp;sema-&gt;lock);
-  sema-&gt;count--;
-  <span class="org-keyword">if</span> (sema-&gt;count &lt; 0) {
-    q.push(current_process_context());
-    unlock(&amp;sema-&gt;lock);
-    swtch(); <span class="org-comment-delimiter">// </span><span class="org-comment">switch to another process.</span>
-    <span class="org-keyword">return</span>;
-  }
-  unlock(&amp;sema-&gt;lock);
-}
-
-<span class="org-type">void</span> <span class="org-function-name">v</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>)
-{
-  lock(&amp;sema-&gt;lock);
-  sema-&gt;count++;
-  <span class="org-keyword">if</span> (sema-&gt;count &lt;= 0) {
-    <span class="org-type">pcs_ctx</span>* <span class="org-variable-name">ctx</span> = q.pop();
-    unlock(&amp;sema-&gt;lock);
-    enqueue(&amp;running_queue, ctx);
-    <span class="org-keyword">return</span> ;
-  }
-  unlock(&amp;sema-&gt;lock);
-}
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">13.3</span> below trip temperature. Throttling disabled</h3>
+<div class="outline-text-3" id="text-13-3">
+<pre class="example">
+May 12 12:29:40 dp57 mcelog: Processor 17 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 5 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 21 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 19 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 3 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 7 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 23 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 25 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 9 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 11 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 27 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 13 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 29 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 15 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 17 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 31 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 5 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 21 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 19 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 3 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 7 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 23 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 25 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 9 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 11 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 27 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 13 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 29 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 15 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 31 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
+May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
 </pre>
 </div>
 </div>

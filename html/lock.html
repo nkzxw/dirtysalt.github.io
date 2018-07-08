@@ -21,6 +21,7 @@
 <li><a href="#orgheadline1">1. implementation</a></li>
 <li><a href="#orgheadline2">2. lock-free</a></li>
 <li><a href="#orgheadline3">3. futex</a></li>
+<li><a href="#orgheadline4">4. 使用自选锁来实现信号量</a></li>
 </ul>
 </div>
 </div>
@@ -72,6 +73,54 @@ update@201509: 通过xchg/cmpxchg这种原子指令可以很容易实现一个sp
 <p>
 futex(fast userspace mutex)快速用户态互斥锁，需要用户态和内核态配合来完成。首先用户态判断是否存在contented case（比如判断当前资源是否足够），如果没有的话就没有必要陷入内核态，用户态就可以搞定。如果出现conteted case，那么这个需要等待资源可用，那么调用futex(FUTEX_WAIT)陷入内核态挂起，并且等待唤醒。如果一旦有资源可用的话，首先会判断用户态是否有等待资源的请求，如果没有的话同样没有必要陷入内核态，用户态就可以搞定。如果出现有等待资源并且挂起的请求的话，那么调用futex(FUTEX_WAKE)就可以将请求唤醒。上面那个链接可以有代码参考, 此外还可以阅读glibc/ntpl下面的pthread_mutex的部分。不过大部分时候我们没有必要接触这个东西，pthread_mutex已经做得足够高效并且屏蔽了操作系统的细节了。
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> 使用自选锁来实现信号量</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">sema</span>
+{
+  <span class="org-type">lock_t</span> <span class="org-variable-name">lock</span>;
+  <span class="org-type">int</span> <span class="org-variable-name">count</span>;
+  <span class="org-type">queue</span> <span class="org-variable-name">q</span>;
+} <span class="org-type">sema_t</span>;
+
+<span class="org-type">void</span> <span class="org-function-name">init_sema</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>, <span class="org-type">int</span> <span class="org-variable-name">init_cnt</span>)
+{
+  init_lock(&amp;sema-&gt;lock);
+  init_queue(&amp;sema-&gt;q);
+  sema-&gt;count=init_cnt;
+}
+
+<span class="org-type">void</span> <span class="org-function-name">p</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>)
+{
+  lock(&amp;sema-&gt;lock);
+  sema-&gt;count--;
+  <span class="org-keyword">if</span> (sema-&gt;count &lt; 0) {
+    q.push(current_process_context());
+    unlock(&amp;sema-&gt;lock);
+    swtch(); <span class="org-comment-delimiter">// </span><span class="org-comment">switch to another process.</span>
+    <span class="org-keyword">return</span>;
+  }
+  unlock(&amp;sema-&gt;lock);
+}
+
+<span class="org-type">void</span> <span class="org-function-name">v</span>(<span class="org-type">sema_t</span>* <span class="org-variable-name">sema</span>)
+{
+  lock(&amp;sema-&gt;lock);
+  sema-&gt;count++;
+  <span class="org-keyword">if</span> (sema-&gt;count &lt;= 0) {
+    <span class="org-type">pcs_ctx</span>* <span class="org-variable-name">ctx</span> = q.pop();
+    unlock(&amp;sema-&gt;lock);
+    enqueue(&amp;running_queue, ctx);
+    <span class="org-keyword">return</span> ;
+  }
+  unlock(&amp;sema-&gt;lock);
+}
+</pre>
+</div>
 </div>
 </div>
 </div>

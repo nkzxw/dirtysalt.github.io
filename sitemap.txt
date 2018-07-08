@@ -5,6 +5,7 @@ https://dirtysalt.github.io/html/gcc-asm.html
 https://dirtysalt.github.io/html/ceph.html
 https://dirtysalt.github.io/html/how-to-receive-a-million-packets-per-second.html
 https://dirtysalt.github.io/html/guide-to-advanced-programming-in-c.html
+https://dirtysalt.github.io/html/tcp-on-linux.html
 https://dirtysalt.github.io/html/beating-the-cap-theorem-checklist.html
 https://dirtysalt.github.io/html/linux-system-and-performance-monitoring.html
 https://dirtysalt.github.io/html/concurrency-hazards.html
@@ -113,7 +114,6 @@ https://dirtysalt.github.io/html/index-aa.html
 https://dirtysalt.github.io/html/an-interview-with-edw.html
 https://dirtysalt.github.io/html/books.html
 https://dirtysalt.github.io/html/hadoop-definitive-guide.html
-https://dirtysalt.github.io/html/cpu.html
 https://dirtysalt.github.io/html/earlybird-realtime-search-at-twitter.html
 https://dirtysalt.github.io/html/nmstl.html
 https://dirtysalt.github.io/html/on-working-remotely.html
