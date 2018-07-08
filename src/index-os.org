@@ -55,7 +55,7 @@
   - [[file:./images/gevent-tutorial/index.html][gevent For the Working Python Developer]]
 
 
-- [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:blogs/struggle-with-ubuntu.org][之前使用Ubuntu有多段痛苦经历]]。
+- [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:blogs/struggle-with-ubuntu.org][之前使用Ubuntu有段痛苦的经历]]。
 - [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.
 - [[file:docker.org][docker]] 基于lxc(linux container)的分发应用工具和平台.
 - [[file:vagrant.org][vagrant]] 用来构件虚拟开发环境的工具，底层可以使用多种虚拟化技术(现在支持相对比较好的是VirtualBox)
