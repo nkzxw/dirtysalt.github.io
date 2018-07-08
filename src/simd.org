@@ -1,8 +1,6 @@
 #+title: SIMD
 
-从Pentium II和Pentium MMX处理器系列开始,芯片开始支持SIMD操作.
-SIMD全称是Single Instruction Multiple Data,即单指令多数据,
-可以在一个周期内操作多个数据.
+Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software - https://software.intel.com/en-us/articles/intel-sdm
 
 ** 指令集
 *** MMX
@@ -32,121 +30,107 @@ SIMD全称是Single Instruction Multiple Data,即单指令多数据,
 
 *** 检测代码
 #+BEGIN_SRC C++
-/***************************************************************************
- *
- * Copyright (c) Baidu.com, Inc. All Rights Reserved
- *
- **************************************************************************/
-
-
-/**
- * @file   detect.c
- * @author zhangyan04(@baidu.com)
- * @brief
- *
- */
-
 #include <stdio.h>
 int check_support_mmx(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x800000,%%edx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x800000,%%edx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_sse(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x02000000,%%edx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x02000000,%%edx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_sse2(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x04000000,%%edx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x04000000,%%edx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_sse3(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x1,%%ecx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x1,%%ecx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_ssse3(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x0200,%%ecx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x0200,%%ecx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_sse4_1(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x80000,%%ecx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x80000,%%ecx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int check_support_sse4_2(){
- int res=0;
- __asm__ __volatile__(
-     "movl $1,%%eax\n\t"
-     "cpuid\n\t"
-     "test $0x0100000,%%ecx\n\t"
-     "jz 1f\n\t"
-     "movl $1,%0\n\t"
-     "1:\n\t"
-     :"=m"(res)
-     ::"eax","edx");
- return res;
+    int res=0;
+    __asm__ __volatile__(
+        "movl $1,%%eax\n\t"
+        "cpuid\n\t"
+        "test $0x0100000,%%ecx\n\t"
+        "jz 1f\n\t"
+        "movl $1,%0\n\t"
+        "1:\n\t"
+        :"=m"(res)
+        ::"eax","edx");
+    return res;
 }
 int main(){
- printf("MMX[%s]\n",check_support_mmx()?"OK":"FAILED");
- printf("SSE[%s]\n",check_support_sse()?"OK":"FAILED");
- printf("SSE2[%s]\n",check_support_sse2()?"OK":"FAILED");
- printf("SSE3[%s]\n",check_support_sse3()?"OK":"FAILED");
- printf("SSSE3[%s]\n",check_support_ssse3()?"OK":"FAILED");
- printf("SSE4.1[%s]\n",check_support_sse4_1()?"OK":"FAILED");
- printf("SSE4.2[%s]\n",check_support_sse4_2()?"OK":"FAILED");
- return 0;
+    printf("MMX[%s]\n",check_support_mmx()?"OK":"FAILED");
+    printf("SSE[%s]\n",check_support_sse()?"OK":"FAILED");
+    printf("SSE2[%s]\n",check_support_sse2()?"OK":"FAILED");
+    printf("SSE3[%s]\n",check_support_sse3()?"OK":"FAILED");
+    printf("SSSE3[%s]\n",check_support_ssse3()?"OK":"FAILED");
+    printf("SSE4.1[%s]\n",check_support_sse4_1()?"OK":"FAILED");
+    printf("SSE4.2[%s]\n",check_support_sse4_2()?"OK":"FAILED");
+    return 0;
 }
 
 #+END_SRC
@@ -156,20 +140,20 @@ int main(){
 %mm寄存器是64bit,共有8个%mm寄存器.需要注意的是,%mm0-%mm7是X87 FPU寄存器的alias,
 分别对应%r0-%r7.所以对%mm0-%mm7的操作会覆盖X87 FPU的内容.使用%mm寄存器的时候,
 效果是这样的.
-1. TOS(Top Of Stack)会被置为0,也就是FPU registers的顶部会置0.
-2. 整个FPU tag word会被置为valid(0x0).如果后续想使用的话,需要使用EMMS指令.
-3. FPU register有80位,但是%mm寄存器只是用了64位,因此其余位填充(0xff).
+   1. TOS(Top Of Stack)会被置为0,也就是FPU registers的顶部会置0.
+   2. 整个FPU tag word会被置为valid(0x0).如果后续想使用的话,需要使用EMMS指令.
+   3. FPU register有80位,但是%mm寄存器只是用了64位,因此其余位填充(0xff).
 
 因此如果在使用%mm寄存器之后,想使用FPU指令的话,那么应该
-1. fsave/fxsave保存FPU状态.
-2. 执行EMMS指令.
-3. 可选地使用frstore/fxstore载入之前FPU状态.
-3. 执行FPU指令.
+   1. fsave/fxsave保存FPU状态.
+   2. 执行EMMS指令.
+   3. 可选地使用frstore/fxstore载入之前FPU状态.
+   3. 执行FPU指令.
 
 如果使用FPU指令之后,想切换回%mm寄存器的话.
-1. fsave/fxsave保存FPU状态.
-2. 可选地使用frstore/fxrstore载入之前FPU状态.
-3. 操作%mm寄存器.
+   1. fsave/fxsave保存FPU状态.
+   2. 可选地使用frstore/fxrstore载入之前FPU状态.
+   3. 操作%mm寄存器.
 
 EMMS指令会清除MMX的状态,将FPU tag word进行清空,表示所有的FPU registers都已经清空.
 我们必须在执行完成MMX指令之后,如果之后需要使用FPU registers的话,那么需要执行这个指令.
@@ -339,442 +323,3 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 这里有几点需要注意的
 - 对于Move如果使用了错误类型指令的话,会产生性能消耗.Vol.1 11.6.9
 - 对于使用SIMD来说,推荐使用caller-save.Vol.1 11.6.10.3
-
-*** Data Transfer Instructions
-**** Move Mask Instructions
-对于每一个data element的MSB移到GRP.这些指令通常用于分支判定.
-| 指令     | 说明 |
-|----------+------|
-| PMOVMSKB |      |
-| MOVMSKPS |      |
-| MOVMSKPD |      |
-
-**** Move Integer Instructions
-| 指令   | 说明             |
-|--------+------------------|
-| MOVD   |                  |
-| MOVQ   |                  |
-| MOVDQA |                  |
-| MOVDQU |                  |
-| LDDQU  | 功能和MOVDQU相同 |
-
-关于LDDQU和MOVDQU的差别,可以参看Intel关于LDDQU指令描述,主要还是在某些场景
-下面的性能差别,功能上没有任何区别.
-
-**** Move Float Instructions
-| 指令    | 说明                   |
-|---------+------------------------|
-| MOVAPS  |                        |
-| MOVUPS  |                        |
-| MOVSS   |                        |
-| MOVLPS  | 2PS<->LF2(%xmm)        |
-| MOVHPS  | 2PS<->HF2(%xmm)        |
-| MOVLHPS | LF2(%xmm1)->HF2(%xmm2) |
-| MOVHLPS | HF2(%xmm1)->LF2(%xmm1) |
-
-**** Move Double Instructions
-| 指令   | 说明          |
-|--------+---------------|
-| MOVAPD |               |
-| MOVUPD |               |
-| MOVSD  |               |
-| MOVLPD | PD<->LD(%xmm) |
-| MOVHPD | PD<->HD(%xmm) |
-
-**** Move Duplication Instructions
-| 指令     | 说明                         |
-|----------+------------------------------|
-| MOVDDUP  | (d0,d1)->(d0,d0)             |
-| MOVSHDUP | (f0,f1,f2,f3)->(f1,f1,f3,f3) |
-| MOVSLDUP | (f0,f1,f2,f3)->(f0,f0,f2,f2) |
-
-**** Move NonTemporal Instructions
-| 指令       | 说明   |
-|------------+--------|
-| MOVNTI     |        |
-| MOVNTQ     |        |
-| MOVNTDQ    |        |
-| MOVNTDQA   |        |
-| MOVNTPS    |        |
-| MOVNTPD    |        |
-| MASKMOVQ   | @@TODO |
-| MASKMOVDQU | @@TODO |
-
-*** Arithmetic Instructions
-**** ADD Instructions
-***** 对称处理
-| 指令    | 说明 |
-|---------+------|
-| PADDB   | WAM  |
-| PADDW   | WAM  |
-| PADDD   | WAM  |
-| PADDQ   | WAM  |
-| PADDSB  | SSM  |
-| PADDSW  | SSM  |
-| PADDUSB | USM  |
-| PADDUSW | USM  |
-| ADDPS   |      |
-| ADDSS   |      |
-| ADDPD   |      |
-| ADDSD   |      |
-
-***** 水平处理
-| 指令    | 说明 |
-|---------+------|
-| PHADDW  |      |
-| PHADDSW | SSM  |
-| PHADDD  |      |
-| HADDPS  |      |
-| HADDPD  |      |
-
-**** SUB Instructions
-***** 对称处理
-| 指令    | 说明 |
-|---------+------|
-| PSUBB   | WAM  |
-| PSUBW   | WAM  |
-| PSUBD   | WAM  |
-| PSUBQ   | WAM  |
-| PSUBSB  | SSM  |
-| PSUBSW  | SSM  |
-| PSUBSD  | SSM  |
-| PSUBUSB | USM  |
-| PSUBUSW | USM  |
-| SUBPS   |      |
-| SUBSS   |      |
-| SUBPD   |      |
-| SUBSD   |      |
-
-***** 水平处理
-| 指令    | 说明 |
-|---------+------|
-| PHSUBW  |      |
-| PHSUBSW | SSM  |
-| PHSUBD  |      |
-| HSUBPS  |      |
-| HSUBPD  |      |
-
-**** MUL Instructions
-| 指令    | 说明                                                              |
-|---------+-------------------------------------------------------------------|
-| PMULLW  | (w00,w01,..),(w10,w11,..)->(LW(w00*w10),LW(w01*w11),..)           |
-| PMULHW  | (w00,w01,..),(w10,w11,..)->(HW(w00*w10),HW(w01*w11),..)           |
-| PMULHUW | 同上,Unsigned方式.                                                |
-| PMULLD  | (dw00,dw01,..),(dw10,dw11,..)->(LDW(dw00*dw10),LDW(dw01*dw11),..) |
-| PMULDQ  | (dw00,dw01,..),(dw10,dw11,..)->(dw00*dw10,dw01*dw11,..)           |
-| PMULUDQ | 同上,Unsigned方式.                                                |
-| MULPS   |                                                                   |
-| MULSS   |                                                                   |
-| MULPD   |                                                                   |
-| MULSD   |                                                                   |
-
-**** DIV Instructions
-| 指令  | 说明 |
-|-------+------|
-| DIVPS |      |
-| DIVSS |      |
-| DIVPD |      |
-| DIVSD |      |
-
-**** M?X Instructions
-***** MAX
-| 指令   | 说明 |
-|--------+------|
-| PMAXSB |      |
-| PMAXSW |      |
-| PMAXSD |      |
-| PMAXUB |      |
-| PMAXUW |      |
-| PMAXUD |      |
-| MAXPS  |      |
-| MAXSS  |      |
-| MAXPD  |      |
-| MAXSD  |      |
-
-***** MIN
-| 指令       | 说明 |
-|------------+------|
-| PMINSB     |      |
-| PMINSW     |      |
-| PMINSD     |      |
-| PMINUB     |      |
-| PMINUW     |      |
-| PMINUD     |      |
-| MINPS      |      |
-| MINSS      |      |
-| MINPD      |      |
-| MINSD      |      |
-| PHMINPOSUW |      |
-
-PHMINPOSUW可以按照Unsigned Word来水平搜索最小值的位置.
-
-**** Math Instructions
-| 指令      | 说明                                            |
-|-----------+-------------------------------------------------|
-| PABSB     |                                                 |
-| PABSW     |                                                 |
-| PABSD     |                                                 |
-| PAVGB     |                                                 |
-| PAVGW     |                                                 |
-| PSIGNB    |                                                 |
-| PSIGNW    |                                                 |
-| PSIGND    |                                                 |
-| PMADDUBSW | UB->W.SSM                                       |
-| PMADDWD   | W->DW                                           |
-| PALIGNR   |                                                 |
-| PMULHRSW  | @@TODO                                          |
-| PSADBW    |                                                 |
-| MPSADBW   | @@TODO                                          |
-| DPPS      |                                                 |
-| DPPD      |                                                 |
-| ADDSUBPS  | (f00,f01,..),(f10,f11,..)->(f00-f10,f01+f11,..) |
-| ADDSUBPD  | (d00,d01,..),(d10,d11,..)->(d00-d10,d01+d11,..) |
-| RCPPS     |                                                 |
-| RCPSS     |                                                 |
-| RSQRTPS   |                                                 |
-| RSQRTSS   |                                                 |
-| SQRTPS    |                                                 |
-| SQRTSS    |                                                 |
-| SQRTSD    |                                                 |
-
-*** Comparison Instructions
-需要注意的是,如果没有特殊说明,比较结果是直接存放在结果数里面的,
-不会影响EFLAGS这个寄存器内容.如果比较结果影响了EFLAGS寄存器的话,
-那么会使用%EFLAGS来标记.
-
-如果每个比较结果是符合预期的话,
-那么目的数对应位数会置0xff,否则会置0x0.
-
-对于CMP的指令,会使用立即数来决定具体使用什么比较方式.关于立即数对应
-什么比较方式,可以查看具体指令里面的说明,比如CMPPS,CMPSS,CMPPD,CMPSD.
-
-| 指令    | 说明    |
-|---------+---------|
-| PCMPEQB |         |
-| PCMPEQW |         |
-| PCMPEQD |         |
-| PCMPEQQ |         |
-| PCMPGTB |         |
-| PCMPGTW |         |
-| PCMPGTD |         |
-| PCMPGTQ |         |
-| CMPPS   |         |
-| CMPSS   |         |
-| CMPPD   |         |
-| CMPSD   |         |
-| COMISS  | %EFLAGS |
-| UCOMISS | %EFLAGS |
-| COMISD  | %EFLAGS |
-| UCOMISD | %EFLAGS |
-| PTEST   |         |
-
-*** Conversion Instructions
-对于涉及到浮点数的精度取舍问题,使用%mxccsr寄存器来判断.
-
-如果精度取舍是采用截断方式来进行处理的话,那么指令前缀通常是CVTT.
-
-| 指令      | 说明 |
-|-----------+------|
-| PACKSSWB  | SSM  |
-| PACKSSDW  | SSM  |
-| PACKUSDW  | USM  |
-
-| 指令      | 说明 |
-|-----------+------|
-| CVTPS2PD  |      |
-| CVTPD2PS  |      |
-| CVTSS2SD  |      |
-| CVTSD2SS  |      |
-| CVTPI2PS  |      |
-| CVTPS2PI  |      |
-| CVTTPS2PI |      |
-| CVTSI2SS  |      |
-| CVTSS2SI  |      |
-| CVTTSS2SI |      |
-| CVTPI2PD  |      |
-| CVTPD2PI  |      |
-| CVTTPD2PI |      |
-| CVTSI2SD  |      |
-| CVTSD2SI  |      |
-| CVTTSD2SI |      |
-| CVTDQ2PS  |      |
-| CVTPS2DQ  |      |
-| CVTTPS2DQ |      |
-| CVTDQ2PD  |      |
-| CVTPD2DQ  |      |
-| CVTTPD2DQ |      |
-
-
-| 指令     | 说明 |
-|----------+------|
-| MOVQ2DQ  |      |
-| MOVDQ2Q  |      |
-| PMOVSXBW |      |
-| PMOVZXBW |      |
-| PMOVSXBD |      |
-| PMOVZXBD |      |
-| PMOVSXWD |      |
-| PMOVZXWD |      |
-| PMOVSXBQ |      |
-| PMOVZXBQ |      |
-| PMOVSXWQ |      |
-| PMOVZXWQ |      |
-| PMOVSXDQ |      |
-| PMOVZXDQ |      |
-
-| 指令    | 说明 |
-|---------+------|
-| ROUNDPS |      |
-| ROUNDPD |      |
-| ROUNDSS |      |
-| ROUNDSD |      |
-
-*** Insert & Unpack Instructions
-| 指令       | 说明  |
-|------------+-------|
-| PUNPCKHBW  |       |
-| PUNPCKHWD  |       |
-| PUNPCKHDQ  |       |
-| PUNPCKHQDQ |       |
-| PUNPCKLBW  |       |
-| PUNPCKLWD  |       |
-| PUNPCKLDQ  |       |
-| PUNPCKLQDQ |       |
-| UNPCKHPS   |       |
-| UNPCKLPS   |       |
-| UNPCKHPD   |       |
-| UNPCKLPD   |       |
-
-| 指令      | 说明  |
-|-----------+-------|
-| PEXTRB    |       |
-| PEXTRW    |       |
-| PEXTRD    |       |
-| PEXTRQ    |       |
-| PINSRB    |       |
-| PINSRW    |       |
-| PINSRD    |       |
-| PINSRQ    |       |
-| EXTRACTPS | ->GPR |
-| INSERTPS  |       |
-
-*** Logical Instructions
-| 指令   | 说明 |
-|--------+------|
-| PAND   |      |
-| PANDN  |      |
-| POR    |      |
-| PXOR   |      |
-| ANDPS  |      |
-| ANDNPS |      |
-| ORPS   |      |
-| XORPS  |      |
-| ANDPD  |      |
-| ANDNPD |      |
-| ORPD   |      |
-| XORPD  |      |
-
-*** Shift Instructions
-| 指令   | 说明 |
-|--------+------|
-| PSLLW  |      |
-| PSLLD  |      |
-| PSLLQ  |      |
-| PSLLDQ |      |
-| PSRLW  |      |
-| PSRLD  |      |
-| PSRLQ  |      |
-| PSRLDQ |      |
-| PSRAW  |      |
-| PSRAD  |      |
-
-*** Shuffle Instructions
-SHUF操作根据imm来决定,dst每个位置的element应该是由
-src的哪个位置的element来进行填充的.
-
-| 指令    | 说明 |
-|---------+------|
-| PSHUFB  |      |
-| PSHUFW  |      |
-| PSHUFLW |      |
-| PSHUFHW |      |
-| PSHUFD  |      |
-| SHUFPS  |      |
-| SHUFPD  |      |
-
-*** Blending Instructions
-BLEND操作是根据imm来决定,dst每个位置的element应该是从src里面对应位置取出,
-还是应该从dst里面对应位置取出.
-
-BLENDV操作和BLEND操作过程一样的,不同的是由%xmm0来决定的而不是由imm来决定.
-
-| 指令     | 说明 |
-|----------+------|
-| BLENDPS  |      |
-| BLENDPD  |      |
-| BLENDVPS |      |
-| BLENDVPD |      |
-| PBLENDVB |      |
-| PBLENDW  |      |
-
-*** String Instructions
-- 内存操作数不要求字节对齐.
-- CMPE/I的E表示explicit显式指定长度,I表示implicit隐式指定长度.
-- STRI/STRM的I表示结果是Index,M表示结果是Mask.
-
-| 指令      | 说明 |
-|-----------+------|
-| PCMPESTRI |      |
-| PCMPESTRM |      |
-| PCMPISTRI |      |
-| PCMPISTRM |      |
-
-*** MISC Instructions
-**** Cache Control Instructions
-- CLFLUSH
-CLFLUSH是cache line flush,能够将某个内存地址的cache line全部失效.
-
-**** Prefetch Instructions
-对于预取指令的话不会影响程序行为,通常来说会预取32个对齐的字节,但是具体
-还是依赖于实现.对于NT数据的话,依然会尽可能地减少Cache的污染.
-
-- PREFETCH0
-预取到所有Cache层次.
-- PREFETCH1
-预取到1级缓存.
-- PREFETCH2
-预取到2级缓存.
-- PREFETCHNTA
-???
-
-**** Memory Ordering Instructions
-- SFENCE
-在SFENCE之前的Store操作,从全局视图来看,一定在SFENCE之后的Store操作之前完成.
-- LFENCE
-在LFENCE之前的Load操作,从全局视图来看,一定在LFENCE之后的Load操作之前完成.
-- MFENCE
-MFENCE结合了SFENCE和LFENCE两个功能.
-
-**** X87 FPU Instructions
-- FISTTP
-这条指令非常类似FISTP,是将FPU TOS的浮点数转换成为整数,精度处理使用截断.
-FISTP需要修改FPU Tag Word设置为截断处理才会有这样的效果,
-
-**** Thread Sync Instructions
-需要注意的是,这些指令都只能够在ring0级别下面运行,对于<ring0的界别是可选运行的.
-- MONITOR
-设置一块地址区域来监视是否存在write-back-stores的操作.
-- MWAIT
-等待某块地址区域发生write-back-stores.这块地址区域必须经过MONITOR设置.在等待
-这块地址区域写入的时候Logical Processor能够进入optimized state.
-
-**** 其他
-- PAUSE
-PAUSE指令能够显著改善自旋锁的循环等待期间的性能,同时减少机器的耗能.
-- Branch Hints
-对于Jcc这样的指令,允许在之前加上2EH,3EH作为Prefix能够进行预取提示.
-这个没有特别的助记符,只是在生成的机器代码二进制上略有不同.
-- CRC32
-CRC32算法的有效实现.
-- POPCNT
-计算操作数的bit表示中存在多少个1.

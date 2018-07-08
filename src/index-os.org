@@ -16,7 +16,7 @@
   - [[http://www.amazon.com/UNIX-Systems-Modern-Architectures-Multiprocessing/dp/0201633388][现代体系结构上的UNIX系统]] [[http://book.douban.com/subject/1229889/][(内核程序员的SMP和Caching技术)]]
   - A COMMENTARY ON THE SIXTH EDITION UNIX OPERATING SYSTEM [[http://warsus.github.io/lions-/][第六版莱昂斯 Unix 操作系统评述]]
 
-- [[file:simd.org][SIMD]] Single Instruction Muitple Data 单指令多数据。这个笔记是 [[http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html][Intel Reference Manual]] 中关于SIMD指令的总结, 里面包含了一些理解SIMD指令需要的知识, 以及对SIMD指令进行了分类, 但是没有太多实用例子.
+- [[file:simd.org][SIMD]] Single Instruction Muitple Data 单指令多数据
 - [[file:apue.org][APUE]] Unix环境高级编程(Advanced Programming Unix Environment),W. Richard Stevens的神作。笔记里面没有包含书最后的几个部分，比如终端，打印机等，因为我觉得可能大家都不太需要这个东西了。我还尝试将一些跨章节的概念整合到一起，这样比较容易从总体把握Unix编程环境。
 - [[file:linux.org][linux]] 将原来[[file:apue.org][APUE]] 和 [[file:unp.org][UNP]] 中的一部分内容放在这里面来了，这样可以保持这两篇内容比较稳定。
   - [[file:pic.org][pic-code]] 分析了一下PIC位置无关代码内部的原理以及和动态库之间的关系。通过阅读<深入理解计算机系统>并且结合实际的例子总结出来的。
