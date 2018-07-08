@@ -86,6 +86,7 @@
 <url><loc>https://dirtysalt.github.io/html/rcfile.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/mapreduce.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/nginx.html</loc></url>
+<url><loc>https://dirtysalt.github.io/html/linux-perf.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/license.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/openresty-best-practices-lua.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/mapreduce-a-flexible-data-processing-tool.html</loc></url>
@@ -143,7 +144,6 @@
 <url><loc>https://dirtysalt.github.io/html/ml-reading.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/hadoop-benchmark.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/scala.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/perf.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/index-sd.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-scalable-highly-concurrent-and-fault-tolerant-systems.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/case-study-gfs-evolution-on-fast-forward.html</loc></url>
@@ -235,7 +235,6 @@
 <url><loc>https://dirtysalt.github.io/html/structing-machine-learning-projects.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons-learned.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/why-not-raid0-in-hdfs.html</loc></url>
-<url><loc>https://dirtysalt.github.io/html/thinking-clearly-about-performance.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/lua.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/memory.html</loc></url>
 <url><loc>https://dirtysalt.github.io/html/raid.html</loc></url>

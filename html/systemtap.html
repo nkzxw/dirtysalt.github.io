@@ -229,26 +229,42 @@ Pass 5: run completed in 0usr/10sys/586real ms.
 <li>Each probe point specification has a “dotted-functor” syntax such as kernel.function("foo").return（probe point通过.来表示层级）
 <ol class="org-ol">
 <li>kernel or module("foo") kernel或者是foo.ko模块</li>
-<li>functions
+<li><p>
+functions
+</p>
 <ul class="org-ul">
 <li>function("fn")
 <ul class="org-ul">
 <li>fn可以使用?,*做通配</li>
 </ul></li>
-<li>function("fn@filename")</li>
+</ul>
+<ul class="org-ul">
+<li>function("fn@filename")
+<ul class="org-ul">
 <li>function("fn@filename:lineno")</li>
 <li>function(0x1f) PC address located.</li>
-<li>.callees 可以指定这个fn所有调用的函数</li>
+</ul></li>
+<li>.callees 可以指定这个fn所有调用的函数
+<ul class="org-ul">
 <li>.return fn返回时候触发，默认是.entry</li>
 </ul></li>
-<li>statements
+</ul></li>
+<li><p>
+statements
+</p>
 <ul class="org-ul">
 <li>statement("fn") 函数fn入口</li>
-<li>statement("fn@filename")</li>
+</ul>
+<ul class="org-ul">
+<li>statement("fn@filename")
+<ul class="org-ul">
 <li>statement("fn@filename:lineno")</li>
 <li>.relative(0x1f) 偏移定位</li>
-<li>.label("need_resched") 标签定位</li>
+</ul></li>
+<li>.label("need_resched") 标签定位
+<ul class="org-ul">
 <li>statement(0x1f) PC address located.</li>
+</ul></li>
 </ul></li>
 <li>events
 <ul class="org-ul">

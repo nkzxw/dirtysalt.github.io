@@ -27,6 +27,7 @@
   - [[file:linux-proc-fs.org][linux-proc-fs]] Linux /proc文件系统
   - [[file:linux-tools.org][linux-tools]] Linux系统下的一些常用工具. see [[file:images/unixtoolbox-zh-cn.xhtml][unix-toolbox]]
 
+
 - [[file:memory.org][memory]] 内存相关
   - [[file:./numa.org][NUMA]] Non-Uniform Memory Access. 非一致性内存访问
   - [[file:numa-an-overview.org][NUMA An Overview]] 关于NUMA的介绍性文章
@@ -34,6 +35,7 @@
   - [[http://lwn.net/Articles/250967/][What every programmer should know about memory]] by Ulrich Drepper([[https://sourceware.org/bugzilla/show_bug.cgi?id=4980][fun]]).
   - [[file:tcmalloc.org][tcmalloc]] Google的开源线程缓存内存分配器，解决多线程下面内存分配效率问题。
   - [[file:sanitizer.org][sanitizer]] Google的C++动态分析工具，可以检测内存泄漏，内存无效使用，多线程数据竞争。
+
 
 - [[file:sysperf.org][system-performance]] 系统性能相关
   - [[file:linux-perf.org][linux-perf]]
@@ -45,11 +47,13 @@
   - [[file:./linux-system-and-performance-monitoring.org][Linux System and Performance Monitoring]]
   - [[http://www.brendangregg.com/linuxperf.html][Linux Performance Tools]] by Brendan Gregg.
 
+
 - [[file:concurrency.org][concurrency]] / [[file:coroutine.org][coroutine]] / [[file:lock.org][lock]]
   - [[file:../images/single-multi-thread-event-driven.jpg][One picture explain Single-Thread, Multiple-Thread, Event-Driven]]
   - [[https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html][Is Parallel Programming Hard, And, If So, What Can You Do About It?]]
   - [[file:./concurrency-hazards.org][Concurrency Hazards: Solving 11 Likely Problems In Your Multithreaded Code]]
   - [[file:./images/gevent-tutorial/index.html][gevent For the Working Python Developer]]
+
 
 - [[file:ubuntu.org][ubuntu]] 如何更好地使用Ubuntu. [[file:blogs/struggle-with-ubuntu.org][之前使用Ubuntu有多段痛苦经历]]。
 - [[file:mac.org][macosx]] 如何更好地使用Mac. 以前使用Windows，后来转向Ubuntu，再后来买了个MBA.
