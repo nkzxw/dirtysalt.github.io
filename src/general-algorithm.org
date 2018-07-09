@@ -1,32 +1,32 @@
 #+title: General Algorithm
 ** 链接资源
 Jobs:
-   - http://careers.stackoverflow.com/jobs/
-   - http://recruiting.jobvite.com/
-   - http://www.mercurynews.com/jobs
-   - http://www.mitbbs.com/bbsdoc/JobHunting.html
-   - http://www.glassdoor.com/index.htm
+- http://careers.stackoverflow.com/jobs/
+- http://recruiting.jobvite.com/
+- http://www.mercurynews.com/jobs
+- http://www.mitbbs.com/bbsdoc/JobHunting.html
+- http://www.glassdoor.com/index.htm
 
 Coding Problem:
-   - [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
-   - http://www.careercup.com/
-   - http://codility.com/
-   - http://leetcode.com/
-   - http://community.topcoder.com/
-   - https://www.geeksforgeeks.org/
-   - https://www.topcoder.com/community/data-science/data-science-tutorials/
-   - https://www.julyedu.com/question/index
+- [[file:./cracking-the-coding-interview.org][Cracking The Coding Interview]]
+- http://www.careercup.com/
+- http://codility.com/
+- http://leetcode.com/
+- http://community.topcoder.com/
+- https://www.geeksforgeeks.org/
+- https://www.topcoder.com/community/data-science/data-science-tutorials/
+- https://www.julyedu.com/question/index
 
 Online Editor:
-   - http://collabedit.com/
-   - https://codinghire.com/
+- http://collabedit.com/
+- https://codinghire.com/
 
 行为型问题:
-   - So tell me about yourself.
-   - What is your greatest weakness?
-   - Have you ever had a conflict with a co-worker? How did you solve it?
-   - What is your most challenging/interesting project?
-   - Where do you see yourself in five years?
+- So tell me about yourself.
+- What is your greatest weakness?
+- Have you ever had a conflict with a co-worker? How did you solve it?
+- What is your most challenging/interesting project?
+- Where do you see yourself in five years?
 
 ** 工程算法
 *** strlen in glibc
@@ -230,8 +230,8 @@ def estimate_cardinality(values, k):
 这个算法上面存在一些差别，就是这个算法实现是假设末尾为0的概率为0.5,末尾为10的概率为0.25，以此类推。最后的0.79402应该是调整系数。
 
 另外还有一个SuperLogLog针对HyperLogLog做了一些改进降低了错误的概率：
-   - 去掉30%的最大的bucket，只是计算剩余70%的bucket
-   - max_zeroes的计算不是使用geometric mean而是使用harmonic mean
+- 去掉30%的最大的bucket，只是计算剩余70%的bucket
+- max_zeroes的计算不是使用geometric mean而是使用harmonic mean
 
 这个算法可以很容易地并行化。可以让每个机器各自维护各自的bucket，最后每个机器上面属于相同的bucket index的bucket进行merge即可。
 
@@ -242,26 +242,26 @@ def estimate_cardinality(values, k):
 这个算法主要是解决如何压缩一个可组合的整数集合，或者可以是认为如何压缩一个稀疏的bitmap. 链接1主要是介绍了一下背景，在他们的系统里面需要保存一个稀疏bitmap。链接2是原始论文，想了解具体内容还是看看这个比较好。
 
 这个算法应该是在WAH（Word Aligned Hybrid）上改进的。下面是WAH的简单描述
-   - WAH是已31bit为一个处理单位，这里我们称为block
-   - 如果block里面有0和1的话，那么使用<1> block表示
-   - 如果block里面只有0的话，并且连续n个block都是这样的话，那么使用<00> <n>
-   - 如果只有1的话，那么前缀使用<01>
+- WAH是已31bit为一个处理单位，这里我们称为block
+- 如果block里面有0和1的话，那么使用<1> block表示
+- 如果block里面只有0的话，并且连续n个block都是这样的话，那么使用<00> <n>
+- 如果只有1的话，那么前缀使用<01>
 file:./images/concise-wah.png
 
 可以看到其实<n>最长为2^30-1（肯定不会为0）.但是实际上大部分到不了这么长。剩余的空间就会存在浪费。
 
 CONCISE针对这个部分稍微改进了一下
-   - the following 5 bits are the position of a “flipped” bit within the first 31-bit block of the fill（剩余的5个bit表示从在第几位存在一个反转，这个可以处理一些特殊情况）
-   - and the remaining 25 bits count the number of 31-blocks that compose the fill minus one. （剩余的25个bit表示后面存在多少个31bit blocks)
+- the following 5 bits are the position of a “flipped” bit within the first 31-bit block of the fill（剩余的5个bit表示从在第几位存在一个反转，这个可以处理一些特殊情况）
+- and the remaining 25 bits count the number of 31-blocks that compose the fill minus one. （剩余的25个bit表示后面存在多少个31bit blocks)
 可以看到最大的范围是31 + 2^25 * 31 = 1040187423 , 如果从0开始的话，那么就是[0,1040187422]
 
 下面是一个例子， Compressed representation of the set {3, 5, 31–93, 1024, 1028, 1 040 187 422}.
-   - The word #0 is used to represent integers in the range 0–30,
-   - word #1 for integers in 31–92, （5bit为0，说明这个31bit是完全填充。25bit=1表示后面1 * 31个bit全为1，范围就是从31到31(start) + 31 + 31 - 1 = 92.
-   - word #2 for integers 93–1022, （5bit为1，说明下一个31bit的第一个元素是反转的也就是93。范围从93到93(start) + 31 + 29 * 31 - 1 = 1022
-   - word #3 for integers 1023–1053,
-   - word #4 for integers 1054–1 040 187 391,
-   - and word #5 for integers 1 040 187 392–1 040 187 422.
+- The word #0 is used to represent integers in the range 0–30,
+- word #1 for integers in 31–92, （5bit为0，说明这个31bit是完全填充。25bit=1表示后面1 * 31个bit全为1，范围就是从31到31(start) + 31 + 31 - 1 = 92.
+- word #2 for integers 93–1022, （5bit为1，说明下一个31bit的第一个元素是反转的也就是93。范围从93到93(start) + 31 + 29 * 31 - 1 = 1022
+- word #3 for integers 1023–1053,
+- word #4 for integers 1054–1 040 187 391,
+- and word #5 for integers 1 040 187 392–1 040 187 422.
 file:./images/concise-concise.png
 
 论文后面还给了一些 *直接在这种压缩表示* 上面的算法。
@@ -367,8 +367,8 @@ for ( p=list; p!=NULL; p=p->next ){
 #+END_SRC
 
 这个问题可以如此考虑，假设长度为n，那么最后一个元素被选出（选中）的概率为1/n，然后我们考虑倒数第二个元素选出的概率
-   - 倒数第二个元素必须被 *选中* ，概率为1/(n-1)
-   - 并且确保倒数第一个元素没有被 *选中* 。因为最后一个选中概率为1/n，所以最后一个元素不被选中概率为(n-1)/n
+- 倒数第二个元素必须被 *选中* ，概率为1/(n-1)
+- 并且确保倒数第一个元素没有被 *选中* 。因为最后一个选中概率为1/n，所以最后一个元素不被选中概率为(n-1)/n
 因此倒数第二个元素被选出的概率为 1/(n-1) * (n-1)/n = 1/n. 同理计算对于每一个元素的概率都是 1/n.
 
 *** 查找非重复数字
@@ -462,11 +462,11 @@ class Solution {
 -----
 
 @2013-10-13 今天在leetcode也看到了相似的题目，http://oj.leetcode.com/problems/container-with-most-water/ 虽然题目意思不一样，但是我本能地按照这个问题也编写代码了。结果发现上面的解决办法还是有很多corner case的，比如如果每个线是递增的话怎么办？今天编写leetcode的时候我重新考虑了一下这个问题，然后有个应该是可行的实现。
-   - dp[i]表示xi(包括xi)的右边最大高度
-   - p = 0
-     - 如果p+1右边有比h[p]高的话，那么找到第一个比这个h[p]高的点做计算，然后下面从这个点继续
-     - 如果p+1右边没有比h[p]高的话，那么选择最高点计算，然后以最高点继续。
-   - 时间空间复杂度在O(n)
+- dp[i]表示xi(包括xi)的右边最大高度
+- p = 0
+  - 如果p+1右边有比h[p]高的话，那么找到第一个比这个h[p]高的点做计算，然后下面从这个点继续
+  - 如果p+1右边没有比h[p]高的话，那么选择最高点计算，然后以最高点继续。
+- 时间空间复杂度在O(n)
 
 #+BEGIN_SRC C++
 class Solution {
@@ -515,8 +515,8 @@ class Solution {
 -----
 
 另外一个题目的变形是 http://oj.leetcode.com/problems/container-with-most-water/ 题目的大致要求是找到两个点，这两个点围成的container蓄水最多。似乎没有O(n^2)以下的算法了，但是可以做比较深度的减枝。假设两个点是xi,xj.有两个特性可以用来减枝。
-   - 如果x(i+1) <= x(i)的话，那么蓄水量肯定要少。
-   - 从n-1到i+1区间来选择j,  如果一旦存在x(j)>=x(i)的话，那么剩余的点不用考虑。
+- 如果x(i+1) <= x(i)的话，那么蓄水量肯定要少。
+- 从n-1到i+1区间来选择j,  如果一旦存在x(j)>=x(i)的话，那么剩余的点不用考虑。
 #+BEGIN_SRC C++
 class Solution {
  public:
@@ -549,12 +549,12 @@ class Solution {
 - http://www.johndcook.com/standard_deviation.html
 
 需要注意区分如下概念。可以参见wikipedia
-   - http://en.wikipedia.org/wiki/Standard_deviation
-   - http://baike.baidu.com/view/172036.htm
-   - 标准差(standard deviation), 方差算术平方根
-   - 方差(variance, variance of an entire population)
-   - 样本标准差(sample standard deviation), 样本方差算术平方根
-   - 样本方差(sample variance, unbiased estimate of the population variance)
+- http://en.wikipedia.org/wiki/Standard_deviation
+- http://baike.baidu.com/view/172036.htm
+- 标准差(standard deviation), 方差算术平方根
+- 方差(variance, variance of an entire population)
+- 样本标准差(sample standard deviation), 样本方差算术平方根
+- 样本方差(sample variance, unbiased estimate of the population variance)
 
 对方差计算可以做如下简化, 其中Xi表示第i个元素，Xe表示平均值
 #+BEGIN_EXAMPLE
@@ -620,29 +620,29 @@ Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 https://github.com/shivawu/topcoder-greed. 这个插件是一个整合包，配置起来更加方便。
 
 安装topcoder非常简单：
-   - 确认安装好javaws，因为topcoder客户端是一个java applet
-   - 下载topcoder的客户端 # wget  http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp
-   - 启动这个applet之后就就可以进入arena了。
+- 确认安装好javaws，因为topcoder客户端是一个java applet
+- 下载topcoder的客户端 # wget  http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp
+- 启动这个applet之后就就可以进入arena了。
 
 为了方便地使用topcoder（比如将一些testcase下载下来的话），可以使用一些插件。个人觉得下面这个组合不错
-   - code processor
-   - file edit
-   - TZTester
+- code processor
+- file edit
+- TZTester
 这些插件都可以在这里找到 http://community.topcoder.com/tc?module=Static&d1=applet&d2=plugins
 
 三个插件的下载地址分别是：
-   - http://community.topcoder.com/contest/classes/TZTester/TZTester.jar
-   - http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar
-   - http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar
+- http://community.topcoder.com/contest/classes/TZTester/TZTester.jar
+- http://community.topcoder.com/contest/classes/CodeProcessor/CodeProcessor.jar
+- http://community.topcoder.com/contest/classes/FileEdit/FileEdit.jar
 
 下载完成之后在topcoder客户端里面的options->Editor里面进行配置
-   - Add增加一个Editor
-   - EntryPoint填写 codeprocessor.EntryPoint
-   - ClassPath将前面三个jar选择上
-   - 然后选择这个为Default Editor
-   - 然后点击Configure
-   - EntryPoint填写 fileedit.EntryPoint
-   - processor class填写 tangentz.TZTester
+- Add增加一个Editor
+- EntryPoint填写 codeprocessor.EntryPoint
+- ClassPath将前面三个jar选择上
+- 然后选择这个为Default Editor
+- 然后点击Configure
+- EntryPoint填写 fileedit.EntryPoint
+- processor class填写 tangentz.TZTester
 
 继续点击Configure选项，在General这个部分基本上没有什么需要修改的。
 

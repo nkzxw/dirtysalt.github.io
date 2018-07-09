@@ -170,11 +170,11 @@ Candidate #2 not only sounds more impressive, but she also appears less arrogant
 
 *** Handling Technical Questions
 A technical interview question can be solved utilizing a five step approach:
-   1. Ask your interviewer questions to resolve ambiguity
-   2. Design an Algorithm
-   3. Write pseudo-code first, but make sure to tell your interviewer that you’re writing pseudo-code! Otherwise, he/she may think that you’re never planning to write “real” code, and many interviewers will hold that against you
-   4. Write your code, not too slow and not too fast
-   5. Test your code and carefully fix any mistakes
+1. Ask your interviewer questions to resolve ambiguity
+2. Design an Algorithm
+3. Write pseudo-code first, but make sure to tell your interviewer that you’re writing pseudo-code! Otherwise, he/she may think that you’re never planning to write “real” code, and many interviewers will hold that against you
+4. Write your code, not too slow and not too fast
+5. Test your code and carefully fix any mistakes
 
 *** Five Algorithm Approaches
 *** The Offer and Beyond

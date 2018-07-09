@@ -51,8 +51,8 @@ be stored as 0x40, and an uncompressed length of 2097151 (0x1FFFFF)
 would be stored as 0xFF 0xFF 0x7F.
 
 对于LZ77类型的压缩算法说里面包含两个部分
-   - literal(字表).这个表示原始内容
-   - copy(拷贝).这个表示针对原始内容的copy.
+- literal(字表).这个表示原始内容
+- copy(拷贝).这个表示针对原始内容的copy.
 对于LZ77类型压缩类型，所谓的copy无非就是(offset,length).然后通过精巧的编码方式将(offset,length)写入。
 通常来说编码方式会比原始内容小，这样达到压缩目的。而literal和copy本身也通过编码方式来进行区分，第一个字节
 低两位00表示literal,而01,10,11分别表示不同类型的copy.
@@ -63,18 +63,18 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 
 *** Literal
 对于literal来说的话编码方式是这样的，假设literal的长度为len(len>=1).
-   - 如果len<=60.那么literal使用一个字节表示(len-1) << 2 | 0x0 (1个字节)
-   - 如果len可以用1个字节表示的话，那么literal表示[60 << 2 | 0x0, len](2个字节)
-   - 如果len可以用2个字节表示的话，那么literal表示[61 << 2 | 0x0, len](3个字节).
-   - 如果len可以用3个字节表示的话，那么literal表示[62 << 2 | 0x0, len](4个字节).
-   - 如果len可以用4个字节表示的话，那么literal表示[63 << 2 | 0x0, len](5个字节).
+- 如果len<=60.那么literal使用一个字节表示(len-1) << 2 | 0x0 (1个字节)
+- 如果len可以用1个字节表示的话，那么literal表示[60 << 2 | 0x0, len](2个字节)
+- 如果len可以用2个字节表示的话，那么literal表示[61 << 2 | 0x0, len](3个字节).
+- 如果len可以用3个字节表示的话，那么literal表示[62 << 2 | 0x0, len](4个字节).
+- 如果len可以用4个字节表示的话，那么literal表示[63 << 2 | 0x0, len](5个字节).
 注意这里len都是按照小端序写入的。
 
 *** Copy
 对于copy来说的话我们假设内容是(offset,length).(offset>=1,length>=1).
-   - 如果length在[4,11],而offset在[0,2047].那么表示[(offset >> 8) << 5 | (length-4) <<2 | 0x01 , offset & 0xff](2个字节)
-   - 如果length在[1,64],而offset在[0,65535],那么表示[(length-1) << 2 | 0x02 , offset](3个字节)
-   - 如果length在[1,64],而offset在[0,2^32-1],那么表示[(length-1) << 2 | 0x03, offset](5个字节)
+- 如果length在[4,11],而offset在[0,2047].那么表示[(offset >> 8) << 5 | (length-4) <<2 | 0x01 , offset & 0xff](2个字节)
+- 如果length在[1,64],而offset在[0,65535],那么表示[(length-1) << 2 | 0x02 , offset](3个字节)
+- 如果length在[1,64],而offset在[0,2^32-1],那么表示[(length-1) << 2 | 0x03, offset](5个字节)
 我们这里注意到length都在[1,64]之间，如果length>64的话。那么我们可以将copy切分。这个在代码里面可以看到。
 
 ** Source & Sink
@@ -86,8 +86,8 @@ bool RawUncompress(Source* compressed, char* uncompressed); // 内部有一个Wr
 #+END_SRC
 
 我们首先看看Sink定义的接口。能够理解这个接口全依赖这个清晰的注释。其中
-   - Append接口的话是将bytes[0,n-1]这个字节流写入。
-   - GetAppendBuffer的话是交出一块length的buffer。这块length的buffer的话必须一致有效直到Append被调用。当然我们也可以直接返回scratch(外围框架分配的内存).
+- Append接口的话是将bytes[0,n-1]这个字节流写入。
+- GetAppendBuffer的话是交出一块length的buffer。这块length的buffer的话必须一致有效直到Append被调用。当然我们也可以直接返回scratch(外围框架分配的内存).
 #+BEGIN_SRC C++
 // A Sink is an interface that consumes a sequence of bytes.
 class Sink {
@@ -155,9 +155,9 @@ char* UncheckedByteArraySink::GetAppendBuffer(size_t len, char* scratch) {
 其实这个Sink接口非常简单地重定向到其他部分比如文件，这个在Example里面会给出例子。
 
 接着我们看看Source定义的接口。同样能够理解这个接口全依赖清晰的注释。其中
-   - Available表示还有多少个字节剩余。
-   - Peek是返回前面可以窥探到的字节流，并且返回长度。返回的buffer必须持续有效直到Skip.
-   - Skip相当于告诉Source某个部分的字节流已经不需要被使用了。
+- Available表示还有多少个字节剩余。
+- Peek是返回前面可以窥探到的字节流，并且返回长度。返回的buffer必须持续有效直到Skip.
+- Skip相当于告诉Source某个部分的字节流已经不需要被使用了。
 #+BEGIN_SRC C++
 // A Source is an interface that yields a sequence of bytes
 class Source {
@@ -260,9 +260,9 @@ inline int Bits::FindLSBSetNonZero64(uint64 n) {
 #+END_SRC
 
 为了方便这里给出三个内置函数解释
-   - int __builtin_clz (unsigned int x) // Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.
-   - int __builtin_ctz (unsigned int x) // Returns the number of trailing 0-bits in x, starting at the least significant bit position. If x is 0, the result is undefined.
-   - int __builtin_clzll (unsigned long long) // Similar to __builtin_clz, except the argument type is unsigned long long.
+- int __builtin_clz (unsigned int x) // Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.
+- int __builtin_ctz (unsigned int x) // Returns the number of trailing 0-bits in x, starting at the least significant bit position. If x is 0, the result is undefined.
+- int __builtin_clzll (unsigned long long) // Similar to __builtin_clz, except the argument type is unsigned long long.
 
 *** Varint
 定义了如何将32位整数进行编码和解码。关于这种编码方式可以参考protobuf的链接
@@ -1043,9 +1043,9 @@ class SnappyDecompressionValidator {
 
 *** SnappyDecompressor
 SnappyDecompressor有几个比较重要的方法：
-   - ReadUncompressedLength.这个就是解压缩开头的Varint.这个没有太大的问题。
-   - DecompressAllTags.这个是解压缩所有的tag，源是RefillTag填充的scratch[].
-   - RefillTag.填充tag所需要的字节到scratch[]内部。这个也没有太大问题。
+- ReadUncompressedLength.这个就是解压缩开头的Varint.这个没有太大的问题。
+- DecompressAllTags.这个是解压缩所有的tag，源是RefillTag填充的scratch[].
+- RefillTag.填充tag所需要的字节到scratch[]内部。这个也没有太大问题。
 在看这个代码之前，我们想想如果我们得到scratch之后应该如何从中提取tag信息呢？最好的方式就是打表。
 因为tag的头一个字节反应了这个tag所有信息，所以在snappy里面有char_table这个表以头一个字节内容作为索引
 #+BEGIN_SRC C++
@@ -1067,9 +1067,9 @@ static const uint16 char_table[256] = {
 };
 #+END_SRC
 这个表是可以计算出来的
-   - [0..7]表示literal/copy长度,因为不管是literal/copy长度。对于copy是足够的，但是对于literal来说的话能够根据高extra byte判断后面剩余长度字节。
-   - [8..10]表示copy的offset / 256,对于offset剩余内容通过extra表示
-   - [11..13]表示后面剩余多少个字节。通过wordmask来提取。
+- [0..7]表示literal/copy长度,因为不管是literal/copy长度。对于copy是足够的，但是对于literal来说的话能够根据高extra byte判断后面剩余长度字节。
+- [8..10]表示copy的offset / 256,对于offset剩余内容通过extra表示
+- [11..13]表示后面剩余多少个字节。通过wordmask来提取。
 这里workmask
 #+BEGIN_SRC C++
 static const uint32 wordmask[] = {
