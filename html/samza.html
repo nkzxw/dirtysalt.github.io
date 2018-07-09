@@ -18,7 +18,6 @@
 <a href="http://samza.incubator.apache.org/">http://samza.incubator.apache.org/</a>
 </p>
 
-<hr  />
 <p>
 Samza is made up of three layers:
 </p>
@@ -45,8 +44,6 @@ samza架构和hadoop-mapreduce架构非常类似. 1)从kafka读取数据 2)经�
 <li>container # 使用yarn来对每个task进行资源管理.</li>
 </ul>
 
-<hr  />
-
 <p>
 通过streaming-layer将jobs串联起来组成dataflow-graphs.
 </p>
@@ -57,8 +54,6 @@ samza架构和hadoop-mapreduce架构非常类似. 1)从kafka读取数据 2)经�
 </p>
 </div>
 
-
-<hr  />
 
 <p>
 关于state管理问题, samza-api层面提供了local-storage接口, 但是这个接口其实没有解决太多问题. 使用这个local-storage接口虽然可以在本地存储部分状态数据来减轻对remote-storage的压力, 但是如果task失败的话 samza并不负责这个local-data的迁移. 所以一些关键性的数据还是必须存储在remote-storage上比如当前处理的message-id等.

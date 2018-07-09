@@ -5,7 +5,7 @@
 <head>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>DBMS Intro</title>
+<title>DBMS Introduction</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">DBMS Intro</h1>
+<h1 class="title">DBMS Introduction</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -587,7 +587,7 @@ Transactions can be deferred, immediate, or exclusive. The default transaction b
 <ul class="org-ul">
 <li>deferred 延迟上锁。在begin transcation之后其他的连接还可以发起begin transaction. 某个连接发起读操作就创建SHARED lock（之后只是可读，并且必须比RESERVED lock先释放）, 发起写操作就创建RESERVED lock（之后可读可写，但是必须等待其他链接全部释放）</li>
 <li>immediate 立刻上锁。相当立刻占用RESERVED lock，其他链接可以发起begin trasnaction但是只能够获得SHARED lock，并且和之前一样，必须等待shared lock释放，requoted lock才能够释放。 <b>note：这点非常实际，因为对于发起SHARED lock而言，肯定希望期间读取的数据不会发生变化</b>
-      <b>note：似乎如果直接执行SQL语句相当加上immediate transaction</b></li>
+   <b>note：似乎如果直接执行SQL语句相当加上immediate transaction</b></li>
 <li>exclusive 排斥上锁。排斥其他连接发起任何transaction，相当于lock table.</li>
 </ul>
 </div>

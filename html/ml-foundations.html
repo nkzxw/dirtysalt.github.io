@@ -68,8 +68,13 @@ L4-L7 学习可行性分析
 <li>vc-dimension只和H有关，或者说只和model有关。vc物理意义是：H处理二分类问题有多少自由度。vc越大说明H选择更多，能力越强，也说明越复杂。</li>
 <li>model/H进行训练效果满足不等式 P(|u-v| &gt; e) &lt;= 2 * (2N)^vc * exp(-2 * e^2 * N). 其中vc是H的vc-dimension.</li>
 <li>从上面不等式可以看到，vc和N(数据集合大小)之间存在trade-off. vc越大H选择越多，但是需要更多的数据才能找到更好的假设。</li>
-<li><img src="./images/ntuml-theoretical-bounds.png" alt="ntuml-theoretical-bounds.png" /></li>
 </ul>
+
+
+<div class="figure">
+<p><img src="./images/ntuml-theoretical-bounds.png" alt="ntuml-theoretical-bounds.png" />
+</p>
+</div>
 
 <hr  />
 <p>
@@ -108,13 +113,28 @@ L13-L15 过拟合，正则化，验证
 <ul class="org-ul">
 <li>可以看出部分原因我们还没有学习足够多的数据集合</li>
 <li>而且对于vc越大的H需要学习数据量越大才能获得较好效果</li>
-<li><img src="./images/ntuml-overfitting-learning-curve.png" alt="ntuml-overfitting-learning-curve.png" /></li>
 </ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/ntuml-overfitting-learning-curve.png" alt="ntuml-overfitting-learning-curve.png" />
+</p>
+</div>
+
+<ul class="org-ul">
 <li>噪音可以分为两类：stochastic noise(随机噪音)表示数据集合本身偏差引入的，deterministic noise(确定噪音)表示target-function自身复杂性引入的。
 <ul class="org-ul">
 <li>比如伪随机数(噪音多)就是使用复杂的(高阶)函数来模拟产生的.</li>
-<li><img src="./images/ntuml-overfitting-noise-and-data-size.png" alt="ntuml-overfitting-noise-and-data-size.png" /></li>
 </ul></li>
+</ul>
+
+<div class="figure">
+<p><img src="./images/ntuml-overfitting-noise-and-data-size.png" alt="ntuml-overfitting-noise-and-data-size.png" />
+</p>
+</div>
+
+<ul class="org-ul">
 <li>解决过拟合问题有下面几个手段 1. 先从简单模型入手 2. data cleaning/pruning 3. data hinting 4.regularization 5. validation</li>
 <li>引入regularization非常有启发性：通过限制w'w &lt;= C，使用Lagrange Multiplier(拉格朗日乘子法), 推导出weight-decay regularization也就是ridge regression</li>
 <li>如果需要使用多项式变换的话，应该选用Legendre多项式，可以认为这些多项式之间是相互"正交"的。

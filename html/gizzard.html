@@ -136,15 +136,15 @@
 <h3 id="orgheadline7"><span class="section-number-3">3.5</span> Gizzard is fault-tolerant</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
-<li>Gizzard is designed to avoid any single points of failure.
-<ul class="org-ul">
+<li>Gizzard is designed to avoid any single points of failure.</li>
 <li>If a certain replica in a partition has crashed, Gizzard routes requests to the remaining healthy replicas, bearing in mind the weighting function.</li>
 <li>If all replicas of in a partition are unavailable, Gizzard will be unable to serve read requests to that shard, but all other shards will be unaffected.</li>
-<li>Writes to an unavailable shard are buffered until the shard again becomes available.</li>
-</ul></li>
+<li>Writes to an unavailable shard are buffered until the shard again becomes available.
+<ul class="org-ul">
 <li>In fact, if any number of replicas in a shard are unavailable, Gizzard will try to write to all healthy replicas as quickly as possible and buffer the writes to the unavailable shard, to try again later when the unhealthy shard returns to life.(如果shard任何一个replicas挂掉的话，那么对于healthy replicas依然能够正常工作，而对于bad replicas的会buffer起来，等待replicas恢复之后write下去）</li>
 <li>The basic strategy is that all writes are materialized to a durable, transactional journal. Writes are then performed asynchronously (but with manageably low latency) to all replicas in a shard. If a shard is unavailable, the write operation goes into an error queue and is retried later.(writer buffer是通过保存到本地磁盘的journal来完成的，当shard重新恢复的话那么期间所有的写都会异步地更新到上面）</li>
 <li>In order to achieve “eventual consistency”, this “retry later” strategy requires that your write operations are idempotent and commutative. This is because a retry later strategy can apply operations out-of-order（为了达到这种最终一致性，retry later这种策略就要求write操作本身是幂等并且是满足结合性的）</li>
+</ul></li>
 </ul>
 </div>
 </div>

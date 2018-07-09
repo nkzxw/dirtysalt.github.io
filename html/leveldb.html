@@ -3156,7 +3156,7 @@ db/db_impl.cc DBImpl这个结构体挺大的。我们先过一个这个结构然
 <pre class="src src-C++"><span class="org-type">void</span> <span class="org-constant">DBImpl</span>::<span class="org-function-name">CompactRange</span>(<span class="org-keyword">const</span> <span class="org-type">Slice</span>* <span class="org-variable-name">begin</span>, <span class="org-keyword">const</span> <span class="org-type">Slice</span>* <span class="org-variable-name">end</span>) {
   <span class="org-type">int</span> <span class="org-variable-name">max_level_with_files</span> = 1;
   {
-    MutexLock <span class="org-type">l</span>(&amp;<span class="org-variable-name">mutex_</span>);
+   x MutexLock <span class="org-type">l</span>(&amp;<span class="org-variable-name">mutex_</span>);
     <span class="org-type">Version</span>* <span class="org-variable-name">base</span> = versions_-&gt;current();
     <span class="org-keyword">for</span> (<span class="org-type">int</span> <span class="org-variable-name">level</span> = 1; level &lt; <span class="org-constant">config</span>::kNumLevels; level++) {
       <span class="org-keyword">if</span> (base-&gt;OverlapInLevel(level, begin, end)) {

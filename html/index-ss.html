@@ -17,24 +17,20 @@
 <ul class="org-ul">
 <li><a href="storage-system-reading.html">Storage System Reading</a> 存储系统方面的一些文章
 <ul class="org-ul">
-<li><a href="backblaze-storage-pod.html">Backblaze Storage Pod</a> 构建廉价存储服务器的厂商。将其设计以及使用公开并且做了比较深入的说明。</li>
+<li><a href="http://redbook.cs.berkeley.edu/">Readings in Database Systems</a></li>
+<li><a href="backblaze-storage-pod.html">Backblaze Storage Pod</a> 构建廉价存储服务器的厂商，将其设计以及使用公开并且做了比较深入的说明。</li>
 <li><a href="./nosql-back-to-the-feature-or-yet-another-db-feature.html">NoSQL - Back to the Future or Yet Another DB Feature</a> @2012</li>
-</ul></li>
-<li><a href="ssd.html">SSD</a> solid state disk. 固态硬盘
-<ul class="org-ul">
 <li><a href="./solid-state-revolution-in-depth-on-how-ssd-really-work.html">Solid-state revolution: in-depth on how SSDs really work</a> ssd发展演变，内部构造和工作方式</li>
 <li><a href="./ssd-gc-and-trim.html">固态硬盘技术解析之垃圾回收和TRIM指令</a></li>
 <li><a href="coding-for-ssd.html">Coding for SSDs</a> 为ssd设计系统的要点（和ssd底层原理）</li>
 <li><a href="./ssd-and-distributed-data-systems.html">SSDs and Distributed Data Systems</a> ssd对于设计分布式数据系统的影响</li>
-</ul></li>
-<li><a href="raid.html">RAID</a> Redundant Array of Inexpensive Disk. 廉价磁盘冗余阵列
-<ul class="org-ul">
 <li><a href="./the-skinny-on-raid.html">The skinny on RAID</a> 一篇关于RAID的介绍性文章</li>
 </ul></li>
-<li>DBMS (database management system) <a href="./dbms-intro.html">Intro</a> &amp; <a href="./dbms-impl.html">Impl</a></li>
-<li><a href="gizzard.html">gizzard</a> a library for creating distributed datastores 可以认为是数据库中间层，完成partition/replication，也做fault-tolerant migration. <b>DEPRECATED, DONT USE IT</b></li>
-<li><a href="leveldb.html">leveldb</a> Google的开源kv存储系统。支持billion级别的数据量，适合于写少读多的情况。当时阅读的时候是从github上面clone下来的，可能还存相当多的bug.</li>
-<li><a href="mongodb.html">mongodb</a> 面向文档的分布式存储系统，但是却可以针对文档字段索引来加快查询。功能上比通常我们认为的NoSQL强但是弱于RDBMS.</li>
+
+<li>DBMS (database management system) <a href="dbms-intro.html">Introduction</a> &amp; <a href="dbms-impl.html">Implementation</a></li>
+<li><a href="gizzard.html">gizzard</a> a library for creating distributed datastores. <b>DEPRECATED, DONT USE IT</b></li>
+<li><a href="leveldb.html">leveldb</a> Google的开源kv存储系统。</li>
+<li><a href="mongodb.html">mongodb</a> 面向文档的分布式存储系统。</li>
 <li><a href="redis.html">redis</a> 内存存储系统，支持丰富的数据类型以及相应的计算(支持持久化)。外围包装网络访问接口(并且提供了丰富的客户端),可以比较方便地在分布式系统内或者是环境下面使用.
 <ul class="org-ul">
 <li><a href="./redis-cluster-tutorial.html">Redis Cluster Tutorial</a> Redis Cluster入门</li>

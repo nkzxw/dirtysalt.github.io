@@ -235,7 +235,6 @@ https://dirtysalt.github.io/html/building-software-systems-at-google-and-lessons
 https://dirtysalt.github.io/html/why-not-raid0-in-hdfs.html
 https://dirtysalt.github.io/html/lua.html
 https://dirtysalt.github.io/html/memory.html
-https://dirtysalt.github.io/html/raid.html
 https://dirtysalt.github.io/html/index-pl.html
 https://dirtysalt.github.io/html/jvm.html
 https://dirtysalt.github.io/html/use-random-forest-testing-179-classifiers-121-datasets.html
@@ -312,7 +311,6 @@ https://dirtysalt.github.io/html/t11-on-architecture.html
 https://dirtysalt.github.io/html/lzma.html
 https://dirtysalt.github.io/html/building-data-science-teams.html
 https://dirtysalt.github.io/html/kafka.html
-https://dirtysalt.github.io/html/ssd.html
 https://dirtysalt.github.io/html/f1-talk.html
 https://dirtysalt.github.io/html/akka.html
 https://dirtysalt.github.io/html/writing-software-is-like-writing.html
