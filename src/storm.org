@@ -40,9 +40,9 @@ storm parallelism有三个概念 1) worker process 2) executor 3) task. 下面�
 
 file:./images/storm-parallelism.png
 
-   - worker process 只属于某个topology. 在一个node上可能存在多个work processes. (对应进程)
-   - executor 属于某个work process. 一个executor只运行某一个spout/bolt. (对应线程)
-   - task 属于某个executor. storm里面最小的执行单元. (#executor <= #task. 但是通常两者相等)
+- worker process 只属于某个topology. 在一个node上可能存在多个work processes. (对应进程)
+- executor 属于某个work process. 一个executor只运行某一个spout/bolt. (对应线程)
+- task 属于某个executor. storm里面最小的执行单元. (#executor <= #task. 但是通常两者相等)
 
 ** reliability
 如何保证每条消息能够都被处理? 我们需要先来定义"消息被完全处理". 在流式系统中一个input tuple到最后结束可能会产生许多tuples并且中途也会有很多tuples生成. 如果我们将这些生成关系画成树的话
@@ -56,13 +56,13 @@ file:./images/storm-tuple-tree.png
 -----
 
 storm如何实现消息确认? storm会为每个output-tuple分配一个random 64bit id. storm会启动acker服务来接收spout/bolt返回的ack消息并且通过维护一个hashmap对tuple进行追踪. 整个过程是
-   - 当spout从某个输入源读取tuple的时候, 会为这个tuple生成一个tuple-id. 这个tuple-id要求能够回放. 也就是如果spout拿到这个tuple-id的话, 还可以从输入源读取这个tuple.
-   - 当spout/bolt处理tuple的时候, spout/bolt会向acker发送(tuple-id, input-tuple-id, output-tuple-id) #note: tuple-id是spout分配的id, input-tuple-id是上一层过来的tuple id.
-   - acker处理逻辑是:（个人推断）
-      - 初始化  hashmap[tuple-id] = (spout-task-id, val[default = 0]) # 这里spout-task-id追踪是为了知道要那个spout-task重发tuple.
-      - 处理ack hashmap[tuple-id].val xor = (input-tuple-id xor output-tuple-id)
-      - 如果某个tuple-id, hashmap[tuple-id].val在一段时间(超时时间)内没有变为0的话, 那么就需要重发这个tuple-id对应的tuple.
-      - 反之如果变成0的话, 那么就可以认为这个tuple被正确处理掉了.
+- 当spout从某个输入源读取tuple的时候, 会为这个tuple生成一个tuple-id. 这个tuple-id要求能够回放. 也就是如果spout拿到这个tuple-id的话, 还可以从输入源读取这个tuple.
+- 当spout/bolt处理tuple的时候, spout/bolt会向acker发送(tuple-id, input-tuple-id, output-tuple-id) #note: tuple-id是spout分配的id, input-tuple-id是上一层过来的tuple id.
+- acker处理逻辑是:（个人推断）
+   - 初始化  hashmap[tuple-id] = (spout-task-id, val[default = 0]) # 这里spout-task-id追踪是为了知道要那个spout-task重发tuple.
+   - 处理ack hashmap[tuple-id].val xor = (input-tuple-id xor output-tuple-id)
+   - 如果某个tuple-id, hashmap[tuple-id].val在一段时间(超时时间)内没有变为0的话, 那么就需要重发这个tuple-id对应的tuple.
+   - 反之如果变成0的话, 那么就可以认为这个tuple被正确处理掉了.
 理论上如果消息没有被完全处理的话在中途过程也有可能出现0x0, 但是概率非常小. 并且在真实情况下只有tuple没有被正确处理的时候才会丢数据. 综合考虑概率非常小.
 
 我们这里举个例子, 假设topology T如下:
@@ -71,10 +71,10 @@ A -> B -> D
   -> C
 #+END_EXAMPLE
 其中spout A从输入源读取tuple-id(=123). 发出两个tuples(t1 = 0x12345678, t2 = 0x23456781)被两个bolt B,C处理分别产生tuples(t3 = 0x34567812, t4 = 0x45678123), 然后t2,t3被D处理.
-   - 初始化 hash(123) = 0x0
-   - A发出两个t1 hash(123) = 0 xor (t1) 0x12345678 xor (t2) 0x23456781 = 0x317131f9
-   - B处理t1 hash(123) = 0x317131f9 xor (t1) 0x12345678 xor (t3) 0x34567812 = 0x17131f93
-   - C处理t2 hash(123) = 0x17131f93 xor (t2) 0x23456781 xor (t4) 0x45678123 = 0x7131f931
-   - D处理t3,t4 hash(123) = 0x7131f931 xor (t3) 0x34567812 xor (t4) 0x45678123 = 0x0
+- 初始化 hash(123) = 0x0
+- A发出两个t1 hash(123) = 0 xor (t1) 0x12345678 xor (t2) 0x23456781 = 0x317131f9
+- B处理t1 hash(123) = 0x317131f9 xor (t1) 0x12345678 xor (t3) 0x34567812 = 0x17131f93
+- C处理t2 hash(123) = 0x17131f93 xor (t2) 0x23456781 xor (t4) 0x45678123 = 0x7131f931
+- D处理t3,t4 hash(123) = 0x7131f931 xor (t3) 0x34567812 xor (t4) 0x45678123 = 0x0
 
 默认storm是启动1个acker服务来进行追踪. 但是如果消息量非常大的话那么可以启动多个acker服务来进行追踪. 一旦acker服务发现某个tuple需要重传的话, 会根据hashmap里面的spout-task-id来通知对应的spout.

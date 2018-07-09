@@ -1,10 +1,11 @@
 #+title: Hadoop Benchmark
-  - [[http://www.michael-noll.com/blog/2011/04/09/benchmarking-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/][Benchmarking and Stress Testing an Hadoop Cluster with TeraSort, TestDFSIO & Co]]
-  - intel-hadoop/HiBench · GitHub https://github.com/intel-hadoop/HiBench
-  - HBase Performance Testing at hstack http://hstack.org/hbase-performance-testing/
-  - [[http://sujee.net/tech/articles/hadoop/hbase-performance-testing/][Performance testing / Benchmarking a HBase cluster]]
-  - [[http://blog.lars-francke.de/2010/08/16/performance-testing-hbase-using-ycsb/][new Put("lars".toBytes("UTF-8")) : Performance testing HBase using YCSB]]
-  - [[http://wiki.apache.org/hadoop/Hbase/PerformanceEvaluation][Hbase/PerformanceEvaluation]]
+
+- [[http://www.michael-noll.com/blog/2011/04/09/benchmarking-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/][Benchmarking and Stress Testing an Hadoop Cluster with TeraSort, TestDFSIO & Co]]
+- intel-hadoop/HiBench · GitHub https://github.com/intel-hadoop/HiBench
+- HBase Performance Testing at hstack http://hstack.org/hbase-performance-testing/
+- [[http://sujee.net/tech/articles/hadoop/hbase-performance-testing/][Performance testing / Benchmarking a HBase cluster]]
+- [[http://blog.lars-francke.de/2010/08/16/performance-testing-hbase-using-ycsb/][new Put("lars".toBytes("UTF-8")) : Performance testing HBase using YCSB]]
+- [[http://wiki.apache.org/hadoop/Hbase/PerformanceEvaluation][Hbase/PerformanceEvaluation]]
 
 ** TestDFSIO
 测试hdfs吞吐
@@ -13,12 +14,12 @@
 hdfs@hadoop1:~$ hadoop jar /usr/lib/hadoop/hadoop-test-0.20.2-cdh3u3.jar TestDFSIO
 Usage: TestDFSIO [genericOptions] -read | -write | -append | -clean [-nrFiles N] [-fileSize Size[B|KB|MB|GB|TB]] [-resFile resultFileName] [-bufferSize Bytes] [-rootDir]%
 #+END_EXAMPLE
-   - read / write / append / clean 操作类型 *append和write执行效率差别不大，但是write会创建新文件所以使用比较方便* (default read)
-   - nrFiles 文件数目(default 1) *启动相同数量的map*
-   - fileSize 每个文件大小(1MB)
-   - resFile 结果报告文件(TestDFSIO_results.log)
-   - bufferSize write buffer size(单次write写入大小）（1000000 bytes)
-   - rootDir 操作文件根目录（/benchmarks/TestDFSIO/）
+- read / write / append / clean 操作类型 *append和write执行效率差别不大，但是write会创建新文件所以使用比较方便* (default read)
+- nrFiles 文件数目(default 1) *启动相同数量的map*
+- fileSize 每个文件大小(1MB)
+- resFile 结果报告文件(TestDFSIO_results.log)
+- bufferSize write buffer size(单次write写入大小）（1000000 bytes)
+- rootDir 操作文件根目录（/benchmarks/TestDFSIO/）
 
 #+BEGIN_EXAMPLE
 ----- TestDFSIO ----- : write
@@ -40,9 +41,9 @@ Average IO rate mb/sec: 28.125
     Test exec time sec: 14.664
 #+END_EXAMPLE
 
-   - throughtput = sum(filesize) / sum(time)
-   - avaerage io rate = sum(filesize/time) / n
-   - io rate std deviation
+- throughtput = sum(filesize) / sum(time)
+- avaerage io rate = sum(filesize/time) / n
+- io rate std deviation
 
 ** TeraSort
 通过排序测试MR执行效率 *我看了一下代码map/reduce都有CPU操作，并且这个也非常依靠shuffle/copy.因此这个测试应该会是比较全面的*
@@ -50,17 +51,17 @@ Average IO rate mb/sec: 28.125
 #+BEGIN_EXAMPLE
 hdfs@hadoop1:~$ hadoop jar /usr/lib/hadoop/hadoop-examples-0.20.2-cdh3u3.jar <command>
 #+END_EXAMPLE
-   - teragen 产生排序数据
-     - <number of 100-byte rows>
-       - 10 bytes key(random characters)
-       - 10 bytes rowid(right justified row id as a int)
-       - 78 bytes filler
-       - \r\n
-     - <output dir>
-   - terasort 对数据排序
-     - <input dir>
-     - <output dir>
-   - teravalidate 对排序数据做验证
+- teragen 产生排序数据
+  - <number of 100-byte rows>
+    - 10 bytes key(random characters)
+    - 10 bytes rowid(right justified row id as a int)
+    - 78 bytes filler
+    - \r\n
+  - <output dir>
+- terasort 对数据排序
+  - <input dir>
+  - <output dir>
+- teravalidate 对排序数据做验证
 
 可以使用hadoop job -history all <job-output-dir>来观察程序运行数据，也可以通过web page来分析。
 
@@ -86,7 +87,7 @@ Options:
 	-readFileAfterOpen <true or false. if true, it reads the file and reports the average time to read. This is valid with the open_read operation. default is false. This is not mandatory>
 	-help: Display the help statement
 #+END_EXAMPLE
-   - startTime 作用是为了能够让所有的map同时启动以便对nn造成压力
+- startTime 作用是为了能够让所有的map同时启动以便对nn造成压力
 
 #+BEGIN_EXAMPLE
 ➜  ~HADOOP_HOME  hadoop jar hadoop-test-0.20.2-cdh3u3.jar nnbench -operation create_write -bytesToWrite 0 -numberOfFiles 1200
@@ -154,12 +155,12 @@ Avg exec time (ms): Create/Write/Close: 26.526666666666667
                    RAW DATA: Late maps: 0
              RAW DATA: # of exceptions: 0
 #+END_EXAMPLE
-   - maps that missed the barrier 从代码上分析是，在等待到start time期间中,如果sleep出现异常的话。
-   - exceptions 表示在操作文件系统时候的exception数量
-   - TPS transactions per second
-   - exec（execution） 执行时间
-   - lat（latency） 延迟时间
-   - late maps 和 maps missed the barrier是一个概念。
+- maps that missed the barrier 从代码上分析是，在等待到start time期间中,如果sleep出现异常的话。
+- exceptions 表示在操作文件系统时候的exception数量
+- TPS transactions per second
+- exec（execution） 执行时间
+- lat（latency） 延迟时间
+- late maps 和 maps missed the barrier是一个概念。
 对于后面RAW DATA部分的话，从代码上看，就是为了计算出上面那些指标的，所以没有必要关注。
 
 ** mrbench
@@ -169,10 +170,10 @@ Avg exec time (ms): Create/Write/Close: 26.526666666666667
 MRBenchmark.0.0.2
 Usage: mrbench [-baseDir <base DFS path for output/input, default is /benchmarks/MRBench>] [-jar <local path to job jar file containing Mapper and Reducer implementations, default is current jar file>] [-numRuns <number of times to run the job, default is 1>] [-maps <number of maps for each run, default is 2>] [-reduces <number of reduces for each run, default is 1>] [-inputLines <number of input lines to generate, default is 1>] [-inputType <type of input to generate, one of ascending (default), descending, random>] [-verbose]
 #+END_EXAMPLE
-   - baseDir 输入输出目录
-   - jar 通常不需要指定，用默认即可。
-   - inputLines 输入条数
-   - inputType 输入是否有序
+- baseDir 输入输出目录
+- jar 通常不需要指定，用默认即可。
+- inputLines 输入条数
+- inputType 输入是否有序
 
 #+BEGIN_EXAMPLE
 hdfs@hadoop1:~$ hadoop jar /usr/lib/hadoop/hadoop-test-0.20.2-cdh3u3.jar mrbench -verbose
@@ -225,15 +226,15 @@ Examples:
 
 #+END_EXAMPLE
 从参数上看还是比较直接的。benchmark每个client通常对应10个mapper, 每个client操作<rows>个row,因此每个mapper操作<rows>/10个row,每个row大约1000bytes.
-   - filterScan 随机生成value，然后从头开始scan直到equal
-   - randomRead 随机选取key读取
-   - randomSeekScan 从某个随机位置开始scan最多100个
-   - randomWrite 随即生成key写入
-   - scan 每次scan 1个row，start随机
-   - scan<num> 每次scan num个row，start随机
-   - seqRead 顺序地读取每个key
-   - seqWrite 顺序地写入每个key
-   - #note: 这里的key都非常简单，10个字符的数字，printf("%010d",row)
+- filterScan 随机生成value，然后从头开始scan直到equal
+- randomRead 随机选取key读取
+- randomSeekScan 从某个随机位置开始scan最多100个
+- randomWrite 随即生成key写入
+- scan 每次scan 1个row，start随机
+- scan<num> 每次scan num个row，start随机
+- seqRead 顺序地读取每个key
+- seqWrite 顺序地写入每个key
+- #note: 这里的key都非常简单，10个字符的数字，printf("%010d",row)
 
 #+BEGIN_EXAMPLE
 hdfs@hadoop1:~$ time hbase org.apache.hadoop.hbase.PerformanceEvaluation --rows=1000 sequentialWrite 2
