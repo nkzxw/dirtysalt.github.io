@@ -3,7 +3,6 @@
 - docs http://scikit-learn.org/stable/documentation.html
 
 ** Overview
-- [[file:./sklearn-api.org][API Tour]]
 - supervised learning
   - classification # Identifying to which set of categories a new observation belong to.
   - regression # Predicting a continuous value for a new example.
