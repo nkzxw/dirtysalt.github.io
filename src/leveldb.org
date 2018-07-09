@@ -4,30 +4,30 @@ http://code.google.com/p/leveldb/
 
 ** Introduction
 相关资源：
-   - 使用文档. http://leveldb.googlecode.com/svn/trunk/doc/index.html
-   - 设计说明. http://leveldb.googlecode.com/svn/trunk/doc/impl.html
-   - leveldb和baidu内部kv系统对比. http://hi.baidu.com/little_fxxker/blog/item/1915f300f7548a046b60fb08.html
-   - http://blog.csdn.net/anderscloud/article/details/7182165
+- 使用文档. http://leveldb.googlecode.com/svn/trunk/doc/index.html
+- 设计说明. http://leveldb.googlecode.com/svn/trunk/doc/impl.html
+- leveldb和baidu内部kv系统对比. http://hi.baidu.com/little_fxxker/blog/item/1915f300f7548a046b60fb08.html
+- http://blog.csdn.net/anderscloud/article/details/7182165
 
 leveldb是一个kv存储系统，其中kv都是二进制。用户接口非常简单就是Put(k,v),Get(k),Delete(k).但是还有以下特性
-   - k有序存储.因为k是二进制没有解释的所以用户需要提供比较函数
-   - 支持遍历包括前向和反向
-   - 支持atomic write
-   - 支持filter policy(bloomfilter)
-   - 数据支持自动压缩(使用snappy压缩算法.关于snappy分析可以看[[file:snappy.org][这里]])
-   - 底层提供了抽象接口，允许用户定制
+- k有序存储.因为k是二进制没有解释的所以用户需要提供比较函数
+- 支持遍历包括前向和反向
+- 支持atomic write
+- 支持filter policy(bloomfilter)
+- 数据支持自动压缩(使用snappy压缩算法.关于snappy分析可以看[[file:snappy.org][这里]])
+- 底层提供了抽象接口，允许用户定制
 当然也存在一定的限制
-   - 不是SQL数据库，没有数据关系模型
-   - 一个table只允许一个process访问
-   - 单机系统没有client-server.
+- 不是SQL数据库，没有数据关系模型
+- 一个table只允许一个process访问
+- 单机系统没有client-server.
 
 目录层次划分是这样的(意图是我猜想的)
-   - db // 和db逻辑相关的内容
-   - helpers // 里面有一个内存db接口
-   - include // Interface
-   - port // 操作系统相关的移植接口
-   - table // 表存储结构
-   - util // 公用部分.
+- db // 和db逻辑相关的内容
+- helpers // 里面有一个内存db接口
+- include // Interface
+- port // 操作系统相关的移植接口
+- table // 表存储结构
+- util // 公用部分.
 
 leveldb还是比较麻烦的.开始阅读的时候(像我)很多策略细节就可以直接忽略.比如什么时候触发compaction的,以及挑选什么层次进行compaction的输出,
 选择那些文件进行compaction等.阅读的时候需要了解每个类到底是用来做什么的.个人觉得里面最迷惑的东西就是Version/VersionEdit/VersionSet是用来做什么的.
@@ -49,8 +49,8 @@ leveldb使用WriteBatch来达到atomic write操作.WriteBatch过程非常简单�
 
 ** BloomFilter
 相关资源：
-   - Bloom Filter. http://en.wikipedia.org/wiki/Bloom_filter
-   - LevelDB Bloom Filter实现. http://duanple.blog.163.com/blog/static/7097176720123227403134/
+- Bloom Filter. http://en.wikipedia.org/wiki/Bloom_filter
+- LevelDB Bloom Filter实现. http://duanple.blog.163.com/blog/static/7097176720123227403134/
 
 bloom filter原理非常简单，似乎没有必要详细分析。关于代码部分的话可以看Code Analysis/Util/BloomFilter.
 至于filter在磁盘上面是如何存储的可以参看下面一节Storage/DiskTable分析。
@@ -191,9 +191,9 @@ bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice& key) {
 
 ** Storage
 相关资源：
-   - Table Format. http://leveldb.googlecode.com/svn/trunk/doc/table_format.txt sst table存储格式。
-   - Log Format. http://leveldb.googlecode.com/svn/trunk/doc/log_format.txt block存储格式。
-   - LevelDB SSTable格式详解. http://wenku.baidu.com/view/19f83f51be23482fb4da4c29.html
+- Table Format. http://leveldb.googlecode.com/svn/trunk/doc/table_format.txt sst table存储格式。
+- Log Format. http://leveldb.googlecode.com/svn/trunk/doc/log_format.txt block存储格式。
+- LevelDB SSTable格式详解. http://wenku.baidu.com/view/19f83f51be23482fb4da4c29.html
 
 *** MemTable
 memtable在leveldb内部实现就是一个skiplist.所有的update都不是in-place的，对于memtable里面的修改来说的话使用的也是使用添加的方式完成的。
@@ -229,21 +229,21 @@ not necessarily the format.
 (2) No compression.  Again, this could be fixed by adding new record types.
 #+END_EXAMPLE
 pros有：
-   - 如果磁盘数据发生损坏的话，那么对于数据定位的话非常简单。如果这个block出现问题的话那么直接跳过这个block即可。
-   - 程序处理方面可以很容易地找到边界。
-   - 对于单条大数据处理的话我们不需要分配很大的内存来做buffer.
+- 如果磁盘数据发生损坏的话，那么对于数据定位的话非常简单。如果这个block出现问题的话那么直接跳过这个block即可。
+- 程序处理方面可以很容易地找到边界。
+- 对于单条大数据处理的话我们不需要分配很大的内存来做buffer.
 cons有：
-   - 没有针对小record进行优化，比如如果record足够小的话完全可以在length部分使用1个字节。
-   - 没有进行压缩。对于压缩率完全取决于实现。对于小数据来说的话压缩比可能不高，对于大数据来说比如超过32KB的话，
+- 没有针对小record进行优化，比如如果record足够小的话完全可以在length部分使用1个字节。
+- 没有进行压缩。对于压缩率完全取决于实现。对于小数据来说的话压缩比可能不高，对于大数据来说比如超过32KB的话，
 取决于是按照32KB单个block压缩呢(压缩率可能不高),还是先针对整体压缩(压缩率可能比较耗，但是却需要很大的buffer).
 
 *** DiskTable
 然后可以看看Table Format文档关于table存储格式。table存储格式里面主要包括几个部分：
-   - data block
-   - meta block
-   - meta index block
-   - data index block
-   - footer
+- data block
+- meta block
+- meta index block
+- data index block
+- footer
 footer部分是放在最末尾的，里面包含了data index block以及meta index block的偏移信息，读取table时候从末尾读取。
 
 首先我们看看data block是如何组织的。对于DiskTable(TableBuilder)就是不断地Add(Key,Value).当缓存的数据达到一定大小之后，
@@ -322,9 +322,9 @@ in the cache and we will only need to worry about the O(N) complexity in the mer
 也让我重新仔细地思考了一下这个recovery过程可能会如何进行的。
 
 我们主要关注三个数据的恢复：
-   - 用户的data(log)
-   - leveldb所管理的文件(MANIFEST)
-   - 内部生成的sequence number(MANIFEST)
+- 用户的data(log)
+- leveldb所管理的文件(MANIFEST)
+- 内部生成的sequence number(MANIFEST)
 
 对于用户的data而言可以通过记录log来完成。注意这个log里面都是db的insert/delete等操作。值得注意的是，每次生成新的memtable也会生成新的log文件。
 这点是非常必要的，因为这样才可以将需要恢复哪些log对应起来。并且log里面每条日志都带上了sequence number,所以log里面的sequence number也有助于
@@ -361,39 +361,39 @@ Cache主要用来解决读取问题，做写穿透并且让Cache失效即可。l
 
 ** Option
 在options.h里面有一些leveldb可选的选项。
-   - comparator.用户可以指定比较器
-   - create_if_missing.如果数据库不存在就创建
-   - error_if_exists.如果数据库存在就报错
-   - paranoid_checks.尽可能多地进行错误检查
-   - env.用户可以模拟db环境
-   - info_log.leveldb本身logger.
-   - write_buffer_size.memtable大小
-   - max_open_files.最大打开fd数量
-   - block_cache.Table读取data block的cache.
-   - block_size.Table里面Block大小
-   - block_restart_interval.在一个Block里面每隔多少个key创建一个restart point.
-   - compression.DataBlock是否需要压缩
-   - filter_policy.过滤策略默认就是bloom filter.
-   - verify_checksums.读取block时候是否校验checksum
-   - fill_cache.读取block是否会Cache.通常scan时候不要做cache
-   - sync.leveldb内部发起write的话是否会调用fsync.
+- comparator.用户可以指定比较器
+- create_if_missing.如果数据库不存在就创建
+- error_if_exists.如果数据库存在就报错
+- paranoid_checks.尽可能多地进行错误检查
+- env.用户可以模拟db环境
+- info_log.leveldb本身logger.
+- write_buffer_size.memtable大小
+- max_open_files.最大打开fd数量
+- block_cache.Table读取data block的cache.
+- block_size.Table里面Block大小
+- block_restart_interval.在一个Block里面每隔多少个key创建一个restart point.
+- compression.DataBlock是否需要压缩
+- filter_policy.过滤策略默认就是bloom filter.
+- verify_checksums.读取block时候是否校验checksum
+- fill_cache.读取block是否会Cache.通常scan时候不要做cache
+- sync.leveldb内部发起write的话是否会调用fsync.
 
 ** ReadingCode
 *** Interface
 我们首先看看leveldb给我们暴露的头文件有哪些.稍微简单地看看接口提供了哪些功能.头文件目录是include/leveldb
-   - cache.h // kv内存cache接口
-   - c.h // leveldb C接口
-   - comparator.h // Slice的比较接口
-   - db.h // db对象接口
-   - env.h // 和环境相关的接口
-   - filter_policy.h // 过滤策略相关的接口
-   - iterator.h // 遍历接口
-   - options.h // db操作的选项对象
-   - slice.h // db操作的key对象(Slice)
-   - status.h // db操作返回状态的对象
-   - table_builder.h // 构建table
-   - table.h // immutable persistent sortedtable.
-   - write_batch.h // 批量(原子)写入对象
+- cache.h // kv内存cache接口
+- c.h // leveldb C接口
+- comparator.h // Slice的比较接口
+- db.h // db对象接口
+- env.h // 和环境相关的接口
+- filter_policy.h // 过滤策略相关的接口
+- iterator.h // 遍历接口
+- options.h // db操作的选项对象
+- slice.h // db操作的key对象(Slice)
+- status.h // db操作返回状态的对象
+- table_builder.h // 构建table
+- table.h // immutable persistent sortedtable.
+- write_batch.h // 批量(原子)写入对象
 leveldb里面对象的实现方式，很多都是采用抽象类然后提供工厂模式来创建的，这样的话允许用户更换具体实现。
 
 **** cache.h
@@ -462,11 +462,11 @@ class Cache {
 #+END_SRC
 一般底层Handle有引用计数，然后调用Release的话会atomic dec.如果==0的话那么会调用Insert时候的deleter接口进行释放。
 这里稍微总结一下Cache提供的接口
-   - Insert // 插入kv返回Handle
-   - Lookup // 查询k返回Handle
-   - Value // 传入handle得到对应的value
-   - Erase // 删除kv
-   - NewId // 产生一个新id.
+- Insert // 插入kv返回Handle
+- Lookup // 查询k返回Handle
+- Value // 传入handle得到对应的value
+- Erase // 删除kv
+- NewId // 产生一个新id.
 
 实现是ShardedLRUCache.这个后面会具体分析.
 #+BEGIN_SRC C++
@@ -509,9 +509,9 @@ const Comparator* BytewiseComparator() {
 
 **** db.h
 db.h下面有几个对象
-   - Snapshot(接口)
-   - Range
-   - DB(接口)
+- Snapshot(接口)
+- Range
+- DB(接口)
 
 Snapshot结构非常简单，只是提供了一些虚析构函数接口。实现是SnapshotImpl.
 
@@ -633,17 +633,17 @@ class DB {
 };
 #+END_SRC
 实现是DBImpl.这里稍微总结一下DB提供的接口
-   - Open // 创建DB
-   - Put //
-   - Delete //
-   - Write // batch(atomic)写入.
-   - Get //
-   - NewInterator // 创建迭代器
-   - GetSnapshot // 创建snapshot
-   - ReleaseSnapShot // 销毁snapshot
-   - GetProperty // 获取属性
-   - GetApproximateSizes // 根据range这个部分内容占用磁盘大小
-   - CompactRange // 压缩range这个部分内容
+- Open // 创建DB
+- Put //
+- Delete //
+- Write // batch(atomic)写入.
+- Get //
+- NewInterator // 创建迭代器
+- GetSnapshot // 创建snapshot
+- ReleaseSnapShot // 销毁snapshot
+- GetProperty // 获取属性
+- GetApproximateSizes // 根据range这个部分内容占用磁盘大小
+- CompactRange // 压缩range这个部分内容
 
 此外还提供了两个函数用于删除DB以及修复DB.这个会单独讨论.
 #+BEGIN_SRC C++
@@ -784,24 +784,24 @@ class Env {
 };
 #+END_SRC
 稍微总结一下这些接口.对于这些接口创建的抽象对象，在后面也会详细解释。实现是PosixEnv.
-   - Default // 获得默认的环境
-   - NewSequentialFile // 创建顺序文件
-   - NewRandomAccessFile // 创建随机文件
-   - NewWritableFile // 创建可写文件
-   - FileExists // 文件是否存在
-   - GetChildren // 目录下面的文件
-   - DeleteFile // 删除文件
-   - CreateDir // 创建目录
-   - DeleteDir // 删除目录
-   - GetFileSize // filesize.
-   - RenameFile // rename.
-   - LockFile // 锁住文件
-   - UnlockFile // 解锁文件
-   - StartThread // 创建线程
-   - GetTestDirectory // 测试目录
-   - NewLogger // 创建logger打印到对应文件
-   - NowMicros // 当前us.
-   - SleepForMicroseconds // sleep us
+- Default // 获得默认的环境
+- NewSequentialFile // 创建顺序文件
+- NewRandomAccessFile // 创建随机文件
+- NewWritableFile // 创建可写文件
+- FileExists // 文件是否存在
+- GetChildren // 目录下面的文件
+- DeleteFile // 删除文件
+- CreateDir // 创建目录
+- DeleteDir // 删除目录
+- GetFileSize // filesize.
+- RenameFile // rename.
+- LockFile // 锁住文件
+- UnlockFile // 解锁文件
+- StartThread // 创建线程
+- GetTestDirectory // 测试目录
+- NewLogger // 创建logger打印到对应文件
+- NowMicros // 当前us.
+- SleepForMicroseconds // sleep us
 环境还提供了一个EnvWrapper.这个类就是得到一个Env*对象然后重新转发出去。
 
 ***** FileLock
@@ -1090,9 +1090,9 @@ void Iterator::RegisterCleanup(CleanupFunction func, void* arg1, void* arg2) {
 
 **** options.h
 对于options来说存在3种
-   - Options // 控制DB行为.
-   - ReadOptions // 控制读取行为
-   - WriteOptions // 控制写入行为
+- Options // 控制DB行为.
+- ReadOptions // 控制读取行为
+- WriteOptions // 控制写入行为
 
 ***** Options
 Options控制DB行为，在DB::Open时候就传入.我们需要针对这些字段仔细看看.
@@ -1441,11 +1441,11 @@ class TableBuilder {
 };
 #+END_SRC
 下面是一些比较重要的接口.
-   - ChangeOptions // 修改选项
-   - Add // 添加kv.k必须是有序
-   - Flush // 刷新
-   - Finish // 结束
-   - Abandon // 放弃
+- ChangeOptions // 修改选项
+- Add // 添加kv.k必须是有序
+- Flush // 刷新
+- Finish // 结束
+- Abandon // 放弃
 
 **** table.h
 Table就是持久化并且不可变的sortedtable.下面来看看接口.具体实现会在后面分析.
@@ -1500,9 +1500,9 @@ class Table {
 };
 #+END_SRC
 主要提供的接口如下
-   - Open. // 这个接口可以看出访问的是随机文件.
-   - NewIterator // 创建一个迭代器.
-   - ApproximateOffsetOf // 可以通过key查找到大致位置然后后续可以发起读操作.
+- Open. // 这个接口可以看出访问的是随机文件.
+- NewIterator // 创建一个迭代器.
+- ApproximateOffsetOf // 可以通过key查找到大致位置然后后续可以发起读操作.
 
 **** write_batch.h
 WriteBatch用来持有批量写入的内容.注意底层实现有Handler是需要具体实现的。关于这个具体实现部分会在后面分析.
@@ -1544,25 +1544,25 @@ class WriteBatch {
 
 *** Implementation
 实现部分我按照功能划分了几个部分.
-   - DB
-   - Posix
-   - Cache
-   - Batch
-   - Log
-   - Table
-   - Util
+- DB
+- Posix
+- Cache
+- Batch
+- Log
+- Table
+- Util
 
 *** DB
 **** FileName
 db/filename.cc 这里面都是关于文件名称操作的方法.文件包括
-   - db/CURRENT // 当前文件
-   - db/LOCK // DB锁文件
-   - db/LOG // info log.日志文件.
-   - db/LOG.old // info log.日志文件.
-   - db/MANIFEST-[0-9]+ // 描述文件
-   - db/[0-9]+.log // db日志文件
-   - db/[0-9]+.sst // dbtable文件
-   - db/[0-9]+.dbtmp // db临时文件
+- db/CURRENT // 当前文件
+- db/LOCK // DB锁文件
+- db/LOG // info log.日志文件.
+- db/LOG.old // info log.日志文件.
+- db/MANIFEST-[0-9]+ // 描述文件
+- db/[0-9]+.log // db日志文件
+- db/[0-9]+.sst // dbtable文件
+- db/[0-9]+.dbtmp // db临时文件
 这里[0-9]+都表示一个sequence number.这里还有另外一个不是操作FileName的函数.SetCurrentFile
 #+BEGIN_SRC C++
 Status SetCurrentFile(Env* env, const std::string& dbname,
@@ -2189,13 +2189,13 @@ void DBImpl::ReleaseLoggingResponsibility(LoggerId* self) {
 ***** MakeRoomForWrite
 仅仅从函数名称上面开不出到底是开辟什么空间.看看实现吧.代码里面可以分析出这个部分是存在compaction的.
 我们这里稍微总结一下逻辑
-   - 如果允许delay的话并且level0文件数目超过slowdown的阈值的话，那么就会先尝试delay 1s.下次不会进行delay
-   - 如果不是force的话并且memtable空间允许的话那么直接返回
-   - 剩下的逻辑就是force出一个memtable了.那么这个时候必须进行compaction to level0.
-   - 先检查是否正在被memtable compaction.如果正在的话那么等待
-   - 然后查看level0文件数目是否过多.如果过多的话那么也等待
-   - 最后创建新的memtable以及logfile.将原来的memtable保存起来准备后台compaction
-   - 发起compaction.并且force=false.
+- 如果允许delay的话并且level0文件数目超过slowdown的阈值的话，那么就会先尝试delay 1s.下次不会进行delay
+- 如果不是force的话并且memtable空间允许的话那么直接返回
+- 剩下的逻辑就是force出一个memtable了.那么这个时候必须进行compaction to level0.
+- 先检查是否正在被memtable compaction.如果正在的话那么等待
+- 然后查看level0文件数目是否过多.如果过多的话那么也等待
+- 最后创建新的memtable以及logfile.将原来的memtable保存起来准备后台compaction
+- 发起compaction.并且force=false.
 按照性能角度出发的话，这种逻辑应该非常make sense.
 #+BEGIN_SRC C++
 // REQUIRES: mutex_ is held
@@ -2445,14 +2445,14 @@ Status DBImpl::CompactMemTable() {
 
 ***** CompactRange
 这个语义应该是针对某个range来进行compaction的.
-   - 首先查看和这些range存在overlap的最大level是多少
-   - 首先对memtable进行compaction(不管是否存在overlap)(TEST_CompactMemTable)
-   - 然后遍历这些level,分别对每层进行compact range.(TEST_CompactRange)
+- 首先查看和这些range存在overlap的最大level是多少
+- 首先对memtable进行compaction(不管是否存在overlap)(TEST_CompactMemTable)
+- 然后遍历这些level,分别对每层进行compact range.(TEST_CompactRange)
 #+BEGIN_SRC C++
 void DBImpl::CompactRange(const Slice* begin, const Slice* end) {
   int max_level_with_files = 1;
   {
-    MutexLock l(&mutex_);
+   x MutexLock l(&mutex_);
     Version* base = versions_->current();
     for (int level = 1; level < config::kNumLevels; level++) {
       if (base->OverlapInLevel(level, begin, end)) {
@@ -5388,9 +5388,9 @@ class VersionSet::Builder {
 ***** SaveTo
 当前通过edit修改后的状态保存到新的version里面.我们来仔细看看这个过程.将之前edit回放的内容
 保存在v这个version里面来.典型使用方法非常简单.
-   - 首先构造builder对象
-   - Apply使用某个edit.
-   - SaveTo生成某个version.
+- 首先构造builder对象
+- Apply使用某个edit.
+- SaveTo生成某个version.
 #+BEGIN_SRC C++
   // Save the current state in *v.
   void SaveTo(Version* v) {
@@ -6620,10 +6620,10 @@ write_batch_internal.h里面是一些write_batch里面可能使用到的静态�
 //    len: varint32
 //    data: uint8[len]
 #+END_SRC
-   - sequence fixed64
-   - 记录长度 fixed32(因为这个写入是多次的,所以存放fixed比较容易修改)
-   - 每条记录有头部表示数据还是删除.对于数据就是kv,对于删除只是存放k
-   - kv的话都是varint32 + data
+- sequence fixed64
+- 记录长度 fixed32(因为这个写入是多次的,所以存放fixed比较容易修改)
+- 每条记录有头部表示数据还是删除.对于数据就是kv,对于删除只是存放k
+- kv的话都是varint32 + data
 这里rep_的类型是std::stirng.
 
 ***** Count
@@ -8946,8 +8946,8 @@ table/iterator_wrapper.h IteratorWrapper就是Iterator的装饰者。对于Valid
 
 **** EmptyIterator
 EmptyIterator用来构造返回错误或者是空的Iterator.提供了两个函数
-   - NewEmptyIterator
-   - NewErrorIterator
+- NewEmptyIterator
+- NewErrorIterator
 来进行构造。具体实现放在了table/iterator.cc里面
 #+BEGIN_SRC C++
 class EmptyIterator : public Iterator {
@@ -9486,25 +9486,25 @@ char* Arena::AllocateNewBlock(size_t block_bytes) {
 
 **** Coding
 util/coding.h[.cc] Coding主要是用来完成变长数据以及字符串还有Slice的序列化和反序列化的.主要方法包括下面这些
-   - PutFixed32 写入定长uint32
-   - PutFixed64 写入定长uint64
-   - PutVarint32 写入变长uint32
-   - PutVarint64 写入变长uint64
-   - PutLengthPrefixedSlice 后面解释.
-   - GetVarint32 读取变长uint32
-   - GetVarint64 读取变长uint64
-   - GetLengthPrefixedSlice 后面解释.
-   - GetVarint32Ptr(p,limit,v) 将[p,limit)部分的内存解析为变长uint32放到v里面,返回下一个字节
-   - GetVarint64Ptr(p,limit,v) 将[p,limit)部分的内存解析为变长uint64放到v里面,返回下一个字节
-   - VarintLength 变长uint32/uint64长度
-   - EncodeFixed32 PutFixed32 low-level
-   - EncodeFixed64 PutFixed64 low-level
-   - EncodeVarint32 PutVarint32 low-level
-   - EncodeVarint64 PutVarint64 low-level
-   - DecodeFixed32 读取定长uint32
-   - DecodeFixed64 读取定长uint64
-   - GetVarint32PtrFallback
-   - GetVarint32Ptr 从[p,limit)读取uint32并且返回下一个字节.
+- PutFixed32 写入定长uint32
+- PutFixed64 写入定长uint64
+- PutVarint32 写入变长uint32
+- PutVarint64 写入变长uint64
+- PutLengthPrefixedSlice 后面解释.
+- GetVarint32 读取变长uint32
+- GetVarint64 读取变长uint64
+- GetLengthPrefixedSlice 后面解释.
+- GetVarint32Ptr(p,limit,v) 将[p,limit)部分的内存解析为变长uint32放到v里面,返回下一个字节
+- GetVarint64Ptr(p,limit,v) 将[p,limit)部分的内存解析为变长uint64放到v里面,返回下一个字节
+- VarintLength 变长uint32/uint64长度
+- EncodeFixed32 PutFixed32 low-level
+- EncodeFixed64 PutFixed64 low-level
+- EncodeVarint32 PutVarint32 low-level
+- EncodeVarint64 PutVarint64 low-level
+- DecodeFixed32 读取定长uint32
+- DecodeFixed64 读取定长uint64
+- GetVarint32PtrFallback
+- GetVarint32Ptr 从[p,limit)读取uint32并且返回下一个字节.
 
 编码方式有点类似于google::protobuf里面的变长整数打包。我们这里着重看看下面两个函数
 #+BEGIN_SRC C++
@@ -9639,9 +9639,9 @@ class SkipList {
 
 ***** RandomHeight
 随机产生一个SkipList的高度.从1开始每次以1/4的概率+1.
-   - h=1 3/4
-   - h=2 3/16
-   - ...
+- h=1 3/4
+- h=2 3/16
+- ...
 主要就是有这么一个大概的概率就是,随机初始化的高度不会很大.
 #+BEGIN_SRC C++
 template<typename Key, class Comparator>
@@ -10147,7 +10147,7 @@ void Version::AddIterators(const ReadOptions& options,
         vset_->table_cache_->NewIterator(
             options, files_[0][i]->number, files_[0][i]->file_size));
   }
- 
+
   // For levels > 0, we can use a concatenating iterator that sequentially
   // walks through the non-overlapping files in the level, opening them
   // lazily.
@@ -10157,11 +10157,11 @@ void Version::AddIterators(const ReadOptions& options,
     }
   }
 }
- 
+
 中对于Level 0层是按照下标从0到N开始遍历的， 但是由于数据加入的时候老的文件在前，新的在后，所以这样的话在iters数组中
 下标最小的不一定是最新的。
 而在DBImpl::NewInternalIterator 中会把该函数的返回结果直接进行merging，而且原则是key相同的话选取丢弃后面出现的。
- 
+
 这样的策略的话会不会导致较老的数据被留下，较新的被删除 ？
 #+END_EXAMPLE
 

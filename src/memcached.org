@@ -1,2 +1,3 @@
 #+title: memcached
-memcached - a distributed memory object caching system http://memcached.org/
+
+http://memcached.org/

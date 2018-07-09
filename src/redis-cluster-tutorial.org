@@ -29,9 +29,9 @@ https://redis.io/topics/cluster-tutorial
 简单来说，Redis Cluster(RC)实现上将key sharding到多台redis servers上，然后每个shard是master/slaves结构。
 - sharding plan是相对静态的，在创建cluster的时候就确定下来了。如果增加和减少节点的话，需要手动reshard.
 - 每个shard是独立的，下面的master和slave之间可以相互切换(failover)。
-    - 如果master掉线的话，负责这个shard的slaves可以选举出master来。
-    - 如果通过redis-cli登录某个redis-server的话，通过 `keys *` 可以查看落在这个server上的所有keys.
-    - 可以通过命令 `CLUSTER FAILOVER`指令来模拟failover
+ - 如果master掉线的话，负责这个shard的slaves可以选举出master来。
+ - 如果通过redis-cli登录某个redis-server的话，通过 `keys *` 可以查看落在这个server上的所有keys.
+ - 可以通过命令 `CLUSTER FAILOVER`指令来模拟failover
 - 默认地所有shards必须都在线，如果某个shard unavailable的话，那么整个cluster就down了。
 
 Redis Cluster是在原来redis server上面实现的分布式功能，原来redis server还是负责原来的单机功能，然后在port + 10000这个端口上实现cluster protocol(binary, use little bandwidth and processing time)

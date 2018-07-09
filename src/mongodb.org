@@ -2,23 +2,23 @@
 
 ** Introduction
 主页是http://www.mongodb.org/. mongdb有下面这些特点：
-   - 可扩展，高性能，开源NoSQL数据库系统。Written in C++. Mongo is from "humongous".
-   - 面向文档存储。这个和面向key-value存储区别，有点类似于RDBMS的面向记录存储。
-   - Schema Free.对于文档而言没有固定的schema,不需要像RDBMS一样定义table schema.文档使用BSON(http://bsonspec.org/)来表示和存储。
-   - 全索引支持。全索引的支持可以让功能上就可以和key-value存储系统匹敌。
-   - Auto-Sharding.可以很好且很容易地做到负载均衡和水平扩展。
-   - 完整的HA方案。提供了两种HA方案master-slave(ms,deprecated)和replica-set(rs,recommended).
-   - MapReduce.可以在MongoDB上面进行MapReduce操作，使得mdb成为支持服务端计算的存储系统。
-   - GridFS.规定如何基于MongoDB来进行大文件存储的specification.
-   - 丰富的客户端支持。C++,Java,Python,Ruby,PHP,JavaScript,Scala等。
+- 可扩展，高性能，开源NoSQL数据库系统。Written in C++. Mongo is from "humongous".
+- 面向文档存储。这个和面向key-value存储区别，有点类似于RDBMS的面向记录存储。
+- Schema Free.对于文档而言没有固定的schema,不需要像RDBMS一样定义table schema.文档使用BSON(http://bsonspec.org/)来表示和存储。
+- 全索引支持。全索引的支持可以让功能上就可以和key-value存储系统匹敌。
+- Auto-Sharding.可以很好且很容易地做到负载均衡和水平扩展。
+- 完整的HA方案。提供了两种HA方案master-slave(ms,deprecated)和replica-set(rs,recommended).
+- MapReduce.可以在MongoDB上面进行MapReduce操作，使得mdb成为支持服务端计算的存储系统。
+- GridFS.规定如何基于MongoDB来进行大文件存储的specification.
+- 丰富的客户端支持。C++,Java,Python,Ruby,PHP,JavaScript,Scala等。
 
 这里有一些关于MongoDB的介绍和架构的文章.
-   - MongoDb Architecture. http://horicky.blogspot.jp/2012/04/mongodb-architecture.html (需骑墙)
-   - mongoDB - the good to begin links. http://poplink.blogspot.in/2012/05/mongodb-pandora-links.html (需骑墙)
-   - MongoDB构架图分享. http://blog.nosqlfan.com/html/3887.html
-   - MongoDB资料汇总专题. http://blog.nosqlfan.com/html/3548.html
-   - MongoDB和其他几种数据库的对比. http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
-   - MongoDB FAQ. http://cn.docs.mongodb.org/manual/faq/fundamentals/
+- MongoDb Architecture. http://horicky.blogspot.jp/2012/04/mongodb-architecture.html (需骑墙)
+- mongoDB - the good to begin links. http://poplink.blogspot.in/2012/05/mongodb-pandora-links.html (需骑墙)
+- MongoDB构架图分享. http://blog.nosqlfan.com/html/3887.html
+- MongoDB资料汇总专题. http://blog.nosqlfan.com/html/3548.html
+- MongoDB和其他几种数据库的对比. http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
+- MongoDB FAQ. http://cn.docs.mongodb.org/manual/faq/fundamentals/
 
 ** Cheatsheet
 *必须使用wiredtiger引擎* 相比mmapv1, wiredtiger可以更好地管理内存. `--storageEngine wiredTiger --wiredTigerCacheSizeGB 1`
@@ -33,14 +33,14 @@ mongodb采用一个线程处理一个请求的模型，不太确定mongodb是否
 
 ** 单机存储
 这里有一些关于MongoDB单机存储方面的文章.
-   - 深入MongoDB内部结构. http://blog.nosqlfan.com/html/2079.html
-   - MongoDB的索引使用及索引机制. http://blog.nosqlfan.com/html/758.html
-   - MongoDB Indexing: The Details http://www.slideshare.net/mongodb/mongodb-indexing-the-details
-   - 代码分析-查询 http://www.cnblogs.com/daizhj/archive/2011/03/18/1988288.html
-   - 代码分析-插入记录和btree构建 http://www.cnblogs.com/daizhj/archive/2011/03/30/1999699.html
-   - 代码分析-更新记录 http://www.cnblogs.com/daizhj/archive/2011/04/11/mongodb_update_recode_source_code.html
-   - 代码分析-删除记录 http://www.cnblogs.com/daizhj/archive/2011/04/06/mongodb_delete_recode_source_code.html
-   - 代码分析-日志持久化 http://www.cnblogs.com/daizhj/archive/2011/03/21/1990344.html
+- 深入MongoDB内部结构. http://blog.nosqlfan.com/html/2079.html
+- MongoDB的索引使用及索引机制. http://blog.nosqlfan.com/html/758.html
+- MongoDB Indexing: The Details http://www.slideshare.net/mongodb/mongodb-indexing-the-details
+- 代码分析-查询 http://www.cnblogs.com/daizhj/archive/2011/03/18/1988288.html
+- 代码分析-插入记录和btree构建 http://www.cnblogs.com/daizhj/archive/2011/03/30/1999699.html
+- 代码分析-更新记录 http://www.cnblogs.com/daizhj/archive/2011/04/11/mongodb_update_recode_source_code.html
+- 代码分析-删除记录 http://www.cnblogs.com/daizhj/archive/2011/04/06/mongodb_delete_recode_source_code.html
+- 代码分析-日志持久化 http://www.cnblogs.com/daizhj/archive/2011/03/21/1990344.html
 
 文件组织上每个database使用一个文件前缀，每个databses里面可以存在多个namespace.然后在多个namespace下面可以有多个collection.
 对于一个collection而言的话就是一个bson文档。
@@ -97,8 +97,8 @@ mongodb底层使用btree来进行索引.btree放在内存所以操作非常快(�
 
 ** 内存占用
 这里有一些关于MongoDB内存使用和Linux内存方面的文章.
-   - MongoDB与内存. http://blog.nosqlfan.com/html/2865.html
-   - Linux虚拟内存实现原理. http://blog.nosqlfan.com/html/2956.html
+- MongoDB与内存. http://blog.nosqlfan.com/html/2865.html
+- Linux虚拟内存实现原理. http://blog.nosqlfan.com/html/2956.html
 
 MongoDB不管是索引还是数据文件都强烈依赖于mmap.但是这里有必要区分虚拟内存和物理内存。mongdb虽然将文件都映射到内存，
 但是如果不触碰这些数据的话，实际上都是没有载入物理内存的(rss).不过如果需要将物理内存释放的话，需要munmap释放。
@@ -107,40 +107,40 @@ MongoDB不管是索引还是数据文件都强烈依赖于mmap.但是这里有�
 
 ** Sharding
 mdb可以通过指定shard key来做auto-sharding.对于sharding的话需要三个组件
-   - mongod.存储服务器
-   - mongos.路由服务器
-   - config server.配置服务器.
+- mongod.存储服务器
+- mongos.路由服务器
+- config server.配置服务器.
 这里需要配置服务器的原因主要是用来记录shard key partition方案的。根据shard key parition方案，对于所有的文档
 会形成不同的chunk落在不同的mongod上面。mongos一旦检测到某个chunk过大的话那么就会进行分裂，这样会形成新的shard key parition方案。
 
 不过auto-sharding也有问题，比较出名的就是这个"Foursquare长达11小时的宕机" http://www.dbanotes.net/arch/foursquare_outage.html.
 然后又同学跳出来也批评了一下"auto-sharding 无用论：auto-sharding vs. manual-sharding" http://blog.nosqlfan.com/html/841.html.
 auto-sharding有三个需要考虑的问题：
-   - sharding算法
-   - 自动在线迁移数据代价
-   - 数据迁移造成的碎片.(这个应该算是mongodb的问题).
+- sharding算法
+- 自动在线迁移数据代价
+- 数据迁移造成的碎片.(这个应该算是mongodb的问题).
 不过我不是很认同作者的一个观点就是"冷数据不冷"。首先必须考虑我们为什么需要增加节点，是CPU还是Memory还是IO出现了问题，否则完全没有必要增加节点。
 对于mdb说是通常是memory出现了问题，那么完全可以在mdb单机上着手解决而不是auto-sharding的问题。既然增加了机器，那么就就希望CPU memory以及IO都可以充分利用起来。
 
 ** HA方案
 对于HA方案来说的话，mdb有两种解决方案
-   - master/slave(ms)
-   - replica-sets(rs)
+- master/slave(ms)
+- replica-sets(rs)
 
 ms并不是一个推荐的方式，因为相对rs来说工作方式没有那么灵活。ms需要指定master和slave节点，之间数据的同步类似于mysql relaylog工作方式，
 relaylog是异步发送的，所以数据没有强一致性只有最终一致性。但是如果master节点挂掉的话，需要人工介入(human intervention)，整个系统陷入read-only状态。
 rs相对来说好一些就是可以自动选主并且切换，并且rs不需要client指定具体哪一个是master。rs来说也需要几个组件
-   - mongod.存储服务器
-   - mongos.路由服务器
-   - config server.配置服务器
-   - arbiter.仲裁者.
+- mongod.存储服务器
+- mongos.路由服务器
+- config server.配置服务器
+- arbiter.仲裁者.
 mongod会进行voting，而arbiter也会进行voting但是却不会用来作为存储，也就是说arbiter不会作为主节点选出。rs也是通过异步传输relaylog来进行数据同步的。
 
 这里官方给出了一些HA方案的数据。
-   - 对于primary检测到自己不是主，或者是其他secondary发现primary inaccessible大约在10-30s.
-   - secondary之间进行election大约也在10-30s.
-   - 所以对于出现故障来说切换时间大约在1min.
-   - relaylog在局域网上的传输在ms级别上。
+- 对于primary检测到自己不是主，或者是其他secondary发现primary inaccessible大约在10-30s.
+- secondary之间进行election大约也在10-30s.
+- 所以对于出现故障来说切换时间大约在1min.
+- relaylog在局域网上的传输在ms级别上。
 
 但是官方文档里面也提到了
 #+BEGIN_QUOTE

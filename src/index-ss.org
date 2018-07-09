@@ -1,19 +1,19 @@
 #+title: Storage System
 
 - [[file:storage-system-reading.org][Storage System Reading]] 存储系统方面的一些文章
-  - [[file:backblaze-storage-pod.org][Backblaze Storage Pod]] 构建廉价存储服务器的厂商。将其设计以及使用公开并且做了比较深入的说明。
+  - [[http://redbook.cs.berkeley.edu/][Readings in Database Systems]]
+  - [[file:backblaze-storage-pod.org][Backblaze Storage Pod]] 构建廉价存储服务器的厂商，将其设计以及使用公开并且做了比较深入的说明。
   - [[file:./nosql-back-to-the-feature-or-yet-another-db-feature.org][NoSQL - Back to the Future or Yet Another DB Feature]] @2012
-- [[file:ssd.org][SSD]] solid state disk. 固态硬盘
   - [[file:./solid-state-revolution-in-depth-on-how-ssd-really-work.org][Solid-state revolution: in-depth on how SSDs really work]] ssd发展演变，内部构造和工作方式
   - [[file:./ssd-gc-and-trim.org][固态硬盘技术解析之垃圾回收和TRIM指令]]
   - [[file:coding-for-ssd.org][Coding for SSDs]] 为ssd设计系统的要点（和ssd底层原理）
   - [[file:./ssd-and-distributed-data-systems.org][SSDs and Distributed Data Systems]] ssd对于设计分布式数据系统的影响
-- [[file:raid.org][RAID]] Redundant Array of Inexpensive Disk. 廉价磁盘冗余阵列
   - [[file:./the-skinny-on-raid.org][The skinny on RAID]] 一篇关于RAID的介绍性文章
-- DBMS (database management system) [[file:./dbms-intro.org][Intro]] & [[file:./dbms-impl.org][Impl]]
-- [[file:gizzard.org][gizzard]] a library for creating distributed datastores 可以认为是数据库中间层，完成partition/replication，也做fault-tolerant migration. *DEPRECATED, DONT USE IT*
-- [[file:leveldb.org][leveldb]] Google的开源kv存储系统。支持billion级别的数据量，适合于写少读多的情况。当时阅读的时候是从github上面clone下来的，可能还存相当多的bug.
-- [[file:mongodb.org][mongodb]] 面向文档的分布式存储系统，但是却可以针对文档字段索引来加快查询。功能上比通常我们认为的NoSQL强但是弱于RDBMS.
+
+- DBMS (database management system) [[file:dbms-intro.org][Introduction]] & [[file:dbms-impl.org][Implementation]]
+- [[file:gizzard.org][gizzard]] a library for creating distributed datastores. *DEPRECATED, DONT USE IT*
+- [[file:leveldb.org][leveldb]] Google的开源kv存储系统。
+- [[file:mongodb.org][mongodb]] 面向文档的分布式存储系统。
 - [[file:redis.org][redis]] 内存存储系统，支持丰富的数据类型以及相应的计算(支持持久化)。外围包装网络访问接口(并且提供了丰富的客户端),可以比较方便地在分布式系统内或者是环境下面使用.
   - [[file:./redis-cluster-tutorial.org][Redis Cluster Tutorial]] Redis Cluster入门
   - [[file:./redis-manifesto.org][Redis Manifesto]]

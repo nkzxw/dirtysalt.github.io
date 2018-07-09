@@ -5,12 +5,12 @@
 作者的主页是http://antirez.com/, http://invece.org/. github是https://github.com/antirez/. 推荐这些的原因主要是因为作者真的是非常非常强的人。
 redis的代码在2w左右，但是包含的内容非常多包括精巧的数据结构设计，主从同步，虚拟内存控制，网络服务，事务支持等等。代码使用C进行开发，
 基本上没有任何封装，作者所写的代码都是用来直接解决具体问题的。针对redis从下面几个方面入手：
-   - data-type.数据结构
-   - command.命令
-   - virtual-memory.虚拟内存
-   - disk-storage.磁盘存储
-   - network-server.网络服务
-   - high-availability.HA
+- data-type.数据结构
+- command.命令
+- virtual-memory.虚拟内存
+- disk-storage.磁盘存储
+- network-server.网络服务
+- high-availability.HA
 了解了上面几个方面的知识之后看代码的话会比较方便(至少是有头绪).通过如果大家想尝试redis的话甚至可以不用搭建redis server,
 这里有个website可以尝试在线使用http://try.redis-db.com/. 界面和交互效果非常漂亮。另外这里有一些参考资源的汇总http://blog.nosqlfan.com/html/3537.html.
 不过我觉得redis本身就不是非常复杂，所以阅读文档足够了解其功能以及大致的内部实现。
@@ -21,15 +21,15 @@ redis的代码在2w左右，但是包含的内容非常多包括精巧的数据�
 
 ** 数据结构
 相关资源：
-   - Data types. http://redis.io/topics/data-types
-   - A fifteen minute introduction to Redis data types. http://redis.io/topics/data-types-intro
+- Data types. http://redis.io/topics/data-types
+- A fifteen minute introduction to Redis data types. http://redis.io/topics/data-types-intro
 
 redis本身是kv数据库，k来说的话支持string(not c-style string.可以支持binary).而对于v来说的话支持下面几种数据结构：
-   - string.上限521M，可以从来当做bitmap使用。但是命令上支持整数操作比如INCR只要string内容本身可以被解析为整数。
-   - list.提供的接口和linked-list类似，不支持遍历也没有索引，对于value只允许是string.可以push/pop/slice.
-   - hash.对于kv也都必须是string，不支持遍历。
-   - set.对于value只允许是string.命令上支持集合之间的并交叉运算(union/intersect/diff).
-   - sorted-set.和set差不多但是对于每个value来说还有一个float number的attribute(score).这样对于value来说可以进行排序，同时针对score进行范围查询。
+- string.上限521M，可以从来当做bitmap使用。但是命令上支持整数操作比如INCR只要string内容本身可以被解析为整数。
+- list.提供的接口和linked-list类似，不支持遍历也没有索引，对于value只允许是string.可以push/pop/slice.
+- hash.对于kv也都必须是string，不支持遍历。
+- set.对于value只允许是string.命令上支持集合之间的并交叉运算(union/intersect/diff).
+- sorted-set.和set差不多但是对于每个value来说还有一个float number的attribute(score).这样对于value来说可以进行排序，同时针对score进行范围查询。
 对于每种数据结构，redis仅仅是规定其语义但是内部实现的话却非常灵活，因为redis为了尽可能地将内容存放到内存中，针对这些数据结构实现做了内存大小优化(同时在性能上不会牺牲很多).
 这里有必要提一下sorted-set实现，将score放在skip-list里面，将value放在hashtable里面。这样可以针对value进行去重和查找，同时可以针对score进行范围查询和扫描。
 
@@ -37,36 +37,36 @@ redis本身是kv数据库，k来说的话支持string(not c-style string.可以�
 Commands. http://redis.io/commands official very comprehensive.
 
 命令包括下面几个部分：
-   - key操作
-   - 数据结构操作
-   - pub/sub
-   - transaction
-   - scripting
-   - connection
-   - server
+- key操作
+- 数据结构操作
+- pub/sub
+- transaction
+- scripting
+- connection
+- server
 
 -----
 key操作
-   - DEL key. 删除key.
-   - KEYS pattern. 返回匹配pattern的所有key.
-   - PEXPIRE key millseconds. 设置key的毫秒超时时间。
-   - RENAMENX key newkey. 重命名key为newkey如果newkey不存在的话。这里NX(Not eXist).
-   - DUMP key. 返回key所对应的object二进制表示
-   - MIGRATE host port key dest-db timeout. 迁移key到另外机器的db上。
-   - PEXPIREAT key millseconds-timestamp. 设置key的毫秒超时时间点。
-   - RESTORE key ttl serialized-value. 其中serialized-value为DUMP产生的内容，来恢复/创建key并且设置超时时间。
-   - EXISTS key. key是否存在
-   - MOVE key db. 将key移到db
-   - PTTL key. key剩余存活时间(in millseconds).
-   - SORT key [...]. key对应的value只允许是list,set和sorted-set，针对value按照不同策略进行排序。
-   - EXPIRE key. 设置key的秒级超时时间。
-   - OBJECT subcommand [...] 查看key对应object的meta信息。
-   - RANDOMKEY 从keyspace返回一个随机key.
-   - TTL key. key剩余存活时间(in seconds).
-   - EXPIREAT key timestamp. 设置key的秒级超时时间点。
-   - PERSIST key. 取消key超时。
-   - RENAME key newkey. 重命名key为newkey.
-   - TYPE key. key对应object的类型。
+- DEL key. 删除key.
+- KEYS pattern. 返回匹配pattern的所有key.
+- PEXPIRE key millseconds. 设置key的毫秒超时时间。
+- RENAMENX key newkey. 重命名key为newkey如果newkey不存在的话。这里NX(Not eXist).
+- DUMP key. 返回key所对应的object二进制表示
+- MIGRATE host port key dest-db timeout. 迁移key到另外机器的db上。
+- PEXPIREAT key millseconds-timestamp. 设置key的毫秒超时时间点。
+- RESTORE key ttl serialized-value. 其中serialized-value为DUMP产生的内容，来恢复/创建key并且设置超时时间。
+- EXISTS key. key是否存在
+- MOVE key db. 将key移到db
+- PTTL key. key剩余存活时间(in millseconds).
+- SORT key [...]. key对应的value只允许是list,set和sorted-set，针对value按照不同策略进行排序。
+- EXPIRE key. 设置key的秒级超时时间。
+- OBJECT subcommand [...] 查看key对应object的meta信息。
+- RANDOMKEY 从keyspace返回一个随机key.
+- TTL key. key剩余存活时间(in seconds).
+- EXPIREAT key timestamp. 设置key的秒级超时时间点。
+- PERSIST key. 取消key超时。
+- RENAME key newkey. 重命名key为newkey.
+- TYPE key. key对应object的类型。
 
 我们这里稍微看看超时命令的实现机制。http://redis.io/commands/expire. 实现上是一个概率算法，
 每隔100ms会扫描可能出现expire key的keyspace，选择其中100个出来进行检查，如果出现25个以上expire的话
@@ -83,11 +83,11 @@ Pub/Sub. http://redis.io/topics/pubsub.
 redis提供了pub/sub机制可以使得应用很方便地做message queue工作。但是这种message queue是种在线方式的message queue.
 如果subscribe在publish之后发起的话那么会丢掉数据。如果希望工作方式是离线的话，可以使用list来模拟message queue.
 我猜想resque(http://rubygems.org/gems/resque)应该是用离线方式工作的。
-   - PSUBSCRIBE pattern [pattern...] 订阅某些pattern(匹配channel)的信息
-   - PUNSUBSCRIBE [pattern...] 取消某些pattern(匹配channel)的订阅
-   - UNSUBSCRIBE channel [channel...] 取消订阅某些channel.
-   - PUBLISH channel message 向channel发布消息
-   - SUBSCRIBE channel [channel...] 订阅某些channel.
+- PSUBSCRIBE pattern [pattern...] 订阅某些pattern(匹配channel)的信息
+- PUNSUBSCRIBE [pattern...] 取消某些pattern(匹配channel)的订阅
+- UNSUBSCRIBE channel [channel...] 取消订阅某些channel.
+- PUBLISH channel message 向channel发布消息
+- SUBSCRIBE channel [channel...] 订阅某些channel.
 
 -----
 Transaction. http://redis.io/topics/transactions.
@@ -95,58 +95,58 @@ Transaction. http://redis.io/topics/transactions.
 关于transaction主要是为了解决在client端发起多个操作的需求，而redis scripting功能现在也能够满足transaction功能并且实现得更加优雅。
 用户可以通过向redis提交lua script到服务器端进行原子计算(如果是这样推断的话，那么可能redis是单CPU线程程序，通过进程来增加并发).
 感觉redis的transaction设计得恰到好处，在实现简单和功能足够的之间达到了折衷。
-   - DISCARD. 放弃事务。
-   - MULTI. 发起事务。
-   - WATCH key [key..]. 监控键值，通常在发起事务之前执行。WATCH机制的引入主要就是为了提供类似于CAS(check-and-set)语义，这个在文档里面介绍得很清楚。
-   - EXEC. 执行之前发起的事务。
-   - UNWATCH. 删除所有的监控键值。
+- DISCARD. 放弃事务。
+- MULTI. 发起事务。
+- WATCH key [key..]. 监控键值，通常在发起事务之前执行。WATCH机制的引入主要就是为了提供类似于CAS(check-and-set)语义，这个在文档里面介绍得很清楚。
+- EXEC. 执行之前发起的事务。
+- UNWATCH. 删除所有的监控键值。
 
 -----
 Scripting. http://redis.io/commands/eval.
 
 有了scripting可以通过提交lua script到redis server上面然后在服务端进行计算。同时redis保证只有一个lua interpreter在执行lua script所以可以实现事务功能。
 script可以在redis server进行缓存，用户也可以强制server将script全部删除掉。对于cache住的script,用户可以通过这个script的SHA1来访问。
-   - EVAL script numkeys key [key ...] arg [arg ...]. 执行script并且这个script会在server缓存。
-   - EVALSHA sha1 numkeys key [key ...] arg [arg ...]. 这个和EVAL一样，但是可以通过sha1来调用已经缓存住的script.
-   - SCRIPT FLUSH. 移除所有的script cache.
-   - SCRIPT LOAD script. 将script放到server端进行cache但是不执行。
-   - SCRIPT EXISTS scriptc [script...] 检查多个sha1 script是否存在。
-   - SCRIPT KILL. 终止当前执行的script.
+- EVAL script numkeys key [key ...] arg [arg ...]. 执行script并且这个script会在server缓存。
+- EVALSHA sha1 numkeys key [key ...] arg [arg ...]. 这个和EVAL一样，但是可以通过sha1来调用已经缓存住的script.
+- SCRIPT FLUSH. 移除所有的script cache.
+- SCRIPT LOAD script. 将script放到server端进行cache但是不执行。
+- SCRIPT EXISTS scriptc [script...] 检查多个sha1 script是否存在。
+- SCRIPT KILL. 终止当前执行的script.
 
 -----
 connection
-   - AUTH password. 进行身份验证。
-   - PING. 对server进行ping操作。
-   - SELECT index. 其中index为数字，默认为0.使用DB index.
-   - ECHO message. server做echo服务。
-   - QUIT. 断开连接。断开连接之后server会将所有的pending replies都返回给client.
+- AUTH password. 进行身份验证。
+- PING. 对server进行ping操作。
+- SELECT index. 其中index为数字，默认为0.使用DB index.
+- ECHO message. server做echo服务。
+- QUIT. 断开连接。断开连接之后server会将所有的pending replies都返回给client.
 
 -----
 server
-   - BGREWRITEAOF. background重写AOF，这样可以缩小日志部分。关于AOF会在磁盘存储部分说明。
-   - DBSIZE. number of keys.
-   - INFO. information about server.
-   - SLAVEOF host port. 这台redis-server作为host/port的slave.SLAVEOF NO ONE可以让这台机器变成master.
-   - BGSAVE. background进行dump保存为dump.rdb.
-   - DEBUG OBJECT key. #todo:
-   - LASTSAVE. 最后完成SAVE的unix timestamp.
-   - SLOWLOG subcommand [argument]. 关于慢日志的控制和查询。
-   - CONFIG GET parameter. 获取redis参数配置。
-   - DEBUG SEGFAULT. 让redis server主动crash(SIGSEGV).
-   - MONITOR. 监控到所有发送给redis server的command.通常是telnet登陆上去然后执行monitor来进行观察。
-   - SYNC. 触发sync操作让slave和master进行同步。
-   - CONFIG SET parameter value. 对redis进行参数配置。
-   - FLUASHALL. 从所有db中删除所有的key.
-   - SAVE. 前台进行dump保存为dump.rdb.
-   - TIME. 当前server的unix timestamp.
-   - CONFIG RESETSTAT. 重新按照INFO的配置来进行设置。(这里可以猜想INFO配置应该从配置文件来的，而没有包含动态配置修改).
-   - FLUSHDB. 从当前db中删除所有的key.
-   - SHUTDOWN [NOSAVE] [SAVE]. 关闭redis sever，之前可选地会进行SAVE并且flush AOF，同时断开所有的客户端连接。
+- BGREWRITEAOF. background重写AOF，这样可以缩小日志部分。关于AOF会在磁盘存储部分说明。
+- DBSIZE. number of keys.
+- INFO. information about server.
+- SLAVEOF host port. 这台redis-server作为host/port的slave.SLAVEOF NO ONE可以让这台机器变成master.
+- BGSAVE. background进行dump保存为dump.rdb.
+- DEBUG OBJECT key. #todo:
+- LASTSAVE. 最后完成SAVE的unix timestamp.
+- SLOWLOG subcommand [argument]. 关于慢日志的控制和查询。
+- CONFIG GET parameter. 获取redis参数配置。
+- DEBUG SEGFAULT. 让redis server主动crash(SIGSEGV).
+- MONITOR. 监控到所有发送给redis server的command.通常是telnet登陆上去然后执行monitor来进行观察。
+- SYNC. 触发sync操作让slave和master进行同步。
+- CONFIG SET parameter value. 对redis进行参数配置。
+- FLUASHALL. 从所有db中删除所有的key.
+- SAVE. 前台进行dump保存为dump.rdb.
+- TIME. 当前server的unix timestamp.
+- CONFIG RESETSTAT. 重新按照INFO的配置来进行设置。(这里可以猜想INFO配置应该从配置文件来的，而没有包含动态配置修改).
+- FLUSHDB. 从当前db中删除所有的key.
+- SHUTDOWN [NOSAVE] [SAVE]. 关闭redis sever，之前可选地会进行SAVE并且flush AOF，同时断开所有的客户端连接。
 
 ** 虚拟内存
 相关资源：
-   - Virtual Memory technical specification. http://redis.io/topics/internals-vm
-   - Memory Optimization. http://redis.io/topics/memory-optimization
+- Virtual Memory technical specification. http://redis.io/topics/internals-vm
+- Memory Optimization. http://redis.io/topics/memory-optimization
 
 关于虚拟内存，redis网站的文档讲解得是非常的详细，而且似乎为了这个功能的实现作者应该也下来不少功夫。首先redis是一个kv数据库，
 但是对于底层存储的话kv都表示成为redisObject存在，但是key永远不会swap出去只会将value swap出去。swap实现方面也借鉴了OS，
@@ -162,9 +162,9 @@ swappability = age*log(size_in_memory)
 
 对于redis来说包含两种VM机制，blocking和threaded vm.其实关系非常简单，threaded vm就是通过增加io thread然后在thread里面执行blocking vm.
 文档里面作者提到了当时考虑解决blocking vm的问题，包含三种方式：
-   - 将redis修改成为multi-thread工作方式。
-   - 将swap io部分修改成为nonblocking方式，和io thread工作方式一样只不过这个thread是kernel thread.
-   - io thread但是线程是userspace thread.这也是redis采用的方式。
+- 将redis修改成为multi-thread工作方式。
+- 将swap io部分修改成为nonblocking方式，和io thread工作方式一样只不过这个thread是kernel thread.
+- io thread但是线程是userspace thread.这也是redis采用的方式。
 
 threaded vm还有两个需要注意的地方。1)就是redis针对操作必须首先判断这个操作所涉及的所有的keys是否都已经在memory了，如果有一个key
 依然是被swap的话，那么需要首先block这个请求，将这个请求里面放到io thread里面先将所有的key全部swap出来。但是与此同时必须防止swap线程
@@ -179,11 +179,11 @@ value可能还在swap file上面，child process需要将这些value swap in.但
 
 ** 磁盘存储
 相关资源：
-   - Persistence. http://redis.io/topics/persistence
-   - Redis-RDB-Dump-File-Format. https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format
-   - Redis或弃用当前VM机制，采用新的diskstore模型. http://blog.nosqlfan.com/html/1047.html
-   - Redis新的存储模式diskstore. http://timyang.net/data/redis-diskstore/
-   - Redis persistence demystified. http://antirez.com/post/redis-persistence-demystified.html
+- Persistence. http://redis.io/topics/persistence
+- Redis-RDB-Dump-File-Format. https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format
+- Redis或弃用当前VM机制，采用新的diskstore模型. http://blog.nosqlfan.com/html/1047.html
+- Redis新的存储模式diskstore. http://timyang.net/data/redis-diskstore/
+- Redis persistence demystified. http://antirez.com/post/redis-persistence-demystified.html
 
 当前redis磁盘存储方式有两种，一种是RDB(redis db)，一种是AOF(append-only file).可以看到磁盘存储上redis并没有非常方便的查找结构，
 这也和redis的初始定位有关，redis一开始定位就是内存kv数据库。
@@ -219,16 +219,16 @@ e
 
 ** 网络服务
 相关资源：
-   - Event Library. http://redis.io/topics/internals-eventlib 对于event library的理解不过都是一些基本的问题。
-   - Redis Event Library. http://redis.io/topics/internals-rediseventlib redis的event library的实现。
-   - Pipelining. http://redis.io/topics/pipelining 通过pipelining的方式隐藏网络带来的延迟。其实就是批量处理方式。
-   - Protocol specification. http://redis.io/topics/protocol protocol规范，可以看得出格式上还是非常human-readable的。
+- Event Library. http://redis.io/topics/internals-eventlib 对于event library的理解不过都是一些基本的问题。
+- Redis Event Library. http://redis.io/topics/internals-rediseventlib redis的event library的实现。
+- Pipelining. http://redis.io/topics/pipelining 通过pipelining的方式隐藏网络带来的延迟。其实就是批量处理方式。
+- Protocol specification. http://redis.io/topics/protocol protocol规范，可以看得出格式上还是非常human-readable的。
 关于网络服务不打算详细分析。
 
 ** HA方案
 相关资源：
-   - Replication. http://redis.io/topics/replication
-   - Redis Cluster. http://redis.io/presentation/Redis_Cluster.pdf
+- Replication. http://redis.io/topics/replication
+- Redis Cluster. http://redis.io/presentation/Redis_Cluster.pdf
 
 现在redis的replication方式只有master/slave方案(one master and serveral slaves).slave可以进行级联但是不允许作为多个master的slave.
 (这个在SLAVEOF命令里面有说明，如果原来已经是slave如果使用SLAVEOF的话，那么就不会follow原来的master而会follow新的master,同时将原来
@@ -240,8 +240,8 @@ e
 http://redis.io/topics/sentinel
 
 sentinel功能是为了解决redis在分布式使用场景中主从automatic failover的情况， 包括下面这几个功能：
-   - Monitoring. Sentinel constantly check if your master and slave instances are working as expected.（监控redis node是否正常工作）
-   - Notification. Sentinel can notify the system administrator, or another computer program, via an API, that something is wrong with one of the monitored Redis instances.（如果node没有正常工作那么可以通知）
-   - Automatic failover. If a master is not working as expected, Sentinel can start a failover process where a slave is promoted to master, the other additional slaves are reconfigured to use the new master, and the applications using the Redis server informed about the new address to use when connecting.（如果master节点没有正常工作的话，可以选择启动新的slave来作为master，完成故障的自动恢复。自己实现了一个agreement protocol来完成选主）
+- Monitoring. Sentinel constantly check if your master and slave instances are working as expected.（监控redis node是否正常工作）
+- Notification. Sentinel can notify the system administrator, or another computer program, via an API, that something is wrong with one of the monitored Redis instances.（如果node没有正常工作那么可以通知）
+- Automatic failover. If a master is not working as expected, Sentinel can start a failover process where a slave is promoted to master, the other additional slaves are reconfigured to use the new master, and the applications using the Redis server informed about the new address to use when connecting.（如果master节点没有正常工作的话，可以选择启动新的slave来作为master，完成故障的自动恢复。自己实现了一个agreement protocol来完成选主）
 
 #todo: 考虑到redis的代码质量比较高，对于redis的automatic failover实现机制可以好好分析并且阅读代码。
