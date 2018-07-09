@@ -10,10 +10,10 @@ copy from [[https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2651987743&idx
 
 为什么机器学习中的数学很重要？这个问题的理由我想强调以下几点：
 
-0. 选择合适的算法，要考虑的包括算法准确性、训练时间、模型复杂度、参数的数量和特征数量。
-0. 选择参数设置和验证策略。
-0. 理解偏差与方差的权衡以确定欠拟合和过拟合。
-0. 预估正确的置信区间和不确定性。
+- 选择合适的算法，要考虑的包括算法准确性、训练时间、模型复杂度、参数的数量和特征数量。
+- 选择参数设置和验证策略。
+- 理解偏差与方差的权衡以确定欠拟合和过拟合。
+- 预估正确的置信区间和不确定性。
 
 *你需要多高的数学水平？*
 
@@ -44,14 +44,14 @@ Skyler Speakman曾说："线性代数式21世纪的数学"，我完全赞同该�
 
 下面是部分机器学习所需数学概念的一些MOOC和学习资料：
 
-0. Khan Academy's Linear Algebra, Probability & Statistics, Multivariable CalculusandOptimization.
-0. Coding the Matrix: Linear Algebra through Computer Science Applications by Philip Klein, Brown University.
-0. Linear Algebra – Foundations to Frontiers by Robert van de Geijn, University of Texas.
-0. Applications of Linear Algebra, Part 1 and Part 2. A newer course by Tim Chartier, Davidson College.
-0. Joseph Blitzstein – Harvard Stat 110 lectures
-0. Larry Wasserman's book – All of statistics: A Concise Course in Statistical Inference .
-0. Boyd and Vandenberghe's course on Convex optimisation from Stanford.
-0. Linear Algebra – Foundations to Frontiers on edX.
-0. Udacity's Introduction to Statistics.
+- Khan Academy's Linear Algebra, Probability & Statistics, Multivariable CalculusandOptimization.
+- Coding the Matrix: Linear Algebra through Computer Science Applications by Philip Klein, Brown University.
+- Linear Algebra – Foundations to Frontiers by Robert van de Geijn, University of Texas.
+- Applications of Linear Algebra, Part 1 and Part 2. A newer course by Tim Chartier, Davidson College.
+- Joseph Blitzstein – Harvard Stat 110 lectures
+- Larry Wasserman's book – All of statistics: A Concise Course in Statistical Inference .
+- Boyd and Vandenberghe's course on Convex optimisation from Stanford.
+- Linear Algebra – Foundations to Frontiers on edX.
+- Udacity's Introduction to Statistics.
 
 最后，本文的主要目的是提供有关机器学习所需的重要数学概念的建议和有用的资源。但是，有些机器学习爱好者可能是数学初学者，会觉得这篇文章令人沮丧（这并不是我的目的）。对初学者来说，你并不需要先学好大量数学知识再开始做机器学习。正如这篇文章提到的，最基本的需要是数据分析，然后你可以在掌握更多技术和算法的过程中继续学习数学。

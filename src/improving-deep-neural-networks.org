@@ -61,7 +61,6 @@ momentum在更新weight时候，不是直接更新-a * dW, 而是更新这些dW�
 
 file:./images/improve-dnn-ewa-bias-correction.png
 
-
 ** Gradient Check
 优化阶段为了证明BP写正确了，最好做梯度检查(gradient checking). 梯度有两种方法可以求解：
 1. dw = f(w+e) - f(w) / e.
