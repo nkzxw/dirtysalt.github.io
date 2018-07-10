@@ -40,7 +40,6 @@ https://dirtysalt.github.io/html/ha-namenode-for-hdfs-with-hadoop1.html
 https://dirtysalt.github.io/html/scaling-lessons-learned-at-dropbox.html
 https://dirtysalt.github.io/html/git.html
 https://dirtysalt.github.io/html/linux-kernel-management-style.html
-https://dirtysalt.github.io/html/blog.html
 https://dirtysalt.github.io/html/hadoop.html
 https://dirtysalt.github.io/html/generalists-and-specialists-thoughts-on-hiring.html
 https://dirtysalt.github.io/html/sicp.html
