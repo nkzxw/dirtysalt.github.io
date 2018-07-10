@@ -1,10 +1,7 @@
 # Layout
 
 - src 原始org文件
-- html 生成的html文档
-- blogs -> html/blogs
-- images -> src/images
-- css -> src/css
+- html 生成html文件
 - scripts
    - publish/publish.el 发布脚本
    - pp-html 处理org生成的html文件，添加评论以及GA等代码
