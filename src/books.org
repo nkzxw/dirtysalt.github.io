@@ -1,6 +1,7 @@
 #+title: books
 
 软件开发
+- [[file:design-patterns.org][Design Patterns]] Elements of Reusable Object-Oriented Software
 - [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
 - [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
 - [[file:./blogs/writing-clean-code.org][编程精粹-Microsoft编写优质无错代码的秘诀(Writing Clean Code)]]
@@ -21,6 +22,7 @@
 - [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
 - [[file:blogs/remote.org][Remote]] by 37 Signals
 - [[file:./blogs/mac-talk.org][MacTalk]] by 池建强
+- [[file:./future-of-code.org][代码的未来]] by 松本行弘
 
 人物传记
 - [[file:./blogs/steve-jobs.org][史蒂夫乔布斯传(Steve Jobs)]]
@@ -65,6 +67,8 @@
 - [[file:blogs/how-to-solve-it-a-new-apsect-of-math-method.org][如何解题-数学思维新方法]] by George Polya
 - [[file:./blogs/republic.org][理想国(Republic)]] by Plato
 - [[file:blogs/big-data-and-revolution.org][大数据时代：生活、工作与思维的大变革]]
+- [[file:./competitive-strategy.org][竞争策略 on Coursera]]
+- [[file:./financial-markets-class.org][金融市场 on Coursera]]
 
 小说
 - [[file:./blogs/the-catcher-in-the-rye.org][麦田里的守望者(The Catcher in The Rye)]] by Jerome Salinger

@@ -41,6 +41,7 @@
 - [[file:./mean-people-fail.org][Mean People Fail]] by Paul Graham.
 - [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
 - [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]] ([[file:images/netflix-culture.pdf][pdf]])
+- [[file:license.org][Open Source License]] 一些常见的开源协议
 
 ** Blogs
 - 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
@@ -108,15 +109,17 @@
 - 201509 [[file:./blogs/tips-for-work-life-balance.org][Tips for work-life balance]]
 
 ** Books
-- [[file:./future-of-code.org][代码的未来]] by 松本行弘
-- [[file:design-reading.org][Design Reading]] 软件设计方面的一些文章
-- [[file:license.org][Open Source License]] 一些常见的开源协议
-- [[file:design-pattern.org][Design Pattern]] 将书<Design Patterns: Elements of Reusable Object-Oriented Software>中要表达的思想按照自己的意思整理出来(后面可能会添加一些自己的"设计模式"吧:)。不过我倒是觉得没有必要在使用中刻意地去拼凑使用某种模式，相反应该让模式渗入到自己的思想中去，指导自己写出更加优美更加可维护的代码，而不用在意"我使用了哪种模式". 然后现在我开始逐渐认同一个观点，那就是"设计模式是语言表达能力存在缺陷的一种表现".
 - [[file:./competitive-strategy.org][竞争策略 on Coursera]]
 - [[file:./financial-markets-class.org][金融市场 on Coursera]]
 - [[file:./aosa.org][The Architecture of Open Source Applications]]
-- [[http://berb.github.io/diploma-thesis/community/index.html][Concurrent Programming for Scalable Web Architectures]] 博士论文，似乎没有什么意思
+- [[http://berb.github.io/diploma-thesis/community/index.html][Concurrent Programming for Scalable Web Architectures]]
 - [[http://producingoss.com/][Producing Open Source Software]]
+- [[file:./blogs/on-top-of-tides.org][浪潮之巅(On Top of Tides)]] by 吴军
+- [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
+
+
+- [[file:design-reading.org][Design Reading]] 软件设计方面的一些文章
+- [[file:design-patterns.org][Design Patterns]] Elements of Reusable Object-Oriented Software
 - [[file:./blogs/the-cathedral-and-the-bazaar.org][大教堂与市集(The Cathedral and the Bazaar)]] by Eric Raymond
 - [[file:./blogs/hackers-and-painters.org][黑客与画家(Hackers and Painters)]] by Paul Graham
 - [[file:./blogs/writing-clean-code.org][编程精粹-Microsoft编写优质无错代码的秘诀(Writing Clean Code)]]
@@ -131,9 +134,8 @@
 - [[file:./blogs/modern-operating-systems.org][现代操作系统(Modern Operating Systems)]] by A.S.T
 - [[file:./blogs/introduction-to-computing-systems.org][计算机系统概论(Introduction to Computing Systems)]] by Yale Patt
 - [[file:./blogs/distributed-operating-systems.org][分布式操作系统(Distributed Operating Systems)]] by A.S.T
-- [[file:./blogs/on-top-of-tides.org][浪潮之巅(On Top of Tides)]] by 吴军
-- [[file:./blogs/venture-captial.org][风险投资(Venture Captial)]] 摘自 <浪潮之巅>
-- [[file:./blogs/rework.org][Rework]] by 37 Signals
 - [[file:./blogs/pragmatic-thinking-and-learning.org][程序员的思维修炼(Pragmatic Thinking and Learning - Refactor Your Wetware)]]
-- [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
 - [[file:./blogs/nine-algos-that-changed-the-future.org][改变未来的九大算法(Nine Algorithms that Changed the Future)]] by John. McCormick
+- [[file:./blogs/rework.org][Rework]] by 37 Signals
+- [[file:./blogs/getting-real.org][Getting Real]] by 37 Signals
+- [[file:./future-of-code.org][代码的未来]] by 松本行弘

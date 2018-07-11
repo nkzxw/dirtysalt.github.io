@@ -27,6 +27,7 @@ https://dirtysalt.github.io/html/lessons-learned-while-working-on-large-scale-se
 https://dirtysalt.github.io/html/oprofile-obsolete.html
 https://dirtysalt.github.io/html/backblaze-storage-pod.html
 https://dirtysalt.github.io/html/ssd-gc-and-trim.html
+https://dirtysalt.github.io/html/design-patterns.html
 https://dirtysalt.github.io/html/7-tips-for-improving-mapreduce-performance.html
 https://dirtysalt.github.io/html/systems-software-research-is-irrelevant.html
 https://dirtysalt.github.io/html/fun.html
@@ -63,7 +64,6 @@ https://dirtysalt.github.io/html/achieving-rapid-response-times-in-large-online-
 https://dirtysalt.github.io/html/numa.html
 https://dirtysalt.github.io/html/mesos-omega-borg-a-survey.html
 https://dirtysalt.github.io/html/flumejava.html
-https://dirtysalt.github.io/html/design-pattern.html
 https://dirtysalt.github.io/html/go-course-day.html
 https://dirtysalt.github.io/html/ten-career-lessons.html
 https://dirtysalt.github.io/html/nosql-back-to-the-feature-or-yet-another-db-feature.html
