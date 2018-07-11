@@ -2,6 +2,7 @@
 
 - [[file:storage-system-reading.org][Storage System Reading]] 存储系统方面的一些文章
   - [[http://redbook.cs.berkeley.edu/][Readings in Database Systems]]
+  - Design Data-Intensive Applications
   - [[file:backblaze-storage-pod.org][Backblaze Storage Pod]] 构建廉价存储服务器的厂商，将其设计以及使用公开并且做了比较深入的说明。
   - [[file:./nosql-back-to-the-feature-or-yet-another-db-feature.org][NoSQL - Back to the Future or Yet Another DB Feature]] @2012
   - [[file:./solid-state-revolution-in-depth-on-how-ssd-really-work.org][Solid-state revolution: in-depth on how SSDs really work]] ssd发展演变，内部构造和工作方式

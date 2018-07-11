@@ -1,18 +1,1 @@
 #+title: Machine Learning Readings
-
-** 机器学习和其他领域联系
-机器学习和数据挖掘，人工智能，统计学的关系
-
-file:./images/ntuml-ml-vs-dm.png
-
-file:./images/ntuml-ml-vs-ai.png
-
-file:./images/ntuml-ml-vs-st.png
-
-** Generative Adversarial Networks: The Basic Idea
-
-file:./images/GAN-basic-idea.jpg
-
-** 如何选择机器学习算法
-
-file:images/scikit-learn-ml-map.png

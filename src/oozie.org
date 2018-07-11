@@ -12,37 +12,37 @@
 #note: 我只是粗略地使用了一下，直觉上觉得这个东西很烂。推荐大家可以考虑一下azkaban
 
 oozie工作方式也是启动一个mapper任务（这个任务启动真正任务）放在cluster上面运行。大致上来看的话需要几个文件：
-   - workflow.xml oozie读取它来知道每个任务DAG如何并且失败以及成功之后如何处理。需要提交到hdfs上面。
-   - coordinator.xml 如果是coordinator模式的话，还需要这个文件。需要提交到hdfs上面。
-   - job.properties 这个用来存放一些任务相关的参数等。这个部分其实可以和workflow.xml放在一起，但是分离出来的话可以方便分离。本地使用。
-   - lib 目录下面存放启动启动需要的库文件比如jar或者是so等。需要提交到hdfs上面。
+- workflow.xml oozie读取它来知道每个任务DAG如何并且失败以及成功之后如何处理。需要提交到hdfs上面。
+- coordinator.xml 如果是coordinator模式的话，还需要这个文件。需要提交到hdfs上面。
+- job.properties 这个用来存放一些任务相关的参数等。这个部分其实可以和workflow.xml放在一起，但是分离出来的话可以方便分离。本地使用。
+- lib 目录下面存放启动启动需要的库文件比如jar或者是so等。需要提交到hdfs上面。
 然后我们需要将这写文件提交到hdfs上面，然后使用oozie启动。oozie会提供一个回调url，启动的任务应该会定时向这些url进行汇报状态（回调），或者是
 oozie去查询这些任务状态（这些任务应该也会内置httpserver）。（应该是通过回调方式完成 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a5_Oozie_Notifications ，
 并且这里注意到oozie只是使用best-effort方式来做notification）。值得一提的就是oozie也有local-mode方便调试和测试。
 
 oozie执行分为三种模式：
-   - workflow. 这种方式非常简单，就是定义DAG来执行。
-   - coordinator. workflow缺点非常明显，就是没有办法定时触发或者是条件触发。coordinator可以完成这个需求。coordinator构建在workflow工作方式上面，可以定时运行也可以触发运行。
+- workflow. 这种方式非常简单，就是定义DAG来执行。
+- coordinator. workflow缺点非常明显，就是没有办法定时触发或者是条件触发。coordinator可以完成这个需求。coordinator构建在workflow工作方式上面，可以定时运行也可以触发运行。
 触发条件非常巧妙，提供一个叫做synchronous dataset的数据集。这个数据集其实就是一个url（文件系统url），不过这个url通过时间来进行区分。比如hdfs://foo:9000/usr/logs/2009/04/15/23/30.
-   - bundle. bundle的作用就是将多个coordinator管理起来。这样我们只需要提供一个bundle提交即可。然后可以start/stop/suspend/resume任何coordinator.
+- bundle. bundle的作用就是将多个coordinator管理起来。这样我们只需要提供一个bundle提交即可。然后可以start/stop/suspend/resume任何coordinator.
 
 下面是在使用时候总结的一些问题：
-   - 时区似乎只是支持UTC。对于我来说处在Asia/Shanghai这个timezone，时间是提前8个小时的。这个在使用的时候需要转换一下。
-   - oozie调度时间似乎比较怪异（不像是分钟级别，也不像是小时级别，而且现在也没有找到参数配置）。即使对于上面这个小时任务，可以看到create time间隔是5min左右。file:./images/oozie-coord-create-interval.png
-   - oozie支持故障恢复。直接restart之后启动oozie，之前提交的coord job还能够正常执行。
+- 时区似乎只是支持UTC。对于我来说处在Asia/Shanghai这个timezone，时间是提前8个小时的。这个在使用的时候需要转换一下。
+- oozie调度时间似乎比较怪异（不像是分钟级别，也不像是小时级别，而且现在也没有找到参数配置）。即使对于上面这个小时任务，可以看到create time间隔是5min左右。file:./images/oozie-coord-create-interval.png
+- oozie支持故障恢复。直接restart之后启动oozie，之前提交的coord job还能够正常执行。
 
 ** Deployment
 关于部署的话可以参考这个链接 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/DG_QuickStart.html
-   - Expand the Oozie distribution tar.gz
-   - Expand the Hadoop distribution tar.gz # 不过如果oozie是从cloudera down下来的话，里面应该是包含了hadoop的，不需要这个步骤
-   - Download ExtJS library (it must be version 2.2)
-   - bin/oozie-setup.sh -hadoop 0.20.200 ${HADOOP_HOME} -extjs /tmp/ext-2.2.zip # 同样如果是cloudera的话，那么不需要-hadoop这个选项
-   - bin/oozie-start.sh # 启动后台程序 bin/oozie-run.sh可以用来作为前台进程启动
-   - bin/oozie-stop.sh # 停止后台程序
-   - 可以通过bin/oozie admin -oozie http://localhost:11000/oozie -status察看状态。如果安装了extjs的话，也可以通过直接访问 http://localhost:11000/oozie 来看当前状态
-   - Expand the oozie-sharelib TAR.GZ file bundled with the distribution. 并且将share目录上传 hadoop fs -put share share
-   - Expand the oozie-examples.tar.gz 并且 hadoop fs -put examples examples 可以用来进行一些example测试
-     - http://localhost/utils/oozie-2.3.2-cdh3u3/docs/DG_Examples.html
+- Expand the Oozie distribution tar.gz
+- Expand the Hadoop distribution tar.gz # 不过如果oozie是从cloudera down下来的话，里面应该是包含了hadoop的，不需要这个步骤
+- Download ExtJS library (it must be version 2.2)
+- bin/oozie-setup.sh -hadoop 0.20.200 ${HADOOP_HOME} -extjs /tmp/ext-2.2.zip # 同样如果是cloudera的话，那么不需要-hadoop这个选项
+- bin/oozie-start.sh # 启动后台程序 bin/oozie-run.sh可以用来作为前台进程启动
+- bin/oozie-stop.sh # 停止后台程序
+- 可以通过bin/oozie admin -oozie http://localhost:11000/oozie -status察看状态。如果安装了extjs的话，也可以通过直接访问 http://localhost:11000/oozie 来看当前状态
+- Expand the oozie-sharelib TAR.GZ file bundled with the distribution. 并且将share目录上传 hadoop fs -put share share
+- Expand the oozie-examples.tar.gz 并且 hadoop fs -put examples examples 可以用来进行一些example测试
+  - http://localhost/utils/oozie-2.3.2-cdh3u3/docs/DG_Examples.html
 
 -----
 
@@ -73,29 +73,29 @@ rmr: org.apache.hadoop.dfs.SafeModeException: Cannot delete /user/hadoop/input. 
 
 ** Workflow
 对于workflow来说，最主要关注下面几个部分：
-   - node
-     - control flow node // 控制流节点，决定这个DAG。
-     - action node // 动作节点。#todo: 这里不是很明白streaming和pipe方式之间的差别。
-   - parameterization // 参数化，可以获得很多外部状态变量并且进行计算判断。
+- node
+  - control flow node // 控制流节点，决定这个DAG。
+  - action node // 动作节点。#todo: 这里不是很明白streaming和pipe方式之间的差别。
+- parameterization // 参数化，可以获得很多外部状态变量并且进行计算判断。
 下面是一些具体细节：
-   - action有两个状态ok/error http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a3.2.1.3_Actions_Have_2_Transitions_ok_and_error
-     - 对于error而言的话，需要提供error-code以及error-message，这样可以方便下面的决策。
-   - action如何进行recovery的 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a3.2.1.4_Action_Recovery
-   - workflow job生命周期（lift cycle） http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a9_Workflow_Jobs_Lifecycle
-     - prepare
-     - running
-     - suspend
-     - succeed
-     - killed
-     - failed
-   - rerun可以用来重新提交任务 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a10_Workflow_Jobs_Recovery_re-run
-     - 用户自己标记哪些任务需要skip
-     - 如果这个任务之前没有complete但是却被skip的话，那么fail
-     - 这个job和原来的job使用同一个jobID
-     - #todo: 文档似乎没有写明如何具体提交
-   - 提供了webservice API接口来控制 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a11_Oozie_Web_Services_API_V0
-   - 没有提供优先级控制的方式 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a16_Workflow_Jobs_Priority
-     - Any prioritization of jobs in the remote systems is outside of the scope of Oozie.
+- action有两个状态ok/error http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a3.2.1.3_Actions_Have_2_Transitions_ok_and_error
+  - 对于error而言的话，需要提供error-code以及error-message，这样可以方便下面的决策。
+- action如何进行recovery的 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a3.2.1.4_Action_Recovery
+- workflow job生命周期（lift cycle） http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a9_Workflow_Jobs_Lifecycle
+  - prepare
+  - running
+  - suspend
+  - succeed
+  - killed
+  - failed
+- rerun可以用来重新提交任务 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a10_Workflow_Jobs_Recovery_re-run
+  - 用户自己标记哪些任务需要skip
+  - 如果这个任务之前没有complete但是却被skip的话，那么fail
+  - 这个job和原来的job使用同一个jobID
+  - #todo: 文档似乎没有写明如何具体提交
+- 提供了webservice API接口来控制 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a11_Oozie_Web_Services_API_V0
+- 没有提供优先级控制的方式 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/WorkflowFunctionalSpec.html#a16_Workflow_Jobs_Priority
+  - Any prioritization of jobs in the remote systems is outside of the scope of Oozie.
 
 这里给出一个例子配置文件作为说明（这个例子就是oozie homepage里面run example使用的例子 examples/app/map-reduce）。首先是workflow.xml
 #+BEGIN_SRC XML
@@ -184,9 +184,9 @@ file:./images/oozie-workflow-action.png
 
 
 为了方便我编写了下面几个脚本：
-   - submit
-   - cancel
-   - update
+- submit
+- cancel
+- update
 #+BEGIN_SRC Shell
 #!/bin/bash
 oozie job -oozie http://localhost:11000/oozie/ -config job.properties -run
@@ -202,21 +202,21 @@ hadoop fs -put workflow.xml /user/dirlt/examples/apps/map-reduce/
 
 ** Coordinator
 对于coordinator来说，有几个比较重要的概念：
-   - time & frequency // 指定触发时间以及触发频率等 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a4._Datetime_Frequency_and_Time-Period_Representation
-   - sync dataset // 可以用来指定各个workflow之间的相互数据依赖 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a5.1._Synchronous_Datasets
-     - input events
-     - output events
-     - parameterization http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.6._Parameterization_of_Dataset_Instances_in_Input_and_Output_Events
-     - 这些参数一定要了解清楚。最常用的还是{coord:current(n)}这个变量。
-   - coord application
-     - coord job // app的instance http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.2._Coordinator_Job
-       - timeout // 对于一个action被调度到的超时时间
-       - concurrency // 可以执行的action的并发度
-       - execution strategy // 对于所有可执行action的执行策略 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.6._Coordinator_Action_Execution_Policies
-     - coord action // 一个job里面包含的action。这里所谓的action会包含很多的workflow,甚至这些workflow都是recurrent的。 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.3._Coordinator_Action
-       - 每个action到固定时刻都会被create，即使这些action还不需要执行。
-       - action应该执行时刻被成为nominal time，也称为materialization（物化）time
-     - parameterization http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.7._Parameterization_of_Coordinator_Application_Actions
+- time & frequency // 指定触发时间以及触发频率等 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a4._Datetime_Frequency_and_Time-Period_Representation
+- sync dataset // 可以用来指定各个workflow之间的相互数据依赖 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a5.1._Synchronous_Datasets
+  - input events
+  - output events
+  - parameterization http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.6._Parameterization_of_Dataset_Instances_in_Input_and_Output_Events
+  - 这些参数一定要了解清楚。最常用的还是{coord:current(n)}这个变量。
+- coord application
+  - coord job // app的instance http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.2._Coordinator_Job
+    - timeout // 对于一个action被调度到的超时时间
+    - concurrency // 可以执行的action的并发度
+    - execution strategy // 对于所有可执行action的执行策略 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.6._Coordinator_Action_Execution_Policies
+  - coord action // 一个job里面包含的action。这里所谓的action会包含很多的workflow,甚至这些workflow都是recurrent的。 http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.1.3._Coordinator_Action
+    - 每个action到固定时刻都会被create，即使这些action还不需要执行。
+    - action应该执行时刻被成为nominal time，也称为materialization（物化）time
+  - parameterization http://localhost/utils/oozie-2.3.2-cdh3u3/docs/CoordinatorFunctionalSpec.html#a6.7._Parameterization_of_Coordinator_Application_Actions
 sync dataset通常是一个hdfs uri，你可以让uri里面指定date以及time来对应到每一个具体的任务。一旦某个任务完成的话，那么这个hdfs uri就会建立，
 并且在先面会存在一个_SUCCESS的文件（当然你也可以指定其他文件名，如果没有指定的话那么就以目录是否存在作为依据），来表示任务完成。各个任务之间可以通过这种方式来做数据流之间的依赖。
 
@@ -224,9 +224,9 @@ sync dataset通常是一个hdfs uri，你可以让uri里面指定date以及time�
 另外如果想做一些定制化执行策略的话，还需要通过使用一些workaround的方法才可以OK。
 
 下面看一个使用coordinator的例子（这个例子在 examples/apps/aggregator/ 目录下面）。我们现在需要三个文件
-   - coordinator.xml
-   - workflow.xml
-   - job.properties
+- coordinator.xml
+- workflow.xml
+- job.properties
 和workflow工作方式非常类似，需要.xmlf放到hdfs上面，而job.properties在本地提供一些参数。先看看coordinator.xml
 
 #+BEGIN_SRC XML

@@ -8,9 +8,11 @@
   - [[file:./how-math-important-to-ml.org][机器学习里，数学究竟多重要？]]
   - [[file:./use-random-forest-testing-179-classifiers-121-datasets.org][Use Random Forest: Testing 179 Classifiers on 121 Datasets]]
   - [[file:./deep-learning-material-recommendations.org][深度學習(Deep Learning)自學素材推薦]]
-  - [[https://www.dropbox.com/s/l7h13igyjoywq1v/Getting%20Started%20With%20MachineLearning%20%28all%20in%20one%29_V0.91.pdf?dl=0][Getting Started with Machine Learning]] by Jim Liang
+  - [[https://www.dropbox.com/s/l7h13igyjoywq1v/Getting%20Started%20With%20MachineLearning%20(all%20in%20one)_V0.91.pdf?dl=0][Getting Started with Machine Learning]] by Jim Liang
   - [[file:./best-practices-for-applying-deep-learning-for-novel-applications.org][Best Practices for Applying Deep Learning to Novel Applications]]
   - [[https://developers.google.com/machine-learning/rules-of-ml/][机器学习规则 (Rules of Machine Learning)：关于机器学习工程的最佳实践]]
+  - [[file:./images/GAN-basic-idea.jpg][Generative Adversarial Networks: The Basic Idea]]
+  - [[file:./images/sklearn-mlalgs.png][Choosing the right estimator(sklearn)]]
 - [[file:./sklearn.org][sklearn]] python scikit learn. Python的机器学习包.
 - [[file:caffe.org][caffe]] C++实现的深度学习框架，有python和matlab的扩展接口
 - [[file:nolearn.org][nolearn]] scikit-learn compatibile wrapper for neural nets. 底层可以使用不同的NN实现比如 [[file:./caffe.org][caffe]], [[https://github.com/Lasagne/Lasagne][lasagne]].
