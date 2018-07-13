@@ -2,6 +2,8 @@
 
 - http://book.mixu.net/distsys/single-page.html
 - Data-Intensive Applications
+- [[http://dancres.org/reading_list.html][Distributed Systems Reading List]]
+- [[http://duanple.blog.163.com/blog/static/709717672011330101333271/][分布式系统领域经典论文翻译集]]
 
 ** Projects
 - [[file:akka.org][Akka]] Akka文档阅读笔记
@@ -24,7 +26,7 @@
 - [[file:./paxos.org][Paxos]] / [[file:./raft.org][Raft]] 分布式一致性算法
 
 ** Articles
-- [[file:distributed-system-reading.org][Distributed System Reading]] 分布式系统方面的一些文章
+- [[file:distributed-system-reading.org][Distributed System Reading]]
 - [[file:./you-can-not-sacrifice-partition-tolerance.org][You Can't Sacrifice Partition Tolerance]]
 - [[file:the-anatomy-of-the-google-architecture.org][The Anatomy Of The Google Architecture]] @2009 Google架构的深入解析，属于非官方文档，是一个非Google的友人收集各种资料汇集起来的
 - [[file:./building-scalable-highly-concurrent-and-fault-tolerant-systems.org][Building Scalable, Highly Concurrent & Fault-Tolerant Systems: Lessons Learned]]
