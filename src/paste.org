@@ -1,6 +1,27 @@
 #+title: Paste
 
 -----
+There are 4 types of wealth:
+
+1. Financial wealth (money)
+2. Social wealth (status)
+3. Time wealth (freedom)
+4. Physical wealth (health)
+
+Be wary of jobs that lure you in with 1 and 2, but rob you of 3 and 4.
+
+James Clear on 推特：
+
+“1. 金融财富 (钱)
+2. 社交财富 (地位)
+3. 时间财富 (自由)
+4. 生理财富 (健康)
+小心任何用一和二来引诱你，但是剥夺了三和四的工作。”
+
+我再加一句，五是“知识财富”。有了三四五，一和二随时唾手可得。
+
+
+-----
 一个银行行长喝酒聊天，聊到金融三大支柱：房地产，银行，证券股票。他用了一个比喻，还挺有意思的。他说：
 房地产好比母亲，平时唠唠叨叨，关键时刻一定能换钱，陪在身边不离不弃；
 银行好比配偶，“ 夫妻本是同林鸟，大难临头各自飞 ” ；
