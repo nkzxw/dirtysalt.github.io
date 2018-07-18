@@ -1,6 +1,8 @@
 #+title: blogs
 
 ** 2018
+- 201807 [[file:./blogs/how-to-write-a-good-software-design-doc.org][How to write a good software design doc]]
+- 201807 [[file:./blogs/oh-i-have-seen-this-idea-before.org][oh, I’ve seen this idea before]] 如何回答这个问题
 - 201806 [[file:aws_products.org][AWS Products]]
 - 201806 [[file:./blogs/binary-indexed-tree.org][Binary Indexed Tree(Fenwick Tree)]]
 - 201806 [[file:interview-psychological-tricks.org][面试心理技巧(Psychological Tricks)]]
