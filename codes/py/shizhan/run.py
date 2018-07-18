@@ -310,7 +310,7 @@ def main():
     items = [{'title': x[0], 'html': x[1], 'idx': idx} for (idx, x) in enumerate(items)]
 
     template = jinja2.Template(template_string)
-    with open('shizhan_single_page.html', 'w') as fh:
+    with open('single_page.html', 'w') as fh:
         output = template.render(items=items, style_string=style_string,
                                  single_page_title="大师课-施展-枢纽")
         fh.write(output)
