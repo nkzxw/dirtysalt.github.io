@@ -562,6 +562,7 @@ https://dirtysalt.github.io/html/blogs/timeline-at-scale-in-twitter.html
 https://dirtysalt.github.io/html/blogs/nobody-ever-got-fired-for-buying-a-cluster.html
 https://dirtysalt.github.io/html/blogs/talk-with-luoyan.html
 https://dirtysalt.github.io/html/blogs/vinod-khosla-talk.html
+https://dirtysalt.github.io/html/blogs/5-lessons-we-have-learned-using-aws.html
 https://dirtysalt.github.io/html/blogs/code-quality-the-open-source-perspective.html
 https://dirtysalt.github.io/html/blogs/nginx-site-redirect.html
 https://dirtysalt.github.io/html/blogs/you-cant-read-all-books.html

@@ -1,6 +1,7 @@
 #+title: blogs
 
 ** 2018
+- 201807 [[file:./blogs/5-lessons-we-have-learned-using-aws.org][5 Lessons We’ve Learned Using AWS]] Netflix TechBlog
 - 201807 [[file:./blogs/how-to-write-a-good-software-design-doc.org][How to write a good software design doc]]
 - 201807 [[file:./blogs/oh-i-have-seen-this-idea-before.org][oh, I’ve seen this idea before]] 如何回答这个问题
 - 201806 [[file:aws_products.org][AWS Products]]
