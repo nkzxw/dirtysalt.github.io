@@ -71,11 +71,22 @@
 </div>
 </div>
 <ul class="org-ul">
+<li><a href="https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html">https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html</a></li>
 <li><a href="http://s3.amazonaws.com/AllThingsDistributed/sosp/amazon-dynamo-sosp2007.pdf">http://s3.amazonaws.com/AllThingsDistributed/sosp/amazon-dynamo-sosp2007.pdf</a></li>
 <li><a href="http://duanple.blog.163.com/blog/static/709717672011513111427410/">http://duanple.blog.163.com/blog/static/709717672011513111427410/</a></li>
 <li><a href="http://untyped.com/untyping/2011/01/21/all-about-amazons-dynamo/">http://untyped.com/untyping/2011/01/21/all-about-amazons-dynamo/</a></li>
 <li><a href="http://blog.nosqlfan.com/html/1257.html">http://blog.nosqlfan.com/html/1257.html</a></li>
 </ul>
+
+<blockquote>
+<p>
+We submitted the technology for publication in SOSP because many of the techniques used in Dynamo originate in the operating systems and distributed systems research of the past years; DHTs, consistent hashing, versioning, vector clocks, quorum, anti-entropy based recovery, etc. As far as I know Dynamo is the first production system to use the synthesis of all these techniques, and there are quite a few lessons learned from doing so. The paper is mainly about these lessons.
+</p>
+
+<p>
+We are extremely fortunate that the paper was selected for publication in SOSP; only a very few true production systems have made it into the conference and as such it is a recognition of the quality of the work that went into building a real incrementally scalable storage system in which the most important properties can be appropriately configured.
+</p>
+</blockquote>
 
 <div id="outline-container-orgheadline1" class="outline-2">
 <h2 id="orgheadline1"><span class="section-number-2">1</span> ABSTRACT</h2>
@@ -86,6 +97,7 @@
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline2" class="outline-2">
 <h2 id="orgheadline2"><span class="section-number-2">2</span> INTRODUCTION</h2>
@@ -237,19 +249,15 @@ The architecture of a storage system that needs to operate in a production setti
 <li>request marshalling,</li>
 <li>request routing,</li>
 <li>system monitoring and alarming,</li>
-<li>and configuration management.</li>
-</ul>
-<p>
-Describing the details of each of the solutions is not possible, so this paper focuses on the core distributed systems techniques used in Dynamo:
-</p>
-<ol class="org-ol">
+<li>and configuration management.
+Describing the details of each of the solutions is not possible, so this paper focuses on the core distributed systems techniques used in Dynamo:</li>
 <li>partitioning,</li>
 <li>replication,</li>
 <li>versioning,</li>
 <li>membership,</li>
 <li>failure handling</li>
 <li>and scaling.</li>
-</ol>
+</ul>
 
 
 <div class="figure">
