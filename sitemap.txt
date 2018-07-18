@@ -501,6 +501,7 @@ https://dirtysalt.github.io/html/blogs/types-of-scipy-sparse-matrix.html
 https://dirtysalt.github.io/html/blogs/that-man-looks-like-a-dog.html
 https://dirtysalt.github.io/html/blogs/purchase-on-rapidssl.html
 https://dirtysalt.github.io/html/blogs/learn-stop-using-shiny-new-things-and-love-mysql.html
+https://dirtysalt.github.io/html/blogs/how-to-write-a-good-software-design-doc.html
 https://dirtysalt.github.io/html/blogs/three-body.html
 https://dirtysalt.github.io/html/blogs/chengdu-travel.html
 https://dirtysalt.github.io/html/blogs/the-economist.html
@@ -684,6 +685,7 @@ https://dirtysalt.github.io/html/blogs/thousands-pv.html
 https://dirtysalt.github.io/html/blogs/software-engineering-at-google.html
 https://dirtysalt.github.io/html/blogs/kaggle-facial-keypoints-detection.html
 https://dirtysalt.github.io/html/blogs/review-2012.html
+https://dirtysalt.github.io/html/blogs/oh-i-have-seen-this-idea-before.html
 https://dirtysalt.github.io/html/blogs/my-iphone5s.html
 https://dirtysalt.github.io/html/blogs/be-careful-when-you-drive.html
 https://dirtysalt.github.io/html/blogs/laws-of-performant-software.html
