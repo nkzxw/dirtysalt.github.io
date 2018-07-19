@@ -465,6 +465,7 @@ https://dirtysalt.github.io/html/blogs/on-computational-investing.html
 https://dirtysalt.github.io/html/blogs/simple-made-easy.html
 https://dirtysalt.github.io/html/blogs/nginx-forwarding-proxy.html
 https://dirtysalt.github.io/html/blogs/got6-is-coming.html
+https://dirtysalt.github.io/html/blogs/amazon-dynamodb.html
 https://dirtysalt.github.io/html/blogs/programmers-are-distraction-for-your-startup.html
 https://dirtysalt.github.io/html/blogs/what-makes-a-great-software-engineer.html
 https://dirtysalt.github.io/html/blogs/a-possible-impl-of-reco-sys.html
