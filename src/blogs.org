@@ -1,6 +1,7 @@
 #+title: blogs
 
 ** 2018
+- 201807 [[file:./blogs/aws-overview.org][AWS Overview]] 官方给出的AWS各种产品介绍，比我简单抓取的 [[file:./aws_products.org][AWS Products]] 要好
 - 201807 [[file:blogs/amazon-dynamodb.org][Amazon DynamoDB]] All Things Distributed
 - 201807 [[file:./blogs/5-lessons-we-have-learned-using-aws.org][5 Lessons We’ve Learned Using AWS]] Netflix TechBlog
 - 201807 [[file:./blogs/how-to-write-a-good-software-design-doc.org][How to write a good software design doc]]
