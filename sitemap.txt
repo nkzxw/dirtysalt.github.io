@@ -544,6 +544,7 @@ https://dirtysalt.github.io/html/blogs/eureka-on-career.html
 https://dirtysalt.github.io/html/blogs/intro-quantum-computing.html
 https://dirtysalt.github.io/html/blogs/apply-visa-for-usa.html
 https://dirtysalt.github.io/html/blogs/on-facebook-newsfeed.html
+https://dirtysalt.github.io/html/blogs/aws-overview.html
 https://dirtysalt.github.io/html/blogs/use-wifi-aps-to-identify-location.html
 https://dirtysalt.github.io/html/blogs/review-2014.html
 https://dirtysalt.github.io/html/blogs/surviving-meetings-while-remote.html
