@@ -3,10 +3,13 @@
 # Copyright (C) dirlt
 
 import glob
+import hashlib
 import io
 import json
+import os
 
 import jinja2
+import requests
 
 style_string = """
 <style type="text/css">html {
@@ -231,6 +234,10 @@ img.displayed {
 """
 
 
+def get_sha1_key(s):
+    return hashlib.sha1(s.encode('utf8')).hexdigest()
+
+
 def parse_response(resp):
     data = open(resp).read()
     resp = json.loads(data)
@@ -238,7 +245,6 @@ def parse_response(resp):
     js = json.loads(d)
     title = js['title']
     content = js['content']
-    image_counts = 0
     fh = io.StringIO()
     for c in content:
         if c['type'] == 'title':
@@ -247,8 +253,15 @@ def parse_response(resp):
             fh.write(c['value'])
         elif c['type'] == 'image':
             url = c['src']
-            fh.write('<img src="{}"/>'.format(url))
-            image_counts += 1
+            key = get_sha1_key(url)
+            path = 'shizhan_images/{}.jpg'.format(key)
+            if not os.path.exists(path):
+                print('downloading url = {}'.format(url))
+                r = requests.get(url)
+                with open(path, 'wb') as img:
+                    img.write(r.content)
+            # fh.write('<img src="{}"/>'.format(url))
+            fh.write('<img src="{}"/>'.format(path))
         fh.write('\n')
     return title, fh.getvalue()
 
