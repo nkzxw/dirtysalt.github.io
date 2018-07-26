@@ -1,0 +1,33 @@
+#+title: 如何进行算法设计面试
+
+link: https://www.hiredintech.com/courses/algorithm-design
+
+算法理论和练习肯定是必备的，此外面试算法设计需要在编写代码和设计测试上花点心思。
+
+
+-----
+Some of the key things to keep in mind when coding outside your IDE:
+- 考虑清楚然后编码 Think before you code. Especially if you’re coding on a sheet of paper (where there’s no “undo”), if you’re not careful everything could become very messy very quickly
+- 良好编码风格 Coding outside of an IDE does not give you permission to stop abiding by good code style. Make sure you name your variables properly, indent nicely, write clean code, etc. etc.
+- 函数和模块化 It’s even more important to decompose your code into small logical pieces and NOT copy-paste
+- Read your code multiple times before you claim it’s ready. You don’t have the luxury to compile, see if it compiles, run, see if it runs, and then debug for 4 hours. Your code needs to work off the bat.
+
+
+-----
+Extensive testing 扩展测试，通常来说必须考虑好前面三种case.
+
+- Edge cases: Remember that "Constraints" section that we filled in? It's going to come in very handy. Design cases that make sure the code works when the min and/or max values of the constraints are hit. This includes negative numbers, empty arrays, empty strings, etc.
+- Cases where there's no solution: To make sure the code does the right thing (hopefully you know what it is)
+- Non-trivial functional tests: these depend very much on the problem. They would test the internal logic of the solution to make sure the algorithm works correctly.
+- Randomized tests: this makes sure your code works well in the "average" case, as opposed to only working well on human-generated tests (where there's inherent bias).
+- Load testing: Test your code with as much data as allowed by the constraints. These test your code against being very slow or taking up too much memory.
+
+A good "test set" is a well-balanced combination of the above types. It will include tests that cover most edge cases, a few non-trivial functional tests, and then a series of random tests. These will make sure the code is solid and functionally correct. Finally, some load tests make sure the algorithm works well on the largest and most resource-demanding tests.
+
+-----
+Summary
+
+- Sign up for an automated online judge like TopCoder.
+- Always follow the Canvas, even on simpler problems.
+- Not use your IDE so that you can train your interview coding skills.
+- Read and review your code before compiling and running the automated tests on TopCoder.
