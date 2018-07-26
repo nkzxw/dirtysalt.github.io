@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何进行算法设计面试</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="dirtysalt" />
+<link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">如何进行算法设计面试</h1>
+<p>
+link: <a href="https://www.hiredintech.com/courses/algorithm-design">https://www.hiredintech.com/courses/algorithm-design</a>
+</p>
+
+<p>
+算法理论和练习肯定是必备的，此外面试算法设计需要在编写代码和设计测试上花点心思。
+</p>
+
+
+<hr  />
+<p>
+Some of the key things to keep in mind when coding outside your IDE:
+</p>
+<ul class="org-ul">
+<li>考虑清楚然后编码 Think before you code. Especially if you’re coding on a sheet of paper (where there’s no “undo”), if you’re not careful everything could become very messy very quickly</li>
+<li>良好编码风格 Coding outside of an IDE does not give you permission to stop abiding by good code style. Make sure you name your variables properly, indent nicely, write clean code, etc. etc.</li>
+<li>函数和模块化 It’s even more important to decompose your code into small logical pieces and NOT copy-paste</li>
+<li>Read your code multiple times before you claim it’s ready. You don’t have the luxury to compile, see if it compiles, run, see if it runs, and then debug for 4 hours. Your code needs to work off the bat.</li>
+</ul>
+
+
+<hr  />
+<p>
+Extensive testing 扩展测试，通常来说必须考虑好前面三种case.
+</p>
+
+<ul class="org-ul">
+<li>Edge cases: Remember that "Constraints" section that we filled in? It's going to come in very handy. Design cases that make sure the code works when the min and/or max values of the constraints are hit. This includes negative numbers, empty arrays, empty strings, etc.</li>
+<li>Cases where there's no solution: To make sure the code does the right thing (hopefully you know what it is)</li>
+<li>Non-trivial functional tests: these depend very much on the problem. They would test the internal logic of the solution to make sure the algorithm works correctly.</li>
+<li>Randomized tests: this makes sure your code works well in the "average" case, as opposed to only working well on human-generated tests (where there's inherent bias).</li>
+<li>Load testing: Test your code with as much data as allowed by the constraints. These test your code against being very slow or taking up too much memory.</li>
+</ul>
+
+<p>
+A good "test set" is a well-balanced combination of the above types. It will include tests that cover most edge cases, a few non-trivial functional tests, and then a series of random tests. These will make sure the code is solid and functionally correct. Finally, some load tests make sure the algorithm works well on the largest and most resource-demanding tests.
+</p>
+
+<hr  />
+<p>
+Summary
+</p>
+
+<ul class="org-ul">
+<li>Sign up for an automated online judge like TopCoder.</li>
+<li>Always follow the Canvas, even on simpler problems.</li>
+<li>Not use your IDE so that you can train your interview coding skills.</li>
+<li>Read and review your code before compiling and running the automated tests on TopCoder.</li>
+</ul>
+</div>
+<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/blogs/algorithm-design-steps-in-interview.html';this.page.identifier = 'blogs/algorithm-design-steps-in-interview.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</html>

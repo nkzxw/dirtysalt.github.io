@@ -607,6 +607,7 @@ https://dirtysalt.github.io/html/blogs/geoffrey-hinton-interview-in-coursera.htm
 https://dirtysalt.github.io/html/blogs/baidu-bit-shanghai-route.html
 https://dirtysalt.github.io/html/blogs/struggle-with-ubuntu.html
 https://dirtysalt.github.io/html/blogs/the-cathedral-and-the-bazaar.html
+https://dirtysalt.github.io/html/blogs/algorithm-design-steps-in-interview.html
 https://dirtysalt.github.io/html/blogs/writing-clean-code.html
 https://dirtysalt.github.io/html/blogs/cities-and-ambition.html
 https://dirtysalt.github.io/html/blogs/look-house-with-xcq.html
