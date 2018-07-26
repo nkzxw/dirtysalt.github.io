@@ -624,6 +624,7 @@ https://dirtysalt.github.io/html/blogs/goodbye-dyy.html
 https://dirtysalt.github.io/html/blogs/work-efficiently-in-facebook.html
 https://dirtysalt.github.io/html/blogs/real-life-of-startup-with-baby.html
 https://dirtysalt.github.io/html/blogs/so-good-they-can-not-ignore-you.html
+https://dirtysalt.github.io/html/blogs/system-design-steps-in-interview.html
 https://dirtysalt.github.io/html/blogs/python-universal-feed-parser.html
 https://dirtysalt.github.io/html/blogs/how-gfw-discovers-hidden-circumvention-servers.html
 https://dirtysalt.github.io/html/blogs/chasing-the-shiny-and-new.html
