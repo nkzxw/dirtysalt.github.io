@@ -1,6 +1,7 @@
 #+title: blogs
 
 ** 2018
+- 201807 [[file:./blogs/system-design-steps-in-interview.org][如何进行系统设计面试]] in Hired in Tech
 - 201807 [[file:./blogs/lang-detect-and-encoding-detect.org][语言检测和编码检测]] 一种利用语言检测来做编码检测的可能方法
 - 201807 [[file:./blogs/aws-overview.org][AWS Overview]] 官方给出的AWS各种产品介绍，比我简单抓取的 [[file:./aws_products.org][AWS Products]] 要好
 - 201807 [[file:blogs/amazon-dynamodb.org][Amazon DynamoDB]] All Things Distributed

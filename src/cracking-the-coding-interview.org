@@ -157,6 +157,8 @@ In each cell, put the corresponding story. We recommend reducing each story to j
    | Hash Tables          |                          |                          |
 
 ** The Interview and Beyond
+https://github.com/yangshun/tech-interview-handbook/tree/master/non-technical
+
 *** Handling Behavioral Questions
 - Be Specific, Not Arrogant # 将问题说的具体一些就不会显得傲慢
 - Limit Details # 同样也不要说的太多具体，限制细节，否则有可能会把面试官搞晕
@@ -391,6 +393,7 @@ print(len(steps))
 #+END_SRC
 
 *** Trees and Graphs
+利用BUD(Bottlenecks, Unnecessary work, Duplicated work) 来优化算法
 - Trees
   - Not all binary trees are binary search trees
   - In-Order: Traverse left node, current node, then right
