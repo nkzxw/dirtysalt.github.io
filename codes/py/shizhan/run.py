@@ -311,6 +311,8 @@ def main():
     fs = glob.glob('resp/get*')
     items = []
     dup = set()
+    os.makedirs('html', exist_ok=True)
+    os.makedirs('images', exist_ok=True)
     for resp in fs:
         title, html = parse_response(resp)
         if title in dup: continue
