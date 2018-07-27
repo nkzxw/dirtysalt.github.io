@@ -254,7 +254,7 @@ def parse_response(resp):
         elif c['type'] == 'image':
             url = c['src']
             key = get_sha1_key(url)
-            path = 'shizhan_images/{}.jpg'.format(key)
+            path = 'images/{}.jpg'.format(key)
             if not os.path.exists(path):
                 print('downloading url = {}'.format(url))
                 r = requests.get(url)
@@ -287,14 +287,14 @@ template_string = """
 <h2>Table of Contents</h2>
 <ul>
 {% for x in items %}
-<li><a href="#shizhan{{ x.idx }}">{{ x.title }}</a></li> 
+<li><a href="#anchor{{ x.idx }}">{{ x.title }}</a></li> 
 {% endfor %}
 </ul>
 </div>
 
 {% for x in items %}
 <div class="outline-2">
-<h2 id="shizhan{{ x.idx }}">{{ x.title }}<a href="#table-of-contents">#</a></h2>
+<h2 id="anchor{{ x.idx }}">{{ x.title }}<a href="#table-of-contents">#</a></h2>
 <div class="outline-text-2">
 {{ x.html }}
 </div>
@@ -308,14 +308,14 @@ template_string = """
 
 
 def main():
-    fs = glob.glob('shizhan_resp/get*')
+    fs = glob.glob('resp/get*')
     items = []
     dup = set()
     for resp in fs:
         title, html = parse_response(resp)
         if title in dup: continue
         dup.add(title)
-        with open('shizhan_html/{}.html'.format(title), 'w') as fh:
+        with open('html/{}.html'.format(title), 'w') as fh:
             fh.write(html)
         items.append((title, html))
     items.sort(key=lambda x: x[0])
@@ -323,9 +323,9 @@ def main():
     items = [{'title': x[0], 'html': x[1], 'idx': idx} for (idx, x) in enumerate(items)]
 
     template = jinja2.Template(template_string)
-    with open('single_page.html', 'w') as fh:
+    with open('sp.html', 'w') as fh:
         output = template.render(items=items, style_string=style_string,
-                                 single_page_title="大师课-施展-枢纽")
+                                 single_page_title="Single Page Document")
         fh.write(output)
 
 
