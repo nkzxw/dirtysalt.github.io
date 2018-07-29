@@ -1,4 +1,4 @@
-#+title: dirtysalt's homepage 章炎的个人站点
+#+title: dirtysalt's site / 章炎的个人站点
 
 - [[file:index-os.org][操作系统 Operating System]]
 - [[file:index-np.org][网络编程 Network Programming]]
