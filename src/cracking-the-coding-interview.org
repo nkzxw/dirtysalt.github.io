@@ -404,7 +404,7 @@ print(len(steps))
 - Graphs
   - Depth First Search
   - Breadth First Search
-  - Dijkstra, Floyd, Bellman-Ford
+  - Dijkstra, Floyd, Bellman-Ford, A*
     - https://leetcode.com/problems/network-delay-time/description/
     - https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/ Dijkstra in O(ELogE) = O(ELogV)
     - https://www.geeksforgeeks.org/dynamic-programming-set-23-bellman-ford-algorithm/ negative weight graph.
