@@ -1,4 +1,4 @@
-#+title: Storage System
+#+title: 存储系统 Storage System
 
 - [[file:storage-system-reading.org][Storage System Reading]] 存储系统方面的一些文章
   - [[http://redbook.cs.berkeley.edu/][Readings in Database Systems]]

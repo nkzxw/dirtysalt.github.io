@@ -1,4 +1,4 @@
-#+title: links
+#+title: 友情链接 links
 -----
 Home:
 - Leslie Lamport. http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html

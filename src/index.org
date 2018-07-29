@@ -1,11 +1,11 @@
-#+title: dirtysalt's homepage
+#+title: dirtysalt's homepage 章炎的个人主页
 
-- [[file:./index-os.org][Operating System]]
-- [[file:./index-np.org][Network Programming]]
-- [[file:index-ss.org][Storage System]]
-- [[file:./index-aa.org][About Algorithm]]
-- [[file:./index-ml.org][Machine Learning]]
-- [[file:./index-ds.org][Distributed System]]
-- [[file:./index-pl.org][Programming Language]]
-- [[file:./index-sd.org][Software Design]]
-- [[file:links.org][Links]] / [[file:blogs.org][Blogs]] / [[file:./books.org][Books]]
+- [[file:index-os.org][操作系统 Operating System]]
+- [[file:index-np.org][网络编程 Network Programming]]
+- [[file:index-ss.org][存储系统 Storage System]]
+- [[file:index-aa.org][算法和数据结构 Algorithm and Data Structure]]
+- [[file:index-ml.org][机器学习 Machine Learning]]
+- [[file:index-ds.org][分布式系统 Distributed System]]
+- [[file:index-pl.org][程序设计语言 Programming Language]]
+- [[file:index-sd.org][软件设计 Software Design]]
+- [[file:links.org][友情链接 Links]] / [[file:blogs.org][个人博客 Blogs]] / [[file:books.org][各种杂书 Books]]

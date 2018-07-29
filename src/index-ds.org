@@ -1,4 +1,4 @@
-#+title: Distributed System
+#+title: 分布式系统 Distributed System
 
 - http://book.mixu.net/distsys/single-page.html
 - Data-Intensive Applications

@@ -1,4 +1,4 @@
-#+title: Operating System
+#+title: 操作系统 Operating System
 
 - [[file:computer-system-reading.org][Computer System Reading]] 单机系统方面的一些文章
   - [[https://nfil.es/w/FIhVEe/reading-list-in-computer-systems-area/][Reading List in Computer Systems Area - nFiles]]

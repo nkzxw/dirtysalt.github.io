@@ -1,4 +1,4 @@
-#+title: Programming Language
+#+title: 程序设计语言 Programming Language
 
 - [[file:thoughts-on-prog-lang.org][thoughts on programming language]]
   - compiler course [[file:images/compiler-cs143.pdf][cs143]]([[file:../codes/cc/cs143/][code]])

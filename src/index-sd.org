@@ -1,4 +1,4 @@
-#+title: Software Design
+#+title: 软件设计 Software Design
 
 ** Articles
 - [[file:t11-on-backpressure.org][T11谈文艺模型(On Backpressure)]]

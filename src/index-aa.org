@@ -1,4 +1,4 @@
-#+title: About Algorithm
+#+title: 算法和数据结构 Algorithm and Data Structure
 
 - [[file:general-algorithm.org][General Algorithm]] 通用算法
   - Matters Computational

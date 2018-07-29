@@ -1,4 +1,4 @@
-#+title: Machine Learning
+#+title: 机器学习 Machine Learning
 
 - [[file:ml-reading.org][Machine Learning Reading]] 机器学习方面的一些文章
   - [[file:./ml-the-hard-way.org][Machine Learning the Hard Way]] 用ML来赌马

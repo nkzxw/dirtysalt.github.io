@@ -1,4 +1,4 @@
-#+title: blogs
+#+title: 个人博客 blogs
 
 ** 2018
 - 201807 [[file:./blogs/algorithm-design-steps-in-interview.org][如何进行算法设计面试]] in Hired in Tech
