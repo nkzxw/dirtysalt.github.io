@@ -239,6 +239,7 @@ def get_sha1_key(s):
 
 
 def parse_response(resp):
+    path = resp
     data = open(resp).read()
     resp = json.loads(data)
     d = resp['data']['content']
@@ -262,6 +263,13 @@ def parse_response(resp):
                     img.write(r.content)
             # fh.write('<img src="{}"/>'.format(url))
             fh.write('<img src="{}"/>'.format(path))
+        elif c['type'] == 'comment':
+            fh.write('<blockquote><p>{}</p></blockquote>'.format('</br>'.join(c['value'])))
+        elif c['type'] == 'split':
+            fh.write('<hr/>')
+        else:
+            #print(c)
+            pass
         fh.write('\n')
     return title, fh.getvalue()
 
@@ -287,7 +295,7 @@ template_string = """
 <h2>Table of Contents</h2>
 <ul>
 {% for x in items %}
-<li><a href="#anchor{{ x.idx }}">{{ x.title }}</a></li> 
+<li><a href="#anchor{{ x.idx }}">{{ x.title }}</a></li>
 {% endfor %}
 </ul>
 </div>
