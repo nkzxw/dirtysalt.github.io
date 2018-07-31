@@ -274,7 +274,7 @@ def parse_response(resp):
     return title, fh.getvalue()
 
 
-template_string = """
+sp_string = """
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -314,6 +314,33 @@ template_string = """
 </html>
 """
 
+index_string = """
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ index_page_title }}</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="dirtysalt" />
+{{ style_string }}
+</head>
+
+<body>
+<div id="content">
+<h1 class="title">{{ index_page_title }}</h1>
+<p><a href="sp.html">Single Page Document</a></p>
+<ul>
+{% for x in items %}
+<li><a href="{{ x.href }}">{{ x.title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</body>
+</html>
+"""
 
 def main():
     fs = glob.glob('resp/get*')
@@ -325,17 +352,24 @@ def main():
         title, html = parse_response(resp)
         if title in dup: continue
         dup.add(title)
-        with open('html/{}.html'.format(title), 'w') as fh:
+        path = "html/{}.html".format(title)
+        with open(path, 'w') as fh:
             fh.write(html)
-        items.append((title, html))
+        items.append((title, html, path))
     items.sort(key=lambda x: x[0])
 
-    items = [{'title': x[0], 'html': x[1], 'idx': idx} for (idx, x) in enumerate(items)]
+    items = [{'title': x[0], 'html': x[1], 'idx': idx, 'href': path} for (idx, x) in enumerate(items)]
 
-    template = jinja2.Template(template_string)
+    template = jinja2.Template(sp_string)
     with open('sp.html', 'w') as fh:
         output = template.render(items=items, style_string=style_string,
                                  single_page_title="Single Page Document")
+        fh.write(output)
+
+    template = jinja2.Template(index_string)
+    with open('index.html', 'w') as fh:
+        output = template.render(items=items, style_string=style_string,
+                                 index_page_title="Index Page Document")
         fh.write(output)
 
 

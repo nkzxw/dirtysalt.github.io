@@ -69,6 +69,7 @@
 - [[file:blogs/big-data-and-revolution.org][大数据时代：生活、工作与思维的大变革]]
 - [[file:./competitive-strategy.org][竞争策略 on Coursera]]
 - [[file:./financial-markets-class.org][金融市场 on Coursera]]
+- [[file:./images/shizhan/index.html][大师课-施展-枢纽]]
 
 小说
 - [[file:./blogs/the-catcher-in-the-rye.org][麦田里的守望者(The Catcher in The Rye)]] by Jerome Salinger
