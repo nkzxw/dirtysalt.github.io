@@ -222,7 +222,6 @@
 - 201509 [[file:./blogs/ostep-virt-cpu.org][OSTEP / Virt-CPU]]
 - 201509 [[file:./blogs/ostep-readings.org][OSTEP / Readings]]
 - 201509 [[file:./blogs/a-love-for-legacy.org][A Love for Legacy]]
-- 201509 [[file:images/How-to-be-a-google-power-user-1.jpg][How to be a Google Power User]] ([[http://www.whoishostingthis.com/blog/2014/08/08/google-pro/][link]])
 - 201509 [[file:./blogs/availability-vs-durability.org][Availability vs. Durability]]
 - 201509 [[file:./blogs/2pc-vs-paxos.org][2PC vs. Paxos]]
 - 201509 [[file:./blogs/life-span-of-ssd.org][SSD固态硬盘寿命问题]]
@@ -254,7 +253,6 @@
 - 201410 [[file:./blogs/my-iphone5s.org][我的iPhone5S]]
 - 201409 [[file:./blogs/helsinki-travel2.org][赫尔辛基印象2]]
 - 201408 [[file:./blogs/jeju-travel.org][济州岛之旅]]
-- 201407 [[file:images/best-sex.jpg][最佳体位]]
 - 201407 [[file:./blogs/xmn-travel.org][厦门鼓浪屿印象]]
 - 201404 [[file:./blogs/sfo-travel.org][旧金山印象]]
 - 201403 [[file:./blogs/helsinki-travel.org][赫尔辛基印象]]

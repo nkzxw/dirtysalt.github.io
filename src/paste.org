@@ -773,9 +773,6 @@ file:./images/if-you-have-to-go.gif
 - 闭门造车，出门合辙。# 只要按照规矩认真做，闭门造车出门就能跑
 
 -----
-[[file:./images/chinese-thought-about-giving-out-pear.jpg][整理了一下中国式让梨的全过程]]
-
------
 If everything seems under control, you're just not going fast enough. -- 关于赛车和创业
 
 -----
