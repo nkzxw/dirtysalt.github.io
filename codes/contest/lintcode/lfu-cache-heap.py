@@ -2,6 +2,8 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+# TODO(yan): 使用heap的方法来动态更新权重
+
 class Heap:
     def __init__(self, cap):
         self.data = [None]
