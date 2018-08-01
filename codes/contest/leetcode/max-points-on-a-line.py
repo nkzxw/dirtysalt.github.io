@@ -63,7 +63,7 @@ class Solution:
             for p1 in points[i + 1:]:
                 line = Line.make(p0, p1)
                 # print('saw line {}'.format(line))
-                line_count[line].update([p0, p1])
+                line_count[line].inc_count([p0, p1])
                 # line_count[line] = line_count.get(line, 0) + 1
 
         lines = list(line_count.items())
