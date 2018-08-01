@@ -26,7 +26,15 @@ alternative_links = [
 filter_words = ('resume',)
 
 
-HEAD_BEGIN = """
+HEAD_BEGIN = """<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-31377772-3');
+</script>
 """.replace('\n','')
 
 HEAD_END = """
