@@ -2,7 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): 使用heap的方法来动态更新权重. not working.
+# NOTE(yan): 使用heap的方法来动态更新权重
 
 class Heap:
     def __init__(self, cap):
@@ -15,22 +15,19 @@ class Heap:
         n = len(self.data)
         swap = None
 
-        if c0 < n and not (self.data[idx] < self.data[c0]):
-            n0, n1 = self.data[c0], self.data[idx]
-            assert n0.heap_idx == c0 and n1.heap_idx == idx
-            n0.heap_idx = idx
-            n1.heap_idx = c0
-            self.data[c0], self.data[idx] = n1, n0
+        if c1 < n and self.data[c1] < self.data[idx]:
+            if self.data[c0] < self.data[c1]:
+                swap = c0
+            else:
+                swap = c1
+        elif c0 < n and self.data[c0] < self.data[idx]:
             swap = c0
 
-        if c1 < n and not (self.data[idx] < self.data[c1]):
-            n0, n1 = self.data[c1], self.data[idx]
-            assert n0.heap_idx == c1 and n1.heap_idx == idx
+        if swap:
+            n0, n1 = self.data[swap], self.data[idx]
             n0.heap_idx = idx
-            n1.heap_idx = c1
-            self.data[c1], self.data[idx] = n1, n0
-            swap = c1
-
+            n1.heap_idx = swap
+            self.data[swap], self.data[idx] = n1, n0
         return swap
 
     def adjust(self, idx):
@@ -134,18 +131,3 @@ class LFUCache:
             self.node_heap.adjust(node.heap_idx)
             return node.value
         return -1
-
-
-if __name__ == '__main__':
-    s = LFUCache(3)
-    s.set(2, 2)
-    s.set(1, 1)
-    s.get(2)
-    s.get(1)
-    s.get(2)
-    s.set(3, 3)
-    s.set(4, 4)
-    s.get(3)
-    s.get(2)
-    s.get(1)
-    s.get(4)
