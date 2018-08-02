@@ -11,7 +11,7 @@ class Node:
 
 
 # 这个doubly linked list有点难写，最好创建一个dummy node.
-class Root:
+class DoublyLL:
     def __init__(self):
         dummy = Node()
         self.head = dummy
@@ -62,7 +62,7 @@ class LRUCache:
 
     def __init__(self, capacity):
         # do intialization if necessary
-        self.node_list = Root()
+        self.node_list = DoublyLL()
         self.node_map = {}
         self.cap = capacity
 
