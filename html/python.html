@@ -18,47 +18,54 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline12">1. language</a>
+<li><a href="#orgheadline1">1. book</a></li>
+<li><a href="#orgheadline13">2. language</a>
 <ul>
-<li><a href="#orgheadline1">1.1. philosophy</a></li>
-<li><a href="#orgheadline2">1.2. 基础知识(basic concepts)</a></li>
-<li><a href="#orgheadline3">1.3. 命名惯例(name convention)</a></li>
-<li><a href="#orgheadline4">1.4. 字符编码(encoding)</a></li>
-<li><a href="#orgheadline5">1.5. import and reload</a></li>
-<li><a href="#orgheadline6">1.6. list comprehension</a></li>
-<li><a href="#orgheadline7">1.7. 可变参数和字典参数</a></li>
-<li><a href="#orgheadline8">1.8. generator(生成器)</a></li>
-<li><a href="#orgheadline9">1.9. decorator(装饰器)</a></li>
-<li><a href="#orgheadline10">1.10. 模块加载路径</a></li>
-<li><a href="#orgheadline11">1.11. coroutine(协程)</a></li>
+<li><a href="#orgheadline2">2.1. philosophy</a></li>
+<li><a href="#orgheadline3">2.2. 基础知识(basic concepts)</a></li>
+<li><a href="#orgheadline4">2.3. 命名惯例(name convention)</a></li>
+<li><a href="#orgheadline5">2.4. 字符编码(encoding)</a></li>
+<li><a href="#orgheadline6">2.5. import and reload</a></li>
+<li><a href="#orgheadline7">2.6. list comprehension</a></li>
+<li><a href="#orgheadline8">2.7. 可变参数和字典参数</a></li>
+<li><a href="#orgheadline9">2.8. generator(生成器)</a></li>
+<li><a href="#orgheadline10">2.9. decorator(装饰器)</a></li>
+<li><a href="#orgheadline11">2.10. 模块加载路径</a></li>
+<li><a href="#orgheadline12">2.11. coroutine(协程)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">2. library</a>
+<li><a href="#orgheadline20">3. library</a>
 <ul>
-<li><a href="#orgheadline13">2.1. httplib</a></li>
-<li><a href="#orgheadline14">2.2. datetime</a></li>
-<li><a href="#orgheadline15">2.3. pip(python package index)</a></li>
-<li><a href="#orgheadline16">2.4. logging</a></li>
-<li><a href="#orgheadline17">2.5. virtualenv</a></li>
-<li><a href="#orgheadline18">2.6. asyncio</a></li>
+<li><a href="#orgheadline14">3.1. httplib</a></li>
+<li><a href="#orgheadline15">3.2. datetime</a></li>
+<li><a href="#orgheadline16">3.3. pip(python package index)</a></li>
+<li><a href="#orgheadline17">3.4. logging</a></li>
+<li><a href="#orgheadline18">3.5. virtualenv</a></li>
+<li><a href="#orgheadline19">3.6. asyncio</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline20">3. inside</a></li>
+<li><a href="#orgheadline21">4. inside</a></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> book</h2>
+<div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a> (<a href="images/learn-py-the-hard-way/index.html">中文</a>)</li>
 <li><a href="http://itlab.idcquan.com/linux/manual/python_chinese/">A Byte of Python</a></li>
 <li><a href="http://pythonguidecn.readthedocs.io/zh/latest/index.html">Python最佳实践指南</a></li>
 </ul>
+</div>
+</div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">1</span> language</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> philosophy</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> language</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> philosophy</h3>
+<div class="outline-text-3" id="text-2-1">
 <blockquote>
 <p>
 &gt;&gt;&gt; import this
@@ -90,9 +97,9 @@ Namespaces are one honking great idea &#x2013; let's do more of those!
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 基础知识(basic concepts)</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> 基础知识(basic concepts)</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>str vs. repr # str是字符串表示，repr是code-form.</li>
 <li>a is b # 判断是否为同一对象</li>
@@ -105,9 +112,9 @@ Namespaces are one honking great idea &#x2013; let's do more of those!
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 命名惯例(name convention)</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> 命名惯例(name convention)</h3>
+<div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>以单一下划线开头的变量名( _X )不会被from module import *语句导入</li>
 <li>前后有两个下划线的变量名( <span class="underline"><span class="underline">X</span></span> )是系统定义的变量名，对解释器有特殊意义</li>
@@ -117,9 +124,9 @@ Namespaces are one honking great idea &#x2013; let's do more of those!
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 字符编码(encoding)</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> 字符编码(encoding)</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 python字符串是unicode类型，二进制是str类型。
 </p>
@@ -214,9 +221,9 @@ except (LookupError, TypeError):
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> import and reload</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.5</span> import and reload</h3>
+<div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>import &lt;module&gt; # 模块只有首次import时候会被执行。模块名字&lt;module&gt;拷贝到本模块。</li>
 <li>from &lt;module&gt; import &lt;name&gt; # 和import过程类似，但是仅仅将模块内部名字&lt;name&gt;拷贝到本模块。</li>
@@ -256,9 +263,9 @@ print ls1, ss1 # [1,2,3,4], 'hello, world'
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> list comprehension</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.6</span> list comprehension</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 iterator可以是字符串，列表，元组，set/dict, 文件等各种迭代器（可迭代对象）
 </p>
@@ -280,9 +287,9 @@ s = {x for x in s} # 集合作为迭代器
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">1.7</span> 可变参数和字典参数</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.7</span> 可变参数和字典参数</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 可变参数是以*开头标识的参数，字典参数是以**开头标识的参数。可变参数得到的是一个tuple, 而字典参数得到的是一个dict.
 </p>
@@ -313,9 +320,9 @@ a = 0, b = 4, c = 5, args = (1, 2, 3), kwargs = {'e': 1, 'f': 2}
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.8</span> generator(生成器)</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.8</span> generator(生成器)</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 可以把生成器认为是一个有状态的，具有迭代接口(next)的对象。定义生成器有两种方法，一种是使用list comprehension, 另外一种则是在函数中用yield.
 </p>
@@ -399,9 +406,9 @@ for v in b:
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.9</span> decorator(装饰器)</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.9</span> decorator(装饰器)</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 装饰器是一种设计模式，在原有的对象上或者是函数上，在外部做一些处理。python里面的装饰器是函数，装饰的对象也是函数。
 </p>
@@ -465,9 +472,9 @@ wrapper
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.10</span> 模块加载路径</h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.10</span> 模块加载路径</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 一些关于模块加载和模块检索路径方面的文章
 </p>
@@ -487,9 +494,9 @@ UPDATE@201801: nova项目中我发现 <a href="http://v2in.com/pth-file-usage-in
 </div>
 
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.11</span> coroutine(协程)</h3>
-<div class="outline-text-3" id="text-1-11">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.11</span> coroutine(协程)</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 我理解generator和coroutine之间的差别只是在于切换上下文上。generator的切换关系是沿着调用链的，也是是callee完成后必须要返回到caller.
 而coroutine则没有这个限制，可以在多个函数之间切换，而这多个函数之间并没有caller/callee的联系。
@@ -569,12 +576,12 @@ start producer
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">2</span> library</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.1</span> httplib</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> library</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.1</span> httplib</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 关于httplib.HTTPConnection超时问题
 </p>
@@ -604,9 +611,9 @@ Socket.connect = my_socket_connect
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.2</span> datetime</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.2</span> datetime</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 日期时间和时间戳之间的转化
 </p>
@@ -695,9 +702,9 @@ Out[5]: datetime.datetime(2018, 2, 9, 11, 0)
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.3</span> pip(python package index)</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.3</span> pip(python package index)</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 python模块管理工具
 </p>
@@ -720,9 +727,9 @@ python模块管理工具
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.4</span> logging</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.4</span> logging</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 python logging主要有下面几个类
 </p>
@@ -778,9 +785,9 @@ class=logging.Formatter
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">2.5</span> virtualenv</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.5</span> virtualenv</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 <a href="https://virtualenv.pypa.io/en/latest/index.html">https://virtualenv.pypa.io/en/latest/index.html</a>
 </p>
@@ -798,9 +805,9 @@ class=logging.Formatter
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">2.6</span> asyncio</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.6</span> asyncio</h3>
+<div class="outline-text-3" id="text-3-6">
 <p>
 理论上asynco也可以不配合coroutine，不过配合coroutine才能最好地发挥asyncio的性能。Python3.5引入关键字`async`和`await`让定义coroutine更加简单。
 </p>
@@ -861,9 +868,9 @@ loop.run_until_complete(test())
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20"><span class="section-number-2">3</span> inside</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">4</span> inside</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><a href="http://pgbovine.net/cpython-internals.htm">Philip Guo - CPython internals: A ten-hour codewalk through the Python interpreter source code</a></li>
 <li><a href="https://www.youtube.com/watch?v=HVUTjQzESeo">Allison Kaptur - Bytes in the Machine: Inside the CPython interpreter - PyCon 2015 - YouTube</a></li>

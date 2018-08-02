@@ -82,6 +82,7 @@ https://dirtysalt.github.io/html/the-dark-side-of-hadoop.html
 https://dirtysalt.github.io/html/do-you-think-you-have-gambling-problem.html
 https://dirtysalt.github.io/html/rcfile.html
 https://dirtysalt.github.io/html/mapreduce.html
+https://dirtysalt.github.io/html/inside-the-python-gil.html
 https://dirtysalt.github.io/html/nginx.html
 https://dirtysalt.github.io/html/linux-perf.html
 https://dirtysalt.github.io/html/license.html
