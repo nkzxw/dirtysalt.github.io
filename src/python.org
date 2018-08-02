@@ -1,4 +1,6 @@
 #+title: Python
+
+** book
 - [[http://learnpythonthehardway.org/][Learn Python The Hard Way]] ([[file:images/learn-py-the-hard-way/index.html][中文]])
 - [[http://itlab.idcquan.com/linux/manual/python_chinese/][A Byte of Python]]
 - [[http://pythonguidecn.readthedocs.io/zh/latest/index.html][Python最佳实践指南]]
@@ -586,6 +588,5 @@ loop.run_until_complete(test())
 #+END_SRC
 
 ** inside
-
 - [[http://pgbovine.net/cpython-internals.htm][Philip Guo - CPython internals: A ten-hour codewalk through the Python interpreter source code]]
 - [[https://www.youtube.com/watch?v=HVUTjQzESeo][Allison Kaptur - Bytes in the Machine: Inside the CPython interpreter - PyCon 2015 - YouTube]]
