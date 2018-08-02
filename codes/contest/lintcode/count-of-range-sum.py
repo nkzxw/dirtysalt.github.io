@@ -2,12 +2,13 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+# NOTE(yan): Python版本没有办法通过，所以写了一个C++版本。熟悉AVL Tree
+
 class Node:
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
-        self.count = 1
         self.lenum = 1
         self.height = 1
 
@@ -74,7 +75,6 @@ def insert(root, value, do_balance):
 
     if root.value == value:
         root.lenum += 1
-        # root.count += 1
     elif root.value > value:
         root.left = insert(root.left, value, do_balance)
         root.lenum += 1
@@ -146,19 +146,3 @@ class Solution:
             if lower <= acc <= upper:
                 res += 1
         return res
-
-
-if __name__ == '__main__':
-    s = Solution()
-    # print(s.countRangeSum([-2, 5, -1, 5], -2, 2))
-    # print(s.countRangeSum(
-    #     [5, -23, -5, -1, -21, 13, 15, 7, 18, 4, 7, 26, 29, -7, -28, 11, -20, -29, 19, 22, 15, 25, 17, -13, 11, -15, 19,
-    #      -8, 3, 12, -1, 2, -1, -21, -10, -7, 14, -12, -14, -8, -1, -30, 19, -27, 16, 2, -15, 23, 6, 14, 23, 2, -4, 4,
-    #      -9, -8, 10, 20, -29, 29],
-    #     -19, 10))
-    with open('/Users/dirlt/Downloads/12.in') as fh:
-        xs = eval(fh.readline())
-        lower = int(fh.readline())
-        upper = int(fh.readline())
-    print(len(xs), lower, upper)
-    print(s.countRangeSum(xs, lower, upper))
