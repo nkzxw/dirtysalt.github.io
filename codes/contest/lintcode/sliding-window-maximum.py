@@ -39,9 +39,11 @@ class Heap:
                 break
             p = swap
         # up path.
-        p = idx
+        p = idx // 2
         while p:
-            self.adjust1(p)
+            swap = self.adjust1(p)
+            if swap is None:
+                break
             p = p // 2
 
     def top(self):

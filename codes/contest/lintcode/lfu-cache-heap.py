@@ -2,14 +2,14 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): 使用heap的方法来动态更新权重
+# TODO(yan): 使用heap的方法来动态更新权重. not working.
 
 class Heap:
     def __init__(self, cap):
         self.data = [None]
         self.cap = cap
 
-    def adjust(self, idx):
+    def adjust1(self, idx):
         c0 = 2 * idx
         c1 = 2 * idx + 1
         n = len(self.data)
@@ -17,6 +17,7 @@ class Heap:
 
         if c0 < n and not (self.data[idx] < self.data[c0]):
             n0, n1 = self.data[c0], self.data[idx]
+            assert n0.heap_idx == c0 and n1.heap_idx == idx
             n0.heap_idx = idx
             n1.heap_idx = c0
             self.data[c0], self.data[idx] = n1, n0
@@ -24,6 +25,7 @@ class Heap:
 
         if c1 < n and not (self.data[idx] < self.data[c1]):
             n0, n1 = self.data[c1], self.data[idx]
+            assert n0.heap_idx == c1 and n1.heap_idx == idx
             n0.heap_idx = idx
             n1.heap_idx = c1
             self.data[c1], self.data[idx] = n1, n0
@@ -31,18 +33,20 @@ class Heap:
 
         return swap
 
-    def walk_down(self, idx):
+    def adjust(self, idx):
         n = len(self.data)
-        while idx < n:
-            swap = self.adjust(idx)
+        p = idx
+        while p < n:
+            swap = self.adjust1(p)
             if swap is None:
                 break
-            idx = swap
-
-    def walk_up(self, idx):
-        while idx:
-            self.adjust(idx)
-            idx = idx // 2
+            p = swap
+        p = idx // 2
+        while p:
+            swap = self.adjust1(p)
+            if swap is None:
+                break
+            p = p // 2
 
     def append(self, node):
         evicted = None
@@ -51,15 +55,12 @@ class Heap:
             evicted = self.data[1]
             node.heap_idx = 1
             self.data[1] = node
-            self.walk_down(1)
+            self.adjust(1)
         else:
             node.heap_idx = n
             self.data.append(node)
-            self.walk_up(n)
+            self.adjust(n)
         return evicted
-
-    def down(self, node):
-        self.walk_down(node.heap_idx)
 
 
 class Node:
@@ -89,7 +90,7 @@ class LFUCache:
         # do intialization if necessary
         self.node_map = dict()
         self.node_heap = Heap(capacity)
-        self.global_op_idx = 0
+        self.global_op_idx = 1
 
     """
     @param: key: An integer
@@ -109,7 +110,7 @@ class LFUCache:
         if node is not None:
             node.inc_count(op_idx)
             node.value = value
-            self.node_heap.down(node)
+            self.node_heap.adjust(node.heap_idx)
             return
 
         node = Node(key, value)
@@ -125,11 +126,26 @@ class LFUCache:
     """
 
     def get(self, key):
-        ts = self.inc_global_op_idx()
         # write your code here
+        op_idx = self.inc_global_op_idx()
         node = self.node_map.get(key)
         if node is not None:
-            node.inc_count(ts)
-            self.node_heap.down(node)
+            node.inc_count(op_idx)
+            self.node_heap.adjust(node.heap_idx)
             return node.value
         return -1
+
+
+if __name__ == '__main__':
+    s = LFUCache(3)
+    s.set(2, 2)
+    s.set(1, 1)
+    s.get(2)
+    s.get(1)
+    s.get(2)
+    s.set(3, 3)
+    s.set(4, 4)
+    s.get(3)
+    s.get(2)
+    s.get(1)
+    s.get(4)
