@@ -54,3 +54,4 @@ Pods
 venv
 .vscode
 __pycache__
+*.dSYM/
