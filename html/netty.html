@@ -39,7 +39,7 @@
 <li><a href="#orgheadline14">3.3. control timeout</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">4. all-about-code</a>
+<li><a href="#orgheadline17">4. codes</a>
 <ul>
 <li><a href="#orgheadline16">4.1. HashedWheelTimer</a></li>
 </ul>
@@ -150,12 +150,12 @@
 <ul class="org-ul">
 <li>ChannelStateEvent 连接状态的变化事件</li>
 <li>MessageEvent 消息可读（可以是ChannelBuffer读取字节流，也可以是已经成帧的消息）</li>
-<li>WriteCompletionEvent <del>数据写完</del> #note: 这里并不是指数据已经完全写完，只是指部分数据写出。实验写出大数据量的时候这个事件被触发了多次。</li>
+<li>WriteCompletionEvent <del>数据写完</del> 这里并不是指数据已经完全写完，只是指部分数据写出。实验写出大数据量的时候这个事件被触发了多次。</li>
 <li>ExceptionEvent 异常事件，可能是IO线程问题也可能是ChannelHandler处理异常</li>
 </ul>
 
 <p>
-#note: 对于某一个Channel来说，它的事件发生检测以及回调处理都是一个IO线程里面完成的
+对于某一个Channel来说，它的事件发生检测以及回调处理都是一个IO线程里面完成的
 </p>
 </div>
 </div>
@@ -195,8 +195,8 @@ NioServerSocketChannelFactory构造函数需要指定boss/worker两个executor�
 <ul class="org-ul">
 <li>boss创建accept fd之后阻塞调用accept. 一旦accept一个connection之后，将这个connection fd交给worker.
 <ul class="org-ul">
-<li>#note: 分摊到哪个worker上的算法应该是round robin</li>
-<li>#note: 早期netty版本只是支持一个boss线程做accept，但是一个现成做accept限制了性能，所以在后续版本支持多个现成做accept</li>
+<li>分摊到哪个worker上的算法应该是round robin</li>
+<li>早期netty版本只是支持一个boss线程做accept，但是一个现成做accept限制了性能，所以在后续版本支持多个现成做accept</li>
 <li>允许绑定到多个端口，因为在boss线程里面也是使用epoll来做IO复用的。</li>
 </ul></li>
 <li>worker将这个connection fd加入到自己的epoll/selector里面，检测可读可写事件的发生</li>
@@ -296,7 +296,7 @@ Got this error - Syahreza Pahlevi Ginting
 </p>
 
 <p>
-#note: 之后我调整了file limits之后便没有遇到这个问题了，所以可能确实和文件句柄数目限制有关
+之后我调整了file limits之后便没有遇到这个问题了，所以可能确实和文件句柄数目限制有关
 </p>
 </div>
 </div>
@@ -329,8 +329,9 @@ Got this error - Syahreza Pahlevi Ginting
 <li>然后允许channel读数据 channel.setReadable(true)</li>
 </ul></li>
 <li>如果10s之内没有数据的话，那么会触发一个ReadTimeoutException, 这样我们可以做后续处理。</li>
-<li>#note: 这个ReadTimeoutException是timer内部线程触发的，但是无须担心多线程问题，因为timer会将这个Exception事件交给IO线程来触发</li>
+<li>这个ReadTimeoutException是timer内部线程触发的，但是无须担心多线程问题，因为timer会将这个Exception事件交给IO线程来触发</li>
 </ul>
+
 <div class="org-src-container">
 
 <pre class="src src-Java">private void fireReadTimedOut(final ChannelHandlerContext ctx) throws Exception {
@@ -371,18 +372,18 @@ Got this error - Syahreza Pahlevi Ginting
 <li>ctx.getChannel.write()</li>
 <li>如果在10s内没有写完的话，那么就会触发一个WriteTimeoutException</li>
 <li>如果在10s内写完的话，那么就会触发writeComplete回调，在回调里面我们可以删除这个handler ctx.getPipeline().remove("wto");</li>
-<li>#note: writeComplete只要部分数据写成功的时候就会触发，所以一次write可能会触发多次writeComplete事件，所以这里remove需要注意只能够remove一次</li>
+<li>writeComplete只要部分数据写成功的时候就会触发，所以一次write可能会触发多次writeComplete事件，所以这里remove需要注意只能够remove一次</li>
 </ul>
 
 <p>
-#note: 其实writeTimeout这个事件其实大部分时候是不需要的：对于server而言write之后就不care了，而对于client而言write之后直接使用read来触发readTimeout更加合适。
+其实writeTimeout这个事件其实大部分时候是不需要的：对于server而言write之后就不care了，而对于client而言write之后直接使用read来触发readTimeout更加合适。
 </p>
 </div>
 </div>
 </div>
 
 <div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">4</span> all-about-code</h2>
+<h2 id="orgheadline17"><span class="section-number-2">4</span> codes</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline16" class="outline-3">
 <h3 id="orgheadline16"><span class="section-number-3">4.1</span> HashedWheelTimer</h3>
@@ -411,9 +412,14 @@ public interface Timeout {
 </pre>
 </div>
 
+
+<div class="figure">
+<p><img src="./images/netty-hashed-wheel-timer.png" alt="netty-hashed-wheel-timer.png" />
+</p>
+</div>
+
 <p>
 数据结构如下：
-<img src="./images/netty-hashed-wheel-timer.png" alt="netty-hashed-wheel-timer.png" />
 </p>
 <ul class="org-ul">
 <li>整个数据结构是一个ring</li>
@@ -423,6 +429,11 @@ public interface Timeout {
 <li>整个ring分配的时间单元成为roundDuration = tickDuration * wheelSize</li>
 <li>每个unit上对应一个Set&lt;HashedWheelTimeout&gt;结构，表示在这个unit上面需要检查超时的Timeout</li>
 </ul>
+
+<p>
+使用Set来管理一个环上面的对象还是稍微有点不太好。虽然移除任务比较方便，但是每次都需要检查许多没有timeout的TimerTask.
+</p>
+
 <div class="org-src-container">
 
 <pre class="src src-Java">public class HashedWheelTimer implements Timer {
@@ -450,7 +461,7 @@ public interface Timeout {
 </p>
 <ul class="org-ul">
 <li>每次请求的Timeout会根据delay，当前时间，转换成为 a)round(需要检查多少轮） b)据当前wheelCursor的偏移offset（放置在ring什么位置上）</li>
-<li>#note: 也就是将delay这个时间概念，转换成为两个状态变量。timer内部通过判断这两个状态变量来判断超时与否</li>
+<li>也就是将delay这个时间概念，转换成为两个状态变量。timer内部通过判断这两个状态变量来判断超时与否</li>
 <li>后台线程每隔tickDuration会检查下一个wheelCursor上的Timeout请求，判断那些存在超时，如果超时的话那么触发TimerTask这个操作。</li>
 </ul>
 
@@ -572,12 +583,13 @@ void scheduleTimeout(HashedWheelTimeout timeout, long delay) {
 
 <hr  />
 <p>
-后台线程 （#note: 注意里面的deadline并不是每次调用currentTimeMillis, 而是在startTime上面不断叠加的，然后在sleep过程中进行修正。可能会出现略微时间偏差）
+后台检查超时触发线程. 注意里面的deadline并不是每次调用currentTimeMillis, 而是在startTime上面不断叠加的，然后在sleep过程中进行修正。可能会出现略微时间偏差。
 </p>
 
 <p>
 @org.jboss.netty.util.HashedWheelTimer.Worker
 </p>
+
 <div class="org-src-container">
 
 <pre class="src src-Java">public void run() {
