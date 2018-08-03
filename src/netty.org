@@ -39,10 +39,10 @@ file:./images/netty-components.png
 连接上所有触发的事件，可以是但是不仅限于下面几种类型
 - ChannelStateEvent 连接状态的变化事件
 - MessageEvent 消息可读（可以是ChannelBuffer读取字节流，也可以是已经成帧的消息）
-- WriteCompletionEvent +数据写完+ #note: 这里并不是指数据已经完全写完，只是指部分数据写出。实验写出大数据量的时候这个事件被触发了多次。
+- WriteCompletionEvent +数据写完+ 这里并不是指数据已经完全写完，只是指部分数据写出。实验写出大数据量的时候这个事件被触发了多次。
 - ExceptionEvent 异常事件，可能是IO线程问题也可能是ChannelHandler处理异常
 
-#note: 对于某一个Channel来说，它的事件发生检测以及回调处理都是一个IO线程里面完成的
+对于某一个Channel来说，它的事件发生检测以及回调处理都是一个IO线程里面完成的
 
 *** ChannelBuffer
 这个和Channel倒是没有太大关系，比较偏向buffer的管理，主要针对网络通信这种read/write交互场景进行优化。
@@ -56,8 +56,8 @@ NioServerSocketChannelFactory构造函数需要指定boss/worker两个executor�
 
 首先了解一下netty的网络模型
 - boss创建accept fd之后阻塞调用accept. 一旦accept一个connection之后，将这个connection fd交给worker.
-  - #note: 分摊到哪个worker上的算法应该是round robin
-  - #note: 早期netty版本只是支持一个boss线程做accept，但是一个现成做accept限制了性能，所以在后续版本支持多个现成做accept
+  - 分摊到哪个worker上的算法应该是round robin
+  - 早期netty版本只是支持一个boss线程做accept，但是一个现成做accept限制了性能，所以在后续版本支持多个现成做accept
   - 允许绑定到多个端口，因为在boss线程里面也是使用epoll来做IO复用的。
 - worker将这个connection fd加入到自己的epoll/selector里面，检测可读可写事件的发生
 - boss/worker都是runnable对象，需要外部提供线程池来执行
@@ -130,7 +130,7 @@ Got this error - Syahreza Pahlevi Ginting
 - http://gleamynode.net/articles/1557/
 这个同学的建议还是说和file-max/file limits有关。
 
-#note: 之后我调整了file limits之后便没有遇到这个问题了，所以可能确实和文件句柄数目限制有关
+之后我调整了file limits之后便没有遇到这个问题了，所以可能确实和文件句柄数目限制有关
 
 *** control timeout
 网络上并没有太多如何关于netty读写超时信息的控制。下面是一篇相对来说比较有启发性的回答：
@@ -145,7 +145,8 @@ Got this error - Syahreza Pahlevi Ginting
   - 首先在ctx之前创建一个ReadTimeoutHandler ctx.getPipeline().addBefore(ctx.getName(),"rto", new ReadTimeoutHandler(timer, 10));
   - 然后允许channel读数据 channel.setReadable(true)
 - 如果10s之内没有数据的话，那么会触发一个ReadTimeoutException, 这样我们可以做后续处理。
-- #note: 这个ReadTimeoutException是timer内部线程触发的，但是无须担心多线程问题，因为timer会将这个Exception事件交给IO线程来触发
+- 这个ReadTimeoutException是timer内部线程触发的，但是无须担心多线程问题，因为timer会将这个Exception事件交给IO线程来触发
+
 #+BEGIN_SRC Java
 private void fireReadTimedOut(final ChannelHandlerContext ctx) throws Exception {
             ctx.getPipeline().execute(new Runnable() {
@@ -179,11 +180,11 @@ private void fireReadTimedOut(final ChannelHandlerContext ctx) throws Exception 
 - ctx.getChannel.write()
 - 如果在10s内没有写完的话，那么就会触发一个WriteTimeoutException
 - 如果在10s内写完的话，那么就会触发writeComplete回调，在回调里面我们可以删除这个handler ctx.getPipeline().remove("wto");
-- #note: writeComplete只要部分数据写成功的时候就会触发，所以一次write可能会触发多次writeComplete事件，所以这里remove需要注意只能够remove一次
+- writeComplete只要部分数据写成功的时候就会触发，所以一次write可能会触发多次writeComplete事件，所以这里remove需要注意只能够remove一次
 
-#note: 其实writeTimeout这个事件其实大部分时候是不需要的：对于server而言write之后就不care了，而对于client而言write之后直接使用read来触发readTimeout更加合适。
+其实writeTimeout这个事件其实大部分时候是不需要的：对于server而言write之后就不care了，而对于client而言write之后直接使用read来触发readTimeout更加合适。
 
-** all-about-code
+** codes
 *** HashedWheelTimer
 定时器的实现，相关其接口如下
 #+BEGIN_SRC Java
@@ -205,14 +206,18 @@ public interface Timeout {
 }
 #+END_SRC
 
-数据结构如下：
 file:./images/netty-hashed-wheel-timer.png
+
+数据结构如下：
 - 整个数据结构是一个ring
 - wheelSize是ring大小
 - wheelCursor是当前在ring上的index
 - 每个unit分配的时间单元称为tickDuration
 - 整个ring分配的时间单元成为roundDuration = tickDuration * wheelSize
 - 每个unit上对应一个Set<HashedWheelTimeout>结构，表示在这个unit上面需要检查超时的Timeout
+
+使用Set来管理一个环上面的对象还是稍微有点不太好。虽然移除任务比较方便，但是每次都需要检查许多没有timeout的TimerTask.
+
 #+BEGIN_SRC Java
 public class HashedWheelTimer implements Timer {
     private static final AtomicInteger id = new AtomicInteger(); // 用来为实例分配编号
@@ -235,7 +240,7 @@ public class HashedWheelTimer implements Timer {
 
 整个逻辑大致是这样的：
 - 每次请求的Timeout会根据delay，当前时间，转换成为 a)round(需要检查多少轮） b)据当前wheelCursor的偏移offset（放置在ring什么位置上）
-- #note: 也就是将delay这个时间概念，转换成为两个状态变量。timer内部通过判断这两个状态变量来判断超时与否
+- 也就是将delay这个时间概念，转换成为两个状态变量。timer内部通过判断这两个状态变量来判断超时与否
 - 后台线程每隔tickDuration会检查下一个wheelCursor上的Timeout请求，判断那些存在超时，如果超时的话那么触发TimerTask这个操作。
 
 -----
@@ -347,9 +352,10 @@ public class HashedWheelTimer implements Timer {
 #+END_SRC
 
 -----
-后台线程 （#note: 注意里面的deadline并不是每次调用currentTimeMillis, 而是在startTime上面不断叠加的，然后在sleep过程中进行修正。可能会出现略微时间偏差）
+后台检查超时触发线程. 注意里面的deadline并不是每次调用currentTimeMillis, 而是在startTime上面不断叠加的，然后在sleep过程中进行修正。可能会出现略微时间偏差。
 
 @org.jboss.netty.util.HashedWheelTimer.Worker
+
 #+BEGIN_SRC Java
         public void run() {
             List<HashedWheelTimeout> expiredTimeouts =
