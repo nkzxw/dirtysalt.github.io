@@ -272,3 +272,6 @@ May 12 12:29:40 dp57 mcelog: Processor 31 below trip temperature. Throttling dis
 May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
 May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disabled
 #+END_EXAMPLE
+** linux kernel map
+
+file:./images/linux-kernel-map.png

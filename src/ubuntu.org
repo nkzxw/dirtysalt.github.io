@@ -218,15 +218,6 @@ tcpdump
 
 我也做了个简单的 [[file:../codes/misc/deb-package][sample]] 供参考
 
-*** The System Running In Low Graphics Mode
-http://simpledeveloper.com/system-running-in-low-graphics-mode/
-
-- CTRL + ALT + F1 切换到terminal
-- # sudo apt-get -d install --reinstall gdm
-- # sudo apt-get remove --purge gdm
-- # sudo apt-get install gdm
-- # sudo reboot
-
 *** apt-get: Waiting for headers
 http://askubuntu.com/questions/156650/apt-get-update-very-slow-stuck-at-waiting-for-headers
 
@@ -396,7 +387,7 @@ System Settings => Appearance => Launcher icon size.
 *** 调整skype字体大小
 http://www.mintos.org/network/modify-skype-font.html
 
-- 安装qt4-config # sudo apt-get install qt4-qtconfig
+- 安装qt4-config "sudo apt-get install qt4-qtconfig"
 - 修改字体(font size=12)和外观(Clearlooks)
 - 点击qt4-config的菜单栏保存
 - 重启skype即可观察到字体修改效果
@@ -417,7 +408,7 @@ Tools -> Preferences -> Subtitles & OSD
 
 ** 编程环境
 *** bash的tab自动补全
-- # sudo apt-get install bash-completion
+"sudo apt-get install bash-completion"
 
 但是我觉得这个自动补全有点不太好的就是，比如我cd ~/.ssh/想自动补全的话，我不仅仅是希望能够补全目录(虽然cd参数只能够是目录),我还希望可以显示文件(比如我想知道这个目录下面是否有Makefile或者是pom.xml)，这样就可以快速判断某个文件是否在目录下面。不然我只能调回命令行开头，切换成为cat,然后跳回去使用两次tab进行自动补全(cat能够显示文件).
 
@@ -517,74 +508,6 @@ done
 Generation complete.
 #+END_EXAMPLE
 
-** 开发工具
-*** screen
-[[https://github.com/dirtysalt/atom/blob/master/files/.screenrc][我的配置文件]]
-
-如何使用screen启动(查看)后台任务:
-- screen -D -R <session-name>
-  - 如果会话存在那么会连上.
-  - 如果会话不存在那么创建.
-  - 如果会话被其他人attach, 可以强制attach.
-- 在会话里面执行命令
-- C-a d从这个会话里面detach出来
-
-*** emacs
-- [[http://www.gnu.org/software/emacs/][emacs site]]
-- [[http://orgmode.org/][emacs org-mode]]
-- 我的 [[https://github.com/dirtysalt/atom/blob/master/files/.emacs][配置文件]] 以及 [[https://github.com/dirtysalt/atom/tree/master/files/emacs.d][插件集合]]
-
-note@2016-01: 可以看看这个项目 [[https://github.com/syl20bnr/spacemacs][spacemacs]]. 这个是liuxiang同学介绍给我的，集合了许多插件并且给出了比较好的默认配置，方便emacs初学者上手。这个项目对于我来说就稍微有点麻烦，因为我自己已经集合了许多插件和配置，我需要首先熟悉这个项目然后把自己原来的配置不断地port上去。对我来说，最好的方式还是看看spacemacs里面有哪些插件比较好，然后集成到自己项目里面来.
-
-*** idea
-- 常用快捷键
-  - 查找方法 Ctrl+F12
-  - 查找类 Ctrl+N
-  - 页面跳转 Ctrl+E
-  - 查看声明 Ctrl+B
-  - 察看实现 Ctrl+Alt+B
-  - 跳回 Alt+(<-) 跳前Alt+(->)
-  - 格式化 Ctrl+Alt+L （这个键和ubuntu的锁屏键冲突了，我修改到了Ctrl+Alt+\)
-  - 导入某个类（光标在这个类上） Alt+Enter
-  - 优化类的导入 Ctrl+Alt+O
-- 编辑区域右键"maven"这个选项
-  - Reimport 可以重新导入maven配置
-  - Generate Sources and Update Folders 重新生成sources并且更新文件夹
-- 目录右键"Mark Directory As" -> "Source Root" 可以将某个目录指定为源代码目录
-
-*** bzr
-- http://bazaar.canonical.com/en/
-- https://launchpad.net/
-
-配置项目
-- bzr branch <repo> # git clone.
-  - # 每个分支都会有自己单独的revno
-- bzr pull # git pull
-- bzr push <repo> # git push
-  - --create-prefix # create if not exist
-  - --overwrite -rREVNO # 强制将远端回滚到此revno.
-- bzr config [parent_location|push_location|submit_branch]=<URL>
-
-合并提交
-- bzr commit -m 'message'
-- bzr uncommit # 撤销一个commit
-- bzr revert # git checkout
-- bzr merge -r[a]..[b] <URL> # 合并revno=[a+1,b]修改
-
-查看diff
-- bzr log/diff -r[a]..[b] # 察看revno=[a,b]修改信息
-- bzr status/st # 当前仓库状态
-- bzr revno # current revision number
-- bzr info # 当前仓库情况
-
-*** image-magick
-http://www.imagemagick.org/script/index.php
-
-- 调整图像大小比例
-  - convert -resize 50%x50% input output
-  - convert -resize 1000x input output # 等比例缩放，width = 1000
-- 垂直合并图片 convert -append input... output
-- 水平合并图片 convert +append input... output
 
 ** 虚拟机
 *** vmware虚拟机增加磁盘空间
