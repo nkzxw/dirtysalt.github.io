@@ -2,62 +2,89 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): not working. have some idea.
-
 class Span:
     def __init__(self, x, y, h):
         self.x = x
         self.y = y
         self.h = h
 
+    def __str__(self):
+        return '({}, {}, {})'.format(self.x, self.y, self.h)
+
     def merge(self, other):
         x0, y0, h0 = self.x, self.y, self.h
         x1, y1, h1 = other.x, other.y, other.h
-        out, left, right = None, [], []
+        out = []
 
         if y1 < y0:
             if x1 >= x0:
                 if h0 >= h1:
-                    out = Span(x0, y0, h0)
+                    out.append(Span(x0, y0, h0))
                 else:
-                    left.append(Span(x0, x1, h0))
-                    left.append(Span(x1, y1, h1))
-                    out = Span(y1, y0, h0)
+                    out.append(Span(x0, x1, h0))
+                    out.append(Span(x1, y1, h1))
+                    out.append(Span(y1, y0, h0))
             else:
                 if h0 >= h1:
-                    left.append(Span(x1, x0, h1))
-                    out = Span(x0, y0, h0)
+                    out.append(Span(x1, x0, h1))
+                    out.append(Span(x0, y0, h0))
                 else:
-                    left.append(Span(x1, y1, h1))
-                    out = Span(y1, y0, h0)
+                    out.append(Span(x1, y1, h1))
+                    out.append(Span(y1, y0, h0))
+
         else:
             if x1 >= x0:
                 if h0 >= h1:
-                    out = Span(x0, y0, h0)
-                    right.append(Span(y0, y1, h1))
+                    out.append(Span(x0, y0, h0))
+                    out.append(Span(y0, y1, h1))
                 else:
-                    left.append(Span(x0, x1, h0))
-                    out = Span(x1, y0, h1)
-                    right.append(Span(y0, y1, h1))
+                    out.append(Span(x0, x1, h0))
+                    out.append(Span(x1, y0, h1))
+                    out.append(Span(y0, y1, h1))
             else:
                 if h0 >= h1:
-                    left.append(Span(x1, x0, h1))
-                    out = Span(x0, y0, h0)
-                    right.append(Span(y0, y1, h1))
+                    out.append(Span(x1, x0, h1))
+                    out.append(Span(x0, y0, h0))
+                    out.append(Span(y0, y1, h1))
                 else:
-                    left.append(Span(x1, x0, h1))
-                    out = Span(x0, y0, h1)
-                    right.append(Span(y0, y1, h1))
+                    out.append(Span(x1, x0, h1))
+                    out.append(Span(x0, y0, h1))
+                    out.append(Span(y0, y1, h1))
 
-        left = [x for x in left if x.x < x.y]
-        right = [x for x in right if x.x < x.y]
-        return out, left, right
+        out = [sp for sp in out if sp.x < sp.y]
+        center, left, right = None, [], []
+        for sp in out:
+            if sp.y == y0:
+                center = sp
+            elif sp.y > y0:
+                right.append(sp)
+            else:
+                left.append(sp)
+
+        # bad = False
+        # for i in range(len(out)):
+        #     for j in range(i + 1, len(out)):
+        #         if out[i].overlap(out[j]):
+        #             print('BAD!!!')
+        #             bad = True
+        #             break
+        #     if bad:
+        #         break
+        #
+        # if bad:
+        #     print('++++++++++')
+        #     print('{}, {}'.format(self, other))
+        #     print('center = {}'.format(center))
+        #     print('left = [{}]'.format(', '.join(map(str, left))))
+        #     print('right = {}'.format(', '.join(map(str, right))))
+
+        return center, left, right
 
     def overlap(self, other):
-        return self.y > other.x
+        return not (other.x >= self.y or other.y <= self.x)
 
     def to_tuple(self):
-        return (self.x, self.y, self.h)
+        return self.x, self.y, self.h
 
 
 class Node:
@@ -67,24 +94,22 @@ class Node:
         self.right = None
         self.height = 1
 
-    def __lt__(self, other):
-        if self.value.y != other.value.y:
-            return self.value.y < other.value.y
-        return self.value.x < other.value.x
-
 
 def insert_span(root, sp):
     if root is None:
         return Node(sp)
     span = root.value
     if span.overlap(sp):
-        out, left, right = span.merge(sp)
-        span.x = out.x
-        span.h = out.h
+        center, left, right = span.merge(sp)
+        span.x = center.x
+        span.h = center.h
         for sp2 in left:
             root.left = insert_span(root.left, sp2)
         for sp2 in right:
             root.right = insert_span(root.right, sp2)
+    elif sp.x < span.y:
+        assert sp.y <= span.y
+        root.left = insert_span(root.left, sp)
     else:
         root.right = insert_span(root.right, sp)
     return root
@@ -146,23 +171,16 @@ class Solution:
         """
         res = self._buildingOutline(buildings)
         out = []
-        prev = None
-        for sp in res:
-            if prev is not None and prev.y != sp.x:
+        if not res:
+            return out
+        sp = res[0]
+        prev = sp
+        out.append([sp.x, sp.h])
+        for i in range(1, len(res)):
+            sp = res[i]
+            if prev.y != sp.x:
                 out.append((prev.y, 0))
-            out.append((sp.x, sp.h))
+            out.append([sp.x, sp.h])
             prev = sp
-        if prev:
-            out.append((prev.y, 0))
+        out.append([prev.y, 0])
         return out
-
-
-if __name__ == '__main__':
-    s = Solution()
-    # bs = [[1, 3, 3], [2, 4, 4], [5, 6, 1]]
-    # bs = [[1, 100, 20], [2, 99, 19], [3, 98, 18]]
-    # print(s.buildingOutline(bs))
-    bs = [[2, 9, 10], [3, 7, 15], [5, 12, 12], [15, 20, 10], [19, 24, 8]]
-    # bs = [[2, 9, 10], [3, 7, 15], [5, 12, 12]]
-    print(s.buildingOutline(bs))
-    print(s.getSkyline(bs))
