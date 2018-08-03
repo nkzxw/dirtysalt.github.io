@@ -24,7 +24,7 @@
 <li><a href="#orgheadline2">2.1. strlen in glibc</a></li>
 <li><a href="#orgheadline3">2.2. consistent hashing</a></li>
 <li><a href="#orgheadline4">2.3. rsync core algorithm</a></li>
-<li><a href="#orgheadline5">2.4. simhash core algorithm</a></li>
+<li><a href="#orgheadline5">2.4. simhash algorithm</a></li>
 <li><a href="#orgheadline6">2.5. HyperLogLog</a></li>
 <li><a href="#orgheadline7">2.6. CONCISE</a></li>
 </ul>
@@ -255,7 +255,7 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 </div>
 
 <div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> simhash core algorithm</h3>
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> simhash algorithm</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><a href="http://blog.csdn.net/lgnlgn/article/details/6008498">http://blog.csdn.net/lgnlgn/article/details/6008498</a></li>
@@ -281,7 +281,7 @@ simhash算法原理非常简单：
 </p>
 
 <p>
-但是现实中有另外一种情况是，我们已经有一组很大的文档集合S以及对应的simhash值，现在我们有一个新来的文档d以及simhash值，我们需要判断在S中是否有和d海明距离小于k的文档。
+现实场景通常是我们已经有一组很大的文档集合S以及对应的simhash值，对于新来的文档d, 哦我们需要判断在S中是否有和d海明距离小于k的文档。
 </p>
 
 <p>
@@ -295,6 +295,30 @@ simhash算法原理非常简单：
 <p>
 不过话说回来，文档近似判断应该k很小在{1,2}左右, 对应的C(64,k)={64,2016}
 </p>
+
+<p>
+UPDATE@201808 这篇 <a href="https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/06.03.md">文档</a> 讲的不错，还给出了更好的查询办法，可以预先做好索引加快查询和比对。
+</p>
+
+<p>
+我们可以把 64 位的二进制simhash签名均分成4块，每块16位。根据鸽巢原理（也称抽屉原理），如果两个签名的海明距离在 3 以内，它们必有一块完全相同。如下图所示：
+</p>
+
+
+<div class="figure">
+<p><img src="./images/simhash-exact-match.jpeg" alt="simhash-exact-match.jpeg" />
+</p>
+</div>
+
+<p>
+然后把分成的4 块中的每一个块分别作为前16位来进行查找，建倒排索引。
+</p>
+
+
+<div class="figure">
+<p><img src="./images/simhash-search.jpeg" alt="simhash-search.jpeg" />
+</p>
+</div>
 </div>
 </div>
 

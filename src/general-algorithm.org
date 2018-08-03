@@ -151,7 +151,7 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 
 源端完成了上面这些操作之后，就可以知道那些块目的端是存在的（以及存在于什么地方），自己有那些块是目的端没有的，然后通过传输增量并且文件拼接来达到数据同步的目的。
 
-*** simhash core algorithm
+*** simhash algorithm
 - http://blog.csdn.net/lgnlgn/article/details/6008498
 - http://www.wwwconference.org/www2007/papers/paper215.pdf
 
@@ -165,13 +165,23 @@ simhash算法原理非常简单：
 
 可以看到如果simhash之间的bit相差小的话，那么文档之间的相似度就更高，这里没有证明但是可以比较感性地感觉到。两个simhash之间的bit差异个数叫做海明距离。直接比较两个simhash海明距离非常简单，
 
-但是现实中有另外一种情况是，我们已经有一组很大的文档集合S以及对应的simhash值，现在我们有一个新来的文档d以及simhash值，我们需要判断在S中是否有和d海明距离小于k的文档。
+现实场景通常是我们已经有一组很大的文档集合S以及对应的simhash值，对于新来的文档d, 哦我们需要判断在S中是否有和d海明距离小于k的文档。
 
 假设S是排好序的个数是N，我们simhash f=64.如果k非常小比如{1,2,3}的话，那么可以枚举和d simhash相差k的所有simhash值，然后再S里面进行检索，时间复杂度在C(64,k)*lgN.但是如果k比较大比如>=10的话，那么我们可以先对S进行分段搜索：
    1. 我们对S进行分段，每次取出2^m个元素，我们确保2^m个元素高位有m’相同。因为S排好序所以通常m'很高。
    2. 我们首先对于m'个位和d simhash高位判断有多少位存在差异，假设x存在差异.这样我们可以在2^m元素判断m-x差异的元素。
    3. 总体思想来说的话就是希望可以缩小搜索集。似乎在算法复杂度上面没有啥改进，可以在实现上改进。
 不过话说回来，文档近似判断应该k很小在{1,2}左右, 对应的C(64,k)={64,2016}
+
+UPDATE@201808 这篇 [[https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/06.03.md][文档]] 讲的不错，还给出了更好的查询办法，可以预先做好索引加快查询和比对。
+
+我们可以把 64 位的二进制simhash签名均分成4块，每块16位。根据鸽巢原理（也称抽屉原理），如果两个签名的海明距离在 3 以内，它们必有一块完全相同。如下图所示：
+
+file:./images/simhash-exact-match.jpeg
+
+然后把分成的4 块中的每一个块分别作为前16位来进行查找，建倒排索引。
+
+file:./images/simhash-search.jpeg
 
 *** HyperLogLog
 - http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
