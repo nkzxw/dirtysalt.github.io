@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 # Copyright (C) dirlt
+import hashlib
 import random
 
 
@@ -36,7 +37,6 @@ def unbase62(s):
 class Codec:
     def __init__(self):
         self.cache = {}
-        self.rnd = random.Random(42)
         self.max_val = 1 << 31 - 1
 
     def encode(self, longUrl):
@@ -46,13 +46,15 @@ class Codec:
         :rtype: str
         """
 
+        rnd = random.Random(hashlib.md5(longUrl.encode('utf8')).digest())
         while True:
-            val = self.rnd.randint(0, self.max_val)
-            if val not in self.cache:
+            val = rnd.randint(0, self.max_val)
+            if val not in self.cache or self.cache[val] == longUrl:
                 break
-        self.cache[val] = longUrl
         s = base62(val)
-        return 'http://tinyurl.com/{}'.format(s)
+        shortUrl = 'http://tinyurl.com/{}'.format(s)
+        self.cache[val] = longUrl
+        return shortUrl
 
     def decode(self, shortUrl):
         """Decodes a shortened URL to its original URL.
