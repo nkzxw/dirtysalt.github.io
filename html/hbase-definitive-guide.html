@@ -426,7 +426,7 @@ Finally, given the current status of built-in security into Hadoop and HBase, it
 <h2 id="orgheadline13"><span class="section-number-2">4</span> Chapter 3. Client API: The Basics</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<b>General Notes</b>
+General Notes
 </p>
 <ul class="org-ul">
 <li>All operations that mutate data are guaranteed to be atomic on a per row basis.</li>
@@ -439,7 +439,7 @@ Finally, given the current status of built-in security into Hadoop and HBase, it
 <h2 id="orgheadline14"><span class="section-number-2">5</span> Chapter 7. MapReduce Integration</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<b>MapReduce Locality</b>
+MapReduce Locality
 </p>
 <ul class="org-ul">
 <li>And here is the kicker: HDFS is smart enough to put the data where it is needed! It has a block placement policy in place that enforces all blocks to be written first on a colocated server. The receiving data node compares the server name of the writer with its own, and if they match the block is written to the local file system. Then a replica is sent to a server within the same rack, and another to a remote rack - assuming you are using rack awareness in HDFS. If not then the additional copies get placed on the least loaded data node in the cluster.（HDFS文件在写的时候已经可以感知尽量将数据写在和client比较近的位置上面）</li>
@@ -681,8 +681,10 @@ Currently the WAL is using a Hadoop SequenceFile, which stores records as sets o
 
 <ul class="org-ul">
 <li>The table descriptor allows to set the so called deferred log flush flag, as explained in the section called “Table Properties”. The default is false and means that every time an edit is sent to the servers it will call the log writer's sync() method. It is the call that forces the update to the log to be acknowledged by the file system so that you have the durability needed.（这个功能可以防止HBase每次写HDFS都调用sync而采用延迟sync的方式。这个选项在Table Descriptor里面进行设置。默认的话是关闭的也就是说每次都会调用sync）</li>
-<li>Setting the deferred log flush flag to true causes for the edits to be buffered on the region server, and the LogSyncer class, running as a thread on the server, is responsible to call the sync() method at a very short interval. The default is one second and is configured by the <b>hbase.regionserver.optionallogflushinterval</b> property.（如果采用延迟sync的话那么存在一个单独的线程来专门进行刷新，刷新的间隔时间可以配置）</li>
+<li>Setting the deferred log flush flag to true causes for the edits to be buffered on the region server, and the LogSyncer class, running as a thread on the server, is responsible to call the sync() method at a very short interval. The default is one second and is configured by the <b>hbase.regionserver.optionallogflushinterval</b> property.（如果采用延迟sync的话那么存在一个单独的线程来专门进行刷新，刷新的间隔时间可以配置）
+<ul class="org-ul">
 <li>Note that this only applies to user tables: all catalog tables are always sync'ed right away.（对ROOT/META这种catalog的表格必须每次都进行sync，延迟sync仅仅对于usertable有效）</li>
+</ul></li>
 </ul>
 </div>
 </div>
