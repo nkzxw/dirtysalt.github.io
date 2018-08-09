@@ -84,11 +84,13 @@ class Solution:
                         if out != -1 and (res == -1 or res > (out + delta)):
                             res = out + delta
             visited[r][c] = 0
+            print(r, c, direction, res)
             return res
 
         r, c = start
         res = -1
         for d in range(0, 4):
+            print(d)
             out = dfs(r, c, d)
             if out != -1 and (res == -1 or res > out):
                 res = out
