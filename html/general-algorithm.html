@@ -29,7 +29,7 @@
 <li><a href="#orgheadline7">2.6. CONCISE</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">3. 面试算法</a>
+<li><a href="#orgheadline18">3. 面试算法</a>
 <ul>
 <li><a href="#orgheadline9">3.1. 树最长距离</a></li>
 <li><a href="#orgheadline10">3.2. Monty Hall Problem</a></li>
@@ -39,10 +39,11 @@
 <li><a href="#orgheadline14">3.6. 流式计算均值和方差</a></li>
 <li><a href="#orgheadline15">3.7. Poor Pigs @ leetcode</a></li>
 <li><a href="#orgheadline16">3.8. 神奇帽子问题</a></li>
+<li><a href="#orgheadline17">3.9. Reconstruct Original Digits from English @ leetcode</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">4. 配置topcoder</a></li>
-<li><a href="#orgheadline19">5. CS中最重要的32个算法</a></li>
+<li><a href="#orgheadline19">4. 配置topcoder</a></li>
+<li><a href="#orgheadline20">5. CS中最重要的32个算法</a></li>
 </ul>
 </div>
 </div>
@@ -482,8 +483,8 @@ CONCISE针对这个部分稍微改进了一下
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">3</span> 面试算法</h2>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> 面试算法</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-orgheadline9" class="outline-3">
 <h3 id="orgheadline9"><span class="section-number-3">3.1</span> 树最长距离</h3>
@@ -981,10 +982,97 @@ Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.9</span> Reconstruct Original Digits from English @ leetcode</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+<a href="https://leetcode.com/problems/reconstruct-original-digits-from-english/description/">https://leetcode.com/problems/reconstruct-original-digits-from-english/description/</a>
+</p>
+
+<p>
+这题目如果使用递归的话会出现TLE. 讨论区里面 tornmy 给出的方法很对，就是其实每个数字英语表示都可以通过一个字母来完全确定。
+</p>
+
+<pre class="example">
+```In general situation, it should be transformed into a problem to calculate A from AX=B, matrix X is formed as follows,
+         //                                             /// efghinorstuvwxz ///
+        // 0 z e r o        e         o  r            z    100000110000001
+        // 1 o n e          e        no                    100001100000000
+        // 2 t w o                    o      t    w         000000100100100
+        // 3 t h r e e      e    h       r   t              200100010100000
+        // 4 f o u r          f       o  r     u             010000110010000
+        // 5 f i v e        e f    i             v            110010000001000
+        // 6 s i x                 i       s        x          000010001000010
+        // 7 s e v e n      e        n     s     v        200001001001000
+        // 8 e i g h t      e  g h i         t              101110000100000
+        // 9 n i n e        e      i n                       100012000000000
+</pre>
+
+<p>
+从上面分析可以看到，"zero"的z是唯一的，"six"的x是唯一的，依次类推。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Python">#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+
+class Solution:
+    def originalDigits(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        def ch2idx(c):
+            return ord(c) - ord('a')
+
+        counter = [0] * 26
+        for c in s:
+            idx = ch2idx(c)
+            counter[idx] += 1
+
+        preps = []
+        for word in ('zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'):
+            vec = []
+            for c in word:
+                vec.append(ch2idx(c))
+            preps.append(vec)
+
+        def remove_chars(c, digit):
+            idx = ch2idx(c)
+            prep = preps[digit]
+            cnt = counter[idx]
+            for idx in prep:
+                counter[idx] -= cnt
+            return str(digit) * cnt
+
+        res = ''
+        res += remove_chars('z', 0)
+        res += remove_chars('x', 6)
+        res += remove_chars('w', 2)
+        res += remove_chars('u', 4)
+        res += remove_chars('g', 8)
+        res += remove_chars('o', 1)
+        res += remove_chars('h', 3)
+        res += remove_chars('f', 5)
+        res += remove_chars('v', 7)
+        res += remove_chars('i', 9)
+        res = list(res)
+        res.sort()
+        res = ''.join(res)
+        return res
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">4</span> 配置topcoder</h2>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">4</span> 配置topcoder</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 <a href="https://github.com/shivawu/topcoder-greed">https://github.com/shivawu/topcoder-greed</a>. 这个插件是一个整合包，配置起来更加方便。
@@ -1096,8 +1184,8 @@ UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用�
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms">http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms</a>
