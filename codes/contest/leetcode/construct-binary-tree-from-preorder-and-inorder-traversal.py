@@ -23,7 +23,7 @@ class Solution(object):
         n = len(preorder)
         root = TreeNode('dummy')
         st = []
-        # note(yan): 如果这里可以传递引用的话就更简单了.
+        # NOTE(yan): 如果这里可以传递引用的话就更简单了.
         st.append((preorder, inorder, root, 'left'))
 
         while st:

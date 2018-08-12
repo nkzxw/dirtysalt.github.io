@@ -2,8 +2,6 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# NOTE(yan): Python版本没有办法通过，所以写了一个C++版本。熟悉AVL Tree
-
 class Node:
     def __init__(self, value):
         self.value = value

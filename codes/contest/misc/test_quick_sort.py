@@ -5,7 +5,7 @@
 import numpy as np
 
 
-# NOTE(yan): not simple implementation.
+# NOTE(yan): complex implementation.
 # def qsort_pivot(xs, s, e):
 #     pivot = xs[s]
 #     a, b = s, e

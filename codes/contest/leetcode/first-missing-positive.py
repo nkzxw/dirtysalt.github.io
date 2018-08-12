@@ -8,7 +8,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # TODO(yan): FIX ME. not O(N)
+        # TODO(yan): not O(N)
         nums = [x for x in nums if x > 0]
         nums.sort()
         if len(nums) == 0: return 1

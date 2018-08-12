@@ -8,6 +8,5 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # TODO(yan): FIX ME. not O(n)
         nums.sort()
         return nums[0]

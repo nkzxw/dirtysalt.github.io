@@ -2,7 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# NOTE(yan): 这道题目解法很有意思
+# NOTE(yan): 没有想到使用二分法来确定平均值
 
 class Solution:
     """

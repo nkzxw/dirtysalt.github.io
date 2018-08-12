@@ -2,7 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): TLE. maybe C++.
+# TODO(yan): TLE. maybe C++ version.
 
 class Solution:
     """

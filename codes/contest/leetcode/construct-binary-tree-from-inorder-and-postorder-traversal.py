@@ -24,7 +24,7 @@ class Solution(object):
         n = len(postorder)
         root = TreeNode('dummy')
         st = []
-        # note(yan): 如果这里可以传递引用的话就更简单了.
+        # NOTE(yan): 如果这里可以传递引用的话就更简单了.
         st.append((postorder, inorder, root, 'left'))
 
         while st:
