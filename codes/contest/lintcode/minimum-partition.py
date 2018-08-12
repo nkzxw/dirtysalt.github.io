@@ -2,8 +2,6 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): TLE. maybe C++ version.
-
 class Solution:
     """
     @param nums: the given array
