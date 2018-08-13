@@ -6,6 +6,8 @@
 #include <set>
 using namespace std;
 
+// NOTE(yan): 解法非常好，最重要的是确保两个矩阵是可以相减，得到一个sub matrix.
+
 class Solution {
   public:
     int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {

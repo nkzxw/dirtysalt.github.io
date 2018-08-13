@@ -2,6 +2,8 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+# NOTE(yan): https://discuss.leetcode.com/topic/67666/another-explanation-and-solution
+
 class Solution(object):
     def poorPigs(self, buckets, minutesToDie, minutesToTest):
         """
