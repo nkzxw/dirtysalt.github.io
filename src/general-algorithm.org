@@ -626,6 +626,81 @@ The two men with hats see one hat, and are unsure whether c = 1 or c = 2. They k
 
 Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2, the hats would be removed on Night #2. If they are not, they must deduce that c = 3, and therefore they have a hat. We can follow this logic for c = 4, 5, ...
 
+*** Reconstruct Original Digits from English @ leetcode
+https://leetcode.com/problems/reconstruct-original-digits-from-english/description/
+
+这题目如果使用递归的话会出现TLE. 讨论区里面 tornmy 给出的方法很对，就是其实每个数字英语表示都可以通过一个字母来完全确定。
+
+#+BEGIN_EXAMPLE
+```In general situation, it should be transformed into a problem to calculate A from AX=B, matrix X is formed as follows,
+         //                                             /// efghinorstuvwxz ///
+        // 0 z e r o        e         o  r            z    100000110000001
+        // 1 o n e          e        no                    100001100000000
+        // 2 t w o                    o      t    w         000000100100100
+        // 3 t h r e e      e    h       r   t              200100010100000
+        // 4 f o u r          f       o  r     u             010000110010000
+        // 5 f i v e        e f    i             v            110010000001000
+        // 6 s i x                 i       s        x          000010001000010
+        // 7 s e v e n      e        n     s     v        200001001001000
+        // 8 e i g h t      e  g h i         t              101110000100000
+        // 9 n i n e        e      i n                       100012000000000
+#+END_EXAMPLE
+
+从上面分析可以看到，"zero"的z是唯一的，"six"的x是唯一的，依次类推。
+
+#+BEGIN_SRC Python
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
+
+class Solution:
+    def originalDigits(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        def ch2idx(c):
+            return ord(c) - ord('a')
+
+        counter = [0] * 26
+        for c in s:
+            idx = ch2idx(c)
+            counter[idx] += 1
+
+        preps = []
+        for word in ('zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'):
+            vec = []
+            for c in word:
+                vec.append(ch2idx(c))
+            preps.append(vec)
+
+        def remove_chars(c, digit):
+            idx = ch2idx(c)
+            prep = preps[digit]
+            cnt = counter[idx]
+            for idx in prep:
+                counter[idx] -= cnt
+            return str(digit) * cnt
+
+        res = ''
+        res += remove_chars('z', 0)
+        res += remove_chars('x', 6)
+        res += remove_chars('w', 2)
+        res += remove_chars('u', 4)
+        res += remove_chars('g', 8)
+        res += remove_chars('o', 1)
+        res += remove_chars('h', 3)
+        res += remove_chars('f', 5)
+        res += remove_chars('v', 7)
+        res += remove_chars('i', 9)
+        res = list(res)
+        res.sort()
+        res = ''.join(res)
+        return res
+#+END_SRC
+
 ** 配置topcoder
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 https://github.com/shivawu/topcoder-greed. 这个插件是一个整合包，配置起来更加方便。
 

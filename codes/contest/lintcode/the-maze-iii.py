@@ -2,7 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# TODO(yan): TLE. should be bad algorithm.
+# TODO(yan): TLE. need better algorithm.
 
 class Solution:
     """

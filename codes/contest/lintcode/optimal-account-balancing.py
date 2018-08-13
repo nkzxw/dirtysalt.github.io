@@ -3,8 +3,6 @@
 # Copyright (C) dirlt
 
 
-# TODO(yan): TLE. but should be correct. C++ version?
-
 from collections import defaultdict
 
 

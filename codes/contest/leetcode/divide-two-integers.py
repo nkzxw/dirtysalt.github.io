@@ -25,7 +25,7 @@ class Solution(object):
                 res += (1 << i)
         if invert:
             res = -res
-            # note(yan): not compatible with python div.
+            # NOTE(yan): not compatible with python division.
             # res = -(res + (1 if x > 0 else 0))
         return min(res, max_int)
 

@@ -2,7 +2,7 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
-# NOTE(yan): 这题目非常tricky.
+# NOTE(yan): 这题目状态更新非常tricky.
 
 class Solution:
     """
