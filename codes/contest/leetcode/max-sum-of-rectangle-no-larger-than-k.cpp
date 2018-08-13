@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
         int n = matrix.size();
         int m = matrix[0].size();
@@ -21,7 +21,7 @@ public:
                 set<int> seen;
                 int cum = 0;
                 seen.insert(cum);
-            for(int value: acc) {
+                for(int value: acc) {
                     cum += value;
                     auto it = seen.lower_bound(cum - k );
                     if (it != seen.end()) {
