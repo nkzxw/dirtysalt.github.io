@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>机器学习</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,12 +31,12 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">机器学习</h1>
-<hr  />
+<hr />
 <p>
 C1 引言
 </p>
@@ -63,7 +63,7 @@ C1 引言
 这书的很多章节给出了一些基本表示（比如线性函数，逻辑描述，决策树，人工神经元网络）定义的假设空间的搜索算法。这些不同的假设表示法适合于学习不同的目标函数。对于其中的每一种假设表示法，对应的学习算法发挥不同内在结构的优势来组织对假设空间的搜索。自始至终，本书够贯穿着这种把学习问题视为搜索问题的看法，从而通过搜索策略和学习器探索的搜索空间的内在结构来刻画学习方法。
 </p>
 
-<hr  />
+<hr />
 <p>
 C2 概念学习和一般到特殊序
 </p>
@@ -84,7 +84,7 @@ C2 概念学习和一般到特殊序
 由于归纳学习需要某种形式的预先假设，或称为归纳偏置(inductive bias), 我们可以用归纳偏置来描述不同学习方法的特征。 # 可以认为归纳偏置描述了这个算法本身在某方面的倾向
 </p>
 
-<hr  />
+<hr />
 <p>
 C3 决策树学习
 </p>
@@ -120,7 +120,7 @@ C3 决策树学习
 尽管第一种方法看起来更直接，但是对于过度拟合进行后修剪被证明在实践中更成功，因为第一种方法中精确地估计何时停止树增长很困难。
 </p>
 
-<hr  />
+<hr />
 <p>
 C4 人工神经网络
 </p>
@@ -155,7 +155,7 @@ ANN的高级课题
 <li>递归网络以及动态修改网络结构</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 C6 贝叶斯学习
 </p>
@@ -181,7 +181,7 @@ D表示数据集合，h表示假设
 MAP假设并不一定是最优分类器。考虑一个情况包含三个假设h1, h2, h3, 后验概率分别是0.4, 0.3, 0.3. 那么h1是MAP. 但是如果针对一个实例，h1预测+1, 而h2, h3预测-1. 那么实际上-1概率是0.6, 比+1(0.4)更有可能。我们可以通过对合并所有假设输出并且使用后验概率加权来预测结果，这样得到的假设是才是最优的(贝叶斯最优分类器, Bayes optimal classifier).
 </p>
 
-<hr  />
+<hr />
 <p>
 C8 基于实例的学习
 </p>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>YARN</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,16 +18,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Introducing Apache Hadoop YARN</a></li>
-<li><a href="#orgheadline2">2. Apache Hadoop YARN: Background and an Overview</a></li>
-<li><a href="#orgheadline3">3. Apache Hadoop YARN: Concepts and Applications</a></li>
-<li><a href="#orgheadline4">4. Apache Hadoop YARN: NodeManager</a></li>
-<li><a href="#orgheadline5">5. Apache Hadoop YARN: ResourceManager</a></li>
+<li><a href="#orgb71aa90">1. Introducing Apache Hadoop YARN</a></li>
+<li><a href="#orgf7f7d7c">2. Apache Hadoop YARN: Background and an Overview</a></li>
+<li><a href="#org99b4704">3. Apache Hadoop YARN: Concepts and Applications</a></li>
+<li><a href="#org4cab2da">4. Apache Hadoop YARN: NodeManager</a></li>
+<li><a href="#org6304e57">5. Apache Hadoop YARN: ResourceManager</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introducing Apache Hadoop YARN</h2>
+<div id="outline-container-orgb71aa90" class="outline-2">
+<h2 id="orgb71aa90"><span class="section-number-2">1</span> Introducing Apache Hadoop YARN</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="http://hortonworks.com/blog/introducing-apache-hadoop-yarn/">http://hortonworks.com/blog/introducing-apache-hadoop-yarn/</a>
@@ -39,8 +39,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Apache Hadoop YARN: Background and an Overview</h2>
+<div id="outline-container-orgf7f7d7c" class="outline-2">
+<h2 id="orgf7f7d7c"><span class="section-number-2">2</span> Apache Hadoop YARN: Background and an Overview</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://hortonworks.com/blog/apache-hadoop-yarn-background-and-an-overview/">http://hortonworks.com/blog/apache-hadoop-yarn-background-and-an-overview/</a>
@@ -71,7 +71,7 @@ For a while, we have understood that the Apache Hadoop MapReduce framework neede
 <li>服务不同的workload而非MR。比如MPI，graph-processing，realtime-processing，并且减少HDFS到自己存储系统之间数据的迁移（现在MR输入一定要在HDFS上面）</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 YARN主要做的工作就是在资源利用的改进上面，将资源利用已经workflow分离：
@@ -94,8 +94,8 @@ YARN主要做的工作就是在资源利用的改进上面，将资源利用已�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Apache Hadoop YARN: Concepts and Applications</h2>
+<div id="outline-container-org99b4704" class="outline-2">
+<h2 id="org99b4704"><span class="section-number-2">3</span> Apache Hadoop YARN: Concepts and Applications</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/">http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/</a>
@@ -166,8 +166,8 @@ Let’s walk through an application execution sequence (steps are illustrated in
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Apache Hadoop YARN: NodeManager</h2>
+<div id="outline-container-org4cab2da" class="outline-2">
+<h2 id="org4cab2da"><span class="section-number-2">4</span> Apache Hadoop YARN: NodeManager</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="http://hortonworks.com/blog/apache-hadoop-yarn-nodemanager/">http://hortonworks.com/blog/apache-hadoop-yarn-nodemanager/</a>
@@ -202,8 +202,8 @@ Let’s walk through an application execution sequence (steps are illustrated in
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Apache Hadoop YARN: ResourceManager</h2>
+<div id="outline-container-org6304e57" class="outline-2">
+<h2 id="org6304e57"><span class="section-number-2">5</span> Apache Hadoop YARN: ResourceManager</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://hortonworks.com/blog/apache-hadoop-yarn-resourcemanager/">http://hortonworks.com/blog/apache-hadoop-yarn-resourcemanager/</a>

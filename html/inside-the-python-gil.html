@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Inside The Python GIL</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -60,7 +60,6 @@ Python解释器会保存当前执行线程的全局变量，为了避免这个�
 <li>The interpreter has a global variable that simply points to the ThreadState structure of the currently running thread</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">Python/pystate.c */</span>
 ...
 PyThreadState *_PyThreadState_Current = <span class="org-constant">NULL</span>;
@@ -90,7 +89,7 @@ Python解释器没有自己的线程调度器，依赖于操作系统的线程�
 <li>This is partly why signals get so weird (the interpreter has no control over scheduling so it just attempts to thread switch as fast as possible with the hope that main will run)</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 GIL Behavior
 </p>
@@ -112,7 +111,7 @@ tick并不是按照指令和时间来计算的，更像是根据high-level op来
 解释器寄希望于OS在check期间可以调度到其他工作线程，不过这样会带来很多问题。
 </p>
 
-<hr  />
+<hr />
 <p>
 Signal Handling
 </p>
@@ -138,7 +137,7 @@ Frozen Signals
 <li>And as an extra little bonus, the interpreter is left in a state where it tries to thread-switch after every tick (so not only can you not interrupt your program, it runs slow as hell!)</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 GIL Implementation
 </p>

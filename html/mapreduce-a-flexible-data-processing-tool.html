@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MapReduce: A Flexible Data Processing Tool（MapRedcue: 一个灵活的数据库处理工具）</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,13 +18,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Heterogenous Systems</a></li>
-<li><a href="#orgheadline2">2. Indices</a></li>
-<li><a href="#orgheadline3">3. Complex Functions</a></li>
-<li><a href="#orgheadline4">4. Structured Data and Schemas</a></li>
-<li><a href="#orgheadline5">5. Fault Tolerance</a></li>
-<li><a href="#orgheadline6">6. Performance</a></li>
-<li><a href="#orgheadline7">7. Conclusion</a></li>
+<li><a href="#orgf514495">1. Heterogenous Systems</a></li>
+<li><a href="#org2c85ba3">2. Indices</a></li>
+<li><a href="#orgf6cc066">3. Complex Functions</a></li>
+<li><a href="#org4e268c2">4. Structured Data and Schemas</a></li>
+<li><a href="#orgaaadb8b">5. Fault Tolerance</a></li>
+<li><a href="#org6c4f2fc">6. Performance</a></li>
+<li><a href="#org0392493">7. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -60,8 +60,8 @@
 <li>Many conclusions in the comparison paper were based on implementation and evaluation shortcomings not fundamental to the MapReduce model; we discuss these shortcomings later in this article. 很多对于MapReduce提到的shortcomming并不是根本的问题，并且这些shortcomming也都有对应的解决办法。</li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Heterogenous Systems</h2>
+<div id="outline-container-orgf514495" class="outline-2">
+<h2 id="orgf514495"><span class="section-number-2">1</span> Heterogenous Systems</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Many production environments contain a mix of storage systems. 现实的生产环境中都是各种系统混合在一起的。</li>
@@ -75,8 +75,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Indices</h2>
+<div id="outline-container-org2c85ba3" class="outline-2">
+<h2 id="org2c85ba3"><span class="section-number-2">2</span> Indices</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>事实上MapReduce是可以使用索引的</b>
@@ -84,8 +84,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Complex Functions</h2>
+<div id="outline-container-orgf6cc066" class="outline-2">
+<h2 id="orgf6cc066"><span class="section-number-2">3</span> Complex Functions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <b>在SQL难以编写复杂的过程</b>
@@ -93,8 +93,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Structured Data and Schemas</h2>
+<div id="outline-container-org4e268c2" class="outline-2">
+<h2 id="org4e268c2"><span class="section-number-2">4</span> Structured Data and Schemas</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <b>Protocol Buffer for structed data and schema provided</b>
@@ -102,8 +102,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Fault Tolerance</h2>
+<div id="outline-container-orgaaadb8b" class="outline-2">
+<h2 id="orgaaadb8b"><span class="section-number-2">5</span> Fault Tolerance</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 这里正面回答了为什么MapReduce没有使用push模型而是使用pull模型
@@ -125,8 +125,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Performance</h2>
+<div id="outline-container-org6c4f2fc" class="outline-2">
+<h2 id="org6c4f2fc"><span class="section-number-2">6</span> Performance</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Engineering considerations
@@ -142,8 +142,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Conclusion</h2>
+<div id="outline-container-org0392493" class="outline-2">
+<h2 id="org0392493"><span class="section-number-2">7</span> Conclusion</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/mapreduce-a-flexible-data-processing-tool.html';this.page.identifier = 'mapreduce-a-flexible-data-processing-tool.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

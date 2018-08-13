@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>探索Google App Engine背后的奥秘</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,49 +18,49 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline5">1. Google的核心技术</a>
+<li><a href="#org70008ab">1. Google的核心技术</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 分布式基础设施</a></li>
-<li><a href="#orgheadline2">1.2. 分布式大规模数据处理</a></li>
-<li><a href="#orgheadline3">1.3. 分布式数据库技术</a></li>
-<li><a href="#orgheadline4">1.4. 数据中心优化技术</a></li>
+<li><a href="#org45ad2e4">1.1. 分布式基础设施</a></li>
+<li><a href="#org7ab0f0e">1.2. 分布式大规模数据处理</a></li>
+<li><a href="#org6199f6a">1.3. 分布式数据库技术</a></li>
+<li><a href="#orgd8dd02e">1.4. 数据中心优化技术</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. Google的整体架构猜想</a>
+<li><a href="#org1e09691">2. Google的整体架构猜想</a>
 <ul>
-<li><a href="#orgheadline6">2.1. 产品</a></li>
-<li><a href="#orgheadline7">2.2. 设计理念</a></li>
-<li><a href="#orgheadline8">2.3. 整体架构的猜想</a></li>
+<li><a href="#org29c86b3">2.1. 产品</a></li>
+<li><a href="#org8ec430a">2.2. 设计理念</a></li>
+<li><a href="#org979ded0">2.3. 整体架构的猜想</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">3. Google App Engine的简介</a>
+<li><a href="#orga8609ff">3. Google App Engine的简介</a>
 <ul>
-<li><a href="#orgheadline10">3.1. Google App Engine的介绍</a></li>
-<li><a href="#orgheadline11">3.2. Google App Engine的主要组成部分</a></li>
-<li><a href="#orgheadline12">3.3. 限制和资费</a></li>
+<li><a href="#orge82fd5c">3.1. Google App Engine的介绍</a></li>
+<li><a href="#org2f95cf9">3.2. Google App Engine的主要组成部分</a></li>
+<li><a href="#org47fe56c">3.3. 限制和资费</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">4. Google App Engine的架构</a>
+<li><a href="#orgc478722">4. Google App Engine的架构</a>
 <ul>
-<li><a href="#orgheadline14">4.1. 设计理念</a></li>
-<li><a href="#orgheadline15">4.2. 组成部分</a></li>
+<li><a href="#org1b671a2">4.1. 设计理念</a></li>
+<li><a href="#org8d3f9c3">4.2. 组成部分</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">5. Datastore的设计</a></li>
-<li><a href="#orgheadline22">6. 总结</a>
+<li><a href="#orgcc7c441">5. Datastore的设计</a></li>
+<li><a href="#org23dc386">6. 总结</a>
 <ul>
-<li><a href="#orgheadline18">6.1. 注意点</a></li>
-<li><a href="#orgheadline19">6.2. 最佳实践</a></li>
-<li><a href="#orgheadline20">6.3. 适用场景</a></li>
-<li><a href="#orgheadline21">6.4. 未来的期望</a></li>
+<li><a href="#org0bb9b84">6.1. 注意点</a></li>
+<li><a href="#org3a84ef3">6.2. 最佳实践</a></li>
+<li><a href="#org1a943e9">6.3. 适用场景</a></li>
+<li><a href="#org7c019cc">6.4. 未来的期望</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">1</span> Google的核心技术</h2>
+<div id="outline-container-org70008ab" class="outline-2">
+<h2 id="org70008ab"><span class="section-number-2">1</span> Google的核心技术</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine_arch.html">http://dbanotes.net/arch/google_app_engine_arch.html</a>
@@ -77,8 +77,8 @@
 </ul>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 分布式基础设施</h3>
+<div id="outline-container-org45ad2e4" class="outline-3">
+<h3 id="org45ad2e4"><span class="section-number-3">1.1</span> 分布式基础设施</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>GFS</li>
@@ -88,8 +88,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 分布式大规模数据处理</h3>
+<div id="outline-container-org7ab0f0e" class="outline-3">
+<h3 id="org7ab0f0e"><span class="section-number-3">1.2</span> 分布式大规模数据处理</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>MapReduce</li>
@@ -98,8 +98,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 分布式数据库技术</h3>
+<div id="outline-container-org6199f6a" class="outline-3">
+<h3 id="org6199f6a"><span class="section-number-3">1.3</span> 分布式数据库技术</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>BigTable/MegaStore/Spanner</li>
@@ -108,8 +108,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 数据中心优化技术</h3>
+<div id="outline-container-orgd8dd02e" class="outline-3">
+<h3 id="orgd8dd02e"><span class="section-number-3">1.4</span> 数据中心优化技术</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>数据中心高温化
@@ -133,8 +133,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">2</span> Google的整体架构猜想</h2>
+<div id="outline-container-org1e09691" class="outline-2">
+<h2 id="org1e09691"><span class="section-number-2">2</span> Google的整体架构猜想</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine_arch_guess.html">http://dbanotes.net/arch/google_app_engine_arch_guess.html</a>
@@ -145,8 +145,8 @@
 </p>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.1</span> 产品</h3>
+<div id="outline-container-org29c86b3" class="outline-3">
+<h3 id="org29c86b3"><span class="section-number-3">2.1</span> 产品</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 对于Google和它几个主要产品，比如搜索和邮件等，大家已经非常熟悉了，但是其提供服务的不只于此，并主要可分为六大类：
@@ -162,8 +162,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.2</span> 设计理念</h3>
+<div id="outline-container-org8ec430a" class="outline-3">
+<h3 id="org8ec430a"><span class="section-number-3">2.2</span> 设计理念</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Scale，Scale，Scale.</li>
@@ -176,8 +176,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.3</span> 整体架构的猜想</h3>
+<div id="outline-container-org979ded0" class="outline-3">
+<h3 id="org979ded0"><span class="section-number-3">2.3</span> 整体架构的猜想</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 在整体架构这部分，首先会举出Google的三种主要工作负载，接着会试着对数据中心进行分类，最后会做一下总结。
@@ -274,16 +274,16 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">3</span> Google App Engine的简介</h2>
+<div id="outline-container-orga8609ff" class="outline-2">
+<h2 id="orga8609ff"><span class="section-number-2">3</span> Google App Engine的简介</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine-intro.html">http://dbanotes.net/arch/google_app_engine-intro.html</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.1</span> Google App Engine的介绍</h3>
+<div id="outline-container-orge82fd5c" class="outline-3">
+<h3 id="orge82fd5c"><span class="section-number-3">3.1</span> Google App Engine的介绍</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Google App Engine 提供一整套开发组件来让用户轻松地在本地构建和调试网络应用，之后能让用户在Google强大的基础设施上部署和运行网络应用程序，并自动根据应用所承受的负载来对应用进行扩展，并免去用户对应用和服务器等的维护工作。同时提供大量的免费额度和灵活的资费标准。在开发语言方面，现支持Java和Python这两种语言，并为这两种语言提供基本相同的功能和API。
@@ -303,8 +303,8 @@ Google App Engine 提供一整套开发组件来让用户轻松地在本地构�
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">3.2</span> Google App Engine的主要组成部分</h3>
+<div id="outline-container-org2f95cf9" class="outline-3">
+<h3 id="org2f95cf9"><span class="section-number-3">3.2</span> Google App Engine的主要组成部分</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 主要可分为五部分：
@@ -327,8 +327,8 @@ Google App Engine 提供一整套开发组件来让用户轻松地在本地构�
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.3</span> 限制和资费</h3>
+<div id="outline-container-org47fe56c" class="outline-3">
+<h3 id="org47fe56c"><span class="section-number-3">3.3</span> 限制和资费</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 App Engine的使用限制
@@ -453,16 +453,16 @@ App Engine的免费额度表
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">4</span> Google App Engine的架构</h2>
+<div id="outline-container-orgc478722" class="outline-2">
+<h2 id="orgc478722"><span class="section-number-2">4</span> Google App Engine的架构</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine-arch_intro.html">http://dbanotes.net/arch/google_app_engine-arch_intro.html</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">4.1</span> 设计理念</h3>
+<div id="outline-container-org1b671a2" class="outline-3">
+<h3 id="org1b671a2"><span class="section-number-3">4.1</span> 设计理念</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 App Engine在设计理念方面，主要可以总结为下面这五条：
@@ -477,8 +477,8 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">4.2</span> 组成部分</h3>
+<div id="outline-container-org8d3f9c3" class="outline-3">
+<h3 id="org8d3f9c3"><span class="section-number-3">4.2</span> 组成部分</h3>
 <div class="outline-text-3" id="text-4-2">
 
 <div class="figure">
@@ -499,8 +499,8 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">5</span> Datastore的设计</h2>
+<div id="outline-container-orgcc7c441" class="outline-2">
+<h2 id="orgcc7c441"><span class="section-number-2">5</span> Datastore的设计</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine-datastore.html">http://dbanotes.net/arch/google_app_engine-datastore.html</a>
@@ -508,16 +508,16 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">6</span> 总结</h2>
+<div id="outline-container-org23dc386" class="outline-2">
+<h2 id="org23dc386"><span class="section-number-2">6</span> 总结</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="http://dbanotes.net/arch/google_app_engine-summary.html">http://dbanotes.net/arch/google_app_engine-summary.html</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">6.1</span> 注意点</h3>
+<div id="outline-container-org0bb9b84" class="outline-3">
+<h3 id="org0bb9b84"><span class="section-number-3">6.1</span> 注意点</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>执行速度偏慢：由于其分布式的设计，所以在速度方面不是最优的，比如普通的Memcache能在几毫秒完成操作，而App Engine的Memcache则大概需要50(毫)秒才能完成操作。</li>
@@ -531,8 +531,8 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">6.2</span> 最佳实践</h3>
+<div id="outline-container-org3a84ef3" class="outline-3">
+<h3 id="org3a84ef3"><span class="section-number-3">6.2</span> 最佳实践</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>适应App Engine的数据模型：因为其数据模型，并不是传统的关系模式，而且在性能方面表现也和关系型数据库差别很大，所以如果想要用好非常关键的Datastore，那么理解和适应其数据模型是不可或缺的。</li>
@@ -547,8 +547,8 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">6.3</span> 适用场景</h3>
+<div id="outline-container-org1a943e9" class="outline-3">
+<h3 id="org1a943e9"><span class="section-number-3">6.3</span> 适用场景</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Web Hosting：这是最常见的场景，在App Engine上已经部署了数以十万计的小型网站（其中有很多主要为了学习目的），而且还部署了一些突发流量很大的网站，其中最著名的例子就是美国白宫的”Open For Questions”这个站点，主要用于让美国人民给奥巴马总统提问的，这个站点在短短的几个小时内处理接近百万级别的流量。</li>
@@ -558,8 +558,8 @@ App Engine在设计理念方面，主要可以总结为下面这五条：
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">6.4</span> 未来的期望</h3>
+<div id="outline-container-org7c019cc" class="outline-3">
+<h3 id="org7c019cc"><span class="section-number-3">6.4</span> 未来的期望</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>更稳定的表现，更少的超时异常和更快的反应速度，特别是在Datastore和Memcached这两方面。</li>

@@ -3,18 +3,18 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>统计思维-程序员数学之概率统计</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">统计思维-程序员数学之概率统计</h1>
-<hr  />
+<hr />
 <p>
 经验之谈无法提供有说服力的证据和可靠的结论：
 </p>
@@ -42,7 +42,7 @@
 被调查者（respondent），一组被调查者被称为队列（cohort）
 </p>
 
-<hr  />
+<hr />
 
 <p>
 连续模型也是一种数据压缩。如果模型能很好地拟合数据集合，那么少量参数就可以描述大量数据。
@@ -63,7 +63,7 @@
 如果了解数据符合某个分布的话，我们还可以进行估计，但是估计和指标之间是存在鲁棒性差别的。比如指数分布，指数分布的均值是1/lambda. 但是通过均值来估计lambda, 如果数据中存在异常点的话，那么lambda估计偏差会比较大。更好的指标是通过中位数估计是log(2)/lambda，使用中位数来估计受异常点的影响小，鲁棒性更高。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 频率论在哲学上是没有错误的，但是它却限制了概率的使用范围，只限于随机的物理系统（例如原子衰变）或因无法预测而被视做随机的系统（例如意外死亡）。任何涉及人为因素的情况都不使用。还有一种观点是贝叶斯认识论（bayesianism），这种观点将概率定义为时间发生的可信度。根据这个定义，概率几乎能用于所有情况。贝叶斯概率的一个问题是它会受个体认知的影响。
@@ -81,7 +81,7 @@
 两个变量之间的相关性可以通过 <a href="https://zh.wikipedia.org/zh-hans/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%A7%AF%E7%9F%A9%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0">皮尔逊相关系数(pearson correlation coefficient)</a> 量化。它只能用来测量两变量间的线性关系，而没有办法测量非线性关系，此外它的量化值也不一定反应在图的斜率。为了解决它受异常点的影响比较大的问题，可以在计算之前将变量值变为变量秩(rank), 这样得到的相关系数是 <a href="https://zh.wikipedia.org/zh-hans/%E6%96%AF%E7%9A%AE%E5%B0%94%E6%9B%BC%E7%AD%89%E7%BA%A7%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0">斯皮尔曼秩相关系数</a>.
 </p>
 
-<hr  />
+<hr />
 
 <p>
 统计显著检验：

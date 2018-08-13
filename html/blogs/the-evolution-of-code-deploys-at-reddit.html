@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Evolution of Code Deploys at Reddit</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -18,17 +18,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Where this story starts: consistent and repeatable deploys (2007-2010)</a></li>
-<li><a href="#orgheadline2">2. A bunch of new people (2011)</a></li>
-<li><a href="#orgheadline3">3. A reworked deploy tool (2012)</a></li>
-<li><a href="#orgheadline4">4. The autoscaler (2013)</a></li>
-<li><a href="#orgheadline5">5. Too many servers (2014)</a></li>
-<li><a href="#orgheadline6">6. Too many people (2015)</a></li>
-<li><a href="#orgheadline7">7. Two (many) services (2015 also)</a></li>
-<li><a href="#orgheadline8">8. 25 many services (2016)</a></li>
-<li><a href="#orgheadline9">9. The safety net (2017)</a></li>
-<li><a href="#orgheadline10">10. In retrospect</a></li>
-<li><a href="#orgheadline11">11. The future</a></li>
+<li><a href="#orgee3fe83">1. Where this story starts: consistent and repeatable deploys (2007-2010)</a></li>
+<li><a href="#org8beef6e">2. A bunch of new people (2011)</a></li>
+<li><a href="#orga72ae5e">3. A reworked deploy tool (2012)</a></li>
+<li><a href="#orgf24d674">4. The autoscaler (2013)</a></li>
+<li><a href="#orgef8f467">5. Too many servers (2014)</a></li>
+<li><a href="#org5def843">6. Too many people (2015)</a></li>
+<li><a href="#org99fdfaf">7. Two (many) services (2015 also)</a></li>
+<li><a href="#org930b701">8. 25 many services (2016)</a></li>
+<li><a href="#org5b274eb">9. The safety net (2017)</a></li>
+<li><a href="#org0f836df">10. In retrospect</a></li>
+<li><a href="#org7d38363">11. The future</a></li>
 </ul>
 </div>
 </div>
@@ -40,8 +40,8 @@
 We’re constantly deploying code at Reddit. Every engineer writes code, gets it reviewed, checks it in, and rolls it out to production regularly. This happens as often as 200 times each week and a deploy usually takes fewer than 10 minutes end-to-end. # 每周有200次部署，每次花费时间&lt;10min.
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Where this story starts: consistent and repeatable deploys (2007-2010)</h2>
+<div id="outline-container-orgee3fe83" class="outline-2">
+<h2 id="orgee3fe83"><span class="section-number-2">1</span> Where this story starts: consistent and repeatable deploys (2007-2010)</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>最开始的部署程序叫做 `push`, perl编写的.</li>
@@ -64,7 +64,6 @@ We’re constantly deploying code at Reddit. Every engineer writes code, gets it
 每个路由对应的服务器列表是代码写死的，重启只需要ssh上去搞一把就行.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Shell"># build the static files and put them on the static server
 `make -C /home/reddit/reddit static`
 `rsync /home/reddit/reddit/static public:/var/www/`
@@ -84,8 +83,8 @@ foreach $h (@hostlist) {
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> A bunch of new people (2011)</h2>
+<div id="outline-container-org8beef6e" class="outline-2">
+<h2 id="org8beef6e"><span class="section-number-2">2</span> A bunch of new people (2011)</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>团队的人员增加，但是依然可以在一件比较大的会议室</li>
@@ -109,8 +108,8 @@ foreach $h (@hostlist) {
 </div>
 
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> A reworked deploy tool (2012)</h2>
+<div id="outline-container-orga72ae5e" class="outline-2">
+<h2 id="orga72ae5e"><span class="section-number-2">3</span> A reworked deploy tool (2012)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 部署脚本 `push `使用python重写了，做了下面这些改进
@@ -132,8 +131,8 @@ foreach $h (@hostlist) {
 </div>
 
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> The autoscaler (2013)</h2>
+<div id="outline-container-orgf24d674" class="outline-2">
+<h2 id="orgf24d674"><span class="section-number-2">4</span> The autoscaler (2013)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 开始往cloud/ec2上面迁移了，也开始使用autoscaler
@@ -147,8 +146,8 @@ foreach $h (@hostlist) {
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Too many servers (2014)</h2>
+<div id="outline-container-orgef8f467" class="outline-2">
+<h2 id="orgef8f467"><span class="section-number-2">5</span> Too many servers (2014)</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 服务器不断地增加，也导致部署时间不断延长。最坏的情况下面能到1个小时左右。为了加快部署速度，必须并行部署。
@@ -174,8 +173,8 @@ foreach $h (@hostlist) {
 </div>
 
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Too many people (2015)</h2>
+<div id="outline-container-org5def843" class="outline-2">
+<h2 id="org5def843"><span class="section-number-2">6</span> Too many people (2015)</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>为了协调大家的部署过程，增加了deploy queue/lock</li>
@@ -184,8 +183,8 @@ foreach $h (@hostlist) {
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Two (many) services (2015 also)</h2>
+<div id="outline-container-org99fdfaf" class="outline-2">
+<h2 id="org99fdfaf"><span class="section-number-2">7</span> Two (many) services (2015 also)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 reddit mobile上线，但是看上去现在deploy system工作得非常好
@@ -193,8 +192,8 @@ reddit mobile上线，但是看上去现在deploy system工作得非常好
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> 25 many services (2016)</h2>
+<div id="outline-container-org930b701" class="outline-2">
+<h2 id="org930b701"><span class="section-number-2">8</span> 25 many services (2016)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 虽然team和service数量都增加了，但是deploy system依然工作很好。reddit 自己搞了一个python service framework <a href="https://github.com/reddit/baseplate">baseplate</a>
@@ -202,8 +201,8 @@ reddit mobile上线，但是看上去现在deploy system工作得非常好
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> The safety net (2017)</h2>
+<div id="outline-container-org5b274eb" class="outline-2">
+<h2 id="org5b274eb"><span class="section-number-2">9</span> The safety net (2017)</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>gunicorn/uwsgi会重启所有的worker, 但是我们需要更加平滑的方式</li>
@@ -215,12 +214,12 @@ reddit mobile上线，但是看上去现在deploy system工作得非常好
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> In retrospect</h2>
+<div id="outline-container-org0f836df" class="outline-2">
+<h2 id="org0f836df"><span class="section-number-2">10</span> In retrospect</h2>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> The future</h2>
+<div id="outline-container-org7d38363" class="outline-2">
+<h2 id="org7d38363"><span class="section-number-2">11</span> The future</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 一个好的部署系统要做到下面两点：

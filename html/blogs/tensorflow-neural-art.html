@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tensorflow Neural Art</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -63,7 +63,7 @@ If you know that the kernel source packages are installed and set up correctly, 
 在网上搜索了一下找到了这篇 <a href="https://devtalk.nvidia.com/default/topic/547588/error-installing-nvidia-drivers-on-x86_64-amazon-ec2-gpu-cluster-t20-gpu-/">文章</a>, 看了一些几位同学给出的办法，觉得可能这个命令 <b>sudo apt-get install -y linux-image-extra-$(uname -r)</b> 能解决问题。直觉是正确的:). 解决了CUDA的问题之后，<a href="https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html">tf</a> 很快就能够使用了。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 后来我们尝试做一个类似Prisma的小App，所以用这个fast-style-transfer训练了好几张style图。有几点体会：
@@ -74,7 +74,6 @@ If you know that the kernel source packages are installed and set up correctly, 
 <li>此外存储模型的时候，最好指定global_step, 这样就知道训练到了第几轮。</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Python">import os
 def latest_ckpt_file(save_path):
     files = map(lambda x: os.path.basename(x), os.listdir(os.path.dirname(save_path)))
@@ -90,7 +89,6 @@ saver.save(sess, save_path, global_step, write_meta_graph = False)
 <li>此外还有一点和jpg有关，就是jpg里面有exif字段来描述图片元信息，一个关键的字段就是 <a href="http://sylvana.net/jpegcrop/exif_orientation.html">Orientation(旋转)</a> . 下面是一个参考函数来处理Orientation, 包括进行缩放：</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Python">def adjust_image(input_path, output_path, limit = 640):
     im = Image.open(input_path)
 
@@ -117,7 +115,7 @@ saver.save(sess, save_path, global_step, write_meta_graph = False)
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 几张我们处理的照片对比.
 </p>

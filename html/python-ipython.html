@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IPython</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,27 +18,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Commands</a></li>
-<li><a href="#orgheadline2">2. Biolerplate</a></li>
-<li><a href="#orgheadline3">3. Remote Notebook</a></li>
+<li><a href="#org7634f0e">1. Commands</a></li>
+<li><a href="#orgdd4ad10">2. Biolerplate</a></li>
+<li><a href="#org36f38ee">3. Remote Notebook</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Commands</h2>
+<div id="outline-container-org7634f0e" class="outline-2">
+<h2 id="org7634f0e"><span class="section-number-2">1</span> Commands</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 通常%用于测试单行语句，而%%用于块语句
 </p>
 
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>_iX X是输入的行号，这个变量表示第X个输入的字符串</li>
 <li>_X 第X个输出的内容</li>
 </ul>
 
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>%time: Time the execution of a single statement</li>
 <li>%timeit: Time repeated execution of a single statement for more accuracy</li>
@@ -49,7 +49,7 @@
 </ul>
 
 
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>`!shell-command` 用来执行外部shell命令，同时可以将结果传给变量比如 `x = !pwd`.</li>
 <li>%quickref 显示notebook命令</li>
@@ -67,7 +67,7 @@
 </ul>
 
 
-<hr  />
+<hr />
 <p>
 `%%cython` 用来编译cython代码, 而且必须放在在cell第一行。调用前用 ` %load_ext cython` 加载cython模块。
 </p>
@@ -78,11 +78,10 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Biolerplate</h2>
+<div id="outline-container-orgdd4ad10" class="outline-2">
+<h2 id="orgdd4ad10"><span class="section-number-2">2</span> Biolerplate</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-
 <pre class="src src-Python">import pandas as pd
 import numpy as np
 %matplotlib inline
@@ -105,8 +104,8 @@ pd.set_option('display.max_columns', 60)
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Remote Notebook</h2>
+<div id="outline-container-org36f38ee" class="outline-2">
+<h2 id="org36f38ee"><span class="section-number-2">3</span> Remote Notebook</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 UPDATE @ 2016-08-26: 发现下面方法可以用来解决remote ipython notebook的问题.
@@ -117,7 +116,7 @@ UPDATE @ 2016-08-26: 发现下面方法可以用来解决remote ipython notebook
 </ul>
 
 <p>
-之后就可以在本地使用 `<a href="http://localhost:10000/">http://localhost:10000/</a>` 来访问远端的notebook了.
+之后就可以在本地使用 `<a href="http://localhost:10000">http://localhost:10000</a>` 来访问远端的notebook了.
 </p>
 </div>
 </div>

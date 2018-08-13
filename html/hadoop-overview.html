@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hadoop Overview</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,18 +18,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Hadoop可以用来做什么</a></li>
-<li><a href="#orgheadline2">2. Hadoop包括哪些组件</a></li>
-<li><a href="#orgheadline3">3. CDH和Apache Hadoop的关系</a></li>
-<li><a href="#orgheadline4">4. CDH产品组件构成</a></li>
-<li><a href="#orgheadline11">5. CDH产品组件端口分布和配置</a>
+<li><a href="#org53946ee">1. Hadoop可以用来做什么</a></li>
+<li><a href="#org058a367">2. Hadoop包括哪些组件</a></li>
+<li><a href="#orgedd5239">3. CDH和Apache Hadoop的关系</a></li>
+<li><a href="#org59b4c18">4. CDH产品组件构成</a></li>
+<li><a href="#org0d68f4d">5. CDH产品组件端口分布和配置</a>
 <ul>
-<li><a href="#orgheadline5">5.1. Hadoop HDFS</a></li>
-<li><a href="#orgheadline6">5.2. Hadoop MRv1</a></li>
-<li><a href="#orgheadline7">5.3. Hadoop YARN</a></li>
-<li><a href="#orgheadline8">5.4. HBase</a></li>
-<li><a href="#orgheadline9">5.5. Zookeeper</a></li>
-<li><a href="#orgheadline10">5.6. 其他组件</a></li>
+<li><a href="#org7f94bca">5.1. Hadoop HDFS</a></li>
+<li><a href="#org3ff41af">5.2. Hadoop MRv1</a></li>
+<li><a href="#org2b4e4f5">5.3. Hadoop YARN</a></li>
+<li><a href="#orgc2ecfe8">5.4. HBase</a></li>
+<li><a href="#orgd2a317c">5.5. Zookeeper</a></li>
+<li><a href="#org1b8432e">5.6. 其他组件</a></li>
 </ul>
 </li>
 </ul>
@@ -43,8 +43,8 @@
 <li>CDH Tutorial <a href="https://ccp.cloudera.com/display/SUPPORT/Hadoop+Tutorial">https://ccp.cloudera.com/display/SUPPORT/Hadoop+Tutorial</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Hadoop可以用来做什么</h2>
+<div id="outline-container-org53946ee" class="outline-2">
+<h2 id="org53946ee"><span class="section-number-2">1</span> Hadoop可以用来做什么</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Why Hadoop? <a href="http://www.cloudera.com/why-hadoop/">http://www.cloudera.com/why-hadoop/</a>
@@ -61,8 +61,8 @@ Simply put, Hadoop can transform the way you store and process data throughout y
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Hadoop包括哪些组件</h2>
+<div id="outline-container-org058a367" class="outline-2">
+<h2 id="org058a367"><span class="section-number-2">2</span> Hadoop包括哪些组件</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Apache Hadoop包括了下面这些组件：
@@ -88,8 +88,8 @@ Apache Hadoop包括了下面这些组件：
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> CDH和Apache Hadoop的关系</h2>
+<div id="outline-container-orgedd5239" class="outline-2">
+<h2 id="orgedd5239"><span class="section-number-2">3</span> CDH和Apache Hadoop的关系</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 CDH Hadoop FAQ <a href="https://ccp.cloudera.com/display/SUPPORT/Hadoop+FAQ">https://ccp.cloudera.com/display/SUPPORT/Hadoop+FAQ</a>
@@ -104,8 +104,8 @@ CDH Hadoop FAQ <a href="https://ccp.cloudera.com/display/SUPPORT/Hadoop+FAQ">htt
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> CDH产品组件构成</h2>
+<div id="outline-container-org59b4c18" class="outline-2">
+<h2 id="org59b4c18"><span class="section-number-2">4</span> CDH产品组件构成</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="http://www.cloudera.com/content/cloudera/en/products/cdh.html">http://www.cloudera.com/content/cloudera/en/products/cdh.html</a>
@@ -123,16 +123,16 @@ CDH Hadoop FAQ <a href="https://ccp.cloudera.com/display/SUPPORT/Hadoop+FAQ">htt
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">5</span> CDH产品组件端口分布和配置</h2>
+<div id="outline-container-org0d68f4d" class="outline-2">
+<h2 id="org0d68f4d"><span class="section-number-2">5</span> CDH产品组件端口分布和配置</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The CDH4 components, and third parties such as Kerberos, use the ports listed in the tables that follow. Before you deploy CDH4, make sure these ports are open on each system.
 </p>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">5.1</span> Hadoop HDFS</h3>
+<div id="outline-container-org7f94bca" class="outline-3">
+<h3 id="org7f94bca"><span class="section-number-3">5.1</span> Hadoop HDFS</h3>
 <div class="outline-text-3" id="text-5-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -288,8 +288,8 @@ The CDH4 components, and third parties such as Kerberos, use the ports listed in
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">5.2</span> Hadoop MRv1</h3>
+<div id="outline-container-org3ff41af" class="outline-3">
+<h3 id="org3ff41af"><span class="section-number-3">5.2</span> Hadoop MRv1</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -375,8 +375,8 @@ The CDH4 components, and third parties such as Kerberos, use the ports listed in
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">5.3</span> Hadoop YARN</h3>
+<div id="outline-container-org2b4e4f5" class="outline-3">
+<h3 id="org2b4e4f5"><span class="section-number-3">5.3</span> Hadoop YARN</h3>
 <div class="outline-text-3" id="text-5-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -512,8 +512,8 @@ The CDH4 components, and third parties such as Kerberos, use the ports listed in
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">5.4</span> HBase</h3>
+<div id="outline-container-orgc2ecfe8" class="outline-3">
+<h3 id="orgc2ecfe8"><span class="section-number-3">5.4</span> HBase</h3>
 <div class="outline-text-3" id="text-5-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -648,8 +648,8 @@ The CDH4 components, and third parties such as Kerberos, use the ports listed in
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">5.5</span> Zookeeper</h3>
+<div id="outline-container-orgd2a317c" class="outline-3">
+<h3 id="orgd2a317c"><span class="section-number-3">5.5</span> Zookeeper</h3>
 <div class="outline-text-3" id="text-5-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -759,8 +759,8 @@ As JMX port, ZooKeeper will also use another randomly selected port for RMI. In 
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">5.6</span> 其他组件</h3>
+<div id="outline-container-org1b8432e" class="outline-3">
+<h3 id="org1b8432e"><span class="section-number-3">5.6</span> 其他组件</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 <b>Hive</b>

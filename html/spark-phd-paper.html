@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>An Architecture for Fast and General Data Processing on Large Clusters</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,7 +18,7 @@
 Matei的博士论文. 我看的是CSDN众包翻译版本 <a href="https://code.csdn.net/CODE_Translation/spark_matei_phd">https://code.csdn.net/CODE_Translation/spark_matei_phd</a>.
 </p>
 
-<hr  />
+<hr />
 <p>
 高效率的数据共享机制
 </p>
@@ -35,7 +35,7 @@ Matei的博士论文. 我看的是CSDN众包翻译版本 <a href="https://code.c
 现有的基于集群的内存存储抽象,比如分布式共享内存,键-值存储,数据库,以及 Piccolo,提供了一个对内部状态基于细粒度更新的接口( 例如, 表格里面的单元).在这样的设计之下,提供容错性的方法就要么是在主机之间复制数据,要么对各主机的更新情况做日志记录。这两种方法对于数据密集型的任务来说代价很高,因为它们需要在带宽远低于内存的集群网络间拷贝大量的数据,同时还将产生大量的存储开销。
 </p>
 
-<hr  />
+<hr />
 <p>
 不适合RDD的应用
 </p>
@@ -44,7 +44,7 @@ Matei的博士论文. 我看的是CSDN众包翻译版本 <a href="https://code.c
 RDDS 不太适用于通过异步细粒度更新来共享状态的应用,比如针对 Web 应用或增量网络爬虫的存储系统。对于这些应用,那些传统的更新日志和数据检查点的系统会更有效,例如数据库,RAMCloud, Percolator 和 Piccolo 。我们的目标是为批量分析提供一个高效的编程模型,这些异步应用仍然交由定制系统来处理。但是,第 5 章会提供一些把这些类型的应用与 RDD 模型结合起来的可能方法,比如批量更新。
 </p>
 
-<hr  />
+<hr />
 <p>
 解释RDD表达能力
 </p>
@@ -53,7 +53,7 @@ RDDS 不太适用于通过异步细粒度更新来共享状态的应用,比如�
 为什么 RDD 能够表达这些不同的编程模型?原因就是 RDD 上的限制在许多并行应用程序中影响非常小。其原因在于,虽然 RDD 仅能通过批量变换来创建,但众多的并行程序本质上都是对多条记录执行相同的操作 ,而这点便使得它们易于表达。另外,RDD 的不变性也不会影响其表达,因为相同数据集的各个不同版本可以通过多个对应的 RDD 来表示。事实上,大多数当前的MapReduce 应用所基于的文件系统,比如 HDFS,并不允许更新文件(译注:记录只能创建或删除,而不能修改)。在后续章节(3 和 5)中,我们会对 RDD 表达进行更为详细的阐述。最后一个问题是,为什么之前的框架没有提供相同级别的通用性呢?我们认为,这是由于这些系统仅关注在 MapReduce 和 Dryad 所不擅长的特定问题上,比如迭代,而未能发现这些问题均是因为缺乏对数据共享的抽象。
 </p>
 
-<hr  />
+<hr />
 <p>
 集群应用资源瓶颈
 </p>
@@ -71,7 +71,7 @@ RDDS 不太适用于通过异步细粒度更新来共享状态的应用,比如�
 鉴于这些特性,许多应用所关心的最重要的性能指标就是控制网络布局和通信。
 </p>
 
-<hr  />
+<hr />
 <p>
 经验总结
 </p>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,31 +18,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. vmlinuz</a></li>
-<li><a href="#orgheadline2">2. linux io/storage stack</a></li>
-<li><a href="#orgheadline3">3. program exit code</a></li>
-<li><a href="#orgheadline4">4. dp8网卡问题</a></li>
-<li><a href="#orgheadline5">5. 修改资源限制</a></li>
-<li><a href="#orgheadline6">6. CPU温度过高</a></li>
-<li><a href="#orgheadline7">7. sync hangup</a></li>
-<li><a href="#orgheadline8">8. upgrade glibc</a></li>
-<li><a href="#orgheadline9">9. 允许不在tty上执行sudo</a></li>
-<li><a href="#orgheadline10">10. ssh proxy</a></li>
-<li><a href="#orgheadline11">11. 修改最大打开文件句柄数</a></li>
-<li><a href="#orgheadline12">12. apt-get hang</a></li>
-<li><a href="#orgheadline16">13. syslog on cpu</a>
+<li><a href="#org33e3ea3">1. vmlinuz</a></li>
+<li><a href="#orgedefdc4">2. linux io/storage stack</a></li>
+<li><a href="#org1ad24fe">3. program exit code</a></li>
+<li><a href="#org89eee43">4. dp8网卡问题</a></li>
+<li><a href="#org0c6dadb">5. 修改资源限制</a></li>
+<li><a href="#org65a496e">6. CPU温度过高</a></li>
+<li><a href="#orge558f15">7. sync hangup</a></li>
+<li><a href="#org1a4b4b8">8. upgrade glibc</a></li>
+<li><a href="#orga3637e8">9. 允许不在tty上执行sudo</a></li>
+<li><a href="#org069fd06">10. ssh proxy</a></li>
+<li><a href="#org18b732e">11. 修改最大打开文件句柄数</a></li>
+<li><a href="#org73f8691">12. apt-get hang</a></li>
+<li><a href="#org4d61640">13. syslog on cpu</a>
 <ul>
-<li><a href="#orgheadline13">13.1. Core power limit notifaction</a></li>
-<li><a href="#orgheadline14">13.2. Package power limit notification</a></li>
-<li><a href="#orgheadline15">13.3. below trip temperature. Throttling disabled</a></li>
+<li><a href="#org4c49c39">13.1. Core power limit notifaction</a></li>
+<li><a href="#org61aaa26">13.2. Package power limit notification</a></li>
+<li><a href="#org423f0c9">13.3. below trip temperature. Throttling disabled</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">14. linux kernel map</a></li>
+<li><a href="#orga1ae19f">14. linux kernel map</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> vmlinuz</h2>
+<div id="outline-container-org33e3ea3" class="outline-2">
+<h2 id="org33e3ea3"><span class="section-number-2">1</span> vmlinuz</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 vmlinuz是可引导的、压缩的内核。"vm"代表"Virtual Memory"。Linux 支持虚拟内存，不像老的操作系统比如DOS有640KB内存的限制。Linux能够使用硬盘空间作为虚拟内存，因此得名"vm"。vmlinuz是可执行的Linux内核，它位于/boot/vmlinuz，它一般是一个软链接。vmlinux是未压缩的内核，vmlinuz是vmlinux的压缩文件。
@@ -58,8 +58,8 @@ zImage(vmlinuz)和bzImage(vmlinuz)都是用gzip压缩的。它们不仅是一个
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> linux io/storage stack</h2>
+<div id="outline-container-orgedefdc4" class="outline-2">
+<h2 id="orgedefdc4"><span class="section-number-2">2</span> linux io/storage stack</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <img src="./images/Linux-io-stack-diagram.png" alt="Linux-io-stack-diagram.png" /> <img src="./images/Linux-storage-stack-diagram.png" alt="Linux-storage-stack-diagram.png" />
@@ -67,14 +67,13 @@ zImage(vmlinuz)和bzImage(vmlinuz)都是用gzip压缩的。它们不仅是一个
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> program exit code</h2>
+<div id="outline-container-org1ad24fe" class="outline-2">
+<h2 id="org1ad24fe"><span class="section-number-2">3</span> program exit code</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 首先看下面一段Java程序
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">/* coding:utf-8
  * Copyright (C) dirlt
  */
@@ -91,7 +90,6 @@ public class X{
 然后这个Java程序被Python调用，判断这个打印值
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">#!/usr/bin/env python
 #coding:utf-8
 #Copyright (C) dirlt
@@ -114,7 +112,6 @@ a 16-bit number, whose low byte is the signal number that killed the process, an
 但是下面这段Python程序，使用echo $?判断返回值为0而不是256
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">#!/usr/bin/env python
 #coding:utf-8
 #Copyright (C) dirlt
@@ -126,8 +123,8 @@ exit(code)
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> dp8网卡问题</h2>
+<div id="outline-container-org89eee43" class="outline-2">
+<h2 id="org89eee43"><span class="section-number-2">4</span> dp8网卡问题</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 当时dp8的网络流量从一个非常大的值变为非常小的值，检查/proc/net/netstat，以下几个统计数值dp8和其他机器差距较大（相差1-2个数量级）：
@@ -184,8 +181,8 @@ dp@dp8:~$ dmesg | grep eth0
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 修改资源限制</h2>
+<div id="outline-container-org0c6dadb" class="outline-2">
+<h2 id="org0c6dadb"><span class="section-number-2">5</span> 修改资源限制</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 临时的修改方式可以通过ulimit来进行修改，也可以通过修改文件/etc/security/limits.conf来永久修改
@@ -198,8 +195,8 @@ hadoop - nproc 40960
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> CPU温度过高</h2>
+<div id="outline-container-org65a496e" class="outline-2">
+<h2 id="org65a496e"><span class="section-number-2">6</span> CPU温度过高</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 这个问题是我在Ubuntu PC上面遇到的，明显的感觉就是运行速度变慢。然后在syslog里面出现如下日志：
@@ -214,8 +211,8 @@ May  2 18:24:21 umeng-ubuntu-pc kernel: [ 1188.717622] CPU3: Package temperature
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> sync hangup</h2>
+<div id="outline-container-orge558f15" class="outline-2">
+<h2 id="orge558f15"><span class="section-number-2">7</span> sync hangup</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>kill -KILL fails to kill process : <a href="http://lists.freebsd.org/pipermail/freebsd-questions/2008-September/182821.html">http://lists.freebsd.org/pipermail/freebsd-questions/2008-September/182821.html</a></li>
@@ -224,8 +221,8 @@ May  2 18:24:21 umeng-ubuntu-pc kernel: [ 1188.717622] CPU3: Package temperature
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> upgrade glibc</h2>
+<div id="outline-container-org1a4b4b8" class="outline-2">
+<h2 id="org1a4b4b8"><span class="section-number-2">8</span> upgrade glibc</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 linux - How to recover after deleting the symbolic link libc.so.6? - Stack Overflow : <a href="http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6">http://stackoverflow.com/questions/12249547/how-to-recover-after-deleting-the-symbolic-link-libc-so-6</a>
@@ -260,7 +257,7 @@ linux - How to recover after deleting the symbolic link libc.so.6? - Stack Overf
 	libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f5efaa0d000)
 </pre>
 
-<hr  />
+<hr />
 <p>
 @2013-08-03
 </p>
@@ -281,8 +278,8 @@ A copy of the C library was found in an unexpected directory | Blog : <a href="h
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> 允许不在tty上执行sudo</h2>
+<div id="outline-container-orga3637e8" class="outline-2">
+<h2 id="orga3637e8"><span class="section-number-2">9</span> 允许不在tty上执行sudo</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 修改/etc/sudoers文件，注释掉
@@ -293,8 +290,8 @@ Defaults requiretty
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> ssh proxy</h2>
+<div id="outline-container-org069fd06" class="outline-2">
+<h2 id="org069fd06"><span class="section-number-2">10</span> ssh proxy</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 <a href="http://serverfault.com/questions/37629/how-do-i-do-multihop-scp-transfers">http://serverfault.com/questions/37629/how-do-i-do-multihop-scp-transfers</a>
@@ -319,7 +316,7 @@ Defaults requiretty
 </ul></li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook的问题.
 </p>
@@ -328,13 +325,13 @@ UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook
 <li>然后在本机上选择绑定端口比如1000. `ssh -L "*:10000:dev:8888" dev`</li>
 </ul>
 <p>
-之后就可以在本地使用 `<a href="http://localhost:10000/">http://localhost:10000/</a>` 来访问远端的notebook了.
+之后就可以在本地使用 `<a href="http://localhost:10000">http://localhost:10000</a>` 来访问远端的notebook了.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> 修改最大打开文件句柄数</h2>
+<div id="outline-container-org18b732e" class="outline-2">
+<h2 id="org18b732e"><span class="section-number-2">11</span> 修改最大打开文件句柄数</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><a href="http://blog.csdn.net/superchanon/article/details/13303705">http://blog.csdn.net/superchanon/article/details/13303705</a></li>
@@ -361,8 +358,8 @@ UPDATE @ 2016-08-26: 发现这个方法可以用来解决remote ipython notebook
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">12</span> apt-get hang</h2>
+<div id="outline-container-org73f8691" class="outline-2">
+<h2 id="org73f8691"><span class="section-number-2">12</span> apt-get hang</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 在使用ubuntu的apt-get时候，可能会出现一些异常的状况，我们直接终止了apt-get。但是这个时候apt-get软件本身出于一个不正常的状态，导致之后不能够启动apt-get。如果观察进程的话会出现下面一些可疑的进程
@@ -384,11 +381,12 @@ dp       30586  0.0  0.0   7628  1020 pts/2    S+   08:59   0:00 grep --color=au
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">13</span> syslog on cpu</h2>
+<div id="outline-container-org4d61640" class="outline-2">
+<h2 id="org4d61640"><span class="section-number-2">13</span> syslog on cpu</h2>
 <div class="outline-text-2" id="text-13">
-</div><div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">13.1</span> Core power limit notifaction</h3>
+</div>
+<div id="outline-container-org4c49c39" class="outline-3">
+<h3 id="org4c49c39"><span class="section-number-3">13.1</span> Core power limit notifaction</h3>
 <div class="outline-text-3" id="text-13-1">
 <pre class="example">
 May 12 12:29:12 dp57 kernel: CPU1: Core power limit notification (total events = 42322)
@@ -411,8 +409,8 @@ May 12 12:29:12 dp57 kernel: CPU31: Core power limit notification (total events 
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">13.2</span> Package power limit notification</h3>
+<div id="outline-container-org61aaa26" class="outline-3">
+<h3 id="org61aaa26"><span class="section-number-3">13.2</span> Package power limit notification</h3>
 <div class="outline-text-3" id="text-13-2">
 <pre class="example">
 May 12 12:29:12 dp57 kernel: CPU17: Package power limit notification (total events = 42377)
@@ -435,8 +433,8 @@ May 12 12:29:12 dp57 kernel: CPU1: Package power limit notification (total event
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">13.3</span> below trip temperature. Throttling disabled</h3>
+<div id="outline-container-org423f0c9" class="outline-3">
+<h3 id="org423f0c9"><span class="section-number-3">13.3</span> below trip temperature. Throttling disabled</h3>
 <div class="outline-text-3" id="text-13-3">
 <pre class="example">
 May 12 12:29:40 dp57 mcelog: Processor 17 below trip temperature. Throttling disabled
@@ -475,8 +473,8 @@ May 12 12:29:40 dp57 mcelog: Processor 1 below trip temperature. Throttling disa
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">14</span> linux kernel map</h2>
+<div id="outline-container-orga1ae19f" class="outline-2">
+<h2 id="orga1ae19f"><span class="section-number-2">14</span> linux kernel map</h2>
 <div class="outline-text-2" id="text-14">
 
 <div class="figure">

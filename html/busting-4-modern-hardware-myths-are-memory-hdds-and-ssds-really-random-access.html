@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Busting 4 Modern Hardware Myths - Are Memory, HDDs, And SSDs Really Random Access?</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Myth 1: CPUs Are Not Getting Faster</a></li>
-<li><a href="#orgheadline2">2. Myth 2: Memory Provides Random Access</a></li>
-<li><a href="#orgheadline3">3. Myth 3: HDDs Provide Random Access</a></li>
-<li><a href="#orgheadline4">4. SSDs Provide Random Access</a></li>
+<li><a href="#orgb9c938e">1. Myth 1: CPUs Are Not Getting Faster</a></li>
+<li><a href="#org329189e">2. Myth 2: Memory Provides Random Access</a></li>
+<li><a href="#org3955640">3. Myth 3: HDDs Provide Random Access</a></li>
+<li><a href="#org552b9ff">4. SSDs Provide Random Access</a></li>
 </ul>
 </div>
 </div>
@@ -37,8 +37,8 @@
 Mechanical Sympathy is term coined by Jackie Stewart, the race car driver, <b>to say you get the best out of a racing car when you have a good understanding of how a car works. A driver must work in harmony with the machine to get the most of out of it.</b> Martin extends this notion to say we need to know how the hardware works to get the most out of our computers. And he thinks normal developers can understand the hardware they are using. If you can understand Hibernate, you can understand just about anything.(对一个东西了解越深入，那么才越能够用好它)
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Myth 1: CPUs Are Not Getting Faster</h2>
+<div id="outline-container-orgb9c938e" class="outline-2">
+<h2 id="orgb9c938e"><span class="section-number-2">1</span> Myth 1: CPUs Are Not Getting Faster</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>The fundamental issue is CPUs can't get hotter, not that they can't get faster. As we run CPUs faster (higher clock speeds) they get hotter and hotter and heat dissipation at these small scales is incredibly difficult. (散热问题是现在限制CPU速度提升的主要原因，而非时钟频率）</li>
@@ -56,8 +56,8 @@ Mechanical Sympathy is term coined by Jackie Stewart, the race car driver, <b>to
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Myth 2: Memory Provides Random Access</h2>
+<div id="outline-container-org329189e" class="outline-2">
+<h2 id="org329189e"><span class="section-number-2">2</span> Myth 2: Memory Provides Random Access</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>At the end of the day it's a cost equation. To get to main memory is fairly expensive. We want to feed the CPUs really fast. How do we feed the CPU fast? We need the data to be close to them on something that's very very quick. Modern register to register copies don't cost anything because what is happening is a remapping, it doesn't even move.（寄存器和CPU物理距离最近因此访问最快。现在寄存器的copy都是使用remapping技术而非真正copy)</li>
@@ -71,8 +71,8 @@ Mechanical Sympathy is term coined by Jackie Stewart, the race car driver, <b>to
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Myth 3: HDDs Provide Random Access</h2>
+<div id="outline-container-org3955640" class="outline-2">
+<h2 id="org3955640"><span class="section-number-2">3</span> Myth 3: HDDs Provide Random Access</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Zone bit recording. There's a big difference between writing on the inner and outer parts of the disk. More sectors are put on the outer parts of the disk so you get greater density. For one revolution of the disk you are going to see more sectors so you'll get greater throughput.（外部磁道存储密度更大）</li>
@@ -92,8 +92,8 @@ Mechanical Sympathy is term coined by Jackie Stewart, the race car driver, <b>to
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> SSDs Provide Random Access</h2>
+<div id="outline-container-org552b9ff" class="outline-2">
+<h2 id="org552b9ff"><span class="section-number-2">4</span> SSDs Provide Random Access</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>SSDs gernerally have 2MB blocks arranged in an array of cells. SLC - single level, can store a bit. Has voltage or doesn't have a voltage. MLC - multiple voltages, so you can store 2 or 3 bits per cell.（由许多blocks组成，而block内部由许多cells组成。block通常是2MB。单个cell可以存储1bit，或者是2-3bit，分别称为SLC和MLC）</li>

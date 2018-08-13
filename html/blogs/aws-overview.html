@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AWS Overview</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -22,7 +22,7 @@ link: <a href="https://docs.aws.amazon.com/aws-technical-content/latest/aws-over
 另外这篇 <a href="https://d1.awsstatic.com/whitepapers/aws-web-hosting-best-practices.pdf">https://d1.awsstatic.com/whitepapers/aws-web-hosting-best-practices.pdf</a> 介绍如何有效地在AWS上部署Web应用程序
 </p>
 
-<hr  />
+<hr />
 <p>
 Six Advantages of Cloud Computing 6个使用云计算的优势
 </p>
@@ -36,7 +36,7 @@ Six Advantages of Cloud Computing 6个使用云计算的优势
 <li>Go global in minutes. Easily deploy your application in multiple regions around the world with just a few clicks. This means you can provide lower latency and a better experience for your customers at minimal cost.（利用AWS集群全球化的优势）</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 Region和AZ的差别。一个Region里面可能有多个AZ，这些AZ在硬件和软件层面都是分开的，但是AZs之间都是通过高速网络互连的。AWS提供的很多产品默认在AZs之间做replication, 至于cross-region replication则是可选的，因为延迟和吞吐通常不太好控制。
 </p>
@@ -49,7 +49,7 @@ AWS is available in multiple locations worldwide. These locations are composed o
 Each region is completely independent and is designed to be completely isolated from the other regions. This achieves the greatest possible fault tolerance and stability. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. Availability Zones are physically separated within a typical metropolitan region and are located in lower risk flood plains (specific flood zone categorization varies by region). In addition to utilizing discrete uninterruptable power supply (UPS) and onsite backup generators, they are each fed via different grids from independent utilities to further reduce single points of failure. Availability Zones are all redundantly connected to multiple tier-1 transit providers.
 </p>
 
-<hr  />
+<hr />
 <p>
 Key Considerations When Using AWS for Web Hosting 将应用上云需要注意的事情
 </p>

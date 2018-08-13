@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Find 10 digits prime in consecutive digits of e</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -24,7 +24,7 @@
 </p>
 </div>
 
-<hr  />
+<hr />
 <p>
 如何得到e的数字？可以通过泰勒级数，然后通过缩放，获得小数点后面精确的数字。
 </p>
@@ -40,7 +40,6 @@ Python的好处就是可以直接操作大数。代码里面有个很重要的�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">def compute_exp(scale):
     scale_10 = 10 ** scale
     fac = 1
@@ -62,13 +61,12 @@ Python的好处就是可以直接操作大数。代码里面有个很重要的�
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 接下来的问题是如何测试素数。如果构建prime table的话，复杂度是O(n), 其中n是max value. 如果是10 digits的话，那么max value就是10 ** 11，所以时间成本还是蛮高的。有个概率算法可以用来测试是否为素数 <a href="https://zh.wikipedia.org/zh-cn/%E7%B1%B3%E5%8B%92-%E6%8B%89%E5%AE%BE%E6%A3%80%E9%AA%8C">Miller Rabin Test</a>.
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">import random
 def miller_rabin(n, k=10):
         if n == 2:
@@ -101,7 +99,7 @@ def miller_rabin(n, k=10):
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 这两个算法运行起来都非常快。
 </p>
@@ -119,7 +117,6 @@ Wall time: 1.18 ms
 下面这个函数可以用来找到n-digits prime.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def find_prime_digits(a, k = 10):
     a = str(a)
     for i in range(0, len(a) - k):

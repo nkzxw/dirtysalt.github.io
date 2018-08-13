@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to receive a million packets per second</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -37,7 +37,7 @@ On Linux, how hard is it to write a program that receives 1 million UDP packets 
 在实验之前，先配置好iptables，以及在receiver机器上分配了20个IP。packets使用batch方式发送, batch size = 1024.
 </p>
 
-<hr  />
+<hr />
 <p>
 <b>The naive approach</b>
 </p>
@@ -72,7 +72,7 @@ receiver$ taskset -c 1 ./udpreceiver1 0.0.0.0:4321
   0.360M pps  10.971MiB /  92.033Mb
 </pre>
 
-<hr  />
+<hr />
 <p>
 <b>Send more packets</b>
 </p>
@@ -122,7 +122,7 @@ pps中有451k没有被kernel处理而丢弃，355.2k都是在rx-4接收队列上
 所以我们做的是让packet能够尽可能地均匀地落在每个rx queue上，这样就不会让某个processor成为bottleneck.
 </p>
 
-<hr  />
+<hr />
 <p>
 <b>Crash course to multi-queue NICs</b>
 </p>
@@ -145,7 +145,7 @@ Historically, network cards had a single RX queue that was used to pass packets 
 配置网卡这个hash规则我们同样可以使用ethtool这个工具：ethtool -N eth0 rx-flow-hash udp4 sdfn
 </p>
 
-<hr  />
+<hr />
 <p>
 <b>A note on NUMA performance</b>
 </p>
@@ -212,7 +212,7 @@ Udp:
 这意味着packet可以被投递到kernel, 但是kernel没有办法投递到application，application处理packet速度太慢(386.9k + 123.8k被丢弃）
 </p>
 
-<hr  />
+<hr />
 <p>
 <b>Receive from many threads</b>
 </p>
@@ -232,7 +232,7 @@ receiver$ taskset -c 1,2,3,4 ./udpreceiver1 0.0.0.0:4321 4 1
   1.126M pps  34.374MiB / 288.354Mb
 </pre>
 
-<hr  />
+<hr />
 <p>
 <b>Final words</b>
 </p>

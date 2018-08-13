@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lock</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,16 +18,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. implementation</a></li>
-<li><a href="#orgheadline2">2. lock-free</a></li>
-<li><a href="#orgheadline3">3. futex</a></li>
-<li><a href="#orgheadline4">4. 使用自选锁来实现信号量</a></li>
+<li><a href="#orgd2d4303">1. implementation</a></li>
+<li><a href="#org8d0bd04">2. lock-free</a></li>
+<li><a href="#org29ea2f1">3. futex</a></li>
+<li><a href="#org2e4321b">4. 使用自选锁来实现信号量</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> implementation</h2>
+<div id="outline-container-orgd2d4303" class="outline-2">
+<h2 id="orgd2d4303"><span class="section-number-2">1</span> implementation</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="http://lwn.net/Articles/267968/">Ticket spinlocks</a></li>
@@ -42,8 +42,8 @@ update@201509: 通过xchg/cmpxchg这种原子指令可以很容易实现一个sp
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> lock-free</h2>
+<div id="outline-container-org8d0bd04" class="outline-2">
+<h2 id="org8d0bd04"><span class="section-number-2">2</span> lock-free</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-lockfree/">透过 Linux 内核看无锁编程</a></li>
@@ -56,8 +56,8 @@ update@201509: 通过xchg/cmpxchg这种原子指令可以很容易实现一个sp
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> futex</h2>
+<div id="outline-container-org29ea2f1" class="outline-2">
+<h2 id="org29ea2f1"><span class="section-number-2">3</span> futex</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Futex">Wikipedia Futex</a></li>
@@ -76,11 +76,10 @@ futex(fast userspace mutex)快速用户态互斥锁，需要用户态和内核�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 使用自选锁来实现信号量</h2>
+<div id="outline-container-org2e4321b" class="outline-2">
+<h2 id="org2e4321b"><span class="section-number-2">4</span> 使用自选锁来实现信号量</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">sema</span>
 {
   <span class="org-type">lock_t</span> <span class="org-variable-name">lock</span>;

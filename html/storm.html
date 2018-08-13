@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>storm</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,11 +18,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. overview</a></li>
-<li><a href="#orgheadline2">2. grouping</a></li>
-<li><a href="#orgheadline3">3. distributed-RPC</a></li>
-<li><a href="#orgheadline4">4. parallelism</a></li>
-<li><a href="#orgheadline5">5. reliability</a></li>
+<li><a href="#orgc0b39af">1. overview</a></li>
+<li><a href="#org51a41f2">2. grouping</a></li>
+<li><a href="#orgc026de0">3. distributed-RPC</a></li>
+<li><a href="#org94d7c89">4. parallelism</a></li>
+<li><a href="#orga5cee3c">5. reliability</a></li>
 </ul>
 </div>
 </div>
@@ -35,8 +35,8 @@
 <li>另外storm还支持multilang, 我这里也做了一个 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/scala/kafka-streaming">demo</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> overview</h2>
+<div id="outline-container-orgc0b39af" class="outline-2">
+<h2 id="orgc0b39af"><span class="section-number-2">1</span> overview</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="http://storm.apache.org/documentation/Tutorial.html">http://storm.apache.org/documentation/Tutorial.html</a></li>
@@ -69,8 +69,8 @@ storm集群由三个部分组成: 1) master(nimbus) 2) coordinator(zookeeper) 3 
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> grouping</h2>
+<div id="outline-container-org51a41f2" class="outline-2">
+<h2 id="org51a41f2"><span class="section-number-2">2</span> grouping</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 输入输出数据模型是key-value model. 其中key可以用来进行grouping. 所以grouping就是决定数据如何向下面一层分发. storm提供下面几种grouping方式
@@ -85,8 +85,8 @@ storm集群由三个部分组成: 1) master(nimbus) 2) coordinator(zookeeper) 3 
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> distributed-RPC</h2>
+<div id="outline-container-orgc026de0" class="outline-2">
+<h2 id="orgc026de0"><span class="section-number-2">3</span> distributed-RPC</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 用storm可以很容易实现DRPC. 似乎这个功能非常有用, 但是我现在还没有想到一个比较合适的场景.
@@ -100,8 +100,8 @@ storm集群由三个部分组成: 1) master(nimbus) 2) coordinator(zookeeper) 3 
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> parallelism</h2>
+<div id="outline-container-org94d7c89" class="outline-2">
+<h2 id="org94d7c89"><span class="section-number-2">4</span> parallelism</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 storm parallelism有三个概念 1) worker process 2) executor 3) task. 下面这张图解释了三者之间的关系
@@ -121,8 +121,8 @@ storm parallelism有三个概念 1) worker process 2) executor 3) task. 下面�
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> reliability</h2>
+<div id="outline-container-orga5cee3c" class="outline-2">
+<h2 id="orga5cee3c"><span class="section-number-2">5</span> reliability</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 如何保证每条消息能够都被处理? 我们需要先来定义"消息被完全处理". 在流式系统中一个input tuple到最后结束可能会产生许多tuples并且中途也会有很多tuples生成. 如果我们将这些生成关系画成树的话
@@ -142,7 +142,7 @@ storm parallelism有三个概念 1) worker process 2) executor 3) task. 下面�
 如何将中间消息和input-tuple关联起来? storm API提供了 <b>anchoring</b> 接口. anchoring就是将某个output-input和input-tuple关联起来. 这样output-tuple里面其实带上了input-tuple id. 如果我们ack output-tuple时, storm会从output-tuple里面抽取input-tuple id并且ack这个input-tuple. storm API来提供了 <b>multiple-anchoring</b> 接口允许某个output-tuple和多个input-tuple关联起来.
 </p>
 
-<hr  />
+<hr />
 
 <p>
 storm如何实现消息确认? storm会为每个output-tuple分配一个random 64bit id. storm会启动acker服务来接收spout/bolt返回的ack消息并且通过维护一个hashmap对tuple进行追踪. 整个过程是

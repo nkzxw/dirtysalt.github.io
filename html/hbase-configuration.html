@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Apache HBase Configuration</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,11 +40,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. core</a></li>
-<li><a href="#orgheadline2">2. master</a></li>
-<li><a href="#orgheadline3">3. regionserver</a></li>
-<li><a href="#orgheadline4">4. client</a></li>
-<li><a href="#orgheadline5">5. zookeeper</a></li>
+<li><a href="#org2d321e4">1. core</a></li>
+<li><a href="#org3becf29">2. master</a></li>
+<li><a href="#orga8f5049">3. regionserver</a></li>
+<li><a href="#org82e7220">4. client</a></li>
+<li><a href="#org56b4998">5. zookeeper</a></li>
 </ul>
 </div>
 </div>
@@ -62,8 +62,8 @@
 <li>Not all configuration options make it out to hbase-default.xml. <b>Configuration that it is thought rare anyone would change can exist only in code;</b> the only way to turn up such configurations is via a reading of the source code itself.</li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> core</h2>
+<div id="outline-container-org2d321e4" class="outline-2">
+<h2 id="org2d321e4"><span class="section-number-2">1</span> core</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>hbase.rootdir
@@ -103,8 +103,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> master</h2>
+<div id="outline-container-org3becf29" class="outline-2">
+<h2 id="org3becf29"><span class="section-number-2">2</span> master</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>hbase.master.port
@@ -154,8 +154,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> regionserver</h2>
+<div id="outline-container-orga8f5049" class="outline-2">
+<h2 id="orga8f5049"><span class="section-number-2">3</span> regionserver</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>hbase.regionserver.port
@@ -428,8 +428,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> client</h2>
+<div id="outline-container-org82e7220" class="outline-2">
+<h2 id="org82e7220"><span class="section-number-2">4</span> client</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>hbase.client.write.buffer
@@ -473,8 +473,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> zookeeper</h2>
+<div id="outline-container-org56b4998" class="outline-2">
+<h2 id="org56b4998"><span class="section-number-2">5</span> zookeeper</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>hbase.zookeeper.dns.interface

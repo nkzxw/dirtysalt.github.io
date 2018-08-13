@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Netty</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,30 +18,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. architecture</a></li>
-<li><a href="#orgheadline11">2. concepts</a>
+<li><a href="#org87410a7">1. architecture</a></li>
+<li><a href="#org130d537">2. concepts</a>
 <ul>
-<li><a href="#orgheadline2">2.1. Channel</a></li>
-<li><a href="#orgheadline3">2.2. ChannelFactory</a></li>
-<li><a href="#orgheadline4">2.3. ChannelHandler</a></li>
-<li><a href="#orgheadline5">2.4. ChannelHandlerContext</a></li>
-<li><a href="#orgheadline6">2.5. ChannelPipeline</a></li>
-<li><a href="#orgheadline7">2.6. ChannelPipelineFactory</a></li>
-<li><a href="#orgheadline8">2.7. ChannelEvent</a></li>
-<li><a href="#orgheadline9">2.8. ChannelBuffer</a></li>
-<li><a href="#orgheadline10">2.9. ChannelGroup</a></li>
+<li><a href="#org98540db">2.1. Channel</a></li>
+<li><a href="#org189ae50">2.2. ChannelFactory</a></li>
+<li><a href="#orgc773add">2.3. ChannelHandler</a></li>
+<li><a href="#org1fb7d06">2.4. ChannelHandlerContext</a></li>
+<li><a href="#orge16122a">2.5. ChannelPipeline</a></li>
+<li><a href="#org9c0cf95">2.6. ChannelPipelineFactory</a></li>
+<li><a href="#org6925602">2.7. ChannelEvent</a></li>
+<li><a href="#org94b4f4a">2.8. ChannelBuffer</a></li>
+<li><a href="#org74baca1">2.9. ChannelGroup</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">3. notes</a>
+<li><a href="#orga6db57c">3. notes</a>
 <ul>
-<li><a href="#orgheadline12">3.1. boss/worker executor</a></li>
-<li><a href="#orgheadline13">3.2. accept connection exception</a></li>
-<li><a href="#orgheadline14">3.3. control timeout</a></li>
+<li><a href="#org5e498d5">3.1. boss/worker executor</a></li>
+<li><a href="#org16caa1f">3.2. accept connection exception</a></li>
+<li><a href="#org1cd75e6">3.3. control timeout</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">4. codes</a>
+<li><a href="#orge2530a6">4. codes</a>
 <ul>
-<li><a href="#orgheadline16">4.1. HashedWheelTimer</a></li>
+<li><a href="#org6a5db5a">4.1. HashedWheelTimer</a></li>
 </ul>
 </li>
 </ul>
@@ -53,8 +53,8 @@
 <li>All documentation pages <a href="http://netty.io/wiki/all-documents.html">http://netty.io/wiki/all-documents.html</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> architecture</h2>
+<div id="outline-container-org87410a7" class="outline-2">
+<h2 id="org87410a7"><span class="section-number-2">1</span> architecture</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -64,11 +64,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">2</span> concepts</h2>
+<div id="outline-container-org130d537" class="outline-2">
+<h2 id="org130d537"><span class="section-number-2">2</span> concepts</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Channel</h3>
+</div>
+<div id="outline-container-org98540db" class="outline-3">
+<h3 id="org98540db"><span class="section-number-3">2.1</span> Channel</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 可以认为是一个connection，这个connection上面有socket fd可以所以进行读写。我们只能够控制是否可读，而不能够控制是否可写，因为事实上socket永远是可写的（只要write buffer有空余）。所以要注意，一旦如果在非IO线程发起写操作的话，那么在IO线程随时都会有writeComplete等事件发生，这点对于顺序的控制至关重要。
@@ -76,8 +77,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> ChannelFactory</h3>
+<div id="outline-container-org189ae50" class="outline-3">
+<h3 id="org189ae50"><span class="section-number-3">2.2</span> ChannelFactory</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 创建Channel并且对Channel进行管理包括事件检测以及回调处理。涉及到管理那么就需要有线程池，这个线程池需要外部进行指定。
@@ -85,8 +86,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> ChannelHandler</h3>
+<div id="outline-container-orgc773add" class="outline-3">
+<h3 id="orgc773add"><span class="section-number-3">2.3</span> ChannelHandler</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 在这个connection上面的处理逻辑对象。总的来说有下面两种类型的handler
@@ -106,8 +107,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> ChannelHandlerContext</h3>
+<div id="outline-container-org1fb7d06" class="outline-3">
+<h3 id="org1fb7d06"><span class="section-number-3">2.4</span> ChannelHandlerContext</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 这个ChannelHandler对应的context. 实际上是这个context是包含了handler. context内部有prev,next字段能够将pipeline里面的context组成链表。
@@ -119,8 +120,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.5</span> ChannelPipeline</h3>
+<div id="outline-container-orge16122a" class="outline-3">
+<h3 id="orge16122a"><span class="section-number-3">2.5</span> ChannelPipeline</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 1 Channel  + N ChannelHandler，连接和这个连接上所有的处理逻辑对象。
@@ -132,8 +133,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.6</span> ChannelPipelineFactory</h3>
+<div id="outline-container-org9c0cf95" class="outline-3">
+<h3 id="org9c0cf95"><span class="section-number-3">2.6</span> ChannelPipelineFactory</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 创建ChannelPipeline，主要是说明需要在这个Channel上面绑定哪些ChannelHandler.
@@ -141,8 +142,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.7</span> ChannelEvent</h3>
+<div id="outline-container-org6925602" class="outline-3">
+<h3 id="org6925602"><span class="section-number-3">2.7</span> ChannelEvent</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 连接上所有触发的事件，可以是但是不仅限于下面几种类型
@@ -160,8 +161,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.8</span> ChannelBuffer</h3>
+<div id="outline-container-org94b4f4a" class="outline-3">
+<h3 id="org94b4f4a"><span class="section-number-3">2.8</span> ChannelBuffer</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 这个和Channel倒是没有太大关系，比较偏向buffer的管理，主要针对网络通信这种read/write交互场景进行优化。
@@ -169,8 +170,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.9</span> ChannelGroup</h3>
+<div id="outline-container-org74baca1" class="outline-3">
+<h3 id="org74baca1"><span class="section-number-3">2.9</span> ChannelGroup</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 线程安全的Channel集合，如果Channel关闭的话那么会自动从group里面移除，能够对Channel进行批量操作。
@@ -179,11 +180,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">3</span> notes</h2>
+<div id="outline-container-orga6db57c" class="outline-2">
+<h2 id="orga6db57c"><span class="section-number-2">3</span> notes</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.1</span> boss/worker executor</h3>
+</div>
+<div id="outline-container-org5e498d5" class="outline-3">
+<h3 id="org5e498d5"><span class="section-number-3">3.1</span> boss/worker executor</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 NioServerSocketChannelFactory构造函数需要指定boss/worker两个executor，有必要解释一下这两个对象的含义。
@@ -219,8 +221,8 @@ worker的数量如果没有指定的话，with 2 * the number of available proce
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">3.2</span> accept connection exception</h3>
+<div id="outline-container-org16caa1f" class="outline-3">
+<h3 id="org16caa1f"><span class="section-number-3">3.2</span> accept connection exception</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 Exception in thread "pool-2-thread-1" java.lang.InternalError
@@ -301,8 +303,8 @@ Got this error - Syahreza Pahlevi Ginting
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.3</span> control timeout</h3>
+<div id="outline-container-org1cd75e6" class="outline-3">
+<h3 id="org1cd75e6"><span class="section-number-3">3.3</span> control timeout</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 网络上并没有太多如何关于netty读写超时信息的控制。下面是一篇相对来说比较有启发性的回答：
@@ -333,7 +335,6 @@ Got this error - Syahreza Pahlevi Ginting
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">private void fireReadTimedOut(final ChannelHandlerContext ctx) throws Exception {
             ctx.getPipeline().execute(new Runnable() {
 
@@ -382,17 +383,17 @@ Got this error - Syahreza Pahlevi Ginting
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">4</span> codes</h2>
+<div id="outline-container-orge2530a6" class="outline-2">
+<h2 id="orge2530a6"><span class="section-number-2">4</span> codes</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">4.1</span> HashedWheelTimer</h3>
+</div>
+<div id="outline-container-org6a5db5a" class="outline-3">
+<h3 id="org6a5db5a"><span class="section-number-3">4.1</span> HashedWheelTimer</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 定时器的实现，相关其接口如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public interface Timer {
     Timeout newTimeout(TimerTask task, long delay, TimeUnit unit); // 发起定时任务
     Set&lt;Timeout&gt; stop(); // 返回所有因为stop取消的定时任务
@@ -435,7 +436,6 @@ public interface Timeout {
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">public class HashedWheelTimer implements Timer {
     private static final AtomicInteger id = new AtomicInteger(); // 用来为实例分配编号
     private static final SharedResourceMisuseDetector misuseDetector =
@@ -465,12 +465,11 @@ public interface Timeout {
 <li>后台线程每隔tickDuration会检查下一个wheelCursor上的Timeout请求，判断那些存在超时，如果超时的话那么触发TimerTask这个操作。</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 初始化
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public HashedWheelTimer(
         ThreadFactory threadFactory,
         long tickDuration, TimeUnit unit, int ticksPerWheel) {
@@ -518,12 +517,11 @@ private static int normalizeTicksPerWheel(int ticksPerWheel) {
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 提交Timeout
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
     final long currentTime = System.currentTimeMillis();
     start(); // 启动工作线程
@@ -581,7 +579,7 @@ void scheduleTimeout(HashedWheelTimeout timeout, long delay) {
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 后台检查超时触发线程. 注意里面的deadline并不是每次调用currentTimeMillis, 而是在startTime上面不断叠加的，然后在sleep过程中进行修正。可能会出现略微时间偏差。
 </p>
@@ -591,7 +589,6 @@ void scheduleTimeout(HashedWheelTimeout timeout, long delay) {
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">public void run() {
     List&lt;HashedWheelTimeout&gt; expiredTimeouts =
         new ArrayList&lt;HashedWheelTimeout&gt;();

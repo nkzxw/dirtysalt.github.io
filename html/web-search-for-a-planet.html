@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Web Search for a Planet</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Google architecture overview</a></li>
-<li><a href="#orgheadline2">2. Leveraging commodity parts</a></li>
-<li><a href="#orgheadline3">3. The power problem</a></li>
-<li><a href="#orgheadline4">4. Hardware-level application characteristics</a></li>
+<li><a href="#org6eee395">1. Google architecture overview</a></li>
+<li><a href="#org9778d2a">2. Leveraging commodity parts</a></li>
+<li><a href="#orga953463">3. The power problem</a></li>
+<li><a href="#org7d26603">4. Hardware-level application characteristics</a></li>
 </ul>
 </div>
 </div>
@@ -33,8 +33,8 @@
 除了软件架构之外，还提到了硬件上的选择和优化
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Google architecture overview</h2>
+<div id="outline-container-org6eee395" class="outline-2">
+<h2 id="org6eee395"><span class="section-number-2">1</span> Google architecture overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In summary, Google clusters follow three key design principles:
@@ -48,10 +48,10 @@ In summary, Google clusters follow three key design principles:
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Leveraging commodity parts</h2>
+<div id="outline-container-org9778d2a" class="outline-2">
+<h2 id="org9778d2a"><span class="section-number-2">2</span> Leveraging commodity parts</h2>
 <div class="outline-text-2" id="text-2">
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>Google’s racks consist of 40 to 80 x86-based servers mounted on either side of a custom made rack (each side of the rack contains twenty 20u or forty 1u servers).（每个rack上面有40-80台x86服务器，rack每一面可以放下20个2u或者是40个1u服务器）
 <ul class="org-ul">
@@ -67,7 +67,7 @@ In summary, Google clusters follow three key design principles:
 </ul></li>
 </ul>
 
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>For example, in late 2002 a rack of 88 dual-CPU 2-GHz Intel Xeon servers with 2 Gbytes of RAM and an 80-Gbyte hard disk was offered on RackSaver.com for around $278,000. This figure translates into a monthly capital cost of $7,700 per rack over three years. (2002年一个rack上面88个双核CPU的Xeon服务器，配备2G内存以及80GB的磁盘在racksaver.com上面大概需要278000美元，平均每年7700美元）.</li>
 <li>The relative importance of equipment cost makes traditional server solutions less appeal-ing for our problem because they increase per-formance but decrease the price/performance. （一些传统的服务器解决方案对于我们来说缺乏吸引力，主要是因为虽然增加了性能，但是降低了performance/price)
@@ -91,11 +91,11 @@ In summary, Google clusters follow three key design principles:
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> The power problem</h2>
+<div id="outline-container-orga953463" class="outline-2">
+<h2 id="orga953463"><span class="section-number-2">3</span> The power problem</h2>
 </div>
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Hardware-level application characteristics</h2>
+<div id="outline-container-org7d26603" class="outline-2">
+<h2 id="org7d26603"><span class="section-number-2">4</span> Hardware-level application characteristics</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Examining various architectural characteris-tics of our application helps illustrate which hardware platforms will provide the best price/performance for our query-serving sys-tem.（分析应用程序的一些架构上面的特征，来解释什么硬件可以为查询系统提供更好的性价比）

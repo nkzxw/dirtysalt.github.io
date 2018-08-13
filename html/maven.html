@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Maven</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,22 +40,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. Introduction</a>
+<li><a href="#org278a848">1. Introduction</a>
 <ul>
-<li><a href="#orgheadline1">1.1. maven能够用来做什么</a></li>
-<li><a href="#orgheadline2">1.2. maven模型</a></li>
-<li><a href="#orgheadline3">1.3. maven生命周期</a></li>
+<li><a href="#orge2c62ed">1.1. maven能够用来做什么</a></li>
+<li><a href="#org4a65286">1.2. maven模型</a></li>
+<li><a href="#org4c367d3">1.3. maven生命周期</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. Repository</a>
+<li><a href="#org068f933">2. Repository</a>
 <ul>
-<li><a href="#orgheadline5">2.1. 本地仓库</a></li>
-<li><a href="#orgheadline6">2.2. 远程仓库</a></li>
-<li><a href="#orgheadline7">2.3. 分发构件至远程仓库</a></li>
-<li><a href="#orgheadline8">2.4. 远程仓库搭建</a></li>
+<li><a href="#orgb93c8b5">2.1. 本地仓库</a></li>
+<li><a href="#orge1e63fa">2.2. 远程仓库</a></li>
+<li><a href="#org0fe864f">2.3. 分发构件至远程仓库</a></li>
+<li><a href="#orgafc0a27">2.4. 远程仓库搭建</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">3. Getting Started</a></li>
+<li><a href="#orgb7fedb2">3. Getting Started</a></li>
 </ul>
 </div>
 </div>
@@ -63,16 +63,16 @@
 <a href="http://maven.apache.org/">http://maven.apache.org/</a>
 </p>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org278a848" class="outline-2">
+<h2 id="org278a848"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="http://www.ibm.com/developerworks/cn/education/java/j-mavenv2/">http://www.ibm.com/developerworks/cn/education/java/j-mavenv2/</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> maven能够用来做什么</h3>
+<div id="outline-container-orge2c62ed" class="outline-3">
+<h3 id="orge2c62ed"><span class="section-number-3">1.1</span> maven能够用来做什么</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>理解项目通常是如何构建的。</li>
@@ -87,8 +87,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> maven模型</h3>
+<div id="outline-container-org4a65286" class="outline-3">
+<h3 id="org4a65286"><span class="section-number-3">1.2</span> maven模型</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 maven模型分为几个部分：
@@ -102,8 +102,8 @@ maven模型分为几个部分：
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> maven生命周期</h3>
+<div id="outline-container-org4c367d3" class="outline-3">
+<h3 id="org4c367d3"><span class="section-number-3">1.3</span> maven生命周期</h3>
 <div class="outline-text-3" id="text-1-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -254,8 +254,8 @@ There are two other Maven lifecycles of note beyond the default list above. They
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">2</span> Repository</h2>
+<div id="outline-container-org068f933" class="outline-2">
+<h2 id="org068f933"><span class="section-number-2">2</span> Repository</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Maven 2 仓库存储 Maven 在一个项目的依赖项解析中使用过的工件集。在本地磁盘上访问本地仓库，通过网络访问远程仓库。工件通常被打包成包含二进制库或可执行库的 JAR 文件。这被认为是工件的一个类型。但在实践中，工件也可以是 WAR、EAR 或其他代码捆绑类型。Maven 2 利用操作系统的目录结构对存储在仓库中的工件集进行快速索引。这个仓库索引系统依赖于这种能力来通过工件的坐标惟一标识工件。Maven 坐标是一组可以惟一标识工件的三元组值。坐标包含了下列三条信息：
@@ -270,7 +270,6 @@ Maven 2 仓库存储 Maven 在一个项目的依赖项解析中使用过的工�
 下面是JUnit依赖项的Maven坐标：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;dependencies&gt;
    &lt;dependency&gt;
       &lt;groupId&gt;junit&lt;/groupId&gt;
@@ -301,8 +300,8 @@ Maven 2 仓库存储 Maven 在一个项目的依赖项解析中使用过的工�
 </ul>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.1</span> 本地仓库</h3>
+<div id="outline-container-orgb93c8b5" class="outline-3">
+<h3 id="orgb93c8b5"><span class="section-number-3">2.1</span> 本地仓库</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 maven默认设置~/.m2/repository为本地仓库。将项目所需要的依赖全部都缓存下来，这样不用每次都重新下载依赖。
@@ -333,7 +332,6 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 我们可以通过修改~/.m2/setting.xml来配置本地仓库位置。但是似乎没有太大必要=D
 </p>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;settings&gt;
 &lt;localRepository&gt;D:\java\repository&lt;/localRepository&gt;
 &lt;/settings&gt;
@@ -342,8 +340,8 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.2</span> 远程仓库</h3>
+<div id="outline-container-orge1e63fa" class="outline-3">
+<h3 id="orge1e63fa"><span class="section-number-3">2.2</span> 远程仓库</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 参考资源 <a href="http://juvenshun.iteye.com/blog/359256">http://juvenshun.iteye.com/blog/359256</a>
@@ -353,7 +351,6 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 如果本地仓库没有某个工件的话，那么就会尝试从远程仓库下载。在{M2_HOME}/lib/maven-2.0.10-uber.jar能够找到\org\apache\maven\project\pom-4.0.0.xml,它是所有Maven POM的父POM,所有Maven项目继承该配置，你可以在这个POM中发现如下配置：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;repositories&gt;
   &lt;repository&gt;
     &lt;id&gt;central&lt;/id&gt;
@@ -400,7 +397,6 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 </ul></li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;project&gt;
   ...
   &lt;repositories&gt;
@@ -452,7 +448,6 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;settings&gt;
   ...
   &lt;profiles&gt;
@@ -485,7 +480,6 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 </ul></li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;settings&gt;
   ...
   &lt;mirrors&gt;
@@ -506,8 +500,8 @@ drwxrwxr-x 3 dirlt dirlt 4096  6月 24 22:36 xml-apis
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.3</span> 分发构件至远程仓库</h3>
+<div id="outline-container-org0fe864f" class="outline-3">
+<h3 id="org0fe864f"><span class="section-number-3">2.3</span> 分发构件至远程仓库</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 mvn install 会将项目生成的构件安装到本地Maven仓库，mvn deploy 用来将项目生成的构件分发到远程Maven仓库。本地Maven仓库的构件只能供当前用户使用，在分发到远程Maven仓库之后，所有能访问该仓库的用户都能使用你的构件。 <b>安装到maven本地仓库对于使用一些下载源代码并且编译的项目非常有用</b>. 我们可以在pom.xml里面指定maven分发构件位置。注意这里我们通常将release和snapshot区分开来放在不同的repo下面。
@@ -539,7 +533,6 @@ mvn install 会将项目生成的构件安装到本地Maven仓库，mvn deploy �
 </ul></li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;project&gt;
   ...
   &lt;distributionManagement&gt;
@@ -599,8 +592,8 @@ maven会自动将父项目的pom.xml包含进来。 #note: 可以在这里填写
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.4</span> 远程仓库搭建</h3>
+<div id="outline-container-orgafc0a27" class="outline-3">
+<h3 id="orgafc0a27"><span class="section-number-3">2.4</span> 远程仓库搭建</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 <del>参考资源 <a href="http://juvenshun.iteye.com/blog/34">http://juvenshun.iteye.com/blog/34</a></del>
@@ -645,7 +638,7 @@ nexus 可以从 <a href="http://www.sonatype.org/nexus/go/">这里</a> 下载到
 </p>
 <ul class="org-ul">
 <li>使用bin/nexus start来启动.</li>
-<li>访问<a href="http://localhost:8081/">http://localhost:8081/</a>(see conf/nexus.properties).</li>
+<li>访问<a href="http://localhost:8081">http://localhost:8081</a>(see conf/nexus.properties).</li>
 <li>管理员账号是admin/admin123.</li>
 <li>数据目录是 ../sonatype-work(see conf/nexus.properties).</li>
 </ul>
@@ -657,8 +650,8 @@ nexus 可以从 <a href="http://www.sonatype.org/nexus/go/">这里</a> 下载到
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">3</span> Getting Started</h2>
+<div id="outline-container-orgb7fedb2" class="outline-2">
+<h2 id="orgb7fedb2"><span class="section-number-2">3</span> Getting Started</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <b>安装maven</b>

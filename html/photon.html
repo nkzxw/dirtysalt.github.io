@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Photon: Fault-tolerant and Scalable Joining of Continuous Data Streams</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,14 +18,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Abstract</a></li>
-<li><a href="#orgheadline2">2. Introduction</a></li>
-<li><a href="#orgheadline3">3. Paxos-Based ID Registry</a></li>
-<li><a href="#orgheadline4">4. Single Datacenter Pipeline</a></li>
-<li><a href="#orgheadline5">5. Performance Results</a></li>
-<li><a href="#orgheadline6">6. Design Lessons</a></li>
-<li><a href="#orgheadline7">7. Related Work</a></li>
-<li><a href="#orgheadline8">8. Conclusions and Future Work</a></li>
+<li><a href="#org07ea826">1. Abstract</a></li>
+<li><a href="#orge96132e">2. Introduction</a></li>
+<li><a href="#org3084700">3. Paxos-Based ID Registry</a></li>
+<li><a href="#org8d0e803">4. Single Datacenter Pipeline</a></li>
+<li><a href="#org989c908">5. Performance Results</a></li>
+<li><a href="#org5e62051">6. Design Lessons</a></li>
+<li><a href="#orga91d45b">7. Related Work</a></li>
+<li><a href="#org45cef97">8. Conclusions and Future Work</a></li>
 </ul>
 </div>
 </div>
@@ -37,8 +37,8 @@
 虽然photon也是流式处理系统, 但是并不是通用的流式处理系统, 它只是流式地完成query/click之间的join操作, 应用范围相对有限. <a href="./millwheel.html">MillWheel</a> 才是google的通用流式系统.
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-org07ea826" class="outline-2">
+<h2 id="org07ea826"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Photon is deployed within Google Advertising System to join data streams such as web search queries and user clicks on advertisements. # 在google广告系统中将搜索和点击关联起来</li>
@@ -49,8 +49,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-orge96132e" class="outline-2">
+<h2 id="orge96132e"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 photon user-case大致是这样的:
@@ -67,7 +67,7 @@ photon user-case大致是这样的:
 </p>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 While building Photon to join continuous data streams, we face these challenges:
@@ -82,8 +82,8 @@ While building Photon to join continuous data streams, we face these challenges:
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Paxos-Based ID Registry</h2>
+<div id="outline-container-org3084700" class="outline-2">
+<h2 id="org3084700"><span class="section-number-2">3</span> Paxos-Based ID Registry</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>The simplest way to achieve fault-tolerance on commodity hardware is through replication. Extending this prin-ciple to a large collection of machines, we can withstand datacenter-level outage by running the same system in mul-tiple datacenters in parallel. # 通过replication可以达到fault-tolerance的目的. 通过将这个原理扩展到大部分机器的话, 那么我们可以通过在多个datacenters并行运行系统来应对datacenter级别的故障.</li>
@@ -102,7 +102,7 @@ While building Photon to join continuous data streams, we face these challenges:
 <li>Before writing a joined event to output, each worker veri-fies whether the event id already exists in the IdRegistry. If the identifier exists, the worker skips processing the event. Otherwise, the worker attempts to write the event id into the IdRegistry. The worker must successfully insert the event id into the IdRegistry before it can write the joined event to output the logs. The IdRegistry must guarantee that once an event id is written to it, subsequent requests to write the same identifier will fail. #note: 这个逻辑优化一下应该是在join之前就应该先查询. 如果已经存在就skip. 否则再处理. 处理完成之后在尝试插入. 如果插入成功就输出. 很明显IdRegistry必须支持trx. 此外IdRegistry还必须能够在多个datanceter之间备份.</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 下图是IdRegistry架构图. 其中PaxosDB是paxos-based in-memory key-valud store.
@@ -142,8 +142,8 @@ While building Photon to join continuous data streams, we face these challenges:
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Single Datacenter Pipeline</h2>
+<div id="outline-container-org8d0e803" class="outline-2">
+<h2 id="org8d0e803"><span class="section-number-2">4</span> Single Datacenter Pipeline</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 下面两幅图分别是在单个datacenter的pipeline, 以及在多个dantacenters的pipeline.
@@ -182,7 +182,7 @@ While building Photon to join continuous data streams, we face these challenges:
 </ul></li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 Minimizing Joiner Losses
@@ -205,17 +205,17 @@ Verification and Recovery
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Performance Results</h2>
+<div id="outline-container-org989c908" class="outline-2">
+<h2 id="org989c908"><span class="section-number-2">5</span> Performance Results</h2>
 </div>
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Design Lessons</h2>
+<div id="outline-container-org5e62051" class="outline-2">
+<h2 id="org5e62051"><span class="section-number-2">6</span> Design Lessons</h2>
 </div>
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Related Work</h2>
+<div id="outline-container-orga91d45b" class="outline-2">
+<h2 id="orga91d45b"><span class="section-number-2">7</span> Related Work</h2>
 </div>
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> Conclusions and Future Work</h2>
+<div id="outline-container-org45cef97" class="outline-2">
+<h2 id="org45cef97"><span class="section-number-2">8</span> Conclusions and Future Work</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/photon.html';this.page.identifier = 'photon.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

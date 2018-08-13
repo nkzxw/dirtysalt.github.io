@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cassandra - A Decentralized Structured Storage System</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,24 +18,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. ABSTRACT</a></li>
-<li><a href="#orgheadline2">2. INTRODUCTION</a></li>
-<li><a href="#orgheadline3">3. RELATED WORK</a></li>
-<li><a href="#orgheadline4">4. DATA MODEL</a></li>
-<li><a href="#orgheadline5">5. API</a></li>
-<li><a href="#orgheadline13">6. SYSTEM ARCHITECTURE</a>
+<li><a href="#org7389b0f">1. ABSTRACT</a></li>
+<li><a href="#orge890e43">2. INTRODUCTION</a></li>
+<li><a href="#orgff5fa13">3. RELATED WORK</a></li>
+<li><a href="#org7b5d77b">4. DATA MODEL</a></li>
+<li><a href="#org85e6e6e">5. API</a></li>
+<li><a href="#org756a090">6. SYSTEM ARCHITECTURE</a>
 <ul>
-<li><a href="#orgheadline6">6.1. Partitioning</a></li>
-<li><a href="#orgheadline7">6.2. Replication</a></li>
-<li><a href="#orgheadline8">6.3. Membership</a></li>
-<li><a href="#orgheadline9">6.4. Bootstrapping</a></li>
-<li><a href="#orgheadline10">6.5. Scaling the Cluster</a></li>
-<li><a href="#orgheadline11">6.6. Local Persistence</a></li>
-<li><a href="#orgheadline12">6.7. Implementation Details</a></li>
+<li><a href="#org52f7d38">6.1. Partitioning</a></li>
+<li><a href="#org9fcd694">6.2. Replication</a></li>
+<li><a href="#org21a51b4">6.3. Membership</a></li>
+<li><a href="#orgdc4feca">6.4. Bootstrapping</a></li>
+<li><a href="#org941c079">6.5. Scaling the Cluster</a></li>
+<li><a href="#orge74f6bd">6.6. Local Persistence</a></li>
+<li><a href="#org0625dc4">6.7. Implementation Details</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">7. PRACTICAL EXPERIENCES</a></li>
-<li><a href="#orgheadline15">8. CONCLUSION</a></li>
+<li><a href="#org2ab505c">7. PRACTICAL EXPERIENCES</a></li>
+<li><a href="#org3362b94">8. CONCLUSION</a></li>
 </ul>
 </div>
 </div>
@@ -45,17 +45,17 @@
 <li><a href="http://www.datastax.com/documentation/articles/cassandra/cassandrathenandnow.html">Facebook’s Cassandra paper, annotated and compared to Apache Cassandra 2.0</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> ABSTRACT</h2>
+<div id="outline-container-org7389b0f" class="outline-2">
+<h2 id="org7389b0f"><span class="section-number-2">1</span> ABSTRACT</h2>
 </div>
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> INTRODUCTION</h2>
+<div id="outline-container-orge890e43" class="outline-2">
+<h2 id="orge890e43"><span class="section-number-2">2</span> INTRODUCTION</h2>
 </div>
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> RELATED WORK</h2>
+<div id="outline-container-orgff5fa13" class="outline-2">
+<h2 id="orgff5fa13"><span class="section-number-2">3</span> RELATED WORK</h2>
 </div>
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> DATA MODEL</h2>
+<div id="outline-container-org7b5d77b" class="outline-2">
+<h2 id="org7b5d77b"><span class="section-number-2">4</span> DATA MODEL</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>A table in Cassandra is a distributed multi dimensional map indexed by a key.
@@ -74,8 +74,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> API</h2>
+<div id="outline-container-org85e6e6e" class="outline-2">
+<h2 id="org85e6e6e"><span class="section-number-2">5</span> API</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The Cassandra API consists of the following three simple methods.
@@ -91,11 +91,12 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">6</span> SYSTEM ARCHITECTURE</h2>
+<div id="outline-container-org756a090" class="outline-2">
+<h2 id="org756a090"><span class="section-number-2">6</span> SYSTEM ARCHITECTURE</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">6.1</span> Partitioning</h3>
+</div>
+<div id="outline-container-org52f7d38" class="outline-3">
+<h3 id="org52f7d38"><span class="section-number-3">6.1</span> Partitioning</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Cassandra partitions data across the cluster using consistent hashing but uses an <b>order pre-serving hash function</b> to do so.</li>
@@ -114,8 +115,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">6.2</span> Replication</h3>
+<div id="outline-container-org9fcd694" class="outline-3">
+<h3 id="org9fcd694"><span class="section-number-3">6.2</span> Replication</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Cassandra provides the client with various options for how data needs to be replicated. Cassandra provides various replication poli- cies such as “Rack Unaware”, “Rack Aware” (within a data- center) and “Datacenter Aware”. Replicas are chosen based on the replication policy chosen by the application. If cer-tain application chooses “Rack Unaware” replication strat-egy then the non-coordinator replicas are chosen by picking N-1 successors of the coordinator on the ring. For “Rack Aware” and “Datacenter Aware” strategies the algorithm is slightly more involved.（可以很好地为跨数据中心服务）</li>
@@ -125,8 +126,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">6.3</span> Membership</h3>
+<div id="outline-container-org21a51b4" class="outline-3">
+<h3 id="org21a51b4"><span class="section-number-3">6.3</span> Membership</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li><b>Cluster membership in Cassandra is based on Scuttle-butt</b>, a very efficient anti-entropy Gossip based mech-anism. The salient feature of Scuttlebutt is that it has very efficient CPU utilization and very efficient utilization of the gossip channel. Within the Cassandra system Gossip is not only used for membership but also to disseminate other sys-tem related control state.</li>
@@ -138,8 +139,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">6.4</span> Bootstrapping</h3>
+<div id="outline-container-orgdc4feca" class="outline-3">
+<h3 id="orgdc4feca"><span class="section-number-3">6.4</span> Bootstrapping</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>When a node starts for the first time, it chooses a random token for its position in the ring. For fault tolerance, the mapping is persisted to disk locally and also in Zookeeper. The token information is then gossiped around the cluster. This is how we know about all nodes and their respective po-sitions in the ring. This enables any node to route a request for a key to the correct node in the cluster.</li>
@@ -148,8 +149,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">6.5</span> Scaling the Cluster</h3>
+<div id="outline-container-org941c079" class="outline-3">
+<h3 id="org941c079"><span class="section-number-3">6.5</span> Scaling the Cluster</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li>The node giving up the data streams the data over to the new node using kernel-kernel copy techniques. Operational experience has shown that data can be transferred at the rate of 40 MB/sec from a single node. We are working on improving this by having multiple replicas take part in the bootstrap transfer thereby parallelizing the effort, similar to Bittorrent.（数据转移底层使用kernel-to-kernel的拷贝技术，后续考虑类似bt方式来加快这个过程）</li>
@@ -157,8 +158,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">6.6</span> Local Persistence</h3>
+<div id="outline-container-orge74f6bd" class="outline-3">
+<h3 id="orge74f6bd"><span class="section-number-3">6.6</span> Local Persistence</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>We have a dedicated disk on each machine for the commit log since all writes into the commit log are sequential and so we can maximize disk throughput.（有专门的硬盘来写入commit log）</li>
@@ -167,8 +168,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">6.7</span> Implementation Details</h3>
+<div id="outline-container-org0625dc4" class="outline-3">
+<h3 id="org0625dc4"><span class="section-number-3">6.7</span> Implementation Details</h3>
 <div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>All sys-tem control messages rely on UDP based messaging while the application related messages for replication and request routing relies on TCP.（系统控制走UDP）</li>
@@ -177,8 +178,8 @@ columnName can refer to a specific column within a col-umn, a column family, a s
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">7</span> PRACTICAL EXPERIENCES</h2>
+<div id="outline-container-org2ab505c" class="outline-2">
+<h2 id="org2ab505c"><span class="section-number-2">7</span> PRACTICAL EXPERIENCES</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 In the process of designing, implementing and maintaining Cassandra we gained a lot of useful experience and learned numerous lessons. <b>One very fundamental lesson learned was not to add any new feature without understanding the effects of its usage by applications. Most problematic scenarios do not stem from just node crashes and network partitions.</b> We share just a few interesting scenarios here.
@@ -193,8 +194,8 @@ In the process of designing, implementing and maintaining Cassandra we gained a 
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">8</span> CONCLUSION</h2>
+<div id="outline-container-org3362b94" class="outline-2">
+<h2 id="org3362b94"><span class="section-number-2">8</span> CONCLUSION</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/cassandra.html';this.page.identifier = 'cassandra.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

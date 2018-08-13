@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Parquet</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -26,7 +26,7 @@
 相比<a href="./rcfile.html">RCFile</a> 和 <a href="./orcfile.html">ORCFile</a> 而言，Parquet支持嵌套数据结构的schema. 至于Parquet如何从嵌套数据结构从抽取schema以及列存储格式，Parquer参考了<a href="./dremel.html">Dremel</a> 论文
 </p>
 
-<hr  />
+<hr />
 
 <p>
 在<a href="./dremel.html">Dremel</a> 论文里面讲到了使用两个辅助字段来支持列式存储嵌套数据结构。一个是repetition level, 一个是definition level. 这两个字段在这篇文章有更详细的解释。<a href="https://blog.twitter.com/2013/dremel-made-simple-with-parquet">https://blog.twitter.com/2013/dremel-made-simple-with-parquet</a>
@@ -52,7 +52,7 @@
 <img src="./images/dremel-fsm.png" alt="dremel-fsm.png" /> <img src="./images/dremel-partial-fsm.png" alt="dremel-partial-fsm.png" />
 </p>
 
-<hr  />
+<hr />
 
 <p>
 parquet实现有下面几个术语：
@@ -123,7 +123,7 @@ There are three types of metadata: file metadata, column (chunk) metadata and pa
 #note: 我觉得在DataPageHeader里面还应该存放num_rows，表示这个page里面到底有多少个record. 这样我们才能够提过一些page读取到某个record. 或许这个信息已经存放在IndexPageHeader里面了？这里DictionaryPageHeader是为后面提到的Encoding使用的。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 Parquet针对homogeneous columnar data提供了很多种压缩算法 <a href="https://github.com/Parquet/parquet-format/blob/master/Encodings.md">https://github.com/Parquet/parquet-format/blob/master/Encodings.md</a>

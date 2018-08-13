@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scaling your API with rate limiters</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -28,7 +28,7 @@ Rate limiting can help make your API more reliable in the following scenarios: �
 <li>Something in your system has gone wrong internally, and as a result you can’t serve all of your regular traffic and need to drop low-priority requests. # 系统内部故障需要降级，优先满足高优先级. 这个需要load shedder来解决。load shedder更加关注系统的整体状态。</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 At Stripe, we operate 4 different types of limiters in production. The first one, the Request Rate Limiter, is by far the most important one. We recommend you start here if you want to improve the robustness of your API.
@@ -40,7 +40,7 @@ At Stripe, we operate 4 different types of limiters in production. The first one
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="../images/request-rate-limiter.svg" >
+<p><object type="image/svg+xml" data="../images/request-rate-limiter.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
@@ -52,7 +52,7 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="../images/concurrent-requests-limiter.svg" >
+<p><object type="image/svg+xml" data="../images/concurrent-requests-limiter.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
@@ -67,7 +67,7 @@ We always reserve a fraction of our infrastructure for critical requests. If our
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="../images/fleet-usage-load-shedder.svg" >
+<p><object type="image/svg+xml" data="../images/fleet-usage-load-shedder.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
@@ -78,12 +78,12 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="../images/worker-utilization-load-shedder.svg" >
+<p><object type="image/svg+xml" data="../images/worker-utilization-load-shedder.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 Building rate limiters in practice

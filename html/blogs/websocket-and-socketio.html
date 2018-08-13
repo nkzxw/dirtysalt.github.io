@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WebSocket和Socket.IO</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -52,7 +52,7 @@ WebSocket的诞生源于在Web端上做实时应用的需求。在实现技术�
 <li>支持message queue. 这点对水平扩展很有用。一个server只能管理和这个server连接的clients, 如果需要群发消息的话可能会设计到多个servers. 我们可以将这些servers subscribe到某个message queue上，然后往这个message queue上写入消息，就可以通知到所有的servers了。</li>
 </ol>
 
-<hr  />
+<hr />
 
 <p>
 使用socket.io的时候，我尝试了一下压力测试，两个指标：创建连接的延迟以及接收消息的延迟。需要注意的是创建连接(销毁连接)必须控制并发数，否则server没有响应那么连接之后的握手通常就会失败。测试代码可以看 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/py/test_socketio/">这里</a>.

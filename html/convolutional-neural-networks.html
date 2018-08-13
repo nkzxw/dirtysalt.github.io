@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Convolutional Neural Networks</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,14 +18,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. CNN的卷积基础</a></li>
-<li><a href="#orgheadline2">2. 几种经典的CNN实现</a></li>
-<li><a href="#orgheadline3">3. Residual Network</a></li>
-<li><a href="#orgheadline4">4. Inception Network</a></li>
-<li><a href="#orgheadline5">5. Practical Advices</a></li>
-<li><a href="#orgheadline6">6. 物体检测(Object Detection)</a></li>
-<li><a href="#orgheadline7">7. 脸部识别(Face Recognition)</a></li>
-<li><a href="#orgheadline8">8. 风格迁移(Neural Style Transfer)</a></li>
+<li><a href="#org4224386">1. CNN的卷积基础</a></li>
+<li><a href="#orga1468ac">2. 几种经典的CNN实现</a></li>
+<li><a href="#org41aca1d">3. Residual Network</a></li>
+<li><a href="#orgcab7dc1">4. Inception Network</a></li>
+<li><a href="#orgea7b333">5. Practical Advices</a></li>
+<li><a href="#org5e5467f">6. 物体检测(Object Detection)</a></li>
+<li><a href="#orgf5f9947">7. 脸部识别(Face Recognition)</a></li>
+<li><a href="#orgc30eb6c">8. 风格迁移(Neural Style Transfer)</a></li>
 </ul>
 </div>
 </div>
@@ -37,8 +37,8 @@
 说实话课程难度还是比较高的，到后面几个weeks的作业光是写graph都已经焦头烂额了，更别说如果作业要求从头实现BP的话会怎么样。作业开始逐渐依赖于keras和tensorflow这种high level framework了，更多地强调如何构建起这些网络以及如何运行。
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> CNN的卷积基础</h2>
+<div id="outline-container-org4224386" class="outline-2">
+<h2 id="org4224386"><span class="section-number-2">1</span> CNN的卷积基础</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 filter应该是怎么样的？假设input image shape是(64, 64, 3)的话，那么filter的最后一个维度也必须是3. 如果filter size是5的话， <b>那么一个filter shape应该就是(5, 5, 3)</b> .
@@ -53,7 +53,6 @@ filter应该是怎么样的？假设input image shape是(64, 64, 3)的话，那�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">def conv_single_step(a_slice_prev, W, b):
     """
     Apply one filter defined by parameters W on a single slice (a_slice_prev) of the output activation
@@ -97,8 +96,8 @@ filter应该是怎么样的？假设input image shape是(64, 64, 3)的话，那�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 几种经典的CNN实现</h2>
+<div id="outline-container-orga1468ac" class="outline-2">
+<h2 id="orga1468ac"><span class="section-number-2">2</span> 几种经典的CNN实现</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 我就直接照抄ppt了，可以认为这几种实现上没有更多概念的引入（相比后面的resnet和inception).
@@ -134,8 +133,8 @@ alexnet使用了很多比较奇怪的参数和结构，vgg则尝试是否可以�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Residual Network</h2>
+<div id="outline-container-org41aca1d" class="outline-2">
+<h2 id="org41aca1d"><span class="section-number-2">3</span> Residual Network</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 残差网络，大意是经过几个layer之后，将原始输入叠加上去。残差网络是由多个residual block组成的
@@ -169,8 +168,8 @@ resnet可以更好地训练更深的神经网络，一个很重要的原因就�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Inception Network</h2>
+<div id="outline-container-orgcab7dc1" class="outline-2">
+<h2 id="orgcab7dc1"><span class="section-number-2">4</span> Inception Network</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Inception network是google搞出来的，出发点很简单，就是我自己也不确定filter size是什么值比较合适，所以干脆把1, 3, 5, 都试试，然后放在一起作为output. 下图
@@ -227,8 +226,8 @@ Inception network是google搞出来的，出发点很简单，就是我自己也
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Practical Advices</h2>
+<div id="outline-container-orgea7b333" class="outline-2">
+<h2 id="orgea7b333"><span class="section-number-2">5</span> Practical Advices</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Data Augmentation在图像上可以适度使用，包括下面几种方法：
@@ -248,8 +247,8 @@ Data Augmentation在图像上可以适度使用，包括下面几种方法：
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 物体检测(Object Detection)</h2>
+<div id="outline-container-org5e5467f" class="outline-2">
+<h2 id="org5e5467f"><span class="section-number-2">6</span> 物体检测(Object Detection)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 物体检测一个naive/simple的办法，可以是将图像配合不同尺寸的sliding window, 然后对每个sliding window下面的图像输入到CNN，判断这个小图片里面是否有某个物体。姑且称这种方式是sliding window吧。
@@ -304,8 +303,8 @@ Data Augmentation在图像上可以适度使用，包括下面几种方法：
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> 脸部识别(Face Recognition)</h2>
+<div id="outline-container-orgf5f9947" class="outline-2">
+<h2 id="orgf5f9947"><span class="section-number-2">7</span> 脸部识别(Face Recognition)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Face Recognition其实可以通过另外一个问题解决，就是FV/Face Verification. Face Verification会比较两个图片的相似度，而FR则可以使用这个相似度来选择和谁最匹配。
@@ -327,8 +326,8 @@ Face Recognition其实可以通过另外一个问题解决，就是FV/Face Verif
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> 风格迁移(Neural Style Transfer)</h2>
+<div id="outline-container-orgc30eb6c" class="outline-2">
+<h2 id="orgc30eb6c"><span class="section-number-2">8</span> 风格迁移(Neural Style Transfer)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 风格迁移的难点在于定义cost function，假设内容图像是C(content), 风格图像是S(style), 生成图像是G(generated), 那么J(C, S, G) = J(C, G) + J(S, G).

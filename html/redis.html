@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>redis</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,20 +18,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 简介</a></li>
-<li><a href="#orgheadline2">2. 数据结构</a></li>
-<li><a href="#orgheadline3">3. 命令</a></li>
-<li><a href="#orgheadline4">4. 虚拟内存</a></li>
-<li><a href="#orgheadline5">5. 磁盘存储</a></li>
-<li><a href="#orgheadline6">6. 网络服务</a></li>
-<li><a href="#orgheadline7">7. HA方案</a></li>
-<li><a href="#orgheadline8">8. sentinel</a></li>
+<li><a href="#org1755eac">1. 简介</a></li>
+<li><a href="#orgfc595e9">2. 数据结构</a></li>
+<li><a href="#orge1fa4d9">3. 命令</a></li>
+<li><a href="#orged5e7dd">4. 虚拟内存</a></li>
+<li><a href="#org2a2ea91">5. 磁盘存储</a></li>
+<li><a href="#org17aa6fb">6. 网络服务</a></li>
+<li><a href="#orgc1129d6">7. HA方案</a></li>
+<li><a href="#org4b2c234">8. sentinel</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 简介</h2>
+<div id="outline-container-org1755eac" class="outline-2">
+<h2 id="org1755eac"><span class="section-number-2">1</span> 简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 主页是<a href="http://redis.io/">http://redis.io/</a>. redis(REmote DIctionary Server)是kv数据库，对于k来说的话允许是binary,而对于v来说的话可以支持很多数据结构。
@@ -61,8 +61,8 @@ redis的代码在2w左右，但是包含的内容非常多包括精巧的数据�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 数据结构</h2>
+<div id="outline-container-orgfc595e9" class="outline-2">
+<h2 id="orgfc595e9"><span class="section-number-2">2</span> 数据结构</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 相关资源：
@@ -89,8 +89,8 @@ redis本身是kv数据库，k来说的话支持string(not c-style string.可以�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 命令</h2>
+<div id="outline-container-orge1fa4d9" class="outline-2">
+<h2 id="orge1fa4d9"><span class="section-number-2">3</span> 命令</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Commands. <a href="http://redis.io/commands">http://redis.io/commands</a> official very comprehensive.
@@ -109,7 +109,7 @@ Commands. <a href="http://redis.io/commands">http://redis.io/commands</a> offici
 <li>server</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 key操作
 </p>
@@ -144,12 +144,12 @@ key操作
 本身并不会执行expire算法，而是等待master节点发出一个DEL并且确认返回(否则非常容易出现状态不一致).
 </p>
 
-<hr  />
+<hr />
 <p>
 了解数据类型之后, 数据结构操作就显而易见.
 </p>
 
-<hr  />
+<hr />
 <p>
 Pub/Sub. <a href="http://redis.io/topics/pubsub">http://redis.io/topics/pubsub</a>.
 </p>
@@ -167,7 +167,7 @@ redis提供了pub/sub机制可以使得应用很方便地做message queue工作�
 <li>SUBSCRIBE channel [channel&#x2026;] 订阅某些channel.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 Transaction. <a href="http://redis.io/topics/transactions">http://redis.io/topics/transactions</a>.
 </p>
@@ -185,7 +185,7 @@ Transaction. <a href="http://redis.io/topics/transactions">http://redis.io/topic
 <li>UNWATCH. 删除所有的监控键值。</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 Scripting. <a href="http://redis.io/commands/eval">http://redis.io/commands/eval</a>.
 </p>
@@ -203,7 +203,7 @@ script可以在redis server进行缓存，用户也可以强制server将script�
 <li>SCRIPT KILL. 终止当前执行的script.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 connection
 </p>
@@ -215,7 +215,7 @@ connection
 <li>QUIT. 断开连接。断开连接之后server会将所有的pending replies都返回给client.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 server
 </p>
@@ -243,8 +243,8 @@ server
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 虚拟内存</h2>
+<div id="outline-container-orged5e7dd" class="outline-2">
+<h2 id="orged5e7dd"><span class="section-number-2">4</span> 虚拟内存</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 相关资源：
@@ -261,7 +261,6 @@ server
 如果占用内存过多的话，那么会开始将部分redisObject swap到disk上面去直到满足条件。对于这个object会扫描整个keyspace，权重按照下面公式
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++">swappability = age*log(size_in_memory)
 </pre>
 </div>
@@ -301,8 +300,8 @@ value可能还在swap file上面，child process需要将这些value swap in.但
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 磁盘存储</h2>
+<div id="outline-container-org2a2ea91" class="outline-2">
+<h2 id="org2a2ea91"><span class="section-number-2">5</span> 磁盘存储</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 相关资源：
@@ -359,8 +358,8 @@ e
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 网络服务</h2>
+<div id="outline-container-org17aa6fb" class="outline-2">
+<h2 id="org17aa6fb"><span class="section-number-2">6</span> 网络服务</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 相关资源：
@@ -377,8 +376,8 @@ e
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> HA方案</h2>
+<div id="outline-container-orgc1129d6" class="outline-2">
+<h2 id="orgc1129d6"><span class="section-number-2">7</span> HA方案</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 相关资源：
@@ -398,8 +397,8 @@ e
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> sentinel</h2>
+<div id="outline-container-org4b2c234" class="outline-2">
+<h2 id="org4b2c234"><span class="section-number-2">8</span> sentinel</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 <a href="http://redis.io/topics/sentinel">http://redis.io/topics/sentinel</a>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Caffe</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,16 +18,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. setup</a></li>
-<li><a href="#orgheadline6">2. arch</a>
+<li><a href="#org6a765f6">1. setup</a></li>
+<li><a href="#orgb71dab9">2. arch</a>
 <ul>
-<li><a href="#orgheadline2">2.1. Blob</a></li>
-<li><a href="#orgheadline3">2.2. Layer</a></li>
-<li><a href="#orgheadline4">2.3. Net</a></li>
-<li><a href="#orgheadline5">2.4. Solver</a></li>
+<li><a href="#orgd758182">2.1. Blob</a></li>
+<li><a href="#org59bb0ce">2.2. Layer</a></li>
+<li><a href="#org085c4fc">2.3. Net</a></li>
+<li><a href="#orgdbf62d1">2.4. Solver</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">3. python</a></li>
+<li><a href="#orgd4434cc">3. python</a></li>
 </ul>
 </div>
 </div>
@@ -35,8 +35,8 @@
 <a href="http://caffe.berkeleyvision.org/">http://caffe.berkeleyvision.org/</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> setup</h2>
+<div id="outline-container-org6a765f6" class="outline-2">
+<h2 id="org6a765f6"><span class="section-number-2">1</span> setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 安装需要下面这些组件。这些组件都可以通过apt-get获得。
@@ -54,8 +54,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">2</span> arch</h2>
+<div id="outline-container-orgb71dab9" class="outline-2">
+<h2 id="orgb71dab9"><span class="section-number-2">2</span> arch</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 caffe是非常模块化的，可能这和神经网络本身就比较模块化相关。主页上有这个系统的设计哲学：
@@ -83,8 +83,8 @@ caffe是非常模块化的，可能这和神经网络本身就比较模块化相
 </p>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Blob</h3>
+<div id="outline-container-orgd758182" class="outline-3">
+<h3 id="orgd758182"><span class="section-number-3">2.1</span> Blob</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Blob是一个四维连续数组(4-D contiguous array, type = float32), 使用(n, k, h, w)表示的话，那么每一维的意思分别是：
@@ -110,8 +110,8 @@ Blob内部其实有两个字段data, diff. data表示流动数据(输出数据)�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> Layer</h3>
+<div id="outline-container-org59bb0ce" class="outline-3">
+<h3 id="org59bb0ce"><span class="section-number-3">2.2</span> Layer</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 caffe提供了许多内置layer，比如convolution layer, pool layer, dropout layer, nonlinearity layer等。这些层说明以及具体参数都可以在 <a href="http://caffe.berkeleyvision.org/tutorial/layers.html">这里</a> 查到（文档比代码有一些滞后，文档里面没有说支持了dropout但是实际已经提供）。每个layer有输入一些'bottom' blobs, 输出一些'top' blobs. 输入层是"data"和"label" blobs.
@@ -142,8 +142,8 @@ caffe支持的layer完整在 <a href="http://caffe.berkeleyvision.org/tutorial/l
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> Net</h3>
+<div id="outline-container-org085c4fc" class="outline-3">
+<h3 id="org085c4fc"><span class="section-number-3">2.3</span> Net</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 net是layers组成的DAG, 并且可以使用文本格式来描述(protocol-buffers TextFormat). 比如下面文本生成的是logistic regression.
@@ -226,7 +226,7 @@ I0902 22:52:17.941818 2079114000 net.cpp:219] Network initialization done.
 I0902 22:52:17.941824 2079114000 net.cpp:220] Memory required for data: 201476
 </pre>
 
-<hr  />
+<hr />
 
 <p>
 如果阅读caffe/models会发现，这些例子下面有train.prototxt，还有一个deploy.prototxt. 差别仅仅在于deploy.txt没有data-layer，而是在指定输入的shape.
@@ -248,7 +248,6 @@ input_dim: 28
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">caffe.set_mode_cpu()
 net = caffe.Net('caffe-conf/test.prototxt',
                 'uv_iter_10000.caffemodel',
@@ -262,8 +261,8 @@ print_timer("predict")
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> Solver</h3>
+<div id="outline-container-orgdbf62d1" class="outline-3">
+<h3 id="orgdbf62d1"><span class="section-number-3">2.4</span> Solver</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 solver做了下面这些事情：
@@ -296,7 +295,7 @@ solver每轮迭代做了下面这些事情：
 <li>updates the solver state according to learning rate, history, and method</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 下面是solver.prototxt的一个示例（从examples/mnist/修改过来的）
@@ -348,8 +347,8 @@ solver_mode: CPU
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">3</span> python</h2>
+<div id="outline-container-orgd4434cc" class="outline-2">
+<h2 id="orgd4434cc"><span class="section-number-2">3</span> python</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://caffe.berkeleyvision.org/tutorial/interfaces.html">http://caffe.berkeleyvision.org/tutorial/interfaces.html</a>

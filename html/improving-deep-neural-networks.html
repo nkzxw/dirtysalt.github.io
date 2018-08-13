@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,13 +18,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Bias/Variance</a></li>
-<li><a href="#orgheadline2">2. Regularization</a></li>
-<li><a href="#orgheadline3">3. Batch Normalization</a></li>
-<li><a href="#orgheadline4">4. Hyperparameter Tunning</a></li>
-<li><a href="#orgheadline5">5. Optimization</a></li>
-<li><a href="#orgheadline6">6. Gradient Check</a></li>
-<li><a href="#orgheadline7">7. Multiclass</a></li>
+<li><a href="#orga21931b">1. Bias/Variance</a></li>
+<li><a href="#org432a2e4">2. Regularization</a></li>
+<li><a href="#org6254e10">3. Batch Normalization</a></li>
+<li><a href="#orgf810594">4. Hyperparameter Tunning</a></li>
+<li><a href="#org5e0632a">5. Optimization</a></li>
+<li><a href="#org5e2cd69">6. Gradient Check</a></li>
+<li><a href="#org64dfc3f">7. Multiclass</a></li>
 </ul>
 </div>
 </div>
@@ -36,8 +36,8 @@
 这门课程主要将的是如何优化深度神经网络，包括如何调参，如何减少bias/variance，如何更好地优化缩短训练时间等等。按照这么课程标题划分的话包括三个部分：超参数微调，正则化和优化。
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Bias/Variance</h2>
+<div id="outline-container-orga21931b" class="outline-2">
+<h2 id="orga21931b"><span class="section-number-2">1</span> Bias/Variance</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 bias强调的是，训练得到的准确率(train error), 和最优准确率(optimal error/bayes error/human level error)，之间的差距。如果这个差距过大的话，那么称为high bias.
@@ -67,8 +67,8 @@ high variance意味着训练算法得到的是overfit的结果，需要使用更
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Regularization</h2>
+<div id="outline-container-org432a2e4" class="outline-2">
+<h2 id="org432a2e4"><span class="section-number-2">2</span> Regularization</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Regularization的最终作用，就是让模型尽可能地简单。
@@ -104,8 +104,8 @@ Dropout可以让在一个layers上，某些neuron可以尽可能地不依赖于�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Batch Normalization</h2>
+<div id="outline-container-org6254e10" class="outline-2">
+<h2 id="org6254e10"><span class="section-number-2">3</span> Batch Normalization</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 BN是在一个mini-batch上面对输入进行normalization，并且这个BN是作用在每一个layer上面的，每个layer上面都会有两个参数gamma, beta.
@@ -123,8 +123,8 @@ BN在每层有两个超参数，并且最终训练完成之后也有两个参数
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Hyperparameter Tunning</h2>
+<div id="outline-container-orgf810594" class="outline-2">
+<h2 id="orgf810594"><span class="section-number-2">4</span> Hyperparameter Tunning</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 超参数(hyper-param)和普通参数(param)的区别是，普通参数是我们希望最终得到的，而超参数是为了更好地获得这些参数使用的参数。
@@ -144,8 +144,8 @@ BN在每层有两个超参数，并且最终训练完成之后也有两个参数
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Optimization</h2>
+<div id="outline-container-org5e0632a" class="outline-2">
+<h2 id="org5e0632a"><span class="section-number-2">5</span> Optimization</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 DL优化，并不是要解决local optima，因为cost function是一个非常高纬度的函数，不太可能在所有dimension上都是最低点，更多的是sadle point(鞍点，在某些dimension是最低点，但是另外一些dimension上并不是）。DL优化其实解决的是plateau, 在plateau上没有办法再继续优化/尝试了（或者是迭代很缓慢）。
@@ -175,8 +175,8 @@ momentum在更新weight时候，不是直接更新-a * dW, 而是更新这些dW�
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Gradient Check</h2>
+<div id="outline-container-org5e2cd69" class="outline-2">
+<h2 id="org5e2cd69"><span class="section-number-2">6</span> Gradient Check</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 优化阶段为了证明BP写正确了，最好做梯度检查(gradient checking). 梯度有两种方法可以求解：
@@ -197,8 +197,8 @@ momentum在更新weight时候，不是直接更新-a * dW, 而是更新这些dW�
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Multiclass</h2>
+<div id="outline-container-org64dfc3f" class="outline-2">
+<h2 id="org64dfc3f"><span class="section-number-2">7</span> Multiclass</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 如何处理多分类:

@@ -3,18 +3,18 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Solid-state revolution: in-depth on how SSDs really work</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">Solid-state revolution: in-depth on how SSDs really work</h1>
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/</a>
 </p>
@@ -23,7 +23,7 @@
 <li>为什么SSD能够带来更好的体验.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/2/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/2/</a>
 </p>
@@ -34,7 +34,7 @@
 <li>row cells成为page.这个是读写的最小单元.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/3/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/3/</a>
 </p>
@@ -51,7 +51,7 @@
 </p>
 </div>
 
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/4/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/4/</a>
 </p>
@@ -61,7 +61,7 @@
 <li>另外controller还有两个方面来改进ssd速度。一方面是通过over-provisioning方式就是类似多提供部分flash memory来提高速度，比如购买100GB ssd但是内置extra 20GB.有多余的block可以让write效果更好。另外一个就是内置garbage collection(GC).但是这个需要OS配合。通过一种TRIM技术，OS在删除文件时候可以告诉controller哪些page是stale的，这样controller底层就可以自动GC.但是GC也是在write performance和lifetime span之间的折衷。</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/5/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/5/</a>
 </p>
@@ -71,7 +71,7 @@
 <li>对于SSD controller这块的话确实有很多算法和策略值得研究。</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 <a href="http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/6/">http://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/6/</a>
 </p>

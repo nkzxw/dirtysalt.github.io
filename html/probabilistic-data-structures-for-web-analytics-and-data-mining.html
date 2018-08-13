@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Probabilistic Data Structures for Web Analytics and Data Mining</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,15 +18,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Introduction</a></li>
-<li><a href="#orgheadline2">2. Cardinality Estimation: Linear Counting</a></li>
-<li><a href="#orgheadline3">3. Cardinality Estimation: Loglog Counting</a></li>
-<li><a href="#orgheadline4">4. Frequency Estimation: Count-Min Sketch</a></li>
-<li><a href="#orgheadline5">5. Frequency Estimation: Count-Mean-Min Sketch</a></li>
-<li><a href="#orgheadline6">6. Heavy Hitters: Count-Min Sketch</a></li>
-<li><a href="#orgheadline7">7. Heavy Hitters: Stream-Summary</a></li>
-<li><a href="#orgheadline8">8. Range Query: Array of Count-Min Sketches</a></li>
-<li><a href="#orgheadline9">9. Membership Query: Bloom Filter</a></li>
+<li><a href="#org6c5ba10">1. Introduction</a></li>
+<li><a href="#orgd01a711">2. Cardinality Estimation: Linear Counting</a></li>
+<li><a href="#orgdcf7dd0">3. Cardinality Estimation: Loglog Counting</a></li>
+<li><a href="#org4e1c9c8">4. Frequency Estimation: Count-Min Sketch</a></li>
+<li><a href="#org31b7269">5. Frequency Estimation: Count-Mean-Min Sketch</a></li>
+<li><a href="#orge1a2af9">6. Heavy Hitters: Count-Min Sketch</a></li>
+<li><a href="#orgf9a583d">7. Heavy Hitters: Stream-Summary</a></li>
+<li><a href="#orgedb0cda">8. Range Query: Array of Count-Min Sketches</a></li>
+<li><a href="#org2cbbe59">9. Membership Query: Bloom Filter</a></li>
 </ul>
 </div>
 </div>
@@ -34,8 +34,8 @@
 <a href="http://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/">http://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6c5ba10" class="outline-2">
+<h2 id="org6c5ba10"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let us start with a simple example that illustrates capabilities of probabilistic data structures:
@@ -77,8 +77,8 @@ For some structures like Loglog Counter or Bloom filter, there exist simple and 
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Cardinality Estimation: Linear Counting</h2>
+<div id="outline-container-orgd01a711" class="outline-2">
+<h2 id="orgd01a711"><span class="section-number-2">2</span> Cardinality Estimation: Linear Counting</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 这个算法比较简单。首先维护一个全0的bitset, 之后对每个value做hash，映射到bitset对应的bit并且置1。处理完所有的value之后统计这个bitset有多少个bit置1，这个数目就是cardinality.
@@ -105,11 +105,11 @@ The following table contains key formulas that allow one to estimate cardinality
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Cardinality Estimation: Loglog Counting</h2>
+<div id="outline-container-orgdcf7dd0" class="outline-2">
+<h2 id="orgdcf7dd0"><span class="section-number-2">3</span> Cardinality Estimation: Loglog Counting</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-这个算法 <a href="algorithm.html#MissingReference">之前(HyperLogLog这节)</a> 分析过
+这个算法 <a href="algorithm.html#org8254825">之前(HyperLogLog这节)</a> 分析过
 </p>
 
 <p>
@@ -128,8 +128,8 @@ These formulas are very impressive. One can see that a number of buckets is rela
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Frequency Estimation: Count-Min Sketch</h2>
+<div id="outline-container-org4e1c9c8" class="outline-2">
+<h2 id="org4e1c9c8"><span class="section-number-2">4</span> Frequency Estimation: Count-Min Sketch</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The basic idea of Count-Min Sketch is quite simple and somehow similar to Linear Counting. Count-Min sketch is simply a two-dimensional array (d x w) of integer counters. When a value arrives, it is mapped to one position at each of d rows using d different and preferably independent hash functions. Counters on each position are incremented. This process is shown in the figure below:
@@ -150,7 +150,6 @@ It is clear that if sketch is large in comparison with the cardinality of the da
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CountMinSketch</span> {
     <span class="org-type">long</span> <span class="org-variable-name">estimators</span>[][] = <span class="org-keyword">new</span> <span class="org-type">long</span>[d][w]    <span class="org-comment-delimiter">// </span><span class="org-comment">d and w are design parameters</span>
     <span class="org-type">long</span> a[] = <span class="org-keyword">new</span> <span class="org-type">long</span>[d]
@@ -167,7 +166,7 @@ It is clear that if sketch is large in comparison with the cardinality of the da
             estimators[i][ hash(value, i) ]++
     }
     <span class="org-type">long</span> <span class="org-function-name">estimateFrequency</span>(value) {
-        <span class="org-type">long</span> <span class="org-variable-name">minimum</span> = MAX_VALUE
+        <span class="org-type">long</span> minimum = MAX_VALUE
         <span class="org-keyword">for</span>(i = 0; i &lt; d; i++)
             minimum = min(
                 minimum,
@@ -192,7 +191,7 @@ Dependency between the sketch size and accuracy is shown in the table below. It 
 </p>
 </div>
 
-<hr  />
+<hr />
 <p>
 count-min sketch这种算法只有在dataset本身比较skewed的情况下才能够获得比较好的结果，也就是说如果d w比较小的话，那么对于skewed dataset是比较合适的。
 </p>
@@ -223,8 +222,8 @@ One can see that result is more accurate, at least for the most frequent items. 
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Frequency Estimation: Count-Mean-Min Sketch</h2>
+<div id="outline-container-org31b7269" class="outline-2">
+<h2 id="org31b7269"><span class="section-number-2">5</span> Frequency Estimation: Count-Mean-Min Sketch</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 对于low or moderately skewed dataset来说，hash冲突比较严重所以会导致结果偏差比较大。我们可以通过去除相互影响的噪音来解决这个问题。
@@ -235,7 +234,6 @@ As an alternative, more careful correction can be done to compensate the noise c
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CountMeanMinSketch</span> {
     <span class="org-comment-delimiter">// </span><span class="org-comment">initialization and addition procedures as in CountMinSketch</span>
     <span class="org-comment-delimiter">// </span><span class="org-comment">n is total number of added elements</span>
@@ -264,8 +262,8 @@ This enhancement can significantly improve accuracy of the Count-Min structure. 
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Heavy Hitters: Count-Min Sketch</h2>
+<div id="outline-container-orge1a2af9" class="outline-2">
+<h2 id="orge1a2af9"><span class="section-number-2">6</span> Heavy Hitters: Count-Min Sketch</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Count-Min sketches are applicable to the following problem: Find all elements in the data set with the frequencies greater than k percent of the total number of elements in the data set.（获取频率大于k%的元素总数，使用heap作为辅助） The algorithm is straightforward:（
@@ -286,8 +284,8 @@ In general, the top-k problem makes sense only for skewed data, so usage of Coun
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Heavy Hitters: Stream-Summary</h2>
+<div id="outline-container-orgf9a583d" class="outline-2">
+<h2 id="orgf9a583d"><span class="section-number-2">7</span> Heavy Hitters: Stream-Summary</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 这个算法还是比较好理解的。数据结构里面保留一定数目的槽位，添加value的时候增加其frequency counter. 如果达到槽位上限的话，那么就删除frequency counter最低的元素。
@@ -303,8 +301,8 @@ The estimation procedure for most frequent elements and corresponding frequencie
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> Range Query: Array of Count-Min Sketches</h2>
+<div id="outline-container-orgedb0cda" class="outline-2">
+<h2 id="orgedb0cda"><span class="section-number-2">8</span> Range Query: Array of Count-Min Sketches</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 In theory, one can process a range query (something like SELECT count(v) WHERE v &gt;= c1 AND v &lt; c2) using a Count-Min sketch  enumerating all points within a range and summing estimates for corresponding frequencies. However, this approach is impractical because the number of points within a range can be very high and accuracy also tends to be inacceptable because of cumulative error of the sum.（对于范围查询可以枚举[c1,c2)所有的value，然后使用count-min sketch来得到count. 但是这个算法并不实际因为这个range可能非常大并且误差也很大，因为全部存放在一个sketch上面）
@@ -330,8 +328,8 @@ Any range query can be reduced to a number of queries to the sketches of differe
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> Membership Query: Bloom Filter</h2>
+<div id="outline-container-org2cbbe59" class="outline-2">
+<h2 id="org2cbbe59"><span class="section-number-2">9</span> Membership Query: Bloom Filter</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 The following table contains formulas that allow one to calculate parameters of the Bloom filter as functions of error probability and capacity:

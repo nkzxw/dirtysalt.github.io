@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lessons Learned While Building Infrastructure Software at Google</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,18 +18,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. GFS</a></li>
-<li><a href="#orgheadline2">2. MapReduce</a></li>
-<li><a href="#orgheadline3">3. BigTable</a></li>
-<li><a href="#orgheadline4">4. Spanner</a></li>
-<li><a href="#orgheadline5">5. Designing &amp; Building Infrastructure</a></li>
-<li><a href="#orgheadline6">6. Data Center</a></li>
+<li><a href="#orga1b6101">1. GFS</a></li>
+<li><a href="#org6b07c93">2. MapReduce</a></li>
+<li><a href="#orgb0992dc">3. BigTable</a></li>
+<li><a href="#orgd7d5c66">4. Spanner</a></li>
+<li><a href="#org5fbcda9">5. Designing &amp; Building Infrastructure</a></li>
+<li><a href="#org85310f8">6. Data Center</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> GFS</h2>
+<div id="outline-container-orga1b6101" class="outline-2">
+<h2 id="orga1b6101"><span class="section-number-2">1</span> GFS</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Developed by subset of same people working on indexing system</li>
@@ -48,8 +48,8 @@ Identified minimal set of features needed
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> MapReduce</h2>
+<div id="outline-container-org6b07c93" class="outline-2">
+<h2 id="org6b07c93"><span class="section-number-2">2</span> MapReduce</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Developed by two people that were also doing the indexing system rewrite
@@ -69,8 +69,8 @@ Identified minimal set of features needed
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> BigTable</h2>
+<div id="outline-container-orgb0992dc" class="outline-2">
+<h2 id="orgb0992dc"><span class="section-number-2">3</span> BigTable</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>no distributed transactions, no cross-row joins</li>
@@ -80,8 +80,8 @@ Identified minimal set of features needed
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Spanner</h2>
+<div id="outline-container-orgd7d5c66" class="outline-2">
+<h2 id="orgd7d5c66"><span class="section-number-2">4</span> Spanner</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Several variations of eventual client API</li>
@@ -95,8 +95,8 @@ Identified minimal set of features needed
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Designing &amp; Building Infrastructure</h2>
+<div id="outline-container-org5fbcda9" class="outline-2">
+<h2 id="org5fbcda9"><span class="section-number-2">5</span> Designing &amp; Building Infrastructure</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Identify common problems, and build software systems to address them in a general way</li>
@@ -127,8 +127,8 @@ Identified minimal set of features needed
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Data Center</h2>
+<div id="outline-container-org85310f8" class="outline-2">
+<h2 id="org85310f8"><span class="section-number-2">6</span> Data Center</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 cordboards
