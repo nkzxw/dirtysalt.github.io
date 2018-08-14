@@ -18,33 +18,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcc82b27">1. Google Web Search: 1999 vs. 2010</a>
+<li><a href="#orgb0b6763">1. Google Web Search: 1999 vs. 2010</a>
 <ul>
-<li><a href="#org99c0e63">1.1. Caching in Web Search</a></li>
-<li><a href="#orgd894383">1.2. Indexing (circa 1998-1999)</a></li>
-<li><a href="#orgcca8231">1.3. Early 2001: In-Memory Index</a></li>
-<li><a href="#orgf3413a5">1.4. Canary Requests</a></li>
-<li><a href="#orgf715806">1.5. Query Serving System, 2004 edition</a></li>
-<li><a href="#orge6dc369">1.6. Encodings</a></li>
-<li><a href="#org42c45d8">1.7. 2007: Universal Search</a></li>
+<li><a href="#org341074e">1.1. Caching in Web Search</a></li>
+<li><a href="#org86145bc">1.2. Indexing (circa 1998-1999)</a></li>
+<li><a href="#org642c431">1.3. Early 2001: In-Memory Index</a></li>
+<li><a href="#org5c3726c">1.4. Canary Requests</a></li>
+<li><a href="#orgfc14419">1.5. Query Serving System, 2004 edition</a></li>
+<li><a href="#orgd0af319">1.6. Encodings</a></li>
+<li><a href="#orgd4b06ff">1.7. 2007: Universal Search</a></li>
 </ul>
 </li>
-<li><a href="#org40593a3">2. System Software Evolution</a></li>
-<li><a href="#orgecec8ee">3. System Building Experiences and Patterns</a>
+<li><a href="#orgde685a8">2. System Software Evolution</a></li>
+<li><a href="#org83ec0cb">3. System Building Experiences and Patterns</a>
 <ul>
-<li><a href="#org5a34b3d">3.1. Many Internal Services</a></li>
-<li><a href="#org2739eb6">3.2. Designing Efficient Systems</a></li>
-<li><a href="#org167bb99">3.3. Designing &amp; Building Infrastructure</a></li>
-<li><a href="#org2cf881d">3.4. Design for Growth</a></li>
-<li><a href="#orgb115ea8">3.5. Pattern: Single Master, 1000s of Workers</a></li>
-<li><a href="#org0c96875">3.6. Pattern: Tree Distribution of Requests</a></li>
-<li><a href="#org83bf7f6">3.7. Pattern: Backup Requests to Minimize Latency</a></li>
-<li><a href="#org0077795">3.8. Pattern: Multiple Smaller Units per Machine</a></li>
-<li><a href="#orgeac056a">3.9. Pattern: Elastic Systems</a></li>
-<li><a href="#orgb2e02c0">3.10. Pattern: Combine Multiple Implementations</a></li>
+<li><a href="#org5a0e30b">3.1. Many Internal Services</a></li>
+<li><a href="#orgaca0350">3.2. Designing Efficient Systems</a></li>
+<li><a href="#orgc07c18b">3.3. Designing &amp; Building Infrastructure</a></li>
+<li><a href="#org6f77d35">3.4. Design for Growth</a></li>
+<li><a href="#orge05dbe4">3.5. Pattern: Single Master, 1000s of Workers</a></li>
+<li><a href="#org9f51d62">3.6. Pattern: Tree Distribution of Requests</a></li>
+<li><a href="#org6919e1f">3.7. Pattern: Backup Requests to Minimize Latency</a></li>
+<li><a href="#org4e4bde7">3.8. Pattern: Multiple Smaller Units per Machine</a></li>
+<li><a href="#org653b5f0">3.9. Pattern: Elastic Systems</a></li>
+<li><a href="#orgae526ba">3.10. Pattern: Combine Multiple Implementations</a></li>
 </ul>
 </li>
-<li><a href="#orgb7905c2">4. Final Thoughts</a></li>
+<li><a href="#orgacfd9e3">4. Final Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -66,8 +66,8 @@ Jeff Dean @ 2010
 </ul></li>
 </ul>
 
-<div id="outline-container-orgcc82b27" class="outline-2">
-<h2 id="orgcc82b27"><span class="section-number-2">1</span> Google Web Search: 1999 vs. 2010</h2>
+<div id="outline-container-orgb0b6763" class="outline-2">
+<h2 id="orgb0b6763"><span class="section-number-2">1</span> Google Web Search: 1999 vs. 2010</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li># docs: tens of millions to tens of billions <b>~1000X</b></li>
@@ -84,8 +84,8 @@ Jeff Dean @ 2010
 </ul>
 </div>
 
-<div id="outline-container-org99c0e63" class="outline-3">
-<h3 id="org99c0e63"><span class="section-number-3">1.1</span> Caching in Web Search</h3>
+<div id="outline-container-org341074e" class="outline-3">
+<h3 id="org341074e"><span class="section-number-3">1.1</span> Caching in Web Search</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Cache servers:
@@ -116,8 +116,8 @@ Jeff Dean @ 2010
 </div>
 
 
-<div id="outline-container-orgd894383" class="outline-3">
-<h3 id="orgd894383"><span class="section-number-3">1.2</span> Indexing (circa 1998-1999)</h3>
+<div id="outline-container-org86145bc" class="outline-3">
+<h3 id="org86145bc"><span class="section-number-3">1.2</span> Indexing (circa 1998-1999)</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Simple batch indexing system
@@ -142,8 +142,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-orgcca8231" class="outline-3">
-<h3 id="orgcca8231"><span class="section-number-3">1.3</span> Early 2001: In-Memory Index</h3>
+<div id="outline-container-org642c431" class="outline-3">
+<h3 id="org642c431"><span class="section-number-3">1.3</span> Early 2001: In-Memory Index</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>解决index server压力的办法是通过添加更多的index replicas,但是突然有一天发现 <b>Eventually have enough replicas so that total memory across all index machines can hold ONE entire copy of index in memory</b>  replicas机器已经足够多，在内存完全可以存放下index. 然后变成如下结构</li>
@@ -177,8 +177,8 @@ Jeff Dean @ 2010
 </div>
 
 
-<div id="outline-container-orgf3413a5" class="outline-3">
-<h3 id="orgf3413a5"><span class="section-number-3">1.4</span> Canary Requests</h3>
+<div id="outline-container-org5c3726c" class="outline-3">
+<h3 id="org5c3726c"><span class="section-number-3">1.4</span> Canary Requests</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>主要就是针对特定query会造成system crash.但是我们不希望所有的nodes都crash.</li>
@@ -202,8 +202,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-orgf715806" class="outline-3">
-<h3 id="orgf715806"><span class="section-number-3">1.5</span> Query Serving System, 2004 edition</h3>
+<div id="outline-container-orgfc14419" class="outline-3">
+<h3 id="orgfc14419"><span class="section-number-3">1.5</span> Query Serving System, 2004 edition</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 我觉得这个应该是google query serving system的最终模型了。leaf所有的数据都是全内存的，但是在GFS上面有on-disk数据做持久化，或者说leaf是一个简单的query system + bigtable吧。之所有使用这种multi-level tree结构在这篇文章后面的pattern部分会说到。
@@ -217,8 +217,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-orge6dc369" class="outline-3">
-<h3 id="orge6dc369"><span class="section-number-3">1.6</span> Encodings</h3>
+<div id="outline-container-orgd0af319" class="outline-3">
+<h3 id="orgd0af319"><span class="section-number-3">1.6</span> Encodings</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Byte-Aligned Variable-length Encodings
@@ -248,8 +248,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-org42c45d8" class="outline-3">
-<h3 id="org42c45d8"><span class="section-number-3">1.7</span> 2007: Universal Search</h3>
+<div id="outline-container-orgd4b06ff" class="outline-3">
+<h3 id="orgd4b06ff"><span class="section-number-3">1.7</span> 2007: Universal Search</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 从多个产品整合搜索结果，但是有下面这些问题：
@@ -269,8 +269,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-org40593a3" class="outline-2">
-<h2 id="org40593a3"><span class="section-number-2">2</span> System Software Evolution</h2>
+<div id="outline-container-orgde685a8" class="outline-2">
+<h2 id="orgde685a8"><span class="section-number-2">2</span> System Software Evolution</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The Joys of Real Hardware (Typical first year for a new cluster):
@@ -292,12 +292,12 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-orgecec8ee" class="outline-2">
-<h2 id="orgecec8ee"><span class="section-number-2">3</span> System Building Experiences and Patterns</h2>
+<div id="outline-container-org83ec0cb" class="outline-2">
+<h2 id="org83ec0cb"><span class="section-number-2">3</span> System Building Experiences and Patterns</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org5a34b3d" class="outline-3">
-<h3 id="org5a34b3d"><span class="section-number-3">3.1</span> Many Internal Services</h3>
+<div id="outline-container-org5a0e30b" class="outline-3">
+<h3 id="org5a0e30b"><span class="section-number-3">3.1</span> Many Internal Services</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Break large complex systems down into many services!</li>
@@ -321,8 +321,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-org2739eb6" class="outline-3">
-<h3 id="org2739eb6"><span class="section-number-3">3.2</span> Designing Efficient Systems</h3>
+<div id="outline-container-orgaca0350" class="outline-3">
+<h3 id="orgaca0350"><span class="section-number-3">3.2</span> Designing Efficient Systems</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Given a basic problem definition, how do you choose "best" solution?
@@ -340,8 +340,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-org167bb99" class="outline-3">
-<h3 id="org167bb99"><span class="section-number-3">3.3</span> Designing &amp; Building Infrastructure</h3>
+<div id="outline-container-orgc07c18b" class="outline-3">
+<h3 id="orgc07c18b"><span class="section-number-3">3.3</span> Designing &amp; Building Infrastructure</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Identify common problems, and build software systems to address them in a general way <b>尝试从general角度解决问题，这样才能够做出infrastructure</b></li>
@@ -366,8 +366,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-org2cf881d" class="outline-3">
-<h3 id="org2cf881d"><span class="section-number-3">3.4</span> Design for Growth</h3>
+<div id="outline-container-org6f77d35" class="outline-3">
+<h3 id="org6f77d35"><span class="section-number-3">3.4</span> Design for Growth</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Try to anticipate how requirements will evolve keep likely features in mind as you design base system</li>
@@ -380,8 +380,8 @@ Jeff Dean @ 2010
 </div>
 </div>
 
-<div id="outline-container-orgb115ea8" class="outline-3">
-<h3 id="orgb115ea8"><span class="section-number-3">3.5</span> Pattern: Single Master, 1000s of Workers</h3>
+<div id="outline-container-orge05dbe4" class="outline-3">
+<h3 id="orge05dbe4"><span class="section-number-3">3.5</span> Pattern: Single Master, 1000s of Workers</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 master主要完成全局性质的工作，其余工作交给worker完成。通常存在hot standby来做failover. 优点是可以很容易地进行全局控制，但是实现上必须小心，而缺点非常明显就是支撑worker不会很多，在1k级别上。如果涉及到更大规模集群的话，那么worker需要和master有更加频繁的交互，这对于master压力会非常大。
@@ -412,8 +412,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-org0c96875" class="outline-3">
-<h3 id="org0c96875"><span class="section-number-3">3.6</span> Pattern: Tree Distribution of Requests</h3>
+<div id="outline-container-org9f51d62" class="outline-3">
+<h3 id="org9f51d62"><span class="section-number-3">3.6</span> Pattern: Tree Distribution of Requests</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 这个模型本质上是从single master模型发展过来的，是multi master实现。随着master管理worker数目增加，CPU以及network IO都会bounded. 以single master为例，如果每个master最多管理1k worker的话，那么1k master可以由另外一个master管理，这样就可以支持1k * 1k worker级别了。
@@ -438,8 +438,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-org83bf7f6" class="outline-3">
-<h3 id="org83bf7f6"><span class="section-number-3">3.7</span> Pattern: Backup Requests to Minimize Latency</h3>
+<div id="outline-container-org6919e1f" class="outline-3">
+<h3 id="org6919e1f"><span class="section-number-3">3.7</span> Pattern: Backup Requests to Minimize Latency</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 通过backup request来降低延迟，因为部分请求可能会成为straggler，这点在mapreduce里面的speculative非常经典。 #note: jeff dean在另外一篇文章tail at scale里面也提到即便如何也存在一些bad case
@@ -467,8 +467,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-org0077795" class="outline-3">
-<h3 id="org0077795"><span class="section-number-3">3.8</span> Pattern: Multiple Smaller Units per Machine</h3>
+<div id="outline-container-org4e4bde7" class="outline-3">
+<h3 id="org4e4bde7"><span class="section-number-3">3.8</span> Pattern: Multiple Smaller Units per Machine</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 每个机器上部署更小的单元，可以使得调度更加容易，集群资源利用率更高。
@@ -499,8 +499,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-orgeac056a" class="outline-3">
-<h3 id="orgeac056a"><span class="section-number-3">3.9</span> Pattern: Elastic Systems</h3>
+<div id="outline-container-org653b5f0" class="outline-3">
+<h3 id="org653b5f0"><span class="section-number-3">3.9</span> Pattern: Elastic Systems</h3>
 <div class="outline-text-3" id="text-3-9">
 <p>
 可伸缩的系统，自动调节整个集群资源利用率。这个东西可以打个比方，如果整个集群资源空闲的话，那么可以减少线程数目，释放一些内存让其他程序可以有效运行。而当压力比较大的时候，可以保持在一个水平不至于崩溃。
@@ -529,8 +529,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-orgb2e02c0" class="outline-3">
-<h3 id="orgb2e02c0"><span class="section-number-3">3.10</span> Pattern: Combine Multiple Implementations</h3>
+<div id="outline-container-orgae526ba" class="outline-3">
+<h3 id="orgae526ba"><span class="section-number-3">3.10</span> Pattern: Combine Multiple Implementations</h3>
 <div class="outline-text-3" id="text-3-10">
 <p>
 多种实现的结合，这点以realtime + batch说明非常直观。
@@ -556,8 +556,8 @@ master主要完成全局性质的工作，其余工作交给worker完成。通�
 </div>
 </div>
 
-<div id="outline-container-orgb7905c2" class="outline-2">
-<h2 id="orgb7905c2"><span class="section-number-2">4</span> Final Thoughts</h2>
+<div id="outline-container-orgacfd9e3" class="outline-2">
+<h2 id="orgacfd9e3"><span class="section-number-2">4</span> Final Thoughts</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Today: exciting collection of trends: <b>未来趋势的一些思考</b>

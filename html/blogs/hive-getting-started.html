@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb2b8374">1. Configuration</a></li>
-<li><a href="#org59e4a26">2. Local Mode</a></li>
-<li><a href="#org898dabd">3. Metadata Store</a></li>
-<li><a href="#org60c2589">4. Example</a></li>
+<li><a href="#orgecf7de1">1. Configuration</a></li>
+<li><a href="#org04e0eb5">2. Local Mode</a></li>
+<li><a href="#orgc73e14a">3. Metadata Store</a></li>
+<li><a href="#orgbb0b4bf">4. Example</a></li>
 </ul>
 </div>
 </div>
@@ -33,8 +33,8 @@
 首先配置好hdfs/mapred(spark), 然后配置hive. hive使用hdfs做文件存储, 使用mapred(spark)做计算引擎
 </p>
 
-<div id="outline-container-orgb2b8374" class="outline-2">
-<h2 id="orgb2b8374"><span class="section-number-2">1</span> Configuration</h2>
+<div id="outline-container-orgecf7de1" class="outline-2">
+<h2 id="orgecf7de1"><span class="section-number-2">1</span> Configuration</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>默认配置文件是 &lt;install-dir&gt;/conf/hive-default.xml</li>
@@ -47,8 +47,8 @@
 </div>
 </div>
 
-<div id="outline-container-org59e4a26" class="outline-2">
-<h2 id="org59e4a26"><span class="section-number-2">2</span> Local Mode</h2>
+<div id="outline-container-org04e0eb5" class="outline-2">
+<h2 id="org04e0eb5"><span class="section-number-2">2</span> Local Mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 这里所谓的local-mode主要是指运行的mapreduce是在local node上面完成的，至于数据源还是和hdfs/hbase本身配置相关。可以通过设置 SET mapred.job.tracker=local; 强制修改mapreduce本地完成。
@@ -65,8 +65,8 @@ hive0.7以后提供自动切换local-mode功能，设置 hive&gt; SET hive.exec.
 </div>
 </div>
 
-<div id="outline-container-org898dabd" class="outline-2">
-<h2 id="org898dabd"><span class="section-number-2">3</span> Metadata Store</h2>
+<div id="outline-container-orgc73e14a" class="outline-2">
+<h2 id="orgc73e14a"><span class="section-number-2">3</span> Metadata Store</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://cwiki.apache.org/confluence/display/Hive/AdminManual+MetastoreAdmin">https://cwiki.apache.org/confluence/display/Hive/AdminManual+MetastoreAdmin</a>
@@ -242,8 +242,8 @@ thrift server 通过 hive &#x2013;service metastore 启动，port在9083上面. 
 </div>
 </div>
 
-<div id="outline-container-org60c2589" class="outline-2">
-<h2 id="org60c2589"><span class="section-number-2">4</span> Example</h2>
+<div id="outline-container-orgbb0b4bf" class="outline-2">
+<h2 id="orgbb0b4bf"><span class="section-number-2">4</span> Example</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 数据默认是使用ctrl-a来做分割

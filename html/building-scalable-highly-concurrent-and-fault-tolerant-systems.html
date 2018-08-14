@@ -18,23 +18,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcd12d6f">1. It's All Trade-offs</a></li>
-<li><a href="#org8809936">2. Go Concurrent</a></li>
-<li><a href="#org3007167">3. Go Fault-Tolerant</a></li>
-<li><a href="#org5e84953">4. Go Faster &amp; Go More</a></li>
-<li><a href="#org0c5df20">5. Go Distributed</a></li>
-<li><a href="#org9e3e9b8">6. Go Big</a>
+<li><a href="#org665d29b">1. It's All Trade-offs</a></li>
+<li><a href="#org672d0a7">2. Go Concurrent</a></li>
+<li><a href="#org6afd0ce">3. Go Fault-Tolerant</a></li>
+<li><a href="#org81881e4">4. Go Faster &amp; Go More</a></li>
+<li><a href="#orgf35e3de">5. Go Distributed</a></li>
+<li><a href="#org24db7d8">6. Go Big</a>
 <ul>
-<li><a href="#orge7f6d7a">6.1. Data</a></li>
-<li><a href="#org2afef6a">6.2. DB</a></li>
+<li><a href="#org9f4cade">6.1. Data</a></li>
+<li><a href="#orga930fce">6.2. DB</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcd12d6f" class="outline-2">
-<h2 id="orgcd12d6f"><span class="section-number-2">1</span> It's All Trade-offs</h2>
+<div id="outline-container-org665d29b" class="outline-2">
+<h2 id="org665d29b"><span class="section-number-2">1</span> It's All Trade-offs</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>How do I know if I have a performance problem? <b>If your system is slow for a single user</b></li>
@@ -45,8 +45,8 @@
 </div>
 </div>
 
-<div id="outline-container-org8809936" class="outline-2">
-<h2 id="org8809936"><span class="section-number-2">2</span> Go Concurrent</h2>
+<div id="outline-container-org672d0a7" class="outline-2">
+<h2 id="org672d0a7"><span class="section-number-2">2</span> Go Concurrent</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Shared mutable state Together with threads 线程使用共享可修改状态使得代码不稳定
@@ -106,8 +106,8 @@ Dataflow Concurrency <b>基于数据流的并发</b>
 </div>
 </div>
 
-<div id="outline-container-org3007167" class="outline-2">
-<h2 id="org3007167"><span class="section-number-2">3</span> Go Fault-Tolerant</h2>
+<div id="outline-container-org6afd0ce" class="outline-2">
+<h2 id="org6afd0ce"><span class="section-number-2">3</span> Go Fault-Tolerant</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Failure management in Java/C/C# etc <b>在独立的线程里面必须进行错误处理，否则外部没有办法发现错误。这样在线程里面整个错误处理贯穿于逻辑本身</b>
@@ -138,8 +138,8 @@ Dataflow Concurrency <b>基于数据流的并发</b>
 </div>
 </div>
 
-<div id="outline-container-org5e84953" class="outline-2">
-<h2 id="org5e84953"><span class="section-number-2">4</span> Go Faster &amp; Go More</h2>
+<div id="outline-container-org81881e4" class="outline-2">
+<h2 id="org81881e4"><span class="section-number-2">4</span> Go Faster &amp; Go More</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Never block
@@ -167,8 +167,8 @@ Dataflow Concurrency <b>基于数据流的并发</b>
 </div>
 </div>
 
-<div id="outline-container-org0c5df20" class="outline-2">
-<h2 id="org0c5df20"><span class="section-number-2">5</span> Go Distributed</h2>
+<div id="outline-container-orgf35e3de" class="outline-2">
+<h2 id="orgf35e3de"><span class="section-number-2">5</span> Go Distributed</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Werner Vogels’ Misconceptions about Reliable Distributed Computing
@@ -193,12 +193,12 @@ Werner Vogels’ Misconceptions about Reliable Distributed Computing
 </div>
 </div>
 
-<div id="outline-container-org9e3e9b8" class="outline-2">
-<h2 id="org9e3e9b8"><span class="section-number-2">6</span> Go Big</h2>
+<div id="outline-container-org24db7d8" class="outline-2">
+<h2 id="org24db7d8"><span class="section-number-2">6</span> Go Big</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orge7f6d7a" class="outline-3">
-<h3 id="orge7f6d7a"><span class="section-number-3">6.1</span> Data</h3>
+<div id="outline-container-org9f4cade" class="outline-3">
+<h3 id="org9f4cade"><span class="section-number-3">6.1</span> Data</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Imperative OO programming (a la Hadoop) doesn't cut it
@@ -217,8 +217,8 @@ Werner Vogels’ Misconceptions about Reliable Distributed Computing
 </ul>
 </div>
 </div>
-<div id="outline-container-org2afef6a" class="outline-3">
-<h3 id="org2afef6a"><span class="section-number-3">6.2</span> DB</h3>
+<div id="outline-container-orga930fce" class="outline-3">
+<h3 id="orga930fce"><span class="section-number-3">6.2</span> DB</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Scaling reads to a RDBMS is hard</li>

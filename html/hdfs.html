@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2018-08-14 二 20:46 -->
+<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HDFS</title>
@@ -143,7 +142,7 @@ HDFS文件系统的操作步骤主要如下：
 <ul class="org-ul">
 <li>首先通过configuration获得FileSystem实例</li>
 <li>然后通过FileSystem这个实例操作文件系统上的文件</li>
-<li>代码可以参考 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">code on github</a></li>
+<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">code on github</a></li>
 </ul>
 
 <p>
@@ -196,7 +195,7 @@ uri = file:///
 <li>sync是FSDataOutputStream特有的，老版本相当是将datanode数据同步到namenode，这样reader就可以读取到当前的block，但是在高版本deprecated</li>
 <li>hflush则是高版本推荐的sync用法</li>
 <li>hsync不仅仅有hflush功能，还能够调用对应的datanode将数据刷到local fs上面。</li>
-<li>#note: 但是似乎不太work. 参考代码 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">code on github</a></li>
+<li>#note: 但是似乎不太work. 参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">code on github</a></li>
 </ul></li>
 </ul>
 </div>
@@ -212,7 +211,7 @@ uri = file:///
 <ul class="org-ul">
 <li>但是过程似乎有点复杂，所以也不确实是否真的写入64KB才会调用progress</li>
 </ul></li>
-<li>代码可以参考 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">code on github</a></li>
+<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">code on github</a></li>
 </ul>
 </div>
 </div>
@@ -221,7 +220,7 @@ uri = file:///
 <h2 id="orgc747f37"><span class="section-number-2">6</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li>参考代码 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
+<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
 <li>通过DFSClient可以获取集群运行状况</li>
 </ul>
 </div>
@@ -244,5 +243,5 @@ java.io.IOException: All datanodes 10.11.0.41:50010 are bad. Aborting...
 </div>
 </div>
 </div>
-</body>
+<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hdfs.html';this.page.identifier = 'hdfs.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
 </html>
