@@ -7,12 +7,12 @@
 
 ** Installation
 *Hardware Requirements*
-  - During join operations all data from both data sets is loaded into memory. Data sets can be very large, so ensure your hardware has sufficient memory to accommodate the joins you anticipate completing. #note: join操作都是在全内存完成的
-  - CPU - Impala uses the SSE4.2 instruction set, which is included in newer processors. Impala can use older processors, but for best performance use:
-    - Intel - Nehalem (released 2008) or later processors.
-    - AMD - Bulldozer (released 2011) or later processors.
-  - Memory - 32GB or more. Impala cannot run queries that have a working set greater than the total available ram. Note that the working set is not the size of the input.
-  - Storage - DataNodes with 10 or more disks each. I/O speeds are often the limiting factor for disk performance with Impala. Ensure you have sufficient disk space to store the data Impala will be querying. #note: 拿内存当磁盘用
+- During join operations all data from both data sets is loaded into memory. Data sets can be very large, so ensure your hardware has sufficient memory to accommodate the joins you anticipate completing. #note: join操作都是在全内存完成的
+- CPU - Impala uses the SSE4.2 instruction set, which is included in newer processors. Impala can use older processors, but for best performance use:
+  - Intel - Nehalem (released 2008) or later processors.
+  - AMD - Bulldozer (released 2011) or later processors.
+- Memory - 32GB or more. Impala cannot run queries that have a working set greater than the total available ram. Note that the working set is not the size of the input.
+- Storage - DataNodes with 10 or more disks each. I/O speeds are often the limiting factor for disk performance with Impala. Ensure you have sufficient disk space to store the data Impala will be querying. #note: 拿内存当磁盘用
 
 *Prerequsite*
 
@@ -26,18 +26,18 @@ deb-src http://beta.cloudera.com/impala/ubuntu/precise/amd64/impala precise-impa
 #+END_EXAMPLE
 
 然后使用如下步骤安装：
-   - Install CDH4 as described in CDH4 Installation. https://ccp.cloudera.com/display/CDH4DOC/CDH4+Installation
-     - sudo apt-get install hadoop-0.20-mapreduce-jobtracker
-     - sudo apt-get install hadoop-hdfs-namenode
-     - sudo apt-get install hadoop-0.20-mapreduce-tasktracker
-     - sudo apt-get install hadoop-hdfs-datanode
-     - sudo apt-get install hadoop-client
-   - Install Hive as described in Hive Installation. 
-     - As part of this process, you must configure Hive to use an external database as a metastore. 必须使用外部数据库来作为metastore
-     - sudo apt-get install hive
-   - 最后安装impala组件
-     - sudo apt-get install impala
-     - sudo apt-get install impala-shell
+- Install CDH4 as described in CDH4 Installation. https://ccp.cloudera.com/display/CDH4DOC/CDH4+Installation
+  - sudo apt-get install hadoop-0.20-mapreduce-jobtracker
+  - sudo apt-get install hadoop-hdfs-namenode
+  - sudo apt-get install hadoop-0.20-mapreduce-tasktracker
+  - sudo apt-get install hadoop-hdfs-datanode
+  - sudo apt-get install hadoop-client
+- Install Hive as described in Hive Installation.
+  - As part of this process, you must configure Hive to use an external database as a metastore. 必须使用外部数据库来作为metastore
+  - sudo apt-get install hive
+- 最后安装impala组件
+  - sudo apt-get install impala
+  - sudo apt-get install impala-shell
 
 如果你不使用ubuntu系统的话，那么可以使用tarball来安装，但是相比肯定会更加麻烦。而且impala需要使用hdfs的short-circuit read的特性，这个特性需要有libhadoop.so.但是tarball没有自带native实现
 #+BEGIN_EXAMPLE
@@ -50,23 +50,23 @@ local reads.
 #+END_EXAMPLE
 
 下面是这些tarball地址列表：
-   - hadoop http://archive.cloudera.com/cdh4/cdh/4/hadoop-2.0.0-cdh4.2.0.tar.gz
-   - hbase http://archive.cloudera.com/cdh4/cdh/4/hbase-0.94.2-cdh4.2.0.tar.gz
-   - zookeeper http://archive.cloudera.com/cdh4/cdh/4/zookeeper-3.4.5-cdh4.2.0.tar.gz
-   - hive http://archive.cloudera.com/cdh4/cdh/4/hive-0.10.0-cdh4.2.0.tar.gz
+- hadoop http://archive.cloudera.com/cdh4/cdh/4/hadoop-2.0.0-cdh4.2.0.tar.gz
+- hbase http://archive.cloudera.com/cdh4/cdh/4/hbase-0.94.2-cdh4.2.0.tar.gz
+- zookeeper http://archive.cloudera.com/cdh4/cdh/4/zookeeper-3.4.5-cdh4.2.0.tar.gz
+- hive http://archive.cloudera.com/cdh4/cdh/4/hive-0.10.0-cdh4.2.0.tar.gz
 
 ** Gettting Started
 按照下面几个步骤进行：
-   - 启动hdfs
-   - 无需启动mapreduce/yarn/hbase.
-   - 启动hive metastore
-   - 使用hive创建table并且导入数据
-   - 启动impalad # impala daemon. sudo impalad start
-   - 启动statstored # imapala存储统计数据进行优化. sudo statestored start
-   - 启动impala shell
-     - connect <host> # 连接到host的impalad. connect localhost
-     - refresh # 从hive metastore读取meta数据，保存在内存中
-     - SQL语句
+- 启动hdfs
+- 无需启动mapreduce/yarn/hbase.
+- 启动hive metastore
+- 使用hive创建table并且导入数据
+- 启动impalad # impala daemon. sudo impalad start
+- 启动statstored # imapala存储统计数据进行优化. sudo statestored start
+- 启动impala shell
+  - connect <host> # 连接到host的impalad. connect localhost
+  - refresh # 从hive metastore读取meta数据，保存在内存中
+  - SQL语句
 
 下面是一个例子，使用Hive和Impala来做SQL查询
 #+BEGIN_EXAMPLE

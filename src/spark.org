@@ -1,10 +1,10 @@
 #+title: spark
-** Code examples
+** code examples
 - [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/AvroDataFrame.scala][使用Spark DataFrame操作Avro文件]]
 - [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/AvroRawRDD.scala][使用Spark RDD操作Avro文件]]
 - [[file:~/repo/dirtysalt.github.io/codes/scala/spark/src/main/scala/TestOnHBase.scala][使用Spark读写HBase]]
 
-** Spark Running Mode
+** running mode
 spark整体架构如下图:
 
 file:./images/spark-cluster-overview.png
