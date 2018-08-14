@@ -690,6 +690,7 @@ https://dirtysalt.github.io/html/blogs/why-mit-stopped-teaching-SICP.html
 https://dirtysalt.github.io/html/blogs/the-evolution-of-code-deploys-at-reddit.html
 https://dirtysalt.github.io/html/blogs/ostep-persist-file.html
 https://dirtysalt.github.io/html/blogs/thousands-pv.html
+https://dirtysalt.github.io/html/blogs/youtube-scalability.html
 https://dirtysalt.github.io/html/blogs/software-engineering-at-google.html
 https://dirtysalt.github.io/html/blogs/kaggle-facial-keypoints-detection.html
 https://dirtysalt.github.io/html/blogs/review-2012.html
