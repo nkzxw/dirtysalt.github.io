@@ -1,7 +1,7 @@
 #+title: 分布式系统 Distributed System
 
 - http://book.mixu.net/distsys/single-page.html
-- Data-Intensive Applications
+- [[file:./design-data-intensive-applications.org][Design Data-Intensive Applications]]
 - [[http://dancres.org/reading_list.html][A Distributed Systems Reading List]]
 - [[http://duanple.blog.163.com/blog/static/709717672011330101333271/][分布式系统领域经典论文翻译集]]
 
@@ -26,6 +26,13 @@
 - [[file:./paxos.org][Paxos]] / [[file:./raft.org][Raft]] 分布式一致性算法
 
 ** Articles
+- 201808 [[file:./blogs/youtube-scalability.org][Youtube Scalability]] on youtube
+- 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian @ 2013
+- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
+- 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
+- 201604 [[file:./blogs/data-infra-at-airbnb.org][Data Infrastructure at Airbnb]]
+
+
 - [[file:distributed-system-reading.org][Distributed System Reading]]
 - [[file:./you-can-not-sacrifice-partition-tolerance.org][You Can't Sacrifice Partition Tolerance]]
 - [[file:the-anatomy-of-the-google-architecture.org][The Anatomy Of The Google Architecture]] @2009 Google架构的深入解析，属于非官方文档，是一个非Google的友人收集各种资料汇集起来的
@@ -97,17 +104,15 @@
 - [[file:./mapreduce-patterns-algos-and-use-cases.org][MapReduce Patterns, Algorithms, and Use Cases]] @2012
 - [[file:./cloudera-impala-real-time-queries-in-apache-hadoop-for-real.org][Cloudera Impala: Real-Time Queries in Apache Hadoop, For Real]] @2012
 - [[file:streambase.org][A Glance on StreamBase]] 之前调研过的商用流式处理系统
-- 201604 [[file:./blogs/data-infra-at-airbnb.org][Data Infrastructure at Airbnb]]
-- 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
 - [[file:./thoughts-on-systems-for-large-datasets.org][Thoughts on Systems for Large Datasets: Problems and Opportunities]] @ 2014 Jeff Dean
 - [[file:why-google-stores-billions-of-lines-of-code-in-a-single-repository.org][Why Google Stores Billions of Lines of Code in a Single Repository]] @ 2016
 - [[file:./achieving-rapid-response-times-in-large-online-services.org][Achieving Rapid Response Times in Large Online Services]] @ 2012 Jeff Dean
 - [[file:./large-scale-deep-learning-for-intelligent-computer-systems.org][Large-Scale Deep Learning for Intelligent Computer Systems]] @ 2016 Jeff Dean
-- 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
-- 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian @ 2013
 
 ** Papers
 - 201712 [[file:./blogs/nobody-ever-got-fired-for-buying-a-cluster.org][Nobody ever got fired for buying a cluster]] 计算集群的必要性思考 @ 2013
+
+
 - [[file:chubby.org][The Chubby lock service for loosely-coupled distributed systems]] @ 2006
 - [[file:gfs.org][The Google File System]] @ 2003
 - [[file:mapreduce.org][MapReduce: Simplified Data Processing on Large Clusters]] @ 2004

@@ -1,6 +1,73 @@
 #+title: 软件设计 Software Design
 
-** Articles
+** Blogs
+- 201808 [[file:./blogs/youtube-scalability.org][Youtube Scalability]] on youtube
+- 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
+- 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
+- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
+- 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
+- 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
+- 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
+- 201707 [[file:./blogs/reducing-image-file-size-at-esty.org][Reducing Image File Size at Etsy]]
+- 201707 [[file:./blogs/making-photos-smaller.org][Making Photos Smaller Without Quality Loss]]
+- 201706 [[file:./blogs/the-evolution-of-code-deploys-at-reddit.org][The Evolution of Code Deploys at Reddit]]
+- 201706 [[file:./blogs/44-eng-mag-lessons.org][44 engineering management lessons]]
+- 201705 [[file:./blogs/colleague-creates-spaghetti-code.org][What to do when Your Colleague Creates Spaghetti Code]]
+- 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
+- 201610 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
+- 201610 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
+- 201610 [[file:./blogs/becoming-cto.org][Becoming CTO]]
+- 201610 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
+- 201610 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
+- 201609 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
+- 201609 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
+- 201608 [[file:./blogs/the-future-of-programming.org][The Future of Programming]] by Bret Victor
+- 201608 [[file:./blogs/what-makes-a-great-software-engineer.org][What Makes A Great Software Engineer?]]
+- 201606 [[file:./blogs/top-10-things-that-makes-you-a-good-programmer.org][Top 10 Things that Makes You a Good Programmer]]
+- 201606 [[file:./blogs/dont-know-what-to-program.org]["I know how to program, but I don't know what to program"]]
+- 201606 [[file:./blogs/how-to-pick-your-battles-on-a-software-team.org][How to Pick Your Battles on a Software Team]]
+- 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
+- 201606 [[file:./blogs/why-mit-stopped-teaching-SICP.org][为什么MIT停止教授SICP]]
+- 201606 [[file:./blogs/on-facebook-newsfeed.org][Facebook NewsFeed]]
+- 201606 [[file:./blogs/getting-things-done-when-you-are-only-a-grunt.org][Getting Things Done When You're Only a Grunt]] by Joel Spolsky
+- 201606 [[file:./blogs/10-lessons-from-10-years-of-aws.org][10 Lessons from 10 Years of Amazon Web Services]]
+- 201606 [[file:./blogs/how-gfw-discovers-hidden-circumvention-servers.org][32c3-7196-en-How_the_Great_Firewall_discovers_hidden_circumvention_servers]] GFW如何发现代理服务器
+- 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
+- 201605 [[file:./blogs/work-efficiently-in-facebook.org][Facebook公司内部PPT分享:如何高效工作]]
+- 201605 [[file:./blogs/on-career-and-management.org][关于工作年限和管理的问题]] by nullgate
+- 201604 [[file:./blogs/starters-and-maintainers.org][Starters and Maintainers]]
+- 201604 [[file:./blogs/automate-to-save-mental-energy-not-time.org][Automate to save mental energy, not time]]
+- 201604 [[file:./blogs/surviving-meetings-while-remote.org][Surviving meetings while remote]]
+- 201604 [[file:./blogs/programmers-are-distraction-for-your-startup.org][Programmers are distraction for your startup]]
+- 201604 [[file:./blogs/finding-great-developers.org][Finding Great Developers]]
+- 201604 [[file:./blogs/why-cant-programmers-program.org][Why Can't Programmers.. Program?]]
+- 201604 [[file:./blogs/dont-call-yourself-a-programmer.org][Don't Call Yourself A Programmer]]
+- 201604 [[file:./blogs/atlassian-user-onboarding-magic.org][Atlassian $5.5b user onboarding magic]]
+- 201512 [[file:./blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.org][How To Launch a Mac App and Become #1 Top Paid App Globally]]
+- 201512 [[file:./blogs/what-would-it-take-to-prove-me-wrong.org][What would it take to prove me wrong?]]
+- 201512 [[file:./blogs/a-great-developer-can-come-from-anywhere.org][A great developer can come from anywhere]]
+- 201512 [[file:./blogs/employee-equity.org][Employee Equity]]
+- 201512 [[file:./blogs/before-you-code-write.org][Before you code, write.]]
+- 201512 [[file:./blogs/remove-the-stress-pick-a-deadline.org][Remove the stress, pick a deadline]]
+- 201512 [[file:./blogs/the-secret-to-career-success.org][The Secret to Career Success]]
+- 201511 [[file:./blogs/why-i-stopped-paying-attention-to-industry-news.org][Why I stopped paying attention to industry news]]
+- 201510 [[file:./blogs/learn-stop-using-shiny-new-things-and-love-mysql.org][Learn to stop using shiny new things and love MySQL]]
+- 201510 [[file:./blogs/climbing-the-wrong-hill.org][Climbing The Wrong Hill]]
+- 201510 [[file:./blogs/lessons-learned-writing-highly-available-code.org][Lessons learned writing highly available code]]
+- 201510 [[file:./blogs/dont-base-your-business-on-a-paid-app.org][Don't base your business on a paid app]]
+- 201510 [[file:./blogs/some-advice-from-jeff-bezos.org][Some advice from Jeff Bezos]]
+- 201510 [[file:./blogs/ten-rules-for-open-source-success.org][Ten Rules for Open Source Success]]
+- 201510 [[file:./blogs/competitors-are-not-the-enemy.org][Competitors Are Not The Enemy]]
+- 201510 [[file:./blogs/making-money-along-the-way.org][Making money along the way]]
+- 201510 [[file:./blogs/chasing-the-shiny-and-new.org][chasing the shiny and new (追逐时髦的技术)]]
+- 201510 [[file:./blogs/why-cd-just-keeps-on-giving.org][Why Continuous Deployment just keeps on giving]]
+- 201510 [[file:./blogs/how-to-get-a-job-like-mine-aaron-swartz.org][Aaron Swartz: How to Get a Job Like Mine]]
+- 201510 [[file:./blogs/a-decade-at-google.org][A Decade at Google]]
+- 201509 [[file:./blogs/a-love-for-legacy.org][A Love for Legacy]]
+- 201509 [[file:./blogs/what-happens-to-older-developers.org][What Happens to Older Developers?]]
+- 201509 [[file:./blogs/tips-for-work-life-balance.org][Tips for work-life balance]]
+
+
 - [[file:t11-on-backpressure.org][T11谈文艺模型(On Backpressure)]]
 - [[file:t11-on-architecture.org][T11谈架构(On Architecture)]]
 - [[file:./suffering-oriented-programming.org][Suffering-oriented programming]]
@@ -42,71 +109,6 @@
 - [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
 - [[https://jobs.netflix.com/culture?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=website][Culture At Netflix]] ([[file:images/netflix-culture.pdf][pdf]])
 - [[file:license.org][Open Source License]] 一些常见的开源协议
-
-** Blogs
-- 201801 [[file:./blogs/26-lessons-from-being-a-developer-at-a-startup.org][26 Lessons From Being a Developer at a Startup]]
-- 201712 [[file:./blogs/simple-made-easy.org][Simple Made Easy]] by Rich Hickey
-- 201708 [[file:./blogs/the-feynman-technique-the-best-way-to-learn-anything.org][The Feynman Technique: The Best Way to Learn Anything]]
-- 201707 [[file:./blogs/scaling-to-billions-on-top-of-digital-ocean.org][Scaling to Billions on Top of DigitalOcean]]
-- 201707 [[file:./blogs/search-at-slack.org][Search at Slack]] Slack在搜索排序方面的工作
-- 201707 [[file:./blogs/why-did-so-many-startups-choose-nosql.org][Why Did So Many Startups Choose NoSQL?]]
-- 201707 [[file:./blogs/reducing-image-file-size-at-esty.org][Reducing Image File Size at Etsy]]
-- 201707 [[file:./blogs/making-photos-smaller.org][Making Photos Smaller Without Quality Loss]]
-- 201706 [[file:./blogs/the-evolution-of-code-deploys-at-reddit.org][The Evolution of Code Deploys at Reddit]]
-- 201706 [[file:./blogs/44-eng-mag-lessons.org][44 engineering management lessons]]
-- 201705 [[file:./blogs/colleague-creates-spaghetti-code.org][What to do when Your Colleague Creates Spaghetti Code]]
-- 201703 [[file:./blogs/software-engineering-at-google.org][Software Engineering at Google]] by Fergus Henderson
-- 201610 [[file:./blogs/the-effective-engineer-by-edmond-lau.org][The Effective Engineer]]
-- 201610 [[file:./blogs/taking-php-seriously.org][Taking PHP Seriously]]
-- 201610 [[file:./blogs/becoming-cto.org][Becoming CTO]]
-- 201610 [[file:./blogs/vinod-khosla-talk.org][Vinod Khosla: Failure does not matter. Success matters.]]
-- 201610 [[file:./blogs/silicon-valley-etiquette.org][Silicon Valley Etiquette]] 硅谷礼仪
-- 201609 [[file:./blogs/a-little-architecture.org][A Little Architecture]]
-- 201609 [[file:./blogs/laws-of-performant-software.org][Laws of Performant Software]]
-- 201608 [[file:./blogs/the-future-of-programming.org][The Future of Programming]] by Bret Victor
-- 201608 [[file:./blogs/what-makes-a-great-software-engineer.org][What Makes A Great Software Engineer?]]
-- 201606 [[file:./blogs/top-10-things-that-makes-you-a-good-programmer.org][Top 10 Things that Makes You a Good Programmer]]
-- 201606 [[file:./blogs/dont-know-what-to-program.org]["I know how to program, but I don't know what to program"]]
-- 201606 [[file:./blogs/how-to-pick-your-battles-on-a-software-team.org][How to Pick Your Battles on a Software Team]]
-- 201606 [[file:./blogs/why-mit-stopped-teaching-SICP.org][为什么MIT停止教授SICP]]
-- 201606 [[file:./blogs/on-facebook-newsfeed.org][Facebook NewsFeed]]
-- 201606 [[file:./blogs/getting-things-done-when-you-are-only-a-grunt.org][Getting Things Done When You're Only a Grunt]] by Joel Spolsky
-- 201606 [[file:./blogs/10-lessons-from-10-years-of-aws.org][10 Lessons from 10 Years of Amazon Web Services]]
-- 201606 [[file:./blogs/how-gfw-discovers-hidden-circumvention-servers.org][32c3-7196-en-How_the_Great_Firewall_discovers_hidden_circumvention_servers]] GFW如何发现代理服务器
-- 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]
-- 201605 [[file:./blogs/work-efficiently-in-facebook.org][Facebook公司内部PPT分享:如何高效工作]]
-- 201605 [[file:./blogs/on-career-and-management.org][关于工作年限和管理的问题]] by nullgate
-- 201604 [[file:./blogs/starters-and-maintainers.org][Starters and Maintainers]]
-- 201604 [[file:./blogs/automate-to-save-mental-energy-not-time.org][Automate to save mental energy, not time]]
-- 201604 [[file:./blogs/surviving-meetings-while-remote.org][Surviving meetings while remote]]
-- 201604 [[file:./blogs/programmers-are-distraction-for-your-startup.org][Programmers are distraction for your startup]]
-- 201604 [[file:./blogs/finding-great-developers.org][Finding Great Developers]]
-- 201604 [[file:./blogs/why-cant-programmers-program.org][Why Can't Programmers.. Program?]]
-- 201604 [[file:./blogs/dont-call-yourself-a-programmer.org][Don't Call Yourself A Programmer]]
-- 201604 [[file:./blogs/atlassian-user-onboarding-magic.org][Atlassian $5.5b user onboarding magic]]
-- 201512 [[file:./blogs/how-to-launch-a-mac-app-and-become-1-top-paid-app-globally.org][How To Launch a Mac App and Become #1 Top Paid App Globally]]
-- 201512 [[file:./blogs/what-would-it-take-to-prove-me-wrong.org][What would it take to prove me wrong?]]
-- 201512 [[file:./blogs/a-great-developer-can-come-from-anywhere.org][A great developer can come from anywhere]]
-- 201512 [[file:./blogs/employee-equity.org][Employee Equity]]
-- 201512 [[file:./blogs/before-you-code-write.org][Before you code, write.]]
-- 201512 [[file:./blogs/remove-the-stress-pick-a-deadline.org][Remove the stress, pick a deadline]]
-- 201512 [[file:./blogs/the-secret-to-career-success.org][The Secret to Career Success]]
-- 201511 [[file:./blogs/why-i-stopped-paying-attention-to-industry-news.org][Why I stopped paying attention to industry news]]
-- 201510 [[file:./blogs/learn-stop-using-shiny-new-things-and-love-mysql.org][Learn to stop using shiny new things and love MySQL]]
-- 201510 [[file:./blogs/climbing-the-wrong-hill.org][Climbing The Wrong Hill]]
-- 201510 [[file:./blogs/lessons-learned-writing-highly-available-code.org][Lessons learned writing highly available code]]
-- 201510 [[file:./blogs/dont-base-your-business-on-a-paid-app.org][Don't base your business on a paid app]]
-- 201510 [[file:./blogs/some-advice-from-jeff-bezos.org][Some advice from Jeff Bezos]]
-- 201510 [[file:./blogs/ten-rules-for-open-source-success.org][Ten Rules for Open Source Success]]
-- 201510 [[file:./blogs/competitors-are-not-the-enemy.org][Competitors Are Not The Enemy]]
-- 201510 [[file:./blogs/making-money-along-the-way.org][Making money along the way]]
-- 201510 [[file:./blogs/chasing-the-shiny-and-new.org][chasing the shiny and new (追逐时髦的技术)]]
-- 201510 [[file:./blogs/why-cd-just-keeps-on-giving.org][Why Continuous Deployment just keeps on giving]]
-- 201510 [[file:./blogs/how-to-get-a-job-like-mine-aaron-swartz.org][Aaron Swartz: How to Get a Job Like Mine]]
-- 201510 [[file:./blogs/a-decade-at-google.org][A Decade at Google]]
-- 201509 [[file:./blogs/a-love-for-legacy.org][A Love for Legacy]]
-- 201509 [[file:./blogs/what-happens-to-older-developers.org][What Happens to Older Developers?]]
-- 201509 [[file:./blogs/tips-for-work-life-balance.org][Tips for work-life balance]]
 
 ** Books
 - [[file:./competitive-strategy.org][竞争策略 on Coursera]]

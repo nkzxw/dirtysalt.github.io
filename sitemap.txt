@@ -125,6 +125,7 @@ https://dirtysalt.github.io/html/realtime-big-data-analytics-emerging-architectu
 https://dirtysalt.github.io/html/gunicorn.html
 https://dirtysalt.github.io/html/finagle.html
 https://dirtysalt.github.io/html/mining-massive-datasets.html
+https://dirtysalt.github.io/html/design-data-intensive-applications.html
 https://dirtysalt.github.io/html/neural-networks-and-deep-learning.html
 https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html
 https://dirtysalt.github.io/html/why-google-stores-billions-of-lines-of-code-in-a-single-repository.html
