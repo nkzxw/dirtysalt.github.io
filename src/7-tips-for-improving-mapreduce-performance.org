@@ -19,4 +19,3 @@ http://blog.cloudera.com/blog/2009/12/7-tips-for-improving-mapreduce-performance
   - Add -verbose:gc -XX:+PrintGCDetails to mapred.child.java.opts. Then inspect the logs for some tasks. If garbage collection is frequent and represents a lot of time, you may be allocating unnecessary objects. 观察GC情况
   - it may not bring you a gain for every job, but if you’re low on memory it can make a huge difference. 重用序列化对象可以减少内存分配次数，显著改善GC带来的影响
 - Use “Poor Man’s Profiling” to see what your tasks are doing
-
