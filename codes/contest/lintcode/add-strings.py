@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# coding:utf-8
+# Copyright (C) dirlt
+
 class Solution:
     """
     @param num1: a non-negative integers
