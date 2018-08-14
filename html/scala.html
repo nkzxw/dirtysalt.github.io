@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>scala</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,58 +40,58 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline12">1. 基础知识</a>
+<li><a href="#org8e3cf44">1. 基础知识</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 标识符</a></li>
-<li><a href="#orgheadline2">1.2. 原始类型</a></li>
-<li><a href="#orgheadline3">1.3. 变量定义</a></li>
-<li><a href="#orgheadline4">1.4. 函数定义</a></li>
-<li><a href="#orgheadline5">1.5. 控制结构</a></li>
-<li><a href="#orgheadline6">1.6. 等值比较</a></li>
-<li><a href="#orgheadline7">1.7. operator</a></li>
-<li><a href="#orgheadline8">1.8. 前提断言</a></li>
-<li><a href="#orgheadline9">1.9. package</a></li>
-<li><a href="#orgheadline10">1.10. 模式匹配</a></li>
-<li><a href="#orgheadline11">1.11. annotation</a></li>
+<li><a href="#org8d7829a">1.1. 标识符</a></li>
+<li><a href="#org7b1d06e">1.2. 原始类型</a></li>
+<li><a href="#org88d97c8">1.3. 变量定义</a></li>
+<li><a href="#org497b67a">1.4. 函数定义</a></li>
+<li><a href="#orgae1a383">1.5. 控制结构</a></li>
+<li><a href="#orgd779cf6">1.6. 等值比较</a></li>
+<li><a href="#orgea7f111">1.7. operator</a></li>
+<li><a href="#org0070fd5">1.8. 前提断言</a></li>
+<li><a href="#org23dd987">1.9. package</a></li>
+<li><a href="#org25c6a8e">1.10. 模式匹配</a></li>
+<li><a href="#org3922d63">1.11. annotation</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">2. 面向对象</a>
+<li><a href="#org4a2d6a0">2. 面向对象</a>
 <ul>
-<li><a href="#orgheadline13">2.1. 单例对象</a></li>
-<li><a href="#orgheadline14">2.2. 构造函数</a></li>
-<li><a href="#orgheadline15">2.3. override</a></li>
-<li><a href="#orgheadline16">2.4. 隐式转换</a></li>
-<li><a href="#orgheadline17">2.5. 隐式参数</a></li>
-<li><a href="#orgheadline18">2.6. ()method</a></li>
-<li><a href="#orgheadline19">2.7. 类型继承</a></li>
-<li><a href="#orgheadline20">2.8. 类型层次</a></li>
-<li><a href="#orgheadline21">2.9. Traits</a></li>
-<li><a href="#orgheadline22">2.10. 访问权限</a></li>
-<li><a href="#orgheadline23">2.11. Enumeration</a></li>
+<li><a href="#org153a8f1">2.1. 单例对象</a></li>
+<li><a href="#orgaa30f40">2.2. 构造函数</a></li>
+<li><a href="#orga7b7b5e">2.3. override</a></li>
+<li><a href="#org5c9c1f6">2.4. 隐式转换</a></li>
+<li><a href="#org124b780">2.5. 隐式参数</a></li>
+<li><a href="#org3ff186c">2.6. ()method</a></li>
+<li><a href="#orgcd5b6ba">2.7. 类型继承</a></li>
+<li><a href="#orgcb1123d">2.8. 类型层次</a></li>
+<li><a href="#org6a33dab">2.9. Traits</a></li>
+<li><a href="#orgf6a6c10">2.10. 访问权限</a></li>
+<li><a href="#org664ad4a">2.11. Enumeration</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline29">3. 面向函数</a>
+<li><a href="#org8275080">3. 面向函数</a>
 <ul>
-<li><a href="#orgheadline25">3.1. 匿名函数</a></li>
-<li><a href="#orgheadline26">3.2. 偏应用函数</a></li>
-<li><a href="#orgheadline27">3.3. closure</a></li>
-<li><a href="#orgheadline28">3.4. 函数组合</a></li>
+<li><a href="#orgde824ac">3.1. 匿名函数</a></li>
+<li><a href="#org3944f0f">3.2. 偏应用函数</a></li>
+<li><a href="#orgbd4d708">3.3. closure</a></li>
+<li><a href="#org75b76dd">3.4. 函数组合</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline33">4. 面向泛型</a>
+<li><a href="#org7cf2a97">4. 面向泛型</a>
 <ul>
-<li><a href="#orgheadline30">4.1. 类型参数化</a></li>
-<li><a href="#orgheadline31">4.2. variance(变性)</a></li>
-<li><a href="#orgheadline32">4.3. bound(边界)</a></li>
+<li><a href="#orgbf948b9">4.1. 类型参数化</a></li>
+<li><a href="#org4f77521">4.2. variance(变性)</a></li>
+<li><a href="#org458c48f">4.3. bound(边界)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline39">5. 互操作性</a>
+<li><a href="#orgca48353">5. 互操作性</a>
 <ul>
-<li><a href="#orgheadline34">5.1. simplest example</a></li>
-<li><a href="#orgheadline35">5.2. singleton object</a></li>
-<li><a href="#orgheadline36">5.3. traits as interfaces</a></li>
-<li><a href="#orgheadline37">5.4. annotation</a></li>
-<li><a href="#orgheadline38">5.5. existential types</a></li>
+<li><a href="#org9cfa238">5.1. simplest example</a></li>
+<li><a href="#org349bb97">5.2. singleton object</a></li>
+<li><a href="#org2d2530d">5.3. traits as interfaces</a></li>
+<li><a href="#org4344737">5.4. annotation</a></li>
+<li><a href="#org8a20dd1">5.5. existential types</a></li>
 </ul>
 </li>
 </ul>
@@ -106,11 +106,12 @@
 <li><a href="http://matt.might.net/articles/learning-scala-in-small-bites/">Learning Scala in small bites</a></li>
 </ul>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">1</span> 基础知识</h2>
+<div id="outline-container-org8e3cf44" class="outline-2">
+<h2 id="org8e3cf44"><span class="section-number-2">1</span> 基础知识</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 标识符</h3>
+</div>
+<div id="outline-container-org8d7829a" class="outline-3">
+<h3 id="org8d7829a"><span class="section-number-3">1.1</span> 标识符</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 scala标识符分为3类：
@@ -139,8 +140,8 @@ scala标识符分为3类：
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 原始类型</h3>
+<div id="outline-container-org7b1d06e" class="outline-3">
+<h3 id="org7b1d06e"><span class="section-number-3">1.2</span> 原始类型</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 More generally, all of Java’s primitive types have corresponding classes in the scala package. And when you compile your Scala code to Java bytecodes, the Scala com- piler will use Java’s primitive types where possible to give you the perfor- mance benefits of the primitive types.
@@ -165,7 +166,7 @@ res1: scala.collection.immutable.Range.Inclusive = Range(2, 3, 4)
 #note: 实际上scala内部提供了隐式转换到其他类来提供扩展方法的，比如将Int-&gt;RichInt.
 </p>
 
-<hr  />
+<hr />
 <p>
 数组类型则是 Array[&lt;type&gt;] 比如
 </p>
@@ -191,12 +192,11 @@ res2: Array[String] = null
 注意这里不能够在用[]这种方式来访问数组，而必须使用()的方式来访问。实际上scala将()调用方法定向到了apply这个函数，可以认为是操作符重载。
 </p>
 
-<hr  />
+<hr />
 <p>
 scala允许使用type关键字来为类型做别名，类型别名能够很大程度上简化代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">type Counter = Long;
 var id : Counter = 0;
 </pre>
@@ -204,8 +204,8 @@ var id : Counter = 0;
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 变量定义</h3>
+<div id="outline-container-org88d97c8" class="outline-3">
+<h3 id="org88d97c8"><span class="section-number-3">1.3</span> 变量定义</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Scala has two kinds of variables, vals and vars. A val is similar to a final variable in Java. Once initialized, a val can never be reassigned. A var, by contrast, is similar to a non-final variable in Java. A var can be reassigned throughout its lifetime.
@@ -239,7 +239,6 @@ a: String = Hello
 如果没有赋初值的话那么相当只是声明而非定义。如果对于初值不感兴趣的话，那么可以使用_这个特殊的initializor. <b>但是注意只对var有效，这是因为val其实上必须设置有效的初值</b>. 这个初始值语义上表示0,对于不同的类型有不同的初始值。比如int = 0, float = 0.0f, 引用类型 = null.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">var a:Int = _;
 var b:Float = _;
 println(a);
@@ -249,8 +248,8 @@ println(b);
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 函数定义</h3>
+<div id="outline-container-org497b67a" class="outline-3">
+<h3 id="org497b67a"><span class="section-number-3">1.4</span> 函数定义</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 a function defines an expression that results in a value.
@@ -291,7 +290,6 @@ scala&gt; def foo(a:Int,b:Int)  = {
 但是scala也允许定义没有任何返回值的函数.对于这类函数&lt;return-type&gt;=Unit, 类似java里面的void. 但是从概念上来说因为不返回值，所以没有必要加上=这个标签，这样看上去更像是一个过程
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def printLine(a:String) {
   println(a)
 }
@@ -306,7 +304,6 @@ scala&gt; def foo(a:Int,b:Int)  = {
 所有函数都是继承于Function这个类的，比如(Int,Int) =&gt; Long那么继承于Function2[Int,Int,Long]并且实现了apply方法，所以如果想创建函数的话，实际上也可以使用创建对象方式来完成
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x = new Function2[Int,Int,Long] {
   def apply(x:Int,y:Int) = x + y
 }
@@ -317,19 +314,17 @@ scala&gt; def foo(a:Int,b:Int)  = {
 #note@2013-11-04: much shorter code. Function2[Int,Int,Long] = (Int,Int)=&gt;Long
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">object x extends((Int,Int)=&gt;Long) {
   def apply(x:Int,y:Int) = x + y
 }
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 java里面使用&#x2026;来表示参数列表比如
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public static void main(String... args) {
   System.out.println(args[0]);
 }
@@ -343,7 +338,6 @@ java里面使用&#x2026;来表示参数列表比如
 scala里面对应的表示如下,类型为String*
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo(args:String*) {
   for(arg &lt;- args) {
     println(arg);
@@ -356,18 +350,16 @@ scala里面对应的表示如下,类型为String*
 但是和java不同的是没有办法直接传入数组，而必须使用:_*操作符展开。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x = Array("Hello","World");
 foo(x:_*)
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 函数调用上，如果没有参数的话可以省去(), 同时scala也支持指定参数传值而不是顺序传值
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def printX() = println("X")
 printX
 def foo(x:Int,y:Int) = 2 * x + y
@@ -378,8 +370,8 @@ println(foo(y = 1, x = 1))
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> 控制结构</h3>
+<div id="outline-container-orgae1a383" class="outline-3">
+<h3 id="orgae1a383"><span class="section-number-3">1.5</span> 控制结构</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 One thing you will notice is that almost all of Scala’s control structures result in some value. This is the approach taken by functional languages, in which programs are viewed as computing a value, thus the components of a program should also compute values.
@@ -398,7 +390,7 @@ One thing you will notice is that almost all of Scala’s control structures res
 <li>#note: 没有break/continue语句</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 对于for来说分为两个部分，一个是循环部分，一个是执行部分。
 </p>
@@ -407,7 +399,6 @@ One thing you will notice is that almost all of Scala’s control structures res
 循环部分的大致语法就是arg &lt;- args. 但是允许在后面接上过滤条件，然后允许多重嵌套用;分开。比如下面一段代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">for(i &lt;- 0 to 4
     if i%2 == 0
     if i%4 == 0;
@@ -422,7 +413,6 @@ One thing you will notice is that almost all of Scala’s control structures res
 但是这样的方式是不产生值的，即使执行部分最后返回值，所以结果为()，如果需要产生值的话那么必须使用yield关键字。yield生成的效果非常类似list comprehension, 将执行部分返回值组成一个collection. 比如下面一段代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x =
   for(i &lt;- 0 to 4) yield {
     i
@@ -435,7 +425,6 @@ println(x) // Vector(0, 1, 2, 3, 4)
 上面这段代码效果和python list comprehension非常类似
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">a = [x+2 for x in range(0,4) if x %2 == 0]
 </pre>
 </div>
@@ -450,12 +439,11 @@ Coursera Reactive Programming
 <li>for(x&lt;-e1; y&lt;-e2; s) yield e3 =&gt; e1.flatMap(x =&gt; for(y&lt;-e2; s) yield e3)</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 异常的触发和java类似都是throw new Exception(). catch部分可以通过模式匹配来完成。finally则主要用于处理清理资源释放等问题。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def f() {
   throw new Exception("hello");
 }
@@ -480,7 +468,7 @@ finally里面的返回值会被忽略，除非使用return来强制返回。但�
 One difference from Java that you’ll quickly notice in Scala is that unlike Java, Scala does not require you to catch checked exceptions.（不强制捕获检查异常）
 </p>
 
-<hr  />
+<hr />
 <p>
 match和switch非常类似，但是有下面两个比较重要的差别：
 </p>
@@ -493,7 +481,6 @@ match和switch非常类似，但是有下面两个比较重要的差别：
 下面是一段示例代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x = "hello";
 val y =
   x match {
@@ -506,8 +493,8 @@ val y =
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> 等值比较</h3>
+<div id="outline-container-orgd779cf6" class="outline-3">
+<h3 id="orgd779cf6"><span class="section-number-3">1.6</span> 等值比较</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 scala下==的和java是不同的。 <b>在java下==是比较引用相等性，而scala下==则是比较值相等性，也就是说会调用equal来做比较</b>
@@ -517,7 +504,6 @@ scala下==的和java是不同的。 <b>在java下==是比较引用相等性，�
 使用eq,ne来判断引用相当，但是判断引用相等仅限于引用类型
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val a = Array("1");
 val b = Array("2");
 println(a eq b)
@@ -528,8 +514,8 @@ println(c eq b)
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">1.7</span> operator</h3>
+<div id="outline-container-orgea7f111" class="outline-3">
+<h3 id="orgea7f111"><span class="section-number-3">1.7</span> operator</h3>
 <div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>a op b -&gt; a.op(b)</li>
@@ -540,7 +526,6 @@ println(c eq b)
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">var Id = 0 // for identification.
 class Op() {
   val id = Id;
@@ -569,8 +554,8 @@ a(0)=1;
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.8</span> 前提断言</h3>
+<div id="outline-container-org0070fd5" class="outline-3">
+<h3 id="org0070fd5"><span class="section-number-3">1.8</span> 前提断言</h3>
 <div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li>require(expression)</li>
@@ -580,14 +565,13 @@ a(0)=1;
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.9</span> package</h3>
+<div id="outline-container-org23dd987" class="outline-3">
+<h3 id="org23dd987"><span class="section-number-3">1.9</span> package</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 scala提供了两种定义package的方式，一种是java的，一种是类似C++ namespace的，关键字_root_来引用到最外层package
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">package A {
   class X {
   }
@@ -671,7 +655,6 @@ scala import相比java import更加灵活
 <li>let you rename and hide some of the imported members</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def showFruit(fruit: Fruit) {
   import fruit._
   println(name +"s are "+ color)
@@ -690,8 +673,8 @@ Implicitly imported into every compilation unit are, in that order:
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.10</span> 模式匹配</h3>
+<div id="outline-container-org25c6a8e" class="outline-3">
+<h3 id="org25c6a8e"><span class="section-number-3">1.10</span> 模式匹配</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 模式匹配pattern matching在scala里面是一个重量级的功能，依赖于pm可以优雅地实现很多功能。大致格式如下
@@ -712,7 +695,7 @@ pattern总结起来大约以下几类：
 <li>Constant patterns // 常量</li>
 <li>Variable patterns // 变量</li>
 <li>Constructor patterns // 构造函数</li>
-<li>Sequence patterns // 比如List(_,_). 如果需要匹配剩余的话使用List(0,_*)</li>
+<li>Sequence patterns // 比如List(<span class="underline">,</span>). 如果需要匹配剩余的话使用List(0,_*)</li>
 <li>Tuple patterns // (a,b,c)</li>
 <li>Typed patterns // 使用类型匹配 case a:Map[_,_]
 <ul class="org-ul">
@@ -735,7 +718,6 @@ pattern总结起来大约以下几类：
 <li>Patterns in for expressions // for ((country, city) &lt;- capitals)</li>
 </ol>
 <div class="org-src-container">
-
 <pre class="src src-Scala">// case sequences as partial function.
 val foo : Option[String] =&gt; String = {
   case Some(e) =&gt; e
@@ -767,7 +749,7 @@ pattern matching过程中还有下面几个问题需要注意：
 </ul></li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 scala为了方便扩展pm对象的case, 提供case class这个概念。case class和普通class大致相同，不过有以下三个区别，定义上只需要在class之前加上case即可：
 </p>
@@ -777,7 +759,6 @@ scala为了方便扩展pm对象的case, 提供case class这个概念。case clas
 <li>自带toString,hashCode,equals实现</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Scala">case class A(x:Int) {} // implicit val x:Int
 val a = A(1); // factory method.
 println(a.x);
@@ -788,12 +769,11 @@ println(a); // toString = A(1)
 case class最大就是可以很方便地用来做pattern matching.
 </p>
 
-<hr  />
+<hr />
 <p>
 如果我们能够知道某个selector所有可能的pattern的话，那么就能够在编译期做一些安全性检查。但是selector这个过于宽泛，如果将selector限制在类层次上的话，那么还是可以实现的。举例如下：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">abstract class A; // sealed abstract class A
 case class B(a:Int) extends A;
 case class C(a:Int) extends A;
@@ -822,7 +802,6 @@ one warning found
 有三个方式可以解决这个问题，一个是加上对D的处理，一个是使用unchecked annotation, 一个则是在最后用wildcard匹配
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">(a : @unchecked)  match {
   case e @ B(_) =&gt; println(e)
   case e @ C(_) =&gt; println(e)
@@ -836,7 +815,7 @@ a match {
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 模式匹配除了能够直接作用在case class上之外，也可以作用在普通的class上面，但是需要普通的class提供一些辅助的方法将转换成为case class或者是constant/string上面。这个机制在scala里面称为 <b>extractor</b>
 </p>
@@ -845,7 +824,6 @@ a match {
 下面是一个例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A(val a:String,
         val b:String) {
 
@@ -863,7 +841,6 @@ a match {
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">object A {
   def apply(a:String,b:String) = new A(a,b)
   def unapply(x:A) = Some((x.a,x.b))
@@ -878,7 +855,6 @@ unapply和apply通常是配对的函数。apply将参数构造成为一个对象
 <b>unapply的过程可以认为是将unapply参数最用在expression上，抽取出这个expression的构造参数</b> 比如上面过程可以认为类似
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">object A {
   def apply(a:String,b:String) = new A(a,b)
   def unapply(a: A) = Some((a.a,a.b))
@@ -896,7 +872,6 @@ A.unapply(a) match {
 使用上面的unapply方法不能够匹配带有_*这种sequence variable的pattern.允许匹配这种pattern的话，那么需要实现unapplySeq方法，返回参数必须是Option[Seq[T]]这个类型
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">object A {
   def apply(a:String,b:String) = new A(a,b)
   def unapplySeq(a: A):Option[Seq[String]] = Some(List(a.a,a.b))
@@ -912,8 +887,8 @@ a match {
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.11</span> annotation</h3>
+<div id="outline-container-org3922d63" class="outline-3">
+<h3 id="org3922d63"><span class="section-number-3">1.11</span> annotation</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
 Unlike comments, they have structure, thus making them easier to machine process. There are many things you can do with a program other than compiling and running it. Some examples are:
@@ -950,7 +925,7 @@ annotation通常格式如下
 其中annot是名字，exp是对应参数，而后面部分一些可选命名参数，没有顺序要求。
 </p>
 
-<hr  />
+<hr />
 <p>
 一些常用的annotation包括
 </p>
@@ -966,17 +941,17 @@ annotation通常格式如下
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">2</span> 面向对象</h2>
+<div id="outline-container-org4a2d6a0" class="outline-2">
+<h2 id="org4a2d6a0"><span class="section-number-2">2</span> 面向对象</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.1</span> 单例对象</h3>
+</div>
+<div id="outline-container-org153a8f1" class="outline-3">
+<h3 id="org153a8f1"><span class="section-number-3">2.1</span> 单例对象</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 单例对象很好地解决了Java的两个问题，一个是是单例模式没有集成到语言当中去导致代码编写冗余，一个是静态字段和静态方法嵌入在类定义中导致代码结构不清晰。下面是一段Java代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">/* coding:utf-8
  * Copyright (C) dirlt
  */
@@ -1000,7 +975,6 @@ public class Hello {
 而scala引入单例对象方式解决这个问题。单例对象使用object来定义，使用时候直接拿名称引用即可。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">object Hello {
   val kConstant = 10;
   def method() {
@@ -1029,14 +1003,13 @@ When a singleton object shares the same name with a class, it is called that cla
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.2</span> 构造函数</h3>
+<div id="outline-container-orgaa30f40" class="outline-3">
+<h3 id="orgaa30f40"><span class="section-number-3">2.2</span> 构造函数</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 scala将构造函数和类定义合并，相比java方式更加简洁。下面是一段Java代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">/* coding:utf-8
  * Copyright (C) dirlt
  */
@@ -1065,7 +1038,6 @@ public class Hello {
 而下面是则是scala对应的代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(pn: Int, pd: Int) {
   private val n = pn;
   private val d = pd;
@@ -1082,7 +1054,6 @@ scala将构造函数和初始化代码融合，只是使用初始化代码来作
 对于大部分构造函数来说传入的参数都想留存一份下来。为此scala引入了 <b>parametric fields</b> 这个概念。只需要在class parameters上面稍作扩展即可
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(private val pn: Int, private val pd: Int) {
   println("initializing...(" + pn + "," + pd + ")");
   def this(pn:Int) = this(pn,0);
@@ -1097,7 +1068,6 @@ scala将构造函数和初始化代码融合，只是使用初始化代码来作
 如果面向对象角度相比于java，上面这种方式确实简化不少。而scala本意应该是更想到达函数式类构造效果，构造生成对象称为 <b>functional object</b> . 我们之所以想保存这些参数是因为在编写java时候这些参数只能够在构造函数中获得，而在scala里面实际上在整个类里面都是可以获得的，因此对于上面情况来说我们根本没有必要保存这些类参数。在下面closure代码里面我们实际上可以直接引用pn,pd来参与计算。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(pn: Int, pd: Int) {
   def n = pn
   def d = pd
@@ -1113,15 +1083,14 @@ println(h.closure(2.0f));
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.3</span> override</h3>
+<div id="outline-container-orga7b7b5e" class="outline-3">
+<h3 id="orga7b7b5e"><span class="section-number-3">2.3</span> override</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 scala提供了override这个关键字可以确保复写错误几率降低。对于java来说@Override这个注解是可选的，但是对于scala来说override关键字是必须的。如果B继承A复写其方法但是没有提供override关键字的话，就会出现编译错误，这样就强制要求在复写方法的时候提供override。一旦强制写override的话我们就能够发现一些我们原本希望复写某方法但是却没有复写的情况。
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(pn: Int, pd: Int) {
   def toString() = "n = " + pn + ", d = " + pd;
 }
@@ -1143,7 +1112,6 @@ one error found
 可以复写的不仅有方法也包括字段。字段复写相对来说就比较简单只是覆盖基类字段，但是也可能会影响到函数调用。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello {
   val x = 0;
   def echoX() {
@@ -1162,14 +1130,13 @@ x.echoX(); // 1
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.4</span> 隐式转换</h3>
+<div id="outline-container-org5c9c1f6" class="outline-3">
+<h3 id="org5c9c1f6"><span class="section-number-3">2.4</span> 隐式转换</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 scala可以通过提供隐式转换函数来完成，函数需要添加关键字implicit作为前缀. 注意这个隐式转换函数必须放在类外部来定义。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(p:Int) {
   private val x = p;
   def op(h:Hello) {
@@ -1191,7 +1158,7 @@ h op 2;
 Because im- plicit conversions are applied implicitly by the compiler, not explicitly writ- ten down in the source code, it can be non-obvious to client programmers what implicit conversions are being applied. 隐式转换这个东西还是尽量少用比较好。
 </p>
 
-<hr  />
+<hr />
 <p>
 关于隐式转换有下面几个通用规则 Implicit conversions are governed by the following general rules:
 </p>
@@ -1207,7 +1174,6 @@ Because im- plicit conversions are applied implicitly by the compiler, not expli
 这里主要说说第2点，举个例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class C(val x:Int) {
   def op(c:C) {
 
@@ -1244,7 +1210,6 @@ one error found
 存在一个特例，就是这个类型的共生对象(companion object)提供隐式转换函数也可以正常工作。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class C(val x:Int) {
   def op(c:C) {
 
@@ -1267,7 +1232,7 @@ x op y
 </pre>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 隐式转换会发生在下面三个地方：
@@ -1280,7 +1245,6 @@ x op y
 可以理解为其中1是作用在operand上，而2是作用在receiver上。1这个类型转换过程相对比较好理解，2的话稍微有点麻烦，以下面为例
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A(val x:Int) {
   def op(a:A) {
   }
@@ -1296,14 +1260,13 @@ val a = new A(2)
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">2.5</span> 隐式参数</h3>
+<div id="outline-container-org124b780" class="outline-3">
+<h3 id="org124b780"><span class="section-number-3">2.5</span> 隐式参数</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 关于隐式参数有点类似C++的缺省参数，但是从实现上来看还不太一样。scala的隐式参数实现和隐式转换有点类似，要求隐式参数必须能够使用单个id访问到。下面是使用隐式参数例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo(x:Int)(implicit a:String,b:String) {
   println(x + "," + a + "," + b);
 }
@@ -1317,7 +1280,6 @@ implicit作用在后面所有的参数上，需要和explicit参数分开编写�
 隐式参数的提供有点类似全局变量方式
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">implicit val defaultString:String = "hello"
 foo(1) // 1,hello,hello
 </pre>
@@ -1326,7 +1288,7 @@ foo(1) // 1,hello,hello
 这里需要注意的是，隐式参数的匹配不是靠名字而是靠类型来匹配的。又因为这个方式有点类似全局变量，所以隐式参数类型定义上一定要选择比较unique的，这样才不容易出现冲突。As a style rule, it is best to use a custom named type in the types of implicit parameters.
 </p>
 
-<hr  />
+<hr />
 <p>
 Note that when you use implicit on a parameter, then not only will the compiler try to supply that parameter with an implicit value, but the compiler will also use that parameter as an available implicit in the body of the method!
 </p>
@@ -1335,7 +1297,6 @@ Note that when you use implicit on a parameter, then not only will the compiler 
 使用隐式参数的话，编译器不仅仅会在外部调用时候使用这个参数，在函数体内也会使用这个参数，以下面代码为例
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def maxList[T](elements: List[T])
 (implicit orderer: T =&gt; Ordered[T]): T =
   elements match {
@@ -1357,7 +1318,6 @@ Note that when you use implicit on a parameter, then not only will the compiler 
 Because this pattern is common, Scala lets you leave out the name of this pa- rameter and shorten the method header by using a view bound. 因为这个模式非常通用，所以scala提出了一个 <b>view bound</b> (视界) . 上面代码可以写为
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def maxList[T &lt;% Ordered[T]](elements: List[T]): T = elements match {
   case List() =&gt;
     throw new IllegalArgumentException("empty list!")
@@ -1375,8 +1335,8 @@ Because this pattern is common, Scala lets you leave out the name of this pa- ra
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">2.6</span> ()method</h3>
+<div id="outline-container-org3ff186c" class="outline-3">
+<h3 id="org3ff186c"><span class="section-number-3">2.6</span> ()method</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 parameterless vs. empty-paren method. 对于函数来说如果没有任何参数的话，那么可以将()取消:
@@ -1393,7 +1353,6 @@ parameterless vs. empty-paren method. 对于函数来说如果没有任何参数
 这样的选择有个好处就是可以统一method和field访问，使得代码更加简洁。考虑在Java经常需要编写getter方法导致冗长的代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public class Hello {
   private int n;
   private int d;
@@ -1420,7 +1379,6 @@ parameterless vs. empty-paren method. 对于函数来说如果没有任何参数
 而scala代码相对简洁，并且访问squareN和doubleD更像是访问字段而不是在调用方法。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class Hello(private val n:Int,
             private val d:Int) {
   def squareN = n * n;
@@ -1435,14 +1393,13 @@ println(h.doubleD)
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">2.7</span> 类型继承</h3>
+<div id="outline-container-orgcd5b6ba" class="outline-3">
+<h3 id="orgcd5b6ba"><span class="section-number-3">2.7</span> 类型继承</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 使用extends关键字来继承，然后在继承的声明里面可以对父类做初始化。父类实例使用super来引用。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A(n:Int) {
   println("init A with n = " + n);
 }
@@ -1459,7 +1416,6 @@ val b = new B(10);
 抽象类中存在没有实现的方法(只给出声明)，在class之前使用abstract关键字指示
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">abstract class Hello {
   def echo()
 }
@@ -1475,8 +1431,8 @@ val b = new B(10);
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">2.8</span> 类型层次</h3>
+<div id="outline-container-orgcb1123d" class="outline-3">
+<h3 id="orgcb1123d"><span class="section-number-3">2.8</span> 类型层次</h3>
 <div class="outline-text-3" id="text-2-8">
 
 <div class="figure">
@@ -1488,7 +1444,6 @@ val b = new B(10);
 所有的基类是Any，定义了下面这些方法
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">final def ==(that: Any): Boolean
 final def !=(that: Any): Boolean
 def equals(that: Any): Boolean
@@ -1524,7 +1479,6 @@ Class Null is the type of the null reference; it is a subclass of every referenc
 Null是所有引用类型的子类，其实例对象是null. 而Nothing是所有类型的子类，但是没有实例对象。对于Nothing没有实例对象需要了解Nothing的引入。Nothing引入是为了将异常融入类型系统的，比如下面scala代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def error(message: String): Nothing =
   throw new RuntimeException(message)
 </pre>
@@ -1533,7 +1487,6 @@ Null是所有引用类型的子类，其实例对象是null. 而Nothing是所有
 定义了error这个函数来报告错误，然后我们在使用的时候
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def divide(x: Int, y: Int): Int =
   if (y != 0) x / y
   else error("can't divide by zero")
@@ -1543,7 +1496,7 @@ Null是所有引用类型的子类，其实例对象是null. 而Nothing是所有
 我们必须确保类型能够统一，所以error类型必须和Int兼容，因此Nothing在设计上必须是所有类型的子类。
 </p>
 
-<hr  />
+<hr />
 <p>
 Option type能够很好地解决java里面null的问题. 举个例子我们在java里面处理map.get("hello")返回值的时候，都需要判断是否为null然后在做处理，否则可能会出现NullPointerException. 同样在scala里面，map.get("hello")返回一个Option对象，这个对象必然是一个有效的引用对象。对于一个Option对象而言：
 </p>
@@ -1555,7 +1508,6 @@ Option type能够很好地解决java里面null的问题. 举个例子我们在ja
 可以通过模式匹配来判断是否为None以及获取value.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def show(x: Option[String]) = x match {
   case Some(s) =&gt; s
   case None =&gt; "?"
@@ -1571,7 +1523,6 @@ By contrast, Scala encourages the use of Option to indicate an optional value. T
 Option基本接口是这样的
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait Option[T] {
   def isDefined: Boolean
   def get: T
@@ -1582,14 +1533,13 @@ Option基本接口是这样的
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">2.9</span> Traits</h3>
+<div id="outline-container-org6a33dab" class="outline-3">
+<h3 id="org6a33dab"><span class="section-number-3">2.9</span> Traits</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 所谓的traits就是特征，在面向对象里面就是指代这个类或者是这个对象的特征。scala trait和java interface非常相似，其引入都是为了解决多重继承的问题。 trait包含方法和字段，没有类参数（class parameter）和构造函数。(#note: 我觉得这点设计让trait回归到了本意，同时简化了设计和使用） trait的定义和class类似，mixin trait上也是通过关键字extends来完成的，如果需要mixin多个trait的话用with关键字
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait A {
   def foo();
 }
@@ -1613,7 +1563,6 @@ class C extends A with B {
 trait的引入解决了一些多重继承的问题，最重要的问题就是如何解释super. 多重继承里面最麻烦的就是菱形继承问题A-&gt;B,A-&gt;C,B-&gt;D,C-&gt;D. 下面是一段C++代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
 <span class="org-comment"> * Copyright (C) dirlt</span>
 <span class="org-comment"> */</span>
@@ -1709,12 +1658,11 @@ class Cat extends Animal with Furry with FourLegged
 #note: 这种动态执行的效果就是，你不能够确定super到底是哪个，取决于context.
 </p>
 
-<hr  />
+<hr />
 <p>
 和java inteface一样，scala也允许构造匿名对象实现trait. 不过因为trait相比interface引入了字段，所以也引入了一些问题。这个问题主要是字段初始化顺序问题。下面是一个例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait A{
   val a: Int;
   val b: Int;
@@ -1737,7 +1685,6 @@ val b = new A {
 一种是显式地说在A初始化之前就给出值的定义,这种方式称为pre-initialized field.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait A{
   val a: Int;
   val b: Int;
@@ -1755,7 +1702,6 @@ val b = new {
 另外一种是对值做惰性初始化，这种方式称为lazy-evaluation. 这种方式和定义函数非常类似，但是有个好处就是一旦初始化一次之后就不会再次evaluation.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait A{
   val a: Int;
   val b: Int;
@@ -1779,8 +1725,8 @@ b.say
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">2.10</span> 访问权限</h3>
+<div id="outline-container-orgf6a6c10" class="outline-3">
+<h3 id="orgf6a6c10"><span class="section-number-3">2.10</span> 访问权限</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 The way you make members public in Scala is by not explicitly specifying any access modifier. Put another way, where you’d say “public” in Java, you simply say nothing in Scala. Public is Scala’s default access level.
@@ -1801,7 +1747,6 @@ A modifier of the form private[X] or protected[X] means that access is private o
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A(private val x:Int) {
   def foo(o:A) {
     println(x + o.x); // works.
@@ -1818,15 +1763,14 @@ class B(private[this] val x:Int) {
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">2.11</span> Enumeration</h3>
+<div id="outline-container-org664ad4a" class="outline-3">
+<h3 id="org664ad4a"><span class="section-number-3">2.11</span> Enumeration</h3>
 <div class="outline-text-3" id="text-2-11">
 <p>
 创建枚举类型非常简单.对于枚举类型来说通常都是单例所以直接使用object较多。You can find more information in the Scaladoc comments of class scala.Enumeration.
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">object X extends Enumeration {
   val A,B,C = Value; // print as A,B,C
   val E = Value("hello");
@@ -1842,7 +1786,6 @@ Value这里是一个比较特殊的类型path-dependent type.所谓path-dependen
 scala提供的枚举类型也相对比较灵活，也可以很容易地访问整个枚举类型内部，也可以很容易地构造出枚举类型
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">for (a &lt;- X) { // todo: seems don't work now!.
   println(a)
 }
@@ -1857,11 +1800,12 @@ println(y.id + "," + y)
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">3</span> 面向函数</h2>
+<div id="outline-container-org8275080" class="outline-2">
+<h2 id="org8275080"><span class="section-number-2">3</span> 面向函数</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">3.1</span> 匿名函数</h3>
+</div>
+<div id="outline-container-orgde824ac" class="outline-3">
+<h3 id="orgde824ac"><span class="section-number-3">3.1</span> 匿名函数</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 #note: aka. function literal
@@ -1882,7 +1826,6 @@ println(y.id + "," + y)
 <li>匿名实例（因为所有函数都是继承Function这个类的）</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x = (x : Int) =&gt; { x + 1 } : Int
 val y = new Function1[Int,Int] {
   def apply(x:Int): Int = x + 1
@@ -1903,18 +1846,16 @@ val y = new Function1[Int,Int] {
 相对上面的写法似乎更加漂亮
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val c = { a:Int =&gt; a + 1 }
 </pre>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 但是在某些特殊情况则不需要指定parameter-type, 因为parameter-type可以通过上下文推导出来。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val x = (0 to 4).filter((x:Int) =&gt; x &gt; 2)
 val y = (0 to 4).filter(x =&gt; x &gt; 2)
 </pre>
@@ -1927,7 +1868,6 @@ This is called <b>target typing</b> , because the targeted usage of an expressio
 使用placeholder syntax也可以构造一些简单的函数，_相当于一个函数参数占位符。但是因为_之间没有办法做区分，所以就函数功能来说非常有限。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">val y = (0 to 4).filter(_ &gt; 2)
 val f = (_:Int) + (_:Int) // (x:Int,y:Int) =&gt; x + y
 </pre>
@@ -1935,14 +1875,13 @@ val f = (_:Int) + (_:Int) // (x:Int,y:Int) =&gt; x + y
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">3.2</span> 偏应用函数</h3>
+<div id="outline-container-org3944f0f" class="outline-3">
+<h3 id="org3944f0f"><span class="section-number-3">3.2</span> 偏应用函数</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 偏应用函数(partially applied function)允许我们将部分参数作用在函数上形成特化函数。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo1(x:Int)(y:Int) = x + y
 def foo2(x:Int,y:Int) = x + y
 val pFoo1 = (y:Int) =&gt; foo1(1)(y)
@@ -1954,7 +1893,6 @@ val pFoo2 = (y:Int) =&gt; foo2(1,y)
 placeholder syntax提供了更简单的方法，并且_能够作为后续多个参数的占位符。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo1(x:Int)(y:Int) = x + y
 def foo2(x:Int,y:Int) = x + y
 // val pFoo1 = foo1(_) // also OK.
@@ -1969,8 +1907,8 @@ val pFoo2 = foo2(1,_:Int)
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">3.3</span> closure</h3>
+<div id="outline-container-orgbd4d708" class="outline-3">
+<h3 id="orgbd4d708"><span class="section-number-3">3.3</span> closure</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 function literal内部取值通常有三种：
@@ -2004,7 +1942,6 @@ function literal内部取值通常有三种：
 注意 <b>closure capture的不是variable的值而是variable本身</b> ，所以如果variable变化的话那么closure本身行为也是会变化的。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">var y = 10
 val foo = (x:Int) =&gt; x+y
 println(foo(1)) // 11
@@ -2015,8 +1952,8 @@ println(foo(1)) // 1
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">3.4</span> 函数组合</h3>
+<div id="outline-container-org75b76dd" class="outline-3">
+<h3 id="org75b76dd"><span class="section-number-3">3.4</span> 函数组合</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>compose # f compose g = f(g(x))</li>
@@ -2024,7 +1961,6 @@ println(foo(1)) // 1
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo(x: Int) = x + 1
 def bar(x: Int) = x * 2
 val foo_bar = foo _ compose bar _ // foo(bar(x))
@@ -2037,16 +1973,16 @@ println("bar_foo(2) = " + bar_foo(2))
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-2">
-<h2 id="orgheadline33"><span class="section-number-2">4</span> 面向泛型</h2>
+<div id="outline-container-org7cf2a97" class="outline-2">
+<h2 id="org7cf2a97"><span class="section-number-2">4</span> 面向泛型</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 静态类型的一个传统反对意见是，它有大量的语法开销。Scala通过类型推断(type inference)来缓解这个问题。在函数式编程语言中，类型推断的经典方法是 Hindley Milner算法，它最早是实现在ML中的。Scala类型推断系统的实现稍有不同，但本质类似：推断约束，并试图统一类型。
 </p>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">4.1</span> 类型参数化</h3>
+<div id="outline-container-orgbf948b9" class="outline-3">
+<h3 id="orgbf948b9"><span class="section-number-3">4.1</span> 类型参数化</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 scala将类型参数化的语法为C[T]. <b>但是和Java不同的是，scala必须指定类型参数。</b>
@@ -2056,7 +1992,6 @@ scala将类型参数化的语法为C[T]. <b>但是和Java不同的是，scala必
 scala底层使用jvm所以还是面临类型擦除的问题。下面是一段示例代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A[T] {
 }
 
@@ -2084,8 +2019,8 @@ scala对于类型参数化的检查也只是在compile阶段而非runtime阶段�
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">4.2</span> variance(变性)</h3>
+<div id="outline-container-org4f77521" class="outline-3">
+<h3 id="org4f77521"><span class="section-number-3">4.2</span> variance(变性)</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 如果T1和T2存在某种关系的话，那么C[T1]和C[T2]之间存在的关系则称为C的variance. 对于Java和C++来说，C[T1]和C[T2]之间在编译期间是完全不兼容的类型，而scala则定义了三种关系：如果T1 extends T2的话
@@ -2141,7 +2076,6 @@ scala对于类型参数化的检查也只是在compile阶段而非runtime阶段�
 这和Java则有点不同，Java class泛型可以不指定类型参数。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">import java.util.*;
 
 public class Hello {
@@ -2157,7 +2091,6 @@ public class Hello {
 上面代码是可以编译的，但是如果放在scala的话
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A[T] {
 }
 
@@ -2184,7 +2117,6 @@ one error found
 如果希望covariant的话，那么在定义时候形式如C[+T], 如果希望是contravariant的话，那么定义时候形式如C[-T].
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A[+T] {
 }
 
@@ -2200,7 +2132,6 @@ val y:A[Any] = x;
 当然出了改变variance之外，还能够像java一样做强制类型转换，通过asInstanceOf,isInstanceOf来操作
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A[T] {
 }
 
@@ -2209,13 +2140,12 @@ val y:A[Any] = x.asInstanceOf[A[Any]];
 </pre>
 </div>
 
-<hr  />
+<hr />
 <p>
 为什么需要contravariant? 看这么一个例子
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">class A[+T] {
   def foo(x:T) {
   }
@@ -2234,7 +2164,6 @@ y.foo("hello");
 这个问题如果仔细考虑的话会是这样的：对于传入参数而言要求类型应该是T的子类，而对于传出参数而言要求类型应该是T的超类。这样在转换到general类型的时候，才不会出现潜在类型错误。这也就是需要contravariant的原因。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">class X
 class Y extends X
 class Z extends Y
@@ -2264,8 +2193,8 @@ y.foo(new Y());
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">4.3</span> bound(边界)</h3>
+<div id="outline-container-org458c48f" class="outline-3">
+<h3 id="org458c48f"><span class="section-number-3">4.3</span> bound(边界)</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 这里的bound主要就是指泛型中的类型限定，其实类型限定这个东西还是因为提供了泛型类型上的类型层次系统导致的。以C++实现泛型来说就没有类型限定，因为类型参数都是duck-type，所有类型检查都是在编译阶段将代码展开来完成的，所以差别最主要的原因还是因为实现考虑和折中。bound语法如下：
@@ -2276,7 +2205,6 @@ y.foo(new Y());
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo[T &lt;: Ordered[T]](x:T,y:T) = x &lt; y
 
 class A (private val v:Int) extends Ordered[A] {
@@ -2294,7 +2222,6 @@ println(foo(10,20)); // compile error.
 和边界相似的概念是视界(view bound). 要求传入类型必须能够转到到某个要求类型. 使用%&lt;来定义. 下面例子中就要求视界是Int.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Scala">def foo[A &lt;% Int](x : A) = x + 123
 println(foo(2))
 implicit def strToInt(s: String) = s.toInt
@@ -2308,8 +2235,8 @@ println(foo("200"))
 </div>
 </div>
 
-<div id="outline-container-orgheadline39" class="outline-2">
-<h2 id="orgheadline39"><span class="section-number-2">5</span> 互操作性</h2>
+<div id="outline-container-orgca48353" class="outline-2">
+<h2 id="orgca48353"><span class="section-number-2">5</span> 互操作性</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="http://twitter.github.io/scala_school/zh_cn/coll2.html#java">http://twitter.github.io/scala_school/zh_cn/coll2.html#java</a> Java和Scala集合之间相互转换.</li>
@@ -2334,15 +2261,14 @@ For these features that are mapped indirectly, the encoding is not fixed. There 
 </p>
 </div>
 
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">5.1</span> simplest example</h3>
+<div id="outline-container-org9cfa238" class="outline-3">
+<h3 id="org9cfa238"><span class="section-number-3">5.1</span> simplest example</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 这个例子里面给出了 1. 类常量 2. 类变量 3. 类方法 4. 异常 使用方法
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">import scala.throws
 import java.io.IOException
 import scala.reflect.{BeanProperty, BooleanBeanProperty}
@@ -2379,19 +2305,18 @@ public class TestCase&lt;T&gt; {
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">5.2</span> singleton object</h3>
+<div id="outline-container-org349bb97" class="outline-3">
+<h3 id="org349bb97"><span class="section-number-3">5.2</span> singleton object</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
-For every Scala singleton object, the compiler will create a Java class for the object with a dollar sign added to the end. For a singleton object named App, the compiler produces a Java class named App\(. This class has all the methods and fields of the Scala singleton object. The Java class also has a single static field named MODULE\) to hold the one instance of the class that is created at run time.
+For every Scala singleton object, the compiler will create a Java class for the object with a dollar sign added to the end. For a singleton object named App, the compiler produces a Java class named App$. This class has all the methods and fields of the Scala singleton object. The Java class also has a single static field named MODULE$ to hold the one instance of the class that is created at run time.
 </p>
 
 <p>
-对于singleton object而言，产生的类名是&lt;class-name&gt;\(. 注意其中字段和方法都不是static的. 为了可以使用其中字段和方法, 这个类会创建一个实例MODULE\), 我们可以通过它来引用. 编译这个singleton object时候, 也会编译出对应的class. 如果class中重载了object中定义的函数, 那么就使用重新定义的函数, 否则使用object中函数(static).
+对于singleton object而言，产生的类名是&lt;class-name&gt;$. 注意其中字段和方法都不是static的. 为了可以使用其中字段和方法, 这个类会创建一个实例MODULE$, 我们可以通过它来引用. 编译这个singleton object时候, 也会编译出对应的class. 如果class中重载了object中定义的函数, 那么就使用重新定义的函数, 否则使用object中函数(static).
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">object C {
   def foo() {
     System.out.println("C$::foo");
@@ -2437,7 +2362,6 @@ public class C {
 下面是Java使用例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">class UseTestCase {
     public static void main(String[] args) {
         C$.MODULE$.foo();
@@ -2463,8 +2387,8 @@ C$::bar
 </div>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">5.3</span> traits as interfaces</h3>
+<div id="outline-container-org2d2530d" class="outline-3">
+<h3 id="org2d2530d"><span class="section-number-3">5.3</span> traits as interfaces</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Implementing a trait in Java is another story. In the general case it is not practical. One special case is important, however. If you make a Scala trait that includes only abstract methods, then that trait will be translated directly to a Java interface, with no other code to worry about. Essentially this means that you can write a Java interface in Scala syntax if you like.
@@ -2475,7 +2399,6 @@ Implementing a trait in Java is another story. In the general case it is not pra
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">trait TestCase {
   def foo();
   def bar();
@@ -2498,8 +2421,8 @@ public interface TestCase {
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">5.4</span> annotation</h3>
+<div id="outline-container-org4344737" class="outline-3">
+<h3 id="org4344737"><span class="section-number-3">5.4</span> annotation</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>@deprecated</li>
@@ -2515,8 +2438,8 @@ public interface TestCase {
 </div>
 </div>
 
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">5.5</span> existential types</h3>
+<div id="outline-container-org8a20dd1" class="outline-3">
+<h3 id="org8a20dd1"><span class="section-number-3">5.5</span> existential types</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 大部分Java类型在scala里面都有对应表示，但是对于一些特殊类型没有对应表示比如

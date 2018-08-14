@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>升级到MongoDB 3.4出现的性能问题</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -18,7 +18,7 @@
 TL;DR 因为checkpoint出现了瞬时的大量磁盘写入导致响应时间出现了尖峰。可以修改wiredtiger的checkpoint写入策略，加快checkpoint写入频率可以让整个磁盘写入比较平顺，从而削平延迟尖峰。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 <b>问题描述</b>
@@ -38,7 +38,7 @@ TL;DR 因为checkpoint出现了瞬时的大量磁盘写入导致响应时间出�
 可以看到内存的确得到了控制，稳定在20G左右（在次之前的波动基本上都是因为内存增长太快所以手动重启避免OOM）。但是同样带来了另外一个问题就是延迟(90th percentile)增加了接近50%。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 <b>监控表现</b>
@@ -58,7 +58,7 @@ TL;DR 因为checkpoint出现了瞬时的大量磁盘写入导致响应时间出�
 </p>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 <b>机器状况</b>
@@ -112,7 +112,7 @@ TL;DR 因为checkpoint出现了瞬时的大量磁盘写入导致响应时间出�
 <li>正常情况下面requests可以很快被处理。</li>
 </ol>
 
-<hr  />
+<hr />
 
 <p>
 <b>确定问题</b>
@@ -142,7 +142,6 @@ MongoDB configures WiredTiger to create checkpoints (i.e. write the snapshot dat
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">#!/usr/bin/env python
 # coding:utf-8
 # Copyright (C) dirlt
@@ -189,7 +188,7 @@ while True:
 </p>
 </div>
 
-<hr  />
+<hr />
 
 <p>
 <b>解决办法</b>

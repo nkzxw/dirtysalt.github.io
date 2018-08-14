@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang程序设计</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,18 +40,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 如何启动</a></li>
-<li><a href="#orgheadline2">2. 数据类型</a></li>
-<li><a href="#orgheadline3">3. 控制结构</a></li>
-<li><a href="#orgheadline4">4. 文件属性</a></li>
-<li><a href="#orgheadline5">5. 并发编程</a></li>
-<li><a href="#orgheadline6">6. 其他特性</a></li>
+<li><a href="#org709969e">1. 如何启动</a></li>
+<li><a href="#org1e78213">2. 数据类型</a></li>
+<li><a href="#orgeb582a3">3. 控制结构</a></li>
+<li><a href="#org784ae94">4. 文件属性</a></li>
+<li><a href="#org7d56104">5. 并发编程</a></li>
+<li><a href="#org5a179ed">6. 其他特性</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 如何启动</h2>
+<div id="outline-container-org709969e" class="outline-2">
+<h2 id="org709969e"><span class="section-number-2">1</span> 如何启动</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 通常erlang源代码会保存为.erl文件，但是也有.hrl文件（和C的header文件类似），erlang编译器也使用了宏和预处理机制来处理代码。
@@ -84,8 +84,8 @@ P = 1, Q = 2ok
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 数据类型</h2>
+<div id="outline-container-org1e78213" class="outline-2">
+<h2 id="org1e78213"><span class="section-number-2">2</span> 数据类型</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 首先erlang里面需要恰当使用逗号(,), 分号(;) 和句号(;). 大致逻辑是这样的
@@ -136,13 +136,13 @@ P = 1, Q = 2ok
 </p>
 
 <p>
-二进制(binary). 和C的struct有点类似，<a id="orgtarget1"></a>表示有三个字段顺序排列，当然也可以为里面每个字段设置bit size, 以及type还有endian等。erlang的二进制比较强大的地方是，可以很容易地充分利用模式匹配这个功能。
+二进制(binary). 和C的struct有点类似，<a id="orgb9fa43e"></a>表示有三个字段顺序排列，当然也可以为里面每个字段设置bit size, 以及type还有endian等。erlang的二进制比较强大的地方是，可以很容易地充分利用模式匹配这个功能。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 控制结构</h2>
+<div id="outline-container-orgeb582a3" class="outline-2">
+<h2 id="orgeb582a3"><span class="section-number-2">3</span> 控制结构</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 函数定义. 可以看到函数定义也有点类似模式匹配，可以列举各种模式来决定执行行为
@@ -226,8 +226,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 文件属性</h2>
+<div id="outline-container-org784ae94" class="outline-2">
+<h2 id="org784ae94"><span class="section-number-2">4</span> 文件属性</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 属性语法类似于 -SomeTag(&#x2026;) , 分为预定义属性和自定义属性。预定义的属性有
@@ -246,8 +246,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 并发编程</h2>
+<div id="outline-container-org7d56104" class="outline-2">
+<h2 id="org7d56104"><span class="section-number-2">5</span> 并发编程</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 通过spawn函数来创建线程，返回一个线程句柄（通常命名为Pid），之后可以往这个线程投递消息，比如 <code>Pid ! hello</code> 。
@@ -264,8 +264,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 其他特性</h2>
+<div id="outline-container-org5a179ed" class="outline-2">
+<h2 id="org5a179ed"><span class="section-number-2">6</span> 其他特性</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>类型推断和类型检查。 用户可以提供spec来帮助erlang来检查类型错误，两个程序dialyzer和typer</li>

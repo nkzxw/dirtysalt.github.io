@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>C++</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,44 +18,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline11">1. language</a>
+<li><a href="#org9e6d982">1. language</a>
 <ul>
-<li><a href="#orgheadline5">1.1. new/delete</a>
+<li><a href="#org8b8b1fd">1.1. new/delete</a>
 <ul>
-<li><a href="#orgheadline1">1.1.1. new重载</a></li>
-<li><a href="#orgheadline2">1.1.2. new异常规格</a></li>
-<li><a href="#orgheadline3">1.1.3. 内存分配失败</a></li>
-<li><a href="#orgheadline4">1.1.4. operator new与new operator</a></li>
+<li><a href="#orgfa51112">1.1.1. new重载</a></li>
+<li><a href="#orgc1c3d81">1.1.2. new异常规格</a></li>
+<li><a href="#orgcd9978e">1.1.3. 内存分配失败</a></li>
+<li><a href="#orgc4410ba">1.1.4. operator new与new operator</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">1.2. static assert</a></li>
-<li><a href="#orgheadline10">1.3. renew static_cast</a>
+<li><a href="#orgdedbff2">1.2. static assert</a></li>
+<li><a href="#orgdd930cf">1.3. renew static_cast</a>
 <ul>
-<li><a href="#orgheadline7">1.3.1. 正确的例子</a></li>
-<li><a href="#orgheadline8">1.3.2. 当处理多继承时</a></li>
-<li><a href="#orgheadline9">1.3.3. 应该怎么做</a></li>
+<li><a href="#org9ca5c87">1.3.1. 正确的例子</a></li>
+<li><a href="#org649b359">1.3.2. 当处理多继承时</a></li>
+<li><a href="#org74efe9a">1.3.3. 应该怎么做</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline16">2. runtime</a>
+<li><a href="#orgd299a4b">2. runtime</a>
 <ul>
-<li><a href="#orgheadline12">2.1. local static object</a></li>
-<li><a href="#orgheadline13">2.2. hook function</a></li>
-<li><a href="#orgheadline14">2.3. undefined reference to static const class member</a></li>
-<li><a href="#orgheadline15">2.4. malloc warmup performance</a></li>
+<li><a href="#org003493f">2.1. local static object</a></li>
+<li><a href="#org855b1b3">2.2. hook function</a></li>
+<li><a href="#org0686779">2.3. undefined reference to static const class member</a></li>
+<li><a href="#orgbb601f8">2.4. malloc warmup performance</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">3. library</a>
+<li><a href="#orgf9344ae">3. library</a>
 <ul>
-<li><a href="#orgheadline17">3.1. boost::bind</a></li>
-<li><a href="#orgheadline18">3.2. boost::spirit</a></li>
-<li><a href="#orgheadline19">3.3. boost::property_tree</a></li>
-<li><a href="#orgheadline20">3.4. boost::python</a></li>
-<li><a href="#orgheadline21">3.5. logging</a></li>
+<li><a href="#org1bf3e81">3.1. boost::bind</a></li>
+<li><a href="#org81098bf">3.2. boost::spirit</a></li>
+<li><a href="#org4c9a9f9">3.3. boost::property_tree</a></li>
+<li><a href="#org024d6ab">3.4. boost::python</a></li>
+<li><a href="#orgadfdd29">3.5. logging</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">4. c++11</a></li>
+<li><a href="#org659c266">4. c++11</a></li>
 </ul>
 </div>
 </div>
@@ -68,11 +68,12 @@
 <li><a href="https://isocpp.org/get-started">https://isocpp.org/get-started</a></li>
 </ul>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">1</span> language</h2>
+<div id="outline-container-org9e6d982" class="outline-2">
+<h2 id="org9e6d982"><span class="section-number-2">1</span> language</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.1</span> new/delete</h3>
+</div>
+<div id="outline-container-org8b8b1fd" class="outline-3">
+<h3 id="org8b8b1fd"><span class="section-number-3">1.1</span> new/delete</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 new/delete和C的内存分配有很多区别，主要的改进在进行了很多可定制化的内容:
@@ -89,26 +90,25 @@ new/delete和C的内存分配有很多区别，主要的改进在进行了很多
 </ul>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-4">
-<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> new重载</h4>
+<div id="outline-container-orgfa51112" class="outline-4">
+<h4 id="orgfa51112"><span class="section-number-4">1.1.1</span> new重载</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 用户可以重载new/delete来实现全局new/delete或者是某个类的new/delete.原型有下面这些
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">#include &lt;new&gt;</span>
-<span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::size_t) <span class="org-keyword">throw</span> (<span class="org-constant">std</span>::<span class="org-type">bad_alloc</span>);
+<span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::<span class="org-type">size_t</span>) <span class="org-keyword">throw</span> (<span class="org-constant">std</span>::<span class="org-type">bad_alloc</span>);
 <span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>[](<span class="org-constant">std</span>::size_t) <span class="org-keyword">throw</span> (<span class="org-constant">std</span>::<span class="org-type">bad_alloc</span>);
 <span class="org-type">void</span> <span class="org-keyword">operator</span> <span class="org-keyword">delete</span>(<span class="org-type">void</span>*) <span class="org-keyword">throw</span>();
 <span class="org-type">void</span> <span class="org-keyword">operator</span> <span class="org-keyword">delete</span>[](<span class="org-type">void</span>*) <span class="org-keyword">throw</span>();
-<span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::size_t, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
+<span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::<span class="org-type">size_t</span>, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
 <span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>[](<span class="org-constant">std</span>::size_t, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
 <span class="org-type">void</span> <span class="org-keyword">operator</span> <span class="org-keyword">delete</span>(<span class="org-type">void</span>*, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
 <span class="org-type">void</span> <span class="org-keyword">operator</span> <span class="org-keyword">delete</span>[](<span class="org-type">void</span>*, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">Default placement versions of operator new.</span>
-<span class="org-keyword">inline</span> <span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::size_t, <span class="org-type">void</span>* <span class="org-variable-name">__p</span>) <span class="org-keyword">throw</span>() { <span class="org-keyword">return</span> __p; }
+<span class="org-keyword">inline</span> <span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::<span class="org-type">size_t</span>, <span class="org-type">void</span>* <span class="org-variable-name">__p</span>) <span class="org-keyword">throw</span>() { <span class="org-keyword">return</span> __p; }
 <span class="org-keyword">inline</span> <span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>[](<span class="org-constant">std</span>::size_t, <span class="org-type">void</span>* <span class="org-variable-name">__p</span>) <span class="org-keyword">throw</span>() { <span class="org-keyword">return</span> __p; }
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">Default placement versions of operator delete.</span>
@@ -122,7 +122,6 @@ new/delete如果作为类成员的话被重载的话，始终是静态成员，�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;new&gt;</span>
 <span class="org-keyword">class</span> <span class="org-type">A</span>{
@@ -155,22 +154,20 @@ new/delete如果作为类成员的话被重载的话，始终是静态成员，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> new异常规格</h4>
+<div id="outline-container-orgc1c3d81" class="outline-4">
+<h4 id="orgc1c3d81"><span class="section-number-4">1.1.2</span> new异常规格</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 从new的异常规格可以看到，如果是普通的调用的话可能会抛出std::bad_alloc这个异常，但是原型里面还有
 </p>
 <div class="org-src-container">
-
-<pre class="src src-C++"><span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::size_t, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
+<pre class="src src-C++"><span class="org-type">void</span>* <span class="org-keyword">operator</span> <span class="org-keyword">new</span>(<span class="org-constant">std</span>::<span class="org-type">size_t</span>, <span class="org-keyword">const</span> <span class="org-constant">std</span>::<span class="org-type">nothrow_t</span>&amp;) <span class="org-keyword">throw</span>();
 </pre>
 </div>
 <p>
 这种使用placement来通知new不抛出异常的的接口，语义是返回NULL来告诉app分配失败。要使用这个函数也非常简单
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">#include &lt;new&gt;</span>
 <span class="org-comment-delimiter">//  </span><span class="org-comment">struct nothrow_t { };</span>
 <span class="org-comment-delimiter">//  </span><span class="org-comment">extern const nothrow_t nothrow;</span>
@@ -183,14 +180,13 @@ new/delete如果作为类成员的话被重载的话，始终是静态成员，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">1.1.3</span> 内存分配失败</h4>
+<div id="outline-container-orgcd9978e" class="outline-4">
+<h4 id="orgcd9978e"><span class="section-number-4">1.1.3</span> 内存分配失败</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 C++来提供了内存分配失败的回调函数，但是这个只能够处理全局new分配失败的情况
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/** </span><span class="org-comment">If you write your own error handler to be called by @c new, it must</span>
 <span class="org-comment"> *  be of this type.  */</span>
 <span class="org-keyword">typedef</span> <span class="org-type">void</span> (*<span class="org-type">new_handler</span>)();
@@ -201,8 +197,8 @@ C++来提供了内存分配失败的回调函数，但是这个只能够处理�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="section-number-4">1.1.4</span> operator new与new operator</h4>
+<div id="outline-container-orgc4410ba" class="outline-4">
+<h4 id="orgc4410ba"><span class="section-number-4">1.1.4</span> operator new与new operator</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 此外在很多书籍里面会提到operator new和new operator这两个说法，这两个是不一样的概念。operator new就是我们重写运算符函数，而new operator使我们调用new这个表达式。本质上说new这个表达式调用了分配类型里面的operator new函数，同时调用这个类型的初始化构造函数。同理operator delete和delete operator差别也是一样的。通常new operator的动作是这样的:
@@ -226,11 +222,10 @@ C++来提供了内存分配失败的回调函数，但是这个只能够处理�
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.2</span> static assert</h3>
+<div id="outline-container-orgdedbff2" class="outline-3">
+<h3 id="orgdedbff2"><span class="section-number-3">1.2</span> static assert</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#define</span> <span class="org-function-name">STATIC_ASSERT</span>(<span class="org-variable-name">_cond</span>,<span class="org-variable-name">_name</span>)      <span class="org-keyword">typedef</span> <span class="org-type">char</span> <span class="org-type">STATIC_ASSERT_FAILED_</span> ## _name [ (_cond) ? 1 : -1 ]
 <span class="org-preprocessor">#define</span> <span class="org-function-name">STATIC_SIZE_ASSERT</span>(<span class="org-variable-name">_type</span>,<span class="org-variable-name">_size</span>) STATIC_ASSERT ( <span class="org-keyword">sizeof</span>(_type)==_size, _type ## _MUST_BE_ ## _size ## _BYTES )
 </pre>
@@ -241,7 +236,6 @@ C++来提供了内存分配失败的回调函数，但是这个只能够处理�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">int</span> <span class="org-function-name">main</span>() {
   STATIC_SIZE_ASSERT(<span class="org-type">int</span>,8);
   <span class="org-keyword">return</span> 0;
@@ -266,19 +260,18 @@ c++0x(&#x2013;std=c++0x)在语言层面上支持static_assert.
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.3</span> renew static_cast</h3>
+<div id="outline-container-orgdd930cf" class="outline-3">
+<h3 id="orgdd930cf"><span class="section-number-3">1.3</span> renew static_cast</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 学习C的时候总是认为强转不过就是二进制层面的强转。开始学习C++之后就认为C语言的强转对应的就是reinterpret_cast.而static_cast和reinterpret_cast的差别不过就是static_cast可以做一些类型上面的检查，所以在大多数的时候都习惯使用reinterpret_cast而非static_cast.直到在编写itachi（一个异步网络编程框架）的时候，才发现并不是这么回事。下面的例子是我遇到问题的一个抽象。
 </p>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">1.3.1</span> 正确的例子</h4>
+<div id="outline-container-org9ca5c87" class="outline-4">
+<h4 id="org9ca5c87"><span class="section-number-4">1.3.1</span> 正确的例子</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
 <span class="org-keyword">struct</span> <span class="org-type">A</span>{
 }; <span class="org-comment-delimiter">// </span><span class="org-comment">class A</span>
@@ -288,7 +281,7 @@ c++0x(&#x2013;std=c++0x)在语言层面上支持static_assert.
 }; <span class="org-comment-delimiter">// </span><span class="org-comment">class B</span>
 
 <span class="org-type">void</span> <span class="org-function-name">onComplete</span>(<span class="org-type">A</span>* <span class="org-variable-name">o</span>){
-  <span class="org-type">B</span>* <span class="org-variable-name">pb</span>=<span class="org-keyword">reinterpret_cast</span>&lt;B*&gt;(o);
+  <span class="org-type">B</span>* <span class="org-variable-name">pb</span>=<span class="org-keyword">reinterpret_cast</span>&lt;<span class="org-type">B</span>*&gt;(o);
   printf(<span class="org-string">"%p\n"</span>,&amp;(pb-&gt;g));
 }
 
@@ -298,6 +291,7 @@ c++0x(&#x2013;std=c++0x)在语言层面上支持static_assert.
   printf(<span class="org-string">"%p\n"</span>,&amp;(b.g));
   <span class="org-keyword">return</span> 0;
 }
+
 </pre>
 </div>
 
@@ -316,14 +310,13 @@ c++0x(&#x2013;std=c++0x)在语言层面上支持static_assert.
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">1.3.2</span> 当处理多继承时</h4>
+<div id="outline-container-org649b359" class="outline-4">
+<h4 id="org649b359"><span class="section-number-4">1.3.2</span> 当处理多继承时</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 处理B类型没有问题，但是处理B的子类型的话，那么上面代码可能就会出现问题。因为对于B子类型而言的话很可能在 <b>对象模型</b> 之前添加了一些字段，按照reintrepret_cast语义的话是直接二进制映射，字段没有虚方法所以是直接按照偏移来取的，因此可能存在问题。但是看看下面这个例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
 <span class="org-keyword">struct</span> <span class="org-type">A</span>{
 }; <span class="org-comment-delimiter">// </span><span class="org-comment">class A</span>
@@ -340,7 +333,7 @@ c++0x(&#x2013;std=c++0x)在语言层面上支持static_assert.
 }; <span class="org-comment-delimiter">// </span><span class="org-comment">class C</span>
 
 <span class="org-type">void</span> <span class="org-function-name">onComplete</span>(<span class="org-type">A</span>* <span class="org-variable-name">o</span>){
-  <span class="org-type">B</span>* <span class="org-variable-name">pb</span>=<span class="org-keyword">reinterpret_cast</span>&lt;B*&gt;(o);
+  <span class="org-type">B</span>* <span class="org-variable-name">pb</span>=<span class="org-keyword">reinterpret_cast</span>&lt;<span class="org-type">B</span>*&gt;(o);
   printf(<span class="org-string">"o:%p pb-&gt;g:%p\n"</span>,pb, &amp;(pb-&gt;g));
 }
 
@@ -368,8 +361,8 @@ c:0xbfff9a9c c.g:0xbfff9aa0
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">1.3.3</span> 应该怎么做</h4>
+<div id="outline-container-org74efe9a" class="outline-4">
+<h4 id="org74efe9a"><span class="section-number-4">1.3.3</span> 应该怎么做</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 <b>因为自己也缺乏C++对象模型方面的知识，所以也没有办法从底层解释原因。</b> 但是结论却非常简单，就是应该尽量地执行static_cast而非reinterpret_cast. reinterpret_cast对于继承方面基本没有做任何事情，而使用static_cast的话则能够检测到类型系统，然后根据类型系统来进行正确的转换。 要是想对于static_cast有更多认识的话，需要了解C++对象模型的实现。
@@ -389,18 +382,18 @@ c:0xbfff9a9c c.g:0xbfff9aa0
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">2</span> runtime</h2>
+<div id="outline-container-orgd299a4b" class="outline-2">
+<h2 id="orgd299a4b"><span class="section-number-2">2</span> runtime</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.1</span> local static object</h3>
+</div>
+<div id="outline-container-org003493f" class="outline-3">
+<h3 id="org003493f"><span class="section-number-3">2.1</span> local static object</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 局部静态对象在C里面初始化只允许是常数，所以这个在编译期就可以搞定。在C++里面局部静态对象允许是一个类对象，那么就涉及到类的初始化等问题，这个是在编译期搞不定的只能够在运行期解决。
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
 <span class="org-keyword">class</span> <span class="org-type">A</span>{
  <span class="org-keyword">public</span>:
@@ -423,49 +416,48 @@ c:0xbfff9a9c c.g:0xbfff9aa0
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-ASM">.globl _Z3foov
-        .type   _Z3foov, @function
+        .type	_Z3foov, @function
 _Z3foov:
 .LFB1445:
-        pushq   %rbp
+        pushq	%rbp
 .LCFI3:
-        movq    %rsp, %rbp
+        movq	%rsp, %rbp
 .LCFI4:
-        subq    $32, %rsp
+        subq	$32, %rsp
 .LCFI5:
-        cmpb    $0, _ZGVZ3foovE1a(%rip)
-        jne     .L10
-        movl    $_ZGVZ3foovE1a, %edi
-        call    __cxa_guard_acquire
-        testl   %eax, %eax
-        je      .L10
-        movb    $0, -1(%rbp)
-        movl    $_ZZ3foovE1a, %edi
+        cmpb	$0, _ZGVZ3foovE1a(%rip)
+        jne	.L10
+        movl	$_ZGVZ3foovE1a, %edi
+        call	__cxa_guard_acquire
+        testl	%eax, %eax
+        je	.L10
+        movb	$0, -1(%rbp)
+        movl	$_ZZ3foovE1a, %edi
 .LEHB0:
-        call    _ZN1AC1Ev
+        call	_ZN1AC1Ev
 .LEHE0:
-        movl    $_ZGVZ3foovE1a, %edi
-        call    __cxa_guard_release
-        jmp     .L10
+        movl	$_ZGVZ3foovE1a, %edi
+        call	__cxa_guard_release
+        jmp	.L10
 .L19:
-        movq    %rax, -24(%rbp)
+        movq	%rax, -24(%rbp)
 .L13:
-        movq    -24(%rbp), %rax
-        movq    %rax, -16(%rbp)
-        cmpb    $0, -1(%rbp)
-        je      .L15
-        jmp     .L16
+        movq	-24(%rbp), %rax
+        movq	%rax, -16(%rbp)
+        cmpb	$0, -1(%rbp)
+        je	.L15
+        jmp	.L16
 .L15:
-        movl    $_ZGVZ3foovE1a, %edi
-        call    __cxa_guard_abort
+        movl	$_ZGVZ3foovE1a, %edi
+        call	__cxa_guard_abort
 .L16:
-        movq    -16(%rbp), %rax
-        movq    %rax, -24(%rbp)
+        movq	-16(%rbp), %rax
+        movq	%rax, -24(%rbp)
 .L17:
-        movq    -24(%rbp), %rdi
+        movq	-24(%rbp), %rdi
 .LEHB1:
-        call    _Unwind_Resume
+        call	_Unwind_Resume
 .LEHE1:
 .L10:
         leave
@@ -475,8 +467,8 @@ _Z3foov:
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.2</span> hook function</h3>
+<div id="outline-container-org855b1b3" class="outline-3">
+<h3 id="org855b1b3"><span class="section-number-3">2.2</span> hook function</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 hook函数调用有两种方式，一种是hook我们代码内部的函数，这意味这这个函数是由我们来编译的，当然我们不能够修改需要hook的函数实现否则就没有意义了。另外一种hook函数是动态库里面的函数，静态库里面的函数因为完全进入了可执行程序，所以修改起来比较麻烦一些。我们QA写过这样的程序用libbfd库修改可执行程序本身，在函数调用之间加上跳板，但是相比本文介绍的两种方式更加复杂。（复杂就以为着容易出错，而且这种修改可执行程序应该是不值得提倡的）。
@@ -497,7 +489,6 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 这两个函数是gcc内置函数，_enter函数能够在函数调用之前进行调用，_exit函数能够在函数调用退出之后调用，原型分别是
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">this&#26159;&#36825;&#20010;callee&#20989;&#25968;&#22320;&#22336;</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">callsite&#26159;caller&#20989;&#25968;&#35843;&#29992;&#28857;&#22320;&#22336;(&#19981;&#26159;&#20989;&#25968;&#22320;&#22336;)</span>
 <span class="org-type">void</span> <span class="org-function-name">__cyg_profile_func_enter</span>(<span class="org-type">void</span> *<span class="org-keyword">this</span>, <span class="org-type">void</span> *<span class="org-variable-name">callsite</span>);
@@ -510,7 +501,6 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdlib&gt;</span>
 <span class="org-type">void</span> <span class="org-function-name">foo</span>() <span class="org-keyword">__attribute__</span>((no_instrument_function));
@@ -542,7 +532,6 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 可以使用dlopen截获函数入口，然后使用dlsym(RTLD_NEXT)来获得下一个入口.我们以截获malloc为例。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;unistd.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;dlfcn.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstring&gt;</span>
@@ -550,7 +539,7 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 
 <span class="org-type">void</span>* <span class="org-function-name">malloc</span>(<span class="org-type">size_t</span> <span class="org-variable-name">size</span>){
     write(2,<span class="org-string">"do malloc\n"</span>,strlen(<span class="org-string">"do malloc\n"</span>)+1); <span class="org-comment-delimiter">// </span><span class="org-comment">&#36825;&#37324;&#19981;&#33021;&#22815;&#29992;printf,&#22240;&#20026;&#20869;&#37096;&#21487;&#33021;&#20250;&#35843;&#29992;malloc</span>
-    <span class="org-keyword">static</span> <span class="org-type">void</span>* (*<span class="org-variable-name">pmalloc</span>)(<span class="org-type">size_t</span> <span class="org-variable-name">size</span>)=0;
+    <span class="org-keyword">static</span> <span class="org-type">void</span>* (*<span class="org-function-name">pmalloc</span>)(<span class="org-type">size_t</span> <span class="org-variable-name">size</span>)=0;
     <span class="org-keyword">if</span>(<span class="org-negation-char">!</span>pmalloc){
         pmalloc=(<span class="org-type">void</span>*(*)(<span class="org-type">size_t</span> <span class="org-variable-name">size</span>))(dlsym(RTLD_NEXT,<span class="org-string">"malloc"</span>));
     }
@@ -559,7 +548,7 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 
 <span class="org-type">void</span> <span class="org-function-name">free</span>(<span class="org-type">void</span> *<span class="org-variable-name">p</span>){
     write(2,<span class="org-string">"do free\n"</span>,strlen(<span class="org-string">"do free\n"</span>)+1);
-    <span class="org-keyword">static</span> <span class="org-type">void</span> (*<span class="org-variable-name">pfree</span>)(<span class="org-type">void</span>* <span class="org-variable-name">p</span>)=0;
+    <span class="org-keyword">static</span> <span class="org-type">void</span> (*<span class="org-function-name">pfree</span>)(<span class="org-type">void</span>* <span class="org-variable-name">p</span>)=0;
     <span class="org-keyword">if</span>(<span class="org-negation-char">!</span>pfree){
         pfree=(<span class="org-type">void</span>(*)(<span class="org-type">void</span>* <span class="org-variable-name">p</span>))(dlsym(RTLD_NEXT,<span class="org-string">"free"</span>));
     }
@@ -570,15 +559,14 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.3</span> undefined reference to static const class member</h3>
+<div id="outline-container-org0686779" class="outline-3">
+<h3 id="org0686779"><span class="section-number-3">2.3</span> undefined reference to static const class member</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 类型静态常量成员只允许是标量内容,而不允许是字符串数组或者是结构体等。但是下面代码会存在链接问题
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;vector&gt;</span>
 <span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
 <span class="org-keyword">class</span> <span class="org-type">Foo</span> {
@@ -603,7 +591,6 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 大致解释是这样，对于第一种用法的话，因为push_back需要是一个const int&amp;,因为需要传入的内容存在地址。而这种情况下面MEMBER仅仅是一个constant,没有任何地址所以会出现链接错误。而对于第二种情况的话，因为强制转换之后那么就存在一个临时对象可以被引用。说到这里我们一定需要注意临时对象，好比下面这种用法
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;string&gt;</span>
 <span class="org-type">int</span> <span class="org-function-name">main</span>() {
   <span class="org-constant">std</span>::<span class="org-type">string</span> <span class="org-variable-name">s1</span>=<span class="org-string">"h"</span>;
@@ -619,8 +606,8 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.4</span> malloc warmup performance</h3>
+<div id="outline-container-orgbb601f8" class="outline-3">
+<h3 id="orgbb601f8"><span class="section-number-3">2.4</span> malloc warmup performance</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 下面是我之前碰到的因为malloc warmup导致的性能差异巨大的问题。
@@ -634,7 +621,6 @@ hook函数调用有两种方式，一种是hook我们代码内部的函数，这
 <li>只运行action2</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
 <span class="org-comment"> * Copyright (C) dirlt</span>
 <span class="org-comment"> */</span>
@@ -751,11 +737,12 @@ tomb git:(master) ✗ g++ map_perf_test.cc -O2
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">3</span> library</h2>
+<div id="outline-container-orgf9344ae" class="outline-2">
+<h2 id="orgf9344ae"><span class="section-number-2">3</span> library</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">3.1</span> boost::bind</h3>
+</div>
+<div id="outline-container-org1bf3e81" class="outline-3">
+<h3 id="org1bf3e81"><span class="section-number-3">3.1</span> boost::bind</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 之前看到陈硕同学在<a href="http://blog.csdn.net/solstice/">博客</a> 给出的C++工程实践推荐，使用boost::function和boost::bind代替虚函数。之所以我们需要使用虚函数，无非就是希望统一执行接口。统一接口通过虚函数是一种方法，而使用boost::function和boost::bind也可以达到相同的目的。
@@ -765,7 +752,6 @@ tomb git:(master) ✗ g++ map_perf_test.cc -O2
 首先我们假设存在一个Executor类，里面有一个执行队列，所有的Task首先被push进来然后遍历执行。对于这个Task我们本身只需要一个执行接口void fun(Executor*).如果通过虚函数实现的话，我们需要定义一个abstract class含有virtual函数，然后在具体的类里面实现它。但是如果很不幸的话我们原本定义的类不是这样的，而是
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">A</span>{
  <span class="org-keyword">public</span>:
   <span class="org-type">void</span> <span class="org-function-name">fun</span>(<span class="org-type">Executor</span>* <span class="org-variable-name">x</span>,<span class="org-constant">std</span>::<span class="org-type">string</span> <span class="org-variable-name">s</span>){
@@ -790,7 +776,6 @@ tomb git:(master) ✗ g++ map_perf_test.cc -O2
 这是一种蹩脚的方法，类的个数会急剧膨胀。但是如果我们使用boost::function和boost::bind的话，可以不用添加新的Adapter类来解决这个问题。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++">x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-constant">A</span>::fun,&amp;a,_1,<span class="org-string">"hello"</span>));
 x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-constant">A</span>::fun,&amp;a,_1,<span class="org-string">"world"</span>));
 x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-constant">B</span>::fun,&amp;b,_1,123));
@@ -812,8 +797,8 @@ x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-const
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">3.2</span> boost::spirit</h3>
+<div id="outline-container-org81098bf" class="outline-3">
+<h3 id="org81098bf"><span class="section-number-3">3.2</span> boost::spirit</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 今天被Dr. Yang推荐使用boost::spirit，模板编程实现的语法解析器。Dr. Yang推荐我看看hypertable里面实现的hql，里面就是使用spirit实现的hql(hypertable query language)，在src/cc/Hypertable/Lib/HqlParser.h里面。粗看一下功能还是非常强大的，对于很多使用flex/bison完成的工作都可以通过spirit来完成。看上去是LALR解析器，现在不太清楚就是如果出现shift/reduce或者是reduce/reduce冲突的话spirit是怎么解决的。#note:应该是LL(1)解析器
@@ -829,8 +814,8 @@ x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-const
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">3.3</span> boost::property_tree</h3>
+<div id="outline-container-org4c9a9f9" class="outline-3">
+<h3 id="org4c9a9f9"><span class="section-number-3">3.3</span> boost::property_tree</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <a href="http://www.boost.org/doc/libs/1_58_0/doc/html/property_tree.html">http://www.boost.org/doc/libs/1_58_0/doc/html/property_tree.html</a>
@@ -842,8 +827,8 @@ x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-const
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">3.4</span> boost::python</h3>
+<div id="outline-container-org024d6ab" class="outline-3">
+<h3 id="org024d6ab"><span class="section-number-3">3.4</span> boost::python</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <a href="http://www.boost.org/doc/libs/1_58_0/libs/python/doc/index.html">http://www.boost.org/doc/libs/1_58_0/libs/python/doc/index.html</a>
@@ -855,8 +840,8 @@ x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-const
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">3.5</span> logging</h3>
+<div id="outline-container-orgadfdd29" class="outline-3">
+<h3 id="orgadfdd29"><span class="section-number-3">3.5</span> logging</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 @2015-07-26 最近一段时间使用C++编写Python扩展时候，发现原来的日志库(easyloggingpp)封装存在一些问题。修改完成日志库的封装之后，顺便就看了一下C/C++下面有什么可用的日志库。我粗略地看了下面几种，然后总结了一下优缺点以及自己的想法。
@@ -890,8 +875,8 @@ x.push(<span class="org-constant">boost</span>::bind(&amp;<span class="org-const
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">4</span> c++11</h2>
+<div id="outline-container-org659c266" class="outline-2">
+<h2 id="org659c266"><span class="section-number-2">4</span> c++11</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在自己的主页上列出了这些改进的 <a href="http://www.stroustrup.com/C++11FAQ.html">细节</a>, 有位国内开发者把它翻译成了 <a href="http://www.chenlq.net/cpp11-faq-chs">中文</a> (非常感谢).
@@ -931,15 +916,14 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 使用&lt;thread&gt;必须加上编译参数-pthread.
 </p>
 
-<hr  />
+<hr />
 
 <p>
 <b>suffix return type syntax(返回值类型后置语法)</b> 一开始我以为这个语法，是为了解决编写模板函数的时候，auto不能自动推导函数返回类型而设计的。比如下面这段程序
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">template</span>&lt;<span class="org-keyword">typename</span> <span class="org-type">T1</span>, <span class="org-keyword">typename</span> <span class="org-type">T2</span>&gt;
-<span class="org-keyword">auto</span> <span class="org-function-name">bar</span>(<span class="org-keyword">const</span> <span class="org-type">T1</span> <span class="org-variable-name">a</span>, <span class="org-keyword">const</span> <span class="org-type">T2</span> <span class="org-variable-name">b</span>) -&gt; decltype(a + b) {
+<span class="org-keyword">auto</span> <span class="org-function-name">bar</span>(<span class="org-keyword">const</span> <span class="org-type">T1</span> <span class="org-variable-name">a</span>, <span class="org-keyword">const</span> <span class="org-type">T2</span> <span class="org-variable-name">b</span>) -&gt; <span class="org-keyword">decltype</span>(a + b) {
     <span class="org-keyword">return</span> a + b;
 }
 </pre>
@@ -952,7 +936,6 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 实际按照BS的 <a href="http://www.stroustrup.com/C++11FAQ.html#suffix-return">想法</a>, 一开始这个语法的引入，却是为了解决作用域问题的。比如下面这段程序
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">A</span> {
   <span class="org-keyword">public</span>:
     <span class="org-keyword">class</span> <span class="org-type">B</span> {};
@@ -960,14 +943,14 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 };
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">A::B A::foo() { return B(); }</span>
-<span class="org-keyword">auto</span> <span class="org-constant">A</span>::<span class="org-function-name">foo</span>() -&gt; B { <span class="org-keyword">return</span> B(); }
+<span class="org-keyword">auto</span> <span class="org-constant">A</span>::<span class="org-function-name">foo</span>() -&gt; <span class="org-type">B</span> { <span class="org-keyword">return</span> B(); }
 </pre>
 </div>
 <p>
 如果我们按照第一种写法编写foo的话，返回值必须写明A::B, 因为再此之前还没有进去A作用域所以要写全名。而使用第二种写法的话，因为我们已经限定了在A作用域下，所以返回类型可以直接写B
 </p>
 
-<hr  />
+<hr />
 
 <p>
 <b>lambda expression(lambda表达式，匿名函数)</b>. 语法大致是这样的[capture](parameters) [suffix-return-type] { body }. 就像之前说的那样，C++11类型推导能力非常强大，所以suffix-return-type通常是可选的。
@@ -985,14 +968,13 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 匿名函数类型是std::function&lt;[actual-type&gt;].(defined in &lt;functional&gt;). 比如[](int a, int b) { return a + b; }的类型就是std::function&lt;int(int,int)&gt;. 虽然匿名函数可以捕获变量，但是并不意味着实现了闭包。下面这个程序中，lambda引用了count，但是在调用的时候count已经被销毁了，所以会出现运行错误。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;functional&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
 <span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
 
 <span class="org-constant">std</span>::<span class="org-type">function</span>&lt;<span class="org-type">int</span>()&gt; <span class="org-function-name">foo</span>() {
     <span class="org-type">int</span> <span class="org-variable-name">count</span> = 0;
-    <span class="org-keyword">auto</span> <span class="org-type">f</span> = [&amp;count]() {
+    <span class="org-keyword">auto</span> <span class="org-variable-name">f</span> = [&amp;<span class="org-variable-name">count</span>]() {
         count += 1;
         <span class="org-keyword">return</span> count;
     };
@@ -1000,8 +982,8 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 }
 
 <span class="org-type">int</span> <span class="org-function-name">main</span>() {
-    <span class="org-keyword">auto</span> <span class="org-type">f</span> = foo();
-    <span class="org-keyword">auto</span> <span class="org-type">x</span> = f();
+    <span class="org-keyword">auto</span> <span class="org-variable-name">f</span> = foo();
+    <span class="org-keyword">auto</span> <span class="org-variable-name">x</span> = f();
     <span class="org-comment-delimiter">// </span><span class="org-comment">cout &lt;&lt; x &lt;&lt; endl;</span>
 }
 </pre>
@@ -1011,7 +993,6 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 这里还想说一下就是，C++11也把bind纳入stl了（smart pointers, atomic, thread这些原来都在boost的组件都纳入stl了）.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;functional&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
 <span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
@@ -1022,8 +1003,8 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
     <span class="org-keyword">return</span> a + b + c;
 }
 <span class="org-type">int</span> <span class="org-function-name">main</span>() {
-    <span class="org-keyword">auto</span> <span class="org-type">f1</span> = bind(foo, 1, 2, _1);
-    <span class="org-keyword">auto</span> <span class="org-type">f2</span> = bind(foo, _1, _2, 3);
+    <span class="org-keyword">auto</span> <span class="org-variable-name">f1</span> = bind(foo, 1, 2, _1);
+    <span class="org-keyword">auto</span> <span class="org-variable-name">f2</span> = bind(foo, _1, _2, 3);
     cout &lt;&lt; f1(10) &lt;&lt; <span class="org-string">", "</span> &lt;&lt; f2(2,4) &lt;&lt; endl;
     <span class="org-keyword">return</span> 0;
 }
@@ -1031,13 +1012,12 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 </div>
 
 
-<hr  />
+<hr />
 
 <p>
 <b>rvalue references and move semantics(右值引用以及移动语义)</b>. 右值引用比较奇怪的一个地方是，你可以认为它是一个非常容易挥发的东西。因为一旦你使用A&amp;&amp; a = foo();获得右值引用的时候，其实你已经获得了左值a（并且发生了copy ctor或者是move ctor, 这个根据是否有move ctor决定的）. 只有在move ctor或者是move assignment时候我们才能够瞬间捕获到右值引用。想要把一个左值变为右值可以使用std::move函数。下面是我的实验代码，可以加深理解
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;cstdio&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;iostream&gt;</span>
 
@@ -1052,7 +1032,7 @@ C++11在C++03上做了许多改进，而且都是非常实用的改进。BS在�
 <span class="org-keyword">class</span> <span class="org-type">A</span> {
   <span class="org-keyword">public</span>:
     <span class="org-type">int</span> <span class="org-variable-name">v</span>;
-    <span class="org-function-name">A</span>(): <span class="org-function-name">v</span>(123) {
+    <span class="org-function-name">A</span>(): v(123) {
         cout &lt;&lt; <span class="org-string">"ctor"</span> &lt;&lt; endl;
     }
     <span class="org-function-name">A</span>(<span class="org-keyword">const</span> <span class="org-type">A</span>&amp; <span class="org-variable-name">x</span>) {

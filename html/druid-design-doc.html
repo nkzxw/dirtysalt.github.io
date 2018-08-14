@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Druid Design Doc</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Introduction</a></li>
-<li><a href="#orgheadline2">2. Architecture</a></li>
-<li><a href="#orgheadline3">3. Data Storage</a></li>
-<li><a href="#orgheadline4">4. Fault Tolerance</a></li>
+<li><a href="#org701586a">1. Introduction</a></li>
+<li><a href="#orge470870">2. Architecture</a></li>
+<li><a href="#orga8aa49d">3. Data Storage</a></li>
+<li><a href="#org125bb5e">4. Fault Tolerance</a></li>
 </ul>
 </div>
 </div>
@@ -30,8 +30,8 @@
 <li><a href="https://github.com/metamx/druid/wiki/Design">https://github.com/metamx/druid/wiki/Design</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org701586a" class="outline-2">
+<h2 id="org701586a"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Druid currently allows for single-table queries in a similar manner to Dremel and PowerDrill. It adds to the mix （功能介于dremel以及powerdrill之间）
@@ -49,8 +49,8 @@ As far as a comparison of systems is concerned, Druid sits in between PowerDrill
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Architecture</h2>
+<div id="outline-container-orge470870" class="outline-2">
+<h2 id="orge470870"><span class="section-number-2">2</span> Architecture</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The name comes from the Druid class in many role-playing games: it is a shape-shifter, capable of taking many different forms to fulfill various different roles in a group.(druid名字在许多角色游戏里面都有出现，它能够变形以适应各种不同的角色）</li>
@@ -86,8 +86,8 @@ The node types that currently exist are:（有下面几种节点类型存在）
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Data Storage</h2>
+<div id="outline-container-orga8aa49d" class="outline-2">
+<h2 id="orga8aa49d"><span class="section-number-2">3</span> Data Storage</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Getting data into the Druid system requires an indexing process. This gives the system a chance to analyze the data, add indexing structures, compress and adjust the layout in an attempt to optimize query speed. (数据进入druid之前会进行一些分析并且进行索引，然后压缩并且调整存储格式来优化查询速度） A quick list of what happens to the data follows.
@@ -113,8 +113,8 @@ In order for a segment to exist inside of the cluster, an entry has to be added 
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Fault Tolerance</h2>
+<div id="outline-container-org125bb5e" class="outline-2">
+<h2 id="org125bb5e"><span class="section-number-2">4</span> Fault Tolerance</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Compute As discussed above, if a compute node dies, another compute node can take its place and there is no fear of data loss</li>

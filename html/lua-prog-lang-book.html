@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lua程序设计</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,40 +18,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline5">1. 第一部分(C1~C10)</a>
+<li><a href="#orgd7e7d4b">1. 第一部分(C1~C10)</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 类型，表达式，语句</a></li>
-<li><a href="#orgheadline2">1.2. 函数/深入函数/迭代器与泛型for</a></li>
-<li><a href="#orgheadline3">1.3. 编译执行与错误</a></li>
-<li><a href="#orgheadline4">1.4. 协同程序(coroutine)</a></li>
+<li><a href="#org6130ef0">1.1. 类型，表达式，语句</a></li>
+<li><a href="#org42f96c2">1.2. 函数/深入函数/迭代器与泛型for</a></li>
+<li><a href="#org01881d9">1.3. 编译执行与错误</a></li>
+<li><a href="#org6fcae87">1.4. 协同程序(coroutine)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">2. 第二部分(C11~C17)</a>
+<li><a href="#org24690bd">2. 第二部分(C11~C17)</a>
 <ul>
-<li><a href="#orgheadline6">2.1. 数据结构/数据文件</a></li>
-<li><a href="#orgheadline7">2.2. 元表和元方法</a></li>
-<li><a href="#orgheadline8">2.3. 环境</a></li>
-<li><a href="#orgheadline9">2.4. 模块与包</a></li>
-<li><a href="#orgheadline10">2.5. 面向对象编程</a></li>
-<li><a href="#orgheadline11">2.6. 弱引用table</a></li>
+<li><a href="#orgc9933a4">2.1. 数据结构/数据文件</a></li>
+<li><a href="#org84a652e">2.2. 元表和元方法</a></li>
+<li><a href="#org6877e62">2.3. 环境</a></li>
+<li><a href="#org3006fce">2.4. 模块与包</a></li>
+<li><a href="#orgeb2b59c">2.5. 面向对象编程</a></li>
+<li><a href="#orgc3cbef3">2.6. 弱引用table</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">3. 第三部分(C18~C23)</a></li>
-<li><a href="#orgheadline14">4. 第四部分(C24~C31)</a></li>
+<li><a href="#org9944348">3. 第三部分(C18~C23)</a></li>
+<li><a href="#org79a97a3">4. 第四部分(C24~C31)</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">1</span> 第一部分(C1~C10)</h2>
+<div id="outline-container-orgd7e7d4b" class="outline-2">
+<h2 id="orgd7e7d4b"><span class="section-number-2">1</span> 第一部分(C1~C10)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 这个部分介绍基本语法以及简单地介绍Lua环境。
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 类型，表达式，语句</h3>
+<div id="outline-container-org6130ef0" class="outline-3">
+<h3 id="org6130ef0"><span class="section-number-3">1.1</span> 类型，表达式，语句</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Lua有8种基础类型，通过函数 `type` 来了解具体类型
@@ -71,7 +71,6 @@ Lua有8种基础类型，通过函数 `type` 来了解具体类型
 如果要写入长字符串的话，可以使用下面这种格式.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">s = [[this is a very long string.
 could be multiple lines]]
 </pre>
@@ -89,7 +88,6 @@ table既可以认为是一个dict, 也可以认为是array. 非常灵活的数�
 <li>lua将nil作为界定数组结尾的标识（这点在lua环境中很常见）</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Lua">a = {[1] = 10, [2] = 20, [10] = 10}
 for i, v in ipairs(a) do
    print(i, v)
@@ -134,8 +132,8 @@ table constructor(table构造式）很有趣，同时兼容key/value和array的�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 函数/深入函数/迭代器与泛型for</h3>
+<div id="outline-container-org42f96c2" class="outline-3">
+<h3 id="org42f96c2"><span class="section-number-3">1.2</span> 函数/深入函数/迭代器与泛型for</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 lua的函数定义和scheme很像，默认地都是匿名函数，至于 `function a()` 不过是 `a = function()` 这种语法糖形式。
@@ -145,7 +143,6 @@ lua的函数定义和scheme很像，默认地都是匿名函数，至于 `functi
 函数调用中比较有意思的是，如果只有一个参数并且该参数是字符串或者是table构造式的话，可以省略 `()`. 这样的话写出来就非常漂亮比如
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">print 'hello, world'
 a, b = table.unpack{10, 20}
 print(a, b)
@@ -159,7 +156,6 @@ print(a, b)
 变长参数在C语言里面需要花费很大的力气才能解开，但是lua里面使用却很容易。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-lua"><span class="org-keyword">function</span> <span class="org-function-name">test_vargs</span>(a, b, ...)
    <span class="org-builtin">print</span>(<span class="org-string">'a = '</span> .. a .. <span class="org-string">" , b = "</span> .. b)
    <span class="org-keyword">for</span> <span class="org-variable-name">i</span> = 1, <span class="org-builtin">select</span>(<span class="org-string">'#'</span>, ...) <span class="org-keyword">do</span>
@@ -174,7 +170,6 @@ test_vargs(10,20, <span class="org-builtin">table</span>.<span class="org-builti
 Lua本身并不支持具名实参 `named arguments`. 但是有个workaround, 就是传入table/字典
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">function get_named_args(args)
    keys = {"height", "width", "depth"}
    for i, k in ipairs(keys) do
@@ -209,8 +204,8 @@ get_named_args({height = 100, width = 200, depth = 50})
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 编译执行与错误</h3>
+<div id="outline-container-org01881d9" class="outline-3">
+<h3 id="org01881d9"><span class="section-number-3">1.3</span> 编译执行与错误</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 `loadstring`可以载入外部代码，`loadfile`可以载入代码文件。两者返回的都是一个function对象。只有执行这个function对象代码才会变真正执行，在执行的时候也是可以传入参数的。
@@ -226,8 +221,8 @@ get_named_args({height = 100, width = 200, depth = 50})
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 协同程序(coroutine)</h3>
+<div id="outline-container-org6fcae87" class="outline-3">
+<h3 id="org6fcae87"><span class="section-number-3">1.4</span> 协同程序(coroutine)</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 coroutine的几个相关操作
@@ -253,7 +248,6 @@ coroutine的几个相关操作
 书里面producer/consumer的例子改写成为coroutine方式如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-lua"><span class="org-comment-delimiter">-- </span><span class="org-comment">function producer()</span>
 <span class="org-comment-delimiter">--    </span><span class="org-comment">while true do</span>
 <span class="org-comment-delimiter">--       </span><span class="org-comment">local x = io.read()</span>
@@ -293,8 +287,8 @@ consumer()
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">2</span> 第二部分(C11~C17)</h2>
+<div id="outline-container-org24690bd" class="outline-2">
+<h2 id="org24690bd"><span class="section-number-2">2</span> 第二部分(C11~C17)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 深入介绍Lua环境
@@ -305,11 +299,11 @@ TODO:
 </p>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.1</span> 数据结构/数据文件</h3>
+<div id="outline-container-orgc9933a4" class="outline-3">
+<h3 id="orgc9933a4"><span class="section-number-3">2.1</span> 数据结构/数据文件</h3>
 </div>
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.2</span> 元表和元方法</h3>
+<div id="outline-container-org84a652e" class="outline-3">
+<h3 id="org84a652e"><span class="section-number-3">2.2</span> 元表和元方法</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 元表(metatable)本质上是一个table，我们可以在这个table里面设置，然后来影响和扩展使用这个metatable的table的行为。在Lua代码里面只能设置table的metatable, 其他类型的metatable的设置只能在C代码里面完成。下面代码片段说明了metatable的使用
@@ -322,7 +316,6 @@ TODO:
 <li>rawget 可以不理会 __index 这个函数</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Lua">local _m = {
    __tostring = function ()
       return o.c
@@ -389,8 +382,8 @@ __index还可以是一个table对象。如果是table对象而非函数的话，
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.3</span> 环境</h3>
+<div id="outline-container-org6877e62" class="outline-3">
+<h3 id="org6877e62"><span class="section-number-3">2.3</span> 环境</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Lua所有的全局变量都保存在一个table里面，这个table称为环境(environment). 可以使用 `_G` 来获得环境。结合上面元表(metatable)和元方法(metamethod), 可以做蛮多事情的。
@@ -398,8 +391,8 @@ Lua所有的全局变量都保存在一个table里面，这个table称为环境(
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.4</span> 模块与包</h3>
+<div id="outline-container-org3006fce" class="outline-3">
+<h3 id="org3006fce"><span class="section-number-3">2.4</span> 模块与包</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 模块可以通过 `require` 来加载。加载模块会有返回值，这个由模块来定义的，通常返回的是一个table.
@@ -413,7 +406,6 @@ Lua所有的全局变量都保存在一个table里面，这个table称为环境(
 模块在编写上有许多技巧，似乎都比较复杂。下面我总结了个可以work的boilerplate (copy from <a href="https://moonbingbing.gitbooks.io/openresty-best-practices/lua/not_use_module.html">here</a>)
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">-- /usr/bin/env lua
 -- coding:utf-8
 -- Copyright (C) dirlt
@@ -443,7 +435,6 @@ return _M
 在调用的时候如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">local rect = require 'kv' -- 上面module命名为kv.lua
 
 obj = rect:new(10, 20)
@@ -457,8 +448,8 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.5</span> 面向对象编程</h3>
+<div id="outline-container-orgeb2b59c" class="outline-3">
+<h3 id="orgeb2b59c"><span class="section-number-3">2.5</span> 面向对象编程</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 面向对象上没有更多概念的引入，都是在利用metatable/metamethod在模拟面向对象的性质，但是非常巧妙。更加奇妙的是，class/instance没有明确的界限，类似于javascript里面的prototype.
@@ -480,7 +471,6 @@ end
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Lua">Account = {balance = 0}
 
 function Account:new (o)
@@ -515,7 +505,6 @@ print(account.balance)
 </ul></li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Lua">SubAccount = Account:new()
 
 function SubAccount:add_level(value)
@@ -534,7 +523,6 @@ print(sub_account.balance, sub_account.level)
 如果是多重继承的话，需要修改 `setmetatable(o, self)` 这段代码，需要传入所有的parent class, 然后在`__index`里面查找所有parent class. 书里面给了例子，我觉得写起来还挺有技巧性的，所以复制一份代码放在这里
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Lua">local function search(k, plist)
    for i = 1, #plist do
       local v = plist[i][k]
@@ -562,8 +550,8 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.6</span> 弱引用table</h3>
+<div id="outline-container-orgc3cbef3" class="outline-3">
+<h3 id="orgc3cbef3"><span class="section-number-3">2.6</span> 弱引用table</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 弱引用的table，里面key或者是value，如果没有被外面访问的话，那么在gc阶段是会被回收的。Lua只会回收弱引用table中的对象，而不会回收值。
@@ -574,7 +562,6 @@ end
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Lua">a = {}
 setmetatable(a, {__mode = 'v'})
 
@@ -612,8 +599,8 @@ c	table: 0x7fe6e9402b30
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">3</span> 第三部分(C18~C23)</h2>
+<div id="outline-container-org9944348" class="outline-2">
+<h2 id="org9944348"><span class="section-number-2">3</span> 第三部分(C18~C23)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Lua各种库的使用方法。书里面介绍了下面这些库
@@ -651,8 +638,8 @@ Lua各种库的使用方法。书里面介绍了下面这些库
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">4</span> 第四部分(C24~C31)</h2>
+<div id="outline-container-org79a97a3" class="outline-2">
+<h2 id="org79a97a3"><span class="section-number-2">4</span> 第四部分(C24~C31)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 如何将Lua和C混合编程，包括用C扩展Lua以及在C里面调用Lua代码。

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Spark: Cluster Computing with Working Sets</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,26 +18,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Abstract</a></li>
-<li><a href="#orgheadline2">2. Introduction</a></li>
-<li><a href="#orgheadline6">3. Programming Model</a>
+<li><a href="#org43aacee">1. Abstract</a></li>
+<li><a href="#org95fb802">2. Introduction</a></li>
+<li><a href="#orgf324c8d">3. Programming Model</a>
 <ul>
-<li><a href="#orgheadline3">3.1. Resilient Distributed Datasets (RDDs)</a></li>
-<li><a href="#orgheadline4">3.2. Parallel Operations</a></li>
-<li><a href="#orgheadline5">3.3. Shared Variables</a></li>
+<li><a href="#orgc2fb3fe">3.1. Resilient Distributed Datasets (RDDs)</a></li>
+<li><a href="#orgf8fbc05">3.2. Parallel Operations</a></li>
+<li><a href="#org49e61d6">3.3. Shared Variables</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">4. Examples</a></li>
-<li><a href="#orgheadline11">5. Implementation</a>
+<li><a href="#orga07e2f1">4. Examples</a></li>
+<li><a href="#org1d39af4">5. Implementation</a>
 <ul>
-<li><a href="#orgheadline8">5.1. RDD</a></li>
-<li><a href="#orgheadline9">5.2. Shared Variables</a></li>
-<li><a href="#orgheadline10">5.3. Interpret Intergation</a></li>
+<li><a href="#org20b88b6">5.1. RDD</a></li>
+<li><a href="#orgfab1d3e">5.2. Shared Variables</a></li>
+<li><a href="#org57cbf44">5.3. Interpret Intergation</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">6. Results</a></li>
-<li><a href="#orgheadline13">7. Related Work</a></li>
-<li><a href="#orgheadline14">8. Discussion and Future Work</a></li>
+<li><a href="#org0d67a37">6. Results</a></li>
+<li><a href="#org74e504f">7. Related Work</a></li>
+<li><a href="#orgb9c71c5">8. Discussion and Future Work</a></li>
 </ul>
 </div>
 </div>
@@ -45,8 +45,8 @@
 <a href="https://www.usenix.org/legacy/events/hotcloud10/tech/full_papers/Zaharia.pdf">https://www.usenix.org/legacy/events/hotcloud10/tech/full_papers/Zaharia.pdf</a> @ 2010
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-org43aacee" class="outline-2">
+<h2 id="org43aacee"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>MapReduce and its variants have been highly successful in implementing large-scale data-intensive applications on commodity clusters. However, most of these systems are built around an acyclic data flow model that is not suitable for other popular applications. This paper fo- cuses on one such class of applications: those that reuse a working set of data across multiple parallel operations. This includes many iterative machine learning algorithms, as well as interactive data analysis tools.（迭代计算和交互式分析）</li>
@@ -56,8 +56,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-org95fb802" class="outline-2">
+<h2 id="org95fb802"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In this paper, we focus on one such class of applications: those that reuse a working set of data across multiple parallel operations. This includes two use cases where we have seen Hadoop users report that MapReduce is deficient:
@@ -67,7 +67,7 @@ In this paper, we focus on one such class of applications: those that reuse a wo
 <li><b>Interactive analytics</b>: Hadoop is often used to run ad-hoc exploratory queries on large datasets, through SQL interfaces such as Pig and Hive. Ideally, a user would be able to load a dataset of interest into memory across a number of machines and query it re- peatedly. However, with Hadoop, each query incurs significant latency (tens of seconds) because it runs as a separate MapReduce job and reads data from disk.</li>
 </ul>
 
-<hr  />
+<hr />
 <ul class="org-ul">
 <li>The main abstraction in Spark is that of a resilient dis- tributed dataset (RDD), which represents a read-only col- lection of objects partitioned across a set of machines that can be rebuilt if a partition is lost. Users can explicitly cache an RDD in memory across machines and reuse it in multiple MapReduce-like parallel operations. （RDD可以存储在内存中，并且可以重复使用）</li>
 <li>RDDs achieve fault tolerance through a notion of lineage: if a partition of an RDD is lost, the RDD has enough infor- mation about how it was derived from other RDDs to be able to rebuild just that partition.（RDD通过lineage来达到fault-tolerant. 一个RDD内部包含足够信息来重新构造自己。因为RDD是只读的，所以这个信息只需要是input + sequence of transformatios)</li>
@@ -76,8 +76,8 @@ In this paper, we focus on one such class of applications: those that reuse a wo
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> Programming Model</h2>
+<div id="outline-container-orgf324c8d" class="outline-2">
+<h2 id="orgf324c8d"><span class="section-number-2">3</span> Programming Model</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>To use Spark, developers write a driver program that im- plements the high-level control flow of their application and launches various operations in parallel.</li>
@@ -86,8 +86,8 @@ In this paper, we focus on one such class of applications: those that reuse a wo
 </ul>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> Resilient Distributed Datasets (RDDs)</h3>
+<div id="outline-container-orgc2fb3fe" class="outline-3">
+<h3 id="orgc2fb3fe"><span class="section-number-3">3.1</span> Resilient Distributed Datasets (RDDs)</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>A resilient distributed dataset (RDD) is a read-only col- lection of objects partitioned across a set of machines that can be rebuilt if a partition is lost.</li>
@@ -108,8 +108,8 @@ In this paper, we focus on one such class of applications: those that reuse a wo
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> Parallel Operations</h3>
+<div id="outline-container-orgf8fbc05" class="outline-3">
+<h3 id="orgf8fbc05"><span class="section-number-3">3.2</span> Parallel Operations</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Several parallel operations can be performed on RDDs:
@@ -126,8 +126,8 @@ We note that Spark does not currently support a grouped reduce operation as in M
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Shared Variables</h3>
+<div id="outline-container-org49e61d6" class="outline-3">
+<h3 id="org49e61d6"><span class="section-number-3">3.3</span> Shared Variables</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Programmers invoke operations like map, filter and re- duce by passing closures (functions) to Spark. As is typi- cal in functional programming, these closures can refer to variables in the scope where they are created. Normally, when Spark runs a closure on a worker node, these vari- ables are copied to the worker.（closure使用的变量会被复制到worker上）</li>
@@ -141,11 +141,11 @@ We note that Spark does not currently support a grouped reduce operation as in M
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">4</span> Examples</h2>
+<div id="outline-container-orga07e2f1" class="outline-2">
+<h2 id="orga07e2f1"><span class="section-number-2">4</span> Examples</h2>
 </div>
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">5</span> Implementation</h2>
+<div id="outline-container-org1d39af4" class="outline-2">
+<h2 id="org1d39af4"><span class="section-number-2">5</span> Implementation</h2>
 <div class="outline-text-2" id="text-5">
 
 <div class="figure">
@@ -154,15 +154,14 @@ We note that Spark does not currently support a grouped reduce operation as in M
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">5.1</span> RDD</h3>
+<div id="outline-container-org20b88b6" class="outline-3">
+<h3 id="org20b88b6"><span class="section-number-3">5.1</span> RDD</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 The core of Spark is the implementation of resilient dis- tributed datasets. As an example, suppose that we define a cached dataset called cachedErrs representing error messages in a log file, and that we count its elements us- ing map and reduce, as in Section 3.1:
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Scala">val file = spark.textFile("hdfs://...")
 val errs = file.filter(_.contains("ERROR"))
 val cachedErrs = errs.cache()
@@ -185,7 +184,7 @@ These datasets will be stored as a chain of objects cap- turing the lineage of e
 #note: rdd = direct input + function as closure
 </p>
 
-<hr  />
+<hr />
 
 <p>
 Internally, each RDD object implements the same sim- ple interface, which consists of three operations:（RDD interface)
@@ -217,8 +216,8 @@ Finally, shipping tasks to workers requires shipping closures to them—both the
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">5.2</span> Shared Variables</h3>
+<div id="outline-container-orgfab1d3e" class="outline-3">
+<h3 id="orgfab1d3e"><span class="section-number-3">5.2</span> Shared Variables</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 The two types of shared variables in Spark, broadcast variables and accumulators, are imple- mented using classes with custom serialization formats.
@@ -230,12 +229,12 @@ The two types of shared variables in Spark, broadcast variables and accumulators
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">5.3</span> Interpret Intergation</h3>
+<div id="outline-container-org57cbf44" class="outline-3">
+<h3 id="org57cbf44"><span class="section-number-3">5.3</span> Interpret Intergation</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">6</span> Results</h2>
+<div id="outline-container-org0d67a37" class="outline-2">
+<h2 id="org0d67a37"><span class="section-number-2">6</span> Results</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Distributed Shared Memory</li>
@@ -246,11 +245,11 @@ The two types of shared variables in Spark, broadcast variables and accumulators
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">7</span> Related Work</h2>
+<div id="outline-container-org74e504f" class="outline-2">
+<h2 id="org74e504f"><span class="section-number-2">7</span> Related Work</h2>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">8</span> Discussion and Future Work</h2>
+<div id="outline-container-orgb9c71c5" class="outline-2">
+<h2 id="orgb9c71c5"><span class="section-number-2">8</span> Discussion and Future Work</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 In future work, we plan to focus on four areas:

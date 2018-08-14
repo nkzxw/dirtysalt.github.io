@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HDFS</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,19 +18,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. HDFS Shell</a></li>
-<li><a href="#orgheadline2">2. Filesystem Corruption and Missing Blocks</a></li>
-<li><a href="#orgheadline3">3. 文件系统API</a></li>
-<li><a href="#orgheadline4">4. 一致性问题</a></li>
-<li><a href="#orgheadline5">5. 读写进度</a></li>
-<li><a href="#orgheadline6">6. 获取集群运行状况</a></li>
-<li><a href="#orgheadline7">7. All datanodes are bad. Aborting</a></li>
+<li><a href="#org827eeee">1. HDFS Shell</a></li>
+<li><a href="#org7f07563">2. Filesystem Corruption and Missing Blocks</a></li>
+<li><a href="#org96fed7a">3. 文件系统API</a></li>
+<li><a href="#org9935390">4. 一致性问题</a></li>
+<li><a href="#org5035a0b">5. 读写进度</a></li>
+<li><a href="#org9db1eea">6. 获取集群运行状况</a></li>
+<li><a href="#orga527bc5">7. All datanodes are bad. Aborting</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> HDFS Shell</h2>
+<div id="outline-container-org827eeee" class="outline-2">
+<h2 id="org827eeee"><span class="section-number-2">1</span> HDFS Shell</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>balancer 可以限制比例阈值和传输带宽</li>
@@ -39,8 +39,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Filesystem Corruption and Missing Blocks</h2>
+<div id="outline-container-org7f07563" class="outline-2">
+<h2 id="org7f07563"><span class="section-number-2">2</span> Filesystem Corruption and Missing Blocks</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>HadoopRecovery &lt; Storage &lt; TWiki <a href="https://www.opensciencegrid.org/bin/view/Storage/HadoopRecovery">https://www.opensciencegrid.org/bin/view/Storage/HadoopRecovery</a></li>
@@ -116,9 +116,10 @@ FSCK ended at Mon Oct 08 15:17:07 CST 2012 in 1 milliseconds
 
 
 The filesystem under path '/hbase/.corrupt/dp18.umeng.com%3A60020.1349065853563' is CORRUPT
+
 </pre>
 
-<hr  />
+<hr />
 
 <p>
 默认情况下面如果hdfs发现某个block under replicated的话，会自动对这个block做replication的，直到replicaion factor达到需求。但是有时候hdfs也会stuck住。除了重启的话，也可以试试上面链接提到的方法。
@@ -132,8 +133,8 @@ The filesystem under path '/hbase/.corrupt/dp18.umeng.com%3A60020.1349065853563'
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 文件系统API</h2>
+<div id="outline-container-org96fed7a" class="outline-2">
+<h2 id="org96fed7a"><span class="section-number-2">3</span> 文件系统API</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 HDFS文件系统的操作步骤主要如下：
@@ -183,8 +184,8 @@ uri = file:///
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 一致性问题</h2>
+<div id="outline-container-org9935390" class="outline-2">
+<h2 id="org9935390"><span class="section-number-2">4</span> 一致性问题</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>hdfs一致性模型是reader不能够读取到当前被write的block，除非writer调用sync强制进行同步
@@ -200,8 +201,8 @@ uri = file:///
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 读写进度</h2>
+<div id="outline-container-org5035a0b" class="outline-2">
+<h2 id="org5035a0b"><span class="section-number-2">5</span> 读写进度</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>hdfs每次将64KB数据写入datanode pipeline的时候都会调用progress.</li>
@@ -215,8 +216,8 @@ uri = file:///
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 获取集群运行状况</h2>
+<div id="outline-container-org9db1eea" class="outline-2">
+<h2 id="org9db1eea"><span class="section-number-2">6</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
@@ -225,8 +226,8 @@ uri = file:///
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> All datanodes are bad. Aborting</h2>
+<div id="outline-container-orga527bc5" class="outline-2">
+<h2 id="orga527bc5"><span class="section-number-2">7</span> All datanodes are bad. Aborting</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 当时的情况是增加了datanode的处理线程数目但是没有重启regionserver.怀疑原因可能是文件句柄数量不够，重启regionserver之后恢复正常。

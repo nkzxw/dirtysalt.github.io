@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP Implementation in Linux: A Brief Tutorial</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. create connection</a></li>
-<li><a href="#orgheadline2">2. packet reception</a></li>
-<li><a href="#orgheadline3">3. packet transmission</a></li>
-<li><a href="#orgheadline4">4. congestion control</a></li>
+<li><a href="#orgac91b0f">1. create connection</a></li>
+<li><a href="#org8dd27f9">2. packet reception</a></li>
+<li><a href="#org1113bad">3. packet transmission</a></li>
+<li><a href="#org870647d">4. congestion control</a></li>
 </ul>
 </div>
 </div>
@@ -29,8 +29,8 @@
 <a href="http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf">http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> create connection</h2>
+<div id="outline-container-orgac91b0f" class="outline-2">
+<h2 id="orgac91b0f"><span class="section-number-2">1</span> create connection</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 下面摘自 "<a href="http://blog.sina.com.cn/s/blog_e59371cc0102vg4n.html">Linux TCP队列相关参数的总结</a>":
@@ -56,8 +56,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> packet reception</h2>
+<div id="outline-container-org8dd27f9" class="outline-2">
+<h2 id="org8dd27f9"><span class="section-number-2">2</span> packet reception</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -111,8 +111,8 @@ Linux在2.6.17以后增加了recv Buffer自动调节机制，recv buffer的实�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> packet transmission</h2>
+<div id="outline-container-org1113bad" class="outline-2">
+<h2 id="org1113bad"><span class="section-number-2">3</span> packet transmission</h2>
 <div class="outline-text-2" id="text-3">
 
 <div class="figure">
@@ -166,8 +166,8 @@ QDisc的队列长度由txqueuelen设置，和接收数据包的队列长度由�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> congestion control</h2>
+<div id="outline-container-org870647d" class="outline-2">
+<h2 id="org870647d"><span class="section-number-2">4</span> congestion control</h2>
 <div class="outline-text-2" id="text-4">
 
 <div class="figure">

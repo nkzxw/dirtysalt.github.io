@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Achieving Rapid Response Times in Large Online Services</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,7 +18,7 @@
 如何在大规模在线系统中保证延迟？
 </p>
 
-<hr  />
+<hr />
 <p>
 通常大规模在线系统都是large fanout的，那么非常容易出现延迟。
 </p>
@@ -69,7 +69,7 @@ Server with 1 ms avg. but 1 sec 99%ile latency
 这些都是从外部来缓解环境对延迟变动造成的影响，接下来是如何从系统内部出发来解决延迟变动。
 </p>
 
-<hr  />
+<hr />
 <p>
 如果我们将Faults和Variability放在一起看的话，或许会得到一些启发
 </p>
@@ -138,7 +138,7 @@ Tolerating Faults vs. Tolerating Variability
 另外一个减少Variability思路是，只返回部分结果。一旦发现某个subsystem返回时间太长的话，舍弃这个部分的结果（或许之后会切断这个subsystem的访问）。但是不要忘记在cache里面标注这个结果不是完整的。
 </p>
 
-<hr  />
+<hr />
 <p>
 一些硬件发展趋势对延迟变动性的影响
 </p>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>snappy</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,35 +18,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Overview</a></li>
-<li><a href="#orgheadline4">2. Format</a>
+<li><a href="#org85fb0e2">1. Overview</a></li>
+<li><a href="#orga3554a6">2. Format</a>
 <ul>
-<li><a href="#orgheadline2">2.1. Literal</a></li>
-<li><a href="#orgheadline3">2.2. Copy</a></li>
+<li><a href="#org0fc8da1">2.1. Literal</a></li>
+<li><a href="#org7d9cfc6">2.2. Copy</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">3. Source &amp; Sink</a></li>
-<li><a href="#orgheadline15">4. Snippet</a>
+<li><a href="#orgaf8acd2">3. Source &amp; Sink</a></li>
+<li><a href="#orgaca1cfa">4. Snippet</a>
 <ul>
-<li><a href="#orgheadline6">4.1. Bits</a></li>
-<li><a href="#orgheadline7">4.2. Varint</a></li>
-<li><a href="#orgheadline8">4.3. GetUint32AtOffset</a></li>
-<li><a href="#orgheadline9">4.4. GetHashTable</a></li>
-<li><a href="#orgheadline10">4.5. FindMatchLength</a></li>
-<li><a href="#orgheadline11">4.6. MaxCompressedLength</a></li>
-<li><a href="#orgheadline12">4.7. IncrementalCopy</a></li>
-<li><a href="#orgheadline13">4.8. EmitLiteral</a></li>
-<li><a href="#orgheadline14">4.9. EmitCopy</a></li>
+<li><a href="#org639bb3c">4.1. Bits</a></li>
+<li><a href="#org63acd81">4.2. Varint</a></li>
+<li><a href="#org7be639b">4.3. GetUint32AtOffset</a></li>
+<li><a href="#org4015b43">4.4. GetHashTable</a></li>
+<li><a href="#org81b015c">4.5. FindMatchLength</a></li>
+<li><a href="#org57f0218">4.6. MaxCompressedLength</a></li>
+<li><a href="#org6d31c36">4.7. IncrementalCopy</a></li>
+<li><a href="#org02ed946">4.8. EmitLiteral</a></li>
+<li><a href="#org12944b1">4.9. EmitCopy</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">5. Compress</a></li>
-<li><a href="#orgheadline19">6. Uncompress</a>
+<li><a href="#orga986a45">5. Compress</a></li>
+<li><a href="#org86353ad">6. Uncompress</a>
 <ul>
-<li><a href="#orgheadline17">6.1. Writer</a></li>
-<li><a href="#orgheadline18">6.2. SnappyDecompressor</a></li>
+<li><a href="#org706a6e4">6.1. Writer</a></li>
+<li><a href="#org6fb9cdc">6.2. SnappyDecompressor</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline20">7. Example</a></li>
+<li><a href="#org7e2e7a1">7. Example</a></li>
 </ul>
 </div>
 </div>
@@ -54,8 +54,8 @@
 <a href="http://code.google.com/p/snappy/">http://code.google.com/p/snappy/</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org85fb0e2" class="outline-2">
+<h2 id="org85fb0e2"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Snappy is a compression/decompression library. It does not aim for maximum
@@ -107,8 +107,8 @@ several places if running on a big-endian platform.</li>
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">2</span> Format</h2>
+<div id="outline-container-orga3554a6" class="outline-2">
+<h2 id="orga3554a6"><span class="section-number-2">2</span> Format</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Snappy is a LZ77-type compressor with a fixed, byte-oriented encoding.
@@ -147,8 +147,8 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 </p>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Literal</h3>
+<div id="outline-container-org0fc8da1" class="outline-3">
+<h3 id="org0fc8da1"><span class="section-number-3">2.1</span> Literal</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 对于literal来说的话编码方式是这样的，假设literal的长度为len(len&gt;=1).
@@ -166,8 +166,8 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> Copy</h3>
+<div id="outline-container-org7d9cfc6" class="outline-3">
+<h3 id="org7d9cfc6"><span class="section-number-3">2.2</span> Copy</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 对于copy来说的话我们假设内容是(offset,length).(offset&gt;=1,length&gt;=1).
@@ -184,15 +184,14 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">3</span> Source &amp; Sink</h2>
+<div id="outline-container-orgaf8acd2" class="outline-2">
+<h2 id="orgaf8acd2"><span class="section-number-2">3</span> Source &amp; Sink</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 这里Source表示输入源，而Sink表示输出源。不过设计上比较遗憾的是在Compress上面使用了这两个结构，
 而在Uncompress上面的话只是使用了Source这个结构，而输出源的话使用了另外一个内部类Writer.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">size_t</span> <span class="org-function-name">Compress</span>(<span class="org-type">Source</span>* <span class="org-variable-name">source</span>, <span class="org-type">Sink</span>* <span class="org-variable-name">sink</span>);
 <span class="org-type">bool</span> <span class="org-function-name">RawUncompress</span>(<span class="org-type">Source</span>* <span class="org-variable-name">compressed</span>, <span class="org-type">char</span>* <span class="org-variable-name">uncompressed</span>); <span class="org-comment-delimiter">// </span><span class="org-comment">&#20869;&#37096;&#26377;&#19968;&#20010;Writer&#23553;&#35013;&#20102;uncompressed&#25805;&#20316;</span>
 </pre>
@@ -206,7 +205,6 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 <li>GetAppendBuffer的话是交出一块length的buffer。这块length的buffer的话必须一致有效直到Append被调用。当然我们也可以直接返回scratch(外围框架分配的内存).</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">A Sink is an interface that consumes a sequence of bytes.</span>
 <span class="org-keyword">class</span> <span class="org-type">Sink</span> {
  <span class="org-keyword">public</span>:
@@ -245,7 +243,6 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 然后看看snappy默认实现Sink接口。这里GetAppendBuffer并没有使用scratch而是直接返回dest_,这样的话可以减少1次copy.因为如果返回scratch的话，那么外部框架首先copy到scratch,然后从scratch在copy回dest_.所以这里为什么Append需要判断(data!=dest_).
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">A Sink implementation that writes to a flat array without any bound checks.</span>
 <span class="org-keyword">class</span> <span class="org-type">UncheckedByteArraySink</span> : <span class="org-keyword">public</span> <span class="org-type">Sink</span> {
  <span class="org-keyword">public</span>:
@@ -288,7 +285,6 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 <li>Skip相当于告诉Source某个部分的字节流已经不需要被使用了。</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">A Source is an interface that yields a sequence of bytes</span>
 <span class="org-keyword">class</span> <span class="org-type">Source</span> {
  <span class="org-keyword">public</span>:
@@ -329,7 +325,6 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 然后snappy的默认实现非常简单
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">A Source implementation that yields the contents of a flat array</span>
 <span class="org-keyword">class</span> <span class="org-type">ByteArraySource</span> : <span class="org-keyword">public</span> <span class="org-type">Source</span> {
  <span class="org-keyword">public</span>:
@@ -363,22 +358,21 @@ Snappy实现上来说非常简单，首先针对字节流进行分块(比如32KB
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">4</span> Snippet</h2>
+<div id="outline-container-orgaca1cfa" class="outline-2">
+<h2 id="orgaca1cfa"><span class="section-number-2">4</span> Snippet</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所以有必要首先看看这些函数实现。
 </p>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">4.1</span> Bits</h3>
+<div id="outline-container-org639bb3c" class="outline-3">
+<h3 id="org639bb3c"><span class="section-number-3">4.1</span> Bits</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 定义了一些位操作，都使用了gcc内置函数
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Some bit-manipulation functions.</span>
 <span class="org-keyword">class</span> <span class="org-type">Bits</span> {
  <span class="org-keyword">public</span>:
@@ -420,15 +414,14 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.2</span> Varint</h3>
+<div id="outline-container-org63acd81" class="outline-3">
+<h3 id="org63acd81"><span class="section-number-3">4.2</span> Varint</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 定义了如何将32位整数进行编码和解码。关于这种编码方式可以参考protobuf的链接
 <a href="http://code.google.com/intl/zh-CN/apis/protocolbuffers/docs/encoding.html#varints">http://code.google.com/intl/zh-CN/apis/protocolbuffers/docs/encoding.html#varints</a>
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Variable-length integer encoding.</span>
 <span class="org-keyword">class</span> <span class="org-type">Varint</span> {
  <span class="org-keyword">public</span>:
@@ -461,13 +454,13 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
   <span class="org-keyword">if</span> (ptr &gt;= limit) <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;
   b = *(ptr++); result = b &amp; 127;          <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
   <span class="org-keyword">if</span> (ptr &gt;= limit) <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;
-  b = *(ptr++); result |= (<span class="org-type">b</span> &amp; 127) &lt;&lt;  7; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
+  b = *(ptr++); result |= (b &amp; 127) &lt;&lt;  7; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
   <span class="org-keyword">if</span> (ptr &gt;= limit) <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;
-  b = *(ptr++); result |= (<span class="org-type">b</span> &amp; 127) &lt;&lt; 14; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
+  b = *(ptr++); result |= (b &amp; 127) &lt;&lt; 14; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
   <span class="org-keyword">if</span> (ptr &gt;= limit) <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;
-  b = *(ptr++); result |= (<span class="org-type">b</span> &amp; 127) &lt;&lt; 21; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
+  b = *(ptr++); result |= (b &amp; 127) &lt;&lt; 21; <span class="org-keyword">if</span> (b &lt; 128) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
   <span class="org-keyword">if</span> (ptr &gt;= limit) <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;
-  b = *(ptr++); result |= (<span class="org-type">b</span> &amp; 127) &lt;&lt; 28; <span class="org-keyword">if</span> (b &lt; 16) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
+  b = *(ptr++); result |= (b &amp; 127) &lt;&lt; 28; <span class="org-keyword">if</span> (b &lt; 16) <span class="org-keyword">goto</span> <span class="org-constant">done</span>;
   <span class="org-keyword">return</span> <span class="org-constant">NULL</span>;       <span class="org-comment-delimiter">// </span><span class="org-comment">Value is too long to be a varint32</span>
  <span class="org-constant">done</span>:
   *OUTPUT = result;
@@ -507,19 +500,19 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
   <span class="org-keyword">const</span> <span class="org-type">char</span>* <span class="org-variable-name">p</span> = <span class="org-constant">Varint</span>::Encode32(buf, value);
   s-&gt;append(buf, p - buf);
 }
+
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.3</span> GetUint32AtOffset</h3>
+<div id="outline-container-org7be639b" class="outline-3">
+<h3 id="org7be639b"><span class="section-number-3">4.3</span> GetUint32AtOffset</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 能够从一个uint64里面取出任意偏移的uint32。通常我们一次载入一个uint64的话那么知道可以得到5个uint32,效率会很高。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">For 0 &lt;= offset &lt;= 4, GetUint32AtOffset(UNALIGNED_LOAD64(p), offset) will</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">equal UNALIGNED_LOAD32(p + offset).  Motivation: On x86-64 hardware we have</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">empirically found that overlapping loads such as</span>
@@ -534,8 +527,8 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">4.4</span> GetHashTable</h3>
+<div id="outline-container-org4015b43" class="outline-3">
+<h3 id="org4015b43"><span class="section-number-3">4.4</span> GetHashTable</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 在Compress的时候需要得到HashTable来判断哪些地方可以得到copy.不过实话说GetHashTable其实没有太多可以值得学习的地方，但是我们还是看看吧。
@@ -543,7 +536,6 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">&#22240;&#20026;Compress&#26159;&#25353;&#29031;1&#20010;&#20010;chunk&#26469;&#36827;&#34892;&#21387;&#32553;&#30340;&#65292;input_size&#34920;&#31034;&#36825;&#20010;chunk&#22823;&#23567;&#22810;&#23569;</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">&#29616;&#22312;&#26469;&#30475;&#30340;&#35805;chunk&#26368;&#22823;32KB&#12290;&#28982;&#21518;table_size&#34920;&#31034;hashtable&#26742;&#22823;&#23567;&#12290;</span>
 
@@ -579,14 +571,13 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">4.5</span> FindMatchLength</h3>
+<div id="outline-container-org81b015c" class="outline-3">
+<h3 id="org81b015c"><span class="section-number-3">4.5</span> FindMatchLength</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 为了快速找到两个串(s1,s2)最大匹配长度多少，其中s2_limit表示s2的结尾返回匹配长度。引用场景下面s1和s2是同一个串，不过(s1&lt;s2)因为我们不需要判断s1溢出。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Return the largest n such that</span>
 <span class="org-comment-delimiter">//</span>
 <span class="org-comment-delimiter">//   </span><span class="org-comment">s1[0,n-1] == s2[0,n-1]</span>
@@ -636,8 +627,8 @@ Snappy里面有相当多的代码片段非常精巧(一定程度上难懂)，所
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">4.6</span> MaxCompressedLength</h3>
+<div id="outline-container-org57f0218" class="outline-3">
+<h3 id="org57f0218"><span class="section-number-3">4.6</span> MaxCompressedLength</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 snappy接口简单很大程度上是因为对于一个input串的话，可以根据input串估计出compress之后的串长度上限。
@@ -646,7 +637,6 @@ snappy接口简单很大程度上是因为对于一个input串的话，可以根
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">size_t</span> <span class="org-function-name">MaxCompressedLength</span>(<span class="org-type">size_t</span> <span class="org-variable-name">source_len</span>) {
   <span class="org-comment-delimiter">// </span><span class="org-comment">Compressed data can be defined as:</span>
   <span class="org-comment-delimiter">//    </span><span class="org-comment">compressed := item* literal*</span>
@@ -675,14 +665,13 @@ snappy接口简单很大程度上是因为对于一个input串的话，可以根
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">4.7</span> IncrementalCopy</h3>
+<div id="outline-container-org6d31c36" class="outline-3">
+<h3 id="org6d31c36"><span class="section-number-3">4.7</span> IncrementalCopy</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 首先看看IncrementalCopy的原型和语义是什么
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Copy "len" bytes from "src" to "op", one byte at a time.  Used for</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">handling COPY operations where the input and output regions may</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">overlap.  For example, suppose:</span>
@@ -714,7 +703,6 @@ snappy接口简单很大程度上是因为对于一个input串的话，可以根
 就可以开始使用8个字节进行copy了。为了将差距拉到8，不断地做8个字节copy并且调整dest.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">const</span> <span class="org-type">int</span> <span class="org-variable-name">kMaxIncrementCopyOverflow</span> = 10;
 
 <span class="org-keyword">static</span> <span class="org-keyword">inline</span> <span class="org-type">void</span> <span class="org-function-name">IncrementalCopyFastPath</span>(<span class="org-keyword">const</span> <span class="org-type">char</span>* <span class="org-variable-name">src</span>, <span class="org-type">char</span>* <span class="org-variable-name">op</span>, <span class="org-type">int</span> <span class="org-variable-name">len</span>) {
@@ -736,7 +724,6 @@ snappy接口简单很大程度上是因为对于一个input串的话，可以根
 可能阅读这个代码比较难理解，作者良好的注释又有帮助了。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Equivalent to IncrementalCopy except that it can write up to ten extra</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">bytes after the end of the copy, and that it is faster.</span>
 <span class="org-comment-delimiter">//</span>
@@ -777,8 +764,8 @@ snappy接口简单很大程度上是因为对于一个input串的话，可以根
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">4.8</span> EmitLiteral</h3>
+<div id="outline-container-org02ed946" class="outline-3">
+<h3 id="org02ed946"><span class="section-number-3">4.8</span> EmitLiteral</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 EmitLiteral就是输出literal.虽然从Format很直观地看出literal应该怎么输出，但是还是有技巧的。最技巧的方便就是allow_fast_path.
@@ -787,7 +774,6 @@ allow_fast_path场景是如果op后面有15个空余字节的话，那么就可�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">static</span> <span class="org-keyword">inline</span> <span class="org-type">char</span>* <span class="org-function-name">EmitLiteral</span>(<span class="org-type">char</span>* <span class="org-variable-name">op</span>,
                                 <span class="org-keyword">const</span> <span class="org-type">char</span>* <span class="org-variable-name">literal</span>,
                                 <span class="org-type">int</span> <span class="org-variable-name">len</span>,
@@ -834,14 +820,13 @@ allow_fast_path场景是如果op后面有15个空余字节的话，那么就可�
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">4.9</span> EmitCopy</h3>
+<div id="outline-container-org12944b1" class="outline-3">
+<h3 id="org12944b1"><span class="section-number-3">4.9</span> EmitCopy</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 EmitCopy非常简单也不牵扯到数据的memcpy,只是写入(offset,length)这两个分量。但是之前说了如果length&gt;=64的话，那么是需要进行copy的切分的。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">static</span> <span class="org-keyword">inline</span> <span class="org-type">char</span>* <span class="org-function-name">EmitCopyLessThan64</span>(<span class="org-type">char</span>* <span class="org-variable-name">op</span>, <span class="org-type">int</span> <span class="org-variable-name">offset</span>, <span class="org-type">int</span> <span class="org-variable-name">len</span>) {
   DCHECK_LE(len, 64);
   DCHECK_GE(len, 4);
@@ -884,14 +869,13 @@ EmitCopy非常简单也不牵扯到数据的memcpy,只是写入(offset,length)�
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">5</span> Compress</h2>
+<div id="outline-container-orga986a45" class="outline-2">
+<h2 id="orga986a45"><span class="section-number-2">5</span> Compress</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 终于进行Compress正题了，看看大体框架吧。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">size_t</span> <span class="org-function-name">Compress</span>(<span class="org-type">Source</span>* <span class="org-variable-name">reader</span>, <span class="org-type">Sink</span>* <span class="org-variable-name">writer</span>) {
 
     <span class="org-comment-delimiter">// </span><span class="org-comment">&#39318;&#20808;&#21462;&#24471;reader&#30340;&#38271;&#24230;&#36827;&#34892;&#32534;&#30721;&#25918;&#22312;&#26368;&#24320;&#22836;</span>
@@ -948,7 +932,7 @@ EmitCopy非常简单也不牵扯到数据的memcpy,只是写入(offset,length)�
 
       <span class="org-keyword">while</span> (bytes_read &lt; num_to_read) {
         fragment = reader-&gt;Peek(&amp;fragment_size);
-        <span class="org-type">size_t</span> <span class="org-variable-name">n</span> = <span class="org-type">min</span>&lt;size_t&gt;(fragment_size, num_to_read - bytes_read);
+        <span class="org-type">size_t</span> <span class="org-variable-name">n</span> = min&lt;<span class="org-type">size_t</span>&gt;(fragment_size, num_to_read - bytes_read);
         memcpy(scratch + bytes_read, fragment, n);
         bytes_read += n;
         reader-&gt;Skip(n);
@@ -1000,7 +984,6 @@ EmitCopy非常简单也不牵扯到数据的memcpy,只是写入(offset,length)�
 整个过程并不是很麻烦，无非就是切出chunk出来并且初始化hashtable然后交给CompressFragment来处理。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">char</span>* <span class="org-function-name">CompressFragment</span>(<span class="org-keyword">const</span> <span class="org-type">char</span>* <span class="org-keyword">const</span> <span class="org-variable-name">input</span>,
                        <span class="org-keyword">const</span> <span class="org-type">size_t</span> <span class="org-variable-name">input_size</span>,
                        <span class="org-type">char</span>* <span class="org-variable-name">op</span>,
@@ -1156,13 +1139,14 @@ EmitCopy非常简单也不牵扯到数据的memcpy,只是写入(offset,length)�
 
   <span class="org-keyword">return</span> op;
 }
+
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">6</span> Uncompress</h2>
+<div id="outline-container-org86353ad" class="outline-2">
+<h2 id="org86353ad"><span class="section-number-2">6</span> Uncompress</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Uncompress最终走到的逻辑是下面这个代码。比较重要的就是SnappyDecompressor以及Write这个接口。不过从代码逻辑上看非常简单，
@@ -1170,7 +1154,6 @@ Uncompress最终走到的逻辑是下面这个代码。比较重要的就是Snap
 writer判断自己解码之后长度和uncompressed_len是否相同。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">template</span> &lt;<span class="org-keyword">typename</span> <span class="org-type">Writer</span>&gt;
 <span class="org-keyword">static</span> <span class="org-type">bool</span> <span class="org-function-name">InternalUncompress</span>(<span class="org-type">Source</span>* <span class="org-variable-name">r</span>,
                                <span class="org-type">Writer</span>* <span class="org-variable-name">writer</span>,
@@ -1194,15 +1177,14 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">6.1</span> Writer</h3>
+<div id="outline-container-org706a6e4" class="outline-3">
+<h3 id="org706a6e4"><span class="section-number-3">6.1</span> Writer</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 我们首先看看一个实现SnappyArrayWriter.最关键的两个函数就是Append(copy literal)以及AppendFromSelf(copy copy).
 然后对于SnappyDecompressor分析出literal以及copy之后就可以调用这两个函数来进行解压缩了。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">SnappyArrayWriter</span> {
  <span class="org-keyword">private</span>:
   <span class="org-type">char</span>* <span class="org-variable-name">base_</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">&#36215;&#22987;&#22320;&#22336;</span>
@@ -1212,7 +1194,7 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
  <span class="org-keyword">public</span>:
   <span class="org-keyword">inline</span> <span class="org-keyword">explicit</span> <span class="org-function-name">SnappyArrayWriter</span>(<span class="org-type">char</span>* <span class="org-variable-name">dst</span>)
       : base_(dst),
-        <span class="org-type">op_</span>(<span class="org-variable-name">dst</span>) {
+        op_(dst) {
   }
 
   <span class="org-keyword">inline</span> <span class="org-type">void</span> <span class="org-function-name">SetExpectedLength</span>(<span class="org-type">size_t</span> <span class="org-variable-name">len</span>) {
@@ -1234,7 +1216,7 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
       <span class="org-keyword">if</span> (space_left &lt; len) {
         <span class="org-keyword">return</span> <span class="org-constant">false</span>;
       }
-      memcpy(op, ip, <span class="org-type">len</span>);
+      memcpy(op, ip, len);
     }
     op_ = op + len;
     <span class="org-keyword">return</span> <span class="org-constant">true</span>;
@@ -1253,12 +1235,12 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
       UNALIGNED_STORE64(op + 8, UNALIGNED_LOAD64(op - offset + 8));
     } <span class="org-keyword">else</span> {
       <span class="org-keyword">if</span> (space_left &gt;= len + kMaxIncrementCopyOverflow) { <span class="org-comment-delimiter">// </span><span class="org-comment">&#22914;&#26524;&#20801;&#35768;FastPath&#30340;&#35805;</span>
-        IncrementalCopyFastPath(op - offset, op, <span class="org-type">len</span>);
+        IncrementalCopyFastPath(op - offset, op, len);
       } <span class="org-keyword">else</span> {
         <span class="org-keyword">if</span> (space_left &lt; len) {
           <span class="org-keyword">return</span> <span class="org-constant">false</span>;
         }
-        IncrementalCopy(op - offset, op, <span class="org-type">len</span>);
+        IncrementalCopy(op - offset, op, len);
       }
     }
 
@@ -1273,7 +1255,6 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
 不难想到如果修改一下这个实现的话那么可以做检查器，我们只是验证压缩包是否正确。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">A Writer that drops everything on the floor and just does validation</span>
 <span class="org-keyword">class</span> <span class="org-type">SnappyDecompressionValidator</span> {
  <span class="org-keyword">private</span>:
@@ -1303,8 +1284,8 @@ writer判断自己解码之后长度和uncompressed_len是否相同。
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">6.2</span> SnappyDecompressor</h3>
+<div id="outline-container-org6fb9cdc" class="outline-3">
+<h3 id="org6fb9cdc"><span class="section-number-3">6.2</span> SnappyDecompressor</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 SnappyDecompressor有几个比较重要的方法：
@@ -1319,7 +1300,6 @@ SnappyDecompressor有几个比较重要的方法：
 因为tag的头一个字节反应了这个tag所有信息，所以在snappy里面有char_table这个表以头一个字节内容作为索引
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Data stored per entry in lookup table:</span>
 <span class="org-comment-delimiter">//      </span><span class="org-comment">Range   Bits-used       Description</span>
 <span class="org-comment-delimiter">//      </span><span class="org-comment">------------------------------------</span>
@@ -1350,7 +1330,6 @@ SnappyDecompressor有几个比较重要的方法：
 这里workmask
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">static</span> <span class="org-keyword">const</span> <span class="org-type">uint32</span> <span class="org-variable-name">wordmask</span>[] = {
   0u, 0xffu, 0xffffu, 0xffffffu, 0xffffffffu
 };
@@ -1364,7 +1343,6 @@ SnappyDecompressor有几个比较重要的方法：
 我们看看DecompressAllTags这个函数实现
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">Process the next item found in the input.</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">Returns true if successful, false on error or end of input.</span>
 <span class="org-keyword">template</span> &lt;<span class="org-keyword">class</span> <span class="org-type">Writer</span>&gt;
@@ -1414,7 +1392,7 @@ SnappyDecompressor有几个比较重要的方法：
       <span class="org-comment-delimiter">// </span><span class="org-comment">copy_offset/256 is encoded in bits 8..10.  By just fetching</span>
       <span class="org-comment-delimiter">// </span><span class="org-comment">those bits, we get copy_offset (since the bit-field starts at</span>
       <span class="org-comment-delimiter">// </span><span class="org-comment">bit 8).</span>
-        <span class="org-keyword">const</span> <span class="org-type">uint32</span> <span class="org-variable-name">copy_offset</span> = (<span class="org-type">entry</span> &amp; 0x700) ; <span class="org-comment-delimiter">// </span><span class="org-comment">&#27880;&#24847;&#36825;&#20010;&#22320;&#26041;&#24050;&#32463; * 256&#20102;&#65292;&#25105;&#20204;&#19981;&#38656;&#35201;&#36827;&#34892;&#20219;&#20309;&#25805;&#20316;</span>
+        <span class="org-keyword">const</span> <span class="org-type">uint32</span> <span class="org-variable-name">copy_offset</span> = (entry &amp; 0x700) ; <span class="org-comment-delimiter">// </span><span class="org-comment">&#27880;&#24847;&#36825;&#20010;&#22320;&#26041;&#24050;&#32463; * 256&#20102;&#65292;&#25105;&#20204;&#19981;&#38656;&#35201;&#36827;&#34892;&#20219;&#20309;&#25805;&#20316;</span>
        <span class="org-comment-delimiter">// </span><span class="org-comment">&#22238;&#24518;COPY(01)&#30340;(offset &gt;&gt; 8) &lt;&lt; 5.&#25152;&#20197;&#36825;&#20010;&#22320;&#26041;&#30452;&#25509;&#23601;&#26159;&#36825;&#20010;&#32467;&#26524;</span>
        <span class="org-comment-delimiter">// </span><span class="org-comment">&#22914;&#26524;&#26159;copy&#30340;&#35805;&#65292;&#37027;&#20040;trailer&#20449;&#24687;&#26159;offset&#32780;&#19981;&#26159;length</span>
        <span class="org-comment-delimiter">// </span><span class="org-comment">&#28982;&#21518;&#23558;COPY&#20889;&#20837;.</span>
@@ -1430,14 +1408,13 @@ SnappyDecompressor有几个比较重要的方法：
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20"><span class="section-number-2">7</span> Example</h2>
+<div id="outline-container-org7e2e7a1" class="outline-2">
+<h2 id="org7e2e7a1"><span class="section-number-2">7</span> Example</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 工作很简单，首先从main.cc里面读取内容然后压缩到main.cc.compress文件里面，然后读取出来解压缩对比是否正确。这里我们演示了Sink如何封装。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;sys/stat.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;unistd.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;fcntl.h&gt;</span>

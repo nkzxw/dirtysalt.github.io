@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HDFS Reliability</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,38 +18,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline7">1. Overview of HDFS</a>
+<li><a href="#org642698b">1. Overview of HDFS</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Block replicas</a></li>
-<li><a href="#orgheadline2">1.2. Clients</a></li>
-<li><a href="#orgheadline3">1.3. Secondary Name Node</a></li>
-<li><a href="#orgheadline4">1.4. Safe mode</a></li>
-<li><a href="#orgheadline5">1.5. Tools</a></li>
-<li><a href="#orgheadline6">1.6. Snapshots</a></li>
+<li><a href="#orge2d95cb">1.1. Block replicas</a></li>
+<li><a href="#orgedfcf1b">1.2. Clients</a></li>
+<li><a href="#org6b02dde">1.3. Secondary Name Node</a></li>
+<li><a href="#org2a1c239">1.4. Safe mode</a></li>
+<li><a href="#org0fbd4a2">1.5. Tools</a></li>
+<li><a href="#orgfdbdb0a">1.6. Snapshots</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">2. Types of failure</a>
+<li><a href="#orgce0215e">2. Types of failure</a>
 <ul>
-<li><a href="#orgheadline8">2.1. Hardware failures</a></li>
-<li><a href="#orgheadline9">2.2. Software errors</a></li>
+<li><a href="#org387ddcd">2.1. Hardware failures</a></li>
+<li><a href="#org4197a0f">2.2. Software errors</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">3. Best Practices</a>
+<li><a href="#orge35ce12">3. Best Practices</a>
 <ul>
-<li><a href="#orgheadline11">3.1. Use a common configuration</a></li>
-<li><a href="#orgheadline12">3.2. Use three or more replicas</a></li>
-<li><a href="#orgheadline13">3.3. Protect the name node</a></li>
-<li><a href="#orgheadline14">3.4. Employ monitoring</a></li>
-<li><a href="#orgheadline15">3.5. Define backup and upgrade procedures</a></li>
+<li><a href="#orgd8cc395">3.1. Use a common configuration</a></li>
+<li><a href="#orgcc5436c">3.2. Use three or more replicas</a></li>
+<li><a href="#org81ff391">3.3. Protect the name node</a></li>
+<li><a href="#orgb49a148">3.4. Employ monitoring</a></li>
+<li><a href="#org6a8ccca">3.5. Define backup and upgrade procedures</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">4. Human error</a>
+<li><a href="#orgd7a1744">4. Human error</a>
 <ul>
-<li><a href="#orgheadline17">4.1. Trash facility</a></li>
-<li><a href="#orgheadline18">4.2. Permissions</a></li>
+<li><a href="#org4223df1">4.1. Trash facility</a></li>
+<li><a href="#orgff906a0">4.2. Permissions</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline20">5. Summary of HDFS Reliability Best Practices</a></li>
+<li><a href="#org49fc69b">5. Summary of HDFS Reliability Best Practices</a></li>
 </ul>
 </div>
 </div>
@@ -57,8 +57,8 @@
 <a href="http://blog.cloudera.com/wp-content/uploads/2010/03/HDFS_Reliability.pdf">http://blog.cloudera.com/wp-content/uploads/2010/03/HDFS_Reliability.pdf</a> @ 2008
 </p>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">1</span> Overview of HDFS</h2>
+<div id="outline-container-org642698b" class="outline-2">
+<h2 id="org642698b"><span class="section-number-2">1</span> Overview of HDFS</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>The mapping between blocks and the data nodes they reside on is not stored persistently. Instead, it is stored in the name node's memory, and is built up from the periodic block reports that data nodes send to the name node. One of the first things that a data node does on start up is send a block report to the name node, and this allows the name node to rapidly form a picture of the block distribution across the cluster.（block和node之间的映射并没有物化下来，只是存放在内存里面，通过nn和dn之间的心跳不断调整对应关系）</li>
@@ -66,8 +66,8 @@
 </ul>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Block replicas</h3>
+<div id="outline-container-orge2d95cb" class="outline-3">
+<h3 id="orge2d95cb"><span class="section-number-3">1.1</span> Block replicas</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The rack placement policy1 is managed by the name node, and replicas are placed as follows:
@@ -88,14 +88,14 @@ If a data node fails while the block is being written, it is removed from the pi
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Clients</h3>
+<div id="outline-container-orgedfcf1b" class="outline-3">
+<h3 id="orgedfcf1b"><span class="section-number-3">1.2</span> Clients</h3>
 </div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Secondary Name Node</h3>
+<div id="outline-container-org6b02dde" class="outline-3">
+<h3 id="org6b02dde"><span class="section-number-3">1.3</span> Secondary Name Node</h3>
 </div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Safe mode</h3>
+<div id="outline-container-org2a1c239" class="outline-3">
+<h3 id="org2a1c239"><span class="section-number-3">1.4</span> Safe mode</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 When the name node starts it enters a state where the filesystem is read only, and no blocks are replicated or deleted. This is called "safe mode". Safe mode is needed to allow the name node to do two things: 在safemode下面所有数据只是只读的，在这期间完成两件事情
@@ -114,15 +114,15 @@ The name node then waits a further fixed amount of time (30 seconds by default) 
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Tools</h3>
+<div id="outline-container-org0fbd4a2" class="outline-3">
+<h3 id="org0fbd4a2"><span class="section-number-3">1.5</span> Tools</h3>
 </div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Snapshots</h3>
+<div id="outline-container-orgfdbdb0a" class="outline-3">
+<h3 id="orgfdbdb0a"><span class="section-number-3">1.6</span> Snapshots</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">2</span> Types of failure</h2>
+<div id="outline-container-orgce0215e" class="outline-2">
+<h2 id="orgce0215e"><span class="section-number-2">2</span> Types of failure</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Data loss can occur for the following reasons:
@@ -134,8 +134,8 @@ Data loss can occur for the following reasons:
 </ol>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.1</span> Hardware failures</h3>
+<div id="outline-container-org387ddcd" class="outline-3">
+<h3 id="org387ddcd"><span class="section-number-3">2.1</span> Hardware failures</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 How does Hadoop detect hardware failures?
@@ -152,22 +152,23 @@ How does Hadoop detect hardware failures?
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.2</span> Software errors</h3>
+<div id="outline-container-org4197a0f" class="outline-3">
+<h3 id="org4197a0f"><span class="section-number-3">2.2</span> Software errors</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">3</span> Best Practices</h2>
+<div id="outline-container-orge35ce12" class="outline-2">
+<h2 id="orge35ce12"><span class="section-number-2">3</span> Best Practices</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">3.1</span> Use a common configuration</h3>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.2</span> Use three or more replicas</h3>
+<div id="outline-container-orgd8cc395" class="outline-3">
+<h3 id="orgd8cc395"><span class="section-number-3">3.1</span> Use a common configuration</h3>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">3.3</span> Protect the name node</h3>
+<div id="outline-container-orgcc5436c" class="outline-3">
+<h3 id="orgcc5436c"><span class="section-number-3">3.2</span> Use three or more replicas</h3>
+</div>
+<div id="outline-container-org81ff391" class="outline-3">
+<h3 id="org81ff391"><span class="section-number-3">3.3</span> Protect the name node</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 To avoid this catastrophic scenario the name node should have special treatment:
@@ -182,8 +183,8 @@ To avoid this catastrophic scenario the name node should have special treatment:
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.4</span> Employ monitoring</h3>
+<div id="outline-container-orgb49a148" class="outline-3">
+<h3 id="orgb49a148"><span class="section-number-3">3.4</span> Employ monitoring</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>JMX/Nagios/Ganglia</li>
@@ -193,8 +194,8 @@ To avoid this catastrophic scenario the name node should have special treatment:
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.5</span> Define backup and upgrade procedures</h3>
+<div id="outline-container-org6a8ccca" class="outline-3">
+<h3 id="org6a8ccca"><span class="section-number-3">3.5</span> Define backup and upgrade procedures</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 In these cases, extra care is needed when performing an upgrade of Hadoop, since there is potential for data loss due to software errors. There are several precautions that are recommended:
@@ -209,19 +210,20 @@ In these cases, extra care is needed when performing an upgrade of Hadoop, since
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">4</span> Human error</h2>
+<div id="outline-container-orgd7a1744" class="outline-2">
+<h2 id="orgd7a1744"><span class="section-number-2">4</span> Human error</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">4.1</span> Trash facility</h3>
 </div>
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">4.2</span> Permissions</h3>
+<div id="outline-container-org4223df1" class="outline-3">
+<h3 id="org4223df1"><span class="section-number-3">4.1</span> Trash facility</h3>
+</div>
+<div id="outline-container-orgff906a0" class="outline-3">
+<h3 id="orgff906a0"><span class="section-number-3">4.2</span> Permissions</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20"><span class="section-number-2">5</span> Summary of HDFS Reliability Best Practices</h2>
+<div id="outline-container-org49fc69b" class="outline-2">
+<h2 id="org49fc69b"><span class="section-number-2">5</span> Summary of HDFS Reliability Best Practices</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>Use a common HDFS configuration.</li>

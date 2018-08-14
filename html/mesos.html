@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,29 +18,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Abstract</a></li>
-<li><a href="#orgheadline2">2. Introduction</a></li>
-<li><a href="#orgheadline3">3. Target Environment</a></li>
-<li><a href="#orgheadline10">4. Architecture</a>
+<li><a href="#org6578d31">1. Abstract</a></li>
+<li><a href="#org57e37a5">2. Introduction</a></li>
+<li><a href="#orgd3ec1c5">3. Target Environment</a></li>
+<li><a href="#org1d94d1a">4. Architecture</a>
 <ul>
-<li><a href="#orgheadline4">4.1. Design Philosophy</a></li>
-<li><a href="#orgheadline5">4.2. Overview</a></li>
-<li><a href="#orgheadline6">4.3. Resource Allocation</a></li>
-<li><a href="#orgheadline7">4.4. Isolation</a></li>
-<li><a href="#orgheadline8">4.5. Making Resource Offers Scalable and Robust</a></li>
-<li><a href="#orgheadline9">4.6. Fault Tolerance</a></li>
+<li><a href="#org0b011c8">4.1. Design Philosophy</a></li>
+<li><a href="#org720f764">4.2. Overview</a></li>
+<li><a href="#org475593a">4.3. Resource Allocation</a></li>
+<li><a href="#orgff697d5">4.4. Isolation</a></li>
+<li><a href="#org8a8713e">4.5. Making Resource Offers Scalable and Robust</a></li>
+<li><a href="#org1945b38">4.6. Fault Tolerance</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">5. Mesos Behavior</a>
+<li><a href="#org17f5798">5. Mesos Behavior</a>
 <ul>
-<li><a href="#orgheadline11">5.1. Framework Incentives</a></li>
-<li><a href="#orgheadline12">5.2. Limitations of Distributed Scheduling</a></li>
+<li><a href="#orgbc6a500">5.1. Framework Incentives</a></li>
+<li><a href="#orgb48fa4b">5.2. Limitations of Distributed Scheduling</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">6. Implementation</a></li>
-<li><a href="#orgheadline15">7. Evaluation</a></li>
-<li><a href="#orgheadline16">8. Related Work</a></li>
-<li><a href="#orgheadline17">9. Conclusion</a></li>
+<li><a href="#orgc8fe4c2">6. Implementation</a></li>
+<li><a href="#orgaf16c07">7. Evaluation</a></li>
+<li><a href="#org70a458f">8. Related Work</a></li>
+<li><a href="#orgd621238">9. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -50,8 +50,8 @@
 <li><a href="http://mesos.berkeley.edu/tr-mesos.pdf">http://mesos.berkeley.edu/tr-mesos.pdf</a> @ 2010</li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-org6578d31" class="outline-2">
+<h2 id="org6578d31"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 To support the sophisticated schedulers of today’s frame-works, Mesos introduces a distributed two-level schedul-ing mechanism called resource offers. Mesos decides how many resources to offer each framework, while frameworks decide which resources to accept and which computations to run on them. 双层调度结构: 1)mesos决定分配多少资源给framework 2)framework决定是否接受这些资源.
@@ -59,8 +59,8 @@ To support the sophisticated schedulers of today’s frame-works, Mesos introduc
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-org57e37a5" class="outline-2">
+<h2 id="org57e37a5"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Sharing a clus-ter between frameworks is desirable for two reasons: it improves utilization through statistical multiplexing, and it lets applications share datasets that may be too expen-sive to replicate. 多个framework共享一个cluster两个原因是 1)通过统计上的多路服用来提高利用率 2)在多个cluster之间replicate数据代价太高. 这也就要多资源调度器需要适配不同的frameworks
@@ -76,14 +76,15 @@ Mesos lets frameworks choose which resources to use through a distributed schedu
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Target Environment</h2>
+<div id="outline-container-orgd3ec1c5" class="outline-2">
+<h2 id="orgd3ec1c5"><span class="section-number-2">3</span> Target Environment</h2>
 </div>
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">4</span> Architecture</h2>
+<div id="outline-container-org1d94d1a" class="outline-2">
+<h2 id="org1d94d1a"><span class="section-number-2">4</span> Architecture</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">4.1</span> Design Philosophy</h3>
+</div>
+<div id="outline-container-org0b011c8" class="outline-3">
+<h3 id="org0b011c8"><span class="section-number-3">4.1</span> Design Philosophy</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Because cluster frameworks are both highly diverse and rapidly evolving, our overriding design phi-losophy has been to define a minimal interface that en-ables efficient resource sharing, and otherwise push con-trol to the frameworks. 因为frameworks差异太大并且变化太快, 所以mesos设计目标是定义最小接口来高效地完成资源共享, 然后将资源控制交给framework本身完成.
@@ -99,8 +100,8 @@ Pushing control to the frame-works has two benefits. 交给framework做资源控
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">4.2</span> Overview</h3>
+<div id="outline-container-org720f764" class="outline-3">
+<h3 id="org720f764"><span class="section-number-3">4.2</span> Overview</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 下面是mesos架构图
@@ -135,8 +136,8 @@ The key aspect of Mesos that lets frameworks achieve placement goals is the fact
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">4.3</span> Resource Allocation</h3>
+<div id="outline-container-org475593a" class="outline-3">
+<h3 id="org475593a"><span class="section-number-3">4.3</span> Resource Allocation</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Mesos delegates allocation decisions to a pluggable allo-cation module, so that organizations can tailor allocation to their needs. 可插拔模块来做资源分配</li>
@@ -146,7 +147,7 @@ The key aspect of Mesos that lets frameworks achieve placement goals is the fact
 <li>Finally, we give allocation modules the power to revoke (kill) tasks if resources are not becoming free quickly enough. 并且给予AM权利来撤回资源</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 <b>Dominant Resource Fairness (DRF)</b>
 </p>
@@ -163,7 +164,7 @@ For example, if a cluster contains 100 CPUs and 100 GB of RAM, and framework F1 
 DRF is a natural generalization of max/min fair-ness. DRF satisfies the above mentioned properties and performs scheduling in O(log n) time for n frame-works. #可以在O(lgN)完成N个framworks资源分配
 </p>
 
-<hr  />
+<hr />
 <p>
 Supporting Long Tasks
 </p>
@@ -176,7 +177,7 @@ If long tasks are placed arbitrarily throughout the cluster, however, some nodes
 When a framework launches a task, it marks it as either long or short. Short tasks can use any resources, but long tasks can only use up to the amount specified in the offer. Of course, a framework may launch a long task with-out marking it as such. In this case, Mesos will eventu-ally revoke it. framework启动任务的时候需要表明这个是long/short task. 但是如果没有标记的话, framework对于长时间的task占据资源也可能收回.
 </p>
 
-<hr  />
+<hr />
 <p>
 Revocation
 </p>
@@ -199,8 +200,8 @@ For now, we have kept the semantics of guaranteed allocations simple: if a frame
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.4</span> Isolation</h3>
+<div id="outline-container-orgff697d5" class="outline-3">
+<h3 id="orgff697d5"><span class="section-number-3">4.4</span> Isolation</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 Mesos provides performance isolation between frame-work executors running on the same slave by leveraging existing OS isolation mechanisms. Since these mecha-nisms are platform-dependent, we support multiple iso-lation mechanisms through pluggable isolation modules. 使用OS提供的隔离机制. 因为这些机制都是平台相关的, 所以通过可插拔模块来做. 在Linux上使用LXC来限制内存, CPU, 带宽.
@@ -212,8 +213,8 @@ In the future, it would also be attrac-tive to use virtual machines as container
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.5</span> Making Resource Offers Scalable and Robust</h3>
+<div id="outline-container-org8a8713e" class="outline-3">
+<h3 id="org8a8713e"><span class="section-number-3">4.5</span> Making Resource Offers Scalable and Robust</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 First, because some frameworks will always reject cer-tain resources, Mesos lets them short-circuit the rejection process and avoid communication by providing filters to the master. We support two types of filters: “only offer nodes from list L” and “only offer nodes with at least R resources free”. A resource that fails a filter is treated ex-actly like a rejected resource. By default, any resources rejected during an offer have a temporary 5-second filter placed on them, to minimize the programming burden on developers who do not wish to manually set filters. 通过filter来解决频繁通知framework零碎的可用资源. 并且如果framework一次拒绝某个offer那么在接下来的5s内还会再次拒绝
@@ -235,15 +236,16 @@ Third, if a framework has not responded to an offer for a sufficiently long time
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">4.6</span> Fault Tolerance</h3>
+<div id="outline-container-org1945b38" class="outline-3">
+<h3 id="org1945b38"><span class="section-number-3">4.6</span> Fault Tolerance</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">5</span> Mesos Behavior</h2>
+<div id="outline-container-org17f5798" class="outline-2">
+<h2 id="org17f5798"><span class="section-number-2">5</span> Mesos Behavior</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">5.1</span> Framework Incentives</h3>
+</div>
+<div id="outline-container-orgbc6a500" class="outline-3">
+<h3 id="orgbc6a500"><span class="section-number-3">5.1</span> Framework Incentives</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Short tasks: A framework is incentivized to use short tasks for two reasons. First, it will be able to allocate any slots; in contrast frameworks with long tasks are re-stricted to a subset of slots. Second, using small tasks minimizes the wasted work if the framework loses a task, either due to revocation or simply due to failures. 尽可能短任务. 一方面可能很容易分配资源, 另外一方面task被killed也会损失太多.
@@ -267,8 +269,8 @@ Do not accept unknown resources: Frameworks are incentivized not to accept resou
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">5.2</span> Limitations of Distributed Scheduling</h3>
+<div id="outline-container-orgb48fa4b" class="outline-3">
+<h3 id="orgb48fa4b"><span class="section-number-3">5.2</span> Limitations of Distributed Scheduling</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Fragmentation: When tasks have heterogeneous re-source demands, a distributed collection of frameworks may not be able to optimize bin packing as well as a cen-tralized scheduler. To accommodate frameworks with large per-task resource requirements, allocation modules can support a minimum offer size on each slave, and ab-stain from offering resources on that slave until this min-imum amount is free.  相对于中央调度器的资源碎片问题. 解决办法可以是为每个slave定义minimum offer size.
@@ -281,8 +283,8 @@ Interdependent framework constraints: It’s possible to construct scenarios whe
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">6</span> Implementation</h2>
+<div id="outline-container-orgc8fe4c2" class="outline-2">
+<h2 id="orgc8fe4c2"><span class="section-number-2">6</span> Implementation</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>10000 loc in C++, running on Linux, Solaris, Mac OS X</li>
@@ -292,14 +294,14 @@ Interdependent framework constraints: It’s possible to construct scenarios whe
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">7</span> Evaluation</h2>
+<div id="outline-container-orgaf16c07" class="outline-2">
+<h2 id="orgaf16c07"><span class="section-number-2">7</span> Evaluation</h2>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">8</span> Related Work</h2>
+<div id="outline-container-org70a458f" class="outline-2">
+<h2 id="org70a458f"><span class="section-number-2">8</span> Related Work</h2>
 </div>
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">9</span> Conclusion</h2>
+<div id="outline-container-orgd621238" class="outline-2">
+<h2 id="orgd621238"><span class="section-number-2">9</span> Conclusion</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/mesos.html';this.page.identifier = 'mesos.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bigtable: A Distributed Storage System for Structured Data</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,41 +18,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Abstract</a></li>
-<li><a href="#orgheadline2">2. Introduction</a></li>
-<li><a href="#orgheadline6">3. Data Model</a>
+<li><a href="#orgcb71fa5">1. Abstract</a></li>
+<li><a href="#orgcbd3cda">2. Introduction</a></li>
+<li><a href="#org1b7c910">3. Data Model</a>
 <ul>
-<li><a href="#orgheadline3">3.1. Rows</a></li>
-<li><a href="#orgheadline4">3.2. Column Families</a></li>
-<li><a href="#orgheadline5">3.3. Timestamps</a></li>
+<li><a href="#org32f3b4e">3.1. Rows</a></li>
+<li><a href="#orgc288072">3.2. Column Families</a></li>
+<li><a href="#org5341b07">3.3. Timestamps</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">4. API</a></li>
-<li><a href="#orgheadline8">5. Building Blocks</a></li>
-<li><a href="#orgheadline13">6. Implementation</a>
+<li><a href="#org4933c8f">4. API</a></li>
+<li><a href="#orge0af0f6">5. Building Blocks</a></li>
+<li><a href="#org4ae63a9">6. Implementation</a>
 <ul>
-<li><a href="#orgheadline9">6.1. Tablet Location</a></li>
-<li><a href="#orgheadline10">6.2. Tablet Assignment</a></li>
-<li><a href="#orgheadline11">6.3. Tablet Serving</a></li>
-<li><a href="#orgheadline12">6.4. Compactions</a></li>
+<li><a href="#org59dd86e">6.1. Tablet Location</a></li>
+<li><a href="#org534b24f">6.2. Tablet Assignment</a></li>
+<li><a href="#org763f886">6.3. Tablet Serving</a></li>
+<li><a href="#org0d27636">6.4. Compactions</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">7. Refinements</a>
+<li><a href="#orgc83596a">7. Refinements</a>
 <ul>
-<li><a href="#orgheadline14">7.1. Locality groups</a></li>
-<li><a href="#orgheadline15">7.2. Compression</a></li>
-<li><a href="#orgheadline16">7.3. Caching for read performance</a></li>
-<li><a href="#orgheadline17">7.4. Bloom filters</a></li>
-<li><a href="#orgheadline18">7.5. Commit-log implementation</a></li>
-<li><a href="#orgheadline19">7.6. Speeding up tablet recovery</a></li>
-<li><a href="#orgheadline20">7.7. Exploiting immutability</a></li>
+<li><a href="#orgc4176b6">7.1. Locality groups</a></li>
+<li><a href="#org82207a6">7.2. Compression</a></li>
+<li><a href="#org0a2d1c3">7.3. Caching for read performance</a></li>
+<li><a href="#org0ad029c">7.4. Bloom filters</a></li>
+<li><a href="#org895b978">7.5. Commit-log implementation</a></li>
+<li><a href="#org9dbce4e">7.6. Speeding up tablet recovery</a></li>
+<li><a href="#org9e40ff7">7.7. Exploiting immutability</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">8. Performance Evaluation</a></li>
-<li><a href="#orgheadline23">9. Real Applications</a></li>
-<li><a href="#orgheadline24">10. Lessons</a></li>
-<li><a href="#orgheadline25">11. Related Work</a></li>
-<li><a href="#orgheadline26">12. Conclusions</a></li>
+<li><a href="#org5293527">8. Performance Evaluation</a></li>
+<li><a href="#orgb6be91f">9. Real Applications</a></li>
+<li><a href="#org02e2c61">10. Lessons</a></li>
+<li><a href="#orgc72cb9e">11. Related Work</a></li>
+<li><a href="#org3af186b">12. Conclusions</a></li>
 </ul>
 </div>
 </div>
@@ -61,8 +61,8 @@
 <li>Google Bigtable (中文版) <a href="http://dblab.xmu.edu.cn/node/121">http://dblab.xmu.edu.cn/node/121</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-orgcb71fa5" class="outline-2">
+<h2 id="orgcb71fa5"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. (针对千台机器管理PB级别数据）</li>
@@ -71,8 +71,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-orgcbd3cda" class="outline-2">
+<h2 id="orgcbd3cda"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Bigtable does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format, and al-lows clients to reason about the locality properties of the data represented in the underlying storage.（不支持完全的数据库关系模型。提供的是半结构化数据模型，支持动态控制数据布局和格式，允许用户通知数据用于底层存储的locality信息）
@@ -86,8 +86,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> Data Model</h2>
+<div id="outline-container-org1b7c910" class="outline-2">
+<h2 id="org1b7c910"><span class="section-number-2">3</span> Data Model</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>A Bigtable is a sparse, distributed, persistent multi-dimensional sorted map. The map is indexed by a row key, column key, and a timestamp; each value in the map is an uninterpreted array of bytes.（本质上是稀疏的，分布式，可持久化的多维sorted-map。通过row-key和column-key找到对应的cell，在这个cell上面通过timestamp来从多维数据中取出一维） (row:string, column:string, time:int64) =》 string</li>
@@ -100,8 +100,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> Rows</h3>
+<div id="outline-container-org32f3b4e" class="outline-3">
+<h3 id="org32f3b4e"><span class="section-number-3">3.1</span> Rows</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>The row keys in a table are arbitrary strings (currently up to 64KB in size, although 10-100 bytes is a typical size for most of our users). (rowkey范围限制在64KB，但是10-100bytes是一个典型值）</li>
@@ -111,8 +111,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> Column Families</h3>
+<div id="outline-container-orgc288072" class="outline-3">
+<h3 id="orgc288072"><span class="section-number-3">3.2</span> Column Families</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Column keys are grouped into sets called column fami-lies, which form the basic unit of access control （所有的column都放在某一个column family下面进行管理）</li>
@@ -124,8 +124,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Timestamps</h3>
+<div id="outline-container-org5341b07" class="outline-3">
+<h3 id="org5341b07"><span class="section-number-3">3.3</span> Timestamps</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Each cell in a Bigtable can contain multiple versions of the same data; these versions are indexed by timestamp. Bigtable timestamps are 64-bit integers. They can be as-signed by Bigtable, in which case they represent “real time” in microseconds, or be explicitly assigned by client applications. Applications that need to avoid collisions must generate unique timestamps themselves. Different versions of a cell are stored in decreasing timestamp or-der, so that the most recent versions can be read first.（timestamp用来区分多个版本，timestamp是一个64bit整数，这个可以由bigtable产生也可以用户指定。主要功能就是为了区分版本。所有的版本都是存放在一起并且按照降序排列，因为首先读取是最新的版本）</li>
@@ -135,11 +135,11 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">4</span> API</h2>
+<div id="outline-container-org4933c8f" class="outline-2">
+<h2 id="org4933c8f"><span class="section-number-2">4</span> API</h2>
 </div>
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">5</span> Building Blocks</h2>
+<div id="outline-container-orge0af0f6" class="outline-2">
+<h2 id="orge0af0f6"><span class="section-number-2">5</span> Building Blocks</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>使用GFS作为文件系统（参考<a href="gfs.html">gfs</a>）</li>
@@ -158,8 +158,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">6</span> Implementation</h2>
+<div id="outline-container-org4ae63a9" class="outline-2">
+<h2 id="org4ae63a9"><span class="section-number-2">6</span> Implementation</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>The Bigtable implementation has three major compo- nents: a library that is linked into every client, one mas- ter server, and many tablet servers. （library，master server以及tablet server三个部分组成） Tablet servers can be dynamically added (or removed) from a cluster to acco-modate changes in workloads.（对于所有的tablet server都可以动态添加并且移除来适应workload）</li>
@@ -181,8 +181,8 @@
 </ul>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">6.1</span> Tablet Location</h3>
+<div id="outline-container-org59dd86e" class="outline-3">
+<h3 id="org59dd86e"><span class="section-number-3">6.1</span> Tablet Location</h3>
 <div class="outline-text-3" id="text-6-1">
 
 <div class="figure">
@@ -205,8 +205,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">6.2</span> Tablet Assignment</h3>
+<div id="outline-container-org534b24f" class="outline-3">
+<h3 id="org534b24f"><span class="section-number-3">6.2</span> Tablet Assignment</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 assignment这个信息应该是维护在master上面的，且没有必要进行持久化。
@@ -255,11 +255,11 @@ In case the split notification is lost (either because the tablet server or the 
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">6.3</span> Tablet Serving</h3>
+<div id="outline-container-org763f886" class="outline-3">
+<h3 id="org763f886"><span class="section-number-3">6.3</span> Tablet Serving</h3>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">6.4</span> Compactions</h3>
+<div id="outline-container-org0d27636" class="outline-3">
+<h3 id="org0d27636"><span class="section-number-3">6.4</span> Compactions</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 compaction分为三种：
@@ -276,11 +276,12 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">7</span> Refinements</h2>
+<div id="outline-container-orgc83596a" class="outline-2">
+<h2 id="orgc83596a"><span class="section-number-2">7</span> Refinements</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">7.1</span> Locality groups</h3>
+</div>
+<div id="outline-container-orgc4176b6" class="outline-3">
+<h3 id="orgc4176b6"><span class="section-number-3">7.1</span> Locality groups</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 通过将多个cf合并成为一个locality group，然后为这个locality group分配单独的一个sstable。通过将不同属性的cf区分开，并且将相同属性的cf进行聚合，这样可以提高读效率。允许指定参数来说明那些locality group需要放在memory里面。
@@ -288,8 +289,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">7.2</span> Compression</h3>
+<div id="outline-container-org82207a6" class="outline-3">
+<h3 id="org82207a6"><span class="section-number-3">7.2</span> Compression</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>The first pass uses Bentley and McIlroy’s scheme , which compresses long common strings across a large window.</li>
@@ -299,8 +300,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">7.3</span> Caching for read performance</h3>
+<div id="outline-container-org0a2d1c3" class="outline-3">
+<h3 id="org0a2d1c3"><span class="section-number-3">7.3</span> Caching for read performance</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Scan Cache在高层缓存读取到的k/v。比较适合重复读取相同数据（相对与Block Cache效率更好）</li>
@@ -309,8 +310,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">7.4</span> Bloom filters</h3>
+<div id="outline-container-org0ad029c" class="outline-3">
+<h3 id="org0ad029c"><span class="section-number-3">7.4</span> Bloom filters</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 新版本的leveldb里面也实现了bloom filter，可以屏蔽掉很多无用的disk seek
@@ -318,8 +319,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">7.5</span> Commit-log implementation</h3>
+<div id="outline-container-org895b978" class="outline-3">
+<h3 id="org895b978"><span class="section-number-3">7.5</span> Commit-log implementation</h3>
 <div class="outline-text-3" id="text-7-5">
 <p>
 如果每个tablet的操作都写单独的redo文件的话，那么会对gfs造成很大的压力。因此解决办法就是，对于一个tablet server上面所有的tablet的commit log，都记录在同一个文件里面。
@@ -341,8 +342,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">7.6</span> Speeding up tablet recovery</h3>
+<div id="outline-container-org9dbce4e" class="outline-3">
+<h3 id="org9dbce4e"><span class="section-number-3">7.6</span> Speeding up tablet recovery</h3>
 <div class="outline-text-3" id="text-7-6">
 <p>
 这个主要发生在tablet主动迁移的时候。因为迁移的时候memtable内容没有存放到gfs上面，因此如果直接unload的话，那么在另外一台机器上面就需要重新从gfs读取log并且进行recovery。
@@ -359,8 +360,8 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">7.7</span> Exploiting immutability</h3>
+<div id="outline-container-org9e40ff7" class="outline-3">
+<h3 id="org9e40ff7"><span class="section-number-3">7.7</span> Exploiting immutability</h3>
 <div class="outline-text-3" id="text-7-7">
 <p>
 对于obsolete tablet sstable的回收过程是这样的：
@@ -374,14 +375,14 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">8</span> Performance Evaluation</h2>
+<div id="outline-container-org5293527" class="outline-2">
+<h2 id="org5293527"><span class="section-number-2">8</span> Performance Evaluation</h2>
 </div>
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">9</span> Real Applications</h2>
+<div id="outline-container-orgb6be91f" class="outline-2">
+<h2 id="orgb6be91f"><span class="section-number-2">9</span> Real Applications</h2>
 </div>
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">10</span> Lessons</h2>
+<div id="outline-container-org02e2c61" class="outline-2">
+<h2 id="org02e2c61"><span class="section-number-2">10</span> Lessons</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>One lesson we learned is that large distributed sys-tems are vulnerable to many types of failures, not just the standard network partitions and fail-stop failures as-sumed in many distributed protocols.（design for failure）</li>
@@ -396,11 +397,11 @@ compaction分为三种：
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">11</span> Related Work</h2>
+<div id="outline-container-orgc72cb9e" class="outline-2">
+<h2 id="orgc72cb9e"><span class="section-number-2">11</span> Related Work</h2>
 </div>
-<div id="outline-container-orgheadline26" class="outline-2">
-<h2 id="orgheadline26"><span class="section-number-2">12</span> Conclusions</h2>
+<div id="outline-container-org3af186b" class="outline-2">
+<h2 id="org3af186b"><span class="section-number-2">12</span> Conclusions</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>Bigtable clusters have been in production use since April 2005, （2005.4开始投入产品使用）</li>

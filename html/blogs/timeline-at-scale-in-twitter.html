@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Timeline at Scale in Twitter</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -22,7 +22,7 @@ link: <a href="https://www.infoq.com/presentations/Real-Time-Delivery-Twitter">h
 <a href="http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html">http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html</a>
 </p>
 
-<hr  />
+<hr />
 
 <p>
 twitter timeline 整体架构如下图：
@@ -64,7 +64,7 @@ twitter已经远不是将自己定位成为一个web app, 而是想通过一些�
 我理解对于twitter当前系统最大的挑战性，一方面在于是否可以更加地快速信息流动，另外一方面是否可以更好地观测和监控每个services以及整个系统。我记得Raffi在talk里面讲到了，他们会做一个bot不断地发送信息以及接受消息，一旦出现问题就会报警。
 </p>
 
-<hr  />
+<hr />
 <p>
 Push Me Pull Me
 </p>
@@ -125,7 +125,7 @@ push是通过http长连接来实现的，延迟大约在150ms, 1m个socket conne
 <li>track/follow stream. 通过query来定义connection.</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 High Level For Pull Based Timelines
 </p>
@@ -163,7 +163,7 @@ tweet一旦写入queue之后就ack, 这个过程是同步行为。从queue到剩
 </ul></li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 High Level For Search
 </p>
@@ -179,7 +179,7 @@ High Level For Search
 </ul>
 
 
-<hr  />
+<hr />
 <p>
 Search And Pull Are Inverses
 </p>
@@ -213,7 +213,7 @@ Trying to figure out how to merge the read and write paths. Not fanning out the 
 </p>
 </blockquote>
 
-<hr  />
+<hr />
 <p>
 Monitoring
 </p>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>hpserver</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,14 +18,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Reactor</a></li>
-<li><a href="#orgheadline2">2. IReactor</a></li>
-<li><a href="#orgheadline3">3. DTEV_ITEM</a></li>
-<li><a href="#orgheadline4">4. EventScheduler</a></li>
-<li><a href="#orgheadline5">5. DemuxTable</a></li>
-<li><a href="#orgheadline6">6. SignalSet</a></li>
-<li><a href="#orgheadline7">7. SignalInfo</a></li>
-<li><a href="#orgheadline8">8. How it works</a></li>
+<li><a href="#orgbb2c96e">1. Reactor</a></li>
+<li><a href="#org5519c49">2. IReactor</a></li>
+<li><a href="#org4adb221">3. DTEV_ITEM</a></li>
+<li><a href="#orgbb8722a">4. EventScheduler</a></li>
+<li><a href="#org80f7311">5. DemuxTable</a></li>
+<li><a href="#orgce6b503">6. SignalSet</a></li>
+<li><a href="#org10670b7">7. SignalInfo</a></li>
+<li><a href="#orgc006832">8. How it works</a></li>
 </ul>
 </div>
 </div>
@@ -52,11 +52,10 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 因为对于每一种信号必须产生一个EventHandler实例。不过还好我们关注的信号还是比较有限的，所以开辟的EventHandler还不算太多。这个从samples/signal-handler.cpp就可以看出来。
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Reactor</h2>
+<div id="outline-container-orgbb2c96e" class="outline-2">
+<h2 id="orgbb2c96e"><span class="section-number-2">1</span> Reactor</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CReactor</span>
 {
     <span class="org-type">IReactor_Imp</span> *<span class="org-variable-name">m_pImp</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">real implementation.&#20869;&#37096;&#26377;&#19968;&#20010;Reactor&#23454;&#29616;&#65292;&#20027;&#35201;&#26159;&#36127;&#36131;&#36827;&#34892;poll&#26041;&#38754;&#30340;&#24037;&#20316;</span>
@@ -77,11 +76,10 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> IReactor</h2>
+<div id="outline-container-org5519c49" class="outline-2">
+<h2 id="org5519c49"><span class="section-number-2">2</span> IReactor</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">IReactor_Imp</span>
 {
     <span class="org-comment-delimiter">// </span><span class="org-comment">initialize I/O method and set event factory</span>
@@ -107,11 +105,10 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> DTEV_ITEM</h2>
+<div id="outline-container-org4adb221" class="outline-2">
+<h2 id="org4adb221"><span class="section-number-2">3</span> DTEV_ITEM</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">struct</span> <span class="org-type">DTEV_ITEM</span> <span class="org-comment-delimiter">// </span><span class="org-comment">event item structure</span>
 {
     <span class="org-keyword">const</span> <span class="org-type">void</span> *<span class="org-variable-name">pHandler</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">event handler/completion handler the handle binded to.&#32465;&#23450;&#21040;&#19968;&#20010;Handler&#19978;&#38754;</span>
@@ -129,11 +126,10 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> EventScheduler</h2>
+<div id="outline-container-orgbb8722a" class="outline-2">
+<h2 id="orgbb8722a"><span class="section-number-2">4</span> EventScheduler</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">IEventScheduler</span>
 {
   <span class="org-keyword">public</span>:
@@ -150,7 +146,6 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 参数就是按照优先级区分的活动链表，然后hpserver内部实现了一个默认的Scheduler非常简单，就是按照优先级然后遍历活动event即可。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">void</span> <span class="org-constant">CDefScheduler</span>::<span class="org-function-name">ScheduleActiveEvents</span>(<span class="org-constant">std</span>::<span class="org-type">vector</span>&lt;<span class="org-type">DTEV_ITEM</span> *&gt; *<span class="org-variable-name">pVecActiveList</span>, <span class="org-type">int</span> <span class="org-variable-name">size</span>){
     <span class="org-comment-delimiter">// </span><span class="org-comment">iterate all active lists and process based on scheduler</span>
     <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span> = size-1; i &gt;= 0; --i){ <span class="org-comment-delimiter">// </span><span class="org-comment">&#25353;&#29031;&#20248;&#20808;&#32423;&#19979;&#26469;</span>
@@ -170,8 +165,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> DemuxTable</h2>
+<div id="outline-container-org80f7311" class="outline-2">
+<h2 id="org80f7311"><span class="section-number-2">5</span> DemuxTable</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 我们注册fd和对应的event handler的时候，那么event item在什么地方开辟呢？这个event item就是在DemuxTable上面开辟。DemuxTable就是一个
@@ -179,7 +174,6 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 数组来映射，而在Windows上面fd不是连续的那么使用std::map来进行映射。这里我们关心Linux上面的，大致看看是怎么样的。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#define</span> <span class="org-variable-name">ELE_SET_SIZE</span> 4096
 <span class="org-preprocessor">#define</span> <span class="org-variable-name">ELE_SET_SIZE_SHIFT</span> 12
 <span class="org-preprocessor">#define</span> <span class="org-variable-name">ELE_SET_ARRAY_NUM</span> 256
@@ -200,19 +194,18 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> SignalSet</h2>
+<div id="outline-container-orgce6b503" class="outline-2">
+<h2 id="orgce6b503"><span class="section-number-2">6</span> SignalSet</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 对于信号来说，并不是将fd和DTEV_ITEM进行绑定，而是将EventHandler和DTEV_ITEM进行绑定。映射关系就维护在SignalSet里面
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CSignalSet</span>
 {
   <span class="org-keyword">public</span>:
-    <span class="org-keyword">typedef</span> <span class="org-constant">std</span>::<span class="org-type">map</span>&lt;<span class="org-type">IEventHandler</span>*, <span class="org-variable-name">DTEV_ITEM</span>&gt; <span class="org-type">SEH_MAP</span>;
-    <span class="org-keyword">typedef</span> <span class="org-constant">std</span>::<span class="org-type">pair</span>&lt;<span class="org-type">IEventHandler</span>*, <span class="org-variable-name">DTEV_ITEM</span>&gt; <span class="org-type">SEH_PAIR</span>;
+    <span class="org-keyword">typedef</span> <span class="org-constant">std</span>::<span class="org-type">map</span>&lt;<span class="org-type">IEventHandler</span>*, DTEV_ITEM&gt; <span class="org-type">SEH_MAP</span>;
+    <span class="org-keyword">typedef</span> <span class="org-constant">std</span>::<span class="org-type">pair</span>&lt;<span class="org-type">IEventHandler</span>*, DTEV_ITEM&gt; <span class="org-type">SEH_PAIR</span>;
     <span class="org-keyword">inline</span> <span class="org-type">DTEV_ITEM</span> *<span class="org-function-name">GetAt</span>(<span class="org-type">IEventHandler</span> *<span class="org-variable-name">pHandler</span>);
     <span class="org-keyword">inline</span> <span class="org-type">int</span> <span class="org-function-name">Insert</span>(<span class="org-type">IEventHandler</span> *<span class="org-variable-name">pHandler</span>);
     <span class="org-keyword">inline</span> <span class="org-type">void</span> <span class="org-function-name">Remove</span>(<span class="org-type">IEventHandler</span> *<span class="org-variable-name">pHandler</span>);
@@ -224,8 +217,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> SignalInfo</h2>
+<div id="outline-container-org10670b7" class="outline-2">
+<h2 id="org10670b7"><span class="section-number-2">7</span> SignalInfo</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 对于我们关心的信号都往这里面注册即可。我们注册的对象是DTEV_ITEM,但是我们可以根据DTEV_ITEM找到对应的handler,然后
@@ -233,7 +226,6 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 reactor的active_event函数。SignalInfo应该会自己安装自己的信号处理函数，然后再自己的信号处理函数里进行标记，然后统一交给Reactor处理。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CSignalInfo</span>
 {
   <span class="org-keyword">public</span>:
@@ -256,7 +248,6 @@ reactor的active_event函数。SignalInfo应该会自己安装自己的信号处
 我们看看sig_handler里面做了什么事情
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-type">void</span> <span class="org-constant">CSignalInfo</span>::<span class="org-function-name">sig_handler</span>(<span class="org-type">int</span> <span class="org-variable-name">signum</span>)
 {
     <span class="org-comment-delimiter">//</span><span class="org-comment">record occur counts of signum</span>
@@ -279,8 +270,8 @@ reactor的active_event函数。SignalInfo应该会自己安装自己的信号处
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> How it works</h2>
+<div id="outline-container-orgc006832" class="outline-2">
+<h2 id="orgc006832"><span class="section-number-2">8</span> How it works</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 我们主要关注Reactor的RunForever.RunForever里面会一遍一遍地调用EventLoopOnce这个过程，每次调用的时候都会检查是否需要退出。

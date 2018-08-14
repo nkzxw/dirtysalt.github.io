@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OProfile(obsolete)</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,19 +18,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. Overview</a>
+<li><a href="#orgf882245">1. Overview</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 内核驱动</a></li>
-<li><a href="#orgheadline2">1.2. 守护进程</a></li>
-<li><a href="#orgheadline3">1.3. 工具附件</a></li>
+<li><a href="#orgb44c1be">1.1. 内核驱动</a></li>
+<li><a href="#orgaa473b7">1.2. 守护进程</a></li>
+<li><a href="#orge54d6fe">1.3. 工具附件</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">2. Getting Started</a></li>
-<li><a href="#orgheadline9">3. Notes</a>
+<li><a href="#org97f68a6">2. Getting Started</a></li>
+<li><a href="#orgee2a2ad">3. Notes</a>
 <ul>
-<li><a href="#orgheadline6">3.1. opcontrol</a></li>
-<li><a href="#orgheadline7">3.2. opreport</a></li>
-<li><a href="#orgheadline8">3.3. opannotate</a></li>
+<li><a href="#orge88f5b9">3.1. opcontrol</a></li>
+<li><a href="#orgb7c73d5">3.2. opreport</a></li>
+<li><a href="#org5016d43">3.3. opannotate</a></li>
 </ul>
 </li>
 </ul>
@@ -50,8 +50,8 @@
 <li>AMD Family 10 Events <a href="http://oprofile.sourceforge.net/docs/amd-family10-events.php">http://oprofile.sourceforge.net/docs/amd-family10-events.php</a></li>
 </ul>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgf882245" class="outline-2">
+<h2 id="orgf882245"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="http://www.ibm.com/developerworks/cn/linux/l-oprof/">http://www.ibm.com/developerworks/cn/linux/l-oprof/</a>
@@ -70,8 +70,8 @@ oprofile由下面三个部分组成
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 内核驱动</h3>
+<div id="outline-container-orgb44c1be" class="outline-3">
+<h3 id="orgb44c1be"><span class="section-number-3">1.1</span> 内核驱动</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 内核驱动工作的时候分为三种模式：
@@ -109,8 +109,8 @@ oprofile由下面三个部分组成
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 守护进程</h3>
+<div id="outline-container-orgaa473b7" class="outline-3">
+<h3 id="orgaa473b7"><span class="section-number-3">1.2</span> 守护进程</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 守护进程(daemon)用于收集内核驱动采样数据，并且将采样数据dump到外部文件。对应的可执行程序是bin/oprofiled.
@@ -118,8 +118,8 @@ oprofile由下面三个部分组成
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 工具附件</h3>
+<div id="outline-container-orge54d6fe" class="outline-3">
+<h3 id="orge54d6fe"><span class="section-number-3">1.3</span> 工具附件</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 通过读取dump出来的外部文件得到采样数据进行加工：
@@ -134,8 +134,8 @@ oprofile由下面三个部分组成
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> Getting Started</h2>
+<div id="outline-container-org97f68a6" class="outline-2">
+<h2 id="org97f68a6"><span class="section-number-2">2</span> Getting Started</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Installation <a href="http://oprofile.sourceforge.net/doc/install.html">http://oprofile.sourceforge.net/doc/install.html</a></li>
@@ -180,7 +180,6 @@ oprofile由下面三个部分组成
 <li>对汇编代码进行标注</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-Shell"># deprecated !!!
 easy_oprofile() {
     if [ $# -lt 5 ]; then
@@ -212,11 +211,12 @@ easy_oprofile() {
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">3</span> Notes</h2>
+<div id="outline-container-orgee2a2ad" class="outline-2">
+<h2 id="orgee2a2ad"><span class="section-number-2">3</span> Notes</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">3.1</span> opcontrol</h3>
+</div>
+<div id="outline-container-orge88f5b9" class="outline-3">
+<h3 id="orge88f5b9"><span class="section-number-3">3.1</span> opcontrol</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 常用命令参数如下：
@@ -268,8 +268,8 @@ easy_oprofile() {
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">3.2</span> opreport</h3>
+<div id="outline-container-orgb7c73d5" class="outline-3">
+<h3 id="orgb7c73d5"><span class="section-number-3">3.2</span> opreport</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 opreport包含两类参数，一类是过滤参数用于通知应用打印出关于哪些方面的信息，一类是命令参数是关于如何打印出这方面的信息。
@@ -315,8 +315,8 @@ opreport包含两类参数，一类是过滤参数用于通知应用打印出关
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">3.3</span> opannotate</h3>
+<div id="outline-container-org5016d43" class="outline-3">
+<h3 id="org5016d43"><span class="section-number-3">3.3</span> opannotate</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 常用命令参数如下：

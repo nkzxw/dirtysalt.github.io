@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>/proc</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,68 +18,69 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline16">1. /proc</a>
+<li><a href="#org1b39e18">1. /proc</a>
 <ul>
-<li><a href="#orgheadline1">1.1. /proc/meminfo</a></li>
-<li><a href="#orgheadline2">1.2. /proc/stat</a></li>
-<li><a href="#orgheadline3">1.3. /proc/swaps</a></li>
-<li><a href="#orgheadline4">1.4. /proc/cmdline</a></li>
-<li><a href="#orgheadline5">1.5. /proc/version</a></li>
-<li><a href="#orgheadline6">1.6. /proc/mounts</a></li>
-<li><a href="#orgheadline7">1.7. /proc/modules</a></li>
-<li><a href="#orgheadline8">1.8. /proc/diskstats</a></li>
-<li><a href="#orgheadline9">1.9. /proc/cpuinfo</a></li>
-<li><a href="#orgheadline10">1.10. /proc/crypto</a></li>
-<li><a href="#orgheadline11">1.11. /proc/loadavg</a></li>
-<li><a href="#orgheadline12">1.12. /proc/slabinfo</a></li>
-<li><a href="#orgheadline13">1.13. /proc/vmstat</a></li>
-<li><a href="#orgheadline14">1.14. /proc/zoneinfo</a></li>
-<li><a href="#orgheadline15">1.15. /proc/&lt;pid&gt;</a></li>
+<li><a href="#org440b394">1.1. /proc/meminfo</a></li>
+<li><a href="#orgb438fb6">1.2. /proc/stat</a></li>
+<li><a href="#orgc4df771">1.3. /proc/swaps</a></li>
+<li><a href="#orgaebd720">1.4. /proc/cmdline</a></li>
+<li><a href="#org8cb6880">1.5. /proc/version</a></li>
+<li><a href="#orgcc89600">1.6. /proc/mounts</a></li>
+<li><a href="#org66a5292">1.7. /proc/modules</a></li>
+<li><a href="#orgb105786">1.8. /proc/diskstats</a></li>
+<li><a href="#orgcf6b7b2">1.9. /proc/cpuinfo</a></li>
+<li><a href="#orgee42f35">1.10. /proc/crypto</a></li>
+<li><a href="#org958fa4f">1.11. /proc/loadavg</a></li>
+<li><a href="#orgc858d78">1.12. /proc/slabinfo</a></li>
+<li><a href="#orgc1d7647">1.13. /proc/vmstat</a></li>
+<li><a href="#org9fabb83">1.14. /proc/zoneinfo</a></li>
+<li><a href="#org5776e00">1.15. /proc/&lt;pid&gt;</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">2. /proc/sys</a></li>
-<li><a href="#orgheadline24">3. /proc/sys/vm</a>
+<li><a href="#orgbf55843">2. /proc/sys</a></li>
+<li><a href="#orgff5d0a8">3. /proc/sys/vm</a>
 <ul>
-<li><a href="#orgheadline18">3.1. /proc/sys/vm/overcommit_memory</a></li>
-<li><a href="#orgheadline19">3.2. /proc/sys/vm/swappiness</a></li>
-<li><a href="#orgheadline20">3.3. /proc/sys/vm/dirty_*</a></li>
-<li><a href="#orgheadline21">3.4. /proc/sys/vm/laptop_mode</a></li>
-<li><a href="#orgheadline22">3.5. /proc/sys/vm/drop_caches</a></li>
-<li><a href="#orgheadline23">3.6. /proc/sys/vm/panic_on_oom</a></li>
+<li><a href="#org490182e">3.1. /proc/sys/vm/overcommit_memory</a></li>
+<li><a href="#orgfc7df3f">3.2. /proc/sys/vm/swappiness</a></li>
+<li><a href="#orgf69b098">3.3. /proc/sys/vm/dirty_*</a></li>
+<li><a href="#orgb0c78ee">3.4. /proc/sys/vm/laptop_mode</a></li>
+<li><a href="#org470b3dc">3.5. /proc/sys/vm/drop_caches</a></li>
+<li><a href="#org538f8f4">3.6. /proc/sys/vm/panic_on_oom</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">4. /proc/sys/net</a>
+<li><a href="#org05122ff">4. /proc/sys/net</a>
 <ul>
-<li><a href="#orgheadline25">4.1. /proc/sys/net/ipv4/ip_local_port_range</a></li>
+<li><a href="#orga18c526">4.1. /proc/sys/net/ipv4/ip_local_port_range</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline31">5. /proc/sys/fs</a>
+<li><a href="#orgafbabd1">5. /proc/sys/fs</a>
 <ul>
-<li><a href="#orgheadline27">5.1. /proc/sys/fs/file-max</a></li>
-<li><a href="#orgheadline28">5.2. /proc/sys/fs/nr_open</a></li>
-<li><a href="#orgheadline29">5.3. /proc/sys/fs/file-nr</a></li>
-<li><a href="#orgheadline30">5.4. /proc/sys/fs/epoll/max_user_watches</a></li>
+<li><a href="#orgdba392d">5.1. /proc/sys/fs/file-max</a></li>
+<li><a href="#orgf548103">5.2. /proc/sys/fs/nr_open</a></li>
+<li><a href="#orge338eb7">5.3. /proc/sys/fs/file-nr</a></li>
+<li><a href="#orgc637014">5.4. /proc/sys/fs/epoll/max_user_watches</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline33">6. /proc/sys/kernel</a>
+<li><a href="#org0404166">6. /proc/sys/kernel</a>
 <ul>
-<li><a href="#orgheadline32">6.1. /proc/sys/kernel/hung_task_timeout_secs</a></li>
+<li><a href="#org59e3c20">6.1. /proc/sys/kernel/hung_task_timeout_secs</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline36">7. /proc/net</a>
+<li><a href="#orgdb29796">7. /proc/net</a>
 <ul>
-<li><a href="#orgheadline34">7.1. /proc/net/tcp</a></li>
-<li><a href="#orgheadline35">7.2. /proc/net/dev</a></li>
+<li><a href="#org07ba03d">7.1. /proc/net/tcp</a></li>
+<li><a href="#orgcc09587">7.2. /proc/net/dev</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">1</span> /proc</h2>
+<div id="outline-container-org1b39e18" class="outline-2">
+<h2 id="org1b39e18"><span class="section-number-2">1</span> /proc</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> /proc/meminfo</h3>
+</div>
+<div id="outline-container-org440b394" class="outline-3">
+<h3 id="org440b394"><span class="section-number-3">1.1</span> /proc/meminfo</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 内存使用状况
@@ -164,8 +165,8 @@ Exit status: 0
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> /proc/stat</h3>
+<div id="outline-container-orgb438fb6" class="outline-3">
+<h3 id="orgb438fb6"><span class="section-number-3">1.2</span> /proc/stat</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 系统启动以来的多种统计信息
@@ -194,8 +195,8 @@ softirq 304218476 0 151026247 103572 14071723 3554590 0 262575 55846497 864372 7
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> /proc/swaps</h3>
+<div id="outline-container-orgc4df771" class="outline-3">
+<h3 id="orgc4df771"><span class="section-number-3">1.3</span> /proc/swaps</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 当前系统上的交换分区及其空间利用信息. 优先级数字越低, 被使用到的可能性越大.
@@ -209,8 +210,8 @@ Filename                                Type            Size    Used    Priority
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> /proc/cmdline</h3>
+<div id="outline-container-orgaebd720" class="outline-3">
+<h3 id="orgaebd720"><span class="section-number-3">1.4</span> /proc/cmdline</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 在启动时传递至内核的相关参数信息. 这些信息通常由lilo或grub等启动管理工具进行传递.
@@ -223,8 +224,8 @@ BOOT_IMAGE=/boot/vmlinuz-3.2.0-27-generic root=UUID=b25db1c7-e694-4eed-8d11-ea33
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> /proc/version</h3>
+<div id="outline-container-org8cb6880" class="outline-3">
+<h3 id="org8cb6880"><span class="section-number-3">1.5</span> /proc/version</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 内核版本
@@ -237,8 +238,8 @@ Linux version 3.2.0-27-generic (buildd@allspice) (gcc version 4.6.3 (Ubuntu/Lina
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> /proc/mounts</h3>
+<div id="outline-container-orgcc89600" class="outline-3">
+<h3 id="orgcc89600"><span class="section-number-3">1.6</span> /proc/mounts</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 当前挂载的所有文件系统. see man fstab.
@@ -265,8 +266,8 @@ gvfs-fuse-daemon /home/dirlt/.gvfs fuse.gvfs-fuse-daemon rw,nosuid,nodev,relatim
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">1.7</span> /proc/modules</h3>
+<div id="outline-container-org66a5292" class="outline-3">
+<h3 id="org66a5292"><span class="section-number-3">1.7</span> /proc/modules</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 所有可用模块列表(lsmod): 模块名, 占用内存, 引用技术, 依赖模块, 加载状态
@@ -322,8 +323,8 @@ r8169 62099 0 - Live 0x0000000000000000
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.8</span> /proc/diskstats</h3>
+<div id="outline-container-orgb105786" class="outline-3">
+<h3 id="orgb105786"><span class="section-number-3">1.8</span> /proc/diskstats</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 磁盘设备I/O信息.  <a href="https://www.kernel.org/doc/Documentation/iostats.txt">https://www.kernel.org/doc/Documentation/iostats.txt</a>
@@ -367,11 +368,11 @@ r8169 62099 0 - Live 0x0000000000000000
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.9</span> /proc/cpuinfo</h3>
+<div id="outline-container-orgcf6b7b2" class="outline-3">
+<h3 id="orgcf6b7b2"><span class="section-number-3">1.9</span> /proc/cpuinfo</h3>
 </div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.10</span> /proc/crypto</h3>
+<div id="outline-container-orgee42f35" class="outline-3">
+<h3 id="orgee42f35"><span class="section-number-3">1.10</span> /proc/crypto</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 所有可用的加密算法
@@ -495,8 +496,8 @@ digestsize   : 4
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.11</span> /proc/loadavg</h3>
+<div id="outline-container-org958fa4f" class="outline-3">
+<h3 id="org958fa4f"><span class="section-number-3">1.11</span> /proc/loadavg</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
 <a href="http://ilinuxkernel.com/?p=869">Linux系统中Load Average含义</a>
@@ -514,8 +515,8 @@ digestsize   : 4
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">1.12</span> /proc/slabinfo</h3>
+<div id="outline-container-orgc858d78" class="outline-3">
+<h3 id="orgc858d78"><span class="section-number-3">1.12</span> /proc/slabinfo</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 内核slab分配器信息
@@ -632,8 +633,8 @@ kmem_cache_node      128    128     64   64    1 : tunables    0    0    0 : sla
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.13</span> /proc/vmstat</h3>
+<div id="outline-container-orgc1d7647" class="outline-3">
+<h3 id="orgc1d7647"><span class="section-number-3">1.13</span> /proc/vmstat</h3>
 <div class="outline-text-3" id="text-1-13">
 <p>
 虚拟内存统计信息
@@ -741,8 +742,8 @@ thp_split 0
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">1.14</span> /proc/zoneinfo</h3>
+<div id="outline-container-org9fabb83" class="outline-3">
+<h3 id="org9fabb83"><span class="section-number-3">1.14</span> /proc/zoneinfo</h3>
 <div class="outline-text-3" id="text-1-14">
 <p>
 内存区域(zone)信息
@@ -952,8 +953,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">1.15</span> /proc/&lt;pid&gt;</h3>
+<div id="outline-container-org5776e00" class="outline-3">
+<h3 id="org5776e00"><span class="section-number-3">1.15</span> /proc/&lt;pid&gt;</h3>
 <div class="outline-text-3" id="text-1-15">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1040,8 +1041,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">2</span> /proc/sys</h2>
+<div id="outline-container-orgbf55843" class="outline-2">
+<h2 id="orgbf55843"><span class="section-number-2">2</span> /proc/sys</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 在/proc/sys下面有一些可以动态修改的内核参数. 两种方式可以修改这些参数:
@@ -1053,16 +1054,16 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">3</span> /proc/sys/vm</h2>
+<div id="outline-container-orgff5d0a8" class="outline-2">
+<h2 id="orgff5d0a8"><span class="section-number-2">3</span> /proc/sys/vm</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://www.kernel.org/doc/Documentation/sysctl/vm.txt">https://www.kernel.org/doc/Documentation/sysctl/vm.txt</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">3.1</span> /proc/sys/vm/overcommit_memory</h3>
+<div id="outline-container-org490182e" class="outline-3">
+<h3 id="org490182e"><span class="section-number-3">3.1</span> /proc/sys/vm/overcommit_memory</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>OVERCOMMIT_GUESS=0
@@ -1084,8 +1085,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">3.2</span> /proc/sys/vm/swappiness</h3>
+<div id="outline-container-orgfc7df3f" class="outline-3">
+<h3 id="orgfc7df3f"><span class="section-number-3">3.2</span> /proc/sys/vm/swappiness</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 使用swap分区程度. 设置为0表示, 系统会尽可能地减少page swap in/out操作(但不保证不使用swap分区).
@@ -1093,8 +1094,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">3.3</span> /proc/sys/vm/dirty_*</h3>
+<div id="outline-container-orgf69b098" class="outline-3">
+<h3 id="orgf69b098"><span class="section-number-3">3.3</span> /proc/sys/vm/dirty_*</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 控制脏页写回磁盘策略
@@ -1119,8 +1120,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">3.4</span> /proc/sys/vm/laptop_mode</h3>
+<div id="outline-container-orgb0c78ee" class="outline-3">
+<h3 id="orgb0c78ee"><span class="section-number-3">3.4</span> /proc/sys/vm/laptop_mode</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 膝上型计算机模式.
@@ -1136,8 +1137,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">3.5</span> /proc/sys/vm/drop_caches</h3>
+<div id="outline-container-org470b3dc" class="outline-3">
+<h3 id="org470b3dc"><span class="section-number-3">3.5</span> /proc/sys/vm/drop_caches</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 用来释放kernel保存的buffers和cached. 其中buffers缓存inode(block cache), cached缓存文件页面(page cache)
@@ -1153,8 +1154,8 @@ Node 0, zone   Normal
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">3.6</span> /proc/sys/vm/panic_on_oom</h3>
+<div id="outline-container-org538f8f4" class="outline-3">
+<h3 id="org538f8f4"><span class="section-number-3">3.6</span> /proc/sys/vm/panic_on_oom</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li>OOM Killer - linux-mm.org Wiki <a href="http://linux-mm.org/OOM_Killer">http://linux-mm.org/OOM_Killer</a></li>
@@ -1185,16 +1186,16 @@ This enables or disables panic on out-of-memory feature.
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-2">
-<h2 id="orgheadline26"><span class="section-number-2">4</span> /proc/sys/net</h2>
+<div id="outline-container-org05122ff" class="outline-2">
+<h2 id="org05122ff"><span class="section-number-2">4</span> /proc/sys/net</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://www.kernel.org/doc/Documentation/sysctl/net.txt">https://www.kernel.org/doc/Documentation/sysctl/net.txt</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">4.1</span> /proc/sys/net/ipv4/ip_local_port_range</h3>
+<div id="outline-container-orga18c526" class="outline-3">
+<h3 id="orga18c526"><span class="section-number-3">4.1</span> /proc/sys/net/ipv4/ip_local_port_range</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 本地port分配范围. 本地client如果没有指定连接port的话那么就从这个范围内随机分配
@@ -1208,16 +1209,16 @@ This enables or disables panic on out-of-memory feature.
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-2">
-<h2 id="orgheadline31"><span class="section-number-2">5</span> /proc/sys/fs</h2>
+<div id="outline-container-orgafbabd1" class="outline-2">
+<h2 id="orgafbabd1"><span class="section-number-2">5</span> /proc/sys/fs</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="https://www.kernel.org/doc/Documentation/sysctl/fs.txt">https://www.kernel.org/doc/Documentation/sysctl/fs.txt</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">5.1</span> /proc/sys/fs/file-max</h3>
+<div id="outline-container-orgdba392d" class="outline-3">
+<h3 id="orgdba392d"><span class="section-number-3">5.1</span> /proc/sys/fs/file-max</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 所有进程允许打开文件句柄数上限
@@ -1225,8 +1226,8 @@ This enables or disables panic on out-of-memory feature.
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">5.2</span> /proc/sys/fs/nr_open</h3>
+<div id="outline-container-orgf548103" class="outline-3">
+<h3 id="orgf548103"><span class="section-number-3">5.2</span> /proc/sys/fs/nr_open</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 单个进程打开文件句柄数上限
@@ -1234,8 +1235,8 @@ This enables or disables panic on out-of-memory feature.
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">5.3</span> /proc/sys/fs/file-nr</h3>
+<div id="outline-container-orge338eb7" class="outline-3">
+<h3 id="orge338eb7"><span class="section-number-3">5.3</span> /proc/sys/fs/file-nr</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 系统当前打开文件句柄数
@@ -1243,8 +1244,8 @@ This enables or disables panic on out-of-memory feature.
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">5.4</span> /proc/sys/fs/epoll/max_user_watches</h3>
+<div id="outline-container-orgc637014" class="outline-3">
+<h3 id="orgc637014"><span class="section-number-3">5.4</span> /proc/sys/fs/epoll/max_user_watches</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 单个用户使用epoll进行监控的文件描述符上限
@@ -1267,16 +1268,16 @@ of the available low memory, divided by the registration cost in bytes.
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-2">
-<h2 id="orgheadline33"><span class="section-number-2">6</span> /proc/sys/kernel</h2>
+<div id="outline-container-org0404166" class="outline-2">
+<h2 id="org0404166"><span class="section-number-2">6</span> /proc/sys/kernel</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="https://www.kernel.org/doc/Documentation/sysctl/kernel.txt">https://www.kernel.org/doc/Documentation/sysctl/kernel.txt</a>
 </p>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">6.1</span> /proc/sys/kernel/hung_task_timeout_secs</h3>
+<div id="outline-container-org59e3c20" class="outline-3">
+<h3 id="org59e3c20"><span class="section-number-3">6.1</span> /proc/sys/kernel/hung_task_timeout_secs</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 &gt;&gt;&gt; <a href="https://osinternals.wordpress.com/2009/11/24/detecting-hung-tasks-in-linux/">Detecting hung tasks in Linux</a>
@@ -1304,7 +1305,7 @@ One can change the sampling interval of khungtaskd through the sysctl interface 
 </p>
 </blockquote>
 
-<hr  />
+<hr />
 
 <p>
 之前在hdfs一个datanode上面出现了磁盘损坏问题，然后在syslog里面发现了下面日志
@@ -1348,11 +1349,12 @@ The JBD is the <a href="http://kerneltrap.org/node/6741">journaling block device
 </div>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-2">
-<h2 id="orgheadline36"><span class="section-number-2">7</span> /proc/net</h2>
+<div id="outline-container-orgdb29796" class="outline-2">
+<h2 id="orgdb29796"><span class="section-number-2">7</span> /proc/net</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">7.1</span> /proc/net/tcp</h3>
+</div>
+<div id="outline-container-org07ba03d" class="outline-3">
+<h3 id="org07ba03d"><span class="section-number-3">7.1</span> /proc/net/tcp</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 所有tcp连接信息. netstat以及lsof等命令会读取这个文件.
@@ -1368,8 +1370,8 @@ The JBD is the <a href="http://kerneltrap.org/node/6741">journaling block device
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">7.2</span> /proc/net/dev</h3>
+<div id="outline-container-orgcc09587" class="outline-3">
+<h3 id="orgcc09587"><span class="section-number-3">7.2</span> /proc/net/dev</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 网卡设备流量信息

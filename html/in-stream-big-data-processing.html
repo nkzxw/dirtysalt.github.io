@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>In-Stream Big Data Processing</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,31 +18,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline3">1. Basics of Distributed Query Processing</a>
+<li><a href="#org76439cd">1. Basics of Distributed Query Processing</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Partitioning and Shuffling</a></li>
-<li><a href="#orgheadline2">1.2. Pipelining</a></li>
+<li><a href="#orgd231317">1.1. Partitioning and Shuffling</a></li>
+<li><a href="#org0f65266">1.2. Pipelining</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">2. In-Stream Processing Patterns</a>
+<li><a href="#org4f4424e">2. In-Stream Processing Patterns</a>
 <ul>
-<li><a href="#orgheadline4">2.1. Stream Replay</a></li>
-<li><a href="#orgheadline7">2.2. Lineage Tracking</a>
+<li><a href="#org5861f69">2.1. Stream Replay</a></li>
+<li><a href="#org95c4e0d">2.2. Lineage Tracking</a>
 <ul>
-<li><a href="#orgheadline5">2.2.1. storm lineage tracking</a></li>
-<li><a href="#orgheadline6">2.2.2. spark lineage tracking</a></li>
+<li><a href="#org598b8cf">2.2.1. storm lineage tracking</a></li>
+<li><a href="#org28ebb94">2.2.2. spark lineage tracking</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline8">2.3. State Checkpointing</a></li>
-<li><a href="#orgheadline9">2.4. Additive State and Sketches</a></li>
-<li><a href="#orgheadline10">2.5. Logical Time Tracking</a></li>
-<li><a href="#orgheadline11">2.6. Aggregation in a Persistent Store</a></li>
-<li><a href="#orgheadline12">2.7. Aggregation on a Sliding Window</a></li>
+<li><a href="#orga08db1a">2.3. State Checkpointing</a></li>
+<li><a href="#orgdaf9725">2.4. Additive State and Sketches</a></li>
+<li><a href="#org013b9be">2.5. Logical Time Tracking</a></li>
+<li><a href="#org18d740c">2.6. Aggregation in a Persistent Store</a></li>
+<li><a href="#org52873d4">2.7. Aggregation on a Sliding Window</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">3. Query Processing Pipeline: Storm, Cassandra, Kafka</a></li>
-<li><a href="#orgheadline15">4. Towards Unified Big Data Processing</a></li>
-<li><a href="#orgheadline16">5. References</a></li>
+<li><a href="#orgc720a4d">3. Query Processing Pipeline: Storm, Cassandra, Kafka</a></li>
+<li><a href="#org9235fce">4. Towards Unified Big Data Processing</a></li>
+<li><a href="#org3173ffb">5. References</a></li>
 </ul>
 </div>
 </div>
@@ -80,16 +80,16 @@ Our goal was to equip all facilities with a new in-stream engine (shown in the b
 <li>High performance and mobility. The system should deliver performance of tens of thousands messages per second even on clusters of minimal size. The engine should be compact and efficient, so one can deploy it in multiple datacenters on small clusters.（在小规模集群上处理到w级别的QPS，并且容易部署） #note: 部署和可维护性其实在很大程度上需要考虑</li>
 </ul>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">1</span> Basics of Distributed Query Processing</h2>
+<div id="outline-container-org76439cd" class="outline-2">
+<h2 id="org76439cd"><span class="section-number-2">1</span> Basics of Distributed Query Processing</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 It is clear that distributed in-stream data processing has something to do with query processing in distributed relational databases. Many standard query processing techniques can be employed by in-stream processing engine, so it is extremely useful to understand classical algorithms of distributed query processing and see how it all relates to in-stream processing and other popular paradigms like MapReduce.
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Partitioning and Shuffling</h3>
+<div id="outline-container-orgd231317" class="outline-3">
+<h3 id="orgd231317"><span class="section-number-3">1.1</span> Partitioning and Shuffling</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Although optimal partitioning for selection and projection operations can be tricky (e.g. for range queries),  <b>we can assume that for in-stream data filtering it is practically enough to distribute data among the processors using a hash-based partitioning.</b>
@@ -128,8 +128,8 @@ The divide and broadcast join algorithm is illustrated in the figure below. This
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Pipelining</h3>
+<div id="outline-container-org0f65266" class="outline-3">
+<h3 id="org0f65266"><span class="section-number-3">1.2</span> Pipelining</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 all operators in a query should be chained in such a way that the data flows smoothly through the entire pipeline i.e. neither operation should block processing by waiting for a large piece of input data without producing any output or by writing intermediate results
@@ -167,16 +167,16 @@ As a tuple comes in, the joiner first looks it up in the hash table of the other
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> In-Stream Processing Patterns</h2>
+<div id="outline-container-org4f4424e" class="outline-2">
+<h2 id="org4f4424e"><span class="section-number-2">2</span> In-Stream Processing Patterns</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In this section, we discuss a number of techniques that are used by streaming systems to provide message delivery guarantees and some other patterns that are not typical for standard query processing.
 </p>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.1</span> Stream Replay</h3>
+<div id="outline-container-org5861f69" class="outline-3">
+<h3 id="org5861f69"><span class="section-number-3">2.1</span> Stream Replay</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <div class="figure">
@@ -186,8 +186,8 @@ In this section, we discuss a number of techniques that are used by streaming sy
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.2</span> Lineage Tracking</h3>
+<div id="outline-container-org95c4e0d" class="outline-3">
+<h3 id="org95c4e0d"><span class="section-number-3">2.2</span> Lineage Tracking</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In a streaming system, events flow through a chain of processors until the result reaches the final destination (like an external database). Each input event produces a directed graph of descendant events (lineage) that ends by the final results. To guarantee reliable data processing, it is necessary to ensure that the entire graph was processed successfully and to restart processing in case of failures. （所谓lineage tracking就是，追踪output对应的input以及对应的pipelines. 如果output失败的话那么可以从input开始重新构建这个output)
@@ -198,8 +198,8 @@ In a streaming system, events flow through a chain of processors until the resul
 </ul>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">2.2.1</span> storm lineage tracking</h4>
+<div id="outline-container-org598b8cf" class="outline-4">
+<h4 id="org598b8cf"><span class="section-number-4">2.2.1</span> storm lineage tracking</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 这个算法比较fancy，有一定的概率会造成数据丢失但是没有重传，不过概率非常小。
@@ -240,8 +240,8 @@ In a streaming system, events flow through a chain of processors until the resul
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">2.2.2</span> spark lineage tracking</h4>
+<div id="outline-container-org28ebb94" class="outline-4">
+<h4 id="org28ebb94"><span class="section-number-4">2.2.2</span> spark lineage tracking</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 The idea is to consider the final result as a function of the incoming data. To simplify lineage tracking, the framework processes events in batches, so the result is a sequence of batches where each batch is a function of the input batches. Resulting batches can be computed in parallel and if some computation fails, the framework simply reruns it. The framework considers the incoming streams not as streams, but as set of batches. Each batch has an ID and the framework can fetch it by the ID at any moment of time. So, stream processing can be represented as a bunch of transactions where each transaction takes a group of input batches, transforms them using a processing function, and persists a result. 这点和Spark本身有关系。spark使用function来描述dataflow，batch作为input, 所以很自然lineage就可以使用这种function来描述。
@@ -260,8 +260,8 @@ This simple but powerful paradigm enables centralized transaction management and
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.3</span> State Checkpointing</h3>
+<div id="outline-container-orga08db1a" class="outline-3">
+<h3 id="orga08db1a"><span class="section-number-3">2.3</span> State Checkpointing</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 #todo:
@@ -269,8 +269,8 @@ This simple but powerful paradigm enables centralized transaction management and
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.4</span> Additive State and Sketches</h3>
+<div id="outline-container-orgdaf9725" class="outline-3">
+<h3 id="orgdaf9725"><span class="section-number-3">2.4</span> Additive State and Sketches</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Additivity of intermediate and final computational results is an important property that drastically simplifies design, implementation, maintenance, and recovery of in-stream data processing systems. Additivity means that the computational result for a larger time range or a larger data partition can be calculated as a combination of results for smaller time ranges or smaller partitions.</li>
@@ -279,8 +279,8 @@ This simple but powerful paradigm enables centralized transaction management and
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.5</span> Logical Time Tracking</h3>
+<div id="outline-container-org013b9be" class="outline-3">
+<h3 id="org013b9be"><span class="section-number-3">2.5</span> Logical Time Tracking</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 It is very common for in-stream computations to depend on time: aggregations and joins are often performed on sliding time windows; processing logic often depends on a time interval between events and so on. Obviously, the in-stream processing system should have a notion of application’s view of time, instead of CPU wall-clock. However, proper time tracking is not trivial because data streams and particular events can be replayed in case of failures. Each processor in a pipeline tracks the maximal timestamp it has seen in a stream and updates a global persistent clock by this timestamp if the global clock is behind. All other processors synchronize their time with the global clock.#todo: 为什么需要同步这个global clock?
@@ -288,8 +288,8 @@ It is very common for in-stream computations to depend on time: aggregations and
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.6</span> Aggregation in a Persistent Store</h3>
+<div id="outline-container-org18d740c" class="outline-3">
+<h3 id="org18d740c"><span class="section-number-3">2.6</span> Aggregation in a Persistent Store</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Instead of maintaining in-memory event buffers, one can simply save all incoming events from all data streams to Casandra using a join key as row key, as it shown in the figure below. On the other side, the second process traverses the records periodically, assembles and emits joined events, and evicts the events that fell out of the time window. Cassandra even can facilitate this activity by sorting events according to their timestamps.
@@ -307,8 +307,8 @@ It is important to understand that such techniques can defeat the whole purpose 
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.7</span> Aggregation on a Sliding Window</h3>
+<div id="outline-container-org52873d4" class="outline-3">
+<h3 id="org52873d4"><span class="section-number-3">2.7</span> Aggregation on a Sliding Window</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <b>Incremental computations</b> over sliding windows is a group of techniques that are widely used in digital signal processing, in both software and hardware.
@@ -323,11 +323,11 @@ It is important to understand that such techniques can defeat the whole purpose 
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">3</span> Query Processing Pipeline: Storm, Cassandra, Kafka</h2>
+<div id="outline-container-orgc720a4d" class="outline-2">
+<h2 id="orgc720a4d"><span class="section-number-2">3</span> Query Processing Pipeline: Storm, Cassandra, Kafka</h2>
 </div>
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">4</span> Towards Unified Big Data Processing</h2>
+<div id="outline-container-org9235fce" class="outline-2">
+<h2 id="org9235fce"><span class="section-number-2">4</span> Towards Unified Big Data Processing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The key observation is that relational query processing, MapReduce, and in-stream processing could be implemented using exactly the same concepts and techniques like shuffling and pipelining. At the same time:
@@ -367,8 +367,8 @@ scripts into efficient query processing pipelines instead of sequences of MapRed
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">5</span> References</h2>
+<div id="outline-container-org3173ffb" class="outline-2">
+<h2 id="org3173ffb"><span class="section-number-2">5</span> References</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>A. Wilschut and P. Apers, “Dataflow Query Execution in a Parallel Main-Memory Environment “</li>

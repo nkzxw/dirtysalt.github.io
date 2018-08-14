@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>scipy几种稀疏矩阵表示</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -42,7 +42,7 @@ coo_matrix有三个数组,row,col, data. 其中data[i] = matrix[row[i], col[i]].
 关于这几种matrix的存储和运算优劣可以参考scipy文档
 </p>
 
-<hr  />
+<hr />
 <p>
 假设我们有个矩阵如下：
 </p>
@@ -95,7 +95,7 @@ m4.indices
 Out[122]: array([0, 0, 1, 0, 1], dtype=int32)
 </pre>
 
-<hr  />
+<hr />
 <p>
 几种matrix之间相互转换的时间也是不对称的，从csc, csr -&gt; coo转换的时间，相比coo-&gt;csc, csr的时间更短。所以如果只能使用一种中间存储格式的话，尽可能使用csc,csr而不是coo.
 </p>

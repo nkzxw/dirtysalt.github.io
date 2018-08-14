@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux System and Performance Monitoring</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,13 +18,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Performance Monitoring Introduction</a></li>
-<li><a href="#orgheadline2">2. Installing Monitoring Tools</a></li>
-<li><a href="#orgheadline3">3. Introducing the CPU</a></li>
-<li><a href="#orgheadline4">4. Introducing Virtual Memory</a></li>
-<li><a href="#orgheadline5">5. Introducing I/O Monitoring</a></li>
-<li><a href="#orgheadline6">6. Monitoring I/O</a></li>
-<li><a href="#orgheadline7">7. Introducing Network Monitoring</a></li>
+<li><a href="#org4198929">1. Performance Monitoring Introduction</a></li>
+<li><a href="#org1532a3e">2. Installing Monitoring Tools</a></li>
+<li><a href="#orgc7b8ea6">3. Introducing the CPU</a></li>
+<li><a href="#orgd419788">4. Introducing Virtual Memory</a></li>
+<li><a href="#org4674508">5. Introducing I/O Monitoring</a></li>
+<li><a href="#orgb2ffd41">6. Monitoring I/O</a></li>
+<li><a href="#org1a781d9">7. Introducing Network Monitoring</a></li>
 </ul>
 </div>
 </div>
@@ -36,8 +36,8 @@
 a.k.a "Extreme Linux Performance Monitoring and Tuning"
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Performance Monitoring Introduction</h2>
+<div id="outline-container-org4198929" class="outline-2">
+<h2 id="org4198929"><span class="section-number-2">1</span> Performance Monitoring Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>sub-systems: CPU, Memory, IO, Network</li>
@@ -46,8 +46,8 @@ a.k.a "Extreme Linux Performance Monitoring and Tuning"
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Installing Monitoring Tools</h2>
+<div id="outline-container-org1532a3e" class="outline-2">
+<h2 id="org1532a3e"><span class="section-number-2">2</span> Installing Monitoring Tools</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -57,8 +57,8 @@ a.k.a "Extreme Linux Performance Monitoring and Tuning"
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Introducing the CPU</h2>
+<div id="outline-container-orgc7b8ea6" class="outline-2">
+<h2 id="orgc7b8ea6"><span class="section-number-2">3</span> Introducing the CPU</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The following list outlines the priorities from highest to lowest: # 调度优先级别，从高到低
@@ -100,8 +100,8 @@ Case Study
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Introducing Virtual Memory</h2>
+<div id="outline-container-orgd419788" class="outline-2">
+<h2 id="orgd419788"><span class="section-number-2">4</span> Introducing Virtual Memory</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Kernel Memory Paging. Memory paging is a normal activity not to be confused with memory swapping. Memory paging is the process of synching memory back to disk at normal intervals. Over time, applications will grow to consume all of memory. At some point, the kernel must scan memory and reclaim unused pages to be allocated to other applications. # memory paging和memory swapping不同的是, paging是系统的正常行为. 系统会定时将部分内存刷到磁盘上, 释放这部分内存出来分配给其他进程, 确保所有进程都把所有内存都用上
@@ -135,8 +135,8 @@ The pdflush daemon is responsible for synchronizing any pages associated with a 
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Introducing I/O Monitoring</h2>
+<div id="outline-container-org4674508" class="outline-2">
+<h2 id="org4674508"><span class="section-number-2">5</span> Introducing I/O Monitoring</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are 3 types of memory pages in the Linux kernel. These pages are described below:
@@ -149,11 +149,11 @@ There are 3 types of memory pages in the Linux kernel. These pages are described
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Monitoring I/O</h2>
+<div id="outline-container-orgb2ffd41" class="outline-2">
+<h2 id="orgb2ffd41"><span class="section-number-2">6</span> Monitoring I/O</h2>
 </div>
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Introducing Network Monitoring</h2>
+<div id="outline-container-org1a781d9" class="outline-2">
+<h2 id="org1a781d9"><span class="section-number-2">7</span> Introducing Network Monitoring</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/linux-system-and-performance-monitoring.html';this.page.identifier = 'linux-system-and-performance-monitoring.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

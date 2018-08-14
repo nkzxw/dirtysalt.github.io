@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python程序性能分析</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -41,7 +41,6 @@ Sampling profiler 原理是调用 <a href="http://man7.org/linux/man-pages/man2/
 前段时间我们后端的爬虫也出现CPU开销比较大的问题。爬虫是后台长期运行的任务，所以想动态地启动/关闭profiler（所以在一定程度上也解决了explicitly instrumented这个问题）。可以通过启动一个进程定时地从一个地方（比如Redis）里面读取数据来打开和关闭Profiler
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">global_profiler = cProfile.Profile()
 global_profiler.running = False
 
@@ -89,7 +88,6 @@ def dyn_check_profiler(interval=30):
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Python">class BlockAllCookiePolocy(cookielib.CookiePolicy):
     return_ok = set_ok = domain_return_ok = path_return_ok = lambda self, *args, **kwargs: False
     netscape = True

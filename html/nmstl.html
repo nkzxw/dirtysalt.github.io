@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>nmstl</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,13 +18,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Overview</a></li>
-<li><a href="#orgheadline2">2. SEDA</a></li>
-<li><a href="#orgheadline6">3. 动态线程池</a>
+<li><a href="#org152cdc8">1. Overview</a></li>
+<li><a href="#org915b715">2. SEDA</a></li>
+<li><a href="#orgbb17132">3. 动态线程池</a>
 <ul>
-<li><a href="#orgheadline3">3.1. 增加线程</a></li>
-<li><a href="#orgheadline4">3.2. 回收线程</a></li>
-<li><a href="#orgheadline5">3.3. 逻辑总结</a></li>
+<li><a href="#org7dadfe9">3.1. 增加线程</a></li>
+<li><a href="#orgcb2a691">3.2. 回收线程</a></li>
+<li><a href="#orgf306bf6">3.3. 逻辑总结</a></li>
 </ul>
 </li>
 </ul>
@@ -34,8 +34,8 @@
 <a href="http://sourceforge.net/projects/nmstl/">http://sourceforge.net/projects/nmstl/</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org152cdc8" class="outline-2">
+<h2 id="org152cdc8"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 代码非常精简大概6000多行，但是完成不是一个库而是一个框架的功能。代码非常飘逸清爽，并且很好地被注释了。
@@ -80,8 +80,8 @@ NMSTL和Asio一样都是template-heavy code,大部分都是头文件。NMSTL设�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> SEDA</h2>
+<div id="outline-container-org915b715" class="outline-2">
+<h2 id="org915b715"><span class="section-number-2">2</span> SEDA</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://www.eecs.harvard.edu/~mdw/proj/seda/">http://www.eecs.harvard.edu/~mdw/proj/seda/</a>.
@@ -91,7 +91,6 @@ NMSTL和Asio一样都是template-heavy code,大部分都是头文件。NMSTL设�
 SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个概念。动态线程池可以在吞吐和响应上平衡，而划分成为stage的话可以让整个设计更加灵活，甚至一个stage都可以使用block方式处理(如果异步编写比较麻烦的话)通过线程来支持，当然一个stage推荐还是使用nonblock方式处理。我们这里看看NMSTL怎么实现动态线程池的。首先看看SEDAStage这么一个概念。在NMSTL里面定义是这样的
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">template</span>&lt;<span class="org-keyword">class</span> <span class="org-type">In</span>, <span class="org-keyword">class</span> <span class="org-type">Out</span> = <span class="org-type">void</span>&gt;
 <span class="org-keyword">class</span> <span class="org-type">SEDAStage</span>;
 </pre>
@@ -101,7 +100,6 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 一个SEDAStage和一个In/Out类型绑定形成一个stage.这个stage允许不断地插入In对象，实现起来内部能够非常高效地处理这些In对象生成Out对象。然后一个stage可能后面会挂上一个next stage,这个next stage接收Out对象然后不断地继续。对于这里的高效处理就是使用异步队列+线程池模型来处理了，我们可以看看处理这个部分的代码
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">my_thread</span> : <span class="org-keyword">public</span> <span class="org-type">Thread</span> {
     <span class="org-type">bool</span> <span class="org-variable-name">quit</span>;
     <span class="org-type">bool</span> <span class="org-variable-name">pending</span>;
@@ -136,14 +134,13 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 然后我们看看多个Stage是如何相连在一起的.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">template</span>&lt;<span class="org-keyword">class</span> <span class="org-type">In</span>, <span class="org-keyword">class</span> <span class="org-type">Out</span>&gt;
 <span class="org-keyword">class</span> <span class="org-type">SEDAStage</span> : <span class="org-keyword">public</span> <span class="org-type">SEDAStage</span>&lt;<span class="org-type">In</span>, <span class="org-type">void</span>&gt; {
     <span class="org-type">SEDAStage</span>&lt;<span class="org-type">Out</span>&gt;* <span class="org-variable-name">next</span>;
 
   <span class="org-keyword">public</span>:
     <span class="org-function-name">SEDAStage</span>(<span class="org-type">string</span> <span class="org-variable-name">name</span> = string()) :
-        <span class="org-type">SEDAStage</span>&lt;In, <span class="org-type">void</span>&gt;(name)
+        SEDAStage&lt;<span class="org-type">In</span>, <span class="org-type">void</span>&gt;(name)
     {
     }
     <span class="org-comment-delimiter">// </span><span class="org-comment">&#35774;&#32622;&#19979;&#19968;&#20010;&#38454;&#27573;Stage</span>
@@ -169,8 +166,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> 动态线程池</h2>
+<div id="outline-container-orgbb17132" class="outline-2">
+<h2 id="orgbb17132"><span class="section-number-2">3</span> 动态线程池</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 首先SEDAStage对于动态线程池有三个指标
@@ -185,11 +182,10 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </p>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> 增加线程</h3>
+<div id="outline-container-org7dadfe9" class="outline-3">
+<h3 id="org7dadfe9"><span class="section-number-3">3.1</span> 增加线程</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Injects an element into the queue.</span>
 <span class="org-type">void</span> <span class="org-function-name">inject</span>(<span class="org-type">In</span>&amp; <span class="org-variable-name">in</span>) {
     <span class="org-keyword">if</span> (<span class="org-negation-char">!</span>inq.push(in)) <span class="org-comment-delimiter">// </span><span class="org-comment">&#22914;&#26524;&#24322;&#27493;&#38431;&#21015;push&#36820;&#22238;false&#30340;&#35805;&#65292;&#37027;&#20040;&#23601;&#20250;&#35843;&#29992;clogged.</span>
@@ -201,7 +197,7 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 <span class="org-comment-delimiter">/// </span><span class="org-comment">invoked on the same Thread which calls inject (before inject</span>
 <span class="org-comment-delimiter">/// </span><span class="org-comment">returns) so it must return very quickly.</span>
 <span class="org-keyword">virtual</span> <span class="org-type">void</span> <span class="org-function-name">clogged</span>(<span class="org-type">In</span>&amp; <span class="org-variable-name">in</span>) {
-    <span class="org-variable-name">locking</span> (<span class="org-keyword">this</span>) {
+    locking (<span class="org-keyword">this</span>) {
         reached_capacity = 0; <span class="org-comment-delimiter">// </span><span class="org-comment">rc=0</span>
         add_threads(); <span class="org-comment-delimiter">// </span><span class="org-comment">&#22686;&#21152;&#32447;&#31243;</span>
     }
@@ -228,11 +224,10 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 大于task数量，那么这个时候可以认为没有必要增加线程。不过这里我们没有分析extra_capacity这个意思。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Adds an item to the back of the queue.  Returns true if the item</span>
 <span class="org-comment-delimiter">/// </span><span class="org-comment">will be immediately dispatched.</span>
 <span class="org-type">bool</span> <span class="org-function-name">push</span>(<span class="org-keyword">const</span> <span class="org-type">value_type</span>&amp; <span class="org-variable-name">v</span>) {
-    <span class="org-variable-name">locking</span>(m) {
+    locking(m) {
         q.push(v);
         c.signal();
         <span class="org-keyword">return</span> waiters &gt;= q.size();
@@ -251,14 +246,13 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> 回收线程</h3>
+<div id="outline-container-orgcb2a691" class="outline-3">
+<h3 id="orgcb2a691"><span class="section-number-3">3.2</span> 回收线程</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 然后我们还是回来看看导致线程减少的这部分逻辑
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">while</span> (<span class="org-constant">true</span>) {
     <span class="org-type">In</span> <span class="org-variable-name">in</span>;
     <span class="org-keyword">if</span> (<span class="org-negation-char">!</span>stage.inq.wait(in, &amp;pending))
@@ -272,13 +266,12 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 如果异步队列在wait返回false的话那么就会取消线程。阅读wait这个部分代码的话就会发现只有两个地方是返回false
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Waits for the queue to become non-empty, then atomically</span>
 <span class="org-comment-delimiter">/// </span><span class="org-comment">retrieves an item from the queue, sets out, and returns true; or</span>
 <span class="org-comment-delimiter">/// </span><span class="org-comment">returns false if the queue has been closed.</span>
 <span class="org-type">bool</span> <span class="org-function-name">wait</span>(<span class="org-type">T</span>&amp; <span class="org-variable-name">out</span>, <span class="org-type">bool</span> *<span class="org-variable-name">pending</span> = 0) {
-    <span class="org-variable-name">locking</span>(m) {
-        <span class="org-keyword">if</span> (pending &amp;&amp; *pending) {
+    locking(m) {
+        <span class="org-keyword">if</span> (<span class="org-type">pending</span> &amp;&amp; *<span class="org-variable-name">pending</span>) {
             --waiters;
             *pending = <span class="org-constant">false</span>;
         }
@@ -318,10 +311,9 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 我们什么时候设置waiters_starve的呢？是在starve这个函数里面
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Starves one waiter, causing its "wait" to return false.</span>
 <span class="org-type">void</span> <span class="org-function-name">starve</span>() {
-    <span class="org-variable-name">locking</span> (m) {
+    locking (m) {
         ++waiters_starve;
         --waiters;
         c.signal();
@@ -334,10 +326,9 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 在seda下面存在seda_clock_thread这个类，这个类单独起一个线程然后定时(默认5s)会调用SEDAStage::scan方法。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Periodic scan to see whether to kill a Thread.</span>
 <span class="org-type">void</span> <span class="org-function-name">scan</span>() {
-    <span class="org-variable-name">locking</span> (<span class="org-keyword">this</span>) {
+    locking (<span class="org-keyword">this</span>) {
         <span class="org-keyword">if</span> (reached_capacity &gt; 5 &amp;&amp; num_threads &gt; min_threads) {
             inq.starve();
             --num_threads;
@@ -354,8 +345,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> 逻辑总结</h3>
+<div id="outline-container-orgf306bf6" class="outline-3">
+<h3 id="orgf306bf6"><span class="section-number-3">3.3</span> 逻辑总结</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 如果当前可用线程数目小于queue tasks数目的时候，那么就会添加线程并且将rc置零。然后后端会启动线程每隔5s会将rc++.

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>本地跑跑ELK + Beat(日志收集和指标收集)</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -36,7 +36,7 @@
 Beat可以即可以输出到logstash（可以用来做parse &amp; transform) 然后输出给es, 也可以直接输出到es上。logstash支持很多种 <a href="https://www.elastic.co/guide/en/logstash/5.6/output-plugins.html">output plugins</a>, 这样就不用被锁定在es上了。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 安装完成es和kibana之后，如果立刻访问kibana的话看不到任何数据，所以这个时候最好先把metricbeat run起来，这样kibana上就可以看到比较美观的数据了。
@@ -52,7 +52,6 @@ Beat可以即可以输出到logstash（可以用来做parse &amp; transform) 然
 metric beat的输出数据放到了类似“metricbeat-6.2.3-2018.04.10”这样的index下面了，其中6.2.3是metric beat的版本号。这点非常重要，因为如果一旦metric beat不是直接输出到es而是logstash的话，logstash默认输出的索引是”logstash-2018.04.10”这样的。所以logstash配置应该略作改动，下面的配置文件作为参考
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Ruby"># The # character at the beginning of a line indicates a comment. Use
 # comments to describe your configuration.
 input {

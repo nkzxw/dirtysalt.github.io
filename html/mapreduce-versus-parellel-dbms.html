@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MapReduce Versus Parallel DBMS</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -29,7 +29,7 @@
 <li><a href="./mapreduce-and-parellel-dbmss-friends-or-foes.html">MapReduce and Parallel DBMSs: Friends or Foes?</a></li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 正方抛出观点。2009 年Andrew Pavlo等人发表了一篇标题为《大规模数据分析的方法对比》（<a href="http://database.cs.brown.edu/projects/mapreduce-vs-dbms/">http://database.cs.brown.edu/projects/mapreduce-vs-dbms/</a> ）的文章，里面对比了数据库和MR两种大规模数据分析方法的对比。通过对比流行的MR软件 Hadoop和一种并行数据库之间的架设、使用和性能等方面的异同，指出MR并不是解决大规模数据分析的好方法，其在性能、易用性等方面有诸多问题：
@@ -40,7 +40,7 @@
 <li>MR需要使用不高效的文本数据格式。</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 反方接招。
@@ -59,7 +59,7 @@
 <li>MR可以表现更复杂的数据变换规则，很多反方的意见都是实现相关的，是针对一些不好的MR的实现做出来的，因此站不住脚。反方的最有力的证据就是，在Google里头跑得很好的一万多各种MR应用，从网页分析到索引建立，从日志分析到网图计算等等。</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 正方的回应。作为正方，Michael Stonebraker 教授等人在同一期杂志上发表了另外一篇文章，很有趣的是刚好排在反方的文章之前。这篇文章以批评与自我批评的方式提出了若干有趣的观点，其中有些刚好是对反方的一个回应：MR系统可以用于（注意：不是胜出）下列场合：

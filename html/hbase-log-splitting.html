@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HBase Log Splitting</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -50,7 +50,7 @@ Log splitting is done by HMaster as the cluster starts or by ServerShutdownHandl
 </ul>
 
 
-<hr  />
+<hr />
 
 <p>
 Times to complete single threaded log splitting vary, but the process may take several hours if multiple region servers have crashed. Distributed log splitting was added in HBase version 0.92 (HBASE-1364) by Prakash Khemani from Facebook.  It reduces the time to complete the process dramatically, and hence improves the availability of regions and tables. For example, we knew a cluster crashed. With single threaded log splitting, it took around 9 hours to recover.  With distributed log splitting, it just took around 6 minutes.（由单个master来完成log splitting的工作非常耗时，所以引入了distributed log splitting这个机制，由facebook的工程师实现的）

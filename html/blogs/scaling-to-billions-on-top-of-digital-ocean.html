@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scaling to Billions on Top of DigitalOcean</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -37,7 +37,7 @@
 <li>Technologies: Nginx, Nodejs, Python, PHP, R, Mysql, Redis, Memcache</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 看起来这波人喜欢手撸，喜欢自己做一些工具来处理failover。
 </p>
@@ -57,7 +57,7 @@ Our expenses could be reduced by 30% if we were to switch to powerful dedicated 
 </p>
 </blockquote>
 
-<hr  />
+<hr />
 <p>
 为什么选择DO而不是AWS呢？好处有下面几个：
 </p>
@@ -70,7 +70,7 @@ Our expenses could be reduced by 30% if we were to switch to powerful dedicated 
 不过他们也使用了一些AWS服务比如Route53.
 </p>
 
-<hr  />
+<hr />
 <p>
 DO上如何选择机器配置呢？开始他们选择的是0.5GB-1core plan, 但是发现OS占用了很多内存，留给DB/MySQL的就很少了，所以最终选择1GB-1core plan给DB.
 </p>

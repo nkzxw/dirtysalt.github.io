@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nginx的https重定向循环问题</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -22,7 +22,6 @@
 最近我们的站点需要全部升级到https, 为此需要修改nginx配置，配置文件如下：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Nginx">server {
     listen 80;
     server_name castbox.fm www.castbox.fm;
@@ -48,7 +47,7 @@ server {
 </div>
 
 <p>
-上线之后我们立刻发现问题：访问 <a href="https://castbox.fm/">https://castbox.fm/</a> 会不断地重定向到 <a href="https://castbox.fm/">https://castbox.fm/</a>
+上线之后我们立刻发现问题：访问 <a href="https://castbox.fm">https://castbox.fm</a> 会不断地重定向到 <a href="https://castbox.fm">https://castbox.fm</a>
 </p>
 
 <p>
@@ -71,9 +70,9 @@ server {
 如果是使用方式1的话就会出现循环跳转的问题（这也是我们最开始的配置）：
 </p>
 <ul class="org-ul">
-<li>请求 <a href="https://castbox.fm/">https://castbox.fm/</a> 到达elb</li>
-<li>elb解析https请求，转发http请求给后端nginx. 也就是请求 <a href="http://castbox.fm/">http://castbox.fm/</a></li>
-<li>nginx接收到 <a href="http://castbox.fm/">http://castbox.fm/</a> 请求，触发重定向到 <a href="https://castbox.fm/">https://castbox.fm/</a></li>
+<li>请求 <a href="https://castbox.fm">https://castbox.fm</a> 到达elb</li>
+<li>elb解析https请求，转发http请求给后端nginx. 也就是请求 <a href="http://castbox.fm">http://castbox.fm</a></li>
+<li>nginx接收到 <a href="http://castbox.fm">http://castbox.fm</a> 请求，触发重定向到 <a href="https://castbox.fm">https://castbox.fm</a></li>
 </ul>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/blogs/nginx-https-redirect-loop.html';this.page.identifier = 'blogs/nginx-https-redirect-loop.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

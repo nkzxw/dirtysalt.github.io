@@ -2,6 +2,9 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+
+# NOTE(yan): simple implementation.
+
 class Solution(object):
     def search(self, nums, target):
         """

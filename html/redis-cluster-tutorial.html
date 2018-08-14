@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis Cluster Tutorial</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,7 +18,7 @@
 <a href="https://redis.io/topics/cluster-tutorial">https://redis.io/topics/cluster-tutorial</a>
 </p>
 
-<hr  />
+<hr />
 <p>
 之前使用redis的方式一直是redis server + twemproxy. 最近twemproxy/nutcracker出了一些问题，具体来说是因为nutcracker所在的机器网络流量到顶了，导致很多cache请求延迟或者是是被丢弃，所以外部服务API延迟特别高。
 </p>
@@ -46,7 +46,7 @@
 趁着这个事情，就顺带调研一下Redis Cluster, 看看这个东西是否可以解决我们的问题，以及这个方案的优点和缺点。细看下来，如果client层不做轮训(RR)的话，流量最终还是会打在一个机器上。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 简单来说，Redis Cluster(RC)实现上将key sharding到多台redis servers上，然后每个shard是master/slaves结构。
@@ -66,7 +66,7 @@
 Redis Cluster是在原来redis server上面实现的分布式功能，原来redis server还是负责原来的单机功能，然后在port + 10000这个端口上实现cluster protocol(binary, use little bandwidth and processing time)
 </p>
 
-<hr  />
+<hr />
 <p>
 RC配置参数中有几个比较重要的：
 </p>
@@ -104,12 +104,11 @@ Replicas Migration要解决的场景如下：假设node AB为主从，A是master
 更好的解决办法是，在整个cluster里面多加几个slaves, 这些slaves的从属关系可以动态变化：如果发现某个shard的master没有slave的话，那么这些冗余的slaves就可以成为这个master的slave. `cluster-migration-barrier`参数指每个master下面最少的slave数量。
 </p>
 
-<hr  />
+<hr />
 <p>
 搭建RC不是一件困难的实现，但是工作量也不少。按照教程创建一个 `cluster-test` 目录，复制一份redis.conf到这个目录下面。为了方便搭建和测试，我写了下面这个脚本。只启动3个实例，没有使用replicas. 因为redis-server很多参数都可以在命令行里面设置，所以redis.conf配置文件其实可以只需要一份。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Shell">#!/usr/bin/env bash
 # Copyright (C) dirlt
 
@@ -137,7 +136,6 @@ ps aux | grep redis-server
 运行完成之后，还需要运行脚本来bring cluster up. 这个ruby脚本是redis source code里面自带的。我封装脚本如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Shell">#!/usr/bin/env bash
 # Copyright (C) dirlt
 
@@ -221,7 +219,7 @@ vars currentEpoch 3 lastVoteEpoch 0
 <li>Slots served</li>
 </ul>
 
-<hr  />
+<hr />
 <p>
 我们现在的webapp使用的是flask框架，通过flask-cache来访问redis cache. flask-cache假设redis-server是单集而非集群，所以如果要使用RC的话，还需要更换到 <a href="https://github.com/Richard-Mathie/Flask-Cache-Redis-Cluster">这个</a> 库。
 </p>
@@ -234,7 +232,6 @@ vars currentEpoch 3 lastVoteEpoch 0
 看完代码之后，发现的确mget的实现比较naive.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def mget(self, keys, *args):
     """
     Returns a list of values ordered identically to ``keys``
@@ -253,7 +250,6 @@ vars currentEpoch 3 lastVoteEpoch 0
 而redis-py的mget实现是通过redis-server本身来完成的，这样可以非常高效
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def mget(self, keys, *args):
     """
     Returns a list of values ordered identically to ``keys``

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Typical Data Processing System</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -32,7 +32,7 @@
 分为两个子系统realtime和batch. 两个子系统之间通过message system来互联. 如果realtime和batch不在同一个机房的话可以通过message system提供的mirror能力来做镜像. 展示给前端的计算结果需要同时merge两个子系统的databases(MySQL and HBase), 返回结果之前增加一个缓存层来减少对database的压力.
 </p>
 
-<hr  />
+<hr />
 <p>
 realtime system数据流是这样的:
 </p>
@@ -46,7 +46,7 @@ realtime system数据流是这样的:
 重点关注: 系统稳定性和数据清洗正确性应该重点关注. 只要代码不是太烂, 系统配置正确的话, 延迟方面应该不会有太大问题.
 </p>
 
-<hr  />
+<hr />
 <p>
 batch system数据流是这样的:
 </p>

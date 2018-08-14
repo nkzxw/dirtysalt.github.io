@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,33 +18,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Abstract</a></li>
-<li><a href="#orgheadline2">2. Introduction</a></li>
-<li><a href="#orgheadline6">3. Resilient Distributed Datasets (RDDs)</a>
+<li><a href="#orgc9d3352">1. Abstract</a></li>
+<li><a href="#orgdb4065b">2. Introduction</a></li>
+<li><a href="#org4d4b245">3. Resilient Distributed Datasets (RDDs)</a>
 <ul>
-<li><a href="#orgheadline3">3.1. RDD Abstraction</a></li>
-<li><a href="#orgheadline4">3.2. Spark Programming Interface</a></li>
-<li><a href="#orgheadline5">3.3. Advantages of the RDD Model</a></li>
+<li><a href="#org41ed898">3.1. RDD Abstraction</a></li>
+<li><a href="#orga26ea15">3.2. Spark Programming Interface</a></li>
+<li><a href="#orge6340ea">3.3. Advantages of the RDD Model</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline8">4. Spark Programming Interface</a>
+<li><a href="#org52f0ca0">4. Spark Programming Interface</a>
 <ul>
-<li><a href="#orgheadline7">4.1. RDD Operations in Spark</a></li>
+<li><a href="#orgda7da53">4.1. RDD Operations in Spark</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">5. Representing RDDs</a></li>
-<li><a href="#orgheadline14">6. Implementation</a>
+<li><a href="#org3178d47">5. Representing RDDs</a></li>
+<li><a href="#org930c412">6. Implementation</a>
 <ul>
-<li><a href="#orgheadline10">6.1. Job Scheduling</a></li>
-<li><a href="#orgheadline11">6.2. Interpreter Integration</a></li>
-<li><a href="#orgheadline12">6.3. Memory Management</a></li>
-<li><a href="#orgheadline13">6.4. Support for Checkpointing</a></li>
+<li><a href="#org2de2b23">6.1. Job Scheduling</a></li>
+<li><a href="#org60b9089">6.2. Interpreter Integration</a></li>
+<li><a href="#org570e9b7">6.3. Memory Management</a></li>
+<li><a href="#orgfe99f61">6.4. Support for Checkpointing</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">7. Evaluaion</a></li>
-<li><a href="#orgheadline16">8. Discussion</a></li>
-<li><a href="#orgheadline17">9. Related Work</a></li>
-<li><a href="#orgheadline18">10. Conclusion</a></li>
+<li><a href="#org781753c">7. Evaluaion</a></li>
+<li><a href="#orgdfcb542">8. Discussion</a></li>
+<li><a href="#org4941143">9. Related Work</a></li>
+<li><a href="#org86a92db">10. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -52,8 +52,8 @@
 <a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</a> @ 2012
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-orgc9d3352" class="outline-2">
+<h2 id="orgc9d3352"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>We present Resilient Distributed Datasets (RDDs), a dis- tributed memory abstraction that lets programmers per- form in-memory computations on large clusters in a fault-tolerant manner.</li>
@@ -64,8 +64,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-orgdb4065b" class="outline-2">
+<h2 id="orgdb4065b"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Although current frameworks provide numerous ab- stractions for accessing a cluster’s computational re- sources, they lack abstractions for leveraging distributed memory. This makes them inefficient for an important class of emerging applications: those that reuse interme- diate results across multiple computations.（缺少有效使用分布式内存的抽象）</li>
@@ -74,7 +74,7 @@
 <li>Recognizing this problem, researchers have developed specialized frameworks for some applications that re- quire data reuse. For example, Pregel is a system for iterative graph computations that keeps intermediate data in memory, while HaLoop offers an iterative MapRe- duce interface. However, these frameworks only support specific computation patterns (e.g., looping a series of MapReduce steps), and perform data sharing implicitly for these patterns. They do not provide abstractions for more general reuse, e.g., to let a user load several datasets into memory and run ad-hoc queries across them.</li>
 </ul>
 
-<hr  />
+<hr />
 
 <ul class="org-ul">
 <li>In this paper, we propose a new abstraction called re- silient distributed datasets (RDDs) that enables efficient data reuse in a broad range of applications. RDDs are
@@ -94,11 +94,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> Resilient Distributed Datasets (RDDs)</h2>
+<div id="outline-container-org4d4b245" class="outline-2">
+<h2 id="org4d4b245"><span class="section-number-2">3</span> Resilient Distributed Datasets (RDDs)</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> RDD Abstraction</h3>
+</div>
+<div id="outline-container-org41ed898" class="outline-3">
+<h3 id="org41ed898"><span class="section-number-3">3.1</span> RDD Abstraction</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Formally, an RDD is a read-only, partitioned collection of records. RDDs can only be created through determin- istic operations on either (1) data in stable storage or (2) other RDDs. We call these operations transformations to differentiate them from other operations on RDDs. Ex- amples of transformations include map, filter, and join.</li>
@@ -108,11 +109,11 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> Spark Programming Interface</h3>
+<div id="outline-container-orga26ea15" class="outline-3">
+<h3 id="orga26ea15"><span class="section-number-3">3.2</span> Spark Programming Interface</h3>
 </div>
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Advantages of the RDD Model</h3>
+<div id="outline-container-orge6340ea" class="outline-3">
+<h3 id="orge6340ea"><span class="section-number-3">3.3</span> Advantages of the RDD Model</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>The main difference between RDDs and DSM is that RDDs can only be created (“written”) through coarse- grained transformations, while DSM allows reads and writes to each memory location. This restricts RDDs to applications that perform bulk writes, but allows for more efficient fault tolerance. In particular, RDDs do not need to incur the overhead of checkpointing, as they can be recovered using lineage. Furthermore, only the lost partitions of an RDD need to be recomputed upon fail- ure, and they can be recomputed in parallel on different nodes, without having to roll back the whole program.</li>
@@ -128,8 +129,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">4</span> Spark Programming Interface</h2>
+<div id="outline-container-org52f0ca0" class="outline-2">
+<h2 id="org52f0ca0"><span class="section-number-2">4</span> Spark Programming Interface</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 To use Spark, developers write a driver program that connects to a cluster of workers, as shown in Figure 2. The driver defines one or more RDDs and invokes ac- tions on them. Spark code on the driver also tracks the RDDs’ lineage. The workers are long-lived processes that can store RDD partitions in RAM across operations.
@@ -142,8 +143,8 @@ To use Spark, developers write a driver program that connects to a cluster of wo
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.1</span> RDD Operations in Spark</h3>
+<div id="outline-container-orgda7da53" class="outline-3">
+<h3 id="orgda7da53"><span class="section-number-3">4.1</span> RDD Operations in Spark</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Table 2 lists the main RDD transformations and actions available in Spark. We give the signature of each oper- ation, showing type parameters in square brackets. Re- call that transformations are lazy operations that define a new RDD, while actions launch a computation to return a value to the program or write data to external storage.
@@ -158,8 +159,8 @@ Table 2 lists the main RDD transformations and actions available in Spark. We gi
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">5</span> Representing RDDs</h2>
+<div id="outline-container-org3178d47" class="outline-2">
+<h2 id="org3178d47"><span class="section-number-2">5</span> Representing RDDs</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 One of the challenges in providing RDDs as an abstrac- tion is choosing a representation for them that can track lineage across a wide range of transformations. Ideally, a system implementing RDDs should provide as rich a set of transformation operators as possible (e.g., the ones in Table 2), and let users compose them in arbitrary ways. We propose a simple graph-based representation for RDDs that facilitates these goals. We have used this representation in Spark to support a wide range of trans- formations without adding special logic to the scheduler for each one, which greatly simplified the system design.
@@ -179,7 +180,7 @@ In a nutshell, we propose representing each RDD through a common interface that 
 For example, an RDD representing an HDFS file has a partition for each block of the file and knows which machines each block is on. Meanwhile, the result of a map on this RDD has the same partitions, but applies the map function to the parent’s data when computing its elements.
 </p>
 
-<hr  />
+<hr />
 
 <p>
 The most interesting question in designing this inter- face is how to represent dependencies between RDDs. We found it both sufficient and useful to classify depen- dencies into two types:
@@ -206,7 +207,7 @@ This distinction is useful for two reasons.
 <li>Second, recovery after a node failure is more efficient with a narrow dependency, as only the lost parent partitions need to be recomputed, and they can be recomputed in parallel on different nodes. In contrast, in a lineage graph with wide dependencies, a single failed node might cause the loss of some partition from all the ancestors of an RDD, requiring a complete re-execution.（ND比较容易recover只需要重新计算对应的parent RDD partition即可，而WD的recovery相对困难是因为需要从所有的parent RDD partition获取数据）</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 This common interface for RDDs made it possible to implement most transformations in Spark in less than 20 lines of code. Indeed, even new Spark users have imple- mented new transformations (e.g., sampling and various types of joins) without knowing the details of the sched- uler. We sketch some RDD implementations below.
@@ -219,7 +220,7 @@ This common interface for RDDs made it possible to implement most transformation
 <li>join: Joining two RDDs may lead to either two nar- row dependencies (if they are both hash/range partitioned with the same partitioner), two wide dependencies, or a mix (if one parent has a partitioner and one does not). In either case, the output RDD has a partitioner (either one inherited from the parents or a default hash partitioner).</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 这里我们使用spark-1.4.1运行一个例子, 来看看RDD中的这些概念. 首先我们用hdfs中读取一个文本文件上来, 指定分区数量为10.
@@ -272,16 +273,16 @@ res48: Option[org.apache.spark.Partitioner] = None
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">6</span> Implementation</h2>
+<div id="outline-container-org930c412" class="outline-2">
+<h2 id="org930c412"><span class="section-number-2">6</span> Implementation</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 We have implemented Spark in about 14,000 lines of Scala. The system runs over the Mesos cluster man- ager, allowing it to share resources with Hadoop, MPI and other applications. Each Spark program runs as a separate Mesos application, with its own driver (mas- ter) and workers, and resource sharing between these ap- plications is handled by Mesos. Spark can read data from any Hadoop input source (e.g., HDFS or HBase) using Hadoop’s existing input plugin APIs, and runs on an unmodified version of Scala.
 </p>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">6.1</span> Job Scheduling</h3>
+<div id="outline-container-org2de2b23" class="outline-3">
+<h3 id="org2de2b23"><span class="section-number-3">6.1</span> Job Scheduling</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Overall, our scheduler is similar to Dryad’s, but it additionally takes into account which partitions of per-sistent RDDs are available in memory. Whenever a user runs an action (e.g., count or save) on an RDD, the sched- uler examines that RDD’s lineage graph to build a DAG of stages to execute, as illustrated in Figure 5. <b>Each stage contains as many pipelined transformations with narrow dependencies as possible. The boundaries of the stages are the shuffle operations required for wide dependen- cies, or any already computed partitions that can short- circuit the computation of a parent RDD.</b> The scheduler then launches tasks to compute missing partitions from each stage until it has computed the target RDD.（wild dependencies是每个stage的边界，stage内部都是narrow dependencies)
@@ -303,8 +304,8 @@ For wide dependencies (i.e., shuffle dependencies), we currently materialize int
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">6.2</span> Interpreter Integration</h3>
+<div id="outline-container-org60b9089" class="outline-3">
+<h3 id="org60b9089"><span class="section-number-3">6.2</span> Interpreter Integration</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Scala includes an interactive shell similar to those of Ruby and Python. Given the low latencies attained with in-memory data, we wanted to let users run Spark inter- actively from the interpreter to query big datasets.</li>
@@ -330,8 +331,8 @@ Figure 6 shows how the interpreter translates a set of lines typed by the user t
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">6.3</span> Memory Management</h3>
+<div id="outline-container-org570e9b7" class="outline-3">
+<h3 id="org570e9b7"><span class="section-number-3">6.3</span> Memory Management</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Spark provides three options for storage of persistent RDDs:
@@ -352,8 +353,8 @@ Finally, each instance of Spark on a cluster currently has its own separate memo
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">6.4</span> Support for Checkpointing</h3>
+<div id="outline-container-orgfe99f61" class="outline-3">
+<h3 id="orgfe99f61"><span class="section-number-3">6.4</span> Support for Checkpointing</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>Although lineage can always be used to recover RDDs after a failure, such recovery may be time-consuming for RDDs with long lineage chains. Thus, it can be helpful to checkpoint some RDDs to stable storage.</li>
@@ -365,17 +366,17 @@ Finally, each instance of Spark on a cluster currently has its own separate memo
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">7</span> Evaluaion</h2>
+<div id="outline-container-org781753c" class="outline-2">
+<h2 id="org781753c"><span class="section-number-2">7</span> Evaluaion</h2>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">8</span> Discussion</h2>
+<div id="outline-container-orgdfcb542" class="outline-2">
+<h2 id="orgdfcb542"><span class="section-number-2">8</span> Discussion</h2>
 </div>
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">9</span> Related Work</h2>
+<div id="outline-container-org4941143" class="outline-2">
+<h2 id="org4941143"><span class="section-number-2">9</span> Related Work</h2>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">10</span> Conclusion</h2>
+<div id="outline-container-org86a92db" class="outline-2">
+<h2 id="org86a92db"><span class="section-number-2">10</span> Conclusion</h2>
 </div>
 </div>
 <!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/spark-rdd-paper.html';this.page.identifier = 'spark-rdd-paper.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>

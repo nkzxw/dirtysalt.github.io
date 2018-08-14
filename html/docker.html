@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Docker</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,12 +18,12 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Introduction</a></li>
-<li><a href="#orgheadline2">2. Command</a></li>
-<li><a href="#orgheadline3">3. Data Container</a></li>
-<li><a href="#orgheadline4">4. Dockerfile</a></li>
-<li><a href="#orgheadline5">5. assign static ip to container</a></li>
-<li><a href="#orgheadline6">6. Understanding Docker</a></li>
+<li><a href="#orge699296">1. Introduction</a></li>
+<li><a href="#org94e725d">2. Command</a></li>
+<li><a href="#orgece6fb3">3. Data Container</a></li>
+<li><a href="#org3499671">4. Dockerfile</a></li>
+<li><a href="#org12f5980">5. assign static ip to container</a></li>
+<li><a href="#org81e03dd">6. Understanding Docker</a></li>
 </ul>
 </div>
 </div>
@@ -34,8 +34,8 @@
 <li>AUFS <a href="http://en.wikipedia.org/wiki/Aufs">http://en.wikipedia.org/wiki/Aufs</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orge699296" class="outline-2">
+<h2 id="orge699296"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="https://www.docker.com/tryit/">https://www.docker.com/tryit/</a></li>
@@ -93,8 +93,8 @@ DOCKER_OPTS="-e lxc"
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Command</h2>
+<div id="outline-container-org94e725d" class="outline-2">
+<h2 id="org94e725d"><span class="section-number-2">2</span> Command</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>overview</b>
@@ -433,8 +433,8 @@ inspect可以看到container和image内部具体信息。下面是一个containe
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Data Container</h2>
+<div id="outline-container-orgece6fb3" class="outline-2">
+<h2 id="orgece6fb3"><span class="section-number-2">3</span> Data Container</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://docs.docker.com/userguide/dockervolumes/">https://docs.docker.com/userguide/dockervolumes/</a></li>
@@ -454,8 +454,8 @@ hello
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Dockerfile</h2>
+<div id="outline-container-org3499671" class="outline-2">
+<h2 id="org3499671"><span class="section-number-2">4</span> Dockerfile</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 使用Dockerfile可以很容易地构建image. 常用命令是docker build -t &lt;image-name&gt; .
@@ -495,8 +495,8 @@ Dockerfile格式很简单的:
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> assign static ip to container</h2>
+<div id="outline-container-org12f5980" class="outline-2">
+<h2 id="org12f5980"><span class="section-number-2">5</span> assign static ip to container</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 可以在启动container时候使用lxc-conf指定lxc配置来分配固定IP(必须保证容器格式是lxc)
@@ -537,8 +537,8 @@ pipework br1 -i eth2 &lt;container&gt; 192.168.1.1/24
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Understanding Docker</h2>
+<div id="outline-container-org81e03dd" class="outline-2">
+<h2 id="org81e03dd"><span class="section-number-2">6</span> Understanding Docker</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="https://docs.docker.com/introduction/understanding-docker/">https://docs.docker.com/introduction/understanding-docker/</a>
@@ -562,7 +562,7 @@ Docker has two major components:
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="./images/docker-architecture.svg" >
+<p><object type="image/svg+xml" data="./images/docker-architecture.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>

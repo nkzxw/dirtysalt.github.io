@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python Requests库编码问题</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -30,7 +30,6 @@ Python Requests库判断网页内容编码是下面这些策略，按优先节�
 策略1是在下面这个函数里面完成的
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def get_encoding_from_headers(headers):
     """Returns encodings from given HTTP Header Dict.
 
@@ -59,7 +58,6 @@ Python Requests库判断网页内容编码是下面这些策略，按优先节�
 策略2是在下面这个函数里面完成的
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">@property
 def apparent_encoding(self):
     """The apparent encoding, provided by the chardet library."""
@@ -94,7 +92,7 @@ The "charset" parameter is used with some media types to define the
 </p>
 </blockquote>
 
-<hr  />
+<hr />
 <p>
 上面这些策略可能出现的问题以这个 <a href="http://wasai.org/feed.xml">http://wasai.org/feed.xml</a> 网页为例。
 </p>

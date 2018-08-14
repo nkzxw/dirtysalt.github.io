@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hadoop Benchmark</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,11 +40,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. TestDFSIO</a></li>
-<li><a href="#orgheadline2">2. TeraSort</a></li>
-<li><a href="#orgheadline3">3. nnbench</a></li>
-<li><a href="#orgheadline4">4. mrbench</a></li>
-<li><a href="#orgheadline5">5. hbase.PerformanceEvaluation</a></li>
+<li><a href="#orga3b8623">1. TestDFSIO</a></li>
+<li><a href="#orgcecde81">2. TeraSort</a></li>
+<li><a href="#org407fd61">3. nnbench</a></li>
+<li><a href="#orgeb3eca7">4. mrbench</a></li>
+<li><a href="#org803c0fb">5. hbase.PerformanceEvaluation</a></li>
 </ul>
 </div>
 </div>
@@ -57,8 +57,8 @@
 <li><a href="http://wiki.apache.org/hadoop/Hbase/PerformanceEvaluation">Hbase/PerformanceEvaluation</a></li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> TestDFSIO</h2>
+<div id="outline-container-orga3b8623" class="outline-2">
+<h2 id="orga3b8623"><span class="section-number-2">1</span> TestDFSIO</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 测试hdfs吞吐
@@ -105,8 +105,8 @@ Average IO rate mb/sec: 28.125
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> TeraSort</h2>
+<div id="outline-container-orgcecde81" class="outline-2">
+<h2 id="orgcecde81"><span class="section-number-2">2</span> TeraSort</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 通过排序测试MR执行效率 <b>我看了一下代码map/reduce都有CPU操作，并且这个也非常依靠shuffle/copy.因此这个测试应该会是比较全面的</b>
@@ -141,8 +141,8 @@ hdfs@hadoop1:~$ hadoop jar /usr/lib/hadoop/hadoop-examples-0.20.2-cdh3u3.jar &lt
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> nnbench</h2>
+<div id="outline-container-org407fd61" class="outline-2">
+<h2 id="org407fd61"><span class="section-number-2">3</span> nnbench</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 测试nn负载能力
@@ -253,8 +253,8 @@ Avg exec time (ms): Create/Write/Close: 26.526666666666667
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> mrbench</h2>
+<div id="outline-container-orgeb3eca7" class="outline-2">
+<h2 id="orgeb3eca7"><span class="section-number-2">4</span> mrbench</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 测试运行small mr jobs执行效率，主要关注响应时间。
@@ -293,8 +293,8 @@ DataLines	Maps	Reduces	AvgTime (milliseconds)
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> hbase.PerformanceEvaluation</h2>
+<div id="outline-container-org803c0fb" class="outline-2">
+<h2 id="org803c0fb"><span class="section-number-2">5</span> hbase.PerformanceEvaluation</h2>
 <div class="outline-text-2" id="text-5">
 <pre class="example">
 hdfs@hadoop1:~$ hbase org.apache.hadoop.hbase.PerformanceEvaluation
@@ -327,6 +327,7 @@ Args:
 Examples:
  To run a single evaluation client:
  $ bin/hbase org.apache.hadoop.hbase.PerformanceEvaluation sequentialWrite 1
+
 </pre>
 <p>
 从参数上看还是比较直接的。benchmark每个client通常对应10个mapper, 每个client操作&lt;rows&gt;个row,因此每个mapper操作&lt;rows&gt;/10个row,每个row大约1000bytes.

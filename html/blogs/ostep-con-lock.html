@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OSTEP / Concurrency-Lock</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -27,7 +27,6 @@ ticket lock是一种spinlock实现，解决了公平性问题。可以确保即�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C"><span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">__lock_t</span> {
   <span class="org-type">int</span> <span class="org-variable-name">ticket</span>;
   <span class="org-type">int</span> <span class="org-variable-name">turn</span>;
@@ -59,7 +58,6 @@ ticket lock是一种spinlock实现，解决了公平性问题。可以确保即�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C"><span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">__lock_t</span> {
     <span class="org-type">int</span> <span class="org-variable-name">flag</span>;
     <span class="org-type">int</span> <span class="org-variable-name">guard</span>;
@@ -109,7 +107,6 @@ linux下lock实现依赖于futex. 这里介绍两个调用：
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C"><span class="org-type">void</span> <span class="org-function-name">mutex_lock</span> (<span class="org-type">int</span> *<span class="org-variable-name">mutex</span>) {
     <span class="org-type">int</span> <span class="org-variable-name">v</span>;
     <span class="org-comment-delimiter">/* </span><span class="org-comment">Bit 31 was clear, we got the mutex (this is the fastpath) </span><span class="org-comment-delimiter">*/</span>

@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Neural Networks and Deep Learning</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,9 +18,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 规范符号</a></li>
-<li><a href="#orgheadline2">2. FP和BP的公式推导</a></li>
-<li><a href="#orgheadline3">3. Chain Rule.</a></li>
+<li><a href="#org284664e">1. 规范符号</a></li>
+<li><a href="#org51dfe58">2. FP和BP的公式推导</a></li>
+<li><a href="#orgcf77102">3. Chain Rule.</a></li>
 </ul>
 </div>
 </div>
@@ -41,8 +41,8 @@
 <li>relu(rectified linear unit) &amp; leaky relu. 在x&gt;0的时候导数保持常数而不会消失。</li>
 </ul>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 规范符号</h2>
+<div id="outline-container-org284664e" class="outline-2">
+<h2 id="org284664e"><span class="section-number-2">1</span> 规范符号</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 我觉得这门课程对我最大的帮助就是规范符号。作者总结了个 <a href="../images/dl-notation-standard.pdf">pdf</a> 来总结和规范这些符号。
@@ -78,8 +78,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> FP和BP的公式推导</h2>
+<div id="outline-container-org51dfe58" class="outline-2">
+<h2 id="org51dfe58"><span class="section-number-2">2</span> FP和BP的公式推导</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <img src="../images/nn-dl-fp-layer.png" alt="nn-dl-fp-layer.png" /> <img src="../images/nn-dl-bp-layer.png" alt="nn-dl-bp-layer.png" /> <img src="../images/nn-dl-fp-bp-layers.png" alt="nn-dl-fp-bp-layers.png" /> <img src="../images/nn-dl-fp-bp-cache.png" alt="nn-dl-fp-bp-cache.png" />
@@ -112,8 +112,8 @@ iteration flow如下图：
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Chain Rule.</h2>
+<div id="outline-container-orgcf77102" class="outline-2">
+<h2 id="orgcf77102"><span class="section-number-2">3</span> Chain Rule.</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 微积分的连锁律，很符合直觉。比如z = g(f(x))的话，那么dz/dx = dg/df * df/dx.

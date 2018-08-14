@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Love Your Bugs</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -22,7 +22,7 @@ link: <a href="http://akaptur.com/blog/2017/11/12/love-your-bugs/">http://akaptu
 作者很声动地描述了两个他在DropBox遇到的bugs。首先Bugs非常有趣，但是更重要的是，作者认为Bugs可以帮助开发者更好地深入了解系统。在第二个Bug里面也提到了 `server-side flag`的重要性。
 </p>
 
-<hr  />
+<hr />
 <p>
 Bug #1
 </p>
@@ -103,7 +103,7 @@ $    : 0100100
 这个非常有趣。ECC memory现在来说应该是非常普及了，但是DropBox User Spectrum非常广，有很多人还在使用low-end pc/laptop和old hw，所以才出现这个问题。当然memory bit出现错误的情况还会出现在 <a href="../blogs/code-in-space.html">太空环境</a> 下。这个问题最后并没有去刻意修复，只能提示用户退出然后重启客户端，强制从盘上面读取block计算签名。
 </p>
 
-<hr  />
+<hr />
 <p>
 Bug #2
 </p>
@@ -172,7 +172,7 @@ Bug #2
 最后发现客户端设计初期增加了一个 `chillout` 标记，客户端看到这个标记，会停止响应的秒数，这样避免意外情况。这个就引申出下面一个话题。
 </p>
 
-<hr  />
+<hr />
 <p>
 Feature flags &amp; server-side gating
 </p>
@@ -195,7 +195,7 @@ But the benefit – man, when you need it, you really need it.
 </p>
 </blockquote>
 
-<hr  />
+<hr />
 <p>
 Deliberate Practice
 </p>

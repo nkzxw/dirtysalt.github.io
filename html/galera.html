@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>galera</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,49 +18,49 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Links &amp; Abbr.</a></li>
-<li><a href="#orgheadline2">2. Replicator Architecture</a></li>
-<li><a href="#orgheadline11">3. Synchonization Mechanism</a>
+<li><a href="#org3f8eb02">1. Links &amp; Abbr.</a></li>
+<li><a href="#org4205d95">2. Replicator Architecture</a></li>
+<li><a href="#org11881b4">3. Synchonization Mechanism</a>
 <ul>
-<li><a href="#orgheadline3">3.1. Virtual Synchrony</a></li>
-<li><a href="#orgheadline4">3.2. Finite State Machine</a></li>
-<li><a href="#orgheadline5">3.3. Flow Control</a></li>
-<li><a href="#orgheadline6">3.4. Writeset Cache</a></li>
-<li><a href="#orgheadline7">3.5. Snapshot Transfer</a></li>
-<li><a href="#orgheadline8">3.6. Parallel Applying</a></li>
-<li><a href="#orgheadline9">3.7. Primary Component</a></li>
-<li><a href="#orgheadline10">3.8. Online Schema Upgrade</a></li>
+<li><a href="#org5c09e66">3.1. Virtual Synchrony</a></li>
+<li><a href="#org29d2daf">3.2. Finite State Machine</a></li>
+<li><a href="#org046d58b">3.3. Flow Control</a></li>
+<li><a href="#org51eed77">3.4. Writeset Cache</a></li>
+<li><a href="#org4895a99">3.5. Snapshot Transfer</a></li>
+<li><a href="#org892cef0">3.6. Parallel Applying</a></li>
+<li><a href="#org7d954cc">3.7. Primary Component</a></li>
+<li><a href="#org8604a5f">3.8. Online Schema Upgrade</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">4. Certification Based Replication</a>
+<li><a href="#orge202921">4. Certification Based Replication</a>
 <ul>
-<li><a href="#orgheadline12">4.1. Introduction</a></li>
-<li><a href="#orgheadline13">4.2. Consistent read(read causality)</a></li>
-<li><a href="#orgheadline14">4.3. Multi-Master Conflicts</a></li>
+<li><a href="#org361c2a2">4.1. Introduction</a></li>
+<li><a href="#org96ceeff">4.2. Consistent read(read causality)</a></li>
+<li><a href="#orgd04c241">4.3. Multi-Master Conflicts</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">5. Best Backup Practices</a></li>
-<li><a href="#orgheadline21">6. Miscellaneous</a>
+<li><a href="#org735fd0a">5. Best Backup Practices</a></li>
+<li><a href="#org05e245b">6. Miscellaneous</a>
 <ul>
-<li><a href="#orgheadline17">6.1. Parameters</a></li>
-<li><a href="#orgheadline18">6.2. Status Variables</a></li>
-<li><a href="#orgheadline19">6.3. Notification</a></li>
-<li><a href="#orgheadline20">6.4. Limitations</a></li>
+<li><a href="#org6d9c014">6.1. Parameters</a></li>
+<li><a href="#orgcf51d82">6.2. Status Variables</a></li>
+<li><a href="#orgc5e64b9">6.3. Notification</a></li>
+<li><a href="#org9ee69f5">6.4. Limitations</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">7. Related Articles</a>
+<li><a href="#orgdbf70db">7. Related Articles</a>
 <ul>
-<li><a href="#orgheadline22">7.1. Commercial Story</a></li>
-<li><a href="#orgheadline23">7.2. Tech Issue</a></li>
-<li><a href="#orgheadline24">7.3. Bechmark &amp; Performance</a></li>
-<li><a href="#orgheadline25">7.4. Presentation</a></li>
+<li><a href="#orgf40f67a">7.1. Commercial Story</a></li>
+<li><a href="#orgd21edb5">7.2. Tech Issue</a></li>
+<li><a href="#org77d5a6b">7.3. Bechmark &amp; Performance</a></li>
+<li><a href="#orgccd53be">7.4. Presentation</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Links &amp; Abbr.</h2>
+<div id="outline-container-org3f8eb02" class="outline-2">
+<h2 id="org3f8eb02"><span class="section-number-2">1</span> Links &amp; Abbr.</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Code
@@ -142,8 +142,8 @@ Info.(@2012)
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Replicator Architecture</h2>
+<div id="outline-container-org4205d95" class="outline-2">
+<h2 id="org4205d95"><span class="section-number-2">2</span> Replicator Architecture</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <img src="./images/galera-overview.png" alt="galera-overview.png" /> <img src="./images/galera-library.png" alt="galera-library.png" />
@@ -157,7 +157,7 @@ Info.(@2012)
 <li>等待队列中事务的并发提交</li>
 </ul>
 
-<hr  />
+<hr />
 
 
 <div class="figure">
@@ -182,7 +182,7 @@ Info.(@2012)
 <li>Replication层完成数据同步，由slave queue和applier组成，在事务的同步过程中，事务在队列中以及应用线程中时于节点本地产生锁冲突处理方式。效率直接影响整个集群的写入性能。</li>
 </ul>
 
-<hr  />
+<hr />
 
 <p>
 <img src="./images/galera-certification.png" alt="galera-certification.png" /> <img src="./images/galera-certification-en.png" alt="galera-certification-en.png" />
@@ -199,11 +199,12 @@ Info.(@2012)
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">3</span> Synchonization Mechanism</h2>
+<div id="outline-container-org11881b4" class="outline-2">
+<h2 id="org11881b4"><span class="section-number-2">3</span> Synchonization Mechanism</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> Virtual Synchrony</h3>
+</div>
+<div id="outline-container-org5c09e66" class="outline-3">
+<h3 id="org5c09e66"><span class="section-number-3">3.1</span> Virtual Synchrony</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <a href="http://en.wikipedia.org/wiki/Virtual_synchrony">http://en.wikipedia.org/wiki/Virtual_synchrony</a>
@@ -211,8 +212,8 @@ Info.(@2012)
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> Finite State Machine</h3>
+<div id="outline-container-org29d2daf" class="outline-3">
+<h3 id="org29d2daf"><span class="section-number-3">3.2</span> Finite State Machine</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><a href="http://www.codership.com/wiki/doku.php?id=galera_node_fsm">http://www.codership.com/wiki/doku.php?id=galera_node_fsm</a></li>
@@ -253,8 +254,8 @@ options:
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Flow Control</h3>
+<div id="outline-container-org046d58b" class="outline-3">
+<h3 id="org046d58b"><span class="section-number-3">3.3</span> Flow Control</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <a href="http://www.codership.com/wiki/doku.php?id=flow_control">http://www.codership.com/wiki/doku.php?id=flow_control</a>
@@ -271,8 +272,8 @@ options:
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">3.4</span> Writeset Cache</h3>
+<div id="outline-container-org51eed77" class="outline-3">
+<h3 id="org51eed77"><span class="section-number-3">3.4</span> Writeset Cache</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <a href="http://www.codership.com/wiki/doku.php?id=gcache">http://www.codership.com/wiki/doku.php?id=gcache</a>
@@ -301,8 +302,8 @@ To control memory usage for writeset caching, check Galera parameters: <b>note�
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">3.5</span> Snapshot Transfer</h3>
+<div id="outline-container-org4895a99" class="outline-3">
+<h3 id="org4895a99"><span class="section-number-3">3.5</span> Snapshot Transfer</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 <b>(SST)State Snapshot Transfer</b>
@@ -379,8 +380,8 @@ IST(Very effective)
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">3.6</span> Parallel Applying</h3>
+<div id="outline-container-org892cef0" class="outline-3">
+<h3 id="org892cef0"><span class="section-number-3">3.6</span> Parallel Applying</h3>
 <div class="outline-text-3" id="text-3-6">
 
 <div class="figure">
@@ -402,8 +403,8 @@ IST(Very effective)
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">3.7</span> Primary Component</h3>
+<div id="outline-container-org7d954cc" class="outline-3">
+<h3 id="org7d954cc"><span class="section-number-3">3.7</span> Primary Component</h3>
 <div class="outline-text-3" id="text-3-7">
 <ul class="org-ul">
 <li><a href="http://www.codership.com/wiki/doku.php?id=galera_arbitrator">http://www.codership.com/wiki/doku.php?id=galera_arbitrator</a></li>
@@ -417,8 +418,8 @@ IST(Very effective)
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.8</span> Online Schema Upgrade</h3>
+<div id="outline-container-org8604a5f" class="outline-3">
+<h3 id="org8604a5f"><span class="section-number-3">3.8</span> Online Schema Upgrade</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 <a href="http://www.codership.com/wiki/doku.php?id=rolling_schema_upgrade">http://www.codership.com/wiki/doku.php?id=rolling_schema_upgrade</a>
@@ -466,11 +467,12 @@ Use wsrep_osu_method to choose either option. <b>ALTER TABLE to create new autoi
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">4</span> Certification Based Replication</h2>
+<div id="outline-container-orge202921" class="outline-2">
+<h2 id="orge202921"><span class="section-number-2">4</span> Certification Based Replication</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">4.1</span> Introduction</h3>
+</div>
+<div id="outline-container-org361c2a2" class="outline-3">
+<h3 id="org361c2a2"><span class="section-number-3">4.1</span> Introduction</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Certification based replication uses group communication and transaction ordering techniques to achieve synchronous replication. Transactions execute optimistically in a single node (or replica) and, at commit time, run a coordinated certification process to enforce global consistency. Global coordination is achieved with the help of a broadcast service, that establishes a global total order among concurrent transactions. (基于 <b>组通信</b> 以及 <b>事务顺序化</b> 技术来达到同步备份。事务首先是乐观地在本地执行，然后提交给其他节点做验证来保证全局一致性）
@@ -507,8 +509,8 @@ Certification based replication (or more precisely, certification-based conflict
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">4.2</span> Consistent read(read causality)</h3>
+<div id="outline-container-org96ceeff" class="outline-3">
+<h3 id="org96ceeff"><span class="section-number-3">4.2</span> Consistent read(read causality)</h3>
 <div class="outline-text-3" id="text-4-2">
 
 <div class="figure">
@@ -529,8 +531,8 @@ There is causal dependency between operations on two database connections:
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">4.3</span> Multi-Master Conflicts</h3>
+<div id="outline-container-orgd04c241" class="outline-3">
+<h3 id="orgd04c241"><span class="section-number-3">4.3</span> Multi-Master Conflicts</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Galera uses optimistic concurrency control:
@@ -567,8 +569,8 @@ Retry Autocommit:
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">5</span> Best Backup Practices</h2>
+<div id="outline-container-org735fd0a" class="outline-2">
+<h2 id="org735fd0a"><span class="section-number-2">5</span> Best Backup Practices</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Best practices:
@@ -619,11 +621,12 @@ Possible methods:
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">6</span> Miscellaneous</h2>
+<div id="outline-container-org05e245b" class="outline-2">
+<h2 id="org05e245b"><span class="section-number-2">6</span> Miscellaneous</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">6.1</span> Parameters</h3>
+</div>
+<div id="outline-container-org6d9c014" class="outline-3">
+<h3 id="org6d9c014"><span class="section-number-3">6.1</span> Parameters</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><a href="http://www.codership.com/wiki/doku.php?id=galera_parameters">http://www.codership.com/wiki/doku.php?id=galera_parameters</a></li>
@@ -632,7 +635,7 @@ Possible methods:
 <li><a href="http://www.codership.com/wiki/doku.php?id=configuration_tips">http://www.codership.com/wiki/doku.php?id=configuration_tips</a></li>
 </ul>
 
-<hr  />
+<hr />
 
 <ul class="org-ul">
 <li>wsrep_provider # a path to Galera library.</li>
@@ -646,8 +649,8 @@ Possible methods:
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">6.2</span> Status Variables</h3>
+<div id="outline-container-orgcf51d82" class="outline-3">
+<h3 id="orgcf51d82"><span class="section-number-3">6.2</span> Status Variables</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li><a href="http://www.codership.com/wiki/doku.php?id=galera_status_0.8">http://www.codership.com/wiki/doku.php?id=galera_status_0.8</a></li>
@@ -657,8 +660,8 @@ Possible methods:
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">6.3</span> Notification</h3>
+<div id="outline-container-orgc5e64b9" class="outline-3">
+<h3 id="orgc5e64b9"><span class="section-number-3">6.3</span> Notification</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Cluster can trigger notifications. Use for:
@@ -673,8 +676,8 @@ wsrep_notify_cmd defines the script to handle notifications.
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">6.4</span> Limitations</h3>
+<div id="outline-container-org9ee69f5" class="outline-3">
+<h3 id="org9ee69f5"><span class="section-number-3">6.4</span> Limitations</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 <a href="http://www.codership.com/wiki/doku.php?id=limitations">http://www.codership.com/wiki/doku.php?id=limitations</a>
@@ -683,11 +686,12 @@ wsrep_notify_cmd defines the script to handle notifications.
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-2">
-<h2 id="orgheadline26"><span class="section-number-2">7</span> Related Articles</h2>
+<div id="outline-container-orgdbf70db" class="outline-2">
+<h2 id="orgdbf70db"><span class="section-number-2">7</span> Related Articles</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">7.1</span> Commercial Story</h3>
+</div>
+<div id="outline-container-orgf40f67a" class="outline-3">
+<h3 id="orgf40f67a"><span class="section-number-3">7.1</span> Commercial Story</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>User Stories | Codership : <a href="http://www.codership.com/user-stories">http://www.codership.com/user-stories</a></li>
@@ -697,8 +701,8 @@ wsrep_notify_cmd defines the script to handle notifications.
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">7.2</span> Tech Issue</h3>
+<div id="outline-container-orgd21edb5" class="outline-3">
+<h3 id="orgd21edb5"><span class="section-number-3">7.2</span> Tech Issue</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Dealing with Locking Sessions | Codership : <a href="http://www.codership.com/content/dealing-locking-sessions">http://www.codership.com/content/dealing-locking-sessions</a></li>
@@ -719,8 +723,8 @@ wsrep_notify_cmd defines the script to handle notifications.
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">7.3</span> Bechmark &amp; Performance</h3>
+<div id="outline-container-org77d5a6b" class="outline-3">
+<h3 id="org77d5a6b"><span class="section-number-3">7.3</span> Bechmark &amp; Performance</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>How Much Can Galera Sysbench? | Codership : <a href="http://www.codership.com/content/galera-sysbench">http://www.codership.com/content/galera-sysbench</a></li>
@@ -737,8 +741,8 @@ wsrep_notify_cmd defines the script to handle notifications.
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">7.4</span> Presentation</h3>
+<div id="outline-container-orgccd53be" class="outline-3">
+<h3 id="orgccd53be"><span class="section-number-3">7.4</span> Presentation</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li><a href="http://www.codership.com/files/presentations/UC11_galera.pdf">http://www.codership.com/files/presentations/UC11_galera.pdf</a></li>

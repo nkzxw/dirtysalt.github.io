@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lzf</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,9 +18,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Overview</a></li>
-<li><a href="#orgheadline2">2. Compress</a></li>
-<li><a href="#orgheadline3">3. Decompress</a></li>
+<li><a href="#orgdd4576d">1. Overview</a></li>
+<li><a href="#orgdb3f52b">2. Compress</a></li>
+<li><a href="#orga89e1e5">3. Decompress</a></li>
 </ul>
 </div>
 </div>
@@ -28,8 +28,8 @@
 <a href="http://oldhome.schmorp.de/marc/liblzf.html">http://oldhome.schmorp.de/marc/liblzf.html</a>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgdd4576d" class="outline-2">
+<h2 id="orgdd4576d"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 这个压缩库非常轻量
@@ -47,8 +47,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Compress</h2>
+<div id="outline-container-orgdb3f52b" class="outline-2">
+<h2 id="orgdb3f52b"><span class="section-number-2">2</span> Compress</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 /*
@@ -115,7 +115,6 @@ lzf_compress (const void *const in_data,  unsigned int in_len,
 压缩函数其实不长，所以这里我把代码稍作整理全部贴出来，然后附上相关注释
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-preprocessor">#if</span><span class="org-negation-char"><span class="org-preprocessor">n</span></span><span class="org-preprocessor">def</span> FRST
 <span class="org-preprocessor"># define</span> <span class="org-function-name">FRST</span>(<span class="org-variable-name">p</span>) (((p[0]) &lt;&lt; 8) | p[1])
 <span class="org-preprocessor"># define</span> <span class="org-function-name">NEXT</span>(<span class="org-variable-name">v</span>,<span class="org-variable-name">p</span>) (((v) &lt;&lt; 8) | p[2])
@@ -344,15 +343,14 @@ literal处理比较有趣，大致方式如下
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Decompress</h2>
+<div id="outline-container-orga89e1e5" class="outline-2">
+<h2 id="orga89e1e5"><span class="section-number-2">3</span> Decompress</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 相对于压缩函数，解压缩函数就没有那么多策略，完全是数据驱动。同样我把代码稍作整理添加少注释
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">intel&#26377;rep movsb&#25351;&#20196;&#29992;&#26469;&#20570;memcpy. &#20043;&#21069;&#20570;&#36807;&#23454;&#39564;&#21457;&#29616;&#25928;&#26524;&#24182;&#19981;&#29702;&#24819;</span>
 <span class="org-preprocessor">#if</span> USE_REP_MOVSB <span class="org-comment-delimiter">/* </span><span class="org-comment">small win on amd, big loss on intel */</span>
 <span class="org-preprocessor">#if</span> (__i386 || __amd64) &amp;&amp; __GNUC__ &gt;= 3

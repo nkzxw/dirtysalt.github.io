@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HBase</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,40 +40,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 单节点搭建</a></li>
-<li><a href="#orgheadline2">2. table configuration</a></li>
-<li><a href="#orgheadline3">3. hbase shell</a></li>
-<li><a href="#orgheadline4">4. hbase hbck</a></li>
-<li><a href="#orgheadline5">5. hbase increment</a></li>
-<li><a href="#orgheadline6">6. python client</a></li>
-<li><a href="#orgheadline7">7. 获取集群运行状况</a></li>
-<li><a href="#orgheadline8">8. bulk load</a></li>
-<li><a href="#orgheadline9">9. hbase merge</a></li>
-<li><a href="#orgheadline10">10. hbase export/import</a></li>
-<li><a href="#orgheadline11">11. region can't be assigned</a></li>
-<li><a href="#orgheadline12">12. output error</a></li>
-<li><a href="#orgheadline13">13. zookeeper session expired</a></li>
-<li><a href="#orgheadline14">14. lease expired exception</a></li>
-<li><a href="#orgheadline15">15. filesystem not available</a></li>
-<li><a href="#orgheadline16">16. error block recovery</a></li>
-<li><a href="#orgheadline17">17. dyq's hbase representation</a></li>
-<li><a href="#orgheadline18">18. put大小限制分析</a></li>
-<li><a href="#orgheadline19">19. put过程代码分析</a></li>
-<li><a href="#orgheadline20">20. asynchbase</a></li>
-<li><a href="#orgheadline21">21. clock skew</a></li>
-<li><a href="#orgheadline22">22. hbase join</a></li>
+<li><a href="#org2114065">1. 单节点搭建</a></li>
+<li><a href="#org022d2ad">2. table configuration</a></li>
+<li><a href="#org879bd26">3. hbase shell</a></li>
+<li><a href="#orgbf4cb74">4. hbase hbck</a></li>
+<li><a href="#orgef4e14a">5. hbase increment</a></li>
+<li><a href="#org9702b04">6. python client</a></li>
+<li><a href="#orga3de88f">7. 获取集群运行状况</a></li>
+<li><a href="#orgc67aaa1">8. bulk load</a></li>
+<li><a href="#orgca59368">9. hbase merge</a></li>
+<li><a href="#orga467c55">10. hbase export/import</a></li>
+<li><a href="#org3bdfb22">11. region can't be assigned</a></li>
+<li><a href="#org40bf5c6">12. output error</a></li>
+<li><a href="#org245567c">13. zookeeper session expired</a></li>
+<li><a href="#org46fc4a5">14. lease expired exception</a></li>
+<li><a href="#orgddbfa7d">15. filesystem not available</a></li>
+<li><a href="#org505c8ea">16. error block recovery</a></li>
+<li><a href="#org537c05c">17. dyq's hbase representation</a></li>
+<li><a href="#orgfb02439">18. put大小限制分析</a></li>
+<li><a href="#orgb3d2826">19. put过程代码分析</a></li>
+<li><a href="#org6ce90ae">20. asynchbase</a></li>
+<li><a href="#orgf52fae7">21. clock skew</a></li>
+<li><a href="#org168ffae">22. hbase join</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 单节点搭建</h2>
+<div id="outline-container-org2114065" class="outline-2">
+<h2 id="org2114065"><span class="section-number-2">1</span> 单节点搭建</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 修改conf/hbase-site.xml,增加选项
 </p>
 <div class="org-src-container">
-
 <pre class="src src-XML">&lt;property&gt;
  &lt;property&gt;
    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
@@ -93,8 +92,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> table configuration</h2>
+<div id="outline-container-org022d2ad" class="outline-2">
+<h2 id="org022d2ad"><span class="section-number-2">2</span> table configuration</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>DATA_BLOCK_ENCODING =&gt; 'FAST_DIFF'(PREFIX,DIFF) # block压缩算法（偏向应用层）</li>
@@ -108,8 +107,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> hbase shell</h2>
+<div id="outline-container-org879bd26" class="outline-2">
+<h2 id="org879bd26"><span class="section-number-2">3</span> hbase shell</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>scan 'test'
@@ -147,8 +146,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> hbase hbck</h2>
+<div id="outline-container-orgbf4cb74" class="outline-2">
+<h2 id="orgbf4cb74"><span class="section-number-2">4</span> hbase hbck</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>默认检查hbase状态</li>
@@ -157,8 +156,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> hbase increment</h2>
+<div id="outline-container-orgef4e14a" class="outline-2">
+<h2 id="orgef4e14a"><span class="section-number-2">5</span> hbase increment</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://hbase.apache.org/apidocs/org/apache/hadoop/hbase/client/Increment.html">http://hbase.apache.org/apidocs/org/apache/hadoop/hbase/client/Increment.html</a>
@@ -170,8 +169,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> python client</h2>
+<div id="outline-container-org9702b04" class="outline-2">
+<h2 id="org9702b04"><span class="section-number-2">6</span> python client</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 使用python来访问hbase确实可以很大地提高开发效率，但是通过thrift server来进行中转的话对于性能还是存在影响的，因此比较适合测试。
@@ -210,8 +209,8 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> 获取集群运行状况</h2>
+<div id="outline-container-orga3de88f" class="outline-2">
+<h2 id="orga3de88f"><span class="section-number-2">7</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><a href="../codes/java/hbase/src/main/java/com/dirlt/java/hbase/ClusterSummary.java">code on github</a></li>
@@ -221,8 +220,8 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> bulk load</h2>
+<div id="outline-container-orgc67aaa1" class="outline-2">
+<h2 id="orgc67aaa1"><span class="section-number-2">8</span> bulk load</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li><a href="http://hbase.apache.org/book/arch.bulk.load.html">http://hbase.apache.org/book/arch.bulk.load.html</a></li>
@@ -254,8 +253,8 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> hbase merge</h2>
+<div id="outline-container-orgca59368" class="outline-2">
+<h2 id="orgca59368"><span class="section-number-2">9</span> hbase merge</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>#note: 需要停表或者是停集群</li>
@@ -271,8 +270,8 @@ thrift.Thrift.TApplicationException: Invalid method name: 'scannerOpenWithScan'
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> hbase export/import</h2>
+<div id="outline-container-orga467c55" class="outline-2">
+<h2 id="orga467c55"><span class="section-number-2">10</span> hbase export/import</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 使用导出导入功能可以用来做数据迁移，这只是数据迁移的一种办法。这里介绍了许多办法 <a href="http://hbase.apache.org/book/ops.backup.html">http://hbase.apache.org/book/ops.backup.html</a> 包括
@@ -369,8 +368,8 @@ hadoop jar ~/utils/hbase-0.94.6-cdh4.3.0/hbase-0.94.6-cdh4.3.0-security.jar expo
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> region can't be assigned</h2>
+<div id="outline-container-org3bdfb22" class="outline-2">
+<h2 id="org3bdfb22"><span class="section-number-2">11</span> region can't be assigned</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 region一直assign不上，观察曾经尝试被assigned的节点出现下面的错误
@@ -404,6 +403,7 @@ java.io.IOException: java.io.IOException: java.io.FileNotFoundException: File do
         at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
         at java.lang.Thread.run(Thread.java:662)
+
 </pre>
 <p>
 我们曾经遇到这个问题是因为集群数据出现不一致的情况。观察WebUI上实际上它查找另外一个encodedName 6ef7e4f2c72929d789f63baba2f13d4e. 这个路径在HDFS中存在并且文件名称和240086423354424bb32d647fab6f9b98完全一致。
@@ -419,8 +419,8 @@ java.io.IOException: java.io.IOException: java.io.FileNotFoundException: File do
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">12</span> output error</h2>
+<div id="outline-container-org40bf5c6" class="outline-2">
+<h2 id="org40bf5c6"><span class="section-number-2">12</span> output error</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 2013.04.07 AttachAppkeyToDeviceInfo失败很多次，都是因为连接hbase很多次失败。观察发现每次task都是连接某一个regionserver失败。日志中出现很多下面这样的错误：
@@ -452,8 +452,8 @@ java.io.IOException: java.io.IOException: java.io.FileNotFoundException: File do
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">13</span> zookeeper session expired</h2>
+<div id="outline-container-org245567c" class="outline-2">
+<h2 id="org245567c"><span class="section-number-2">13</span> zookeeper session expired</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 HBase中出现如下FATAL信息。单独看这个日志只是知道zookeeper长时间没有汇报断开连接，但是具体是什么原因需要分析上下文
@@ -515,8 +515,8 @@ org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = 
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">14</span> lease expired exception</h2>
+<div id="outline-container-org46fc4a5" class="outline-2">
+<h2 id="org46fc4a5"><span class="section-number-2">14</span> lease expired exception</h2>
 <div class="outline-text-2" id="text-14">
 <pre class="example">
 2013-04-11 08:07:34,121 ERROR org.apache.hadoop.hbase.regionserver.HRegionServer: Close and delete failed
@@ -554,8 +554,8 @@ not exist. [Lease.  Holder: DFSClient_hb_rs_dp22.umeng.com,60020,1365284229083_1
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">15</span> filesystem not available</h2>
+<div id="outline-container-orgddbfa7d" class="outline-2">
+<h2 id="orgddbfa7d"><span class="section-number-2">15</span> filesystem not available</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 hbase出现如下fatal日志，并且可以看到这个日志造成region server退出。
@@ -606,7 +606,6 @@ Caused by: java.lang.InterruptedException
 问题是hbase如何判断filesystem是否available的呢？从代码里面看是这样的, 这个过程只是直接和namenode进行交互。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public static void checkFileSystemAvailable(final FileSystem fs)
 throws IOException {
   if (!(fs instanceof DistributedFileSystem)) {
@@ -635,8 +634,8 @@ throws IOException {
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">16</span> error block recovery</h2>
+<div id="outline-container-org505c8ea" class="outline-2">
+<h2 id="org505c8ea"><span class="section-number-2">16</span> error block recovery</h2>
 <div class="outline-text-2" id="text-16">
 <p>
 在dp47上面出现如下日志：
@@ -691,8 +690,8 @@ org.apache.hadoop.ipc.RemoteException: org.apache.hadoop.ipc.RemoteException: ja
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">17</span> dyq's hbase representation</h2>
+<div id="outline-container-org537c05c" class="outline-2">
+<h2 id="org537c05c"><span class="section-number-2">17</span> dyq's hbase representation</h2>
 <div class="outline-text-2" id="text-17">
 <p>
 @ 2012-08-16
@@ -728,14 +727,14 @@ scan过程大致是这样的：
 这样的好处就是通常在scanner的时候不会阻塞其他操作。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 但是我看了一下leveldb代码，觉得实现上更好。对于immutable memtable以及memtable做引用计数，在iterator里面保存两个table。
 如果memtable compaction之后的话，那么直接创建一个新的memtable即可。原有的table在iterator销毁的时候就会自动释放。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 对于column family是可以设置超时时间的。在进行flush或者是compaction的时候，会判断这个value是否超过ttl。如果超过ttl的话那么就会直接丢弃。
@@ -743,14 +742,13 @@ scan过程大致是这样的：
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">18</span> put大小限制分析</h2>
+<div id="outline-container-orgfb02439" class="outline-2">
+<h2 id="orgfb02439"><span class="section-number-2">18</span> put大小限制分析</h2>
 <div class="outline-text-2" id="text-18">
 <p>
 在HTable.validatePut对put大小进行了限制
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">// validate for well-formedness
 private void validatePut(final Put put) throws IllegalArgumentException{
   if (put.isEmpty()) {
@@ -778,13 +776,12 @@ private void validatePut(final Put put) throws IllegalArgumentException{
 另外如果put是empty的话会抛出异常，因此在调用put之前最好判断put.isEmpty().
 </p>
 
-<hr  />
+<hr />
 
 <p>
 #note: 实际在server端也还是有大小限制的，可以看代码HBaseConfiguration.create
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Java">public static Configuration addHbaseResources(Configuration conf) {
   conf.addResource("hbase-default.xml");
   conf.addResource("hbase-site.xml");
@@ -801,15 +798,14 @@ private void validatePut(final Put put) throws IllegalArgumentException{
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">19</span> put过程代码分析</h2>
+<div id="outline-container-orgb3d2826" class="outline-2">
+<h2 id="orgb3d2826"><span class="section-number-2">19</span> put过程代码分析</h2>
 <div class="outline-text-2" id="text-19">
 <p>
 最后都走到了下面这个方法，可以看到对于每次put并不是立即去写hbase的，除非有特殊开关autoFlush. writeBuffer是一个ArrayList用来hold住所有需要write的put.默认autoFlush=false，所以会缓存到writeBufferSize大小才会commit，而大小是通过heapSize来得到的。而writeBufferSize是通过hbase.client.write.buffer这个属性配置的，默认是2097152=2M
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">private void doPut(final List&lt;Put&gt; puts) throws IOException {
   for (Put put : puts) {
     validatePut(put);
@@ -828,7 +824,6 @@ private void validatePut(final Put put) throws IllegalArgumentException{
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">public void flushCommits() throws IOException {
   try {
     connection.processBatchOfPuts(writeBuffer, tableName, pool);
@@ -853,7 +848,6 @@ connection是一个virtual class,HConnection,默认实现是HConnectionImplement
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-Java">public void processBatchOfPuts(List&lt;Put&gt; list,
     final byte[] tableName,
     ExecutorService pool) throws IOException {
@@ -899,8 +893,8 @@ processBatch代码比较冗长，大致意思如下：
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20"><span class="section-number-2">20</span> asynchbase</h2>
+<div id="outline-container-org6ce90ae" class="outline-2">
+<h2 id="org6ce90ae"><span class="section-number-2">20</span> asynchbase</h2>
 <div class="outline-text-2" id="text-20">
 <p>
 <a href="https://github.com/stumbleupon/asynchbase">https://github.com/stumbleupon/asynchbase</a>
@@ -926,7 +920,7 @@ processBatch代码比较冗长，大致意思如下：
 而是直接传入quorumSpec就是zookeeper的地址。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 #note: 关于Deferred实现有点出乎自己的意料
@@ -1002,8 +996,8 @@ So everything is fine :)
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">21</span> clock skew</h2>
+<div id="outline-container-orgf52fae7" class="outline-2">
+<h2 id="orgf52fae7"><span class="section-number-2">21</span> clock skew</h2>
 <div class="outline-text-2" id="text-21">
 <p>
 如果region server和master的时间偏差太大的话，会造成region server启动失败
@@ -1053,8 +1047,8 @@ rs2最近写入的数据是v2，而接下来如果从rs2查询"latest"的数据�
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">22</span> hbase join</h2>
+<div id="outline-container-org168ffae" class="outline-2">
+<h2 id="org168ffae"><span class="section-number-2">22</span> hbase join</h2>
 <div class="outline-text-2" id="text-22">
 <p>
 <a href="http://stackoverflow.com/questions/11327316/how-to-join-tables-in-hbase">http://stackoverflow.com/questions/11327316/how-to-join-tables-in-hbase</a>

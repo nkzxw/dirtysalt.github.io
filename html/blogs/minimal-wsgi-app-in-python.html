@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Minimal WSGI App In Python</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/site.css" />
 </head>
@@ -18,12 +18,11 @@
 UPDATE@201801: 很早的两篇文章，从 <a href="../python.html">Python</a> 文档里面摘取出来放到一起，这样可以有个整体认识。另外现在使用native wsgi API来编写wsgi app似乎也不太多了，大多数情况都是使用比较成熟的wsgi framework来写，比如flask, django. 文章里面使用uwsgi来启动wsgi app, 也可以考虑 <a href="../gunicorn.html">gunicorn</a>
 </p>
 
-<hr  />
+<hr />
 <p>
 WSGI(web server gateway interface)定义了一个web server的标准编程接口。开发着只需要按照这个接口来实现应用，然后将模块运行在标准化的container上，就实现了一个web server.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def logic(environ,start_response):
     start_response('200 OK', # status code
                    [('Content-type','text/plain')]) # header
@@ -53,7 +52,6 @@ WSGI(web server gateway interface)定义了一个web server的标准编程接口
 之后我们只需要选择一个合适的框架或者容器就可以运行起来了。python内置了一个WSGI framework。这里的validator可以帮助外围做一些验证。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def run():
     vlogic=validator(logic)
     httpd = make_server('', 8000, vlogic)
@@ -85,7 +83,6 @@ WSGI(web server gateway interface)定义了一个web server的标准编程接口
 如果上面WSGI程序修改成为下面的话，那么在访问web页面的时候会出现如下错误 "Error code: ERR_INCOMPLETE_CHUNKED_ENCODING".
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">def run(environ,start_response):
     start_response('200 OK', # status code
                    [('Content-type','text/plain')]) # header
@@ -97,7 +94,7 @@ WSGI(web server gateway interface)定义了一个web server的标准编程接口
 当时这个错误是以非常诡异的方式呈现的，而不是像我示例代码一样，当时s是从sqlite3读取的类型为TEXT的某个字段。WSGI要求返回对象必须是str类型而不能是unicode类型。
 </p>
 
-<hr  />
+<hr />
 
 <p>
 python运行web大约有下面三种方式：

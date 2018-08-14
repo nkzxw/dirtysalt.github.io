@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>build-system</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 <script type="text/x-mathjax-config">
@@ -31,7 +31,7 @@
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -40,62 +40,62 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline13">1. GYP</a>
+<li><a href="#org2c1fa99">1. GYP</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 设计目标</a></li>
-<li><a href="#orgheadline2">1.2. 构建文件</a></li>
-<li><a href="#orgheadline8">1.3. .gyp文件剖析</a>
+<li><a href="#orgbcf2718">1.1. 设计目标</a></li>
+<li><a href="#org3faa946">1.2. 构建文件</a></li>
+<li><a href="#org358cbce">1.3. .gyp文件剖析</a>
 <ul>
-<li><a href="#orgheadline3">1.3.1. conditions</a></li>
-<li><a href="#orgheadline4">1.3.2. targets</a></li>
-<li><a href="#orgheadline5">1.3.3. includes</a></li>
-<li><a href="#orgheadline6">1.3.4. actions</a></li>
-<li><a href="#orgheadline7">1.3.5. variables</a></li>
+<li><a href="#org55bd5f3">1.3.1. conditions</a></li>
+<li><a href="#orgc176dd8">1.3.2. targets</a></li>
+<li><a href="#orge886340">1.3.3. includes</a></li>
+<li><a href="#org11a54c7">1.3.4. actions</a></li>
+<li><a href="#org8b33489">1.3.5. variables</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">1.4. early and late phases</a></li>
-<li><a href="#orgheadline10">1.5. operator</a></li>
-<li><a href="#orgheadline11">1.6. 路径内容属性</a></li>
-<li><a href="#orgheadline12">1.7. 总结</a></li>
+<li><a href="#orgf3dd48b">1.4. early and late phases</a></li>
+<li><a href="#orgb621142">1.5. operator</a></li>
+<li><a href="#orgf1b9e6f">1.6. 路径内容属性</a></li>
+<li><a href="#orgd19bf5e">1.7. 总结</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">2. SCons</a>
+<li><a href="#orgcdddf67">2. SCons</a>
 <ul>
-<li><a href="#orgheadline14">2.1. Make缺陷</a></li>
-<li><a href="#orgheadline15">2.2. 构建文件</a></li>
-<li><a href="#orgheadline25">2.3. SConstruct文件剖析</a>
+<li><a href="#org8fbdd11">2.1. Make缺陷</a></li>
+<li><a href="#orgf845286">2.2. 构建文件</a></li>
+<li><a href="#orgea69222">2.3. SConstruct文件剖析</a>
 <ul>
-<li><a href="#orgheadline19">2.3.1. Builder</a></li>
-<li><a href="#orgheadline22">2.3.2. Dependencies</a></li>
-<li><a href="#orgheadline23">2.3.3. Environment</a></li>
-<li><a href="#orgheadline24">2.3.4. Hierarchical Builds</a></li>
+<li><a href="#orgebe9a65">2.3.1. Builder</a></li>
+<li><a href="#orge565ff1">2.3.2. Dependencies</a></li>
+<li><a href="#org3c42355">2.3.3. Environment</a></li>
+<li><a href="#org207732c">2.3.4. Hierarchical Builds</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">2.4. 其他问题</a></li>
-<li><a href="#orgheadline27">2.5. 总结</a></li>
+<li><a href="#org597662e">2.4. 其他问题</a></li>
+<li><a href="#orgc60eb19">2.5. 总结</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline29">3. Ninja</a></li>
-<li><a href="#orgheadline30">4. ABS</a></li>
-<li><a href="#orgheadline39">5. CMake</a>
+<li><a href="#org24f1242">3. Ninja</a></li>
+<li><a href="#org0b3c453">4. ABS</a></li>
+<li><a href="#orgaa617b7">5. CMake</a>
 <ul>
-<li><a href="#orgheadline31">5.1. 构建文件</a></li>
-<li><a href="#orgheadline32">5.2. CMakeLists.txt解析</a></li>
-<li><a href="#orgheadline33">5.3. 变量和属性</a></li>
-<li><a href="#orgheadline34">5.4. 注释</a></li>
-<li><a href="#orgheadline35">5.5. 编译类型</a></li>
-<li><a href="#orgheadline36">5.6. 生成config.h</a></li>
-<li><a href="#orgheadline37">5.7. Makefile</a></li>
-<li><a href="#orgheadline38">5.8. 总结</a></li>
+<li><a href="#org58bb90a">5.1. 构建文件</a></li>
+<li><a href="#org013d055">5.2. CMakeLists.txt解析</a></li>
+<li><a href="#org1a49813">5.3. 变量和属性</a></li>
+<li><a href="#orgce0f448">5.4. 注释</a></li>
+<li><a href="#orgebc3ac3">5.5. 编译类型</a></li>
+<li><a href="#org261633d">5.6. 生成config.h</a></li>
+<li><a href="#org52f51f5">5.7. Makefile</a></li>
+<li><a href="#org63fc2b2">5.8. 总结</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline40">6. Others</a></li>
-<li><a href="#orgheadline41">7. Comments</a></li>
+<li><a href="#org2badd82">6. Others</a></li>
+<li><a href="#org94d311c">7. Comments</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">1</span> GYP</h2>
+<div id="outline-container-org2c1fa99" class="outline-2">
+<h2 id="org2c1fa99"><span class="section-number-2">1</span> GYP</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 gyp(generate your project)是chromium的构建系统，地址在<a href="http://code.google.com/p/gyp/">http://code.google.com/p/gyp/</a>。
@@ -118,8 +118,8 @@ gyp(generate your project)是chromium的构建系统，地址在<a href="http://
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 设计目标</h3>
+<div id="outline-container-orgbcf2718" class="outline-3">
+<h3 id="orgbcf2718"><span class="section-number-3">1.1</span> 设计目标</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 gyp设计针对目标就是为了解决chromium浏览器构建问题，最重要的就是支持多平台的构建。因此生成的后端可能是
@@ -134,8 +134,8 @@ Scons/Make(Unix/Linux)，Xcode(Mac)或者是Visual Studio(Windows).并且因为c
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 构建文件</h3>
+<div id="outline-container-org3faa946" class="outline-3">
+<h3 id="org3faa946"><span class="section-number-3">1.2</span> 构建文件</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 构建文件名字不固定，但是后缀通常是.gyp和.gypi(gyp included).构建文件内容就是python的一个数据结构
@@ -147,7 +147,6 @@ Scons/Make(Unix/Linux)，Xcode(Mac)或者是Visual Studio(Windows).并且因为c
 下面是一个example：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">{
     'target_defaults':{
         'defines':['DEBUG'],
@@ -169,8 +168,8 @@ Scons/Make(Unix/Linux)，Xcode(Mac)或者是Visual Studio(Windows).并且因为c
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.3</span> .gyp文件剖析</h3>
+<div id="outline-container-org358cbce" class="outline-3">
+<h3 id="org358cbce"><span class="section-number-3">1.3</span> .gyp文件剖析</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 整个构建文件最顶层是一个字典，包含了下面这些key：
@@ -184,15 +183,14 @@ Scons/Make(Unix/Linux)，Xcode(Mac)或者是Visual Studio(Windows).并且因为c
 </ul>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> conditions</h4>
+<div id="outline-container-org55bd5f3" class="outline-4">
+<h4 id="org55bd5f3"><span class="section-number-4">1.3.1</span> conditions</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 conditions分为两种行为。普通的conditions就在load构建文件之后立即计算，另外一种是target_conditions
 是在计算完成依赖之后然后来进行计算的，两个过程分别就是early and late phases阶段。对于conditions写法非常简单：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'conditions':[
     ['OS==Linux',{'sources':['linux_interface.cc']}]
 ]
@@ -204,16 +202,19 @@ conditions分为两种行为。普通的conditions就在load构建文件之后�
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="section-number-4">1.3.2</span> targets</h4>
+<div id="outline-container-orgc176dd8" class="outline-4">
+<h4 id="orgc176dd8"><span class="section-number-4">1.3.2</span> targets</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 target部分的话会对target_defaults里面设定的内容默认进行merge。比如上面例子的话，对于target/test来说，
 使用的defines就会是-DDEBUG -DFOO。当然对于这种东西是可以进行其他策略选择的，比如如果修改成下面格式，那么就是直接替换：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'defines=':['FOO']
+#+END_SRC Python
+生成的defines就是-DFOO了。或者是可以剔除掉：
+#+BEGIN_SRC Python
+'defines!':['DEBUG']
 </pre>
 </div>
 <p>
@@ -241,8 +242,8 @@ target部分的话会对target_defaults里面设定的内容默认进行merge。
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">1.3.3</span> includes</h4>
+<div id="outline-container-orge886340" class="outline-4">
+<h4 id="orge886340"><span class="section-number-4">1.3.3</span> includes</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 gyp倾向的组织就是在toplevel上面存在一个gyp文件，可以存在子目录下面，但是子目录下面并不存放一个完整的构建文件，
@@ -256,7 +257,6 @@ gyp倾向的组织就是在toplevel上面存在一个gyp文件，可以存在子
 sources内容如下:
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'sources':['src.cc']
 </pre>
 </div>
@@ -264,7 +264,6 @@ sources内容如下:
 而在上层BUILD.gyp文件里面，使用includes语法：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'includes':['./src/BUILD.gypi']
 </pre>
 </div>
@@ -276,8 +275,8 @@ sources内容如下:
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">1.3.4</span> actions</h4>
+<div id="outline-container-org11a54c7" class="outline-4">
+<h4 id="org11a54c7"><span class="section-number-4">1.3.4</span> actions</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 actions是targets里面的一个特殊属性，主要是用来进行target的自定义操作的。关于rule的部分，
@@ -299,14 +298,13 @@ actions是targets里面的一个特殊属性，主要是用来进行target的自
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">1.3.5</span> variables</h4>
+<div id="outline-container-org8b33489" class="outline-4">
+<h4 id="org8b33489"><span class="section-number-4">1.3.5</span> variables</h4>
 <div class="outline-text-4" id="text-1-3-5">
 <p>
 variables这个小节里面是进行变量的定义，格式是dict。下面是一个例子：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'variables':{
     'common_files':['src/common.cc','src/interface.cc'],
 }
@@ -316,7 +314,6 @@ variables这个小节里面是进行变量的定义，格式是dict。下面是�
 为了引用变量，我们可以这样编写：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">&lt;(common_files)
 &lt;@(common_files)
 &gt;(common_files)
@@ -345,7 +342,6 @@ variables这个小节里面是进行变量的定义，格式是dict。下面是�
 我们根据不同类型程序来做不同的condition：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">'target_conditions':[
 ['_type=='static_library',{'sources':['func.cc']}]
 ]
@@ -363,8 +359,8 @@ variables这个小节里面是进行变量的定义，格式是dict。下面是�
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.4</span> early and late phases</h3>
+<div id="outline-container-orgf3dd48b" class="outline-3">
+<h3 id="orgf3dd48b"><span class="section-number-3">1.4</span> early and late phases</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 对于变量展开和条件判断有两个不同的阶段：
@@ -385,8 +381,8 @@ ps:comake2在设计的时候，就没有考虑late phase这个功能。造成没
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.5</span> operator</h3>
+<div id="outline-container-orgb621142" class="outline-3">
+<h3 id="orgb621142"><span class="section-number-3">1.5</span> operator</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 关于每个操作符号的含义：
@@ -407,8 +403,8 @@ ps:comake2在设计的时候，就没有考虑late phase这个功能。造成没
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.6</span> 路径内容属性</h3>
+<div id="outline-container-orgf1b9e6f" class="outline-3">
+<h3 id="orgf1b9e6f"><span class="section-number-3">1.6</span> 路径内容属性</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 在includes这个小节提到了，gyp规定了某些属性的内容必须为路径。这些属性是：
@@ -434,8 +430,8 @@ ps:comake2在设计的时候，就没有考虑late phase这个功能。造成没
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">1.7</span> 总结</h3>
+<div id="outline-container-orgd19bf5e" class="outline-3">
+<h3 id="orgd19bf5e"><span class="section-number-3">1.7</span> 总结</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 gyp文档缺乏导致在分析这个系统的时候，也没有完全使用只是通过阅读文档来完成的，没有一个可以run的Makefile。
@@ -462,8 +458,8 @@ gyp虽然是构建系统，并且通常来说构建文件倾向于使用描述�
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">2</span> SCons</h2>
+<div id="outline-container-orgcdddf67" class="outline-2">
+<h2 id="orgcdddf67"><span class="section-number-2">2</span> SCons</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 地址在<a href="http://www.scons.org/">http://www.scons.org/</a>。
@@ -476,8 +472,8 @@ gyp虽然是构建系统，并且通常来说构建文件倾向于使用描述�
 </p>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.1</span> Make缺陷</h3>
+<div id="outline-container-org8fbdd11" class="outline-3">
+<h3 id="org8fbdd11"><span class="section-number-3">2.1</span> Make缺陷</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SCons对于Make缺陷也有一个总结，链接是<a href="http://scons.org/wiki/FromMakeToScons">http://scons.org/wiki/FromMakeToScons</a>。
@@ -499,8 +495,8 @@ SCons对于Make缺陷也有一个总结，链接是<a href="http://scons.org/wik
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.2</span> 构建文件</h3>
+<div id="outline-container-orgf845286" class="outline-3">
+<h3 id="orgf845286"><span class="section-number-3">2.2</span> 构建文件</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 scons的构建文件名称是统一的都称为SConstruct。当然为了方便目录的组织，也允许在各个目录下面存放SConscript，
@@ -518,7 +514,6 @@ scons的构建文件名称是统一的都称为SConstruct。当然为了方便�
 下面是一个简单例子
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">Program('main.cc')
 </pre>
 </div>
@@ -544,7 +539,6 @@ scons -c相当于make clean,scons -Q的话可以安静地构建，只是打印�
 如果是需要编译多个文件的话,可以使用python的列表格式。同时这些scons内置函数也是支持python的keyword argument这样的形式的：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">Program(target='hello',source=['main.cc','hello.cc'])
 </pre>
 </div>
@@ -576,11 +570,12 @@ scons: done building targets.
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">2.3</span> SConstruct文件剖析</h3>
+<div id="outline-container-orgea69222" class="outline-3">
+<h3 id="orgea69222"><span class="section-number-3">2.3</span> SConstruct文件剖析</h3>
 <div class="outline-text-3" id="text-2-3">
-</div><div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19"><span class="section-number-4">2.3.1</span> Builder</h4>
+</div>
+<div id="outline-container-orgebe9a65" class="outline-4">
+<h4 id="orgebe9a65"><span class="section-number-4">2.3.1</span> Builder</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 SConstruct主要支持的开发语言有C/C++以及Java。对于Java有专门的Builder，这里我们不谈.对于C/C++的Buidler有下面这几种：
@@ -595,7 +590,6 @@ SConstruct主要支持的开发语言有C/C++以及Java。对于Java有专门的
 当然为了完备，还提供了一个万能的Buidler就是Command。对于Command来说的话，使用方式如下：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">Command('hello',['main.cc','hello.cc'],'g++ -o $TARGET $SOURCES')
 </pre>
 </div>
@@ -613,12 +607,13 @@ SConstruct主要支持的开发语言有C/C++以及Java。对于Java有专门的
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline16"></a>编译参数和自动分析编译依赖<br  /><div class="outline-text-5" id="text-2-3-1-1">
+<ol class="org-ol">
+<li><a id="org9771abc"></a>编译参数和自动分析编译依赖<br />
+<div class="outline-text-5" id="text-2-3-1-1">
 <p>
 默认情况下面如果这样写的话，那么是不能够制定任何编译参数的：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">Program('main.cc')
 </pre>
 </div>
@@ -626,7 +621,6 @@ SConstruct主要支持的开发语言有C/C++以及Java。对于Java有专门的
 要不使用下一节方法一样构建一个环境，要不就需要显示地构造Object对象：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">obj=Object('main.cc',CCFLAGS='-DDEBUG')
 Program('main',obj)
 </pre>
@@ -637,7 +631,6 @@ Program('main',obj)
 为了强制能够自动分析编译依赖，需要显示写明CPPPATH，就是include path：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">obj=Object('main.cc',CCFLAGS='-DDEBUG',CPPPATH=['.'])
 Program('main',obj)
 Decider('make')
@@ -648,14 +641,15 @@ Decider的意义是说按照时间戳更新的方式来检查，这个在检查�
 也是使用g++ -MM -MG这样的方式来分析编译依赖。通常来说耗时会比较长。因为scons允许在调用参数中缓存上次编译依赖，
 强制刷新编译依赖等，这样可以在耗时和功能上达到一个比较好的折衷。
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline17"></a>源文件使用不同参数编译<br  /><div class="outline-text-5" id="text-2-3-1-2">
+<li><a id="org7e64401"></a>源文件使用不同参数编译<br />
+<div class="outline-text-5" id="text-2-3-1-2">
 <p>
 假设对于
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">env1=Environment(CCFLAGS='-DDEBUG')
 env1.Program(target='debug_main',source=['main.cc'],)
 env2=Environment()
@@ -677,7 +671,6 @@ File "/home/zhangyan/test-scons/SConstruct", line 4, in &lt;module&gt;
 为了解决这个问题，可以使用Object这样的Builder来指定产生不同的文件名：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">env1=Environment(CCFLAGS='-DDEBUG')
 obj1=env1.Object(target='debug_main',source=['main.cc'])
 env1.Program(obj1)
@@ -700,9 +693,11 @@ g++ -o release_main.o -c main.cc
 g++ -o release_main release_main.o
 scons: done building targets.
 </pre>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline18"></a>库链接<br  /><div class="outline-text-5" id="text-2-3-1-3">
+<li><a id="org533b664"></a>库链接<br />
+<div class="outline-text-5" id="text-2-3-1-3">
 <p>
 可执行程序需要进行库链接，使用方式也是非常简单。Program这个Builder下面提供LIBPATH和LIBS这两个keyword arguments，
 可以用来指定所需要链接的库。
@@ -713,7 +708,6 @@ scons: done building targets.
 那就是这样写的话不好构建依赖。假设下面两种写法：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">Program('main.cc',LIBS='./lib/libcm.a')
 Program('main.cc',LIBS='cm',LIBPATH=['./lib'])
 </pre>
@@ -726,26 +720,32 @@ Program('main.cc',LIBS='cm',LIBPATH=['./lib'])
 但是在scons中绕过了这个问题，是因为scons还有两个函数用来显示声明依赖的。对于显示声明依赖，个人看法是这个东西必须做为一个可选项，
 对于小型程序显然用户希望构建系统自己生成依赖，而对于大型程序，显示声明依赖可以减少分析时间提高构建效率。
 </p>
-</div></li></ol>
+</div>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">2.3.2</span> Dependencies</h4>
+<div id="outline-container-orge565ff1" class="outline-4">
+<h4 id="orge565ff1"><span class="section-number-4">2.3.2</span> Dependencies</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 对于scons，除了在Builder里面提到的implicit dependencies这种隐式依赖，其他的依赖都必须显示说明的，或者是从指定的文件中进行分析。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline20"></a>分析依赖<br  /><div class="outline-text-5" id="text-2-3-2-1">
+<ol class="org-ol">
+<li><a id="org40af895"></a>分析依赖<br />
+<div class="outline-text-5" id="text-2-3-2-1">
 <p>
 关于依赖共有两种类型，一种是普通的依赖就是A-&gt;B，另外一种是顺序依赖。顺序依赖的意思是说，其实A-&gt;B并不是真正构建A依赖于构建B。
 只不过我们希望在构建顺序上，B在A构建之前。如果B发生变化，A不一定发生构建。这两种依赖分别对应于scons里面的Depends和Requires函数，
 当然这个在Makefile里面也有方法表现出来。scons还提供一个函数ParseDepends可以分析g++ -MM -MG产生的.d文件，然后来判断依赖。
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline21"></a>判断依赖变化<br  /><div class="outline-text-5" id="text-2-3-2-2">
+<li><a id="org5dfc144"></a>判断依赖变化<br />
+<div class="outline-text-5" id="text-2-3-2-2">
 <p>
 判断依赖变化上，scons允许自己定义函数来判断文件是否发生变化。内置判断函数有下面几种：
 </p>
@@ -759,11 +759,13 @@ Program('main.cc',LIBS='cm',LIBPATH=['./lib'])
 同样依赖变化还包括构建方式的参数变化，这点是值得学习的。实现起来也不是很难，可以在数据库中记录前一个构建某个
 target的输入文件以及构建参数，如果构建参数发生变化的话，那么重新构建并且在数据库中进行记录。
 </p>
-</div></li></ol>
+</div>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">2.3.3</span> Environment</h4>
+<div id="outline-container-org3c42355" class="outline-4">
+<h4 id="org3c42355"><span class="section-number-4">2.3.3</span> Environment</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
 对于scons来说存在这么几个环境：
@@ -786,8 +788,8 @@ target的输入文件以及构建参数，如果构建参数发生变化的话�
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="section-number-4">2.3.4</span> Hierarchical Builds</h4>
+<div id="outline-container-org207732c" class="outline-4">
+<h4 id="org207732c"><span class="section-number-4">2.3.4</span> Hierarchical Builds</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <p>
 层级目录之间的构建，在一开始也说过了，是通过导入其他目录下面的SConscript这样的文件来完成的，
@@ -805,8 +807,8 @@ target的输入文件以及构建参数，如果构建参数发生变化的话�
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">2.4</span> 其他问题</h3>
+<div id="outline-container-org597662e" class="outline-3">
+<h3 id="org597662e"><span class="section-number-3">2.4</span> 其他问题</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 scons提供了install方法，允许把某个文件安装到某个目录下面去，以相同或者是不同的名字安装。
@@ -848,8 +850,8 @@ scons还支持cache编译产出物这样的功能，不过个人还是觉得没�
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">2.5</span> 总结</h3>
+<div id="outline-container-orgc60eb19" class="outline-3">
+<h3 id="orgc60eb19"><span class="section-number-3">2.5</span> 总结</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 scons是一个文档相对来说比较完整，已经被一些大型项目所使用的，比较成熟和完善的产品。
@@ -887,8 +889,8 @@ scons提供了环境这个概念，这点对于构建不同参数的版本作用
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">3</span> Ninja</h2>
+<div id="outline-container-org24f1242" class="outline-2">
+<h2 id="org24f1242"><span class="section-number-2">3</span> Ninja</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 地址在<a href="https://github.com/martine/ninja/blob/master/manual.asciidoc">https://github.com/martine/ninja/blob/master/manual.asciidoc</a>。
@@ -937,8 +939,8 @@ ninja也支持order dependencies，还有一系列辅助工具比如查询某个
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-2">
-<h2 id="orgheadline30"><span class="section-number-2">4</span> ABS</h2>
+<div id="outline-container-org0b3c453" class="outline-2">
+<h2 id="org0b3c453"><span class="section-number-2">4</span> ABS</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 ABS(Android Build System).关于这个BuildSystem的文档可以在android的源代码的build/core/build-system.html里面找到。
@@ -978,8 +980,8 @@ ABS是虽然是使用make的，但是做了相当多的规范。首先看看ABS�
 </div>
 </div>
 
-<div id="outline-container-orgheadline39" class="outline-2">
-<h2 id="orgheadline39"><span class="section-number-2">5</span> CMake</h2>
+<div id="outline-container-orgaa617b7" class="outline-2">
+<h2 id="orgaa617b7"><span class="section-number-2">5</span> CMake</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 下面是CMake的有用链接：
@@ -1016,8 +1018,8 @@ cmake相对于其他构建工具优越的几点有：
 </ul>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">5.1</span> 构建文件</h3>
+<div id="outline-container-org58bb90a" class="outline-3">
+<h3 id="org58bb90a"><span class="section-number-3">5.1</span> 构建文件</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 编写一个简单的CMakeLists.txt非常简单：
@@ -1066,8 +1068,8 @@ cmake本身也提供了类似于gyp的功能,将编译依赖输出graphviz的图
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">5.2</span> CMakeLists.txt解析</h3>
+<div id="outline-container-org013d055" class="outline-3">
+<h3 id="org013d055"><span class="section-number-3">5.2</span> CMakeLists.txt解析</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 cmake里面提供的描述语言，内置了函数，宏，条件判断，流程控制，同时还有变量(不清楚是否有嵌套作用域)，
@@ -1115,8 +1117,8 @@ include包含另外一个文件进来，语义和Make的include是一样的。�
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">5.3</span> 变量和属性</h3>
+<div id="outline-container-org1a49813" class="outline-3">
+<h3 id="org1a49813"><span class="section-number-3">5.3</span> 变量和属性</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 变量和属性其实是一个概念，我们使用$&lt;&#x2026;&gt;来进行变量引用，而使用set来设置变量。对于里面的内容，语法如下：
@@ -1133,8 +1135,8 @@ SET(cppflags:libecho.a,"-DDEBUG -W -Wall")
 </div>
 </div>
 
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">5.4</span> 注释</h3>
+<div id="outline-container-orgce0f448" class="outline-3">
+<h3 id="orgce0f448"><span class="section-number-3">5.4</span> 注释</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 注释也作为属性存在于target或者是全局环境中.对于target的注释来说，在进行build的时候，cmake能够让注释在执行命令之前就显示出来。
@@ -1143,8 +1145,8 @@ SET(cppflags:libecho.a,"-DDEBUG -W -Wall")
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">5.5</span> 编译类型</h3>
+<div id="outline-container-orgebc3ac3" class="outline-3">
+<h3 id="orgebc3ac3"><span class="section-number-3">5.5</span> 编译类型</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 cmake的编译类型一共分为4类，可以简化编译选项的设置：
@@ -1173,14 +1175,13 @@ cmake的编译类型一共分为4类，可以简化编译选项的设置：
 </div>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">5.6</span> 生成config.h</h3>
+<div id="outline-container-org261633d" class="outline-3">
+<h3 id="org261633d"><span class="section-number-3">5.6</span> 生成config.h</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 cmake生成config.h的方法也是套用模板的方式。里面提供了一个函数，可以将类似于：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-Python">#define JPEG_FOUND %{jpeg_found_value}d
 </pre>
 </div>
@@ -1191,8 +1192,8 @@ cmake生成config.h的方法也是套用模板的方式。里面提供了一个�
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">5.7</span> Makefile</h3>
+<div id="outline-container-org52f51f5" class="outline-3">
+<h3 id="org52f51f5"><span class="section-number-3">5.7</span> Makefile</h3>
 <div class="outline-text-3" id="text-5-7">
 <p>
 生成的Makefile，包含下面这样几个大的target：
@@ -1211,8 +1212,8 @@ cmake能够自动分析C/C++的编译依赖。同时如果CMakeLists.txt发生�
 </div>
 </div>
 
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">5.8</span> 总结</h3>
+<div id="outline-container-org63fc2b2" class="outline-3">
+<h3 id="org63fc2b2"><span class="section-number-3">5.8</span> 总结</h3>
 <div class="outline-text-3" id="text-5-8">
 <p>
 是一个相当成熟的项目，并且有一系列的外围和cmake形成一个整体，内置了相当多的辅助函数来帮助使用其他开源的库，
@@ -1236,8 +1237,8 @@ cmake会重新生成Makefile并且进行编译的。不过因为时间有限也�
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40"><span class="section-number-2">6</span> Others</h2>
+<div id="outline-container-org2badd82" class="outline-2">
+<h2 id="org2badd82"><span class="section-number-2">6</span> Others</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 关于BuildSystem一些有用的链接，在这里给出：
@@ -1256,8 +1257,8 @@ cmake会重新生成Makefile并且进行编译的。不过因为时间有限也�
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">7</span> Comments</h2>
+<div id="outline-container-org94d311c" class="outline-2">
+<h2 id="org94d311c"><span class="section-number-2">7</span> Comments</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 leemars(huangjun@baidu.com):

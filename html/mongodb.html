@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MongoDB</title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="dirtysalt" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="dirtysalt" />
 <link rel="shortcut icon" href="https://dirtysalt.github.io/css/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -18,19 +18,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Introduction</a></li>
-<li><a href="#orgheadline2">2. Cheatsheet</a></li>
-<li><a href="#orgheadline3">3. 网络模型</a></li>
-<li><a href="#orgheadline4">4. 单机存储</a></li>
-<li><a href="#orgheadline5">5. 内存占用</a></li>
-<li><a href="#orgheadline6">6. Sharding</a></li>
-<li><a href="#orgheadline7">7. HA方案</a></li>
+<li><a href="#org7a0ec47">1. Introduction</a></li>
+<li><a href="#orgfef8ff2">2. Cheatsheet</a></li>
+<li><a href="#orgb98b6bd">3. 网络模型</a></li>
+<li><a href="#org36eaaef">4. 单机存储</a></li>
+<li><a href="#orgbb28e18">5. 内存占用</a></li>
+<li><a href="#org1d61b0b">6. Sharding</a></li>
+<li><a href="#orgca11cfa">7. HA方案</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org7a0ec47" class="outline-2">
+<h2 id="org7a0ec47"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 主页是<a href="http://www.mongodb.org/">http://www.mongodb.org/</a>. mongdb有下面这些特点：
@@ -61,8 +61,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Cheatsheet</h2>
+<div id="outline-container-orgfef8ff2" class="outline-2">
+<h2 id="orgfef8ff2"><span class="section-number-2">2</span> Cheatsheet</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>必须使用wiredtiger引擎</b> 相比mmapv1, wiredtiger可以更好地管理内存. `&#x2013;storageEngine wiredTiger &#x2013;wiredTigerCacheSizeGB 1`
@@ -76,8 +76,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 网络模型</h2>
+<div id="outline-container-orgb98b6bd" class="outline-2">
+<h2 id="orgb98b6bd"><span class="section-number-2">3</span> 网络模型</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 mongodb采用一个线程处理一个请求的模型，不太确定mongodb是否限制了并发连接数。
@@ -86,8 +86,8 @@ mongodb采用一个线程处理一个请求的模型，不太确定mongodb是否
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 单机存储</h2>
+<div id="outline-container-org36eaaef" class="outline-2">
+<h2 id="org36eaaef"><span class="section-number-2">4</span> 单机存储</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 这里有一些关于MongoDB单机存储方面的文章.
@@ -127,7 +127,6 @@ drwxrwxr-x 2 dirlt dirlt 4.0K  6月  1 11:48 _tmp/
 关于位置信息都是通过DiskLoc数据结构进行存储，存储了数据文件编号和块在文件中的位置。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-C++"><span class="org-keyword">struct</span> <span class="org-type">DiskLoc</span> {
   <span class="org-type">int</span> <span class="org-variable-name">fileNum</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">&#25991;&#20214;&#32534;&#21495;</span>
   <span class="org-type">int</span> <span class="org-variable-name">offset</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">&#25991;&#20214;&#20559;&#31227;</span>
@@ -176,8 +175,8 @@ mongodb底层使用btree来进行索引.btree放在内存所以操作非常快(�
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 内存占用</h2>
+<div id="outline-container-orgbb28e18" class="outline-2">
+<h2 id="orgbb28e18"><span class="section-number-2">5</span> 内存占用</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 这里有一些关于MongoDB内存使用和Linux内存方面的文章.
@@ -196,8 +195,8 @@ MongoDB不管是索引还是数据文件都强烈依赖于mmap.但是这里有�
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Sharding</h2>
+<div id="outline-container-org1d61b0b" class="outline-2">
+<h2 id="org1d61b0b"><span class="section-number-2">6</span> Sharding</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 mdb可以通过指定shard key来做auto-sharding.对于sharding的话需要三个组件
@@ -229,8 +228,8 @@ auto-sharding有三个需要考虑的问题：
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> HA方案</h2>
+<div id="outline-container-orgca11cfa" class="outline-2">
+<h2 id="orgca11cfa"><span class="section-number-2">7</span> HA方案</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 对于HA方案来说的话，mdb有两种解决方案
