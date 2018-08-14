@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux内核设计与实现(Linux Kernel Development)</title>
@@ -18,32 +19,32 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org33eaf1e">1. C1 Linux内核简介</a></li>
-<li><a href="#org61dc64b">2. C2 从内核出发</a></li>
-<li><a href="#org6fdbc0d">3. C3 进程管理</a></li>
-<li><a href="#org8b49e05">4. C4 进程调度</a></li>
-<li><a href="#org33d6a76">5. C5 系统调用</a></li>
-<li><a href="#org4647413">6. C6 内核数据结构</a></li>
-<li><a href="#org7aa0372">7. C7 中断和中断处理</a></li>
-<li><a href="#org019b781">8. C8 下半部和推后执行的工作</a></li>
-<li><a href="#org32ea68a">9. C9 内核同步介绍</a></li>
-<li><a href="#org5afd727">10. C10 内核同步方法</a></li>
-<li><a href="#org70a8387">11. C11 定时器和时间管理</a></li>
-<li><a href="#orgdc55aef">12. C12 内存管理</a></li>
-<li><a href="#org895900c">13. C13 虚拟文件系统</a></li>
-<li><a href="#orgc41d596">14. C14 块I/O层</a></li>
-<li><a href="#org57b7984">15. C15 进程地址空间</a></li>
-<li><a href="#orgae63485">16. C16 页高速缓存和页回写</a></li>
-<li><a href="#orgcba4b2f">17. C17 设备与模块</a></li>
-<li><a href="#org3fc0da7">18. C18 调试</a></li>
-<li><a href="#orge2b2181">19. C19 可移植性</a></li>
-<li><a href="#org293f462">20. C20 补丁, 开发和社区</a></li>
+<li><a href="#org12d4f0d">1. C1 Linux内核简介</a></li>
+<li><a href="#org08cbda2">2. C2 从内核出发</a></li>
+<li><a href="#org6bd257d">3. C3 进程管理</a></li>
+<li><a href="#org9c87cd8">4. C4 进程调度</a></li>
+<li><a href="#orgce3c2dc">5. C5 系统调用</a></li>
+<li><a href="#org24a8b2a">6. C6 内核数据结构</a></li>
+<li><a href="#orgc14b4a3">7. C7 中断和中断处理</a></li>
+<li><a href="#orgffd22a6">8. C8 下半部和推后执行的工作</a></li>
+<li><a href="#org74edd89">9. C9 内核同步介绍</a></li>
+<li><a href="#org9649a2f">10. C10 内核同步方法</a></li>
+<li><a href="#orgfce386e">11. C11 定时器和时间管理</a></li>
+<li><a href="#org4122cad">12. C12 内存管理</a></li>
+<li><a href="#org5e5e182">13. C13 虚拟文件系统</a></li>
+<li><a href="#org00ae339">14. C14 块I/O层</a></li>
+<li><a href="#org2564359">15. C15 进程地址空间</a></li>
+<li><a href="#org11c9a28">16. C16 页高速缓存和页回写</a></li>
+<li><a href="#org146cf4d">17. C17 设备与模块</a></li>
+<li><a href="#org58304a5">18. C18 调试</a></li>
+<li><a href="#org187e2dd">19. C19 可移植性</a></li>
+<li><a href="#org2f30b20">20. C20 补丁, 开发和社区</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org33eaf1e" class="outline-2">
-<h2 id="org33eaf1e"><span class="section-number-2">1</span> C1 Linux内核简介</h2>
+<div id="outline-container-org12d4f0d" class="outline-2">
+<h2 id="org12d4f0d"><span class="section-number-2">1</span> C1 Linux内核简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 每个处理器在任何指定时间点上活动必然是其中一种:
@@ -56,8 +57,8 @@
 </div>
 </div>
 
-<div id="outline-container-org61dc64b" class="outline-2">
-<h2 id="org61dc64b"><span class="section-number-2">2</span> C2 从内核出发</h2>
+<div id="outline-container-org08cbda2" class="outline-2">
+<h2 id="org08cbda2"><span class="section-number-2">2</span> C2 从内核出发</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 配置内核选项通常是二选一或是三选一. 二选一就是yes/no. 比如CONFIG_PREEMPT就是二选一表示是否开启抢占功能. CONFIG_SMP标识是否开启对称多处理器功能. 三选一就是yes/no/module. 通常驱动程序使用三选一配置项: yes表示把功能编入内核, module表示编译成为可以动态加载的模块. 一些销售商比如Cannoical/Ubuntu和RedHat/Fedora提供的内核几乎把所有的驱动程序都编译成为模块.
@@ -77,8 +78,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6fdbc0d" class="outline-2">
-<h2 id="org6fdbc0d"><span class="section-number-2">3</span> C3 进程管理</h2>
+<div id="outline-container-org6bd257d" class="outline-2">
+<h2 id="org6bd257d"><span class="section-number-2">3</span> C3 进程管理</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 task_struct(~1.7KB)用来描述进, 通过slab分配器分配出来. 在每个进程内核堆栈尾部存放thread_info结构, 这个结构的第一个字段就是task_struct*. 所以内核可以很快速地拿到某个进程的进程描述符task_struct. 比如如果kernel stack size = 8K的话, 那么thread_info地址就在%esp &amp; 8k上, 同时因为第一个字段就是task_struct*, 我们其实就已经得到结果.
@@ -94,8 +95,8 @@ Linux实现线程的机制非常独特. 从内核角度来看, 它没有线程�
 </div>
 </div>
 
-<div id="outline-container-org8b49e05" class="outline-2">
-<h2 id="org8b49e05"><span class="section-number-2">4</span> C4 进程调度</h2>
+<div id="outline-container-org9c87cd8" class="outline-2">
+<h2 id="org9c87cd8"><span class="section-number-2">4</span> C4 进程调度</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Linux有两个重要的调度器实现O(1)和CFS.
@@ -141,14 +142,14 @@ Linux调度器是以模块方式提供的, 这种模块化结构被成为调度�
 </div>
 </div>
 
-<div id="outline-container-org33d6a76" class="outline-2">
-<h2 id="org33d6a76"><span class="section-number-2">5</span> C5 系统调用</h2>
+<div id="outline-container-orgce3c2dc" class="outline-2">
+<h2 id="orgce3c2dc"><span class="section-number-2">5</span> C5 系统调用</h2>
 </div>
-<div id="outline-container-org4647413" class="outline-2">
-<h2 id="org4647413"><span class="section-number-2">6</span> C6 内核数据结构</h2>
+<div id="outline-container-org24a8b2a" class="outline-2">
+<h2 id="org24a8b2a"><span class="section-number-2">6</span> C6 内核数据结构</h2>
 </div>
-<div id="outline-container-org7aa0372" class="outline-2">
-<h2 id="org7aa0372"><span class="section-number-2">7</span> C7 中断和中断处理</h2>
+<div id="outline-container-orgc14b4a3" class="outline-2">
+<h2 id="orgc14b4a3"><span class="section-number-2">7</span> C7 中断和中断处理</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 硬件通过中断控制器告诉CPU产生一个中断请求(IRQ), 然后CPU中断内核保存当前寄存器, 然后执行内核初始化时注册的中断处理程序或中断服务例程(ISR, interrupt service routine), 完成后恢复寄存器返回内核.
@@ -201,8 +202,8 @@ MIS:          0
 </div>
 </div>
 
-<div id="outline-container-org019b781" class="outline-2">
-<h2 id="org019b781"><span class="section-number-2">8</span> C8 下半部和推后执行的工作</h2>
+<div id="outline-container-orgffd22a6" class="outline-2">
+<h2 id="orgffd22a6"><span class="section-number-2">8</span> C8 下半部和推后执行的工作</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 下半部(bottom half)实现机制有下面几种:
@@ -267,14 +268,14 @@ MIS:          0
 </div>
 </div>
 
-<div id="outline-container-org32ea68a" class="outline-2">
-<h2 id="org32ea68a"><span class="section-number-2">9</span> C9 内核同步介绍</h2>
+<div id="outline-container-org74edd89" class="outline-2">
+<h2 id="org74edd89"><span class="section-number-2">9</span> C9 内核同步介绍</h2>
 </div>
-<div id="outline-container-org5afd727" class="outline-2">
-<h2 id="org5afd727"><span class="section-number-2">10</span> C10 内核同步方法</h2>
+<div id="outline-container-org9649a2f" class="outline-2">
+<h2 id="org9649a2f"><span class="section-number-2">10</span> C10 内核同步方法</h2>
 </div>
-<div id="outline-container-org70a8387" class="outline-2">
-<h2 id="org70a8387"><span class="section-number-2">11</span> C11 定时器和时间管理</h2>
+<div id="outline-container-orgfce386e" class="outline-2">
+<h2 id="orgfce386e"><span class="section-number-2">11</span> C11 定时器和时间管理</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 体系结构提供了两种设备计时, 一中是实时时钟. 一种是系统定时器.
@@ -322,8 +323,8 @@ bogomips	: 6983.73
 </div>
 </div>
 
-<div id="outline-container-orgdc55aef" class="outline-2">
-<h2 id="orgdc55aef"><span class="section-number-2">12</span> C12 内存管理</h2>
+<div id="outline-container-org4122cad" class="outline-2">
+<h2 id="org4122cad"><span class="section-number-2">12</span> C12 内存管理</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 <a href="http://blog.csdn.net/f22jay/article/details/7925531">Linux用户空间与内核空间</a>
@@ -419,8 +420,8 @@ x86(MMU相关)-32(虚拟地址相关)系统上区是这样分配的
 </div>
 </div>
 
-<div id="outline-container-org895900c" class="outline-2">
-<h2 id="org895900c"><span class="section-number-2">13</span> C13 虚拟文件系统</h2>
+<div id="outline-container-org5e5e182" class="outline-2">
+<h2 id="org5e5e182"><span class="section-number-2">13</span> C13 虚拟文件系统</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 用户空间-VFS(虚拟文件系统)-文件系统(ext4, ntfs, etc.)-物理介质
@@ -471,8 +472,8 @@ VFS中有四个主要的对象类型分别是:
 </div>
 </div>
 
-<div id="outline-container-orgc41d596" class="outline-2">
-<h2 id="orgc41d596"><span class="section-number-2">14</span> C14 块I/O层</h2>
+<div id="outline-container-org00ae339" class="outline-2">
+<h2 id="org00ae339"><span class="section-number-2">14</span> C14 块I/O层</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 块(block)在大小上, 一方面要求是设备最小寻址单元的2^n倍, 另外一方面要求页大小是块大小的2^m倍. 当一个块被调入内存时, 它要存储在一个缓冲区中. 因为页大小是块大小整数倍, 所以一个页(page)可以容纳多个缓冲区(buffer). 每个缓冲区都有一个缓冲区头(分开存放), 用于描述磁盘块和缓冲区之间的映射关系. 在2.6内核以前, 缓冲区头还作为内核IO操作单元, 但是比较缺乏效率: 1. 缓冲区头部非常复杂不容易管理 2. 一次IO会涉及很多块, 那么就需要开辟很多buffer head, 管理和空间开销上都有负担. 所以在2.6之后使用bio结构体描述IO操作单元, 具体地使用IO向量, 每个向量是(物理页, 偏移, 长度)三元组表示一个缓冲区. 所有IO请求都加入请求队列, 然后由IO调度程序调度执行.
@@ -491,8 +492,8 @@ IO调度程序管理块设备的请求队列, 决定队列中请求排列顺序�
 </div>
 </div>
 
-<div id="outline-container-org57b7984" class="outline-2">
-<h2 id="org57b7984"><span class="section-number-2">15</span> C15 进程地址空间</h2>
+<div id="outline-container-org2564359" class="outline-2">
+<h2 id="org2564359"><span class="section-number-2">15</span> C15 进程地址空间</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 内核使用内存描述符(mm_struct)结构体表示进程的地址空间, 包含了和进程地址空间有关的全部信息. 内核将所有的内存描述符(mm_struct)使用双向链表连接起来, 链表头是init进程的地址空间init_mm. 进程地址空间由多个虚拟内存区域组成(virtual memory area), 内核使用vm_area_struct来表示虚拟内存区域(VMA). 内存描述符里面记录了该进程所使用的所有虚拟内存区域(VMA). 为了方便管理VMA, 内存描述符使用两种方式来组织这些内存区域 a. 链表 b. 红黑树. 链表是为了能够遍历所有的VMA, 而红黑树则是为了快速定位某个内存地址对应的VMA.
@@ -536,8 +537,8 @@ Linux使用三级页表完成虚拟地址到物理地址的转换. 为了加快�
 </div>
 </div>
 
-<div id="outline-container-orgae63485" class="outline-2">
-<h2 id="orgae63485"><span class="section-number-2">16</span> C16 页高速缓存和页回写</h2>
+<div id="outline-container-org11c9a28" class="outline-2">
+<h2 id="org11c9a28"><span class="section-number-2">16</span> C16 页高速缓存和页回写</h2>
 <div class="outline-text-2" id="text-16">
 <p>
 页高速缓存(page cahce)的目标是缓存任何基于页的对象, 包括各种类型的文件和各种类型的内存映射, 但是主要是为了缓存磁盘文件来加快读写速度. Linux使用address_space对象来管理页高速缓存, 内部inode指针表示对应的磁盘文件. 一个文件在整个系统中只对应一个address_space对象.
@@ -557,8 +558,8 @@ Total:    12938784    3786604    9152180
 </div>
 </div>
 
-<div id="outline-container-orgcba4b2f" class="outline-2">
-<h2 id="orgcba4b2f"><span class="section-number-2">17</span> C17 设备与模块</h2>
+<div id="outline-container-org146cf4d" class="outline-2">
+<h2 id="org146cf4d"><span class="section-number-2">17</span> C17 设备与模块</h2>
 <div class="outline-text-2" id="text-17">
 <p>
 并不是所有设备都表示物理设备, 有些设备驱动是虚拟的, 仅提供访问内核功能而已, 我们称为"伪设备"(pseudo device). 常见的如内核随机发生器(dev/random, /dev/urandom), 空设备(/dev/null), 零设备(/dev/zero), 满设备(/dev/full), 内存设备(/dev/mem). 然而大部分设备驱动都表示物理设备.
@@ -566,8 +567,8 @@ Total:    12938784    3786604    9152180
 </div>
 </div>
 
-<div id="outline-container-org3fc0da7" class="outline-2">
-<h2 id="org3fc0da7"><span class="section-number-2">18</span> C18 调试</h2>
+<div id="outline-container-org58304a5" class="outline-2">
+<h2 id="org58304a5"><span class="section-number-2">18</span> C18 调试</h2>
 <div class="outline-text-2" id="text-18">
 <p>
 通过打印来调试: 基本上所有地方可以使用printk来打印, 不用考虑是在进程还是中断上下文, 或是是否持有特定锁以及运行在SMP环境下. 唯一例外就是系统启动过程中, 终端还没有完成初始化. 即便如此核心硬件部分的黑客依然能靠已经初始化的硬件设备与外界通信(比如串口设备)来实现打印调试.
@@ -587,12 +588,12 @@ kgdb是一个补丁, 可以让我们在远端主机上通过串口利用gdb的�
 </div>
 </div>
 
-<div id="outline-container-orge2b2181" class="outline-2">
-<h2 id="orge2b2181"><span class="section-number-2">19</span> C19 可移植性</h2>
+<div id="outline-container-org187e2dd" class="outline-2">
+<h2 id="org187e2dd"><span class="section-number-2">19</span> C19 可移植性</h2>
 </div>
-<div id="outline-container-org293f462" class="outline-2">
-<h2 id="org293f462"><span class="section-number-2">20</span> C20 补丁, 开发和社区</h2>
+<div id="outline-container-org2f30b20" class="outline-2">
+<h2 id="org2f30b20"><span class="section-number-2">20</span> C20 补丁, 开发和社区</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/linux-kernel-development.html';this.page.identifier = 'linux-kernel-development.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

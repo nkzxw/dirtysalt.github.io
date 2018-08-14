@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZeroMQ</title>
@@ -18,44 +19,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf11c996">1. Introduction</a>
+<li><a href="#org9e44212">1. Introduction</a>
 <ul>
-<li><a href="#orgc37933c">1.1. Example</a></li>
-<li><a href="#orgbfabb8f">1.2. Protocol</a></li>
-<li><a href="#org60207b9">1.3. Message</a></li>
-<li><a href="#org76779ef">1.4. Identity</a></li>
-<li><a href="#org391a814">1.5. Device</a></li>
-<li><a href="#orgdffd1e5">1.6. Congestion</a></li>
+<li><a href="#orgd1844f9">1.1. Example</a></li>
+<li><a href="#org0bb5f1b">1.2. Protocol</a></li>
+<li><a href="#orge94d1d5">1.3. Message</a></li>
+<li><a href="#org02e755b">1.4. Identity</a></li>
+<li><a href="#org28a5c4e">1.5. Device</a></li>
+<li><a href="#orge61c838">1.6. Congestion</a></li>
 </ul>
 </li>
-<li><a href="#org6024ea1">2. Exclusive-Pair</a></li>
-<li><a href="#org2bdb414">3. Publish-Subscribe</a>
+<li><a href="#org9340916">2. Exclusive-Pair</a></li>
+<li><a href="#orgdc246a1">3. Publish-Subscribe</a>
 <ul>
-<li><a href="#org5cc8ff2">3.1. Missing Message</a></li>
-<li><a href="#orga37bf7b">3.2. Congestion Control</a></li>
+<li><a href="#org1d400ba">3.1. Missing Message</a></li>
+<li><a href="#orga7ca2ba">3.2. Congestion Control</a></li>
 </ul>
 </li>
-<li><a href="#orga6c8fae">4. Push-Pull</a></li>
-<li><a href="#org7927964">5. Request-Reply</a></li>
-<li><a href="#orgeffc0d7">6. API</a>
+<li><a href="#org1ffcc82">4. Push-Pull</a></li>
+<li><a href="#org11daeaa">5. Request-Reply</a></li>
+<li><a href="#org11dc030">6. API</a>
 <ul>
-<li><a href="#org290a6ff">6.1. Description</a></li>
-<li><a href="#orgf8f7935">6.2. Context</a></li>
-<li><a href="#org93ea304">6.3. Messages</a></li>
-<li><a href="#org2f3e8b2">6.4. Sockets</a></li>
-<li><a href="#orge97ee38">6.5. Options</a></li>
-<li><a href="#orgda93d60">6.6. Transports</a></li>
-<li><a href="#org25b1815">6.7. Devices</a></li>
+<li><a href="#org8fa897b">6.1. Description</a></li>
+<li><a href="#orga0b01d6">6.2. Context</a></li>
+<li><a href="#org7020821">6.3. Messages</a></li>
+<li><a href="#org01224a8">6.4. Sockets</a></li>
+<li><a href="#org840114e">6.5. Options</a></li>
+<li><a href="#orge6df2bd">6.6. Transports</a></li>
+<li><a href="#orga7f627b">6.7. Devices</a></li>
 </ul>
 </li>
-<li><a href="#orgcf2dd57">7. Philosophy</a>
+<li><a href="#org6de0104">7. Philosophy</a>
 <ul>
-<li><a href="#org1c5b842">7.1. Fixing the World</a></li>
-<li><a href="#org9ed34ee">7.2. Programming with ZMQ</a></li>
-<li><a href="#org575c417">7.3. Why We Needed ZMQ</a></li>
-<li><a href="#org7d8c604">7.4. The Zen of Zero</a></li>
-<li><a href="#orgeb87379">7.5. Handling Errors and ETERM</a></li>
-<li><a href="#org8b5da5b">7.6. Multithreading with ZMQ</a></li>
+<li><a href="#orgde0b9e8">7.1. Fixing the World</a></li>
+<li><a href="#org6cc6537">7.2. Programming with ZMQ</a></li>
+<li><a href="#orgd9d4f44">7.3. Why We Needed ZMQ</a></li>
+<li><a href="#orgd8b0b24">7.4. The Zen of Zero</a></li>
+<li><a href="#org60794e9">7.5. Handling Errors and ETERM</a></li>
+<li><a href="#org5a41000">7.6. Multithreading with ZMQ</a></li>
 </ul>
 </li>
 </ul>
@@ -65,8 +66,8 @@
 NOTE@201712：重读这篇笔记。感觉MQ对系统可能至关重要，以及了解MQ在系统中可能出现的使用模式。当时对里面很多地方没有搞清楚，所以笔记里面有很多东西也没有办法阅读。
 </p>
 
-<div id="outline-container-orgf11c996" class="outline-2">
-<h2 id="orgf11c996"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org9e44212" class="outline-2">
+<h2 id="org9e44212"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 ZMQ希望用户在编写应用程序方面，更加关心消息通信而不是socket连接。在内部已经使用异步方式帮用户处理好了网络IO读写以及数据成帧，使得用户在处理的时候只需要关注消息本身。
@@ -111,8 +112,8 @@ What this means is that you should always think in terms of "servers" as stable 
 </p>
 </div>
 
-<div id="outline-container-orgc37933c" class="outline-3">
-<h3 id="orgc37933c"><span class="section-number-3">1.1</span> Example</h3>
+<div id="outline-container-orgd1844f9" class="outline-3">
+<h3 id="orgd1844f9"><span class="section-number-3">1.1</span> Example</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 首先我们看看ZMQ的使用情况。我们以简单的Request-Reply消息模型为例。所谓Request-Reply模型就是client发送一个消息然后等待回应，而server接收到消息然后立刻回复。
@@ -214,8 +215,8 @@ ZMQ底层做好了poller机制，对于server来说的话将多个connection映�
 </div>
 </div>
 
-<div id="outline-container-orgbfabb8f" class="outline-3">
-<h3 id="orgbfabb8f"><span class="section-number-3">1.2</span> Protocol</h3>
+<div id="outline-container-org0bb5f1b" class="outline-3">
+<h3 id="org0bb5f1b"><span class="section-number-3">1.2</span> Protocol</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 我们从上面的Example里面看到，在进行zmq_bind/zmq_connect的时候指定了通信地址，而通信地址上面还附带了通信协议"tcp".ZMQ本身是允许工作在多种通信协议上面的：
@@ -277,8 +278,8 @@ Change: 2011-09-26 14:02:44.000000000 +0800
 </div>
 </div>
 
-<div id="outline-container-org60207b9" class="outline-3">
-<h3 id="org60207b9"><span class="section-number-3">1.3</span> Message</h3>
+<div id="outline-container-orge94d1d5" class="outline-3">
+<h3 id="orge94d1d5"><span class="section-number-3">1.3</span> Message</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 我们从上面的Example可以看到，ZMQ内部有一个默认的成帧策略，也就是说我们使用zmq_recv/zmq_send这样写成的webserver是不能够正常工作的，
@@ -384,8 +385,8 @@ ZMQ允许一条message按照多个部分进行发送(multipart message),为了�
 </div>
 </div>
 
-<div id="outline-container-org76779ef" class="outline-3">
-<h3 id="org76779ef"><span class="section-number-3">1.4</span> Identity</h3>
+<div id="outline-container-org02e755b" class="outline-3">
+<h3 id="org02e755b"><span class="section-number-3">1.4</span> Identity</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Identity可以用来表示一个socket的身份，对于ZMQ是非常有用途的，现在能够总结到的作用有下面这些：
@@ -409,8 +410,8 @@ Identity的实现非常简单，就是整个message开头加上一个特殊的fr
 </div>
 </div>
 
-<div id="outline-container-org391a814" class="outline-3">
-<h3 id="org391a814"><span class="section-number-3">1.5</span> Device</h3>
+<div id="outline-container-org28a5c4e" class="outline-3">
+<h3 id="org28a5c4e"><span class="section-number-3">1.5</span> Device</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 一旦通信节点超过一定数量的话，那么最好需要一个转发节点或者是中间节点，不然通信费用以及管理复杂度都会急剧上升。作为一个转发节点来说的话，
@@ -574,8 +575,8 @@ ZMQ Guide里面提到了不要将不同Device和socket进行混用. If you're li
 </div>
 </div>
 
-<div id="outline-container-orgdffd1e5" class="outline-3">
-<h3 id="orgdffd1e5"><span class="section-number-3">1.6</span> Congestion</h3>
+<div id="outline-container-orge61c838" class="outline-3">
+<h3 id="orge61c838"><span class="section-number-3">1.6</span> Congestion</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 ZMQ可以通过控制HWM(high-water mark)来控制拥塞。内部实现上每一个socket有关联了buffer,HWM可以控制buffer大小
@@ -607,8 +608,8 @@ Some notes on using the HWM option:
 </div>
 </div>
 
-<div id="outline-container-org6024ea1" class="outline-2">
-<h2 id="org6024ea1"><span class="section-number-2">2</span> Exclusive-Pair</h2>
+<div id="outline-container-org9340916" class="outline-2">
+<h2 id="org9340916"><span class="section-number-2">2</span> Exclusive-Pair</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Exclusive-Pair是最简单的1:1通信模式，你可以认为就是一个TCPConnection.我们依然需要写bind和connect,但是server只能够接受一个连接。
@@ -674,8 +675,8 @@ Exclusive-Pair是最简单的1:1通信模式，你可以认为就是一个TCPCon
 </div>
 </div>
 
-<div id="outline-container-org2bdb414" class="outline-2">
-<h2 id="org2bdb414"><span class="section-number-2">3</span> Publish-Subscribe</h2>
+<div id="outline-container-orgdc246a1" class="outline-2">
+<h2 id="orgdc246a1"><span class="section-number-2">3</span> Publish-Subscribe</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Pub-Sub模式非常简单，Pub不断地发布消息而Sub那么就不断地接收消息。因为消息的流向是单向的，所以相对于来说比较简单。subscriber可以订阅多个publisher,
@@ -697,8 +698,8 @@ In the current versions of ZMQ, filtering happens at the subscriber side, not th
 </p>
 </div>
 
-<div id="outline-container-org5cc8ff2" class="outline-3">
-<h3 id="org5cc8ff2"><span class="section-number-3">3.1</span> Missing Message</h3>
+<div id="outline-container-org1d400ba" class="outline-3">
+<h3 id="org1d400ba"><span class="section-number-3">3.1</span> Missing Message</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 我们看下面一个例子.为了简单起见我们想让subscriber首先运行起来，然后让publisher运行起来。因为如果我们首先将publisher连接起来的话，
@@ -804,8 +805,8 @@ A more robust model could be:
 </div>
 </div>
 
-<div id="outline-container-orga37bf7b" class="outline-3">
-<h3 id="orga37bf7b"><span class="section-number-3">3.2</span> Congestion Control</h3>
+<div id="outline-container-orga7ca2ba" class="outline-3">
+<h3 id="orga7ca2ba"><span class="section-number-3">3.2</span> Congestion Control</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 之前我们提到拥塞控制，对于PUB来说的话如果达到了HWM的话那么会直接进行丢弃。我们简单地修改一下上面的代码，让subscriber连接上但是不进行处理，而publisher不断地发送消息。
@@ -888,8 +889,8 @@ zmq_setsockopt (publisher, ZMQ_SWAP, &amp;swap, <span class="org-keyword">sizeof
 </div>
 </div>
 
-<div id="outline-container-orga6c8fae" class="outline-2">
-<h2 id="orga6c8fae"><span class="section-number-2">4</span> Push-Pull</h2>
+<div id="outline-container-org1ffcc82" class="outline-2">
+<h2 id="org1ffcc82"><span class="section-number-2">4</span> Push-Pull</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Push-Pull相对于Pub-Sub模式更加简单。Push-Pull模型工作方式是Divide-And-Conquer，会保证选择一个并且只有一个client来处理消息，而不像Pub-Sub一样会尝试让所有的client都获得消息。
@@ -899,8 +900,8 @@ Push-Pull相对于Pub-Sub模式更加简单。Push-Pull模型工作方式是Divi
 </div>
 </div>
 
-<div id="outline-container-org7927964" class="outline-2">
-<h2 id="org7927964"><span class="section-number-2">5</span> Request-Reply</h2>
+<div id="outline-container-org11daeaa" class="outline-2">
+<h2 id="org11daeaa"><span class="section-number-2">5</span> Request-Reply</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 我们返回来再看Example.在Example里面的话虽然server可以维护很多连接，但是读写方式是同步的，但是ZMQ是提供了异步的Request-Reply的通信模型的。
@@ -991,16 +992,16 @@ Here now is a more detailed explanation of the four socket types we use for requ
 </div>
 </div>
 
-<div id="outline-container-orgeffc0d7" class="outline-2">
-<h2 id="orgeffc0d7"><span class="section-number-2">6</span> API</h2>
+<div id="outline-container-org11dc030" class="outline-2">
+<h2 id="org11dc030"><span class="section-number-2">6</span> API</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 关于API这一节的话提供的都是从ZeroMQ的代码文档里面得到的非常详细。但是我想针对里面一些具体的函数说一些或者是记下一些自己的体会，因为里面有坑或者是有思想。
 </p>
 </div>
 
-<div id="outline-container-org290a6ff" class="outline-3">
-<h3 id="org290a6ff"><span class="section-number-3">6.1</span> Description</h3>
+<div id="outline-container-org8fa897b" class="outline-3">
+<h3 id="org8fa897b"><span class="section-number-3">6.1</span> Description</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 0MQ是一个轻量级的消息传递内核，扩展了socket接口。同时内置了很多新的特性，比如异步队列，多消息，消息订阅和过滤，不同transport的兼容等。
@@ -1029,8 +1030,8 @@ The 0MQ lightweight messaging kernel is a library which extends the standard soc
 </div>
 </div>
 
-<div id="outline-container-orgf8f7935" class="outline-3">
-<h3 id="orgf8f7935"><span class="section-number-3">6.2</span> Context</h3>
+<div id="outline-container-orga0b01d6" class="outline-3">
+<h3 id="orga0b01d6"><span class="section-number-3">6.2</span> Context</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 我理解context对于0MQ来说就好比是epoll线程的句柄，然后之后所有的建立的socket都会在这个线程里面进行监听。当然整个app通常来说只需要创建一次就可以了，然后在app之前等待结束即可。
@@ -1084,8 +1085,8 @@ Context termination is performed in the following steps:
 </div>
 </div>
 
-<div id="outline-container-org93ea304" class="outline-3">
-<h3 id="org93ea304"><span class="section-number-3">6.3</span> Messages</h3>
+<div id="outline-container-org7020821" class="outline-3">
+<h3 id="org7020821"><span class="section-number-3">6.3</span> Messages</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 对于Messages而言的话，就是ZMQ传输的消息单元体。通过message得到内容有两种方法
@@ -1215,8 +1216,8 @@ Context termination is performed in the following steps:
 </div>
 </div>
 
-<div id="outline-container-org2f3e8b2" class="outline-3">
-<h3 id="org2f3e8b2"><span class="section-number-3">6.4</span> Sockets</h3>
+<div id="outline-container-org01224a8" class="outline-3">
+<h3 id="org01224a8"><span class="section-number-3">6.4</span> Sockets</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 使用zmq_socket和zmq_close就可以创建和销毁socket.对于socket具体的类型的话可以参看文档，写得非常的详细。
@@ -1338,8 +1339,8 @@ poll这个接口对于device需要.
 </div>
 </div>
 
-<div id="outline-container-orge97ee38" class="outline-3">
-<h3 id="orge97ee38"><span class="section-number-3">6.5</span> Options</h3>
+<div id="outline-container-org840114e" class="outline-3">
+<h3 id="org840114e"><span class="section-number-3">6.5</span> Options</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 允许获取和设置的options并不是一样的，所以这里列出所有的options.获取的话标记R,设置的话标记W
@@ -1387,8 +1388,8 @@ poll这个接口对于device需要.
 </div>
 </div>
 
-<div id="outline-container-orgda93d60" class="outline-3">
-<h3 id="orgda93d60"><span class="section-number-3">6.6</span> Transports</h3>
+<div id="outline-container-orge6df2bd" class="outline-3">
+<h3 id="orge6df2bd"><span class="section-number-3">6.6</span> Transports</h3>
 <div class="outline-text-3" id="text-6-6">
 <p>
 transport是指zeromq的传输层在载体，一共有下面4种.
@@ -1440,8 +1441,8 @@ transport://endpoint
 </div>
 </div>
 
-<div id="outline-container-org25b1815" class="outline-3">
-<h3 id="org25b1815"><span class="section-number-3">6.7</span> Devices</h3>
+<div id="outline-container-orga7f627b" class="outline-3">
+<h3 id="orga7f627b"><span class="section-number-3">6.7</span> Devices</h3>
 <div class="outline-text-3" id="text-6-7">
 <p>
 关于Device的实现，虽然文档强调device必须配合frontend和backend，但是实际上代码只是使用一套。
@@ -1556,12 +1557,12 @@ transport://endpoint
 </div>
 </div>
 
-<div id="outline-container-orgcf2dd57" class="outline-2">
-<h2 id="orgcf2dd57"><span class="section-number-2">7</span> Philosophy</h2>
+<div id="outline-container-org6de0104" class="outline-2">
+<h2 id="org6de0104"><span class="section-number-2">7</span> Philosophy</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org1c5b842" class="outline-3">
-<h3 id="org1c5b842"><span class="section-number-3">7.1</span> Fixing the World</h3>
+<div id="outline-container-orgde0b9e8" class="outline-3">
+<h3 id="orgde0b9e8"><span class="section-number-3">7.1</span> Fixing the World</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 编程是一门被包装起来的艺术。大多数人认为编程的核心在于数据结构，算法，语言，以及抽象，但是这些都不是编程的核心，这些都只是工具。编程的核心，应该强调人的物理特性，就是交流。所以编程应该强调组合性，有很多可以相互交流的building blocks, 并且这些blocks可以被组装起来形成更大更加复杂的系统。ZMQ可以认为是这些blocks其中的一个。
@@ -1581,8 +1582,8 @@ We live in a connected world, and modern software has to navigate this world. So
 </div>
 </div>
 
-<div id="outline-container-org9ed34ee" class="outline-3">
-<h3 id="org9ed34ee"><span class="section-number-3">7.2</span> Programming with ZMQ</h3>
+<div id="outline-container-org6cc6537" class="outline-3">
+<h3 id="org6cc6537"><span class="section-number-3">7.2</span> Programming with ZMQ</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 ZMQ是一个 <b>消息队列</b> 的实现，提供了很多MQ上的patterns. 在设计应用代码时，要尽可能地从MQ的角度出发，而不要从socket/thread这类primitive出发。
@@ -1617,8 +1618,8 @@ If you're reading this Guide for the first time, realize that until you actually
 </div>
 </div>
 
-<div id="outline-container-org575c417" class="outline-3">
-<h3 id="org575c417"><span class="section-number-3">7.3</span> Why We Needed ZMQ</h3>
+<div id="outline-container-orgd9d4f44" class="outline-3">
+<h3 id="orgd9d4f44"><span class="section-number-3">7.3</span> Why We Needed ZMQ</h3>
 <div class="outline-text-3" id="text-7-3">
 <p>
 Many applications these days consist of components that stretch across some kind of network, either a LAN or the Internet. So many application developers end up doing some kind of messaging. Some developers use message queuing products, but most of the time they do it themselves, using TCP or UDP. These protocols are not hard to use, but there is a great difference between sending a few bytes from A to B, and doing messaging in any kind of reliable way.
@@ -1693,8 +1694,8 @@ Actually ZMQ does rather more than this. It has a subversive effect on how you d
 </div>
 </div>
 
-<div id="outline-container-org7d8c604" class="outline-3">
-<h3 id="org7d8c604"><span class="section-number-3">7.4</span> The Zen of Zero</h3>
+<div id="outline-container-orgd8b0b24" class="outline-3">
+<h3 id="orgd8b0b24"><span class="section-number-3">7.4</span> The Zen of Zero</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 Zero意味着成本低（很容易在项目里使用），复杂度低（很容易地reason/debug）
@@ -1706,8 +1707,8 @@ Originally the zero in ZMQ was meant as "zero broker" and (as close to) "zero la
 </div>
 </div>
 
-<div id="outline-container-orgeb87379" class="outline-3">
-<h3 id="orgeb87379"><span class="section-number-3">7.5</span> Handling Errors and ETERM</h3>
+<div id="outline-container-org60794e9" class="outline-3">
+<h3 id="org60794e9"><span class="section-number-3">7.5</span> Handling Errors and ETERM</h3>
 <div class="outline-text-3" id="text-7-5">
 <p>
 区分好内部和外部错误，对于外部错误要尽可能地抵御，而对内部错误则需要fail-fast.
@@ -1719,8 +1720,8 @@ ZMQ's error handling philosophy is a mix of fail-fast and resilience. Processes,
 </div>
 </div>
 
-<div id="outline-container-org8b5da5b" class="outline-3">
-<h3 id="org8b5da5b"><span class="section-number-3">7.6</span> Multithreading with ZMQ</h3>
+<div id="outline-container-org5a41000" class="outline-3">
+<h3 id="org5a41000"><span class="section-number-3">7.6</span> Multithreading with ZMQ</h3>
 <div class="outline-text-3" id="text-7-6">
 <p>
 如果有一件事情是我从30多年的并发编程经验所总结出来的话，那么就是永远不要共享状态。
@@ -1753,5 +1754,5 @@ Some widely used metaphors, despite being the basis for billion-dollar industrie
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/zeromq.html';this.page.identifier = 'zeromq.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sphinx-search</title>
@@ -18,14 +19,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org60f6fc2">1. Introduction</a></li>
-<li><a href="#org05a25e9">2. Index(索引)</a></li>
-<li><a href="#org658bd55">3. Search(检索)</a></li>
-<li><a href="#org0d9347c">4. Practices</a>
+<li><a href="#org27e171c">1. Introduction</a></li>
+<li><a href="#orgc58870a">2. Index(索引)</a></li>
+<li><a href="#org7615e91">3. Search(检索)</a></li>
+<li><a href="#org81cdcaf">4. Practices</a>
 <ul>
-<li><a href="#orgd3562d6">4.1. Sphinx in action</a></li>
-<li><a href="#org7a9ead3">4.2. real-time-fulltext-search-with-sphinx</a></li>
-<li><a href="#orgba8e033">4.3. Realtime Index Performance Basics</a></li>
+<li><a href="#org69bead6">4.1. Sphinx in action</a></li>
+<li><a href="#orgc57638d">4.2. real-time-fulltext-search-with-sphinx</a></li>
+<li><a href="#org863e16b">4.3. Realtime Index Performance Basics</a></li>
 </ul>
 </li>
 </ul>
@@ -39,8 +40,8 @@
 <li><a href="http://sphinxsearch.com/info/articles/">http://sphinxsearch.com/info/articles/</a></li>
 </ul>
 
-<div id="outline-container-org60f6fc2" class="outline-2">
-<h2 id="org60f6fc2"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org27e171c" class="outline-2">
+<h2 id="org27e171c"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="http://www.coreseek.cn/docs/coreseek_4.1-sphinx_2.0.1-beta.html#features">http://www.coreseek.cn/docs/coreseek_4.1-sphinx_2.0.1-beta.html#features</a>
@@ -71,8 +72,8 @@ Sphinx在与MySQL衔接方面做的非常好：
 </div>
 </div>
 
-<div id="outline-container-org05a25e9" class="outline-2">
-<h2 id="org05a25e9"><span class="section-number-2">2</span> Index(索引)</h2>
+<div id="outline-container-orgc58870a" class="outline-2">
+<h2 id="orgc58870a"><span class="section-number-2">2</span> Index(索引)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 对于索引程序来说，数据分为全文和属性两类。sphinx只会对全文进行索引，不会对属性索引，但是属性对于结果排序/过滤/分组都非常有用。
@@ -130,8 +131,8 @@ RT索引实现方式是: a. 将最新写入的数据缓存在内存并且建立�
 </div>
 </div>
 
-<div id="outline-container-org658bd55" class="outline-2">
-<h2 id="org658bd55"><span class="section-number-2">3</span> Search(检索)</h2>
+<div id="outline-container-org7615e91" class="outline-2">
+<h2 id="org7615e91"><span class="section-number-2">3</span> Search(检索)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 所有通过SphinxAPI提供的功能都可以通过SphinxQL访问，不过反过来则不行，例如对RT索引的写操作只能通过SphinxQL. 所以比较推荐尽可能使用SphinxQL，同时大部分语言都有MySQL library.SphinxQL详细语法可以看 <a href="http://www.coreseek.cn/docs/coreseek_4.1-sphinx_2.0.1-beta.html#sphinxql-reference">这里</a> . Sphinx提供的检索语法非常强大可以看 <a href="http://www.coreseek.cn/docs/coreseek_4.1-sphinx_2.0.1-beta.html#searching">这里</a>.
@@ -233,12 +234,12 @@ index dist1
 </pre>
 </div>
 </div>
-<div id="outline-container-org0d9347c" class="outline-2">
-<h2 id="org0d9347c"><span class="section-number-2">4</span> Practices</h2>
+<div id="outline-container-org81cdcaf" class="outline-2">
+<h2 id="org81cdcaf"><span class="section-number-2">4</span> Practices</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgd3562d6" class="outline-3">
-<h3 id="orgd3562d6"><span class="section-number-3">4.1</span> Sphinx in action</h3>
+<div id="outline-container-org69bead6" class="outline-3">
+<h3 id="org69bead6"><span class="section-number-3">4.1</span> Sphinx in action</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 <a href="http://www.ivinco.com/blog/tag/sphinx-in-action/">http://www.ivinco.com/blog/tag/sphinx-in-action/</a>
@@ -246,8 +247,8 @@ index dist1
 </div>
 </div>
 
-<div id="outline-container-org7a9ead3" class="outline-3">
-<h3 id="org7a9ead3"><span class="section-number-3">4.2</span> real-time-fulltext-search-with-sphinx</h3>
+<div id="outline-container-orgc57638d" class="outline-3">
+<h3 id="orgc57638d"><span class="section-number-3">4.2</span> real-time-fulltext-search-with-sphinx</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <a href="http://www.slideshare.net/AdrianNuta1/real-time-fulltext-search-with-sphinx">http://www.slideshare.net/AdrianNuta1/real-time-fulltext-search-with-sphinx</a> 给了许多使用例子
@@ -260,8 +261,8 @@ index dist1
 </div>
 </div>
 
-<div id="outline-container-orgba8e033" class="outline-3">
-<h3 id="orgba8e033"><span class="section-number-3">4.3</span> Realtime Index Performance Basics</h3>
+<div id="outline-container-org863e16b" class="outline-3">
+<h3 id="org863e16b"><span class="section-number-3">4.3</span> Realtime Index Performance Basics</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 <a href="http://sphinxsearch.com/blog/2014/02/12/rt_performance_basics/">http://sphinxsearch.com/blog/2014/02/12/rt_performance_basics/</a> RT索引性能调优
@@ -276,5 +277,5 @@ index dist1
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/sphinx-search.html';this.page.identifier = 'sphinx-search.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

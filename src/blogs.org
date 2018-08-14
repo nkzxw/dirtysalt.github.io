@@ -1,7 +1,7 @@
 #+title: 个人博客 blogs
 
 ** 2018
-- 201808 [[file:./blogs/youtube-scalability.org][Youtube Scalability]] on youtube
+- 201808 [[file:blogs/youtube-scalability.org][YouTube Scalability]] on youtube
 - 201808 [[file:blogs/sit-boost-your-tech-career.org][SIT / Boost your tech career]]
 - 201807 [[file:./blogs/algorithm-design-steps-in-interview.org][如何进行算法设计面试]] in Hired in Tech
 - 201807 [[file:./blogs/system-design-steps-in-interview.org][如何进行系统设计面试]] in Hired in Tech

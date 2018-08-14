@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>nmstl</title>
@@ -18,13 +19,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org152cdc8">1. Overview</a></li>
-<li><a href="#org915b715">2. SEDA</a></li>
-<li><a href="#orgbb17132">3. 动态线程池</a>
+<li><a href="#orgc87dfde">1. Overview</a></li>
+<li><a href="#org375ac8a">2. SEDA</a></li>
+<li><a href="#org8d1d49b">3. 动态线程池</a>
 <ul>
-<li><a href="#org7dadfe9">3.1. 增加线程</a></li>
-<li><a href="#orgcb2a691">3.2. 回收线程</a></li>
-<li><a href="#orgf306bf6">3.3. 逻辑总结</a></li>
+<li><a href="#org8e9c27f">3.1. 增加线程</a></li>
+<li><a href="#org2ad9902">3.2. 回收线程</a></li>
+<li><a href="#orgb0a3173">3.3. 逻辑总结</a></li>
 </ul>
 </li>
 </ul>
@@ -34,8 +35,8 @@
 <a href="http://sourceforge.net/projects/nmstl/">http://sourceforge.net/projects/nmstl/</a>
 </p>
 
-<div id="outline-container-org152cdc8" class="outline-2">
-<h2 id="org152cdc8"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgc87dfde" class="outline-2">
+<h2 id="orgc87dfde"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 代码非常精简大概6000多行，但是完成不是一个库而是一个框架的功能。代码非常飘逸清爽，并且很好地被注释了。
@@ -80,8 +81,8 @@ NMSTL和Asio一样都是template-heavy code,大部分都是头文件。NMSTL设�
 </div>
 </div>
 
-<div id="outline-container-org915b715" class="outline-2">
-<h2 id="org915b715"><span class="section-number-2">2</span> SEDA</h2>
+<div id="outline-container-org375ac8a" class="outline-2">
+<h2 id="org375ac8a"><span class="section-number-2">2</span> SEDA</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://www.eecs.harvard.edu/~mdw/proj/seda/">http://www.eecs.harvard.edu/~mdw/proj/seda/</a>.
@@ -166,8 +167,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgbb17132" class="outline-2">
-<h2 id="orgbb17132"><span class="section-number-2">3</span> 动态线程池</h2>
+<div id="outline-container-org8d1d49b" class="outline-2">
+<h2 id="org8d1d49b"><span class="section-number-2">3</span> 动态线程池</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 首先SEDAStage对于动态线程池有三个指标
@@ -182,8 +183,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </p>
 </div>
 
-<div id="outline-container-org7dadfe9" class="outline-3">
-<h3 id="org7dadfe9"><span class="section-number-3">3.1</span> 增加线程</h3>
+<div id="outline-container-org8e9c27f" class="outline-3">
+<h3 id="org8e9c27f"><span class="section-number-3">3.1</span> 增加线程</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/// </span><span class="org-comment">Injects an element into the queue.</span>
@@ -246,8 +247,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgcb2a691" class="outline-3">
-<h3 id="orgcb2a691"><span class="section-number-3">3.2</span> 回收线程</h3>
+<div id="outline-container-org2ad9902" class="outline-3">
+<h3 id="org2ad9902"><span class="section-number-3">3.2</span> 回收线程</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 然后我们还是回来看看导致线程减少的这部分逻辑
@@ -345,8 +346,8 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 
-<div id="outline-container-orgf306bf6" class="outline-3">
-<h3 id="orgf306bf6"><span class="section-number-3">3.3</span> 逻辑总结</h3>
+<div id="outline-container-orgb0a3173" class="outline-3">
+<h3 id="orgb0a3173"><span class="section-number-3">3.3</span> 逻辑总结</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 如果当前可用线程数目小于queue tasks数目的时候，那么就会添加线程并且将rc置零。然后后端会启动线程每隔5s会将rc++.
@@ -358,5 +359,5 @@ SEDA并不是NMSTL提出的，SEDA主要思想就是提出动态线程池这个�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/nmstl.html';this.page.identifier = 'nmstl.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

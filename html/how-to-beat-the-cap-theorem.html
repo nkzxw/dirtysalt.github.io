@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to beat the CAP theorem</title>
@@ -18,9 +19,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7e04ae6">1. Consistency and Availability</a></li>
-<li><a href="#orge07d0d7">2. What is a data system?</a></li>
-<li><a href="#org95bbc81">3. Beating the CAP theorem</a></li>
+<li><a href="#org1a36466">1. Consistency and Availability</a></li>
+<li><a href="#org0870d01">2. What is a data system?</a></li>
+<li><a href="#orgc0d4555">3. Beating the CAP theorem</a></li>
 </ul>
 </div>
 </div>
@@ -28,8 +29,8 @@
 <a href="http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html">http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html</a>
 </p>
 
-<div id="outline-container-org7e04ae6" class="outline-2">
-<h2 id="org7e04ae6"><span class="section-number-2">1</span> Consistency and Availability</h2>
+<div id="outline-container-org1a36466" class="outline-2">
+<h2 id="org1a36466"><span class="section-number-2">1</span> Consistency and Availability</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>The CAP theorem states a database cannot guarantee consistency, availability, and partition-tolerance at the same time. But you can't sacrifice partition-tolerance (see here and here), so you must make a tradeoff between availability and consistency. (只能够在CA之间进行选择）</li>
@@ -42,8 +43,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge07d0d7" class="outline-2">
-<h2 id="orge07d0d7"><span class="section-number-2">2</span> What is a data system?</h2>
+<div id="outline-container-org0870d01" class="outline-2">
+<h2 id="org0870d01"><span class="section-number-2">2</span> What is a data system?</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>There are two crucial properties to note about data. First, data is inherently time based. A piece of data is a fact that you know to be true at some moment of time. The second property of data follows immediately from the first: data is inherently immutable. Because of its connection to a point in time, the truthfulness of a piece of data never changes. One cannot go back in time to change the truthfulness of a piece of data. This means that there are only two main operations you can do with data: read existing data and add more data. CRUD has become CR. （关于数据的理解有两个特性 1.数据本质上是基于时间的，也就是说对于数据的正确性理解是在一定时间范围内的 2.考虑到数据是基于时间的，因为数据本质上是immutable的。考虑到这两点我们可以将data操作从CRUD限定为CR）</li>
@@ -51,8 +52,8 @@
 </div>
 </div>
 
-<div id="outline-container-org95bbc81" class="outline-2">
-<h2 id="org95bbc81"><span class="section-number-2">3</span> Beating the CAP theorem</h2>
+<div id="outline-container-orgc0d4555" class="outline-2">
+<h2 id="orgc0d4555"><span class="section-number-2">3</span> Beating the CAP theorem</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>What caused complexity before was the interaction between incremental updates and the CAP theorem. Incremental updates and the CAP theorem really don't play well together; mutable values require read-repair in an eventually consistent system. By rejecting incremental updates, embracing immutable data, and computing queries from scratch each time, you avoid that complexity. The CAP theorem has been beaten（最主要的问题就是incemental updates和CAP不太好同时处理。如果data mutable的话那么incremental updates需要使用read-pair来达到最终一致性，而如果我们认为数据是immutable的并且拒绝使用incremental updates的话那么就可以避免使用这种复杂性）</li>
@@ -90,5 +91,5 @@ This is a far more useful consistency model than eventual consistency, since it 
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/how-to-beat-the-cap-theorem.html';this.page.identifier = 'how-to-beat-the-cap-theorem.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

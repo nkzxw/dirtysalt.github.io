@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DBMS Implementation</title>
@@ -18,17 +19,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0b4eb3c">1. DBMS实现概述</a></li>
-<li><a href="#orge327cfc">2. 数据存储</a></li>
-<li><a href="#org6228d8b">3. 数据元素表示</a></li>
-<li><a href="#orgad4fbbc">4. 索引结构</a></li>
-<li><a href="#org3aef30f">5. 多维索引</a></li>
-<li><a href="#orgb3f7825">6. 查询执行</a></li>
-<li><a href="#org76e3224">7. 查询编译器</a></li>
-<li><a href="#orga9ea2fa">8. 系统故障对策</a></li>
-<li><a href="#org192b50b">9. 并发控制</a></li>
-<li><a href="#orgf4b4152">10. 再论事务管理</a></li>
-<li><a href="#org9f91bad">11. 信息集成</a></li>
+<li><a href="#orgac99267">1. DBMS实现概述</a></li>
+<li><a href="#orgc2a9886">2. 数据存储</a></li>
+<li><a href="#org3470a1a">3. 数据元素表示</a></li>
+<li><a href="#orgbd2ff22">4. 索引结构</a></li>
+<li><a href="#org55ef708">5. 多维索引</a></li>
+<li><a href="#org3064e3a">6. 查询执行</a></li>
+<li><a href="#org0850193">7. 查询编译器</a></li>
+<li><a href="#org70d786a">8. 系统故障对策</a></li>
+<li><a href="#orga245609">9. 并发控制</a></li>
+<li><a href="#org6e0842f">10. 再论事务管理</a></li>
+<li><a href="#org5e304d2">11. 信息集成</a></li>
 </ul>
 </div>
 </div>
@@ -36,8 +37,8 @@
 数据库系统实现(Database System Implementation)
 </p>
 
-<div id="outline-container-org0b4eb3c" class="outline-2">
-<h2 id="org0b4eb3c"><span class="section-number-2">1</span> DBMS实现概述</h2>
+<div id="outline-container-orgac99267" class="outline-2">
+<h2 id="orgac99267"><span class="section-number-2">1</span> DBMS实现概述</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 关于DBMS实现上面大概分为下面三个部分的内容：
@@ -61,8 +62,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge327cfc" class="outline-2">
-<h2 id="orge327cfc"><span class="section-number-2">2</span> 数据存储</h2>
+<div id="outline-container-orgc2a9886" class="outline-2">
+<h2 id="orgc2a9886"><span class="section-number-2">2</span> 数据存储</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>存储介质层次结构</b>
@@ -216,11 +217,11 @@
 </div>
 </div>
 
-<div id="outline-container-org6228d8b" class="outline-2">
-<h2 id="org6228d8b"><span class="section-number-2">3</span> 数据元素表示</h2>
+<div id="outline-container-org3470a1a" class="outline-2">
+<h2 id="org3470a1a"><span class="section-number-2">3</span> 数据元素表示</h2>
 </div>
-<div id="outline-container-orgad4fbbc" class="outline-2">
-<h2 id="orgad4fbbc"><span class="section-number-2">4</span> 索引结构</h2>
+<div id="outline-container-orgbd2ff22" class="outline-2">
+<h2 id="orgbd2ff22"><span class="section-number-2">4</span> 索引结构</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 B Tree + Hash.
@@ -228,8 +229,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-org3aef30f" class="outline-2">
-<h2 id="org3aef30f"><span class="section-number-2">5</span> 多维索引</h2>
+<div id="outline-container-org55ef708" class="outline-2">
+<h2 id="org55ef708"><span class="section-number-2">5</span> 多维索引</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 适合数据立方体系统的数据通常组织成为一个事实表(fact table)和若干维表.
@@ -245,8 +246,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-orgb3f7825" class="outline-2">
-<h2 id="orgb3f7825"><span class="section-number-2">6</span> 查询执行</h2>
+<div id="outline-container-org3064e3a" class="outline-2">
+<h2 id="org3064e3a"><span class="section-number-2">6</span> 查询执行</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 查询编译器：
@@ -263,8 +264,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-org76e3224" class="outline-2">
-<h2 id="org76e3224"><span class="section-number-2">7</span> 查询编译器</h2>
+<div id="outline-container-org0850193" class="outline-2">
+<h2 id="org0850193"><span class="section-number-2">7</span> 查询编译器</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 #todo:
@@ -272,8 +273,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-orga9ea2fa" class="outline-2">
-<h2 id="orga9ea2fa"><span class="section-number-2">8</span> 系统故障对策</h2>
+<div id="outline-container-org70d786a" class="outline-2">
+<h2 id="org70d786a"><span class="section-number-2">8</span> 系统故障对策</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 关于数据库系统的故障可以分为下面几种：
@@ -299,8 +300,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-org192b50b" class="outline-2">
-<h2 id="org192b50b"><span class="section-number-2">9</span> 并发控制</h2>
+<div id="outline-container-orga245609" class="outline-2">
+<h2 id="orga245609"><span class="section-number-2">9</span> 并发控制</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>串行调度使得所有事务按照某种顺序执行，每个事务都是原子执行的。</li>
@@ -314,8 +315,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-orgf4b4152" class="outline-2">
-<h2 id="orgf4b4152"><span class="section-number-2">10</span> 再论事务管理</h2>
+<div id="outline-container-org6e0842f" class="outline-2">
+<h2 id="org6e0842f"><span class="section-number-2">10</span> 再论事务管理</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 检测并解决死锁，最简单的方式是利用超时。对事物活跃的时间做出限制，如果事务超过这个时间就将其回滚。
@@ -323,8 +324,8 @@ B Tree + Hash.
 </div>
 </div>
 
-<div id="outline-container-org9f91bad" class="outline-2">
-<h2 id="org9f91bad"><span class="section-number-2">11</span> 信息集成</h2>
+<div id="outline-container-org5e304d2" class="outline-2">
+<h2 id="org5e304d2"><span class="section-number-2">11</span> 信息集成</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 信息集成有三种最常用的方式：
@@ -337,5 +338,5 @@ B Tree + Hash.
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/dbms-impl.html';this.page.identifier = 'dbms-impl.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Designs, Lessons and Advice from Building Large Distributed Systems</title>
@@ -18,11 +19,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc073669">1. Architectural view of the storage hierarchy</a></li>
-<li><a href="#org7dbab8c">2. Reliability &amp; Availability</a></li>
-<li><a href="#orgeee0da7">3. Making Applications Robust Against Failures</a></li>
-<li><a href="#org7c3329e">4. Add Sufficient Monitoring/Status/Debugging Hooks</a></li>
-<li><a href="#org2641179">5. BigTable: What’s New Since OSDI’06?</a></li>
+<li><a href="#org993f0b9">1. Architectural view of the storage hierarchy</a></li>
+<li><a href="#org3bd970b">2. Reliability &amp; Availability</a></li>
+<li><a href="#org6528339">3. Making Applications Robust Against Failures</a></li>
+<li><a href="#orgfbd77cb">4. Add Sufficient Monitoring/Status/Debugging Hooks</a></li>
+<li><a href="#org72bf4aa">5. BigTable: What’s New Since OSDI’06?</a></li>
 </ul>
 </div>
 </div>
@@ -32,8 +33,8 @@
 </ul>
 
 
-<div id="outline-container-orgc073669" class="outline-2">
-<h2 id="orgc073669"><span class="section-number-2">1</span> Architectural view of the storage hierarchy</h2>
+<div id="outline-container-org993f0b9" class="outline-2">
+<h2 id="org993f0b9"><span class="section-number-2">1</span> Architectural view of the storage hierarchy</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 对于分布式系统来说，存储层次扩展到了rack,cluster,datacenter级别
@@ -52,8 +53,8 @@
 </div>
 </div>
 
-<div id="outline-container-org7dbab8c" class="outline-2">
-<h2 id="org7dbab8c"><span class="section-number-2">2</span> Reliability &amp; Availability</h2>
+<div id="outline-container-org3bd970b" class="outline-2">
+<h2 id="org3bd970b"><span class="section-number-2">2</span> Reliability &amp; Availability</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Things will crash. Deal with it! （就是MTBF有30年，但是如果有上万节点的话，那么每年也会挂掉一台，所以设计fault-tolerant软件是必要的）
@@ -72,8 +73,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgeee0da7" class="outline-2">
-<h2 id="orgeee0da7"><span class="section-number-2">3</span> Making Applications Robust Against Failures</h2>
+<div id="outline-container-org6528339" class="outline-2">
+<h2 id="org6528339"><span class="section-number-2">3</span> Making Applications Robust Against Failures</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Canary requests</li>
@@ -88,8 +89,8 @@
 </div>
 </div>
 
-<div id="outline-container-org7c3329e" class="outline-2">
-<h2 id="org7c3329e"><span class="section-number-2">4</span> Add Sufficient Monitoring/Status/Debugging Hooks</h2>
+<div id="outline-container-orgfbd77cb" class="outline-2">
+<h2 id="orgfbd77cb"><span class="section-number-2">4</span> Add Sufficient Monitoring/Status/Debugging Hooks</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>All our servers:
@@ -109,8 +110,8 @@
 </div>
 </div>
 
-<div id="outline-container-org2641179" class="outline-2">
-<h2 id="org2641179"><span class="section-number-2">5</span> BigTable: What’s New Since OSDI’06?</h2>
+<div id="outline-container-org72bf4aa" class="outline-2">
+<h2 id="org72bf4aa"><span class="section-number-2">5</span> BigTable: What’s New Since OSDI’06?</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 bigtable相对于原始论文的改进
@@ -157,5 +158,5 @@ bigtable相对于原始论文的改进
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/designs-lessons-and-advice-from-building-large-distributed-systems.html';this.page.identifier = 'designs-lessons-and-advice-from-building-large-distributed-systems.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

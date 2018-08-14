@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cracking The Coding Interview</title>
@@ -18,57 +19,57 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org90f5f06">1. Foreword</a></li>
-<li><a href="#org560bd9c">2. Introduction</a></li>
-<li><a href="#orgdf5ec49">3. Behind the Scenes</a>
+<li><a href="#orgc96cc11">1. Foreword</a></li>
+<li><a href="#orgf20f535">2. Introduction</a></li>
+<li><a href="#org46a70c5">3. Behind the Scenes</a>
 <ul>
-<li><a href="#orgf9a0919">3.1. The Microsoft Interview</a></li>
-<li><a href="#org8de2f32">3.2. The Amazon Interview</a></li>
-<li><a href="#org3c2b1b3">3.3. The Google Interview</a></li>
-<li><a href="#org42a074e">3.4. The Apple Interview</a></li>
-<li><a href="#orged75998">3.5. The Yahoo Interview</a></li>
+<li><a href="#org3d19224">3.1. The Microsoft Interview</a></li>
+<li><a href="#org990d6d7">3.2. The Amazon Interview</a></li>
+<li><a href="#orga3caf33">3.3. The Google Interview</a></li>
+<li><a href="#org93c5cb6">3.4. The Apple Interview</a></li>
+<li><a href="#orgdbb3dd2">3.5. The Yahoo Interview</a></li>
 </ul>
 </li>
-<li><a href="#orga869130">4. Interview War Stories</a></li>
-<li><a href="#orgd393789">5. Before the Interview</a>
+<li><a href="#org7398a97">4. Interview War Stories</a></li>
+<li><a href="#orgdd4e89c">5. Before the Interview</a>
 <ul>
-<li><a href="#org78ea03b">5.1. Resume Advice</a></li>
-<li><a href="#orgd4a3487">5.2. Behavioral Preparation</a></li>
-<li><a href="#org4305a37">5.3. Technical Preparation</a></li>
+<li><a href="#org54bd520">5.1. Resume Advice</a></li>
+<li><a href="#orgdf3aac9">5.2. Behavioral Preparation</a></li>
+<li><a href="#org346d40b">5.3. Technical Preparation</a></li>
 </ul>
 </li>
-<li><a href="#org9a53fe7">6. The Interview and Beyond</a>
+<li><a href="#orgb321673">6. The Interview and Beyond</a>
 <ul>
-<li><a href="#org63ccb88">6.1. Handling Behavioral Questions</a></li>
-<li><a href="#org3eab5e4">6.2. Handling Technical Questions</a></li>
-<li><a href="#org1c5da69">6.3. Five Algorithm Approaches</a></li>
-<li><a href="#org9a64f3f">6.4. The Offer and Beyond</a></li>
-<li><a href="#orga21ed76">6.5. Top Ten Mistakes Candidates Make</a></li>
-<li><a href="#orgda8cb51">6.6. Frequently Asked Questions</a></li>
+<li><a href="#orgfc02609">6.1. Handling Behavioral Questions</a></li>
+<li><a href="#orge257f04">6.2. Handling Technical Questions</a></li>
+<li><a href="#org63a1c37">6.3. Five Algorithm Approaches</a></li>
+<li><a href="#orgbe07fbf">6.4. The Offer and Beyond</a></li>
+<li><a href="#org42575e0">6.5. Top Ten Mistakes Candidates Make</a></li>
+<li><a href="#orgb9d576e">6.6. Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li><a href="#orga1a0361">7. Interview Questions</a>
+<li><a href="#orge870902">7. Interview Questions</a>
 <ul>
-<li><a href="#org54d366b">7.1. Arrays and Strings</a></li>
-<li><a href="#org1b9bbb4">7.2. Linked Lists</a></li>
-<li><a href="#org22913df">7.3. Stacks and Queues</a></li>
-<li><a href="#orgb8b765f">7.4. Trees and Graphs</a></li>
-<li><a href="#org66f350f">7.5. Bit Manipulation</a></li>
-<li><a href="#org5cfb479">7.6. Brain Teasers</a></li>
-<li><a href="#org515288c">7.7. Object Oriented Design</a></li>
-<li><a href="#org0406651">7.8. Recursion</a></li>
-<li><a href="#orgb1a0552">7.9. Sorting and Searching</a></li>
-<li><a href="#org4e73f7a">7.10. Mathematical</a></li>
-<li><a href="#org2c2e33a">7.11. System Design and Memory Limits</a></li>
-<li><a href="#orgacc2f97">7.12. Testing</a></li>
-<li><a href="#org90936ab">7.13. C++</a></li>
-<li><a href="#org811aa91">7.14. Java</a></li>
-<li><a href="#org25e833d">7.15. Databases</a></li>
-<li><a href="#org5a9144b">7.16. Low Level</a></li>
-<li><a href="#org347b210">7.17. Networking</a></li>
-<li><a href="#org66a564c">7.18. Threads and Locks</a></li>
-<li><a href="#org3c3df68">7.19. Moderate Additional Review Problems</a></li>
-<li><a href="#org92dca7d">7.20. Hard Additional Review Problems</a></li>
+<li><a href="#org748e288">7.1. Arrays and Strings</a></li>
+<li><a href="#orgf7fce05">7.2. Linked Lists</a></li>
+<li><a href="#org17399e7">7.3. Stacks and Queues</a></li>
+<li><a href="#org97a07ea">7.4. Trees and Graphs</a></li>
+<li><a href="#orgc7c4159">7.5. Bit Manipulation</a></li>
+<li><a href="#org6213e7d">7.6. Brain Teasers</a></li>
+<li><a href="#orgef4ead3">7.7. Object Oriented Design</a></li>
+<li><a href="#org29608fb">7.8. Recursion</a></li>
+<li><a href="#orga335bf3">7.9. Sorting and Searching</a></li>
+<li><a href="#orgb3d62a8">7.10. Mathematical</a></li>
+<li><a href="#org21bfdff">7.11. System Design and Memory Limits</a></li>
+<li><a href="#org6476384">7.12. Testing</a></li>
+<li><a href="#org8404fcf">7.13. C++</a></li>
+<li><a href="#org16c9fa4">7.14. Java</a></li>
+<li><a href="#org02c3114">7.15. Databases</a></li>
+<li><a href="#org972cffd">7.16. Low Level</a></li>
+<li><a href="#orga279411">7.17. Networking</a></li>
+<li><a href="#orgef9bb9a">7.18. Threads and Locks</a></li>
+<li><a href="#org9c80b91">7.19. Moderate Additional Review Problems</a></li>
+<li><a href="#orgf0004ee">7.20. Hard Additional Review Problems</a></li>
 </ul>
 </li>
 </ul>
@@ -82,8 +83,8 @@
 <a href="https://www.careercup.com/book">https://www.careercup.com/book</a>
 </p>
 
-<div id="outline-container-org90f5f06" class="outline-2">
-<h2 id="org90f5f06"><span class="section-number-2">1</span> Foreword</h2>
+<div id="outline-container-orgc96cc11" class="outline-2">
+<h2 id="orgc96cc11"><span class="section-number-2">1</span> Foreword</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 As you get ready for your interviews, consider these suggestions:
@@ -101,16 +102,16 @@ Receiving an offer is not about solving questions flawlessly (very few candidate
 </div>
 </div>
 
-<div id="outline-container-org560bd9c" class="outline-2">
-<h2 id="org560bd9c"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-orgf20f535" class="outline-2">
+<h2 id="orgf20f535"><span class="section-number-2">2</span> Introduction</h2>
 </div>
 
-<div id="outline-container-orgdf5ec49" class="outline-2">
-<h2 id="orgdf5ec49"><span class="section-number-2">3</span> Behind the Scenes</h2>
+<div id="outline-container-org46a70c5" class="outline-2">
+<h2 id="org46a70c5"><span class="section-number-2">3</span> Behind the Scenes</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf9a0919" class="outline-3">
-<h3 id="orgf9a0919"><span class="section-number-3">3.1</span> The Microsoft Interview</h3>
+<div id="outline-container-org3d19224" class="outline-3">
+<h3 id="org3d19224"><span class="section-number-3">3.1</span> The Microsoft Interview</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Microsoft wants smart people Geeks. People who are passionate about technology.</li>
@@ -131,8 +132,8 @@ In this question, Microsoft wants to see that you’re passionate about technolo
 </div>
 </div>
 
-<div id="outline-container-org8de2f32" class="outline-3">
-<h3 id="org8de2f32"><span class="section-number-3">3.2</span> The Amazon Interview</h3>
+<div id="outline-container-org990d6d7" class="outline-3">
+<h3 id="org990d6d7"><span class="section-number-3">3.2</span> The Amazon Interview</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Amazon’s recruiting process usually begins with one or two phone screens in which you in- terview with a specific team. The engineer who interviews you will usually ask you to write simple code and read it aloud on the phone They will ask a broad set of questions to explore what areas of technology you’re familiar with.</li>
@@ -152,8 +153,8 @@ Definitely Prepare:
 </div>
 </div>
 
-<div id="outline-container-org3c2b1b3" class="outline-3">
-<h3 id="org3c2b1b3"><span class="section-number-3">3.3</span> The Google Interview</h3>
+<div id="outline-container-orga3caf33" class="outline-3">
+<h3 id="orga3caf33"><span class="section-number-3">3.3</span> The Google Interview</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>However, because Google HR can be a little disorganized, we recommend being proactive in communication.</li>
@@ -174,8 +175,8 @@ Definitely Prepare:
 </div>
 </div>
 
-<div id="outline-container-org42a074e" class="outline-3">
-<h3 id="org42a074e"><span class="section-number-3">3.4</span> The Apple Interview</h3>
+<div id="outline-container-org93c5cb6" class="outline-3">
+<h3 id="org93c5cb6"><span class="section-number-3">3.4</span> The Apple Interview</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Much like the company itself, Apple’s interview process has minimal beaucracy.</li>
@@ -198,8 +199,8 @@ Definitely Prepare:
 </div>
 </div>
 
-<div id="outline-container-orged75998" class="outline-3">
-<h3 id="orged75998"><span class="section-number-3">3.5</span> The Yahoo Interview</h3>
+<div id="outline-container-orgdbb3dd2" class="outline-3">
+<h3 id="orgdbb3dd2"><span class="section-number-3">3.5</span> The Yahoo Interview</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>While Yahoo tends to only recruit at the top 10 – 20 schools, other candidates can still get interviewed through Yahoo’s job board (or – better yet – if they can get an internal referral). If you’re one of the lucky ones selected, your interview process will start off with a phone screen. Your phone screen will be with a senior employee (tech lead, manager, etc)</li>
@@ -223,8 +224,8 @@ Definitely Prepare:
 </div>
 </div>
 
-<div id="outline-container-orga869130" class="outline-2">
-<h2 id="orga869130"><span class="section-number-2">4</span> Interview War Stories</h2>
+<div id="outline-container-org7398a97" class="outline-2">
+<h2 id="org7398a97"><span class="section-number-2">4</span> Interview War Stories</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 While the technical questions on computer science obviously are very important, the most important interview question is not covered in this guidebook. In fact, it’s often the single most question in your interviewers' minds as they grill you in that little room. Despite the questions on polymorphism and heaps and virtual machines, the question they really want an answer to is &#x2026; <b>Would I have a beer with this guy?</b>
@@ -240,12 +241,12 @@ While they may not literally be asking themselves “Would I have a beer with th
 </div>
 </div>
 
-<div id="outline-container-orgd393789" class="outline-2">
-<h2 id="orgd393789"><span class="section-number-2">5</span> Before the Interview</h2>
+<div id="outline-container-orgdd4e89c" class="outline-2">
+<h2 id="orgdd4e89c"><span class="section-number-2">5</span> Before the Interview</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org78ea03b" class="outline-3">
-<h3 id="org78ea03b"><span class="section-number-3">5.1</span> Resume Advice</h3>
+<div id="outline-container-org54bd520" class="outline-3">
+<h3 id="org54bd520"><span class="section-number-3">5.1</span> Resume Advice</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Resume screeners look for the same things that interviewers do:
@@ -284,8 +285,8 @@ Not everything you did will fit into this approach, but the principle is the sam
 </div>
 </div>
 
-<div id="outline-container-orgd4a3487" class="outline-3">
-<h3 id="orgd4a3487"><span class="section-number-3">5.2</span> Behavioral Preparation</h3>
+<div id="outline-container-orgdf3aac9" class="outline-3">
+<h3 id="orgdf3aac9"><span class="section-number-3">5.2</span> Behavioral Preparation</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Behavioral questions are asked for a variety of reasons
@@ -406,8 +407,8 @@ In each cell, put the corresponding story. We recommend reducing each story to j
 </div>
 </div>
 
-<div id="outline-container-org4305a37" class="outline-3">
-<h3 id="org4305a37"><span class="section-number-3">5.3</span> Technical Preparation</h3>
+<div id="outline-container-org346d40b" class="outline-3">
+<h3 id="org346d40b"><span class="section-number-3">5.3</span> Technical Preparation</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Memorizing or trying to learn specific questions won’t help you!</li>
@@ -484,16 +485,16 @@ In each cell, put the corresponding story. We recommend reducing each story to j
 </div>
 </div>
 
-<div id="outline-container-org9a53fe7" class="outline-2">
-<h2 id="org9a53fe7"><span class="section-number-2">6</span> The Interview and Beyond</h2>
+<div id="outline-container-orgb321673" class="outline-2">
+<h2 id="orgb321673"><span class="section-number-2">6</span> The Interview and Beyond</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="https://github.com/yangshun/tech-interview-handbook/tree/master/non-technical">https://github.com/yangshun/tech-interview-handbook/tree/master/non-technical</a>
 </p>
 </div>
 
-<div id="outline-container-org63ccb88" class="outline-3">
-<h3 id="org63ccb88"><span class="section-number-3">6.1</span> Handling Behavioral Questions</h3>
+<div id="outline-container-orgfc02609" class="outline-3">
+<h3 id="orgfc02609"><span class="section-number-3">6.1</span> Handling Behavioral Questions</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Be Specific, Not Arrogant # 将问题说的具体一些就不会显得傲慢</li>
@@ -515,8 +516,8 @@ Candidate #2 not only sounds more impressive, but she also appears less arrogant
 </div>
 </div>
 
-<div id="outline-container-org3eab5e4" class="outline-3">
-<h3 id="org3eab5e4"><span class="section-number-3">6.2</span> Handling Technical Questions</h3>
+<div id="outline-container-orge257f04" class="outline-3">
+<h3 id="orge257f04"><span class="section-number-3">6.2</span> Handling Technical Questions</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 A technical interview question can be solved utilizing a five step approach:
@@ -531,11 +532,11 @@ A technical interview question can be solved utilizing a five step approach:
 </div>
 </div>
 
-<div id="outline-container-org1c5da69" class="outline-3">
-<h3 id="org1c5da69"><span class="section-number-3">6.3</span> Five Algorithm Approaches</h3>
+<div id="outline-container-org63a1c37" class="outline-3">
+<h3 id="org63a1c37"><span class="section-number-3">6.3</span> Five Algorithm Approaches</h3>
 </div>
-<div id="outline-container-org9a64f3f" class="outline-3">
-<h3 id="org9a64f3f"><span class="section-number-3">6.4</span> The Offer and Beyond</h3>
+<div id="outline-container-orgbe07fbf" class="outline-3">
+<h3 id="orgbe07fbf"><span class="section-number-3">6.4</span> The Offer and Beyond</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li><b>Negotiating.</b> It’s Always Negotiable! Ok, maybe not always, but usually an offer is negotiable even if a recruiter tells you otherwise. It helps if you have a competing offer But, <b>don’t lie – Microsoft knows what Google offers, so it just won’t be realistic if you make up numbers.</b> Also, technol- ogy is a small world, and people talk. Be honest.</li>
@@ -553,8 +554,8 @@ A technical interview question can be solved utilizing a five step approach:
 </div>
 </div>
 
-<div id="outline-container-orga21ed76" class="outline-3">
-<h3 id="orga21ed76"><span class="section-number-3">6.5</span> Top Ten Mistakes Candidates Make</h3>
+<div id="outline-container-org42575e0" class="outline-3">
+<h3 id="org42575e0"><span class="section-number-3">6.5</span> Top Ten Mistakes Candidates Make</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li>Practicing on a Computer</li>
@@ -571,8 +572,8 @@ A technical interview question can be solved utilizing a five step approach:
 </div>
 </div>
 
-<div id="outline-container-orgda8cb51" class="outline-3">
-<h3 id="orgda8cb51"><span class="section-number-3">6.6</span> Frequently Asked Questions</h3>
+<div id="outline-container-orgb9d576e" class="outline-3">
+<h3 id="orgb9d576e"><span class="section-number-3">6.6</span> Frequently Asked Questions</h3>
 <div class="outline-text-3" id="text-6-6">
 <p>
 <b>Should I tell my interviewer if I know a question?</b>
@@ -594,8 +595,8 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 </div>
 </div>
 
-<div id="outline-container-orga1a0361" class="outline-2">
-<h2 id="orga1a0361"><span class="section-number-2">7</span> Interview Questions</h2>
+<div id="outline-container-orge870902" class="outline-2">
+<h2 id="orge870902"><span class="section-number-2">7</span> Interview Questions</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Data Structures</li>
@@ -605,8 +606,8 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 </ul>
 </div>
 
-<div id="outline-container-org54d366b" class="outline-3">
-<h3 id="org54d366b"><span class="section-number-3">7.1</span> Arrays and Strings</h3>
+<div id="outline-container-org748e288" class="outline-3">
+<h3 id="org748e288"><span class="section-number-3">7.1</span> Arrays and Strings</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>1.1 Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?</li>
@@ -697,8 +698,8 @@ Here’s why we strongly recommend that you tell your interviewer that you’ve 
 </div>
 </div>
 
-<div id="outline-container-org1b9bbb4" class="outline-3">
-<h3 id="org1b9bbb4"><span class="section-number-3">7.2</span> Linked Lists</h3>
+<div id="outline-container-orgf7fce05" class="outline-3">
+<h3 id="orgf7fce05"><span class="section-number-3">7.2</span> Linked Lists</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 Questions:
@@ -768,8 +769,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org22913df" class="outline-3">
-<h3 id="org22913df"><span class="section-number-3">7.3</span> Stacks and Queues</h3>
+<div id="outline-container-org17399e7" class="outline-3">
+<h3 id="org17399e7"><span class="section-number-3">7.3</span> Stacks and Queues</h3>
 <div class="outline-text-3" id="text-7-3">
 <p>
 Questions:
@@ -829,8 +830,8 @@ print(len(steps))
 </div>
 </div>
 
-<div id="outline-container-orgb8b765f" class="outline-3">
-<h3 id="orgb8b765f"><span class="section-number-3">7.4</span> Trees and Graphs</h3>
+<div id="outline-container-org97a07ea" class="outline-3">
+<h3 id="org97a07ea"><span class="section-number-3">7.4</span> Trees and Graphs</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 利用BUD(Bottlenecks, Unnecessary work, Duplicated work) 来优化算法
@@ -1006,8 +1007,8 @@ def checkBST(root):
 </div>
 </div>
 
-<div id="outline-container-org66f350f" class="outline-3">
-<h3 id="org66f350f"><span class="section-number-3">7.5</span> Bit Manipulation</h3>
+<div id="outline-container-orgc7c4159" class="outline-3">
+<h3 id="orgc7c4159"><span class="section-number-3">7.5</span> Bit Manipulation</h3>
 <div class="outline-text-3" id="text-7-5">
 
 <div class="figure">
@@ -1182,8 +1183,8 @@ for n in (100, 200, 300, 400):
 </div>
 </div>
 
-<div id="outline-container-org5cfb479" class="outline-3">
-<h3 id="org5cfb479"><span class="section-number-3">7.6</span> Brain Teasers</h3>
+<div id="outline-container-org6213e7d" class="outline-3">
+<h3 id="org6213e7d"><span class="section-number-3">7.6</span> Brain Teasers</h3>
 <div class="outline-text-3" id="text-7-6">
 <ul class="org-ul">
 <li>Don’t panic when you get a brain teaser. Interviewers want to see how you tackle a problem; they don’t expect you to immediately know the answer. Start talking, and show the inter- viewer how you approach a problem</li>
@@ -1310,11 +1311,11 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org515288c" class="outline-3">
-<h3 id="org515288c"><span class="section-number-3">7.7</span> Object Oriented Design</h3>
+<div id="outline-container-orgef4ead3" class="outline-3">
+<h3 id="orgef4ead3"><span class="section-number-3">7.7</span> Object Oriented Design</h3>
 </div>
-<div id="outline-container-org0406651" class="outline-3">
-<h3 id="org0406651"><span class="section-number-3">7.8</span> Recursion</h3>
+<div id="outline-container-org29608fb" class="outline-3">
+<h3 id="org29608fb"><span class="section-number-3">7.8</span> Recursion</h3>
 <div class="outline-text-3" id="text-7-8">
 <ul class="org-ul">
 <li>All problems that can be solved recursively can also be solved iteratively (though the code may be much more complicated). Before diving into a recursive code, ask yourself how hard it would be to implement this algorithm iteratively. Discuss the trade-offs with your interviewer.</li>
@@ -1444,8 +1445,8 @@ def make_change(coins, n):
 </div>
 
 
-<div id="outline-container-orgb1a0552" class="outline-3">
-<h3 id="orgb1a0552"><span class="section-number-3">7.9</span> Sorting and Searching</h3>
+<div id="outline-container-orga335bf3" class="outline-3">
+<h3 id="orga335bf3"><span class="section-number-3">7.9</span> Sorting and Searching</h3>
 <div class="outline-text-3" id="text-7-9">
 <ul class="org-ul">
 <li>Bubble Sort</li>
@@ -1532,8 +1533,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org4e73f7a" class="outline-3">
-<h3 id="org4e73f7a"><span class="section-number-3">7.10</span> Mathematical</h3>
+<div id="outline-container-orgb3d62a8" class="outline-3">
+<h3 id="orgb3d62a8"><span class="section-number-3">7.10</span> Mathematical</h3>
 <div class="outline-text-3" id="text-7-10">
 <p>
 Questions:
@@ -1562,8 +1563,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org2c2e33a" class="outline-3">
-<h3 id="org2c2e33a"><span class="section-number-3">7.11</span> System Design and Memory Limits</h3>
+<div id="outline-container-org21bfdff" class="outline-3">
+<h3 id="org21bfdff"><span class="section-number-3">7.11</span> System Design and Memory Limits</h3>
 <div class="outline-text-3" id="text-7-11">
 <p>
 Data Structures
@@ -1594,8 +1595,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-orgacc2f97" class="outline-3">
-<h3 id="orgacc2f97"><span class="section-number-3">7.12</span> Testing</h3>
+<div id="outline-container-org6476384" class="outline-3">
+<h3 id="org6476384"><span class="section-number-3">7.12</span> Testing</h3>
 <div class="outline-text-3" id="text-7-12">
 <p>
 Questions:
@@ -1618,14 +1619,14 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org90936ab" class="outline-3">
-<h3 id="org90936ab"><span class="section-number-3">7.13</span> C++</h3>
+<div id="outline-container-org8404fcf" class="outline-3">
+<h3 id="org8404fcf"><span class="section-number-3">7.13</span> C++</h3>
 </div>
-<div id="outline-container-org811aa91" class="outline-3">
-<h3 id="org811aa91"><span class="section-number-3">7.14</span> Java</h3>
+<div id="outline-container-org16c9fa4" class="outline-3">
+<h3 id="org16c9fa4"><span class="section-number-3">7.14</span> Java</h3>
 </div>
-<div id="outline-container-org25e833d" class="outline-3">
-<h3 id="org25e833d"><span class="section-number-3">7.15</span> Databases</h3>
+<div id="outline-container-org02c3114" class="outline-3">
+<h3 id="org02c3114"><span class="section-number-3">7.15</span> Databases</h3>
 <div class="outline-text-3" id="text-7-15">
 <p>
 Questions:
@@ -1646,8 +1647,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org5a9144b" class="outline-3">
-<h3 id="org5a9144b"><span class="section-number-3">7.16</span> Low Level</h3>
+<div id="outline-container-org972cffd" class="outline-3">
+<h3 id="org972cffd"><span class="section-number-3">7.16</span> Low Level</h3>
 <div class="outline-text-3" id="text-7-16">
 <p>
 Questions:
@@ -1779,8 +1780,8 @@ print('max size = {}'.format(max_size))
 </div>
 </div>
 
-<div id="outline-container-org347b210" class="outline-3">
-<h3 id="org347b210"><span class="section-number-3">7.17</span> Networking</h3>
+<div id="outline-container-orga279411" class="outline-3">
+<h3 id="orga279411"><span class="section-number-3">7.17</span> Networking</h3>
 <div class="outline-text-3" id="text-7-17">
 <p>
 Questions:
@@ -1801,8 +1802,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org66a564c" class="outline-3">
-<h3 id="org66a564c"><span class="section-number-3">7.18</span> Threads and Locks</h3>
+<div id="outline-container-orgef9bb9a" class="outline-3">
+<h3 id="orgef9bb9a"><span class="section-number-3">7.18</span> Threads and Locks</h3>
 <div class="outline-text-3" id="text-7-18">
 <p>
 Questions:
@@ -1817,8 +1818,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org3c3df68" class="outline-3">
-<h3 id="org3c3df68"><span class="section-number-3">7.19</span> Moderate Additional Review Problems</h3>
+<div id="outline-container-org9c80b91" class="outline-3">
+<h3 id="org9c80b91"><span class="section-number-3">7.19</span> Moderate Additional Review Problems</h3>
 <div class="outline-text-3" id="text-7-19">
 <p>
 Questions:
@@ -1860,8 +1861,8 @@ Questions:
 </div>
 </div>
 
-<div id="outline-container-org92dca7d" class="outline-3">
-<h3 id="org92dca7d"><span class="section-number-3">7.20</span> Hard Additional Review Problems</h3>
+<div id="outline-container-orgf0004ee" class="outline-3">
+<h3 id="orgf0004ee"><span class="section-number-3">7.20</span> Hard Additional Review Problems</h3>
 <div class="outline-text-3" id="text-7-20">
 <p>
 Questions:
@@ -2096,5 +2097,5 @@ class MedianFinder:
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/cracking-the-coding-interview.html';this.page.identifier = 'cracking-the-coding-interview.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>FlumeJava: Easy, Efficient Data-Parallel Pipelines</title>
@@ -18,15 +19,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org64d95d8">1. Abstract</a></li>
-<li><a href="#orgf8a1570">2. Introduction</a></li>
-<li><a href="#org8cadb67">3. Background on MapReduce</a></li>
-<li><a href="#org0733347">4. The FlumeJava Library</a></li>
-<li><a href="#org2af2c2c">5. Optimizer</a></li>
-<li><a href="#org85eb2de">6. Executor</a></li>
-<li><a href="#orgb8b3b84">7. Evaluation</a></li>
-<li><a href="#orgb887fd8">8. Related Work</a></li>
-<li><a href="#orgd1ca1fa">9. Conclusion</a></li>
+<li><a href="#org5b0cced">1. Abstract</a></li>
+<li><a href="#org1029486">2. Introduction</a></li>
+<li><a href="#org964b3dc">3. Background on MapReduce</a></li>
+<li><a href="#org85e5405">4. The FlumeJava Library</a></li>
+<li><a href="#orgd0fea38">5. Optimizer</a></li>
+<li><a href="#org04fd80c">6. Executor</a></li>
+<li><a href="#org589dac5">7. Evaluation</a></li>
+<li><a href="#orgc71a660">8. Related Work</a></li>
+<li><a href="#org50aab55">9. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -34,8 +35,8 @@
 <a href="http://pages.cs.wisc.edu/~akella/CS838/F12/838-CloudPapers/FlumeJava.pdf">http://pages.cs.wisc.edu/~akella/CS838/F12/838-CloudPapers/FlumeJava.pdf</a> @ 2010
 </p>
 
-<div id="outline-container-org64d95d8" class="outline-2">
-<h2 id="org64d95d8"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-org5b0cced" class="outline-2">
+<h2 id="org5b0cced"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 At the core of the FlumeJava library are a cou-ple of classes that represent immutable parallel collections, each supporting a modest number of operations for processing them in parallel. Parallel collections and their operations present a simple, high-level, uniform abstraction over different data representations and execution strategies. 不可变的并行集合和上面的操作
@@ -47,8 +48,8 @@ To enable parallel operations to run effi-ciently, FlumeJava defers their evalua
 </div>
 </div>
 
-<div id="outline-container-orgf8a1570" class="outline-2">
-<h2 id="orgf8a1570"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-org1029486" class="outline-2">
+<h2 id="org1029486"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 FlumeJava’s parallel collections abstract away the details of how data is represented, including whether the data is represented as an in-memory data structure, as one or more files, or as an ex-ternal storage service such as a MySql database or a Bigtable. # collection抽象数据表示
@@ -64,11 +65,11 @@ These abstractions enable an entire pipeline to be ini-tially developed and test
 </div>
 </div>
 
-<div id="outline-container-org8cadb67" class="outline-2">
-<h2 id="org8cadb67"><span class="section-number-2">3</span> Background on MapReduce</h2>
+<div id="outline-container-org964b3dc" class="outline-2">
+<h2 id="org964b3dc"><span class="section-number-2">3</span> Background on MapReduce</h2>
 </div>
-<div id="outline-container-org0733347" class="outline-2">
-<h2 id="org0733347"><span class="section-number-2">4</span> The FlumeJava Library</h2>
+<div id="outline-container-org85e5405" class="outline-2">
+<h2 id="org85e5405"><span class="section-number-2">4</span> The FlumeJava Library</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 data representation
@@ -99,8 +100,8 @@ deferred evaluation # FlumeJava.run() to trigger evaluation
 </div>
 </div>
 
-<div id="outline-container-org2af2c2c" class="outline-2">
-<h2 id="org2af2c2c"><span class="section-number-2">5</span> Optimizer</h2>
+<div id="outline-container-orgd0fea38" class="outline-2">
+<h2 id="orgd0fea38"><span class="section-number-2">5</span> Optimizer</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 parallelDo fusion # 相当于把多个mapper放在一个MR里面来完成.
@@ -146,8 +147,8 @@ The optimizer performs a series of passes over the execution plan, with the over
 </div>
 </div>
 
-<div id="outline-container-org85eb2de" class="outline-2">
-<h2 id="org85eb2de"><span class="section-number-2">6</span> Executor</h2>
+<div id="outline-container-org04fd80c" class="outline-2">
+<h2 id="org04fd80c"><span class="section-number-2">6</span> Executor</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 FlumeJava automatically creates temporary files to hold the outputs of each operation it executes. It automatically deletes these temporary files as soon as they are no longer needed by some unevaluated operation later in the pipeline. 删除不必要的中间文件
@@ -167,15 +168,15 @@ FlumeJava currently implements a batch evaluation strategy, for a single pipelin
 </div>
 </div>
 
-<div id="outline-container-orgb8b3b84" class="outline-2">
-<h2 id="orgb8b3b84"><span class="section-number-2">7</span> Evaluation</h2>
+<div id="outline-container-org589dac5" class="outline-2">
+<h2 id="org589dac5"><span class="section-number-2">7</span> Evaluation</h2>
 </div>
-<div id="outline-container-orgb887fd8" class="outline-2">
-<h2 id="orgb887fd8"><span class="section-number-2">8</span> Related Work</h2>
+<div id="outline-container-orgc71a660" class="outline-2">
+<h2 id="orgc71a660"><span class="section-number-2">8</span> Related Work</h2>
 </div>
-<div id="outline-container-orgd1ca1fa" class="outline-2">
-<h2 id="orgd1ca1fa"><span class="section-number-2">9</span> Conclusion</h2>
+<div id="outline-container-org50aab55" class="outline-2">
+<h2 id="org50aab55"><span class="section-number-2">9</span> Conclusion</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/flumejava.html';this.page.identifier = 'flumejava.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

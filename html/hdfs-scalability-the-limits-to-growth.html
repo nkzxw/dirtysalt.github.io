@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HDFS scalability: the limits to growth</title>
@@ -18,9 +19,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9008b17">1. Storage</a></li>
-<li><a href="#org6598afd">2. Load</a></li>
-<li><a href="#org4bd4195">3. Final Notes</a></li>
+<li><a href="#org819c3ef">1. Storage</a></li>
+<li><a href="#org1b57dca">2. Load</a></li>
+<li><a href="#org00a273d">3. Final Notes</a></li>
 </ul>
 </div>
 </div>
@@ -76,8 +77,8 @@
 The question is now whether the goals are feasible with the current system architecture. And the main concern is the single namespace server architec- ture. This article studies scalability and performance limitations imposed on HDFS by this architecture.（其实这篇文章主要是想分析在single-namespace-server这个架构下面可扩展性以及性能的极限）
 </p>
 
-<div id="outline-container-org9008b17" class="outline-2">
-<h2 id="org9008b17"><span class="section-number-2">1</span> Storage</h2>
+<div id="outline-container-org819c3ef" class="outline-2">
+<h2 id="org819c3ef"><span class="section-number-2">1</span> Storage</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>200 bytes to store a single metadata object (a file inode or a block)</li>
@@ -93,8 +94,8 @@ The question is now whether the goals are feasible with the current system archi
 </div>
 </div>
 
-<div id="outline-container-org6598afd" class="outline-2">
-<h2 id="org6598afd"><span class="section-number-2">2</span> Load</h2>
+<div id="outline-container-org1b57dca" class="outline-2">
+<h2 id="org1b57dca"><span class="section-number-2">2</span> Load</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Block Reports, Heartbeats
@@ -161,9 +162,9 @@ The question is now whether the goals are feasible with the current system archi
 </div>
 </div>
 
-<div id="outline-container-org4bd4195" class="outline-2">
-<h2 id="org4bd4195"><span class="section-number-2">3</span> Final Notes</h2>
+<div id="outline-container-org00a273d" class="outline-2">
+<h2 id="org00a273d"><span class="section-number-2">3</span> Final Notes</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hdfs-scalability-the-limits-to-growth.html';this.page.identifier = 'hdfs-scalability-the-limits-to-growth.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

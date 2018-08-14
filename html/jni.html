@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java Native Interface: Programmer's Guide and Specification</title>
@@ -18,29 +19,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org25a915a">1. Introduction</a></li>
-<li><a href="#orgc1d862e">2. Getting Started</a>
+<li><a href="#org54aa68e">1. Introduction</a></li>
+<li><a href="#org3c4891a">2. Getting Started</a>
 <ul>
-<li><a href="#orgfcde3ed">2.1. Hello.java</a></li>
-<li><a href="#org4321218">2.2. Hello.h</a></li>
-<li><a href="#orgd252564">2.3. Hello.cc</a></li>
+<li><a href="#orgafc07f2">2.1. Hello.java</a></li>
+<li><a href="#org6f8dca1">2.2. Hello.h</a></li>
+<li><a href="#org1f7f4b5">2.3. Hello.cc</a></li>
 </ul>
 </li>
-<li><a href="#org8ac4c62">3. Basic Types, Strings, and Arrays</a></li>
-<li><a href="#org162f464">4. Fields and Methods</a></li>
-<li><a href="#org37628fa">5. Local and Gloabl References</a></li>
-<li><a href="#org151d153">6. Exceptions</a></li>
-<li><a href="#org03447a8">7. The Invocation Interface</a></li>
-<li><a href="#org21c82c4">8. Additional JNI Features</a>
+<li><a href="#org3c7c624">3. Basic Types, Strings, and Arrays</a></li>
+<li><a href="#orgc5e9626">4. Fields and Methods</a></li>
+<li><a href="#org61af1f8">5. Local and Gloabl References</a></li>
+<li><a href="#orgfbe314d">6. Exceptions</a></li>
+<li><a href="#orgd0617a1">7. The Invocation Interface</a></li>
+<li><a href="#org0a55698">8. Additional JNI Features</a>
 <ul>
-<li><a href="#org436f53f">8.1. JNI and Threads</a></li>
-<li><a href="#orge1436d4">8.2. Registering Native Methods</a></li>
-<li><a href="#org4d13fde">8.3. Load and Unload Handlers</a></li>
+<li><a href="#org509b0e5">8.1. JNI and Threads</a></li>
+<li><a href="#org47eaffb">8.2. Registering Native Methods</a></li>
+<li><a href="#org385dad1">8.3. Load and Unload Handlers</a></li>
 </ul>
 </li>
-<li><a href="#org7bd1d1c">9. Leveraging Existing Native Libraries</a></li>
-<li><a href="#org3eb72e5">10. Traps and Pitfalls</a></li>
-<li><a href="#org6dbb862">11. Overview of the JNI Design</a></li>
+<li><a href="#org6e345b5">9. Leveraging Existing Native Libraries</a></li>
+<li><a href="#org9e77668">10. Traps and Pitfalls</a></li>
+<li><a href="#orgbf1a367">11. Overview of the JNI Design</a></li>
 </ul>
 </div>
 </div>
@@ -48,8 +49,8 @@
 <a href="http://www.uni-ulm.de/fileadmin/website_uni_ulm/iui.inst.200/files/staff/domaschka/misc/jni_programmers_guide_spec.pdf">http://www.uni-ulm.de/fileadmin/website_uni_ulm/iui.inst.200/files/staff/domaschka/misc/jni_programmers_guide_spec.pdf</a>
 </p>
 
-<div id="outline-container-org25a915a" class="outline-2">
-<h2 id="org25a915a"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org54aa68e" class="outline-2">
+<h2 id="org54aa68e"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The JNI is designed to handle situations where you need to combine Java applications with native code. As a two-way interface, the JNI can support two types of native code: native libraries and native applications. （允许相互调用）
@@ -86,8 +87,8 @@ The JNI is designed to handle situations where you need to combine Java applicat
 </div>
 </div>
 
-<div id="outline-container-orgc1d862e" class="outline-2">
-<h2 id="orgc1d862e"><span class="section-number-2">2</span> Getting Started</h2>
+<div id="outline-container-org3c4891a" class="outline-2">
+<h2 id="org3c4891a"><span class="section-number-2">2</span> Getting Started</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 主要介绍的是native methods编写，JVM通过so来调用native methods.这里给出一个无参native mthods例子。
@@ -106,8 +107,8 @@ The JNI is designed to handle situations where you need to combine Java applicat
 </div>
 </div>
 
-<div id="outline-container-orgfcde3ed" class="outline-3">
-<h3 id="orgfcde3ed"><span class="section-number-3">2.1</span> Hello.java</h3>
+<div id="outline-container-orgafc07f2" class="outline-3">
+<h3 id="orgafc07f2"><span class="section-number-3">2.1</span> Hello.java</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-Java">/* coding:utf-8
@@ -126,8 +127,8 @@ public class Hello {
 </div>
 </div>
 
-<div id="outline-container-org4321218" class="outline-3">
-<h3 id="org4321218"><span class="section-number-3">2.2</span> Hello.h</h3>
+<div id="outline-container-org6f8dca1" class="outline-3">
+<h3 id="org6f8dca1"><span class="section-number-3">2.2</span> Hello.h</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">DO NOT EDIT THIS FILE - it is machine generated */</span>
@@ -157,8 +158,8 @@ JNIEXPORT <span class="org-type">void</span> <span class="org-function-name">JNI
 </div>
 </div>
 
-<div id="outline-container-orgd252564" class="outline-3">
-<h3 id="orgd252564"><span class="section-number-3">2.3</span> Hello.cc</h3>
+<div id="outline-container-org1f7f4b5" class="outline-3">
+<h3 id="org1f7f4b5"><span class="section-number-3">2.3</span> Hello.cc</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
@@ -178,8 +179,8 @@ JNIEXPORT <span class="org-type">void</span> <span class="org-function-name">JNI
 </div>
 </div>
 
-<div id="outline-container-org8ac4c62" class="outline-2">
-<h2 id="org8ac4c62"><span class="section-number-2">3</span> Basic Types, Strings, and Arrays</h2>
+<div id="outline-container-org3c7c624" class="outline-2">
+<h2 id="org3c7c624"><span class="section-number-2">3</span> Basic Types, Strings, and Arrays</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>The static initializer calls the System.loadLibrary method to load a native library called Prompt.
@@ -243,8 +244,8 @@ JNIEXPORT <span class="org-type">void</span> <span class="org-function-name">JNI
 </div>
 </div>
 
-<div id="outline-container-org162f464" class="outline-2">
-<h2 id="org162f464"><span class="section-number-2">4</span> Fields and Methods</h2>
+<div id="outline-container-orgc5e9626" class="outline-2">
+<h2 id="orgc5e9626"><span class="section-number-2">4</span> Fields and Methods</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <b>note：field和method的访问接口，非常类似google::protobuf提供的reflection接口</b>
@@ -325,8 +326,8 @@ The overhead of field access using the JNI lies in the cost of calling through t
 </div>
 </div>
 
-<div id="outline-container-org37628fa" class="outline-2">
-<h2 id="org37628fa"><span class="section-number-2">5</span> Local and Gloabl References</h2>
+<div id="outline-container-org61af1f8" class="outline-2">
+<h2 id="org61af1f8"><span class="section-number-2">5</span> Local and Gloabl References</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 reference和GC非常相关，决定了哪些对象作用域多大以及生命周期多长：
@@ -367,8 +368,8 @@ reference和GC非常相关，决定了哪些对象作用域多大以及生命周
 </div>
 </div>
 
-<div id="outline-container-org151d153" class="outline-2">
-<h2 id="org151d153"><span class="section-number-2">6</span> Exceptions</h2>
+<div id="outline-container-orgfbe314d" class="outline-2">
+<h2 id="orgfbe314d"><span class="section-number-2">6</span> Exceptions</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Throw 抛出已有异常</li>
@@ -416,8 +417,8 @@ Calling most JNI functions with a pending exception leads to undefined results. 
 </div>
 </div>
 
-<div id="outline-container-org03447a8" class="outline-2">
-<h2 id="org03447a8"><span class="section-number-2">7</span> The Invocation Interface</h2>
+<div id="outline-container-orgd0617a1" class="outline-2">
+<h2 id="orgd0617a1"><span class="section-number-2">7</span> The Invocation Interface</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/* </span><span class="org-comment">coding:utf-8</span>
@@ -502,12 +503,12 @@ Hello,World
 </div>
 </div>
 
-<div id="outline-container-org21c82c4" class="outline-2">
-<h2 id="org21c82c4"><span class="section-number-2">8</span> Additional JNI Features</h2>
+<div id="outline-container-org0a55698" class="outline-2">
+<h2 id="org0a55698"><span class="section-number-2">8</span> Additional JNI Features</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org436f53f" class="outline-3">
-<h3 id="org436f53f"><span class="section-number-3">8.1</span> JNI and Threads</h3>
+<div id="outline-container-org509b0e5" class="outline-3">
+<h3 id="org509b0e5"><span class="section-number-3">8.1</span> JNI and Threads</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>MonitorEnter/MonitorExit可以操作monitor.</li>
@@ -516,8 +517,8 @@ Hello,World
 </div>
 </div>
 
-<div id="outline-container-orge1436d4" class="outline-3">
-<h3 id="orge1436d4"><span class="section-number-3">8.2</span> Registering Native Methods</h3>
+<div id="outline-container-org47eaffb" class="outline-3">
+<h3 id="org47eaffb"><span class="section-number-3">8.2</span> Registering Native Methods</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 允许动态注册native methods.
@@ -525,8 +526,8 @@ Hello,World
 </div>
 </div>
 
-<div id="outline-container-org4d13fde" class="outline-3">
-<h3 id="org4d13fde"><span class="section-number-3">8.3</span> Load and Unload Handlers</h3>
+<div id="outline-container-org385dad1" class="outline-3">
+<h3 id="org385dad1"><span class="section-number-3">8.3</span> Load and Unload Handlers</h3>
 <div class="outline-text-3" id="text-8-3">
 <p>
 系统加载和卸载native library回调函数：
@@ -549,8 +550,8 @@ load/unload工作流程是这样的：
 </div>
 </div>
 
-<div id="outline-container-org7bd1d1c" class="outline-2">
-<h2 id="org7bd1d1c"><span class="section-number-2">9</span> Leveraging Existing Native Libraries</h2>
+<div id="outline-container-org6e345b5" class="outline-2">
+<h2 id="org6e345b5"><span class="section-number-2">9</span> Leveraging Existing Native Libraries</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 如何使用现有的native library：
@@ -563,8 +564,8 @@ load/unload工作流程是这样的：
 </div>
 </div>
 
-<div id="outline-container-org3eb72e5" class="outline-2">
-<h2 id="org3eb72e5"><span class="section-number-2">10</span> Traps and Pitfalls</h2>
+<div id="outline-container-org9e77668" class="outline-2">
+<h2 id="org9e77668"><span class="section-number-2">10</span> Traps and Pitfalls</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Error Checking</li>
@@ -586,8 +587,8 @@ load/unload工作流程是这样的：
 </div>
 </div>
 
-<div id="outline-container-org6dbb862" class="outline-2">
-<h2 id="org6dbb862"><span class="section-number-2">11</span> Overview of the JNI Design</h2>
+<div id="outline-container-orgbf1a367" class="outline-2">
+<h2 id="orgbf1a367"><span class="section-number-2">11</span> Overview of the JNI Design</h2>
 <div class="outline-text-2" id="text-11">
 <hr />
 
@@ -658,5 +659,5 @@ Accessing Objects
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/jni.html';this.page.identifier = 'jni.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

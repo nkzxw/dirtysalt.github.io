@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Oozie</title>
@@ -18,16 +19,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2d933fb">1. Overview</a></li>
-<li><a href="#orgd7c7ee8">2. Deployment</a></li>
-<li><a href="#orgf81826d">3. Workflow</a></li>
-<li><a href="#org1b32d6b">4. Coordinator</a></li>
-<li><a href="#orgf498cc8">5. Alternatives</a></li>
+<li><a href="#orga225970">1. Overview</a></li>
+<li><a href="#org793a157">2. Deployment</a></li>
+<li><a href="#orge4f4a3f">3. Workflow</a></li>
+<li><a href="#orge78c133">4. Coordinator</a></li>
+<li><a href="#org2204bc4">5. Alternatives</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d933fb" class="outline-2">
-<h2 id="org2d933fb"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orga225970" class="outline-2">
+<h2 id="orga225970"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="http://www.infoq.com/cn/articles/introductionOozie">http://www.infoq.com/cn/articles/introductionOozie</a> oozie简介</li>
@@ -86,8 +87,8 @@ oozie执行分为三种模式：
 </div>
 </div>
 
-<div id="outline-container-orgd7c7ee8" class="outline-2">
-<h2 id="orgd7c7ee8"><span class="section-number-2">2</span> Deployment</h2>
+<div id="outline-container-org793a157" class="outline-2">
+<h2 id="org793a157"><span class="section-number-2">2</span> Deployment</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 关于部署的话可以参考这个链接 <a href="http://localhost/utils/oozie-2.3.2-cdh3u3/docs/DG_QuickStart.html">http://localhost/utils/oozie-2.3.2-cdh3u3/docs/DG_QuickStart.html</a>
@@ -147,8 +148,8 @@ rmr: org.apache.hadoop.dfs.SafeModeException: Cannot delete /user/hadoop/input. 
 </div>
 </div>
 
-<div id="outline-container-orgf81826d" class="outline-2">
-<h2 id="orgf81826d"><span class="section-number-2">3</span> Workflow</h2>
+<div id="outline-container-orge4f4a3f" class="outline-2">
+<h2 id="orge4f4a3f"><span class="section-number-2">3</span> Workflow</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 对于workflow来说，最主要关注下面几个部分：
@@ -320,8 +321,8 @@ hadoop fs -put workflow.xml /user/dirlt/examples/apps/map-reduce/
 </div>
 </div>
 
-<div id="outline-container-org1b32d6b" class="outline-2">
-<h2 id="org1b32d6b"><span class="section-number-2">4</span> Coordinator</h2>
+<div id="outline-container-orge78c133" class="outline-2">
+<h2 id="orge78c133"><span class="section-number-2">4</span> Coordinator</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 对于coordinator来说，有几个比较重要的概念：
@@ -483,8 +484,8 @@ oozie.coord.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/
 </div>
 </div>
 
-<div id="outline-container-orgf498cc8" class="outline-2">
-<h2 id="orgf498cc8"><span class="section-number-2">5</span> Alternatives</h2>
+<div id="outline-container-org2204bc4" class="outline-2">
+<h2 id="org2204bc4"><span class="section-number-2">5</span> Alternatives</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Azkaban <a href="http://sna-projects.com/azkaban/">http://sna-projects.com/azkaban/</a></li>
@@ -505,5 +506,5 @@ azkaban一些说明：
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/oozie.html';this.page.identifier = 'oozie.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

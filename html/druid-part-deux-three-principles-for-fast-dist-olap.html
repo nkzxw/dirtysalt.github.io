@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Druid, Part Deux: Three Principles for Fast, Distributed OLAP</title>
@@ -18,9 +19,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge3bc1ff">1. Partial Aggregates + In-Memory + Indexes =&gt; Fast Queries</a></li>
-<li><a href="#orgef9987c">2. Distributed Data + Parallelizable Queries =&gt; Horizontal Scalability</a></li>
-<li><a href="#orga5db185">3. Real-Time Analytics: Immutable Past, Append-Only Future</a></li>
+<li><a href="#org4b4cbda">1. Partial Aggregates + In-Memory + Indexes =&gt; Fast Queries</a></li>
+<li><a href="#org71d5c46">2. Distributed Data + Parallelizable Queries =&gt; Horizontal Scalability</a></li>
+<li><a href="#org1c14ac1">3. Real-Time Analytics: Immutable Past, Append-Only Future</a></li>
 </ul>
 </div>
 </div>
@@ -28,8 +29,8 @@
 <a href="http://metamarkets.com/2011/druid-part-deux-three-principles-for-fast-distributed-olap/">http://metamarkets.com/2011/druid-part-deux-three-principles-for-fast-distributed-olap/</a>
 </p>
 
-<div id="outline-container-orge3bc1ff" class="outline-2">
-<h2 id="orge3bc1ff"><span class="section-number-2">1</span> Partial Aggregates + In-Memory + Indexes =&gt; Fast Queries</h2>
+<div id="outline-container-org4b4cbda" class="outline-2">
+<h2 id="org4b4cbda"><span class="section-number-2">1</span> Partial Aggregates + In-Memory + Indexes =&gt; Fast Queries</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>alpha represents the raw, unaggregated event logs, while beta is its partially aggregated derivative. （将alpha dataset使用部分聚合形成beta dataset)</li>
@@ -39,8 +40,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgef9987c" class="outline-2">
-<h2 id="orgef9987c"><span class="section-number-2">2</span> Distributed Data + Parallelizable Queries =&gt; Horizontal Scalability</h2>
+<div id="outline-container-org71d5c46" class="outline-2">
+<h2 id="org71d5c46"><span class="section-number-2">2</span> Distributed Data + Parallelizable Queries =&gt; Horizontal Scalability</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Druid’s performance depends on having memory — lots of it. We achieve the requisite memory scale by dynamically distributing data across a cluster of nodes. As the data set grows, we can horizontally expand by adding more machines.(通过动态地在节点中分布数据来达到比较方便的水平扩展）</li>
@@ -53,8 +54,8 @@
 </div>
 </div>
 
-<div id="outline-container-orga5db185" class="outline-2">
-<h2 id="orga5db185"><span class="section-number-2">3</span> Real-Time Analytics: Immutable Past, Append-Only Future</h2>
+<div id="outline-container-org1c14ac1" class="outline-2">
+<h2 id="org1c14ac1"><span class="section-number-2">3</span> Real-Time Analytics: Immutable Past, Append-Only Future</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>For real-time analytics, we have an event stream that flows into a set of real-time indexers. These are servers that advertise responsibility for the most recent 60 minutes of data and nothing more. (对于实时分析有专门都的real-time indexer server，处理最近60分钟的数据）</li>
@@ -64,5 +65,5 @@
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/druid-part-deux-three-principles-for-fast-dist-olap.html';this.page.identifier = 'druid-part-deux-three-principles-for-fast-dist-olap.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

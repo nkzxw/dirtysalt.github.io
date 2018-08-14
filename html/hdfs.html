@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HDFS</title>
@@ -18,19 +19,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org827eeee">1. HDFS Shell</a></li>
-<li><a href="#org7f07563">2. Filesystem Corruption and Missing Blocks</a></li>
-<li><a href="#org96fed7a">3. 文件系统API</a></li>
-<li><a href="#org9935390">4. 一致性问题</a></li>
-<li><a href="#org5035a0b">5. 读写进度</a></li>
-<li><a href="#org9db1eea">6. 获取集群运行状况</a></li>
-<li><a href="#orga527bc5">7. All datanodes are bad. Aborting</a></li>
+<li><a href="#org0bce845">1. HDFS Shell</a></li>
+<li><a href="#org7633a46">2. Filesystem Corruption and Missing Blocks</a></li>
+<li><a href="#orgcf1a08d">3. 文件系统API</a></li>
+<li><a href="#org9faf1ed">4. 一致性问题</a></li>
+<li><a href="#org39032f1">5. 读写进度</a></li>
+<li><a href="#orgc747f37">6. 获取集群运行状况</a></li>
+<li><a href="#org72f246d">7. All datanodes are bad. Aborting</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org827eeee" class="outline-2">
-<h2 id="org827eeee"><span class="section-number-2">1</span> HDFS Shell</h2>
+<div id="outline-container-org0bce845" class="outline-2">
+<h2 id="org0bce845"><span class="section-number-2">1</span> HDFS Shell</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>balancer 可以限制比例阈值和传输带宽</li>
@@ -39,8 +40,8 @@
 </div>
 </div>
 
-<div id="outline-container-org7f07563" class="outline-2">
-<h2 id="org7f07563"><span class="section-number-2">2</span> Filesystem Corruption and Missing Blocks</h2>
+<div id="outline-container-org7633a46" class="outline-2">
+<h2 id="org7633a46"><span class="section-number-2">2</span> Filesystem Corruption and Missing Blocks</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>HadoopRecovery &lt; Storage &lt; TWiki <a href="https://www.opensciencegrid.org/bin/view/Storage/HadoopRecovery">https://www.opensciencegrid.org/bin/view/Storage/HadoopRecovery</a></li>
@@ -133,8 +134,8 @@ The filesystem under path '/hbase/.corrupt/dp18.umeng.com%3A60020.1349065853563'
 </div>
 </div>
 
-<div id="outline-container-org96fed7a" class="outline-2">
-<h2 id="org96fed7a"><span class="section-number-2">3</span> 文件系统API</h2>
+<div id="outline-container-orgcf1a08d" class="outline-2">
+<h2 id="orgcf1a08d"><span class="section-number-2">3</span> 文件系统API</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 HDFS文件系统的操作步骤主要如下：
@@ -142,7 +143,7 @@ HDFS文件系统的操作步骤主要如下：
 <ul class="org-ul">
 <li>首先通过configuration获得FileSystem实例</li>
 <li>然后通过FileSystem这个实例操作文件系统上的文件</li>
-<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">code on github</a></li>
+<li>代码可以参考 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/GetFS.java">code on github</a></li>
 </ul>
 
 <p>
@@ -184,8 +185,8 @@ uri = file:///
 </div>
 </div>
 
-<div id="outline-container-org9935390" class="outline-2">
-<h2 id="org9935390"><span class="section-number-2">4</span> 一致性问题</h2>
+<div id="outline-container-org9faf1ed" class="outline-2">
+<h2 id="org9faf1ed"><span class="section-number-2">4</span> 一致性问题</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>hdfs一致性模型是reader不能够读取到当前被write的block，除非writer调用sync强制进行同步
@@ -195,14 +196,14 @@ uri = file:///
 <li>sync是FSDataOutputStream特有的，老版本相当是将datanode数据同步到namenode，这样reader就可以读取到当前的block，但是在高版本deprecated</li>
 <li>hflush则是高版本推荐的sync用法</li>
 <li>hsync不仅仅有hflush功能，还能够调用对应的datanode将数据刷到local fs上面。</li>
-<li>#note: 但是似乎不太work. 参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">code on github</a></li>
+<li>#note: 但是似乎不太work. 参考代码 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestConsistency.java">code on github</a></li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5035a0b" class="outline-2">
-<h2 id="org5035a0b"><span class="section-number-2">5</span> 读写进度</h2>
+<div id="outline-container-org39032f1" class="outline-2">
+<h2 id="org39032f1"><span class="section-number-2">5</span> 读写进度</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>hdfs每次将64KB数据写入datanode pipeline的时候都会调用progress.</li>
@@ -211,23 +212,23 @@ uri = file:///
 <ul class="org-ul">
 <li>但是过程似乎有点复杂，所以也不确实是否真的写入64KB才会调用progress</li>
 </ul></li>
-<li>代码可以参考 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">code on github</a></li>
+<li>代码可以参考 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/TestProgress.java">code on github</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9db1eea" class="outline-2">
-<h2 id="org9db1eea"><span class="section-number-2">6</span> 获取集群运行状况</h2>
+<div id="outline-container-orgc747f37" class="outline-2">
+<h2 id="orgc747f37"><span class="section-number-2">6</span> 获取集群运行状况</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li>参考代码 <a href="https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
+<li>参考代码 <a href="file:///Users/dirlt/repo/dirtysalt.github.io/codes/java/hdfs/src/main/java/com/dirlt/java/hdfs/ClusterSummary.java">code on github</a></li>
 <li>通过DFSClient可以获取集群运行状况</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga527bc5" class="outline-2">
-<h2 id="orga527bc5"><span class="section-number-2">7</span> All datanodes are bad. Aborting</h2>
+<div id="outline-container-org72f246d" class="outline-2">
+<h2 id="org72f246d"><span class="section-number-2">7</span> All datanodes are bad. Aborting</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 当时的情况是增加了datanode的处理线程数目但是没有重启regionserver.怀疑原因可能是文件句柄数量不够，重启regionserver之后恢复正常。
@@ -243,5 +244,5 @@ java.io.IOException: All datanodes 10.11.0.41:50010 are bad. Aborting...
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hdfs.html';this.page.identifier = 'hdfs.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

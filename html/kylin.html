@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>kylin</title>
@@ -18,132 +19,132 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd8acd8f">1. share</a>
+<li><a href="#org1fabcba">1. share</a>
 <ul>
-<li><a href="#orgdfd267c">1.1. atomic</a></li>
-<li><a href="#orge876446">1.2. spinlock</a></li>
-<li><a href="#org944bfde">1.3. cycle</a></li>
-<li><a href="#org046e48e">1.4. support</a></li>
-<li><a href="#org15be4fc">1.5. futex</a>
+<li><a href="#org0352743">1.1. atomic</a></li>
+<li><a href="#orgf473c70">1.2. spinlock</a></li>
+<li><a href="#org7bae89f">1.3. cycle</a></li>
+<li><a href="#org7674fe1">1.4. support</a></li>
+<li><a href="#org8ffc6d8">1.5. futex</a>
 <ul>
-<li><a href="#org89099be">1.5.1. sema</a></li>
-<li><a href="#orgd5c6829">1.5.2. cond</a></li>
-<li><a href="#org23024fc">1.5.3. event</a></li>
+<li><a href="#org7f741d2">1.5.1. sema</a></li>
+<li><a href="#orgb7de6d2">1.5.2. cond</a></li>
+<li><a href="#org0c66989">1.5.3. event</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org20e2eb1">2. kylin</a>
+<li><a href="#orga4b6349">2. kylin</a>
 <ul>
-<li><a href="#org649025b">2.1. Async</a></li>
-<li><a href="#org1258bc4">2.2. ThreadPool</a>
+<li><a href="#org402e4ce">2.1. Async</a></li>
+<li><a href="#org159fdaa">2.2. ThreadPool</a>
 <ul>
-<li><a href="#org11bc14a">2.2.1. Overview</a></li>
-<li><a href="#org2451d17">2.2.2. How Thread Works</a></li>
-<li><a href="#orgebafb09">2.2.3. AddWorker &amp; DelWorker</a></li>
-<li><a href="#orgf7bf3c2">2.2.4. QueueJob &amp; CancelJob</a></li>
+<li><a href="#orga1b59a4">2.2.1. Overview</a></li>
+<li><a href="#org3fb3c71">2.2.2. How Thread Works</a></li>
+<li><a href="#org83e8fc0">2.2.3. AddWorker &amp; DelWorker</a></li>
+<li><a href="#org538e3ed">2.2.4. QueueJob &amp; CancelJob</a></li>
 </ul>
 </li>
-<li><a href="#orgf864dc4">2.3. TranBuf</a>
+<li><a href="#org1bc34bc">2.3. TranBuf</a>
 <ul>
-<li><a href="#org96fed2f">2.3.1. Overview</a></li>
-<li><a href="#org37690ae">2.3.2. Create</a></li>
-<li><a href="#org3a5673a">2.3.3. AllocOnce</a></li>
-<li><a href="#org05ea2c9">2.3.4. GetHandle</a></li>
-<li><a href="#org94b4d10">2.3.5. AddRef</a></li>
-<li><a href="#org04a441e">2.3.6. Destroy</a></li>
-<li><a href="#org1c5ad0a">2.3.7. Allocate</a></li>
-<li><a href="#orgff24dd3">2.3.8. Free</a></li>
+<li><a href="#orgded00d7">2.3.1. Overview</a></li>
+<li><a href="#org7b6011c">2.3.2. Create</a></li>
+<li><a href="#orgbbaf8b6">2.3.3. AllocOnce</a></li>
+<li><a href="#orgea56c87">2.3.4. GetHandle</a></li>
+<li><a href="#org3826f78">2.3.5. AddRef</a></li>
+<li><a href="#orgc851951">2.3.6. Destroy</a></li>
+<li><a href="#orgd1e40da">2.3.7. Allocate</a></li>
+<li><a href="#orgc579534">2.3.8. Free</a></li>
 </ul>
 </li>
-<li><a href="#orgbe29835">2.4. BufHandle</a>
+<li><a href="#org058e4f2">2.4. BufHandle</a>
 <ul>
-<li><a href="#orga44370e">2.4.1. OverView</a></li>
-<li><a href="#orgc28ea11">2.4.2. SetTranBuf</a></li>
-<li><a href="#org7bba91c">2.4.3. DoAllocate</a></li>
-<li><a href="#orgece16e6">2.4.4. DoAllocateCanFail</a></li>
-<li><a href="#orgf1fcd0b">2.4.5. _DoAddRef</a></li>
-<li><a href="#org6ba2cb0">2.4.6. _DoFree</a></li>
-<li><a href="#org885ba00">2.4.7. AllocateBig</a></li>
-<li><a href="#org266d295">2.4.8. AllocateCanFail</a></li>
-<li><a href="#org52e52a6">2.4.9. AllocForBuf</a></li>
-<li><a href="#orgc772e3d">2.4.10. Allocate</a></li>
-<li><a href="#org03cb8cf">2.4.11. ChainFree</a></li>
-<li><a href="#orgce21a9c">2.4.12. CloneAndTerminate</a></li>
+<li><a href="#org259b2b4">2.4.1. OverView</a></li>
+<li><a href="#org8679806">2.4.2. SetTranBuf</a></li>
+<li><a href="#org57ce49a">2.4.3. DoAllocate</a></li>
+<li><a href="#org34f08c5">2.4.4. DoAllocateCanFail</a></li>
+<li><a href="#org7c5631c">2.4.5. _DoAddRef</a></li>
+<li><a href="#org242b0be">2.4.6. _DoFree</a></li>
+<li><a href="#orgb0b55b6">2.4.7. AllocateBig</a></li>
+<li><a href="#org02611a4">2.4.8. AllocateCanFail</a></li>
+<li><a href="#org0e9c41d">2.4.9. AllocForBuf</a></li>
+<li><a href="#org3803f10">2.4.10. Allocate</a></li>
+<li><a href="#orge94bb37">2.4.11. ChainFree</a></li>
+<li><a href="#org39156ef">2.4.12. CloneAndTerminate</a></li>
 </ul>
 </li>
-<li><a href="#org28135f4">2.5. Kylin</a></li>
-<li><a href="#org4460765">2.6. ExecMan</a>
+<li><a href="#org9c4471a">2.5. Kylin</a></li>
+<li><a href="#org028d5b9">2.6. ExecMan</a>
 <ul>
-<li><a href="#org3828c3b">2.6.1. Overview</a></li>
-<li><a href="#orga5cce1c">2.6.2. Start &amp; Stop</a></li>
-<li><a href="#org5c4fff5">2.6.3. QueueExec</a></li>
-<li><a href="#org833a5ad">2.6.4. Timer</a></li>
-<li><a href="#org431b73c">2.6.5. Example</a></li>
+<li><a href="#org51cb1be">2.6.1. Overview</a></li>
+<li><a href="#orgf0d66b0">2.6.2. Start &amp; Stop</a></li>
+<li><a href="#org26614b4">2.6.3. QueueExec</a></li>
+<li><a href="#org7423ef7">2.6.4. Timer</a></li>
+<li><a href="#orgb397217">2.6.5. Example</a></li>
 </ul>
 </li>
-<li><a href="#org78faf7a">2.7. DiskMan</a>
+<li><a href="#org21a07a7">2.7. DiskMan</a>
 <ul>
-<li><a href="#orgedb17bd">2.7.1. Overview</a></li>
-<li><a href="#orgf4bad61">2.7.2. Start &amp; Stop</a></li>
-<li><a href="#org813a72a">2.7.3. Associate &amp; Deassociate</a></li>
-<li><a href="#org9615709">2.7.4. Read &amp; Write</a></li>
-<li><a href="#org02020f0">2.7.5. Example</a></li>
+<li><a href="#org4b4c8d6">2.7.1. Overview</a></li>
+<li><a href="#orgcaabc83">2.7.2. Start &amp; Stop</a></li>
+<li><a href="#orga41dfc0">2.7.3. Associate &amp; Deassociate</a></li>
+<li><a href="#org8783347">2.7.4. Read &amp; Write</a></li>
+<li><a href="#orgffc1f20">2.7.5. Example</a></li>
 </ul>
 </li>
-<li><a href="#org652e932">2.8. NetworkMan</a>
+<li><a href="#org6ac6178">2.8. NetworkMan</a>
 <ul>
-<li><a href="#org8c44051">2.8.1. Overview</a></li>
-<li><a href="#org070ce2e">2.8.2. Start &amp; Stop</a></li>
-<li><a href="#orgb3b23e6">2.8.3. Associate &amp; Deassociate</a></li>
-<li><a href="#org0fe941f">2.8.4. Listen</a></li>
-<li><a href="#orgff4d40e">2.8.5. Connect</a></li>
-<li><a href="#org8542e1f">2.8.6. Monitor</a></li>
-<li><a href="#org9474a3e">2.8.7. Delay</a></li>
-<li><a href="#orgbccd2f6">2.8.8. Read &amp; Write</a></li>
-<li><a href="#org3dfd3a5">2.8.9. SocketState</a></li>
+<li><a href="#orgd4a5a19">2.8.1. Overview</a></li>
+<li><a href="#orgee1c454">2.8.2. Start &amp; Stop</a></li>
+<li><a href="#org80e5c5a">2.8.3. Associate &amp; Deassociate</a></li>
+<li><a href="#org9b80cd7">2.8.4. Listen</a></li>
+<li><a href="#org0943f9c">2.8.5. Connect</a></li>
+<li><a href="#org038a4aa">2.8.6. Monitor</a></li>
+<li><a href="#org67aa82e">2.8.7. Delay</a></li>
+<li><a href="#orgae4fe14">2.8.8. Read &amp; Write</a></li>
+<li><a href="#org18d2b81">2.8.9. SocketState</a></li>
 </ul>
 </li>
-<li><a href="#org48c9a1f">2.9. EPoller</a>
+<li><a href="#orgc7e5f10">2.9. EPoller</a>
 <ul>
-<li><a href="#org5f6316d">2.9.1. Overview</a></li>
-<li><a href="#org74194d3">2.9.2. Create &amp; Close</a></li>
-<li><a href="#orgad8a160">2.9.3. Associate &amp; Deassociate</a></li>
-<li><a href="#org9f2af06">2.9.4. DoConnect</a></li>
-<li><a href="#org872ebff">2.9.5. Delay &amp; CancalDelay</a></li>
-<li><a href="#orgaf52e8f">2.9.6. DoWithDelayed &amp; DoWithError</a></li>
-<li><a href="#org03948b4">2.9.7. Read &amp; Write</a></li>
-<li><a href="#orgf1821c7">2.9.8. NofityClient</a></li>
-<li><a href="#org894c5ba">2.9.9. Run</a></li>
+<li><a href="#org8f47854">2.9.1. Overview</a></li>
+<li><a href="#org032e694">2.9.2. Create &amp; Close</a></li>
+<li><a href="#orgf2fafb7">2.9.3. Associate &amp; Deassociate</a></li>
+<li><a href="#orgcf25e5a">2.9.4. DoConnect</a></li>
+<li><a href="#org0221226">2.9.5. Delay &amp; CancalDelay</a></li>
+<li><a href="#org14652c0">2.9.6. DoWithDelayed &amp; DoWithError</a></li>
+<li><a href="#orgb3ba617">2.9.7. Read &amp; Write</a></li>
+<li><a href="#orgf5ae79f">2.9.8. NofityClient</a></li>
+<li><a href="#org54286b7">2.9.9. Run</a></li>
 </ul>
 </li>
-<li><a href="#org6d9a6a5">2.10. Socket</a>
+<li><a href="#org0d85148">2.10. Socket</a>
 <ul>
-<li><a href="#orgff9c57b">2.10.1. Overview</a></li>
-<li><a href="#org963c662">2.10.2. Create</a></li>
-<li><a href="#org555b9ae">2.10.3. Close</a></li>
-<li><a href="#org97986bf">2.10.4. Shutdown</a></li>
-<li><a href="#org9bce9e1">2.10.5. Listen</a></li>
-<li><a href="#orgbed2805">2.10.6. Connect</a></li>
-<li><a href="#org92a44f6">2.10.7. Read &amp; Write</a></li>
-<li><a href="#orgee3de9d">2.10.8. OnCompletion</a></li>
-<li><a href="#orgf0bfeae">2.10.9. Summary</a></li>
+<li><a href="#org34498f9">2.10.1. Overview</a></li>
+<li><a href="#org380ca27">2.10.2. Create</a></li>
+<li><a href="#org58bc03c">2.10.3. Close</a></li>
+<li><a href="#org4976df2">2.10.4. Shutdown</a></li>
+<li><a href="#orga23e53e">2.10.5. Listen</a></li>
+<li><a href="#org4174863">2.10.6. Connect</a></li>
+<li><a href="#orge710d87">2.10.7. Read &amp; Write</a></li>
+<li><a href="#orgd490072">2.10.8. OnCompletion</a></li>
+<li><a href="#org406fdd7">2.10.9. Summary</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org585c1a1">3. demo</a>
+<li><a href="#orgc184c05">3. demo</a>
 <ul>
-<li><a href="#org91bfc32">3.1. echo</a>
+<li><a href="#org0ea6d01">3.1. echo</a>
 <ul>
-<li><a href="#org2f1bc57">3.1.1. client.cc</a></li>
-<li><a href="#org260188a">3.1.2. server.cc</a></li>
+<li><a href="#orgb873500">3.1.1. client.cc</a></li>
+<li><a href="#orgc853877">3.1.2. server.cc</a></li>
 </ul>
 </li>
-<li><a href="#org86a1613">3.2. file-request</a>
+<li><a href="#org82d0c8a">3.2. file-request</a>
 <ul>
-<li><a href="#org8b115c6">3.2.1. client.cc</a></li>
-<li><a href="#org96b4da5">3.2.2. server.cc</a></li>
+<li><a href="#orgf8656c3">3.2.1. client.cc</a></li>
+<li><a href="#orgf9e6ab8">3.2.2. server.cc</a></li>
 </ul>
 </li>
 </ul>
@@ -161,16 +162,16 @@ kylin是baidu in-house的异步编程框架，提供CPU，Network以及Disk异�
 <li>Why Threads Are a Bad Idea <a href="http://www.stanford.edu/class/cs240/readings/threads-bad-usenix96.pdf">http://www.stanford.edu/class/cs240/readings/threads-bad-usenix96.pdf</a></li>
 </ul>
 
-<div id="outline-container-orgd8acd8f" class="outline-2">
-<h2 id="orgd8acd8f"><span class="section-number-2">1</span> share</h2>
+<div id="outline-container-org1fabcba" class="outline-2">
+<h2 id="org1fabcba"><span class="section-number-2">1</span> share</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 公共组件代码
 </p>
 </div>
 
-<div id="outline-container-orgdfd267c" class="outline-3">
-<h3 id="orgdfd267c"><span class="section-number-3">1.1</span> atomic</h3>
+<div id="outline-container-org0352743" class="outline-3">
+<h3 id="org0352743"><span class="section-number-3">1.1</span> atomic</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 最主要实现了atomic add/swap/cas三个操作。
@@ -230,8 +231,8 @@ kylin是baidu in-house的异步编程框架，提供CPU，Network以及Disk异�
 </div>
 </div>
 
-<div id="outline-container-orge876446" class="outline-3">
-<h3 id="orge876446"><span class="section-number-3">1.2</span> spinlock</h3>
+<div id="outline-container-orgf473c70" class="outline-3">
+<h3 id="orgf473c70"><span class="section-number-3">1.2</span> spinlock</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 spinlock直接使用atomic提供的原子操作来实现，理解起来倒不是很麻烦
@@ -300,8 +301,8 @@ spinlock直接使用atomic提供的原子操作来实现，理解起来倒不是
 </div>
 </div>
 
-<div id="outline-container-org944bfde" class="outline-3">
-<h3 id="org944bfde"><span class="section-number-3">1.3</span> cycle</h3>
+<div id="outline-container-org7bae89f" class="outline-3">
+<h3 id="org7bae89f"><span class="section-number-3">1.3</span> cycle</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 提供开销更小的计时器，使用读取CPU的time stamp counter.这个内容表示自计算机启动以来的CPU运行周期。
@@ -349,8 +350,8 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-org046e48e" class="outline-3">
-<h3 id="org046e48e"><span class="section-number-3">1.4</span> support</h3>
+<div id="outline-container-org7674fe1" class="outline-3">
+<h3 id="org7674fe1"><span class="section-number-3">1.4</span> support</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 从这里面我们可以学习到如何进行系统调用，阅读一下&lt;asm/unistd.h&gt;可以找到系统调用号，然后使用syscall来发起。
@@ -368,8 +369,8 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-org15be4fc" class="outline-3">
-<h3 id="org15be4fc"><span class="section-number-3">1.5</span> futex</h3>
+<div id="outline-container-org8ffc6d8" class="outline-3">
+<h3 id="org8ffc6d8"><span class="section-number-3">1.5</span> futex</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 关于futex的话可以看看下面这些链接
@@ -400,8 +401,8 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-org89099be" class="outline-4">
-<h4 id="org89099be"><span class="section-number-4">1.5.1</span> sema</h4>
+<div id="outline-container-org7f741d2" class="outline-4">
+<h4 id="org7f741d2"><span class="section-number-4">1.5.1</span> sema</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 可以认为是操作系统里面的PV实现.count就是资源数目，lock始终==0.理解起来并不会很麻烦。
@@ -461,8 +462,8 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-orgd5c6829" class="outline-4">
-<h4 id="orgd5c6829"><span class="section-number-4">1.5.2</span> cond</h4>
+<div id="outline-container-orgb7de6d2" class="outline-4">
+<h4 id="orgb7de6d2"><span class="section-number-4">1.5.2</span> cond</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 这里cond和pthread_cond是有差别的，这里的cond没有和任何mutex相关。kylin这里认为count==0的时候，那么condition才被满足。
@@ -503,8 +504,8 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-org23024fc" class="outline-4">
-<h4 id="org23024fc"><span class="section-number-4">1.5.3</span> event</h4>
+<div id="outline-container-org0c66989" class="outline-4">
+<h4 id="org0c66989"><span class="section-number-4">1.5.3</span> event</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 这里的event名字取得也相当的奇怪。这里count实际上有两个状态，&gt;=0以及&lt;0(LARGE_ENOUGH_NEGATIVE).对于count&gt;=0的状态时候，
@@ -585,16 +586,16 @@ power management:
 </div>
 </div>
 
-<div id="outline-container-org20e2eb1" class="outline-2">
-<h2 id="org20e2eb1"><span class="section-number-2">2</span> kylin</h2>
+<div id="outline-container-orga4b6349" class="outline-2">
+<h2 id="orga4b6349"><span class="section-number-2">2</span> kylin</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 异步框架代码
 </p>
 </div>
 
-<div id="outline-container-org649025b" class="outline-3">
-<h3 id="org649025b"><span class="section-number-3">2.1</span> Async</h3>
+<div id="outline-container-org402e4ce" class="outline-3">
+<h3 id="org402e4ce"><span class="section-number-3">2.1</span> Async</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 kylin对于用户来说首先需要了解的概念就在Async.h文件里面，主要是下面两个类
@@ -667,12 +668,12 @@ kylin对于用户来说首先需要了解的概念就在Async.h文件里面，�
 </div>
 </div>
 
-<div id="outline-container-org1258bc4" class="outline-3">
-<h3 id="org1258bc4"><span class="section-number-3">2.2</span> ThreadPool</h3>
+<div id="outline-container-org159fdaa" class="outline-3">
+<h3 id="org159fdaa"><span class="section-number-3">2.2</span> ThreadPool</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org11bc14a" class="outline-4">
-<h4 id="org11bc14a"><span class="section-number-4">2.2.1</span> Overview</h4>
+<div id="outline-container-orga1b59a4" class="outline-4">
+<h4 id="orga1b59a4"><span class="section-number-4">2.2.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 线程池很简单，取出一个Job出来执行就多了。但是为了更好地理解kylin有必要看看线程池接口/实现。
@@ -714,8 +715,8 @@ kylin对于用户来说首先需要了解的概念就在Async.h文件里面，�
 </div>
 </div>
 
-<div id="outline-container-org2451d17" class="outline-4">
-<h4 id="org2451d17"><span class="section-number-4">2.2.2</span> How Thread Works</h4>
+<div id="outline-container-org3fb3c71" class="outline-4">
+<h4 id="org3fb3c71"><span class="section-number-4">2.2.2</span> How Thread Works</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 了解线程是怎么工作的，可以看看线程执行的函数是怎么定义的
@@ -781,8 +782,8 @@ kylin对于用户来说首先需要了解的概念就在Async.h文件里面，�
 </div>
 </div>
 
-<div id="outline-container-orgebafb09" class="outline-4">
-<h4 id="orgebafb09"><span class="section-number-4">2.2.3</span> AddWorker &amp; DelWorker</h4>
+<div id="outline-container-org83e8fc0" class="outline-4">
+<h4 id="org83e8fc0"><span class="section-number-4">2.2.3</span> AddWorker &amp; DelWorker</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 AddWorker非常简单
@@ -839,8 +840,8 @@ DelWorker因为有ControlJob的辅助所以可以很好地解决，只需要在�
 </div>
 </div>
 
-<div id="outline-container-orgf7bf3c2" class="outline-4">
-<h4 id="orgf7bf3c2"><span class="section-number-4">2.2.4</span> QueueJob &amp; CancelJob</h4>
+<div id="outline-container-org538e3ed" class="outline-4">
+<h4 id="org538e3ed"><span class="section-number-4">2.2.4</span> QueueJob &amp; CancelJob</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 相对来说QueueJob也更加简单一些，直接投递到某个线程对应的WorkerContext里面即可。
@@ -883,8 +884,8 @@ DelWorker因为有ControlJob的辅助所以可以很好地解决，只需要在�
 </div>
 </div>
 
-<div id="outline-container-orgf864dc4" class="outline-3">
-<h3 id="orgf864dc4"><span class="section-number-3">2.3</span> TranBuf</h3>
+<div id="outline-container-org1bc34bc" class="outline-3">
+<h3 id="org1bc34bc"><span class="section-number-3">2.3</span> TranBuf</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 TranBuf.h CTranBufPool是一个内存分配器。对于很多系统来说，合理地使用资源是非常必要的。
@@ -903,8 +904,8 @@ TranBuf.h CTranBufPool是一个内存分配器。对于很多系统来说，合�
 </p>
 </div>
 
-<div id="outline-container-org96fed2f" class="outline-4">
-<h4 id="org96fed2f"><span class="section-number-4">2.3.1</span> Overview</h4>
+<div id="outline-container-orgded00d7" class="outline-4">
+<h4 id="orgded00d7"><span class="section-number-4">2.3.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 首先看看CTranBufPool的数据结构，看看里面每个字段含义和作用.对于TranBuf来说的话内部
@@ -962,8 +963,8 @@ TranBuf.h CTranBufPool是一个内存分配器。对于很多系统来说，合�
 </div>
 </div>
 
-<div id="outline-container-org37690ae" class="outline-4">
-<h4 id="org37690ae"><span class="section-number-4">2.3.2</span> Create</h4>
+<div id="outline-container-org7b6011c" class="outline-4">
+<h4 id="org7b6011c"><span class="section-number-4">2.3.2</span> Create</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 大部分Create代码都是在设置参数，最后调用m_nMin次AllocOnce来分配初始的内存块。
@@ -999,8 +1000,8 @@ TranBuf.h CTranBufPool是一个内存分配器。对于很多系统来说，合�
 </div>
 </div>
 
-<div id="outline-container-org3a5673a" class="outline-4">
-<h4 id="org3a5673a"><span class="section-number-4">2.3.3</span> AllocOnce</h4>
+<div id="outline-container-orgbbaf8b6" class="outline-4">
+<h4 id="orgbbaf8b6"><span class="section-number-4">2.3.3</span> AllocOnce</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
 之前说过AllocOnce是分配一个连续内存块，每个Block大小是m_nBlockSize,而个数是nAlloc.
@@ -1041,8 +1042,8 @@ TranBuf.h CTranBufPool是一个内存分配器。对于很多系统来说，合�
 </div>
 </div>
 
-<div id="outline-container-org05ea2c9" class="outline-4">
-<h4 id="org05ea2c9"><span class="section-number-4">2.3.4</span> GetHandle</h4>
+<div id="outline-container-orgea56c87" class="outline-4">
+<h4 id="orgea56c87"><span class="section-number-4">2.3.4</span> GetHandle</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <p>
 GetHandle是通过传入buffer首地址来确定管理这个buffer的Handle.但是注意不是RealHdl.
@@ -1070,8 +1071,8 @@ GetHandle是通过传入buffer首地址来确定管理这个buffer的Handle.但�
 </div>
 </div>
 
-<div id="outline-container-org94b4d10" class="outline-4">
-<h4 id="org94b4d10"><span class="section-number-4">2.3.5</span> AddRef</h4>
+<div id="outline-container-org3826f78" class="outline-4">
+<h4 id="org3826f78"><span class="section-number-4">2.3.5</span> AddRef</h4>
 <div class="outline-text-4" id="text-2-3-5">
 <p>
 对某块内存进行引用计数。并且强大的是这个内存地址不必是分配的首地址，可以是连续内存内部任意地址。
@@ -1095,8 +1096,8 @@ GetHandle是通过传入buffer首地址来确定管理这个buffer的Handle.但�
 </div>
 </div>
 
-<div id="outline-container-org04a441e" class="outline-4">
-<h4 id="org04a441e"><span class="section-number-4">2.3.6</span> Destroy</h4>
+<div id="outline-container-orgc851951" class="outline-4">
+<h4 id="orgc851951"><span class="section-number-4">2.3.6</span> Destroy</h4>
 <div class="outline-text-4" id="text-2-3-6">
 <p>
 Destroy是将AllocOnce分配的内存和Handle全部回收。因为得到了所有分配内存和Handle的起始地址
@@ -1119,8 +1120,8 @@ Destroy是将AllocOnce分配的内存和Handle全部回收。因为得到了所�
 </div>
 </div>
 
-<div id="outline-container-org1c5ad0a" class="outline-4">
-<h4 id="org1c5ad0a"><span class="section-number-4">2.3.7</span> Allocate</h4>
+<div id="outline-container-orgd1e40da" class="outline-4">
+<h4 id="orgd1e40da"><span class="section-number-4">2.3.7</span> Allocate</h4>
 <div class="outline-text-4" id="text-2-3-7">
 <p>
 分配内存。可以从参数里面看出来语义是说分配多少个Block.nPriority参数是说使用哪个水位线。
@@ -1204,8 +1205,8 @@ Destroy是将AllocOnce分配的内存和Handle全部回收。因为得到了所�
 </div>
 </div>
 
-<div id="outline-container-orgff24dd3" class="outline-4">
-<h4 id="orgff24dd3"><span class="section-number-4">2.3.8</span> Free</h4>
+<div id="outline-container-orgc579534" class="outline-4">
+<h4 id="orgc579534"><span class="section-number-4">2.3.8</span> Free</h4>
 <div class="outline-text-4" id="text-2-3-8">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-preprocessor">#ifdef</span>  _DEBUG
@@ -1263,8 +1264,8 @@ Destroy是将AllocOnce分配的内存和Handle全部回收。因为得到了所�
 </div>
 </div>
 
-<div id="outline-container-orgbe29835" class="outline-3">
-<h3 id="orgbe29835"><span class="section-number-3">2.4</span> BufHandle</h3>
+<div id="outline-container-org058e4f2" class="outline-3">
+<h3 id="org058e4f2"><span class="section-number-3">2.4</span> BufHandle</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 如果说TranBuf是底层内存分配器的话，那BufHandle就是应用层的内存分配器。BufHandle底层是通过
@@ -1273,8 +1274,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </p>
 </div>
 
-<div id="outline-container-orga44370e" class="outline-4">
-<h4 id="orga44370e"><span class="section-number-4">2.4.1</span> OverView</h4>
+<div id="outline-container-org259b2b4" class="outline-4">
+<h4 id="org259b2b4"><span class="section-number-4">2.4.1</span> OverView</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 首先我们看看BufHandle结构以及提供的API.
@@ -1321,8 +1322,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orgc28ea11" class="outline-4">
-<h4 id="orgc28ea11"><span class="section-number-4">2.4.2</span> SetTranBuf</h4>
+<div id="outline-container-org8679806" class="outline-4">
+<h4 id="org8679806"><span class="section-number-4">2.4.2</span> SetTranBuf</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 首先我们先看看CBufHandlePool的结构然后在看这个API
@@ -1394,8 +1395,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org7bba91c" class="outline-4">
-<h4 id="org7bba91c"><span class="section-number-4">2.4.3</span> DoAllocate</h4>
+<div id="outline-container-org57ce49a" class="outline-4">
+<h4 id="org57ce49a"><span class="section-number-4">2.4.3</span> DoAllocate</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <p>
 这个是底层确保一定分配成功API(如果失败抛异常).来看看实现.使用hang住当前操作等待其他线程归还内存.
@@ -1430,8 +1431,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orgece16e6" class="outline-4">
-<h4 id="orgece16e6"><span class="section-number-4">2.4.4</span> DoAllocateCanFail</h4>
+<div id="outline-container-org34f08c5" class="outline-4">
+<h4 id="org34f08c5"><span class="section-number-4">2.4.4</span> DoAllocateCanFail</h4>
 <div class="outline-text-4" id="text-2-4-4">
 <p>
 底层不一定保证分配成功，可能返回NULL表示失败.只是尝试一次分配.
@@ -1462,8 +1463,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orgf1fcd0b" class="outline-4">
-<h4 id="orgf1fcd0b"><span class="section-number-4">2.4.5</span> _DoAddRef</h4>
+<div id="outline-container-org7c5631c" class="outline-4">
+<h4 id="org7c5631c"><span class="section-number-4">2.4.5</span> _DoAddRef</h4>
 <div class="outline-text-4" id="text-2-4-5">
 <p>
 对于BufHandle的引用技术和TranPool引用计数有点不同，并且平时思考的也不同。BufHandle的引用计数
@@ -1491,8 +1492,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org6ba2cb0" class="outline-4">
-<h4 id="org6ba2cb0"><span class="section-number-4">2.4.6</span> _DoFree</h4>
+<div id="outline-container-org242b0be" class="outline-4">
+<h4 id="org242b0be"><span class="section-number-4">2.4.6</span> _DoFree</h4>
 <div class="outline-text-4" id="text-2-4-6">
 <p>
 只是释放单个BufHandle对象.
@@ -1508,8 +1509,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org885ba00" class="outline-4">
-<h4 id="org885ba00"><span class="section-number-4">2.4.7</span> AllocateBig</h4>
+<div id="outline-container-orgb0b55b6" class="outline-4">
+<h4 id="orgb0b55b6"><span class="section-number-4">2.4.7</span> AllocateBig</h4>
 <div class="outline-text-4" id="text-2-4-7">
 <p>
 从BigTranBufPool里面分配大块内存.注意对于大块内存而言的话只允许分配一个Block.
@@ -1533,8 +1534,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org266d295" class="outline-4">
-<h4 id="org266d295"><span class="section-number-4">2.4.8</span> AllocateCanFail</h4>
+<div id="outline-container-org02611a4" class="outline-4">
+<h4 id="org02611a4"><span class="section-number-4">2.4.8</span> AllocateCanFail</h4>
 <div class="outline-text-4" id="text-2-4-8">
 <p>
 从TranBufPool里面分配连续内存出来.
@@ -1554,8 +1555,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org52e52a6" class="outline-4">
-<h4 id="org52e52a6"><span class="section-number-4">2.4.9</span> AllocForBuf</h4>
+<div id="outline-container-org0e9c41d" class="outline-4">
+<h4 id="org0e9c41d"><span class="section-number-4">2.4.9</span> AllocForBuf</h4>
 <div class="outline-text-4" id="text-2-4-9">
 <p>
 为某个buf分配内存.把buf内容copy进来.并且设置pNext.pppLast表示最后一个节点的next字段指针(三指针比较难理解&#x2026;)
@@ -1590,8 +1591,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orgc772e3d" class="outline-4">
-<h4 id="orgc772e3d"><span class="section-number-4">2.4.10</span> Allocate</h4>
+<div id="outline-container-org3803f10" class="outline-4">
+<h4 id="org3803f10"><span class="section-number-4">2.4.10</span> Allocate</h4>
 <div class="outline-text-4" id="text-2-4-10">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">// </span><span class="org-comment">&#22914;&#26524;&#26159;inpool&#30340;&#35805;&#65292;&#37027;&#20040;pubuf&#24517;&#39035;&#26159;pool&#20998;&#37197;&#20986;&#26469;&#30340;&#65292;</span>
@@ -1633,8 +1634,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org03cb8cf" class="outline-4">
-<h4 id="org03cb8cf"><span class="section-number-4">2.4.11</span> ChainFree</h4>
+<div id="outline-container-orge94bb37" class="outline-4">
+<h4 id="orge94bb37"><span class="section-number-4">2.4.11</span> ChainFree</h4>
 <div class="outline-text-4" id="text-2-4-11">
 <p>
 释放[pHdl,pNext)链上的所有item.
@@ -1655,8 +1656,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orgce21a9c" class="outline-4">
-<h4 id="orgce21a9c"><span class="section-number-4">2.4.12</span> CloneAndTerminate</h4>
+<div id="outline-container-org39156ef" class="outline-4">
+<h4 id="org39156ef"><span class="section-number-4">2.4.12</span> CloneAndTerminate</h4>
 <div class="outline-text-4" id="text-2-4-12">
 <p>
 这个API的语义在之前已经解释过了，来看看代码.
@@ -1708,8 +1709,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org28135f4" class="outline-3">
-<h3 id="org28135f4"><span class="section-number-3">2.5</span> Kylin</h3>
+<div id="outline-container-org9c4471a" class="outline-3">
+<h3 id="org9c4471a"><span class="section-number-3">2.5</span> Kylin</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 这个模块主要负责框架的启动和停止，做了一些琐碎的事情方便用户，主要是下面这两个函数
@@ -1731,12 +1732,12 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-org4460765" class="outline-3">
-<h3 id="org4460765"><span class="section-number-3">2.6</span> ExecMan</h3>
+<div id="outline-container-org028d5b9" class="outline-3">
+<h3 id="org028d5b9"><span class="section-number-3">2.6</span> ExecMan</h3>
 <div class="outline-text-3" id="text-2-6">
 </div>
-<div id="outline-container-org3828c3b" class="outline-4">
-<h4 id="org3828c3b"><span class="section-number-4">2.6.1</span> Overview</h4>
+<div id="outline-container-org51cb1be" class="outline-4">
+<h4 id="org51cb1be"><span class="section-number-4">2.6.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <p>
 我们首先看看ExecMan的接口
@@ -1774,8 +1775,8 @@ network IO app的。通过全局的BufHandlePool对象来分配内存。
 </div>
 </div>
 
-<div id="outline-container-orga5cce1c" class="outline-4">
-<h4 id="orga5cce1c"><span class="section-number-4">2.6.2</span> Start &amp; Stop</h4>
+<div id="outline-container-orgf0d66b0" class="outline-4">
+<h4 id="orgf0d66b0"><span class="section-number-4">2.6.2</span> Start &amp; Stop</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
 Start逻辑很简单，包括计算1s对应多少cycle数目以及启动线程池。
@@ -1824,8 +1825,8 @@ Stop逻辑的话可能需要仔细理解一下
 </div>
 </div>
 
-<div id="outline-container-org5c4fff5" class="outline-4">
-<h4 id="org5c4fff5"><span class="section-number-4">2.6.3</span> QueueExec</h4>
+<div id="outline-container-org26614b4" class="outline-4">
+<h4 id="org26614b4"><span class="section-number-4">2.6.3</span> QueueExec</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 QueueExec和QueueExecEmergent逻辑非常相似，只不过底层调用线程池的QueueJob和QueueEmergentJob.我们这里只看QueueExec.
@@ -1880,8 +1881,8 @@ QueueExec和QueueExecEmergent逻辑非常相似，只不过底层调用线程池
 </div>
 </div>
 
-<div id="outline-container-org833a5ad" class="outline-4">
-<h4 id="org833a5ad"><span class="section-number-4">2.6.4</span> Timer</h4>
+<div id="outline-container-org7423ef7" class="outline-4">
+<h4 id="org7423ef7"><span class="section-number-4">2.6.4</span> Timer</h4>
 <div class="outline-text-4" id="text-2-6-4">
 <p>
 定时器任务加入是DelayExec,检查触发是RunTimer.如果查看CallGraph的话会发现RunTimer都是在网络部分调用的，我们在网络部分看看触发的时机。
@@ -1939,8 +1940,8 @@ DelayExec里面的逻辑会根据定时时间来判断如何实现，如果定�
 </div>
 </div>
 
-<div id="outline-container-org431b73c" class="outline-4">
-<h4 id="org431b73c"><span class="section-number-4">2.6.5</span> Example</h4>
+<div id="outline-container-orgb397217" class="outline-4">
+<h4 id="orgb397217"><span class="section-number-4">2.6.5</span> Example</h4>
 <div class="outline-text-4" id="text-2-6-5">
 <p>
 我们这里给的例子非常简单，但是希望有启发性.我们从1开始进行打印，每打印1个数字就认为当前任务结束，一直无限打印。
@@ -2063,12 +2064,12 @@ DelayExec里面的逻辑会根据定时时间来判断如何实现，如果定�
 </div>
 </div>
 
-<div id="outline-container-org78faf7a" class="outline-3">
-<h3 id="org78faf7a"><span class="section-number-3">2.7</span> DiskMan</h3>
+<div id="outline-container-org21a07a7" class="outline-3">
+<h3 id="org21a07a7"><span class="section-number-3">2.7</span> DiskMan</h3>
 <div class="outline-text-3" id="text-2-7">
 </div>
-<div id="outline-container-orgedb17bd" class="outline-4">
-<h4 id="orgedb17bd"><span class="section-number-4">2.7.1</span> Overview</h4>
+<div id="outline-container-org4b4c8d6" class="outline-4">
+<h4 id="org4b4c8d6"><span class="section-number-4">2.7.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-7-1">
 <p>
 我们首先看看和磁盘相关的两个比较重要的类。因为磁盘操作不像CPU操作一样不需要任何辅助数据结构，磁盘操作需要一些信息比如fd等，磁盘操作需要一个特殊的磁盘Context。
@@ -2133,8 +2134,8 @@ DelayExec里面的逻辑会根据定时时间来判断如何实现，如果定�
 </div>
 </div>
 
-<div id="outline-container-orgf4bad61" class="outline-4">
-<h4 id="orgf4bad61"><span class="section-number-4">2.7.2</span> Start &amp; Stop</h4>
+<div id="outline-container-orgcaabc83" class="outline-4">
+<h4 id="orgcaabc83"><span class="section-number-4">2.7.2</span> Start &amp; Stop</h4>
 <div class="outline-text-4" id="text-2-7-2">
 <p>
 启动停止逻辑非常简单，就是让线程池启动和停止
@@ -2164,8 +2165,8 @@ DelayExec里面的逻辑会根据定时时间来判断如何实现，如果定�
 </div>
 </div>
 
-<div id="outline-container-org813a72a" class="outline-4">
-<h4 id="org813a72a"><span class="section-number-4">2.7.3</span> Associate &amp; Deassociate</h4>
+<div id="outline-container-orga41dfc0" class="outline-4">
+<h4 id="orga41dfc0"><span class="section-number-4">2.7.3</span> Associate &amp; Deassociate</h4>
 <div class="outline-text-4" id="text-2-7-3">
 <p>
 逻辑非常简单，就是进行一下DiskContext和CAsyncClient初始化的工作。关于DiskContext里面各个字段含义的话，都是在Read/Write时候解释的。
@@ -2200,8 +2201,8 @@ DelayExec里面的逻辑会根据定时时间来判断如何实现，如果定�
 </div>
 </div>
 
-<div id="outline-container-org9615709" class="outline-4">
-<h4 id="org9615709"><span class="section-number-4">2.7.4</span> Read &amp; Write</h4>
+<div id="outline-container-org8783347" class="outline-4">
+<h4 id="org8783347"><span class="section-number-4">2.7.4</span> Read &amp; Write</h4>
 <div class="outline-text-4" id="text-2-7-4">
 <p>
 文件的Read/Write非常简单，因为本身就是一个阻塞的过程，发起一次就可以保证读取所有内容了，所以不像网络一样需要多次发起。
@@ -2301,8 +2302,8 @@ DiskOp(a,b,c)其中a表示对应的系统调用叫什么名字，b表示这个Jo
 </div>
 </div>
 
-<div id="outline-container-org02020f0" class="outline-4">
-<h4 id="org02020f0"><span class="section-number-4">2.7.5</span> Example</h4>
+<div id="outline-container-orgffc1f20" class="outline-4">
+<h4 id="orgffc1f20"><span class="section-number-4">2.7.5</span> Example</h4>
 <div class="outline-text-4" id="text-2-7-5">
 <p>
 例子非常简单就是我们首先发起一个磁盘操作写文件然后在将去读取出来。
@@ -2406,12 +2407,12 @@ DiskOp(a,b,c)其中a表示对应的系统调用叫什么名字，b表示这个Jo
 </div>
 </div>
 
-<div id="outline-container-org652e932" class="outline-3">
-<h3 id="org652e932"><span class="section-number-3">2.8</span> NetworkMan</h3>
+<div id="outline-container-org6ac6178" class="outline-3">
+<h3 id="org6ac6178"><span class="section-number-3">2.8</span> NetworkMan</h3>
 <div class="outline-text-3" id="text-2-8">
 </div>
-<div id="outline-container-org8c44051" class="outline-4">
-<h4 id="org8c44051"><span class="section-number-4">2.8.1</span> Overview</h4>
+<div id="outline-container-orgd4a5a19" class="outline-4">
+<h4 id="orgd4a5a19"><span class="section-number-4">2.8.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <p>
 和网络相关的也有两个比较重要的类。同样和DiskMan相同，NetworkMan也提供了NetContext和NetRequest.
@@ -2535,8 +2536,8 @@ DiskOp(a,b,c)其中a表示对应的系统调用叫什么名字，b表示这个Jo
 </div>
 </div>
 
-<div id="outline-container-org070ce2e" class="outline-4">
-<h4 id="org070ce2e"><span class="section-number-4">2.8.2</span> Start &amp; Stop</h4>
+<div id="outline-container-orgee1c454" class="outline-4">
+<h4 id="orgee1c454"><span class="section-number-4">2.8.2</span> Start &amp; Stop</h4>
 <div class="outline-text-4" id="text-2-8-2">
 <p>
 过程大致是这样的，将EPoller.Run包装在一个MyJob对象里面，然后将MyJob丢入到线程池里面进行运行。一旦线程池取到MyJob,
@@ -2596,8 +2597,8 @@ DiskOp(a,b,c)其中a表示对应的系统调用叫什么名字，b表示这个Jo
 </div>
 </div>
 
-<div id="outline-container-orgb3b23e6" class="outline-4">
-<h4 id="orgb3b23e6"><span class="section-number-4">2.8.3</span> Associate &amp; Deassociate</h4>
+<div id="outline-container-org80e5c5a" class="outline-4">
+<h4 id="org80e5c5a"><span class="section-number-4">2.8.3</span> Associate &amp; Deassociate</h4>
 <div class="outline-text-4" id="text-2-8-3">
 <p>
 Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络线程池里面的EPoller绑定起来，将NetContext里面的fd给epoll来管理。
@@ -2651,8 +2652,8 @@ Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络�
 </div>
 </div>
 
-<div id="outline-container-org0fe941f" class="outline-4">
-<h4 id="org0fe941f"><span class="section-number-4">2.8.4</span> Listen</h4>
+<div id="outline-container-org9b80cd7" class="outline-4">
+<h4 id="org9b80cd7"><span class="section-number-4">2.8.4</span> Listen</h4>
 <div class="outline-text-4" id="text-2-8-4">
 <p>
 发起Listen操作
@@ -2671,8 +2672,8 @@ Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络�
 </div>
 </div>
 
-<div id="outline-container-orgff4d40e" class="outline-4">
-<h4 id="orgff4d40e"><span class="section-number-4">2.8.5</span> Connect</h4>
+<div id="outline-container-org0943f9c" class="outline-4">
+<h4 id="org0943f9c"><span class="section-number-4">2.8.5</span> Connect</h4>
 <div class="outline-text-4" id="text-2-8-5">
 <p>
 发起Connect操作，注意这里还填写了WriteReq,timeout以及nAction=AA_CONNECT.对于pReq的话应该是在connect之后发起的写操作。
@@ -2704,8 +2705,8 @@ Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络�
 </div>
 </div>
 
-<div id="outline-container-org8542e1f" class="outline-4">
-<h4 id="org8542e1f"><span class="section-number-4">2.8.6</span> Monitor</h4>
+<div id="outline-container-org038a4aa" class="outline-4">
+<h4 id="org038a4aa"><span class="section-number-4">2.8.6</span> Monitor</h4>
 <div class="outline-text-4" id="text-2-8-6">
 <p>
 发起Monitor操作。所谓Monitor操作的话是指创建Socket成功之后的操作。代码这里的意图是创建服务端的Socket成功之后准备监听的状态。
@@ -2723,8 +2724,8 @@ Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络�
 </div>
 </div>
 
-<div id="outline-container-org9474a3e" class="outline-4">
-<h4 id="org9474a3e"><span class="section-number-4">2.8.7</span> Delay</h4>
+<div id="outline-container-org67aa82e" class="outline-4">
+<h4 id="org67aa82e"><span class="section-number-4">2.8.7</span> Delay</h4>
 <div class="outline-text-4" id="text-2-8-7">
 <p>
 发起一个读超时的操作
@@ -2746,8 +2747,8 @@ Associate和Deassociate逻辑非常简单，无非就是将NetContext和网络�
 </div>
 </div>
 
-<div id="outline-container-orgbccd2f6" class="outline-4">
-<h4 id="orgbccd2f6"><span class="section-number-4">2.8.8</span> Read &amp; Write</h4>
+<div id="outline-container-orgae4fe14" class="outline-4">
+<h4 id="orgae4fe14"><span class="section-number-4">2.8.8</span> Read &amp; Write</h4>
 <div class="outline-text-4" id="text-2-8-8">
 <p>
 Read/Write过程非常简单，就是将Request封装好之后交给EPoller来处理。所以这里可以知道大部分的事情都是在Poller里面完成的。
@@ -2768,8 +2769,8 @@ Read/Write过程非常简单，就是将Request封装好之后交给EPoller来�
 </div>
 </div>
 
-<div id="outline-container-org3dfd3a5" class="outline-4">
-<h4 id="org3dfd3a5"><span class="section-number-4">2.8.9</span> SocketState</h4>
+<div id="outline-container-org18d2b81" class="outline-4">
+<h4 id="org18d2b81"><span class="section-number-4">2.8.9</span> SocketState</h4>
 <div class="outline-text-4" id="text-2-8-9">
 <ul class="org-ul">
 <li>SS_VOID = 0, // 初始状态</li>
@@ -2786,12 +2787,12 @@ Read/Write过程非常简单，就是将Request封装好之后交给EPoller来�
 </div>
 </div>
 
-<div id="outline-container-org48c9a1f" class="outline-3">
-<h3 id="org48c9a1f"><span class="section-number-3">2.9</span> EPoller</h3>
+<div id="outline-container-orgc7e5f10" class="outline-3">
+<h3 id="orgc7e5f10"><span class="section-number-3">2.9</span> EPoller</h3>
 <div class="outline-text-3" id="text-2-9">
 </div>
-<div id="outline-container-org5f6316d" class="outline-4">
-<h4 id="org5f6316d"><span class="section-number-4">2.9.1</span> Overview</h4>
+<div id="outline-container-org8f47854" class="outline-4">
+<h4 id="org8f47854"><span class="section-number-4">2.9.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-9-1">
 <p>
 对于EPoller来说的话里面每个接口似乎都很重要，所以有必要对每一个接口都进行分析。首先看看EPoller的完整接口
@@ -2831,8 +2832,8 @@ Read/Write过程非常简单，就是将Request封装好之后交给EPoller来�
 </div>
 </div>
 
-<div id="outline-container-org74194d3" class="outline-4">
-<h4 id="org74194d3"><span class="section-number-4">2.9.2</span> Create &amp; Close</h4>
+<div id="outline-container-org032e694" class="outline-4">
+<h4 id="org032e694"><span class="section-number-4">2.9.2</span> Create &amp; Close</h4>
 <div class="outline-text-4" id="text-2-9-2">
 <p>
 Create和Close无非就是创建epoll fd
@@ -2860,8 +2861,8 @@ Create和Close无非就是创建epoll fd
 </div>
 </div>
 
-<div id="outline-container-orgad8a160" class="outline-4">
-<h4 id="orgad8a160"><span class="section-number-4">2.9.3</span> Associate &amp; Deassociate</h4>
+<div id="outline-container-orgf2fafb7" class="outline-4">
+<h4 id="orgf2fafb7"><span class="section-number-4">2.9.3</span> Associate &amp; Deassociate</h4>
 <div class="outline-text-4" id="text-2-9-3">
 <p>
 将NetContext的fd放入epoll中进行关联.
@@ -2904,8 +2905,8 @@ Create和Close无非就是创建epoll fd
 </div>
 </div>
 
-<div id="outline-container-org9f2af06" class="outline-4">
-<h4 id="org9f2af06"><span class="section-number-4">2.9.4</span> DoConnect</h4>
+<div id="outline-container-orgcf25e5a" class="outline-4">
+<h4 id="orgcf25e5a"><span class="section-number-4">2.9.4</span> DoConnect</h4>
 <div class="outline-text-4" id="text-2-9-4">
 <p>
 DoConnect是真实地进行connect操作
@@ -2937,8 +2938,8 @@ DoConnect是真实地进行connect操作
 </div>
 </div>
 
-<div id="outline-container-org872ebff" class="outline-4">
-<h4 id="org872ebff"><span class="section-number-4">2.9.5</span> Delay &amp; CancalDelay</h4>
+<div id="outline-container-org0221226" class="outline-4">
+<h4 id="org0221226"><span class="section-number-4">2.9.5</span> Delay &amp; CancalDelay</h4>
 <div class="outline-text-4" id="text-2-9-5">
 <p>
 Delay操作无非就是将超时事件到DelayedList里面，而CancalDelay是将对应的超时事件从DelayedList里面删除。
@@ -2971,8 +2972,8 @@ Delay操作无非就是将超时事件到DelayedList里面，而CancalDelay是�
 </div>
 </div>
 
-<div id="outline-container-orgaf52e8f" class="outline-4">
-<h4 id="orgaf52e8f"><span class="section-number-4">2.9.6</span> DoWithDelayed &amp; DoWithError</h4>
+<div id="outline-container-org14652c0" class="outline-4">
+<h4 id="org14652c0"><span class="section-number-4">2.9.6</span> DoWithDelayed &amp; DoWithError</h4>
 <div class="outline-text-4" id="text-2-9-6">
 <p>
 #todo: 这两个部分都非常杂并且细节很多，没有完全看懂。另外一个疑问就是对于Delay这种超时事件的话为什么不放在CPU的超时时间里面去完成。这样似乎会更加优雅。
@@ -2981,8 +2982,8 @@ Delay操作无非就是将超时事件到DelayedList里面，而CancalDelay是�
 </div>
 </div>
 
-<div id="outline-container-org03948b4" class="outline-4">
-<h4 id="org03948b4"><span class="section-number-4">2.9.7</span> Read &amp; Write</h4>
+<div id="outline-container-orgb3ba617" class="outline-4">
+<h4 id="orgb3ba617"><span class="section-number-4">2.9.7</span> Read &amp; Write</h4>
 <div class="outline-text-4" id="text-2-9-7">
 <p>
 发起Read/Write最后都是调用StartRead/StartWrite
@@ -3221,8 +3222,8 @@ StartWrite这个过程也是非常相似的，不过为了方便起见的话每�
 </div>
 </div>
 
-<div id="outline-container-orgf1821c7" class="outline-4">
-<h4 id="orgf1821c7"><span class="section-number-4">2.9.8</span> NofityClient</h4>
+<div id="outline-container-orgf5ae79f" class="outline-4">
+<h4 id="orgf5ae79f"><span class="section-number-4">2.9.8</span> NofityClient</h4>
 <div class="outline-text-4" id="text-2-9-8">
 <p>
 当EPoller发现内部需要进行回调的话，那么就会通过NofityClient来通知客户进行回调。
@@ -3262,8 +3263,8 @@ StartWrite这个过程也是非常相似的，不过为了方便起见的话每�
 </div>
 </div>
 
-<div id="outline-container-org894c5ba" class="outline-4">
-<h4 id="org894c5ba"><span class="section-number-4">2.9.9</span> Run</h4>
+<div id="outline-container-org54286b7" class="outline-4">
+<h4 id="org54286b7"><span class="section-number-4">2.9.9</span> Run</h4>
 <div class="outline-text-4" id="text-2-9-9">
 <p>
 过程比较冗长，而且里面很多细节依然并不是非常清楚，但是不妨碍大体的理解
@@ -3414,12 +3415,12 @@ StartWrite这个过程也是非常相似的，不过为了方便起见的话每�
 </div>
 </div>
 
-<div id="outline-container-org6d9a6a5" class="outline-3">
-<h3 id="org6d9a6a5"><span class="section-number-3">2.10</span> Socket</h3>
+<div id="outline-container-org0d85148" class="outline-3">
+<h3 id="org0d85148"><span class="section-number-3">2.10</span> Socket</h3>
 <div class="outline-text-3" id="text-2-10">
 </div>
-<div id="outline-container-orgff9c57b" class="outline-4">
-<h4 id="orgff9c57b"><span class="section-number-4">2.10.1</span> Overview</h4>
+<div id="outline-container-org34498f9" class="outline-4">
+<h4 id="org34498f9"><span class="section-number-4">2.10.1</span> Overview</h4>
 <div class="outline-text-4" id="text-2-10-1">
 <p>
 Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里面提供了很多默认的封装。对于我们编写程序的话大部分时候都使用这个类即可。还是首先看看接口
@@ -3499,8 +3500,8 @@ Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里
 </div>
 </div>
 
-<div id="outline-container-org963c662" class="outline-4">
-<h4 id="org963c662"><span class="section-number-4">2.10.2</span> Create</h4>
+<div id="outline-container-org380ca27" class="outline-4">
+<h4 id="org380ca27"><span class="section-number-4">2.10.2</span> Create</h4>
 <div class="outline-text-4" id="text-2-10-2">
 <p>
 对于create的话我们看稍微复杂的一个实现，就是头参数是bTCP的原型实现。注意这里ip=0,port=0的话那么这样对于client来说的话就会随机选择一个端口。
@@ -3605,8 +3606,8 @@ Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里
 </div>
 </div>
 
-<div id="outline-container-org555b9ae" class="outline-4">
-<h4 id="org555b9ae"><span class="section-number-4">2.10.3</span> Close</h4>
+<div id="outline-container-org58bc03c" class="outline-4">
+<h4 id="org58bc03c"><span class="section-number-4">2.10.3</span> Close</h4>
 <div class="outline-text-4" id="text-2-10-3">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-type">bool</span> <span class="org-constant">CSocketV</span>::<span class="org-function-name">Close</span>()
@@ -3632,8 +3633,8 @@ Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里
 </div>
 </div>
 
-<div id="outline-container-org97986bf" class="outline-4">
-<h4 id="org97986bf"><span class="section-number-4">2.10.4</span> Shutdown</h4>
+<div id="outline-container-org4976df2" class="outline-4">
+<h4 id="org4976df2"><span class="section-number-4">2.10.4</span> Shutdown</h4>
 <div class="outline-text-4" id="text-2-10-4">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-type">bool</span> <span class="org-constant">CSocketV</span>::<span class="org-function-name">Shutdown</span>(<span class="org-type">bool</span> <span class="org-variable-name">bLingerOff</span>)
@@ -3659,8 +3660,8 @@ Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里
 </div>
 </div>
 
-<div id="outline-container-org9bce9e1" class="outline-4">
-<h4 id="org9bce9e1"><span class="section-number-4">2.10.5</span> Listen</h4>
+<div id="outline-container-orga23e53e" class="outline-4">
+<h4 id="orga23e53e"><span class="section-number-4">2.10.5</span> Listen</h4>
 <div class="outline-text-4" id="text-2-10-5">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-type">void</span> <span class="org-constant">CSocketV</span>::<span class="org-function-name">Listen</span>(<span class="org-type">int</span> <span class="org-variable-name">backlog</span>)
@@ -3675,8 +3676,8 @@ Socket包含了如何配合使用NetworkMan以及EPoller两个部分，并且里
 </div>
 </div>
 
-<div id="outline-container-orgbed2805" class="outline-4">
-<h4 id="orgbed2805"><span class="section-number-4">2.10.6</span> Connect</h4>
+<div id="outline-container-org4174863" class="outline-4">
+<h4 id="org4174863"><span class="section-number-4">2.10.6</span> Connect</h4>
 <div class="outline-text-4" id="text-2-10-6">
 <p>
 Connect相关函数有Connect,ConnectAndWrite以及ReConnect,都非常简单通过NetworkMan发起操作
@@ -3710,8 +3711,8 @@ Connect相关函数有Connect,ConnectAndWrite以及ReConnect,都非常简单通�
 </div>
 </div>
 
-<div id="outline-container-org92a44f6" class="outline-4">
-<h4 id="org92a44f6"><span class="section-number-4">2.10.7</span> Read &amp; Write</h4>
+<div id="outline-container-orge710d87" class="outline-4">
+<h4 id="orge710d87"><span class="section-number-4">2.10.7</span> Read &amp; Write</h4>
 <div class="outline-text-4" id="text-2-10-7">
 <p>
 Read/Write函数也非常简单无非就是包装一些NetRequest然后交给NetworkMan来发起
@@ -3731,8 +3732,8 @@ Read/Write函数也非常简单无非就是包装一些NetRequest然后交给Net
 </div>
 </div>
 
-<div id="outline-container-orgee3de9d" class="outline-4">
-<h4 id="orgee3de9d"><span class="section-number-4">2.10.8</span> OnCompletion</h4>
+<div id="outline-container-orgd490072" class="outline-4">
+<h4 id="orgd490072"><span class="section-number-4">2.10.8</span> OnCompletion</h4>
 <div class="outline-text-4" id="text-2-10-8">
 <p>
 其实对于Socket部分最主要的内容还是在这里。上面那些函数无非是做一个Wrapper，而Socket本质上还是一个CAsyncClient要处理各种事件回调。
@@ -3835,8 +3836,8 @@ Read/Write函数也非常简单无非就是包装一些NetRequest然后交给Net
 </div>
 </div>
 
-<div id="outline-container-orgf0bfeae" class="outline-4">
-<h4 id="orgf0bfeae"><span class="section-number-4">2.10.9</span> Summary</h4>
+<div id="outline-container-org406fdd7" class="outline-4">
+<h4 id="org406fdd7"><span class="section-number-4">2.10.9</span> Summary</h4>
 <div class="outline-text-4" id="text-2-10-9">
 <p>
 个人觉得kylin的网络异步部分就是spaghetti,所有的nAction以及nErrCode都是相互缠绕.我们可以假设我们的场景类似于RPC然后考虑一下应该如何处理。
@@ -3856,19 +3857,19 @@ Read/Write函数也非常简单无非就是包装一些NetRequest然后交给Net
 </div>
 </div>
 
-<div id="outline-container-org585c1a1" class="outline-2">
-<h2 id="org585c1a1"><span class="section-number-2">3</span> demo</h2>
+<div id="outline-container-orgc184c05" class="outline-2">
+<h2 id="orgc184c05"><span class="section-number-2">3</span> demo</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org91bfc32" class="outline-3">
-<h3 id="org91bfc32"><span class="section-number-3">3.1</span> echo</h3>
+<div id="outline-container-org0ea6d01" class="outline-3">
+<h3 id="org0ea6d01"><span class="section-number-3">3.1</span> echo</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 echo这个就是客户端连接上之后不断发送1K数据而服务器就直接回复这1K数据
 </p>
 </div>
-<div id="outline-container-org2f1bc57" class="outline-4">
-<h4 id="org2f1bc57"><span class="section-number-4">3.1.1</span> client.cc</h4>
+<div id="outline-container-orgb873500" class="outline-4">
+<h4 id="orgb873500"><span class="section-number-4">3.1.1</span> client.cc</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -4011,8 +4012,8 @@ echo这个就是客户端连接上之后不断发送1K数据而服务器就直�
 </div>
 </div>
 
-<div id="outline-container-org260188a" class="outline-4">
-<h4 id="org260188a"><span class="section-number-4">3.1.2</span> server.cc</h4>
+<div id="outline-container-orgc853877" class="outline-4">
+<h4 id="orgc853877"><span class="section-number-4">3.1.2</span> server.cc</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -4140,16 +4141,16 @@ echo这个就是客户端连接上之后不断发送1K数据而服务器就直�
 </div>
 </div>
 
-<div id="outline-container-org86a1613" class="outline-3">
-<h3 id="org86a1613"><span class="section-number-3">3.2</span> file-request</h3>
+<div id="outline-container-org82d0c8a" class="outline-3">
+<h3 id="org82d0c8a"><span class="section-number-3">3.2</span> file-request</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 file-request希望可以结合ExecMan,NetworkMan和DiskMan三个Manager写一个简单的demo,功能非常简单就是客户端每次发送一个文件名，服务端得到之后分析出文件名然后将内容返回给client.
 消息格式都是头部带上了4个字节的长度，然后后面跟上数据。和之前的echo不同的是我们这里需要采取分段读取。
 </p>
 </div>
-<div id="outline-container-org8b115c6" class="outline-4">
-<h4 id="org8b115c6"><span class="section-number-4">3.2.1</span> client.cc</h4>
+<div id="outline-container-orgf8656c3" class="outline-4">
+<h4 id="orgf8656c3"><span class="section-number-4">3.2.1</span> client.cc</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -4312,8 +4313,8 @@ file-request希望可以结合ExecMan,NetworkMan和DiskMan三个Manager写一个
 </div>
 </div>
 
-<div id="outline-container-org96b4da5" class="outline-4">
-<h4 id="org96b4da5"><span class="section-number-4">3.2.2</span> server.cc</h4>
+<div id="outline-container-orgf9e6ab8" class="outline-4">
+<h4 id="orgf9e6ab8"><span class="section-number-4">3.2.2</span> server.cc</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -4486,5 +4487,5 @@ file-request希望可以结合ExecMan,NetworkMan和DiskMan三个Manager写一个
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/kylin.html';this.page.identifier = 'kylin.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

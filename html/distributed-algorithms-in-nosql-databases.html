@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Distributed Algorithms in NoSQL Databases</title>
@@ -18,20 +19,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8df8720">1. 引言</a></li>
-<li><a href="#org5432395">2. 数据一致性</a></li>
-<li><a href="#orgf7d4808">3. 数据放置</a>
+<li><a href="#orgbb47eb7">1. 引言</a></li>
+<li><a href="#orgfd3c9b2">2. 数据一致性</a></li>
+<li><a href="#org2824462">3. 数据放置</a>
 <ul>
-<li><a href="#orgdc18cda">3.1. 均衡数据</a></li>
-<li><a href="#org5ddbb6b">3.2. 动态环境中的数据分片和复制</a></li>
-<li><a href="#org41f3037">3.3. 按照多个属性的数据分片</a></li>
-<li><a href="#orgd0c5685">3.4. 钝化副本</a></li>
+<li><a href="#org33b7752">3.1. 均衡数据</a></li>
+<li><a href="#orgb83ae5c">3.2. 动态环境中的数据分片和复制</a></li>
+<li><a href="#orgf2c5eaa">3.3. 按照多个属性的数据分片</a></li>
+<li><a href="#orgcca6cdd">3.4. 钝化副本</a></li>
 </ul>
 </li>
-<li><a href="#orgc03b95f">4. 系统协调</a>
+<li><a href="#orge98df9c">4. 系统协调</a>
 <ul>
-<li><a href="#org2b09b65">4.1. 故障检测</a></li>
-<li><a href="#org9ec9852">4.2. 协调者竞选</a></li>
+<li><a href="#org9467644">4.1. 故障检测</a></li>
+<li><a href="#orgbc16d23">4.2. 协调者竞选</a></li>
 </ul>
 </li>
 </ul>
@@ -42,8 +43,8 @@
 <li><a href="http://blog.nosqlfan.com/html/4139.html">http://blog.nosqlfan.com/html/4139.html</a></li>
 </ul>
 
-<div id="outline-container-org8df8720" class="outline-2">
-<h2 id="org8df8720"><span class="section-number-2">1</span> 引言</h2>
+<div id="outline-container-orgbb47eb7" class="outline-2">
+<h2 id="orgbb47eb7"><span class="section-number-2">1</span> 引言</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>数据一致性。NoSQL需要在分布式系统的一致性，容错性和性能，低延迟及高可用之间作出权衡，一般来说，数据一致性是一个必选项，所以这一节主要是关于数据复制和数据恢复。</li>
@@ -53,8 +54,8 @@
 </div>
 </div>
 
-<div id="outline-container-org5432395" class="outline-2">
-<h2 id="org5432395"><span class="section-number-2">2</span> 数据一致性</h2>
+<div id="outline-container-orgfd3c9b2" class="outline-2">
+<h2 id="orgfd3c9b2"><span class="section-number-2">2</span> 数据一致性</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 我们注意到分布式系统的一致性问题是由数据隔离和复制引起的，所以我们将从研究复制的特点开始：
@@ -169,12 +170,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgf7d4808" class="outline-2">
-<h2 id="orgf7d4808"><span class="section-number-2">3</span> 数据放置</h2>
+<div id="outline-container-org2824462" class="outline-2">
+<h2 id="org2824462"><span class="section-number-2">3</span> 数据放置</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgdc18cda" class="outline-3">
-<h3 id="orgdc18cda"><span class="section-number-3">3.1</span> 均衡数据</h3>
+<div id="outline-container-org33b7752" class="outline-3">
+<h3 id="org33b7752"><span class="section-number-3">3.1</span> 均衡数据</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 尽管数据库能够监控到每一条记录，包括MongoDB, Oracle Coherence, 和还在开发中的 Redis Cluster 在内的许多系统仍然使用的是自动均衡技术。也即，将数据分片并把每个数据分片作为迁移的最小单位，这是基于效率的考虑。很明显分片数会比节点数多，数据分片可以在各节点间平均分布。按照一种简单的协议即可实现无缝数据迁移，这个协议可以在迁移数据分片的时候重定向客户的数据迁出节点和迁入节点。
@@ -182,8 +183,8 @@
 </div>
 </div>
 
-<div id="outline-container-org5ddbb6b" class="outline-3">
-<h3 id="org5ddbb6b"><span class="section-number-3">3.2</span> 动态环境中的数据分片和复制</h3>
+<div id="outline-container-orgb83ae5c" class="outline-3">
+<h3 id="orgb83ae5c"><span class="section-number-3">3.2</span> 动态环境中的数据分片和复制</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 们关注的另一个问题是怎么把记录映射到物理节点。比较直接的方法是用一张表来记录每个范围的key与节点的映射关系，一个范围的key对应到一个节点，或者用key的hash值与节点数取模得到的值作为节点ID。但是hash取模的方法在集群发生更改的情况下就不是很好用，因为增加或者减少节点都会引起集群内的数据彻底重排。导致很难进行复制和故障恢复。
@@ -199,8 +200,8 @@
 </div>
 </div>
 
-<div id="outline-container-org41f3037" class="outline-3">
-<h3 id="org41f3037"><span class="section-number-3">3.3</span> 按照多个属性的数据分片</h3>
+<div id="outline-container-orgf2c5eaa" class="outline-3">
+<h3 id="orgf2c5eaa"><span class="section-number-3">3.3</span> 按照多个属性的数据分片</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 当只需要通过主键来访问数据的时候，一致性hash的数据放置策略很有效，但是当需要按照多个属性来查询的时候事情就会复杂得多。一种简单的做法（MongoDB使用的）是用主键来分布数据而不考虑其他属性。这样做的结果是依据主键的查询可以被路由到接个合适的节点上，但是对其他查询的处理就要遍历集群的所有节点。查询效率的不均衡造成下面的问题：
@@ -220,8 +221,8 @@ HyperDex数据库提供了一种解决方案。基本思想是把每个属性视
 </div>
 </div>
 
-<div id="outline-container-orgd0c5685" class="outline-3">
-<h3 id="orgd0c5685"><span class="section-number-3">3.4</span> 钝化副本</h3>
+<div id="outline-container-orgcca6cdd" class="outline-3">
+<h3 id="orgcca6cdd"><span class="section-number-3">3.4</span> 钝化副本</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 #todo: 不是很明白
@@ -230,8 +231,8 @@ HyperDex数据库提供了一种解决方案。基本思想是把每个属性视
 </div>
 </div>
 
-<div id="outline-container-orgc03b95f" class="outline-2">
-<h2 id="orgc03b95f"><span class="section-number-2">4</span> 系统协调</h2>
+<div id="outline-container-orge98df9c" class="outline-2">
+<h2 id="orge98df9c"><span class="section-number-2">4</span> 系统协调</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 在这部分我们将讨论与系统协调相关的两种技术。分布式协调是一个比较大的领域，数十年以来有很多人对此进行了深入的研究。这篇文章里只涉及两种已经投入实用的技术。关于分布式锁，consensus协议以及其他一些基础技术的内容可以在很多书或者网络资源中找到，也可以去看参考资料
@@ -245,8 +246,8 @@ HyperDex数据库提供了一种解决方案。基本思想是把每个属性视
 </ul>
 </div>
 
-<div id="outline-container-org2b09b65" class="outline-3">
-<h3 id="org2b09b65"><span class="section-number-3">4.1</span> 故障检测</h3>
+<div id="outline-container-org9467644" class="outline-3">
+<h3 id="org9467644"><span class="section-number-3">4.1</span> 故障检测</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>N. Hayashibara, A. Cherif, T. Katayama. Failure Detectors for Large-Scale Distributed Systems <a href="http://ddg.jaist.ac.jp/pub/HCK02.pdf">http://ddg.jaist.ac.jp/pub/HCK02.pdf</a></li>
@@ -277,8 +278,8 @@ HyperDex数据库提供了一种解决方案。基本思想是把每个属性视
 </div>
 </div>
 
-<div id="outline-container-org9ec9852" class="outline-3">
-<h3 id="org9ec9852"><span class="section-number-3">4.2</span> 协调者竞选</h3>
+<div id="outline-container-orgbc16d23" class="outline-3">
+<h3 id="orgbc16d23"><span class="section-number-3">4.2</span> 协调者竞选</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 协调者竞选是用于强一致性数据库的一个重要技术。首先，它可以组织主从结构的系统中主节点的故障恢复。其次，在网络隔离的情况下，它可以断开处于少数的那部分节点，以避免写冲突。
@@ -291,5 +292,5 @@ HyperDex数据库提供了一种解决方案。基本思想是把每个属性视
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/distributed-algorithms-in-nosql-databases.html';this.page.identifier = 'distributed-algorithms-in-nosql-databases.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

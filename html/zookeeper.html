@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZooKeeper: Wait-free coordination for Internet-scale systems</title>
@@ -18,14 +19,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge421ccb">1. Abstract</a></li>
-<li><a href="#orgb12c6a3">2. Introduction</a></li>
-<li><a href="#org4f27977">3. The ZooKeeper service</a></li>
-<li><a href="#orgabab1ce">4. ZooKeeper Applications</a></li>
-<li><a href="#org363687c">5. ZooKeeper Implementation</a></li>
-<li><a href="#org0b6a2b2">6. Evaluation</a></li>
-<li><a href="#org070a6d8">7. Related work</a></li>
-<li><a href="#org50f9a9c">8. Conclusions</a></li>
+<li><a href="#orgcda98cf">1. Abstract</a></li>
+<li><a href="#org9019635">2. Introduction</a></li>
+<li><a href="#org2188008">3. The ZooKeeper service</a></li>
+<li><a href="#orgec171ab">4. ZooKeeper Applications</a></li>
+<li><a href="#org8b286d1">5. ZooKeeper Implementation</a></li>
+<li><a href="#org6c486f7">6. Evaluation</a></li>
+<li><a href="#org9d27aab">7. Related work</a></li>
+<li><a href="#orge703aee">8. Conclusions</a></li>
 </ul>
 </div>
 </div>
@@ -33,11 +34,11 @@
 <a href="http://research.yahoo.com/pub/3280">http://research.yahoo.com/pub/3280</a> @ 2010
 </p>
 
-<div id="outline-container-orge421ccb" class="outline-2">
-<h2 id="orge421ccb"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-orgcda98cf" class="outline-2">
+<h2 id="orgcda98cf"><span class="section-number-2">1</span> Abstract</h2>
 </div>
-<div id="outline-container-orgb12c6a3" class="outline-2">
-<h2 id="orgb12c6a3"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-org9019635" class="outline-2">
+<h2 id="org9019635"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>coordination方面具体应用包括: 1)configuration. 2)group-membership and leader election. 3)lock-service. etc.</li>
@@ -49,8 +50,8 @@
 </div>
 </div>
 
-<div id="outline-container-org4f27977" class="outline-2">
-<h2 id="org4f27977"><span class="section-number-2">3</span> The ZooKeeper service</h2>
+<div id="outline-container-org2188008" class="outline-2">
+<h2 id="org2188008"><span class="section-number-2">3</span> The ZooKeeper service</h2>
 <div class="outline-text-2" id="text-3">
 <hr />
 <p>
@@ -118,11 +119,11 @@ ZooKeeper has two basic ordering guarantees:
 </div>
 </div>
 
-<div id="outline-container-orgabab1ce" class="outline-2">
-<h2 id="orgabab1ce"><span class="section-number-2">4</span> ZooKeeper Applications</h2>
+<div id="outline-container-orgec171ab" class="outline-2">
+<h2 id="orgec171ab"><span class="section-number-2">4</span> ZooKeeper Applications</h2>
 </div>
-<div id="outline-container-org363687c" class="outline-2">
-<h2 id="org363687c"><span class="section-number-2">5</span> ZooKeeper Implementation</h2>
+<div id="outline-container-org8b286d1" class="outline-2">
+<h2 id="org8b286d1"><span class="section-number-2">5</span> ZooKeeper Implementation</h2>
 <div class="outline-text-2" id="text-5">
 
 <div class="figure">
@@ -143,15 +144,15 @@ ZooKeeper has two basic ordering guarantees:
 </div>
 </div>
 
-<div id="outline-container-org0b6a2b2" class="outline-2">
-<h2 id="org0b6a2b2"><span class="section-number-2">6</span> Evaluation</h2>
+<div id="outline-container-org6c486f7" class="outline-2">
+<h2 id="org6c486f7"><span class="section-number-2">6</span> Evaluation</h2>
 </div>
-<div id="outline-container-org070a6d8" class="outline-2">
-<h2 id="org070a6d8"><span class="section-number-2">7</span> Related work</h2>
+<div id="outline-container-org9d27aab" class="outline-2">
+<h2 id="org9d27aab"><span class="section-number-2">7</span> Related work</h2>
 </div>
-<div id="outline-container-org50f9a9c" class="outline-2">
-<h2 id="org50f9a9c"><span class="section-number-2">8</span> Conclusions</h2>
+<div id="outline-container-orge703aee" class="outline-2">
+<h2 id="orge703aee"><span class="section-number-2">8</span> Conclusions</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/zookeeper.html';this.page.identifier = 'zookeeper.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

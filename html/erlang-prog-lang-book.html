@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang程序设计</title>
@@ -40,18 +41,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org709969e">1. 如何启动</a></li>
-<li><a href="#org1e78213">2. 数据类型</a></li>
-<li><a href="#orgeb582a3">3. 控制结构</a></li>
-<li><a href="#org784ae94">4. 文件属性</a></li>
-<li><a href="#org7d56104">5. 并发编程</a></li>
-<li><a href="#org5a179ed">6. 其他特性</a></li>
+<li><a href="#orgad04b36">1. 如何启动</a></li>
+<li><a href="#org8393ef5">2. 数据类型</a></li>
+<li><a href="#orgdbbf937">3. 控制结构</a></li>
+<li><a href="#org66f00e2">4. 文件属性</a></li>
+<li><a href="#orgf1b6151">5. 并发编程</a></li>
+<li><a href="#org142a79e">6. 其他特性</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org709969e" class="outline-2">
-<h2 id="org709969e"><span class="section-number-2">1</span> 如何启动</h2>
+<div id="outline-container-orgad04b36" class="outline-2">
+<h2 id="orgad04b36"><span class="section-number-2">1</span> 如何启动</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 通常erlang源代码会保存为.erl文件，但是也有.hrl文件（和C的header文件类似），erlang编译器也使用了宏和预处理机制来处理代码。
@@ -84,8 +85,8 @@ P = 1, Q = 2ok
 </div>
 </div>
 
-<div id="outline-container-org1e78213" class="outline-2">
-<h2 id="org1e78213"><span class="section-number-2">2</span> 数据类型</h2>
+<div id="outline-container-org8393ef5" class="outline-2">
+<h2 id="org8393ef5"><span class="section-number-2">2</span> 数据类型</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 首先erlang里面需要恰当使用逗号(,), 分号(;) 和句号(;). 大致逻辑是这样的
@@ -136,13 +137,13 @@ P = 1, Q = 2ok
 </p>
 
 <p>
-二进制(binary). 和C的struct有点类似，<a id="orgb9fa43e"></a>表示有三个字段顺序排列，当然也可以为里面每个字段设置bit size, 以及type还有endian等。erlang的二进制比较强大的地方是，可以很容易地充分利用模式匹配这个功能。
+二进制(binary). 和C的struct有点类似，<a id="org4f6764e"></a>表示有三个字段顺序排列，当然也可以为里面每个字段设置bit size, 以及type还有endian等。erlang的二进制比较强大的地方是，可以很容易地充分利用模式匹配这个功能。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgeb582a3" class="outline-2">
-<h2 id="orgeb582a3"><span class="section-number-2">3</span> 控制结构</h2>
+<div id="outline-container-orgdbbf937" class="outline-2">
+<h2 id="orgdbbf937"><span class="section-number-2">3</span> 控制结构</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 函数定义. 可以看到函数定义也有点类似模式匹配，可以列举各种模式来决定执行行为
@@ -226,8 +227,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-org784ae94" class="outline-2">
-<h2 id="org784ae94"><span class="section-number-2">4</span> 文件属性</h2>
+<div id="outline-container-org66f00e2" class="outline-2">
+<h2 id="org66f00e2"><span class="section-number-2">4</span> 文件属性</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 属性语法类似于 -SomeTag(&#x2026;) , 分为预定义属性和自定义属性。预定义的属性有
@@ -246,8 +247,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-org7d56104" class="outline-2">
-<h2 id="org7d56104"><span class="section-number-2">5</span> 并发编程</h2>
+<div id="outline-container-orgf1b6151" class="outline-2">
+<h2 id="orgf1b6151"><span class="section-number-2">5</span> 并发编程</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 通过spawn函数来创建线程，返回一个线程句柄（通常命名为Pid），之后可以往这个线程投递消息，比如 <code>Pid ! hello</code> 。
@@ -264,8 +265,8 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 
-<div id="outline-container-org5a179ed" class="outline-2">
-<h2 id="org5a179ed"><span class="section-number-2">6</span> 其他特性</h2>
+<div id="outline-container-org142a79e" class="outline-2">
+<h2 id="org142a79e"><span class="section-number-2">6</span> 其他特性</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>类型推断和类型检查。 用户可以提供spec来帮助erlang来检查类型错误，两个程序dialyzer和typer</li>
@@ -276,5 +277,5 @@ func1([{tag, {one, A} = Z1, B} = Z2 | T]) -&gt;
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/erlang-prog-lang-book.html';this.page.identifier = 'erlang-prog-lang-book.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

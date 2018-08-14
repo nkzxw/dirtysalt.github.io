@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hadoop权威指南(笔记)</title>
@@ -40,21 +41,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8eeac99">1. 初识Hadoop</a></li>
-<li><a href="#org053d826">2. 关于MapReduce</a></li>
-<li><a href="#orge29ca0c">3. Hadoop分布式文件系统</a></li>
-<li><a href="#org8487e05">4. Hadoop IO</a></li>
-<li><a href="#orgf9f7ccb">5. MapReduce应用开发</a></li>
-<li><a href="#org8534084">6. MapReduce的工作机制</a></li>
-<li><a href="#org2f4e5a2">7. MapReduce的类型与格式</a></li>
-<li><a href="#orgeeac3a6">8. MapReduce的特性</a></li>
-<li><a href="#org5ecbf12">9. 构建Hadoop集群</a></li>
-<li><a href="#org24f92e8">10. 管理Hadoop</a></li>
+<li><a href="#orgfef3d32">1. 初识Hadoop</a></li>
+<li><a href="#org1c7a352">2. 关于MapReduce</a></li>
+<li><a href="#org23887dc">3. Hadoop分布式文件系统</a></li>
+<li><a href="#orgad25abe">4. Hadoop IO</a></li>
+<li><a href="#org454ca14">5. MapReduce应用开发</a></li>
+<li><a href="#org5f3f46d">6. MapReduce的工作机制</a></li>
+<li><a href="#org8ddcdca">7. MapReduce的类型与格式</a></li>
+<li><a href="#org877a7d7">8. MapReduce的特性</a></li>
+<li><a href="#org0eb9a2a">9. 构建Hadoop集群</a></li>
+<li><a href="#org524620d">10. 管理Hadoop</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8eeac99" class="outline-2">
-<h2 id="org8eeac99"><span class="section-number-2">1</span> 初识Hadoop</h2>
+<div id="outline-container-orgfef3d32" class="outline-2">
+<h2 id="orgfef3d32"><span class="section-number-2">1</span> 初识Hadoop</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 古代，人们用牛来拉中午，当一头牛拉不动一根圆木的时候，他们不曾想过培育更大更壮的牛。同样，我们也不需要尝试开发超级计算机，而应试着结合使用更多计算机系统。
@@ -62,8 +63,8 @@
 </div>
 </div>
 
-<div id="outline-container-org053d826" class="outline-2">
-<h2 id="org053d826"><span class="section-number-2">2</span> 关于MapReduce</h2>
+<div id="outline-container-org1c7a352" class="outline-2">
+<h2 id="org1c7a352"><span class="section-number-2">2</span> 关于MapReduce</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>设置HADOOP_CLASSPATH就可以直接使用hadoop CLASSNAME来在本地运行mapreduce程序。</li>
@@ -86,8 +87,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge29ca0c" class="outline-2">
-<h2 id="orge29ca0c"><span class="section-number-2">3</span> Hadoop分布式文件系统</h2>
+<div id="outline-container-org23887dc" class="outline-2">
+<h2 id="org23887dc"><span class="section-number-2">3</span> Hadoop分布式文件系统</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>使用hadoop archive能够将大量小文档打包，存档文件之能够只读访问
@@ -110,8 +111,8 @@
 </div>
 </div>
 
-<div id="outline-container-org8487e05" class="outline-2">
-<h2 id="org8487e05"><span class="section-number-2">4</span> Hadoop IO</h2>
+<div id="outline-container-orgad25abe" class="outline-2">
+<h2 id="orgad25abe"><span class="section-number-2">4</span> Hadoop IO</h2>
 <div class="outline-text-2" id="text-4">
 <hr />
 <ul class="org-ul">
@@ -229,8 +230,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgf9f7ccb" class="outline-2">
-<h2 id="orgf9f7ccb"><span class="section-number-2">5</span> MapReduce应用开发</h2>
+<div id="outline-container-org454ca14" class="outline-2">
+<h2 id="org454ca14"><span class="section-number-2">5</span> MapReduce应用开发</h2>
 <div class="outline-text-2" id="text-5">
 <hr />
 <ul class="org-ul">
@@ -386,8 +387,8 @@ job，task and attempt
 </div>
 </div>
 
-<div id="outline-container-org8534084" class="outline-2">
-<h2 id="org8534084"><span class="section-number-2">6</span> MapReduce的工作机制</h2>
+<div id="outline-container-org5f3f46d" class="outline-2">
+<h2 id="org5f3f46d"><span class="section-number-2">6</span> MapReduce的工作机制</h2>
 <div class="outline-text-2" id="text-6">
 <hr />
 <p>
@@ -580,8 +581,8 @@ shuffle和排序
 </div>
 </div>
 
-<div id="outline-container-org2f4e5a2" class="outline-2">
-<h2 id="org2f4e5a2"><span class="section-number-2">7</span> MapReduce的类型与格式</h2>
+<div id="outline-container-org8ddcdca" class="outline-2">
+<h2 id="org8ddcdca"><span class="section-number-2">7</span> MapReduce的类型与格式</h2>
 <div class="outline-text-2" id="text-7">
 <hr />
 <p>
@@ -761,8 +762,8 @@ public abstract class RecordReader&lt;KEYIN, VALUEIN&gt; implements Closeable {
 </div>
 </div>
 
-<div id="outline-container-orgeeac3a6" class="outline-2">
-<h2 id="orgeeac3a6"><span class="section-number-2">8</span> MapReduce的特性</h2>
+<div id="outline-container-org877a7d7" class="outline-2">
+<h2 id="org877a7d7"><span class="section-number-2">8</span> MapReduce的特性</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>计数器
@@ -816,8 +817,8 @@ public abstract class RecordReader&lt;KEYIN, VALUEIN&gt; implements Closeable {
 </div>
 </div>
 
-<div id="outline-container-org5ecbf12" class="outline-2">
-<h2 id="org5ecbf12"><span class="section-number-2">9</span> 构建Hadoop集群</h2>
+<div id="outline-container-org0eb9a2a" class="outline-2">
+<h2 id="org0eb9a2a"><span class="section-number-2">9</span> 构建Hadoop集群</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>很多教程说hadoop集群需要配置ssh,但是配置这个前提是你希望使用start-all.sh这个脚本来启动集群
@@ -921,8 +922,8 @@ public abstract class RecordReader&lt;KEYIN, VALUEIN&gt; implements Closeable {
 </div>
 </div>
 
-<div id="outline-container-org24f92e8" class="outline-2">
-<h2 id="org24f92e8"><span class="section-number-2">10</span> 管理Hadoop</h2>
+<div id="outline-container-org524620d" class="outline-2">
+<h2 id="org524620d"><span class="section-number-2">10</span> 管理Hadoop</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>永久性数据结构
@@ -1020,5 +1021,5 @@ public abstract class RecordReader&lt;KEYIN, VALUEIN&gt; implements Closeable {
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hadoop-definitive-guide.html';this.page.identifier = 'hadoop-definitive-guide.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

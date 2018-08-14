@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PIC(位置无关代码)</title>
@@ -18,13 +19,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb749d2b">1. 什么是PIC</a></li>
-<li><a href="#orgb3da264">2. 为什么需要PIC</a></li>
-<li><a href="#orgd64a8b3">3. 动态库</a></li>
-<li><a href="#org1a238e9">4. GOT和PLT</a>
+<li><a href="#orgbd22c94">1. 什么是PIC</a></li>
+<li><a href="#org3325603">2. 为什么需要PIC</a></li>
+<li><a href="#org273c33f">3. 动态库</a></li>
+<li><a href="#orgb05bab3">4. GOT和PLT</a>
 <ul>
-<li><a href="#orgaed48d8">4.1. 数据引用</a></li>
-<li><a href="#org1487100">4.2. 函数调用</a></li>
+<li><a href="#orgb59f5ac">4.1. 数据引用</a></li>
+<li><a href="#org6301a61">4.2. 函数调用</a></li>
 </ul>
 </li>
 </ul>
@@ -34,8 +35,8 @@
 内容基本都是来自于《深入理解计算机系统》这本书的
 </p>
 
-<div id="outline-container-orgb749d2b" class="outline-2">
-<h2 id="orgb749d2b"><span class="section-number-2">1</span> 什么是PIC</h2>
+<div id="outline-container-orgbd22c94" class="outline-2">
+<h2 id="orgbd22c94"><span class="section-number-2">1</span> 什么是PIC</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 pic的意思是position independent code(位置无关代码),就是指运行和放置地址无关的代码。
@@ -88,8 +89,8 @@ pic的意思是position independent code(位置无关代码),就是指运行和�
 </div>
 </div>
 
-<div id="outline-container-orgb3da264" class="outline-2">
-<h2 id="orgb3da264"><span class="section-number-2">2</span> 为什么需要PIC</h2>
+<div id="outline-container-org3325603" class="outline-2">
+<h2 id="org3325603"><span class="section-number-2">2</span> 为什么需要PIC</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 考虑可执行程序使用静态库而言的话，最终使用的所有静态库符号，都会进行符号重定位的。因为在编译静态库的时候，
@@ -147,8 +148,8 @@ GLIBC_2.0
 </div>
 </div>
 
-<div id="outline-container-orgd64a8b3" class="outline-2">
-<h2 id="orgd64a8b3"><span class="section-number-2">3</span> 动态库</h2>
+<div id="outline-container-org273c33f" class="outline-2">
+<h2 id="org273c33f"><span class="section-number-2">3</span> 动态库</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 可执行程序在和动态库链接的时候，不会将符号定义copy进入自身，相反是存下一个索引(GOT+PLT)来实现的，具体原理后面会说到。
@@ -337,16 +338,16 @@ ELF Header:
 </div>
 </div>
 
-<div id="outline-container-org1a238e9" class="outline-2">
-<h2 id="org1a238e9"><span class="section-number-2">4</span> GOT和PLT</h2>
+<div id="outline-container-orgb05bab3" class="outline-2">
+<h2 id="orgb05bab3"><span class="section-number-2">4</span> GOT和PLT</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 虽然上面说对于外部符号使用GOT+PLT方式来解决，但是对于全局变量和全局函数是使用两种不同的解析方法来获得的。
 </p>
 </div>
 
-<div id="outline-container-orgaed48d8" class="outline-3">
-<h3 id="orgaed48d8"><span class="section-number-3">4.1</span> 数据引用</h3>
+<div id="outline-container-orgb59f5ac" class="outline-3">
+<h3 id="orgb59f5ac"><span class="section-number-3">4.1</span> 数据引用</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 GOT是指全局偏移量表(global offset table).在数据引用里面的话，那么里面存放的就是全局变量的地址。
@@ -393,8 +394,8 @@ GOT是指全局偏移量表(global offset table).在数据引用里面的话，�
 </div>
 </div>
 
-<div id="outline-container-org1487100" class="outline-3">
-<h3 id="org1487100"><span class="section-number-3">4.2</span> 函数调用</h3>
+<div id="outline-container-org6301a61" class="outline-3">
+<h3 id="org6301a61"><span class="section-number-3">4.2</span> 函数调用</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 PLT是指过程链接表(procedure linkage table).函数调用需要PLT和GOT配合来完成。需要注意的是GOT
@@ -526,5 +527,5 @@ PLT是指过程链接表(procedure linkage table).函数调用需要PLT和GOT配
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/pic-code.html';this.page.identifier = 'pic-code.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

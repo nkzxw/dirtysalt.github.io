@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>libev</title>
@@ -18,23 +19,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org45ebebb">1. Overview</a></li>
-<li><a href="#org2de1be5">2. EventLoop</a></li>
-<li><a href="#org63dd843">3. Watcher</a></li>
-<li><a href="#orgc4520a2">4. How it works</a>
+<li><a href="#org505c97c">1. Overview</a></li>
+<li><a href="#orgff93324">2. EventLoop</a></li>
+<li><a href="#orgca3152f">3. Watcher</a></li>
+<li><a href="#org9cdffea">4. How it works</a>
 <ul>
-<li><a href="#orgd300d71">4.1. ev_run</a></li>
-<li><a href="#orgae1515d">4.2. fd_reify</a></li>
-<li><a href="#org765c313">4.3. backend_poll</a></li>
-<li><a href="#org285b97b">4.4. timers_reify</a></li>
-<li><a href="#org6083ab8">4.5. EV_INVOKE_PENDING</a></li>
+<li><a href="#orgb62f30e">4.1. ev_run</a></li>
+<li><a href="#orge070d94">4.2. fd_reify</a></li>
+<li><a href="#org1a08685">4.3. backend_poll</a></li>
+<li><a href="#org469ee81">4.4. timers_reify</a></li>
+<li><a href="#org5d44622">4.5. EV_INVOKE_PENDING</a></li>
 </ul>
 </li>
-<li><a href="#org4928565">5. Example</a>
+<li><a href="#org8f81595">5. Example</a>
 <ul>
-<li><a href="#orgd2c44dd">5.1. common.h</a></li>
-<li><a href="#orgf2ebc3d">5.2. echo-client.cc</a></li>
-<li><a href="#org3a9c1a2">5.3. echo-server.cc</a></li>
+<li><a href="#orga348600">5.1. common.h</a></li>
+<li><a href="#orgf7743fa">5.2. echo-client.cc</a></li>
+<li><a href="#orge63e255">5.3. echo-server.cc</a></li>
 </ul>
 </li>
 </ul>
@@ -44,8 +45,8 @@
 <a href="http://software.schmorp.de/pkg/libev.html">http://software.schmorp.de/pkg/libev.html</a>
 </p>
 
-<div id="outline-container-org45ebebb" class="outline-2">
-<h2 id="org45ebebb"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org505c97c" class="outline-2">
+<h2 id="org505c97c"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 libev所实现的功能就是一个强大的reactor, 可以notify的事件主要包括下面这些：
@@ -156,8 +157,8 @@ ev_io_start (EV_P_ <span class="org-type">ev_io</span> *<span class="org-variabl
 </div>
 </div>
 
-<div id="outline-container-org2de1be5" class="outline-2">
-<h2 id="org2de1be5"><span class="section-number-2">2</span> EventLoop</h2>
+<div id="outline-container-orgff93324" class="outline-2">
+<h2 id="orgff93324"><span class="section-number-2">2</span> EventLoop</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 首先我们关注一下reactor本身。在libev下面reactor对象称为event_loop.event_loop允许动态创建和销毁，并且允许绑定自定义数据
@@ -244,8 +245,8 @@ ev_io_start (EV_P_ <span class="org-type">ev_io</span> *<span class="org-variabl
 </div>
 </div>
 
-<div id="outline-container-org63dd843" class="outline-2">
-<h2 id="org63dd843"><span class="section-number-2">3</span> Watcher</h2>
+<div id="outline-container-orgca3152f" class="outline-2">
+<h2 id="orgca3152f"><span class="section-number-2">3</span> Watcher</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 然后我们关心一下EventHandler.在libev下面watcher相当于EventHandler这么一个概念，通常里面会绑定fd回调函数以及我们需要关注的事件。
@@ -282,12 +283,12 @@ wacther的状态有下面这么几种：
 </div>
 </div>
 
-<div id="outline-container-orgc4520a2" class="outline-2">
-<h2 id="orgc4520a2"><span class="section-number-2">4</span> How it works</h2>
+<div id="outline-container-org9cdffea" class="outline-2">
+<h2 id="org9cdffea"><span class="section-number-2">4</span> How it works</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgd300d71" class="outline-3">
-<h3 id="orgd300d71"><span class="section-number-3">4.1</span> ev_run</h3>
+<div id="outline-container-orgb62f30e" class="outline-3">
+<h3 id="orgb62f30e"><span class="section-number-3">4.1</span> ev_run</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 最主要的还是看看ev_run这个部分代码。我们不打算仔细阅读只是看看梗概然后大体分析一下数据结构应该怎么样的
@@ -393,8 +394,8 @@ wacther的状态有下面这么几种：
 </div>
 </div>
 
-<div id="outline-container-orgae1515d" class="outline-3">
-<h3 id="orgae1515d"><span class="section-number-3">4.2</span> fd_reify</h3>
+<div id="outline-container-orge070d94" class="outline-3">
+<h3 id="orge070d94"><span class="section-number-3">4.2</span> fd_reify</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 下面是fd_reify代码片段.可以看出，这个部分就是在修改fd关注的events。
@@ -481,8 +482,8 @@ inline_size <span class="org-type">void</span>
 </div>
 </div>
 
-<div id="outline-container-org765c313" class="outline-3">
-<h3 id="org765c313"><span class="section-number-3">4.3</span> backend_poll</h3>
+<div id="outline-container-org1a08685" class="outline-3">
+<h3 id="org1a08685"><span class="section-number-3">4.3</span> backend_poll</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 backend_poll底层支持很多poll实现，我们这里仅仅看ev_epoll.c就可以.代码在这里面我们不列举了，
@@ -529,8 +530,8 @@ ev_feed_event (EV_P_ <span class="org-type">void</span> *<span class="org-variab
 </div>
 </div>
 
-<div id="outline-container-org285b97b" class="outline-3">
-<h3 id="org285b97b"><span class="section-number-3">4.4</span> timers_reify</h3>
+<div id="outline-container-org469ee81" class="outline-3">
+<h3 id="org469ee81"><span class="section-number-3">4.4</span> timers_reify</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 其中HEAP0就是最小堆下标。如果repeat的话说明需要重复发生，那么就会重新调整时间戳，如果不是repeat的话，
@@ -579,8 +580,8 @@ ev_feed_event (EV_P_ <span class="org-type">void</span> *<span class="org-variab
 </div>
 </div>
 
-<div id="outline-container-org6083ab8" class="outline-3">
-<h3 id="org6083ab8"><span class="section-number-3">4.5</span> EV_INVOKE_PENDING</h3>
+<div id="outline-container-org5d44622" class="outline-3">
+<h3 id="org5d44622"><span class="section-number-3">4.5</span> EV_INVOKE_PENDING</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 这个宏最终调用的函数就是下面这个，遍历所有的pendings事件并且逐一触发。
@@ -607,16 +608,16 @@ ev_invoke_pending (EV_P)
 </div>
 </div>
 
-<div id="outline-container-org4928565" class="outline-2">
-<h2 id="org4928565"><span class="section-number-2">5</span> Example</h2>
+<div id="outline-container-org8f81595" class="outline-2">
+<h2 id="org8f81595"><span class="section-number-2">5</span> Example</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 尝试编写一个简单的带有超时的echo-server和echo-client就发现其实还有非常多的其他的工作量，比如buffer的管理状态机实现等。
 所以我没有写出一个完整的example,只是简单地写了假设echo-client连接上server的话就简单地打印链接信息并且关闭。
 </p>
 </div>
-<div id="outline-container-orgd2c44dd" class="outline-3">
-<h3 id="orgd2c44dd"><span class="section-number-3">5.1</span> common.h</h3>
+<div id="outline-container-orga348600" class="outline-3">
+<h3 id="orga348600"><span class="section-number-3">5.1</span> common.h</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-preprocessor">#if</span><span class="org-negation-char"><span class="org-preprocessor">n</span></span><span class="org-preprocessor">def</span> _COMMON_H_
@@ -696,8 +697,8 @@ ev_invoke_pending (EV_P)
 </div>
 </div>
 
-<div id="outline-container-orgf2ebc3d" class="outline-3">
-<h3 id="orgf2ebc3d"><span class="section-number-3">5.2</span> echo-client.cc</h3>
+<div id="outline-container-orgf7743fa" class="outline-3">
+<h3 id="orgf7743fa"><span class="section-number-3">5.2</span> echo-client.cc</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-C++">
@@ -726,8 +727,8 @@ ev_invoke_pending (EV_P)
 </div>
 </div>
 
-<div id="outline-container-org3a9c1a2" class="outline-3">
-<h3 id="org3a9c1a2"><span class="section-number-3">5.3</span> echo-server.cc</h3>
+<div id="outline-container-orge63e255" class="outline-3">
+<h3 id="orge63e255"><span class="section-number-3">5.3</span> echo-server.cc</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-C++">
@@ -760,5 +761,5 @@ ev_invoke_pending (EV_P)
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/libev.html';this.page.identifier = 'libev.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

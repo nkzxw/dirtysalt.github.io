@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP Implementation in Linux: A Brief Tutorial</title>
@@ -18,10 +19,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgac91b0f">1. create connection</a></li>
-<li><a href="#org8dd27f9">2. packet reception</a></li>
-<li><a href="#org1113bad">3. packet transmission</a></li>
-<li><a href="#org870647d">4. congestion control</a></li>
+<li><a href="#org3c832b1">1. create connection</a></li>
+<li><a href="#org1613aa5">2. packet reception</a></li>
+<li><a href="#org024d091">3. packet transmission</a></li>
+<li><a href="#org7c1b985">4. congestion control</a></li>
 </ul>
 </div>
 </div>
@@ -29,8 +30,8 @@
 <a href="http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf">http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf</a>
 </p>
 
-<div id="outline-container-orgac91b0f" class="outline-2">
-<h2 id="orgac91b0f"><span class="section-number-2">1</span> create connection</h2>
+<div id="outline-container-org3c832b1" class="outline-2">
+<h2 id="org3c832b1"><span class="section-number-2">1</span> create connection</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 下面摘自 "<a href="http://blog.sina.com.cn/s/blog_e59371cc0102vg4n.html">Linux TCP队列相关参数的总结</a>":
@@ -56,8 +57,8 @@
 </div>
 </div>
 
-<div id="outline-container-org8dd27f9" class="outline-2">
-<h2 id="org8dd27f9"><span class="section-number-2">2</span> packet reception</h2>
+<div id="outline-container-org1613aa5" class="outline-2">
+<h2 id="org1613aa5"><span class="section-number-2">2</span> packet reception</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -111,8 +112,8 @@ Linux在2.6.17以后增加了recv Buffer自动调节机制，recv buffer的实�
 </div>
 </div>
 
-<div id="outline-container-org1113bad" class="outline-2">
-<h2 id="org1113bad"><span class="section-number-2">3</span> packet transmission</h2>
+<div id="outline-container-org024d091" class="outline-2">
+<h2 id="org024d091"><span class="section-number-2">3</span> packet transmission</h2>
 <div class="outline-text-2" id="text-3">
 
 <div class="figure">
@@ -166,8 +167,8 @@ QDisc的队列长度由txqueuelen设置，和接收数据包的队列长度由�
 </div>
 </div>
 
-<div id="outline-container-org870647d" class="outline-2">
-<h2 id="org870647d"><span class="section-number-2">4</span> congestion control</h2>
+<div id="outline-container-org7c1b985" class="outline-2">
+<h2 id="org7c1b985"><span class="section-number-2">4</span> congestion control</h2>
 <div class="outline-text-2" id="text-4">
 
 <div class="figure">
@@ -185,5 +186,5 @@ QDisc的队列长度由txqueuelen设置，和接收数据包的队列长度由�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/tcp-on-linux.html';this.page.identifier = 'tcp-on-linux.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

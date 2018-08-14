@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hadoop Benchmark</title>
@@ -40,11 +41,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga3b8623">1. TestDFSIO</a></li>
-<li><a href="#orgcecde81">2. TeraSort</a></li>
-<li><a href="#org407fd61">3. nnbench</a></li>
-<li><a href="#orgeb3eca7">4. mrbench</a></li>
-<li><a href="#org803c0fb">5. hbase.PerformanceEvaluation</a></li>
+<li><a href="#org2a7fe7d">1. TestDFSIO</a></li>
+<li><a href="#org9a91d58">2. TeraSort</a></li>
+<li><a href="#org14cea01">3. nnbench</a></li>
+<li><a href="#orgf157abe">4. mrbench</a></li>
+<li><a href="#org1b346bc">5. hbase.PerformanceEvaluation</a></li>
 </ul>
 </div>
 </div>
@@ -57,8 +58,8 @@
 <li><a href="http://wiki.apache.org/hadoop/Hbase/PerformanceEvaluation">Hbase/PerformanceEvaluation</a></li>
 </ul>
 
-<div id="outline-container-orga3b8623" class="outline-2">
-<h2 id="orga3b8623"><span class="section-number-2">1</span> TestDFSIO</h2>
+<div id="outline-container-org2a7fe7d" class="outline-2">
+<h2 id="org2a7fe7d"><span class="section-number-2">1</span> TestDFSIO</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 测试hdfs吞吐
@@ -105,8 +106,8 @@ Average IO rate mb/sec: 28.125
 </div>
 </div>
 
-<div id="outline-container-orgcecde81" class="outline-2">
-<h2 id="orgcecde81"><span class="section-number-2">2</span> TeraSort</h2>
+<div id="outline-container-org9a91d58" class="outline-2">
+<h2 id="org9a91d58"><span class="section-number-2">2</span> TeraSort</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 通过排序测试MR执行效率 <b>我看了一下代码map/reduce都有CPU操作，并且这个也非常依靠shuffle/copy.因此这个测试应该会是比较全面的</b>
@@ -141,8 +142,8 @@ hdfs@hadoop1:~$ hadoop jar /usr/lib/hadoop/hadoop-examples-0.20.2-cdh3u3.jar &lt
 </div>
 </div>
 
-<div id="outline-container-org407fd61" class="outline-2">
-<h2 id="org407fd61"><span class="section-number-2">3</span> nnbench</h2>
+<div id="outline-container-org14cea01" class="outline-2">
+<h2 id="org14cea01"><span class="section-number-2">3</span> nnbench</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 测试nn负载能力
@@ -253,8 +254,8 @@ Avg exec time (ms): Create/Write/Close: 26.526666666666667
 </div>
 </div>
 
-<div id="outline-container-orgeb3eca7" class="outline-2">
-<h2 id="orgeb3eca7"><span class="section-number-2">4</span> mrbench</h2>
+<div id="outline-container-orgf157abe" class="outline-2">
+<h2 id="orgf157abe"><span class="section-number-2">4</span> mrbench</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 测试运行small mr jobs执行效率，主要关注响应时间。
@@ -293,8 +294,8 @@ DataLines	Maps	Reduces	AvgTime (milliseconds)
 </div>
 </div>
 
-<div id="outline-container-org803c0fb" class="outline-2">
-<h2 id="org803c0fb"><span class="section-number-2">5</span> hbase.PerformanceEvaluation</h2>
+<div id="outline-container-org1b346bc" class="outline-2">
+<h2 id="org1b346bc"><span class="section-number-2">5</span> hbase.PerformanceEvaluation</h2>
 <div class="outline-text-2" id="text-5">
 <pre class="example">
 hdfs@hadoop1:~$ hbase org.apache.hadoop.hbase.PerformanceEvaluation
@@ -356,5 +357,5 @@ hdfs@hadoop1:~$ time hbase org.apache.hadoop.hbase.PerformanceEvaluation --rows=
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hadoop-benchmark.html';this.page.identifier = 'hadoop-benchmark.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

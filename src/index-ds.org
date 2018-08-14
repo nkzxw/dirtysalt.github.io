@@ -26,7 +26,7 @@
 - [[file:./paxos.org][Paxos]] / [[file:./raft.org][Raft]] 分布式一致性算法
 
 ** Articles
-- 201808 [[file:./blogs/youtube-scalability.org][Youtube Scalability]] on youtube
+- 201808 [[file:blogs/youtube-scalability.org][YouTube Scalability]] on youtube
 - 201712 [[file:./blogs/timeline-at-scale-in-twitter.org][Timeline at Scale in Twitter]] by Raffi Krikorian @ 2013
 - 201711 [[file:./blogs/getting-real-about-distributed-system-reliability.org][Getting Real About Distributed System Reliability]] Jay Kreps （分布式系统的真实的可靠性）
 - 201606 [[file:./blogs/anaconda-high-perf-solution.org][Anacoda High Performance Solution]]

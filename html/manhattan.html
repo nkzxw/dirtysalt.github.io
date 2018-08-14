@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>oManhattan, our real-time, multi-tenant distributed database for Twitter scale</title>
@@ -18,14 +19,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgac1a6a5">1. Layers</a></li>
-<li><a href="#org2e8bc4c">2. Core</a></li>
-<li><a href="#orgb684743">3. Consistency model</a></li>
-<li><a href="#orgcef928d">4. Achieving consistency</a></li>
-<li><a href="#org88bda7b">5. Storage engines</a></li>
-<li><a href="#org4a58c00">6. Storage Services</a></li>
-<li><a href="#org74f5e68">7. Interfaces</a></li>
-<li><a href="#orgb05f107">8. Multi-Tenancy and QoS (Quality of Service)</a></li>
+<li><a href="#orgca86743">1. Layers</a></li>
+<li><a href="#org66a3a38">2. Core</a></li>
+<li><a href="#org904e5f9">3. Consistency model</a></li>
+<li><a href="#orgf5df54b">4. Achieving consistency</a></li>
+<li><a href="#org6567481">5. Storage engines</a></li>
+<li><a href="#orgb4e5aa9">6. Storage Services</a></li>
+<li><a href="#org3661549">7. Interfaces</a></li>
+<li><a href="#orgab3e729">8. Multi-Tenancy and QoS (Quality of Service)</a></li>
 </ul>
 </div>
 </div>
@@ -33,8 +34,8 @@
 <a href="https://blog.twitter.com/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale">https://blog.twitter.com/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale</a>
 </p>
 
-<div id="outline-container-orgac1a6a5" class="outline-2">
-<h2 id="orgac1a6a5"><span class="section-number-2">1</span> Layers</h2>
+<div id="outline-container-orgca86743" class="outline-2">
+<h2 id="orgca86743"><span class="section-number-2">1</span> Layers</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -44,8 +45,8 @@
 </div>
 </div>
 
-<div id="outline-container-org2e8bc4c" class="outline-2">
-<h2 id="org2e8bc4c"><span class="section-number-2">2</span> Core</h2>
+<div id="outline-container-org66a3a38" class="outline-2">
+<h2 id="org66a3a38"><span class="section-number-2">2</span> Core</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The core is the most critical aspect of the storage system: it is highly stable and robust. It handles failure, eventual consistency, routing, topology management, intra- and inter-datacenter replication, and conflict resolution. Within the core of the system, crucial pieces of architecture are completely pluggable so we can iterate quickly on designs and improvements, as well as unit test effectively.</li>
@@ -55,8 +56,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgb684743" class="outline-2">
-<h2 id="orgb684743"><span class="section-number-2">3</span> Consistency model</h2>
+<div id="outline-container-org904e5f9" class="outline-2">
+<h2 id="org904e5f9"><span class="section-number-2">3</span> Consistency model</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Many of Twitter’s applications fit very well into the eventually consistent model. We favor high availability over consistency in almost all use cases, so it was natural to build Manhattan as an eventually consistent system at its core.</li>
@@ -65,8 +66,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgcef928d" class="outline-2">
-<h2 id="orgcef928d"><span class="section-number-2">4</span> Achieving consistency</h2>
+<div id="outline-container-orgf5df54b" class="outline-2">
+<h2 id="orgf5df54b"><span class="section-number-2">4</span> Achieving consistency</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>To achieve consistency in an eventually consistent system you need a required mechanism which we call replica reconciliation. This mechanism needs to be incremental, and an always running process that reconciles data across replicas. It helps in the face of bitrot, software bugs, missed writes (nodes going down for long periods of time) and network partitions between datacenters.</li>
@@ -75,8 +76,8 @@
 </div>
 </div>
 
-<div id="outline-container-org88bda7b" class="outline-2">
-<h2 id="org88bda7b"><span class="section-number-2">5</span> Storage engines</h2>
+<div id="outline-container-org6567481" class="outline-2">
+<h2 id="org6567481"><span class="section-number-2">5</span> Storage engines</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>seadb, our read-only file format for batch processed data from hadoop</li>
@@ -87,8 +88,8 @@
 </div>
 </div>
 
-<div id="outline-container-org4a58c00" class="outline-2">
-<h2 id="org4a58c00"><span class="section-number-2">6</span> Storage Services</h2>
+<div id="outline-container-orgb4e5aa9" class="outline-2">
+<h2 id="orgb4e5aa9"><span class="section-number-2">6</span> Storage Services</h2>
 <div class="outline-text-2" id="text-6">
 
 <div class="figure">
@@ -117,8 +118,8 @@ We have created additional services that sit on top of the core of Manhattan tha
 </div>
 </div>
 
-<div id="outline-container-org74f5e68" class="outline-2">
-<h2 id="org74f5e68"><span class="section-number-2">7</span> Interfaces</h2>
+<div id="outline-container-org3661549" class="outline-2">
+<h2 id="org3661549"><span class="section-number-2">7</span> Interfaces</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The interface layer is how a customer interacts with our storage system. Currently we expose a key/value interface to our customers, and we are working on additional interfaces such as a graph based interface to interact with edges.
@@ -126,8 +127,8 @@ The interface layer is how a customer interacts with our storage system. Current
 </div>
 </div>
 
-<div id="outline-container-orgb05f107" class="outline-2">
-<h2 id="orgb05f107"><span class="section-number-2">8</span> Multi-Tenancy and QoS (Quality of Service)</h2>
+<div id="outline-container-orgab3e729" class="outline-2">
+<h2 id="orgab3e729"><span class="section-number-2">8</span> Multi-Tenancy and QoS (Quality of Service)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Supporting multi-tenancy — allowing many different applications to share the same resources — was a key requirement from the beginning. In previous systems we managed at Twitter, we were building out clusters for every feature. This was increasing operator burden, wasting resources, and slowing customers from rolling out new features quickly.
@@ -143,5 +144,5 @@ We monitor and, if needed, throttle resource usage across many metrics to ensure
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/manhattan.html';this.page.identifier = 'manhattan.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

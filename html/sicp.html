@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Structure and Interpretation of Computer Programs</title>
@@ -18,12 +19,12 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2e94c8c">1. 序言</a></li>
-<li><a href="#org35eaab2">2. 构造抽象过程</a></li>
-<li><a href="#org11a10ed">3. 构造数据抽象</a></li>
-<li><a href="#orgcf1ef4e">4. 模块化，对象和状态</a></li>
-<li><a href="#org528a55b">5. 元语言抽象</a></li>
-<li><a href="#orgaf9d443">6. 寄存器机器里的计算</a></li>
+<li><a href="#org0f1bf44">1. 序言</a></li>
+<li><a href="#org786140a">2. 构造抽象过程</a></li>
+<li><a href="#orge5ed686">3. 构造数据抽象</a></li>
+<li><a href="#org4f89ee1">4. 模块化，对象和状态</a></li>
+<li><a href="#orgaffdf92">5. 元语言抽象</a></li>
+<li><a href="#org5505dfc">6. 寄存器机器里的计算</a></li>
 </ul>
 </div>
 </div>
@@ -31,8 +32,8 @@
 <a href="http://mitpress.mit.edu/sicp/">http://mitpress.mit.edu/sicp/</a>
 </p>
 
-<div id="outline-container-org2e94c8c" class="outline-2">
-<h2 id="org2e94c8c"><span class="section-number-2">1</span> 序言</h2>
+<div id="outline-container-org0f1bf44" class="outline-2">
+<h2 id="org0f1bf44"><span class="section-number-2">1</span> 序言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 你所知道的有关计算的东西，其他人也都能学到。绝不要认为似乎成功计算的钥匙就掌握在你的手里。你所掌握的，也是我认为并且希望的，也就是智慧：那种看到这一机器比你第一次站在它面前时能够做的更多的能力，这样你才能将它向前推进。
@@ -60,8 +61,8 @@ SICP1的封面和SICP2的 <a href="images/SICP2.jpg">封面</a>
 </div>
 </div>
 
-<div id="outline-container-org35eaab2" class="outline-2">
-<h2 id="org35eaab2"><span class="section-number-2">2</span> 构造抽象过程</h2>
+<div id="outline-container-org786140a" class="outline-2">
+<h2 id="org786140a"><span class="section-number-2">2</span> 构造抽象过程</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 心智的活动除了尽力产生各种简单的认识外，主要表现在(组合，对比，抽象):
@@ -113,8 +114,8 @@ Lisp不像其他程序设计语言，它给了过程完全的第一级状态。�
 </div>
 </div>
 
-<div id="outline-container-org11a10ed" class="outline-2">
-<h2 id="org11a10ed"><span class="section-number-2">3</span> 构造数据抽象</h2>
+<div id="outline-container-orge5ed686" class="outline-2">
+<h2 id="orge5ed686"><span class="section-number-2">3</span> 构造数据抽象</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 现在到了数学抽象中最关键的一步:让我们忘记这些符号所表示的对象。数学家不应该在这里停步，有许多操作可以应用于这些符号，而根本不必考虑它们代表什么。
@@ -141,8 +142,8 @@ car = Contents of Address part of Register. cdr = Contents of Decrement part of 
 </div>
 </div>
 
-<div id="outline-container-orgcf1ef4e" class="outline-2">
-<h2 id="orgcf1ef4e"><span class="section-number-2">4</span> 模块化，对象和状态</h2>
+<div id="outline-container-org4f89ee1" class="outline-2">
+<h2 id="org4f89ee1"><span class="section-number-2">4</span> 模块化，对象和状态</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 延迟求值需要环境提供两个函数delay和force. 其中delay传入函数f返回一个延迟对象，而force作用在这个延迟对象上就可以执行f. 很明显delay需要使用宏来实现
@@ -231,8 +232,8 @@ car = Contents of Address part of Register. cdr = Contents of Decrement part of 
 </div>
 </div>
 
-<div id="outline-container-org528a55b" class="outline-2">
-<h2 id="org528a55b"><span class="section-number-2">5</span> 元语言抽象</h2>
+<div id="outline-container-orgaffdf92" class="outline-2">
+<h2 id="orgaffdf92"><span class="section-number-2">5</span> 元语言抽象</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 真正的魔力在于知道哪个咒语有用，在什么时候，用于做什么，其诀窍就在于学会有关的诀窍。而这些咒语也使用我们的字母表里面的字母拼出来的，这些字母表中不过是几十个可以用笔画话出来的弯弯曲线。这就是最关键的！而这些珍宝也是如此，如果我们能将它们拿到手的话。这就像是说，就像通向珍宝的钥匙是珍宝。
@@ -290,8 +291,8 @@ Scheme的变形：非确定性计算
 </div>
 </div>
 
-<div id="outline-container-orgaf9d443" class="outline-2">
-<h2 id="orgaf9d443"><span class="section-number-2">6</span> 寄存器机器里的计算</h2>
+<div id="outline-container-org5505dfc" class="outline-2">
+<h2 id="org5505dfc"><span class="section-number-2">6</span> 寄存器机器里的计算</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信中标有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有的活动都是由一个发条产生的一样。
@@ -671,5 +672,5 @@ OK. 很明显我们现在还需要拓展一下指令的表示：我们需要在�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/sicp.html';this.page.identifier = 'sicp.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

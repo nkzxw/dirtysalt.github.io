@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>hpserver</title>
@@ -18,14 +19,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbb2c96e">1. Reactor</a></li>
-<li><a href="#org5519c49">2. IReactor</a></li>
-<li><a href="#org4adb221">3. DTEV_ITEM</a></li>
-<li><a href="#orgbb8722a">4. EventScheduler</a></li>
-<li><a href="#org80f7311">5. DemuxTable</a></li>
-<li><a href="#orgce6b503">6. SignalSet</a></li>
-<li><a href="#org10670b7">7. SignalInfo</a></li>
-<li><a href="#orgc006832">8. How it works</a></li>
+<li><a href="#org4ceadd4">1. Reactor</a></li>
+<li><a href="#org90f699c">2. IReactor</a></li>
+<li><a href="#org0c4868d">3. DTEV_ITEM</a></li>
+<li><a href="#org9afb8ce">4. EventScheduler</a></li>
+<li><a href="#orgf0ffd17">5. DemuxTable</a></li>
+<li><a href="#org29591a4">6. SignalSet</a></li>
+<li><a href="#org019ca54">7. SignalInfo</a></li>
+<li><a href="#orgd2c2783">8. How it works</a></li>
 </ul>
 </div>
 </div>
@@ -52,8 +53,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 因为对于每一种信号必须产生一个EventHandler实例。不过还好我们关注的信号还是比较有限的，所以开辟的EventHandler还不算太多。这个从samples/signal-handler.cpp就可以看出来。
 </p>
 
-<div id="outline-container-orgbb2c96e" class="outline-2">
-<h2 id="orgbb2c96e"><span class="section-number-2">1</span> Reactor</h2>
+<div id="outline-container-org4ceadd4" class="outline-2">
+<h2 id="org4ceadd4"><span class="section-number-2">1</span> Reactor</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">CReactor</span>
@@ -76,8 +77,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-org5519c49" class="outline-2">
-<h2 id="org5519c49"><span class="section-number-2">2</span> IReactor</h2>
+<div id="outline-container-org90f699c" class="outline-2">
+<h2 id="org90f699c"><span class="section-number-2">2</span> IReactor</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">IReactor_Imp</span>
@@ -105,8 +106,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-org4adb221" class="outline-2">
-<h2 id="org4adb221"><span class="section-number-2">3</span> DTEV_ITEM</h2>
+<div id="outline-container-org0c4868d" class="outline-2">
+<h2 id="org0c4868d"><span class="section-number-2">3</span> DTEV_ITEM</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-keyword">struct</span> <span class="org-type">DTEV_ITEM</span> <span class="org-comment-delimiter">// </span><span class="org-comment">event item structure</span>
@@ -126,8 +127,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgbb8722a" class="outline-2">
-<h2 id="orgbb8722a"><span class="section-number-2">4</span> EventScheduler</h2>
+<div id="outline-container-org9afb8ce" class="outline-2">
+<h2 id="org9afb8ce"><span class="section-number-2">4</span> EventScheduler</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">IEventScheduler</span>
@@ -165,8 +166,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-org80f7311" class="outline-2">
-<h2 id="org80f7311"><span class="section-number-2">5</span> DemuxTable</h2>
+<div id="outline-container-orgf0ffd17" class="outline-2">
+<h2 id="orgf0ffd17"><span class="section-number-2">5</span> DemuxTable</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 我们注册fd和对应的event handler的时候，那么event item在什么地方开辟呢？这个event item就是在DemuxTable上面开辟。DemuxTable就是一个
@@ -194,8 +195,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-orgce6b503" class="outline-2">
-<h2 id="orgce6b503"><span class="section-number-2">6</span> SignalSet</h2>
+<div id="outline-container-org29591a4" class="outline-2">
+<h2 id="org29591a4"><span class="section-number-2">6</span> SignalSet</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 对于信号来说，并不是将fd和DTEV_ITEM进行绑定，而是将EventHandler和DTEV_ITEM进行绑定。映射关系就维护在SignalSet里面
@@ -217,8 +218,8 @@ event handler,event item,handle(fd或者是信号编号)分开了，但是阅读
 </div>
 </div>
 
-<div id="outline-container-org10670b7" class="outline-2">
-<h2 id="org10670b7"><span class="section-number-2">7</span> SignalInfo</h2>
+<div id="outline-container-org019ca54" class="outline-2">
+<h2 id="org019ca54"><span class="section-number-2">7</span> SignalInfo</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 对于我们关心的信号都往这里面注册即可。我们注册的对象是DTEV_ITEM,但是我们可以根据DTEV_ITEM找到对应的handler,然后
@@ -270,8 +271,8 @@ reactor的active_event函数。SignalInfo应该会自己安装自己的信号处
 </div>
 </div>
 
-<div id="outline-container-orgc006832" class="outline-2">
-<h2 id="orgc006832"><span class="section-number-2">8</span> How it works</h2>
+<div id="outline-container-orgd2c2783" class="outline-2">
+<h2 id="orgd2c2783"><span class="section-number-2">8</span> How it works</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 我们主要关注Reactor的RunForever.RunForever里面会一遍一遍地调用EventLoopOnce这个过程，每次调用的时候都会检查是否需要退出。
@@ -283,5 +284,5 @@ reactor的active_event函数。SignalInfo应该会自己安装自己的信号处
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/hpserver.html';this.page.identifier = 'hpserver.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

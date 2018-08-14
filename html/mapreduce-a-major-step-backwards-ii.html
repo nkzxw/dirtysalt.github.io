@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MapReduce: A major step backwards（MapReduce：一个巨大的倒退）- II</title>
@@ -18,10 +19,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc291b56">1. MapReduce is not a database system, so don't judge it as one</a></li>
-<li><a href="#org6f145c6">2. MapReduce has excellent scalability; the proof is Google's use</a></li>
-<li><a href="#orgd41202a">3. MapReduce is cheap and databases are expensive</a></li>
-<li><a href="#org77a498a">4. We are the old guard trying to defend our turf/legacy from the young turks</a></li>
+<li><a href="#org95c3377">1. MapReduce is not a database system, so don't judge it as one</a></li>
+<li><a href="#orge85a3c0">2. MapReduce has excellent scalability; the proof is Google's use</a></li>
+<li><a href="#org2da52c4">3. MapReduce is cheap and databases are expensive</a></li>
+<li><a href="#org9b39a45">4. We are the old guard trying to defend our turf/legacy from the young turks</a></li>
 </ul>
 </div>
 </div>
@@ -39,8 +40,8 @@
 <li>我们是老古董，只是想保护自己的领土/财产不受年轻一辈的侵蚀</li>
 </ul>
 
-<div id="outline-container-orgc291b56" class="outline-2">
-<h2 id="orgc291b56"><span class="section-number-2">1</span> MapReduce is not a database system, so don't judge it as one</h2>
+<div id="outline-container-org95c3377" class="outline-2">
+<h2 id="org95c3377"><span class="section-number-2">1</span> MapReduce is not a database system, so don't judge it as one</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 作者给MapReduce实现上提出了4个建议点，认为可以极大提提升性能，而这些特性在PDBMS里面都有：
@@ -54,8 +55,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6f145c6" class="outline-2">
-<h2 id="org6f145c6"><span class="section-number-2">2</span> MapReduce has excellent scalability; the proof is Google's use</h2>
+<div id="outline-container-orge85a3c0" class="outline-2">
+<h2 id="orge85a3c0"><span class="section-number-2">2</span> MapReduce has excellent scalability; the proof is Google's use</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Linear scaleup is the gold standard for measuring the scalability of data intensive applications. As far as we are aware there are no published papers that study the scalability of MapReduce in a controlled scientific fashion. MapReduce may indeed scale linearly, but we have not seen published evidence of this. <b>mapreduce依然没有达到linear scaleup水平</b></li>
@@ -63,11 +64,11 @@
 </div>
 </div>
 
-<div id="outline-container-orgd41202a" class="outline-2">
-<h2 id="orgd41202a"><span class="section-number-2">3</span> MapReduce is cheap and databases are expensive</h2>
+<div id="outline-container-org2da52c4" class="outline-2">
+<h2 id="org2da52c4"><span class="section-number-2">3</span> MapReduce is cheap and databases are expensive</h2>
 </div>
-<div id="outline-container-org77a498a" class="outline-2">
-<h2 id="org77a498a"><span class="section-number-2">4</span> We are the old guard trying to defend our turf/legacy from the young turks</h2>
+<div id="outline-container-org9b39a45" class="outline-2">
+<h2 id="org9b39a45"><span class="section-number-2">4</span> We are the old guard trying to defend our turf/legacy from the young turks</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Since both of us are among the "gray beards" and have been on this earth about 2 Giga-seconds, we have seen a lot of ideas come and go. We are constantly struck by the following two observations: 因为我俩都是“白胡子”老头了，已经在这个地球上呆了超过2G秒了，我们看到过很多主意的产生和消失。而且我们经常被下面两个现象所烦恼：
@@ -79,5 +80,5 @@ Since both of us are among the "gray beards" and have been on this earth about 2
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/mapreduce-a-major-step-backwards-ii.html';this.page.identifier = 'mapreduce-a-major-step-backwards-ii.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

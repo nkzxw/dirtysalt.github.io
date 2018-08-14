@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SIMD</title>
@@ -18,33 +19,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2ca3e5a">1. 指令集</a>
+<li><a href="#orge7dc948">1. 指令集</a>
 <ul>
-<li><a href="#org5070510">1.1. MMX</a></li>
-<li><a href="#org64717e7">1.2. SSE.</a></li>
-<li><a href="#org514d577">1.3. SSE2</a></li>
-<li><a href="#org66b2d21">1.4. SSE3</a></li>
-<li><a href="#org5176fd3">1.5. SSSE3</a></li>
-<li><a href="#orga887a81">1.6. SSE4</a></li>
-<li><a href="#org412188b">1.7. 检测代码</a></li>
+<li><a href="#org49a7f76">1.1. MMX</a></li>
+<li><a href="#org9dadd18">1.2. SSE.</a></li>
+<li><a href="#org101b4c9">1.3. SSE2</a></li>
+<li><a href="#org51b74e9">1.4. SSE3</a></li>
+<li><a href="#orgb439745">1.5. SSSE3</a></li>
+<li><a href="#org09e1624">1.6. SSE4</a></li>
+<li><a href="#org56df69f">1.7. 检测代码</a></li>
 </ul>
 </li>
-<li><a href="#org4ee7f02">2. 基本概念</a>
+<li><a href="#org1348d7d">2. 基本概念</a>
 <ul>
-<li><a href="#org8542b7f">2.1. %mm寄存器</a></li>
-<li><a href="#org03cb0be">2.2. %xmm寄存器</a></li>
-<li><a href="#orgba90360">2.3. %mxcsr寄存器</a></li>
-<li><a href="#orgd5fdc9c">2.4. Saturation &amp; Wraparound</a></li>
-<li><a href="#org6774e45">2.5. General Purpose Register(GPR)</a></li>
-<li><a href="#orgf1fd278">2.6. X87 FPU</a></li>
-<li><a href="#orga4d0021">2.7. Packed &amp; Scalar Instructions</a></li>
-<li><a href="#orgb38e05a">2.8. Temporal &amp; NonTemporal Data</a></li>
-<li><a href="#orgedc4da1">2.9. Alignment</a></li>
-<li><a href="#org20fc6eb">2.10. Asymmetric &amp; Horizontal Processing</a></li>
-<li><a href="#org3ff6c4e">2.11. Zero Fill &amp; Truncated</a></li>
+<li><a href="#org9937b67">2.1. %mm寄存器</a></li>
+<li><a href="#org261ba61">2.2. %xmm寄存器</a></li>
+<li><a href="#org1424819">2.3. %mxcsr寄存器</a></li>
+<li><a href="#orga907a6c">2.4. Saturation &amp; Wraparound</a></li>
+<li><a href="#orgdfd28ea">2.5. General Purpose Register(GPR)</a></li>
+<li><a href="#org54bbd30">2.6. X87 FPU</a></li>
+<li><a href="#orgd382ea9">2.7. Packed &amp; Scalar Instructions</a></li>
+<li><a href="#org5310194">2.8. Temporal &amp; NonTemporal Data</a></li>
+<li><a href="#org957cc25">2.9. Alignment</a></li>
+<li><a href="#org37f6001">2.10. Asymmetric &amp; Horizontal Processing</a></li>
+<li><a href="#org54214f0">2.11. Zero Fill &amp; Truncated</a></li>
 </ul>
 </li>
-<li><a href="#orgcd8f005">3. 指令</a></li>
+<li><a href="#orgf1a6212">3. 指令</a></li>
 </ul>
 </div>
 </div>
@@ -52,12 +53,12 @@
 Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software - <a href="https://software.intel.com/en-us/articles/intel-sdm">https://software.intel.com/en-us/articles/intel-sdm</a>
 </p>
 
-<div id="outline-container-org2ca3e5a" class="outline-2">
-<h2 id="org2ca3e5a"><span class="section-number-2">1</span> 指令集</h2>
+<div id="outline-container-orge7dc948" class="outline-2">
+<h2 id="orge7dc948"><span class="section-number-2">1</span> 指令集</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org5070510" class="outline-3">
-<h3 id="org5070510"><span class="section-number-3">1.1</span> MMX</h3>
+<div id="outline-container-org49a7f76" class="outline-3">
+<h3 id="org49a7f76"><span class="section-number-3">1.1</span> MMX</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Multimedia Extensions.[PII &amp; PMMX]</li>
@@ -66,8 +67,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org64717e7" class="outline-3">
-<h3 id="org64717e7"><span class="section-number-3">1.2</span> SSE.</h3>
+<div id="outline-container-org9dadd18" class="outline-3">
+<h3 id="org9dadd18"><span class="section-number-3">1.2</span> SSE.</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Streaming SIMD Extensions.[PIII]</li>
@@ -76,8 +77,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org514d577" class="outline-3">
-<h3 id="org514d577"><span class="section-number-3">1.3</span> SSE2</h3>
+<div id="outline-container-org101b4c9" class="outline-3">
+<h3 id="org101b4c9"><span class="section-number-3">1.3</span> SSE2</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Streaming SIMD Extensions2.[P4 &amp; Xeon]</li>
@@ -86,8 +87,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org66b2d21" class="outline-3">
-<h3 id="org66b2d21"><span class="section-number-3">1.4</span> SSE3</h3>
+<div id="outline-container-org51b74e9" class="outline-3">
+<h3 id="org51b74e9"><span class="section-number-3">1.4</span> SSE3</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Streaming SIMD Extensions3.[P4(HT)]</li>
@@ -96,8 +97,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org5176fd3" class="outline-3">
-<h3 id="org5176fd3"><span class="section-number-3">1.5</span> SSSE3</h3>
+<div id="outline-container-orgb439745" class="outline-3">
+<h3 id="orgb439745"><span class="section-number-3">1.5</span> SSSE3</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>Supplemental Stream SIMD Extensions3.[Xeon(5100) &amp; Core2]</li>
@@ -106,8 +107,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-orga887a81" class="outline-3">
-<h3 id="orga887a81"><span class="section-number-3">1.6</span> SSE4</h3>
+<div id="outline-container-org09e1624" class="outline-3">
+<h3 id="org09e1624"><span class="section-number-3">1.6</span> SSE4</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Streaming SIMD Extensions4.[Xeon(5400) &amp; Core2Ex(QX9650)]</li>
@@ -117,8 +118,8 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org412188b" class="outline-3">
-<h3 id="org412188b"><span class="section-number-3">1.7</span> 检测代码</h3>
+<div id="outline-container-org56df69f" class="outline-3">
+<h3 id="org56df69f"><span class="section-number-3">1.7</span> 检测代码</h3>
 <div class="outline-text-3" id="text-1-7">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;stdio.h&gt;</span>
@@ -230,12 +231,12 @@ Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software
 </div>
 </div>
 
-<div id="outline-container-org4ee7f02" class="outline-2">
-<h2 id="org4ee7f02"><span class="section-number-2">2</span> 基本概念</h2>
+<div id="outline-container-org1348d7d" class="outline-2">
+<h2 id="org1348d7d"><span class="section-number-2">2</span> 基本概念</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org8542b7f" class="outline-3">
-<h3 id="org8542b7f"><span class="section-number-3">2.1</span> %mm寄存器</h3>
+<div id="outline-container-org9937b67" class="outline-3">
+<h3 id="org9937b67"><span class="section-number-3">2.1</span> %mm寄存器</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 %mm寄存器是64bit,共有8个%mm寄存器.需要注意的是,%mm0-%mm7是X87 FPU寄存器的alias,
@@ -274,8 +275,8 @@ EMMS指令会清除MMX的状态,将FPU tag word进行清空,表示所有的FPU r
 </div>
 </div>
 
-<div id="outline-container-org03cb0be" class="outline-3">
-<h3 id="org03cb0be"><span class="section-number-3">2.2</span> %xmm寄存器</h3>
+<div id="outline-container-org261ba61" class="outline-3">
+<h3 id="org261ba61"><span class="section-number-3">2.2</span> %xmm寄存器</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 %xmm寄存器是128bit.
@@ -285,8 +286,8 @@ IA-32架构下只允许访问8个%xmm寄存器.
 </div>
 </div>
 
-<div id="outline-container-orgba90360" class="outline-3">
-<h3 id="orgba90360"><span class="section-number-3">2.3</span> %mxcsr寄存器</h3>
+<div id="outline-container-org1424819" class="outline-3">
+<h3 id="org1424819"><span class="section-number-3">2.3</span> %mxcsr寄存器</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 %mxcsr是32bit.%mxcsr寄存器是在SSE指令集引入的,用来控制作用在%xmm寄存器操作的行为,
@@ -324,8 +325,8 @@ IA-32架构下只允许访问8个%xmm寄存器.
 </div>
 </div>
 
-<div id="outline-container-orgd5fdc9c" class="outline-3">
-<h3 id="orgd5fdc9c"><span class="section-number-3">2.4</span> Saturation &amp; Wraparound</h3>
+<div id="outline-container-orga907a6c" class="outline-3">
+<h3 id="orga907a6c"><span class="section-number-3">2.4</span> Saturation &amp; Wraparound</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 在进行整数运算的时候,可能会存在out-of-range的情况,结果不能够被目标数所表示.对于
@@ -357,8 +358,8 @@ IA-32架构下只允许访问8个%xmm寄存器.
 </div>
 </div>
 
-<div id="outline-container-org6774e45" class="outline-3">
-<h3 id="org6774e45"><span class="section-number-3">2.5</span> General Purpose Register(GPR)</h3>
+<div id="outline-container-orgdfd28ea" class="outline-3">
+<h3 id="orgdfd28ea"><span class="section-number-3">2.5</span> General Purpose Register(GPR)</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 通用寄存器,包括EAX/RAX,EBX/RBX,ECX/RCX等.这些通用寄存器和%mm和%xmm之间的差别是,
@@ -367,8 +368,8 @@ IA-32架构下只允许访问8个%xmm寄存器.
 </div>
 </div>
 
-<div id="outline-container-orgf1fd278" class="outline-3">
-<h3 id="orgf1fd278"><span class="section-number-3">2.6</span> X87 FPU</h3>
+<div id="outline-container-org54bbd30" class="outline-3">
+<h3 id="org54bbd30"><span class="section-number-3">2.6</span> X87 FPU</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 X87 FPU是浮点运算部件,共有8个寄存器,组织方式是堆栈.通常来说对于SIMD并不需要关心
@@ -424,8 +425,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-orga4d0021" class="outline-3">
-<h3 id="orga4d0021"><span class="section-number-3">2.7</span> Packed &amp; Scalar Instructions</h3>
+<div id="outline-container-orgd382ea9" class="outline-3">
+<h3 id="orgd382ea9"><span class="section-number-3">2.7</span> Packed &amp; Scalar Instructions</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 对于SIMD提供了操作packed和scalar指令.我们假设存在两个操作数,
@@ -460,8 +461,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-orgb38e05a" class="outline-3">
-<h3 id="orgb38e05a"><span class="section-number-3">2.8</span> Temporal &amp; NonTemporal Data</h3>
+<div id="outline-container-org5310194" class="outline-3">
+<h3 id="org5310194"><span class="section-number-3">2.8</span> Temporal &amp; NonTemporal Data</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 待续.需要阅读Intel Vol.3A Memory &amp; Cache Control这节.在Intel Vol.1 10.4.6.2也有介绍.
@@ -469,8 +470,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-orgedc4da1" class="outline-3">
-<h3 id="orgedc4da1"><span class="section-number-3">2.9</span> Alignment</h3>
+<div id="outline-container-org957cc25" class="outline-3">
+<h3 id="org957cc25"><span class="section-number-3">2.9</span> Alignment</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 关于对齐方面,如果使用128bit Memory Operand必须进行16字节的对齐.但是有些例外
@@ -484,8 +485,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-org20fc6eb" class="outline-3">
-<h3 id="org20fc6eb"><span class="section-number-3">2.10</span> Asymmetric &amp; Horizontal Processing</h3>
+<div id="outline-container-org37f6001" class="outline-3">
+<h3 id="org37f6001"><span class="section-number-3">2.10</span> Asymmetric &amp; Horizontal Processing</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 分别是对称处理和水平处理.假设存在操作数(a0,a1,a2,a3)以及(b0,b1,b2,b3).
@@ -495,8 +496,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-org3ff6c4e" class="outline-3">
-<h3 id="org3ff6c4e"><span class="section-number-3">2.11</span> Zero Fill &amp; Truncated</h3>
+<div id="outline-container-org54214f0" class="outline-3">
+<h3 id="org54214f0"><span class="section-number-3">2.11</span> Zero Fill &amp; Truncated</h3>
 <div class="outline-text-3" id="text-2-11">
 <p>
 对于从内存/寄存器载入到寄存器的话,如果位数不够,通常是占用寄存器的低字节,
@@ -511,8 +512,8 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 
-<div id="outline-container-orgcd8f005" class="outline-2">
-<h2 id="orgcd8f005"><span class="section-number-2">3</span> 指令</h2>
+<div id="outline-container-orgf1a6212" class="outline-2">
+<h2 id="orgf1a6212"><span class="section-number-2">3</span> 指令</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 为了方便表示,我们定义下面缩写和操作.
@@ -956,5 +957,5 @@ X87 FPU这个部件.但是因为SIMD使用的%mm寄存器是FPU寄存器的alias
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/simd.html';this.page.identifier = 'simd.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Unix Network Programming</title>
@@ -18,170 +19,170 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org888c4ef">1. 简介</a>
+<li><a href="#org5732dbc">1. 简介</a>
 <ul>
-<li><a href="#orgd8ca318">1.1. 网络模型</a></li>
-<li><a href="#orge624aaf">1.2. 网络协议</a></li>
-<li><a href="#org4c15407">1.3. 数据包大小限制</a>
+<li><a href="#org75a084d">1.1. 网络模型</a></li>
+<li><a href="#org2b0a498">1.2. 网络协议</a></li>
+<li><a href="#orge362052">1.3. 数据包大小限制</a>
 <ul>
-<li><a href="#orge467b96">1.3.1. IP数据报头部字段</a></li>
-<li><a href="#orga750adb">1.3.2. 网络MTU</a></li>
-<li><a href="#org978639a">1.3.3. 路径MTU</a></li>
-<li><a href="#orge2032df">1.3.4. IP分片</a></li>
-<li><a href="#orgafa275c">1.3.5. 最小重组缓冲区大小</a></li>
-<li><a href="#org0be7ca4">1.3.6. TCP MSS</a></li>
+<li><a href="#orga78b3f1">1.3.1. IP数据报头部字段</a></li>
+<li><a href="#org92b44eb">1.3.2. 网络MTU</a></li>
+<li><a href="#orgf0e44de">1.3.3. 路径MTU</a></li>
+<li><a href="#orge7bd3f6">1.3.4. IP分片</a></li>
+<li><a href="#orgdd0a38d">1.3.5. 最小重组缓冲区大小</a></li>
+<li><a href="#org45f1b6e">1.3.6. TCP MSS</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org19cc62c">2. 套接字接口</a>
+<li><a href="#orgd0d59a2">2. 套接字接口</a>
 <ul>
-<li><a href="#org2d4865a">2.1. address</a>
+<li><a href="#orgf05e775">2.1. address</a>
 <ul>
-<li><a href="#org3dd0b6f">2.1.1. 通用地址结构</a></li>
-<li><a href="#orgfe4f22b">2.1.2. IPv4地址结构</a></li>
-<li><a href="#orgdbfe0e7">2.1.3. IPv6地址结构</a></li>
-<li><a href="#orgaef7fc6">2.1.4. IP地址表示和数值</a></li>
-<li><a href="#org789de76">2.1.5. 端口号</a></li>
+<li><a href="#orgb7fbfc4">2.1.1. 通用地址结构</a></li>
+<li><a href="#orgca2a4c9">2.1.2. IPv4地址结构</a></li>
+<li><a href="#org0e88be6">2.1.3. IPv6地址结构</a></li>
+<li><a href="#org42c96ca">2.1.4. IP地址表示和数值</a></li>
+<li><a href="#org6f4341c">2.1.5. 端口号</a></li>
 </ul>
 </li>
-<li><a href="#org85b9eb0">2.2. socket</a></li>
-<li><a href="#org83071c5">2.3. connect</a>
+<li><a href="#org938c667">2.2. socket</a></li>
+<li><a href="#org3d66537">2.3. connect</a>
 <ul>
-<li><a href="#org0d7ca72">2.3.1. 使用说明</a></li>
-<li><a href="#org36fb245">2.3.2. 非阻塞</a></li>
-<li><a href="#orgf6f335c">2.3.3. 三次握手</a></li>
-<li><a href="#org54c0660">2.3.4. ETIMEOUT</a></li>
-<li><a href="#org9aaf59c">2.3.5. ECONNREFUSED</a></li>
-<li><a href="#org09a4680">2.3.6. ENETUNREACH</a></li>
-<li><a href="#org39736bb">2.3.7. EADDRINUSE</a></li>
+<li><a href="#org48c329c">2.3.1. 使用说明</a></li>
+<li><a href="#org6a9669e">2.3.2. 非阻塞</a></li>
+<li><a href="#org520d2b8">2.3.3. 三次握手</a></li>
+<li><a href="#org5e42a27">2.3.4. ETIMEOUT</a></li>
+<li><a href="#org0003d9d">2.3.5. ECONNREFUSED</a></li>
+<li><a href="#org5f6ec08">2.3.6. ENETUNREACH</a></li>
+<li><a href="#org6977745">2.3.7. EADDRINUSE</a></li>
 </ul>
 </li>
-<li><a href="#orgf25ae92">2.4. bind</a></li>
-<li><a href="#org0d103d9">2.5. listen</a>
+<li><a href="#org1255437">2.4. bind</a></li>
+<li><a href="#org1676e3e">2.5. listen</a>
 <ul>
-<li><a href="#orgcbe1da0">2.5.1. 使用说明</a></li>
-<li><a href="#org2ee9224">2.5.2. backlog</a></li>
+<li><a href="#org3a54e40">2.5.1. 使用说明</a></li>
+<li><a href="#org9886cb0">2.5.2. backlog</a></li>
 </ul>
 </li>
-<li><a href="#orge57fe6d">2.6. accept</a>
+<li><a href="#orgdcaafc4">2.6. accept</a>
 <ul>
-<li><a href="#org337fadb">2.6.1. 使用说明</a></li>
-<li><a href="#org6df9fb1">2.6.2. 惊群效应(thundering herd)</a></li>
-<li><a href="#org74e1c8a">2.6.3. 非阻塞</a></li>
-<li><a href="#org25664e6">2.6.4. ECONNABORTED/EPROTO</a></li>
-<li><a href="#org1ff9f24">2.6.5. EPIPE</a></li>
+<li><a href="#orge12d1d3">2.6.1. 使用说明</a></li>
+<li><a href="#org73d1adc">2.6.2. 惊群效应(thundering herd)</a></li>
+<li><a href="#orgb094e4f">2.6.3. 非阻塞</a></li>
+<li><a href="#orge99d7f1">2.6.4. ECONNABORTED/EPROTO</a></li>
+<li><a href="#orgf2f25cb">2.6.5. EPIPE</a></li>
 </ul>
 </li>
-<li><a href="#org9f499fc">2.7. close/shutdown</a></li>
-<li><a href="#orgb543001">2.8. getsockname/getpeername</a></li>
-<li><a href="#org5987740">2.9. option</a>
+<li><a href="#orgef93565">2.7. close/shutdown</a></li>
+<li><a href="#orgd0e9643">2.8. getsockname/getpeername</a></li>
+<li><a href="#orgc460000">2.9. option</a>
 <ul>
-<li><a href="#org5f0c010">2.9.1. 概览</a></li>
-<li><a href="#orgdddb893">2.9.2. SO_ERROR</a></li>
-<li><a href="#org51f5b0c">2.9.3. SO_KEEPALIVE</a></li>
-<li><a href="#orgf5e5287">2.9.4. SO_LINGER</a></li>
-<li><a href="#orgcaecbe5">2.9.5. SO_RCVBUF/SO_SNDBUF</a></li>
-<li><a href="#org5e58a08">2.9.6. SO_RCVTIMEO/SO_SNDTIMEO</a></li>
-<li><a href="#orgee084a4">2.9.7. SO_REUSEADDR</a></li>
-<li><a href="#org1d9c4ae">2.9.8. TCP_MAXSEG</a></li>
-<li><a href="#org3cb42fc">2.9.9. TCP_NODELAY</a></li>
-<li><a href="#org3d65083">2.9.10. TCP_QUICKACK</a></li>
-<li><a href="#org3e5c11d">2.9.11. TCP_CORK</a></li>
+<li><a href="#org3ce5131">2.9.1. 概览</a></li>
+<li><a href="#org352a26d">2.9.2. SO_ERROR</a></li>
+<li><a href="#orgf697a22">2.9.3. SO_KEEPALIVE</a></li>
+<li><a href="#orgf392c12">2.9.4. SO_LINGER</a></li>
+<li><a href="#org66ca7df">2.9.5. SO_RCVBUF/SO_SNDBUF</a></li>
+<li><a href="#orge8117ec">2.9.6. SO_RCVTIMEO/SO_SNDTIMEO</a></li>
+<li><a href="#org6df1233">2.9.7. SO_REUSEADDR</a></li>
+<li><a href="#orgda2805f">2.9.8. TCP_MAXSEG</a></li>
+<li><a href="#org1a17f15">2.9.9. TCP_NODELAY</a></li>
+<li><a href="#org6e0357e">2.9.10. TCP_QUICKACK</a></li>
+<li><a href="#org38537db">2.9.11. TCP_CORK</a></li>
 </ul>
 </li>
-<li><a href="#orgc83db06">2.10. IO</a>
+<li><a href="#orga498a53">2.10. IO</a>
 <ul>
-<li><a href="#orgd409d04">2.10.1. 阻塞IO(blocking IO)</a></li>
-<li><a href="#orgf8a9c27">2.10.2. 非阻塞IO(nonblocking IO)</a></li>
-<li><a href="#org899ff63">2.10.3. IO复用(IO multiplexing)</a></li>
-<li><a href="#orgbc09eb6">2.10.4. 信号驱动IO(signal-driven IO)</a></li>
-<li><a href="#org1b7ff39">2.10.5. 异步IO(asynchronous IO)</a></li>
-<li><a href="#org85afa42">2.10.6. 高级IO</a></li>
+<li><a href="#orgf148c2a">2.10.1. 阻塞IO(blocking IO)</a></li>
+<li><a href="#orgbe6a752">2.10.2. 非阻塞IO(nonblocking IO)</a></li>
+<li><a href="#orgfdaf2d4">2.10.3. IO复用(IO multiplexing)</a></li>
+<li><a href="#org2a4e0c1">2.10.4. 信号驱动IO(signal-driven IO)</a></li>
+<li><a href="#org6f7fe0b">2.10.5. 异步IO(asynchronous IO)</a></li>
+<li><a href="#org96cf759">2.10.6. 高级IO</a></li>
 </ul>
 </li>
-<li><a href="#org4ca58e1">2.11. conversion</a>
+<li><a href="#org446476f">2.11. conversion</a>
 <ul>
-<li><a href="#orgbeb574c">2.11.1. 使用说明</a></li>
-<li><a href="#org2f09d21">2.11.2. name2addr</a></li>
-<li><a href="#orgab7c1d1">2.11.3. addr2name</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgd1a0598">3. TCP</a>
-<ul>
-<li><a href="#org8346b9f">3.1. 特点</a></li>
-<li><a href="#orgfe0d32a">3.2. TCP首部</a>
-<ul>
-<li><a href="#org7a848c1">3.2.1. RST分节</a></li>
-<li><a href="#org2e2c858">3.2.2. PSH分节</a></li>
-<li><a href="#orga2c3734">3.2.3. URG分节</a></li>
-</ul>
-</li>
-<li><a href="#orgb2c1b84">3.3. TCP状态</a>
-<ul>
-<li><a href="#org023f8c2">3.3.1. 连接的建立和终止</a></li>
-<li><a href="#org61e934e">3.3.2. TIME_WAIT状态</a></li>
-<li><a href="#org5d5a71b">3.3.3. FIN_WAIT2状态</a></li>
-<li><a href="#org74b200b">3.3.4. TFO(tcp fast open)</a></li>
-</ul>
-</li>
-<li><a href="#orgda43dc6">3.4. 流量控制</a>
-<ul>
-<li><a href="#orgab4ab1b">3.4.1. 滑动窗口</a></li>
-<li><a href="#org4ea971c">3.4.2. 慢启动算法</a></li>
-<li><a href="#org1522aff">3.4.3. 拥塞避免算法</a></li>
-<li><a href="#org84d0dd0">3.4.4. 快速重传算法</a></li>
-<li><a href="#org58f8eed">3.4.5. 快速恢复算法</a></li>
-<li><a href="#orge52dfe3">3.4.6. ICMP差错</a></li>
-</ul>
-</li>
-<li><a href="#org8c31fbc">3.5. 定时器</a>
-<ul>
-<li><a href="#org43796ae">3.5.1. 重传定时器</a></li>
-<li><a href="#org8206917">3.5.2. 坚持定时器</a></li>
-<li><a href="#org1cd28e5">3.5.3. 保活定时器</a></li>
-</ul>
-</li>
-<li><a href="#org66f79ec">3.6. 读写数据</a>
-<ul>
-<li><a href="#org7871017">3.6.1. 读数据</a></li>
-<li><a href="#org9ad1609">3.6.2. 写数据</a></li>
+<li><a href="#org29ce212">2.11.1. 使用说明</a></li>
+<li><a href="#org9dd245e">2.11.2. name2addr</a></li>
+<li><a href="#orgdeb7d9e">2.11.3. addr2name</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org497db67">4. UDP</a>
+<li><a href="#org5f579cb">3. TCP</a>
 <ul>
-<li><a href="#org1f28707">4.1. 特点</a></li>
-<li><a href="#org4ffa3b9">4.2. 读写数据</a>
+<li><a href="#orgc94877d">3.1. 特点</a></li>
+<li><a href="#orgb89bf7e">3.2. TCP首部</a>
 <ul>
-<li><a href="#orgb380b62">4.2.1. 读数据</a></li>
-<li><a href="#orgfc57c42">4.2.2. 写数据</a></li>
+<li><a href="#org2997abf">3.2.1. RST分节</a></li>
+<li><a href="#org9d08065">3.2.2. PSH分节</a></li>
+<li><a href="#orgd20c760">3.2.3. URG分节</a></li>
+</ul>
+</li>
+<li><a href="#org4b8bebf">3.3. TCP状态</a>
+<ul>
+<li><a href="#org907d1d2">3.3.1. 连接的建立和终止</a></li>
+<li><a href="#orgda22606">3.3.2. TIME_WAIT状态</a></li>
+<li><a href="#orgc40d081">3.3.3. FIN_WAIT2状态</a></li>
+<li><a href="#orgb06f827">3.3.4. TFO(tcp fast open)</a></li>
+</ul>
+</li>
+<li><a href="#org27e8a98">3.4. 流量控制</a>
+<ul>
+<li><a href="#org879a9d9">3.4.1. 滑动窗口</a></li>
+<li><a href="#org63dd88a">3.4.2. 慢启动算法</a></li>
+<li><a href="#org6c73199">3.4.3. 拥塞避免算法</a></li>
+<li><a href="#orgbac26a1">3.4.4. 快速重传算法</a></li>
+<li><a href="#orgcd9a2b7">3.4.5. 快速恢复算法</a></li>
+<li><a href="#org8816279">3.4.6. ICMP差错</a></li>
+</ul>
+</li>
+<li><a href="#org0fa0d10">3.5. 定时器</a>
+<ul>
+<li><a href="#org62d069c">3.5.1. 重传定时器</a></li>
+<li><a href="#orga1793c2">3.5.2. 坚持定时器</a></li>
+<li><a href="#orgd822739">3.5.3. 保活定时器</a></li>
+</ul>
+</li>
+<li><a href="#orgbfc40c0">3.6. 读写数据</a>
+<ul>
+<li><a href="#org4421b12">3.6.1. 读数据</a></li>
+<li><a href="#org137cfb9">3.6.2. 写数据</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org93babca">5. Unix域套接字</a></li>
-<li><a href="#org0877c97">6. 示例程序</a>
+<li><a href="#orgfe0e244">4. UDP</a>
 <ul>
-<li><a href="#orgc6a227c">6.1. connect.cc</a></li>
-<li><a href="#orgda8cc60">6.2. server.cc</a></li>
-<li><a href="#org00edf9f">6.3. viewsockopt.cc</a></li>
-<li><a href="#org6292c5c">6.4. name2addr.cc</a></li>
-<li><a href="#org38a7298">6.5. addr2name.cc</a></li>
+<li><a href="#org313b34d">4.1. 特点</a></li>
+<li><a href="#org36c13fa">4.2. 读写数据</a>
+<ul>
+<li><a href="#org7680cd8">4.2.1. 读数据</a></li>
+<li><a href="#org4f75e96">4.2.2. 写数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc0cc851">5. Unix域套接字</a></li>
+<li><a href="#org05e590a">6. 示例程序</a>
+<ul>
+<li><a href="#org6b7e9cb">6.1. connect.cc</a></li>
+<li><a href="#orgb0859f9">6.2. server.cc</a></li>
+<li><a href="#org0c3dd04">6.3. viewsockopt.cc</a></li>
+<li><a href="#orga481f0f">6.4. name2addr.cc</a></li>
+<li><a href="#org78a9a5a">6.5. addr2name.cc</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org888c4ef" class="outline-2">
-<h2 id="org888c4ef"><span class="section-number-2">1</span> 简介</h2>
+<div id="outline-container-org5732dbc" class="outline-2">
+<h2 id="org5732dbc"><span class="section-number-2">1</span> 简介</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd8ca318" class="outline-3">
-<h3 id="orgd8ca318"><span class="section-number-3">1.1</span> 网络模型</h3>
+<div id="outline-container-org75a084d" class="outline-3">
+<h3 id="org75a084d"><span class="section-number-3">1.1</span> 网络模型</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 OSI(open systems interconnection,开放系统互连)模型是一种网络模型，是按照下面这样的方式划分的：
@@ -211,8 +212,8 @@ OSI(open systems interconnection,开放系统互连)模型是一种网络模型�
 </div>
 </div>
 
-<div id="outline-container-orge624aaf" class="outline-3">
-<h3 id="orge624aaf"><span class="section-number-3">1.2</span> 网络协议</h3>
+<div id="outline-container-org2b0a498" class="outline-3">
+<h3 id="org2b0a498"><span class="section-number-3">1.2</span> 网络协议</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 常见的协议有下面这些：
@@ -299,12 +300,12 @@ OSI(open systems interconnection,开放系统互连)模型是一种网络模型�
 </div>
 </div>
 
-<div id="outline-container-org4c15407" class="outline-3">
-<h3 id="org4c15407"><span class="section-number-3">1.3</span> 数据包大小限制</h3>
+<div id="outline-container-orge362052" class="outline-3">
+<h3 id="orge362052"><span class="section-number-3">1.3</span> 数据包大小限制</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orge467b96" class="outline-4">
-<h4 id="orge467b96"><span class="section-number-4">1.3.1</span> IP数据报头部字段</h4>
+<div id="outline-container-orga78b3f1" class="outline-4">
+<h4 id="orga78b3f1"><span class="section-number-4">1.3.1</span> IP数据报头部字段</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 IPv4允许表示的最大字节数目数目是65536(包括IPv4首部),而IPv6允许表示65576字节(包括IPv6首部).注意IPv6有一个特大净荷(jumbo payload),
@@ -313,8 +314,8 @@ IPv4允许表示的最大字节数目数目是65536(包括IPv4首部),而IPv6允
 </div>
 </div>
 
-<div id="outline-container-orga750adb" class="outline-4">
-<h4 id="orga750adb"><span class="section-number-4">1.3.2</span> 网络MTU</h4>
+<div id="outline-container-org92b44eb" class="outline-4">
+<h4 id="org92b44eb"><span class="section-number-4">1.3.2</span> 网络MTU</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 网络MTU(maximum transmission unit,最大传输单元)表示对于这个网络来说一次传输的最大数据字节数(不包括网络封装占用字节数)，通常来说
@@ -324,8 +325,8 @@ MTU是网络硬件规定的。对于我们最常用的以太网来说，MTU是15
 </div>
 </div>
 
-<div id="outline-container-org978639a" class="outline-4">
-<h4 id="org978639a"><span class="section-number-4">1.3.3</span> 路径MTU</h4>
+<div id="outline-container-orgf0e44de" class="outline-4">
+<h4 id="orgf0e44de"><span class="section-number-4">1.3.3</span> 路径MTU</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 对于因特网来说我们底层使用的网络可能是异构的，在传输路径上某一部分使用的数据链路层是以太网，而在另外一部分使用的数据链路层比如是X.25的话，
@@ -334,8 +335,8 @@ MTU是网络硬件规定的。对于我们最常用的以太网来说，MTU是15
 </div>
 </div>
 
-<div id="outline-container-orge2032df" class="outline-4">
-<h4 id="orge2032df"><span class="section-number-4">1.3.4</span> IP分片</h4>
+<div id="outline-container-orge7bd3f6" class="outline-4">
+<h4 id="orge7bd3f6"><span class="section-number-4">1.3.4</span> IP分片</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 当IP数据包传递到数据链路层的时候，会首先知道数据链路层的MTU并且按照数据链路层的MTU进行分片，这些分片在达到最终目的地之前是不会重组的。
@@ -352,8 +353,8 @@ MTU是网络硬件规定的。对于我们最常用的以太网来说，MTU是15
 </div>
 </div>
 
-<div id="outline-container-orgafa275c" class="outline-4">
-<h4 id="orgafa275c"><span class="section-number-4">1.3.5</span> 最小重组缓冲区大小</h4>
+<div id="outline-container-orgdd0a38d" class="outline-4">
+<h4 id="orgdd0a38d"><span class="section-number-4">1.3.5</span> 最小重组缓冲区大小</h4>
 <div class="outline-text-4" id="text-1-3-5">
 <p>
 最小重组缓冲区大小(minimum reassembly buffer size)是指IPv4或者是IPv6的任何事先都必须保证支持的最小数据报大小，
@@ -363,8 +364,8 @@ MTU是网络硬件规定的。对于我们最常用的以太网来说，MTU是15
 </div>
 </div>
 
-<div id="outline-container-org0be7ca4" class="outline-4">
-<h4 id="org0be7ca4"><span class="section-number-4">1.3.6</span> TCP MSS</h4>
+<div id="outline-container-org45f1b6e" class="outline-4">
+<h4 id="org45f1b6e"><span class="section-number-4">1.3.6</span> TCP MSS</h4>
 <div class="outline-text-4" id="text-1-3-6">
 <p>
 TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个分节中能够发送的最大TCP数据量。MSS的目的是告诉对端其重组缓冲区大小
@@ -377,16 +378,16 @@ TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个�
 </div>
 </div>
 
-<div id="outline-container-org19cc62c" class="outline-2">
-<h2 id="org19cc62c"><span class="section-number-2">2</span> 套接字接口</h2>
+<div id="outline-container-orgd0d59a2" class="outline-2">
+<h2 id="orgd0d59a2"><span class="section-number-2">2</span> 套接字接口</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2d4865a" class="outline-3">
-<h3 id="org2d4865a"><span class="section-number-3">2.1</span> address</h3>
+<div id="outline-container-orgf05e775" class="outline-3">
+<h3 id="orgf05e775"><span class="section-number-3">2.1</span> address</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org3dd0b6f" class="outline-4">
-<h4 id="org3dd0b6f"><span class="section-number-4">2.1.1</span> 通用地址结构</h4>
+<div id="outline-container-orgb7fbfc4" class="outline-4">
+<h4 id="orgb7fbfc4"><span class="section-number-4">2.1.1</span> 通用地址结构</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -484,8 +485,8 @@ TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个�
 </div>
 </div>
 
-<div id="outline-container-orgfe4f22b" class="outline-4">
-<h4 id="orgfe4f22b"><span class="section-number-4">2.1.2</span> IPv4地址结构</h4>
+<div id="outline-container-orgca2a4c9" class="outline-4">
+<h4 id="orgca2a4c9"><span class="section-number-4">2.1.2</span> IPv4地址结构</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">==============================</span>
@@ -512,8 +513,8 @@ TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个�
 </div>
 </div>
 
-<div id="outline-container-orgdbfe0e7" class="outline-4">
-<h4 id="orgdbfe0e7"><span class="section-number-4">2.1.3</span> IPv6地址结构</h4>
+<div id="outline-container-org0e88be6" class="outline-4">
+<h4 id="org0e88be6"><span class="section-number-4">2.1.3</span> IPv6地址结构</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">==============================</span>
@@ -547,8 +548,8 @@ TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个�
 </div>
 </div>
 
-<div id="outline-container-orgaef7fc6" class="outline-4">
-<h4 id="orgaef7fc6"><span class="section-number-4">2.1.4</span> IP地址表示和数值</h4>
+<div id="outline-container-org42c96ca" class="outline-4">
+<h4 id="org42c96ca"><span class="section-number-4">2.1.4</span> IP地址表示和数值</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 使用inet_pton和inet_ntop可以在IP地址的表示(presentation)以及数值(numeric)之间进行转换，表示格式是ASCII字符串，
@@ -594,8 +595,8 @@ TCP MSS(maximum segment size,最大分节大小),用于告诉TCP对端在每个�
 </div>
 </div>
 
-<div id="outline-container-org789de76" class="outline-4">
-<h4 id="org789de76"><span class="section-number-4">2.1.5</span> 端口号</h4>
+<div id="outline-container-org6f4341c" class="outline-4">
+<h4 id="org6f4341c"><span class="section-number-4">2.1.5</span> 端口号</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 IP用于标识通讯的机器，而端口号用于标识通信的进程。IANA(the Internet Assigned Numbers Authority,因特网分配数值权威机构)
@@ -685,8 +686,8 @@ IP用于标识通讯的机器，而端口号用于标识通信的进程。IANA(t
 </div>
 </div>
 
-<div id="outline-container-org85b9eb0" class="outline-3">
-<h3 id="org85b9eb0"><span class="section-number-3">2.2</span> socket</h3>
+<div id="outline-container-org938c667" class="outline-3">
+<h3 id="org938c667"><span class="section-number-3">2.2</span> socket</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 获得操作网络IO的套接字文件描述符。
@@ -808,15 +809,15 @@ protocol取值有下面这些：
 </div>
 </div>
 
-<div id="outline-container-org83071c5" class="outline-3">
-<h3 id="org83071c5"><span class="section-number-3">2.3</span> connect</h3>
+<div id="outline-container-org3d66537" class="outline-3">
+<h3 id="org3d66537"><span class="section-number-3">2.3</span> connect</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 建立客户端和服务端的连接。
 </p>
 </div>
-<div id="outline-container-org0d7ca72" class="outline-4">
-<h4 id="org0d7ca72"><span class="section-number-4">2.3.1</span> 使用说明</h4>
+<div id="outline-container-org48c329c" class="outline-4">
+<h4 id="org48c329c"><span class="section-number-4">2.3.1</span> 使用说明</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;sys/socket.h&gt;</span>
@@ -842,8 +843,8 @@ protocol取值有下面这些：
 </div>
 </div>
 
-<div id="outline-container-org36fb245" class="outline-4">
-<h4 id="org36fb245"><span class="section-number-4">2.3.2</span> 非阻塞</h4>
+<div id="outline-container-org6a9669e" class="outline-4">
+<h4 id="org6a9669e"><span class="section-number-4">2.3.2</span> 非阻塞</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 默认情况下connect是阻塞版本，直到对端的ACK响应之后才返回。但是如果客户端需要尝试多个连接的话并且顺序阻塞连接的话，
@@ -858,8 +859,8 @@ protocol取值有下面这些：
 </div>
 </div>
 
-<div id="outline-container-orgf6f335c" class="outline-4">
-<h4 id="orgf6f335c"><span class="section-number-4">2.3.3</span> 三次握手</h4>
+<div id="outline-container-org520d2b8" class="outline-4">
+<h4 id="org520d2b8"><span class="section-number-4">2.3.3</span> 三次握手</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <pre class="example">
 [dirlt@localhost.localdomain]$ ./connect -b 44567 61.135.169.105 80
@@ -881,8 +882,8 @@ connect succeed
 </div>
 </div>
 
-<div id="outline-container-org54c0660" class="outline-4">
-<h4 id="org54c0660"><span class="section-number-4">2.3.4</span> ETIMEOUT</h4>
+<div id="outline-container-org5e42a27" class="outline-4">
+<h4 id="org5e42a27"><span class="section-number-4">2.3.4</span> ETIMEOUT</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <p>
 如果SYN分节发给一个在路由器中存在表项，但是已经没有运行主机的话，没有得到SYN的ACK分节，就会返回ETIMEOUT的错误。
@@ -911,8 +912,8 @@ connect failed:Connection timed out
 </div>
 </div>
 
-<div id="outline-container-org9aaf59c" class="outline-4">
-<h4 id="org9aaf59c"><span class="section-number-4">2.3.5</span> ECONNREFUSED</h4>
+<div id="outline-container-org0003d9d" class="outline-4">
+<h4 id="org0003d9d"><span class="section-number-4">2.3.5</span> ECONNREFUSED</h4>
 <div class="outline-text-4" id="text-2-3-5">
 <p>
 如果SYN分节发给一个在路由器中存在表项并且主机存在，但是主机端口并没有提供服务的话，返回RST分节，那么就会返回ECONNREFUSED的错误。
@@ -938,8 +939,8 @@ connect failed:Connection refused
 </div>
 </div>
 
-<div id="outline-container-org09a4680" class="outline-4">
-<h4 id="org09a4680"><span class="section-number-4">2.3.6</span> ENETUNREACH</h4>
+<div id="outline-container-org5f6ec08" class="outline-4">
+<h4 id="org5f6ec08"><span class="section-number-4">2.3.6</span> ENETUNREACH</h4>
 <div class="outline-text-4" id="text-2-3-6">
 <p>
 如果SYN分节发给一个不在路由器表中的表项的话，那么就回返回ENETUNREACH的错误。路由器会返回ICMP错误"destination unreachable",然后客户端内核接收到之后，
@@ -971,8 +972,8 @@ default         192.168.189.2   0.0.0.0         UG    0      0        0 eth1
 </div>
 </div>
 
-<div id="outline-container-org39736bb" class="outline-4">
-<h4 id="org39736bb"><span class="section-number-4">2.3.7</span> EADDRINUSE</h4>
+<div id="outline-container-org6977745" class="outline-4">
+<h4 id="org6977745"><span class="section-number-4">2.3.7</span> EADDRINUSE</h4>
 <div class="outline-text-4" id="text-2-3-7">
 <p>
 Local address is already in use.
@@ -990,8 +991,8 @@ Local address is already in use.
 </div>
 </div>
 
-<div id="outline-container-orgf25ae92" class="outline-3">
-<h3 id="orgf25ae92"><span class="section-number-3">2.4</span> bind</h3>
+<div id="outline-container-org1255437" class="outline-3">
+<h3 id="org1255437"><span class="section-number-3">2.4</span> bind</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 将套接字和一个本地协议地址进行绑定。
@@ -1032,15 +1033,15 @@ Local address is already in use.
 </div>
 </div>
 
-<div id="outline-container-org0d103d9" class="outline-3">
-<h3 id="org0d103d9"><span class="section-number-3">2.5</span> listen</h3>
+<div id="outline-container-org1676e3e" class="outline-3">
+<h3 id="org1676e3e"><span class="section-number-3">2.5</span> listen</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 将主动套接字设置成为被动套接字。
 </p>
 </div>
-<div id="outline-container-orgcbe1da0" class="outline-4">
-<h4 id="orgcbe1da0"><span class="section-number-4">2.5.1</span> 使用说明</h4>
+<div id="outline-container-org3a54e40" class="outline-4">
+<h4 id="org3a54e40"><span class="section-number-4">2.5.1</span> 使用说明</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;sys/socket.h&gt;</span>
@@ -1058,8 +1059,8 @@ Local address is already in use.
 </div>
 </div>
 
-<div id="outline-container-org2ee9224" class="outline-4">
-<h4 id="org2ee9224"><span class="section-number-4">2.5.2</span> backlog</h4>
+<div id="outline-container-org9886cb0" class="outline-4">
+<h4 id="org9886cb0"><span class="section-number-4">2.5.2</span> backlog</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <p>
 变为被动状态之后，服务端等待客户端进行connnect(发送SYN分节).从收到SYN分节，到被accept进行处理
@@ -1094,15 +1095,15 @@ RST分节还是不回复ACK分节，而让客户端进行重传。对于manpage�
 </div>
 </div>
 
-<div id="outline-container-orge57fe6d" class="outline-3">
-<h3 id="orge57fe6d"><span class="section-number-3">2.6</span> accept</h3>
+<div id="outline-container-orgdcaafc4" class="outline-3">
+<h3 id="orgdcaafc4"><span class="section-number-3">2.6</span> accept</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 处理已经建立好的连接。
 </p>
 </div>
-<div id="outline-container-org337fadb" class="outline-4">
-<h4 id="org337fadb"><span class="section-number-4">2.6.1</span> 使用说明</h4>
+<div id="outline-container-orge12d1d3" class="outline-4">
+<h4 id="orge12d1d3"><span class="section-number-4">2.6.1</span> 使用说明</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;sys/socket.h&gt;</span>
@@ -1120,8 +1121,8 @@ RST分节还是不回复ACK分节，而让客户端进行重传。对于manpage�
 </div>
 </div>
 
-<div id="outline-container-org6df9fb1" class="outline-4">
-<h4 id="org6df9fb1"><span class="section-number-4">2.6.2</span> 惊群效应(thundering herd)</h4>
+<div id="outline-container-org73d1adc" class="outline-4">
+<h4 id="org73d1adc"><span class="section-number-4">2.6.2</span> 惊群效应(thundering herd)</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
 如果服务端的模型是首先派生出很多线程或者是进程，然后每个线程或者是进程分别调用accept的话。如果一个连接
@@ -1132,8 +1133,8 @@ RST分节还是不回复ACK分节，而让客户端进行重传。对于manpage�
 </div>
 </div>
 
-<div id="outline-container-org74e1c8a" class="outline-4">
-<h4 id="org74e1c8a"><span class="section-number-4">2.6.3</span> 非阻塞</h4>
+<div id="outline-container-orgb094e4f" class="outline-4">
+<h4 id="orgb094e4f"><span class="section-number-4">2.6.3</span> 非阻塞</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 默认情况下面accept是阻塞版本，直到连接三次握手完成进入complete queue并且被取出才返回。如果我们使用非阻塞版本的话，
@@ -1144,8 +1145,8 @@ RST分节还是不回复ACK分节，而让客户端进行重传。对于manpage�
 </div>
 </div>
 
-<div id="outline-container-org25664e6" class="outline-4">
-<h4 id="org25664e6"><span class="section-number-4">2.6.4</span> ECONNABORTED/EPROTO</h4>
+<div id="outline-container-orge99d7f1" class="outline-4">
+<h4 id="orge99d7f1"><span class="section-number-4">2.6.4</span> ECONNABORTED/EPROTO</h4>
 <div class="outline-text-4" id="text-2-6-4">
 <p>
 建立连接完成之后但是在accept之前，如果客户端取消连接发送RST分节的话，那么accept得到的就不是一个有效套接字了。
@@ -1185,8 +1186,8 @@ accept ...
 </div>
 </div>
 
-<div id="outline-container-org1ff9f24" class="outline-4">
-<h4 id="org1ff9f24"><span class="section-number-4">2.6.5</span> EPIPE</h4>
+<div id="outline-container-orgf2f25cb" class="outline-4">
+<h4 id="orgf2f25cb"><span class="section-number-4">2.6.5</span> EPIPE</h4>
 <div class="outline-text-4" id="text-2-6-5">
 <p>
 我们继续从上面情况分析下来，假设连接已经断开，而如果我们读写的话那么会是什么情况呢？
@@ -1221,8 +1222,8 @@ accept ...
 </div>
 </div>
 
-<div id="outline-container-org9f499fc" class="outline-3">
-<h3 id="org9f499fc"><span class="section-number-3">2.7</span> close/shutdown</h3>
+<div id="outline-container-orgef93565" class="outline-3">
+<h3 id="orgef93565"><span class="section-number-3">2.7</span> close/shutdown</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 关闭建立好的连接
@@ -1268,8 +1269,8 @@ write failed:Broken pipe
 </div>
 </div>
 
-<div id="outline-container-orgb543001" class="outline-3">
-<h3 id="orgb543001"><span class="section-number-3">2.8</span> getsockname/getpeername</h3>
+<div id="outline-container-orgd0e9643" class="outline-3">
+<h3 id="orgd0e9643"><span class="section-number-3">2.8</span> getsockname/getpeername</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 #todo:
@@ -1277,12 +1278,12 @@ write failed:Broken pipe
 </div>
 </div>
 
-<div id="outline-container-org5987740" class="outline-3">
-<h3 id="org5987740"><span class="section-number-3">2.9</span> option</h3>
+<div id="outline-container-orgc460000" class="outline-3">
+<h3 id="orgc460000"><span class="section-number-3">2.9</span> option</h3>
 <div class="outline-text-3" id="text-2-9">
 </div>
-<div id="outline-container-org5f0c010" class="outline-4">
-<h4 id="org5f0c010"><span class="section-number-4">2.9.1</span> 概览</h4>
+<div id="outline-container-org3ce5131" class="outline-4">
+<h4 id="org3ce5131"><span class="section-number-4">2.9.1</span> 概览</h4>
 <div class="outline-text-4" id="text-2-9-1">
 <p>
 对于套接字选项的获取和设置，我们最常用的函数包括：
@@ -1457,8 +1458,8 @@ TCP_CORK:off
 </div>
 </div>
 
-<div id="outline-container-orgdddb893" class="outline-4">
-<h4 id="orgdddb893"><span class="section-number-4">2.9.2</span> SO_ERROR</h4>
+<div id="outline-container-org352a26d" class="outline-4">
+<h4 id="org352a26d"><span class="section-number-4">2.9.2</span> SO_ERROR</h4>
 <div class="outline-text-4" id="text-2-9-2">
 <p>
 当一个套接字发生错误时，那么协议模块内部so_error会被设置成为Exx错误码，我们称它为套接字的待处理错误(pending error).
@@ -1477,8 +1478,8 @@ TCP_CORK:off
 </div>
 </div>
 
-<div id="outline-container-org51f5b0c" class="outline-4">
-<h4 id="org51f5b0c"><span class="section-number-4">2.9.3</span> SO_KEEPALIVE</h4>
+<div id="outline-container-orgf697a22" class="outline-4">
+<h4 id="orgf697a22"><span class="section-number-4">2.9.3</span> SO_KEEPALIVE</h4>
 <div class="outline-text-4" id="text-2-9-3">
 <p>
 客户端连接服务端之后如果客户端宕机的话，服务端不知道客户端已经宕机继续维持连接，我们称这种情况为半开连接(half-open connection).
@@ -1497,8 +1498,8 @@ TCP_CORK:off
 </div>
 </div>
 
-<div id="outline-container-orgf5e5287" class="outline-4">
-<h4 id="orgf5e5287"><span class="section-number-4">2.9.4</span> SO_LINGER</h4>
+<div id="outline-container-orgf392c12" class="outline-4">
+<h4 id="orgf392c12"><span class="section-number-4">2.9.4</span> SO_LINGER</h4>
 <div class="outline-text-4" id="text-2-9-4">
 <p>
 默认情况下面，close的动作是发送完成缓冲区内数据，并且发送FIN分节之后立即返回。返回之后如果数据或者是FIN分节没有确认的话，
@@ -1531,8 +1532,8 @@ SO_LINGER使用的值是下面这个类型，如果l_onoff=0的话，那么就�
 </div>
 </div>
 
-<div id="outline-container-orgcaecbe5" class="outline-4">
-<h4 id="orgcaecbe5"><span class="section-number-4">2.9.5</span> SO_RCVBUF/SO_SNDBUF</h4>
+<div id="outline-container-org66ca7df" class="outline-4">
+<h4 id="org66ca7df"><span class="section-number-4">2.9.5</span> SO_RCVBUF/SO_SNDBUF</h4>
 <div class="outline-text-4" id="text-2-9-5">
 <p>
 每个套接字都有一个发送缓冲区和接收缓冲区。对于TCP来说，接收缓冲区的大小在每次交互过程中都会传递，告诉发送端自己空闲缓冲区多少，
@@ -1556,8 +1557,8 @@ SO_LINGER使用的值是下面这个类型，如果l_onoff=0的话，那么就�
 </div>
 </div>
 
-<div id="outline-container-org5e58a08" class="outline-4">
-<h4 id="org5e58a08"><span class="section-number-4">2.9.6</span> SO_RCVTIMEO/SO_SNDTIMEO</h4>
+<div id="outline-container-orge8117ec" class="outline-4">
+<h4 id="orge8117ec"><span class="section-number-4">2.9.6</span> SO_RCVTIMEO/SO_SNDTIMEO</h4>
 <div class="outline-text-4" id="text-2-9-6">
 <p>
 可以设置针对这个套接字的读写超时，影响的函数包括：
@@ -1575,8 +1576,8 @@ SO_LINGER使用的值是下面这个类型，如果l_onoff=0的话，那么就�
 </div>
 </div>
 
-<div id="outline-container-orgee084a4" class="outline-4">
-<h4 id="orgee084a4"><span class="section-number-4">2.9.7</span> SO_REUSEADDR</h4>
+<div id="outline-container-org6df1233" class="outline-4">
+<h4 id="org6df1233"><span class="section-number-4">2.9.7</span> SO_REUSEADDR</h4>
 <div class="outline-text-4" id="text-2-9-7">
 <p>
 使用SO_REUSEADDR选项的话那么允许监听(被动打开)的套接字绑定在一个正在被使用的端口上。使用这个选项必须在
@@ -1654,8 +1655,8 @@ bind failed:Address already in use
 </div>
 </div>
 
-<div id="outline-container-org1d9c4ae" class="outline-4">
-<h4 id="org1d9c4ae"><span class="section-number-4">2.9.8</span> TCP_MAXSEG</h4>
+<div id="outline-container-orgda2805f" class="outline-4">
+<h4 id="orgda2805f"><span class="section-number-4">2.9.8</span> TCP_MAXSEG</h4>
 <div class="outline-text-4" id="text-2-9-8">
 <p>
 这个选项允许我们获取和设置TCP连接的最大分节大小(MSS).TCP连接建立之前双方就会交换各自的MSS,然后选择最小的MSS
@@ -1676,8 +1677,8 @@ bind failed:Address already in use
 </div>
 </div>
 
-<div id="outline-container-org3cb42fc" class="outline-4">
-<h4 id="org3cb42fc"><span class="section-number-4">2.9.9</span> TCP_NODELAY</h4>
+<div id="outline-container-org1a17f15" class="outline-4">
+<h4 id="org1a17f15"><span class="section-number-4">2.9.9</span> TCP_NODELAY</h4>
 <div class="outline-text-4" id="text-2-9-9">
 <p>
 开启本选项将禁止Nagel算法，默认情况下面是使用Nagel算法。使用Nagel算法效果是数据并不会立即发送，而是等待到一定大小的时候
@@ -1702,8 +1703,8 @@ bind failed:Address already in use
 </div>
 </div>
 
-<div id="outline-container-org3d65083" class="outline-4">
-<h4 id="org3d65083"><span class="section-number-4">2.9.10</span> TCP_QUICKACK</h4>
+<div id="outline-container-org6e0357e" class="outline-4">
+<h4 id="org6e0357e"><span class="section-number-4">2.9.10</span> TCP_QUICKACK</h4>
 <div class="outline-text-4" id="text-2-9-10">
 <p>
 quick ACK是相对于delay ACK来说的。delay ACK算法就是说，接收到数据之后我并不回复ACK,而是我假设我可能也要发送数据，发送这个数据时候我捎带ACK回去，
@@ -1719,8 +1720,8 @@ quick ACK是相对于delay ACK来说的。delay ACK算法就是说，接收到�
 </div>
 </div>
 
-<div id="outline-container-org3e5c11d" class="outline-4">
-<h4 id="org3e5c11d"><span class="section-number-4">2.9.11</span> TCP_CORK</h4>
+<div id="outline-container-org38537db" class="outline-4">
+<h4 id="org38537db"><span class="section-number-4">2.9.11</span> TCP_CORK</h4>
 <div class="outline-text-4" id="text-2-9-11">
 <p>
 这个选项是使用nagel算法的一个扩展，所以不可以和TCP_NODELAY来配合使用。nagel算法会等待数据到达一定程度之后然后发送，但是对于这个程度我们不可以控制。
@@ -1731,15 +1732,15 @@ quick ACK是相对于delay ACK来说的。delay ACK算法就是说，接收到�
 </div>
 </div>
 
-<div id="outline-container-orgc83db06" class="outline-3">
-<h3 id="orgc83db06"><span class="section-number-3">2.10</span> IO</h3>
+<div id="outline-container-orga498a53" class="outline-3">
+<h3 id="orga498a53"><span class="section-number-3">2.10</span> IO</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 对于模型的解释，我们假设情况是read(buf,x)和write(buf,x).
 </p>
 </div>
-<div id="outline-container-orgd409d04" class="outline-4">
-<h4 id="orgd409d04"><span class="section-number-4">2.10.1</span> 阻塞IO(blocking IO)</h4>
+<div id="outline-container-orgf148c2a" class="outline-4">
+<h4 id="orgf148c2a"><span class="section-number-4">2.10.1</span> 阻塞IO(blocking IO)</h4>
 <div class="outline-text-4" id="text-2-10-1">
 <p>
 这个是最流行的IO模型，默认情形下面所有的套接字都是阻塞的。read(buf,x)行为是：
@@ -1766,8 +1767,8 @@ quick ACK是相对于delay ACK来说的。delay ACK算法就是说，接收到�
 </div>
 </div>
 
-<div id="outline-container-orgf8a9c27" class="outline-4">
-<h4 id="orgf8a9c27"><span class="section-number-4">2.10.2</span> 非阻塞IO(nonblocking IO)</h4>
+<div id="outline-container-orgbe6a752" class="outline-4">
+<h4 id="orgbe6a752"><span class="section-number-4">2.10.2</span> 非阻塞IO(nonblocking IO)</h4>
 <div class="outline-text-4" id="text-2-10-2">
 <p>
 非阻塞IO和阻塞IO执行逻辑上非常相似，只不过在等待数据/空间时候逻辑稍有不同。read(buf,x)行为是：
@@ -1807,8 +1808,8 @@ fcntl(fd,F_SETFL,flags);
 </div>
 </div>
 
-<div id="outline-container-org899ff63" class="outline-4">
-<h4 id="org899ff63"><span class="section-number-4">2.10.3</span> IO复用(IO multiplexing)</h4>
+<div id="outline-container-orgfdaf2d4" class="outline-4">
+<h4 id="orgfdaf2d4"><span class="section-number-4">2.10.3</span> IO复用(IO multiplexing)</h4>
 <div class="outline-text-4" id="text-2-10-3">
 <p>
 对于单路的情况，那么阻塞或者是非阻塞就足够使用了。但是如果是多路IO的话，如果我们使用阻塞方式的话那么必须按照某个数据到来的顺序
@@ -1819,7 +1820,7 @@ fcntl(fd,F_SETFL,flags);
 </div>
 
 <ol class="org-ol">
-<li><a id="org2537829"></a>select/pselect<br />
+<li><a id="orge7edfa4"></a>select/pselect<br />
 <div class="outline-text-5" id="text-2-10-3-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;bits/time.h&gt;</span>
@@ -1988,7 +1989,7 @@ select存在限制，那就是FD_SETSIZE这个大小。通常来说这个值是1
 </div>
 </li>
 
-<li><a id="org450f759"></a>poll/ppoll<br />
+<li><a id="orge453f54"></a>poll/ppoll<br />
 <div class="outline-text-5" id="text-2-10-3-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;sys/poll.h&gt;</span>
@@ -2133,8 +2134,8 @@ poll的超时时间单位是ms如果为负值的话那么就是永久等待。po
 </ol>
 </div>
 
-<div id="outline-container-orgbc09eb6" class="outline-4">
-<h4 id="orgbc09eb6"><span class="section-number-4">2.10.4</span> 信号驱动IO(signal-driven IO)</h4>
+<div id="outline-container-org2a4e0c1" class="outline-4">
+<h4 id="org2a4e0c1"><span class="section-number-4">2.10.4</span> 信号驱动IO(signal-driven IO)</h4>
 <div class="outline-text-4" id="text-2-10-4">
 <p>
 信号驱动IO的方式是发送SIGIO信号来通知我们某个fd是可读或者是可写的。fd的阻塞等待或者是轮询都让系统来进行托管，而不是在用户态处理。
@@ -2155,8 +2156,8 @@ fcntl(fd,F_SETOWN,getpid());
 </div>
 </div>
 
-<div id="outline-container-org1b7ff39" class="outline-4">
-<h4 id="org1b7ff39"><span class="section-number-4">2.10.5</span> 异步IO(asynchronous IO)</h4>
+<div id="outline-container-org6f7fe0b" class="outline-4">
+<h4 id="org6f7fe0b"><span class="section-number-4">2.10.5</span> 异步IO(asynchronous IO)</h4>
 <div class="outline-text-4" id="text-2-10-5">
 <p>
 异步IO和阻塞IO是非常像的，只不过在调用read/write时候自己进行不阻塞，而让系统去托管整个等待,轮询以及读取,写入过程，完成之后
@@ -2165,12 +2166,12 @@ fcntl(fd,F_SETOWN,getpid());
 </div>
 </div>
 
-<div id="outline-container-org85afa42" class="outline-4">
-<h4 id="org85afa42"><span class="section-number-4">2.10.6</span> 高级IO</h4>
+<div id="outline-container-org96cf759" class="outline-4">
+<h4 id="org96cf759"><span class="section-number-4">2.10.6</span> 高级IO</h4>
 <div class="outline-text-4" id="text-2-10-6">
 </div>
 <ol class="org-ol">
-<li><a id="org3a5965f"></a>recv/send<br />
+<li><a id="org822ba7c"></a>recv/send<br />
 <div class="outline-text-5" id="text-2-10-6-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;sys/socket.h&gt;</span>
@@ -2245,7 +2246,7 @@ recv/send界面上和write/read非常相似，不过多了一个flags参数。�
 </div>
 </li>
 
-<li><a id="org36b474c"></a>readv/writev<br />
+<li><a id="orgfd9f62c"></a>readv/writev<br />
 <div class="outline-text-5" id="text-2-10-6-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">//</span><span class="org-comment">#include &lt;bits/uio.h&gt;</span>
@@ -2285,7 +2286,7 @@ recv/send界面上和write/read非常相似，不过多了一个flags参数。�
 </div>
 </li>
 
-<li><a id="org9b74a74"></a>recvmsg/sendmsg<br />
+<li><a id="org7d18425"></a>recvmsg/sendmsg<br />
 <div class="outline-text-5" id="text-2-10-6-3">
 <p>
 这个函数可以说是最通用的IO函数了
@@ -2364,7 +2365,7 @@ recv/send界面上和write/read非常相似，不过多了一个flags参数。�
 </div>
 </li>
 
-<li><a id="orga3fab0d"></a>epoll<br />
+<li><a id="org45e82d4"></a>epoll<br />
 <div class="outline-text-5" id="text-2-10-6-4">
 <p>
 #todo:
@@ -2375,12 +2376,12 @@ recv/send界面上和write/read非常相似，不过多了一个flags参数。�
 </div>
 </div>
 
-<div id="outline-container-org4ca58e1" class="outline-3">
-<h3 id="org4ca58e1"><span class="section-number-3">2.11</span> conversion</h3>
+<div id="outline-container-org446476f" class="outline-3">
+<h3 id="org446476f"><span class="section-number-3">2.11</span> conversion</h3>
 <div class="outline-text-3" id="text-2-11">
 </div>
-<div id="outline-container-orgbeb574c" class="outline-4">
-<h4 id="orgbeb574c"><span class="section-number-4">2.11.1</span> 使用说明</h4>
+<div id="outline-container-org29ce212" class="outline-4">
+<h4 id="org29ce212"><span class="section-number-4">2.11.1</span> 使用说明</h4>
 <div class="outline-text-4" id="text-2-11-1">
 <p>
 关于名字与地址转换，我们这里只关注主机名和IP地址之间的转换接口。至于实现方面的话，大致有两种方式：
@@ -2447,8 +2448,8 @@ recv/send界面上和write/read非常相似，不过多了一个flags参数。�
 </div>
 </div>
 
-<div id="outline-container-org2f09d21" class="outline-4">
-<h4 id="org2f09d21"><span class="section-number-4">2.11.2</span> name2addr</h4>
+<div id="outline-container-org9dd245e" class="outline-4">
+<h4 id="org9dd245e"><span class="section-number-4">2.11.2</span> name2addr</h4>
 <div class="outline-text-4" id="text-2-11-2">
 <pre class="example">
 //第一次请求
@@ -2499,8 +2500,8 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 </div>
 </div>
 
-<div id="outline-container-orgab7c1d1" class="outline-4">
-<h4 id="orgab7c1d1"><span class="section-number-4">2.11.3</span> addr2name</h4>
+<div id="outline-container-orgdeb7d9e" class="outline-4">
+<h4 id="orgdeb7d9e"><span class="section-number-4">2.11.3</span> addr2name</h4>
 <div class="outline-text-4" id="text-2-11-3">
 <pre class="example">
 //第一次请求
@@ -2546,16 +2547,16 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 </div>
 </div>
 
-<div id="outline-container-orgd1a0598" class="outline-2">
-<h2 id="orgd1a0598"><span class="section-number-2">3</span> TCP</h2>
+<div id="outline-container-org5f579cb" class="outline-2">
+<h2 id="org5f579cb"><span class="section-number-2">3</span> TCP</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 #todo: man 7 tcp
 </p>
 </div>
 
-<div id="outline-container-org8346b9f" class="outline-3">
-<h3 id="org8346b9f"><span class="section-number-3">3.1</span> 特点</h3>
+<div id="outline-container-orgc94877d" class="outline-3">
+<h3 id="orgc94877d"><span class="section-number-3">3.1</span> 特点</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 TCP(Transmission Control Protocol,传输控制协议)相对于UDP来说更加复杂而功能也更加强大。首先TCP是面向连接的，
@@ -2580,8 +2581,8 @@ TCP(Transmission Control Protocol,传输控制协议)相对于UDP来说更加复
 </div>
 </div>
 
-<div id="outline-container-orgfe0d32a" class="outline-3">
-<h3 id="orgfe0d32a"><span class="section-number-3">3.2</span> TCP首部</h3>
+<div id="outline-container-orgb89bf7e" class="outline-3">
+<h3 id="orgb89bf7e"><span class="section-number-3">3.2</span> TCP首部</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 TCP首部数据格式如下，如果不计可选字段的话占用20个字节（通常来说也就是占用20个字节）
@@ -2614,8 +2615,8 @@ TCP首部数据格式如下，如果不计可选字段的话占用20个字节（
 </p>
 </div>
 
-<div id="outline-container-org7a848c1" class="outline-4">
-<h4 id="org7a848c1"><span class="section-number-4">3.2.1</span> RST分节</h4>
+<div id="outline-container-org2997abf" class="outline-4">
+<h4 id="org2997abf"><span class="section-number-4">3.2.1</span> RST分节</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 产生RST分节通常有下面几个情况：
@@ -2631,8 +2632,8 @@ TCP首部数据格式如下，如果不计可选字段的话占用20个字节（
 </div>
 </div>
 
-<div id="outline-container-org2e2c858" class="outline-4">
-<h4 id="org2e2c858"><span class="section-number-4">3.2.2</span> PSH分节</h4>
+<div id="outline-container-org9d08065" class="outline-4">
+<h4 id="org9d08065"><span class="section-number-4">3.2.2</span> PSH分节</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 #todo:
@@ -2640,8 +2641,8 @@ TCP首部数据格式如下，如果不计可选字段的话占用20个字节（
 </div>
 </div>
 
-<div id="outline-container-orga2c3734" class="outline-4">
-<h4 id="orga2c3734"><span class="section-number-4">3.2.3</span> URG分节</h4>
+<div id="outline-container-orgd20c760" class="outline-4">
+<h4 id="orgd20c760"><span class="section-number-4">3.2.3</span> URG分节</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 #todo:
@@ -2650,8 +2651,8 @@ TCP首部数据格式如下，如果不计可选字段的话占用20个字节（
 </div>
 </div>
 
-<div id="outline-container-orgb2c1b84" class="outline-3">
-<h3 id="orgb2c1b84"><span class="section-number-3">3.3</span> TCP状态</h3>
+<div id="outline-container-org4b8bebf" class="outline-3">
+<h3 id="org4b8bebf"><span class="section-number-3">3.3</span> TCP状态</h3>
 <div class="outline-text-3" id="text-3-3">
 
 <div class="figure">
@@ -2680,8 +2681,8 @@ TCP首部数据格式如下，如果不计可选字段的话占用20个字节（
 </p>
 </div>
 
-<div id="outline-container-org023f8c2" class="outline-4">
-<h4 id="org023f8c2"><span class="section-number-4">3.3.1</span> 连接的建立和终止</h4>
+<div id="outline-container-org907d1d2" class="outline-4">
+<h4 id="org907d1d2"><span class="section-number-4">3.3.1</span> 连接的建立和终止</h4>
 <div class="outline-text-4" id="text-3-3-1">
 
 <div class="figure">
@@ -2718,8 +2719,8 @@ A表示active一端(通常为client)，P表示passive一端(通常为server).
 </div>
 </div>
 
-<div id="outline-container-org61e934e" class="outline-4">
-<h4 id="org61e934e"><span class="section-number-4">3.3.2</span> TIME_WAIT状态</h4>
+<div id="outline-container-orgda22606" class="outline-4">
+<h4 id="orgda22606"><span class="section-number-4">3.3.2</span> TIME_WAIT状态</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 Coping with the TCP TIME-WAIT state on busy Linux servers | Vincent Bernat : <a href="http://vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html">http://vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html</a>
@@ -2758,8 +2759,8 @@ active一端会直接响应一个RST分节造成连接错误终止。
 </div>
 </div>
 
-<div id="outline-container-org5d5a71b" class="outline-4">
-<h4 id="org5d5a71b"><span class="section-number-4">3.3.3</span> FIN_WAIT2状态</h4>
+<div id="outline-container-orgc40d081" class="outline-4">
+<h4 id="orgc40d081"><span class="section-number-4">3.3.3</span> FIN_WAIT2状态</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 假设client执行了半关闭进入FIN_WAIT2状态，然后等待server端传输完成并且发送FIN分节。但是如果server代码有bug的话没有发送FIN分节，
@@ -2774,8 +2775,8 @@ server在会话完成之后没有调用close而造成的资源泄露。
 </div>
 </div>
 
-<div id="outline-container-org74b200b" class="outline-4">
-<h4 id="org74b200b"><span class="section-number-4">3.3.4</span> TFO(tcp fast open)</h4>
+<div id="outline-container-orgb06f827" class="outline-4">
+<h4 id="orgb06f827"><span class="section-number-4">3.3.4</span> TFO(tcp fast open)</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <p>
 <a href="http://www.pagefault.info/?p=282">http://www.pagefault.info/?p=282</a>
@@ -2811,12 +2812,12 @@ dubious transaction requests.
 </div>
 </div>
 
-<div id="outline-container-orgda43dc6" class="outline-3">
-<h3 id="orgda43dc6"><span class="section-number-3">3.4</span> 流量控制</h3>
+<div id="outline-container-org27e8a98" class="outline-3">
+<h3 id="org27e8a98"><span class="section-number-3">3.4</span> 流量控制</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
-<div id="outline-container-orgab4ab1b" class="outline-4">
-<h4 id="orgab4ab1b"><span class="section-number-4">3.4.1</span> 滑动窗口</h4>
+<div id="outline-container-org879a9d9" class="outline-4">
+<h4 id="org879a9d9"><span class="section-number-4">3.4.1</span> 滑动窗口</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 如果TCP采用停止等待协议来进行数据传送的话，那么吞吐量是会存在问题的，我们完全可以采用类似于流水线的方式来提高吞吐量。
@@ -2852,8 +2853,8 @@ ACK为x的话，那么就可以认为x以前的所有数据都已经被确认了
 </div>
 </div>
 
-<div id="outline-container-org4ea971c" class="outline-4">
-<h4 id="org4ea971c"><span class="section-number-4">3.4.2</span> 慢启动算法</h4>
+<div id="outline-container-org63dd88a" class="outline-4">
+<h4 id="org63dd88a"><span class="section-number-4">3.4.2</span> 慢启动算法</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 滑动窗口规定和发送端和接收端的数据发送多少，但是却没有规定如何进行发送。一种粗暴方式就是发送端一开始便向网络发送多个报文段，
@@ -2872,8 +2873,8 @@ ACK为x的话，那么就可以认为x以前的所有数据都已经被确认了
 </div>
 </div>
 
-<div id="outline-container-org1522aff" class="outline-4">
-<h4 id="org1522aff"><span class="section-number-4">3.4.3</span> 拥塞避免算法</h4>
+<div id="outline-container-org6c73199" class="outline-4">
+<h4 id="org6c73199"><span class="section-number-4">3.4.3</span> 拥塞避免算法</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 拥塞避免算法通常和慢启动算法一起使用。慢启动算法里面有两个问题没有解决：
@@ -2942,8 +2943,8 @@ def handle_ack(connection): # 正常ACK
 </div>
 </div>
 
-<div id="outline-container-org84d0dd0" class="outline-4">
-<h4 id="org84d0dd0"><span class="section-number-4">3.4.4</span> 快速重传算法</h4>
+<div id="outline-container-orgbac26a1" class="outline-4">
+<h4 id="orgbac26a1"><span class="section-number-4">3.4.4</span> 快速重传算法</h4>
 <div class="outline-text-4" id="text-3-4-4">
 <p>
 如果接收端返回的是重复序号ACK的话，通常有两种情况：
@@ -2960,8 +2961,8 @@ def handle_ack(connection): # 正常ACK
 </div>
 </div>
 
-<div id="outline-container-org58f8eed" class="outline-4">
-<h4 id="org58f8eed"><span class="section-number-4">3.4.5</span> 快速恢复算法</h4>
+<div id="outline-container-orgcd9a2b7" class="outline-4">
+<h4 id="orgcd9a2b7"><span class="section-number-4">3.4.5</span> 快速恢复算法</h4>
 <div class="outline-text-4" id="text-3-4-5">
 <p>
 快速重传算法一旦发现需要重传的话，那么立刻会调用快速恢复算法。使用的是拥塞算法部分的主体而不是慢启动算法部分的主体，原因也非常简单，
@@ -2981,8 +2982,8 @@ def handle_ack(connection): # 正常ACK
 </div>
 </div>
 
-<div id="outline-container-orge52dfe3" class="outline-4">
-<h4 id="orge52dfe3"><span class="section-number-4">3.4.6</span> ICMP差错</h4>
+<div id="outline-container-org8816279" class="outline-4">
+<h4 id="org8816279"><span class="section-number-4">3.4.6</span> ICMP差错</h4>
 <div class="outline-text-4" id="text-3-4-6">
 <p>
 如果ICMP差错是源端抑制的话，那么cwnd=1而ssthresh不发生任何变化，重新使用慢启动算法。
@@ -2991,12 +2992,12 @@ def handle_ack(connection): # 正常ACK
 </div>
 </div>
 
-<div id="outline-container-org8c31fbc" class="outline-3">
-<h3 id="org8c31fbc"><span class="section-number-3">3.5</span> 定时器</h3>
+<div id="outline-container-org0fa0d10" class="outline-3">
+<h3 id="org0fa0d10"><span class="section-number-3">3.5</span> 定时器</h3>
 <div class="outline-text-3" id="text-3-5">
 </div>
-<div id="outline-container-org43796ae" class="outline-4">
-<h4 id="org43796ae"><span class="section-number-4">3.5.1</span> 重传定时器</h4>
+<div id="outline-container-org62d069c" class="outline-4">
+<h4 id="org62d069c"><span class="section-number-4">3.5.1</span> 重传定时器</h4>
 <div class="outline-text-4" id="text-3-5-1">
 <p>
 重传超时时间(RTO,Retranmission TimeOut)的测量依赖于RTT(round-trip time)的。首先我们看看RTT的测量方式，然后看看如何通过RTT重传超时时间的。
@@ -3037,8 +3038,8 @@ RTO=R+4D
 </div>
 </div>
 
-<div id="outline-container-org8206917" class="outline-4">
-<h4 id="org8206917"><span class="section-number-4">3.5.2</span> 坚持定时器</h4>
+<div id="outline-container-orga1793c2" class="outline-4">
+<h4 id="orga1793c2"><span class="section-number-4">3.5.2</span> 坚持定时器</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <p>
 还是从滑动窗口这个部分考虑。如果接收端收到数据之后自己的窗口填满了，然后返回ACK(winsize=0)发送端接收到之后，那么停止发送数据
@@ -3061,8 +3062,8 @@ RTO=R+4D
 </div>
 </div>
 
-<div id="outline-container-org1cd28e5" class="outline-4">
-<h4 id="org1cd28e5"><span class="section-number-4">3.5.3</span> 保活定时器</h4>
+<div id="outline-container-orgd822739" class="outline-4">
+<h4 id="orgd822739"><span class="section-number-4">3.5.3</span> 保活定时器</h4>
 <div class="outline-text-4" id="text-3-5-3">
 <p>
 保活定时器通常都是服务器端使用的。假设有很多客户端连接上了服务端，但是这些客户端直接网络断开了，而服务器认为这些客户端一直还存在，
@@ -3082,12 +3083,12 @@ RTO=R+4D
 </div>
 </div>
 
-<div id="outline-container-org66f79ec" class="outline-3">
-<h3 id="org66f79ec"><span class="section-number-3">3.6</span> 读写数据</h3>
+<div id="outline-container-orgbfc40c0" class="outline-3">
+<h3 id="orgbfc40c0"><span class="section-number-3">3.6</span> 读写数据</h3>
 <div class="outline-text-3" id="text-3-6">
 </div>
-<div id="outline-container-org7871017" class="outline-4">
-<h4 id="org7871017"><span class="section-number-4">3.6.1</span> 读数据</h4>
+<div id="outline-container-org4421b12" class="outline-4">
+<h4 id="org4421b12"><span class="section-number-4">3.6.1</span> 读数据</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <p>
 #todo:
@@ -3095,8 +3096,8 @@ RTO=R+4D
 </div>
 </div>
 
-<div id="outline-container-org9ad1609" class="outline-4">
-<h4 id="org9ad1609"><span class="section-number-4">3.6.2</span> 写数据</h4>
+<div id="outline-container-org137cfb9" class="outline-4">
+<h4 id="org137cfb9"><span class="section-number-4">3.6.2</span> 写数据</h4>
 <div class="outline-text-4" id="text-3-6-2">
 <p>
 首先应用层只是调用write将应用层数据完全copy到内核的tcp send buffer上，至于这个tcp send buffer大小是SO_SNDBUF来控制的。
@@ -3115,16 +3116,16 @@ tcp send buffer不会被丢弃直到对端收到这块buffer所包含内容的�
 </div>
 </div>
 
-<div id="outline-container-org497db67" class="outline-2">
-<h2 id="org497db67"><span class="section-number-2">4</span> UDP</h2>
+<div id="outline-container-orgfe0e244" class="outline-2">
+<h2 id="orgfe0e244"><span class="section-number-2">4</span> UDP</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 #todo: man 7 udp
 </p>
 </div>
 
-<div id="outline-container-org1f28707" class="outline-3">
-<h3 id="org1f28707"><span class="section-number-3">4.1</span> 特点</h3>
+<div id="outline-container-org313b34d" class="outline-3">
+<h3 id="org313b34d"><span class="section-number-3">4.1</span> 特点</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 UDP(User Datagram Procotol,数据报传输协议)是一个简单的传输层协议，在RFC768中有详细说明。
@@ -3145,12 +3146,12 @@ UDP可以是全双工的，只要在UDP层面上提供链接这样的概念。�
 </div>
 </div>
 
-<div id="outline-container-org4ffa3b9" class="outline-3">
-<h3 id="org4ffa3b9"><span class="section-number-3">4.2</span> 读写数据</h3>
+<div id="outline-container-org36c13fa" class="outline-3">
+<h3 id="org36c13fa"><span class="section-number-3">4.2</span> 读写数据</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-orgb380b62" class="outline-4">
-<h4 id="orgb380b62"><span class="section-number-4">4.2.1</span> 读数据</h4>
+<div id="outline-container-org7680cd8" class="outline-4">
+<h4 id="org7680cd8"><span class="section-number-4">4.2.1</span> 读数据</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 #todo:
@@ -3158,8 +3159,8 @@ UDP可以是全双工的，只要在UDP层面上提供链接这样的概念。�
 </div>
 </div>
 
-<div id="outline-container-orgfc57c42" class="outline-4">
-<h4 id="orgfc57c42"><span class="section-number-4">4.2.2</span> 写数据</h4>
+<div id="outline-container-org4f75e96" class="outline-4">
+<h4 id="org4f75e96"><span class="section-number-4">4.2.2</span> 写数据</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 和TCP输出一样，UDP也维护着内核udp send buffer,大小可以通过SO_SNDBUF来控制，而这个参数控制着一次写UDP数据报的大小上限。
@@ -3173,8 +3174,8 @@ UDP可以是全双工的，只要在UDP层面上提供链接这样的概念。�
 </div>
 </div>
 
-<div id="outline-container-org93babca" class="outline-2">
-<h2 id="org93babca"><span class="section-number-2">5</span> Unix域套接字</h2>
+<div id="outline-container-orgc0cc851" class="outline-2">
+<h2 id="orgc0cc851"><span class="section-number-2">5</span> Unix域套接字</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 #todo: unix domain socket
@@ -3186,12 +3187,12 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 
-<div id="outline-container-org0877c97" class="outline-2">
-<h2 id="org0877c97"><span class="section-number-2">6</span> 示例程序</h2>
+<div id="outline-container-org05e590a" class="outline-2">
+<h2 id="org05e590a"><span class="section-number-2">6</span> 示例程序</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgc6a227c" class="outline-3">
-<h3 id="orgc6a227c"><span class="section-number-3">6.1</span> connect.cc</h3>
+<div id="outline-container-org6b7e9cb" class="outline-3">
+<h3 id="org6b7e9cb"><span class="section-number-3">6.1</span> connect.cc</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -3347,8 +3348,8 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 
-<div id="outline-container-orgda8cc60" class="outline-3">
-<h3 id="orgda8cc60"><span class="section-number-3">6.2</span> server.cc</h3>
+<div id="outline-container-orgb0859f9" class="outline-3">
+<h3 id="orgb0859f9"><span class="section-number-3">6.2</span> server.cc</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -3499,8 +3500,8 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 
-<div id="outline-container-org00edf9f" class="outline-3">
-<h3 id="org00edf9f"><span class="section-number-3">6.3</span> viewsockopt.cc</h3>
+<div id="outline-container-org0c3dd04" class="outline-3">
+<h3 id="org0c3dd04"><span class="section-number-3">6.3</span> viewsockopt.cc</h3>
 <div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -3606,8 +3607,8 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 
-<div id="outline-container-org6292c5c" class="outline-3">
-<h3 id="org6292c5c"><span class="section-number-3">6.4</span> name2addr.cc</h3>
+<div id="outline-container-orga481f0f" class="outline-3">
+<h3 id="orga481f0f"><span class="section-number-3">6.4</span> name2addr.cc</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -3691,8 +3692,8 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 
-<div id="outline-container-org38a7298" class="outline-3">
-<h3 id="org38a7298"><span class="section-number-3">6.5</span> addr2name.cc</h3>
+<div id="outline-container-org78a9a5a" class="outline-3">
+<h3 id="org78a9a5a"><span class="section-number-3">6.5</span> addr2name.cc</h3>
 <div class="outline-text-3" id="text-6-5">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="org-comment-delimiter">/***************************************************************************</span>
@@ -3779,5 +3780,5 @@ Unix domain socket走的是loopback接口。loopback接口是没有网卡流量�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/unp.html';this.page.identifier = 'unp.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

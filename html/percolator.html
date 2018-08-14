@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Large-scale Incremental Processing Using Distributed Transactions and Notifications</title>
@@ -18,20 +19,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfed81d7">1. Abstract</a></li>
-<li><a href="#org06dab1c">2. Introduction</a></li>
-<li><a href="#org5cd2ee3">3. Design</a>
+<li><a href="#org93b61fe">1. Abstract</a></li>
+<li><a href="#org21a9a3b">2. Introduction</a></li>
+<li><a href="#org0ed21e5">3. Design</a>
 <ul>
-<li><a href="#org887fa82">3.1. Bigtable overview</a></li>
-<li><a href="#org6adab84">3.2. Transactions</a></li>
-<li><a href="#org9f4fd3c">3.3. Timestamps</a></li>
-<li><a href="#org7c5e08f">3.4. Notifications</a></li>
-<li><a href="#orgd02ec67">3.5. Discussion</a></li>
+<li><a href="#orgced85df">3.1. Bigtable overview</a></li>
+<li><a href="#org8421b7d">3.2. Transactions</a></li>
+<li><a href="#orgc3bd95c">3.3. Timestamps</a></li>
+<li><a href="#org48c7485">3.4. Notifications</a></li>
+<li><a href="#orge4455cc">3.5. Discussion</a></li>
 </ul>
 </li>
-<li><a href="#org42810fe">4. Evaluation</a></li>
-<li><a href="#orgc8ced81">5. Related Work</a></li>
-<li><a href="#orgf67fcd9">6. Conclusion and Future Work</a></li>
+<li><a href="#org4642706">4. Evaluation</a></li>
+<li><a href="#orgef7cf19">5. Related Work</a></li>
+<li><a href="#org68bd56f">6. Conclusion and Future Work</a></li>
 </ul>
 </div>
 </div>
@@ -39,8 +40,8 @@
 <a href="http://research.google.com/pubs/pub36726.html">http://research.google.com/pubs/pub36726.html</a> @ 2010
 </p>
 
-<div id="outline-container-orgfed81d7" class="outline-2">
-<h2 id="orgfed81d7"><span class="section-number-2">1</span> Abstract</h2>
+<div id="outline-container-org93b61fe" class="outline-2">
+<h2 id="org93b61fe"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Updating an index of the web as documents are crawled requires continuously transforming a large repository of existing documents as new documents ar-rive. This task is one example of a class of data pro-cessing tasks that transform a large repository of data via small, independent mutations. These tasks lie in a gap between the capabilities of existing infrastructure.(主要解决的问题就是，在非常大的base repository上面有少量的mutation应该如何进行处理？就现有的基础设施并没有很好地解决这个问题）</li>
@@ -52,8 +53,8 @@
 </div>
 </div>
 
-<div id="outline-container-org06dab1c" class="outline-2">
-<h2 id="org06dab1c"><span class="section-number-2">2</span> Introduction</h2>
+<div id="outline-container-org21a9a3b" class="outline-2">
+<h2 id="org21a9a3b"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Consider the task of building an index of the web that can be used to answer search queries. The indexing sys- tem starts by crawling every page on the web and pro- cessing them while maintaining a set of invariants on the index.（在indexing system里需要维护索引一些不变量）</li>
@@ -86,8 +87,8 @@ The remainder of this paper describes a particular in-cremental processing syste
 </div>
 </div>
 
-<div id="outline-container-org5cd2ee3" class="outline-2">
-<h2 id="org5cd2ee3"><span class="section-number-2">3</span> Design</h2>
+<div id="outline-container-org0ed21e5" class="outline-2">
+<h2 id="org0ed21e5"><span class="section-number-2">3</span> Design</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Percolator provides two main abstractions for per-forming incremental processing at large scale: （为增量处理提供了两种抽象）
@@ -118,8 +119,8 @@ The remainder of this paper describes a particular in-cremental processing syste
 </div>
 
 
-<div id="outline-container-org887fa82" class="outline-3">
-<h3 id="org887fa82"><span class="section-number-3">3.1</span> Bigtable overview</h3>
+<div id="outline-container-orgced85df" class="outline-3">
+<h3 id="orgced85df"><span class="section-number-3">3.1</span> Bigtable overview</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 percolator API封装了对于bigtable的访问，但是和bigtable api非常类似。封装主要原因一方面是底层可以更好地优化bigtable访问模式，另外主要的一方面是为了能够在bigtable上面实现multirow transactions，通过在原来的table schema上面增加了几个辅助的column：
@@ -178,8 +179,8 @@ percolator API封装了对于bigtable的访问，但是和bigtable api非常类�
 </div>
 </div>
 
-<div id="outline-container-org6adab84" class="outline-3">
-<h3 id="org6adab84"><span class="section-number-3">3.2</span> Transactions</h3>
+<div id="outline-container-org8421b7d" class="outline-3">
+<h3 id="org8421b7d"><span class="section-number-3">3.2</span> Transactions</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 下面是使用percolator transactions功能一个example code
@@ -376,8 +377,8 @@ Snapshot isolation does not provide serializability，这个问题以下面的ps
 </div>
 </div>
 
-<div id="outline-container-org9f4fd3c" class="outline-3">
-<h3 id="org9f4fd3c"><span class="section-number-3">3.3</span> Timestamps</h3>
+<div id="outline-container-orgc3bd95c" class="outline-3">
+<h3 id="orgc3bd95c"><span class="section-number-3">3.3</span> Timestamps</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>The timestamp oracle is a server that hands out times-tamps in strictly increasing order. Since every transaction requires contacting the timestamp oracle twice, this ser-vice must scale well. （因为每个transaction都需要和oracle通信两次，所以扩展性是非常重要的）</li>
@@ -393,8 +394,8 @@ jump forward to the maximum allocated timestamp (but will never go backwards).�
 </div>
 </div>
 
-<div id="outline-container-org7c5e08f" class="outline-3">
-<h3 id="org7c5e08f"><span class="section-number-3">3.4</span> Notifications</h3>
+<div id="outline-container-org48c7485" class="outline-3">
+<h3 id="org48c7485"><span class="section-number-3">3.4</span> Notifications</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>In Percolator, the user writes code (“observers”) to be triggered by changes to the ta-ble, and we link all the observers into a binary running alongside every tablet server in the system. Each ob-server registers a function and a set of columns with Per-colator, and Percolator invokes the function after data is written to one of those columns in any row.（observer在实现上是link进入worker的binary里面的。observer会将一个function和一组columns关联起来，如果column内容变化的话就会触发observer）</li>
@@ -412,8 +413,8 @@ jump forward to the maximum allocated timestamp (but will never go backwards).�
 </div>
 </div>
 
-<div id="outline-container-orgd02ec67" class="outline-3">
-<h3 id="orgd02ec67"><span class="section-number-3">3.5</span> Discussion</h3>
+<div id="outline-container-orge4455cc" class="outline-3">
+<h3 id="orge4455cc"><span class="section-number-3">3.5</span> Discussion</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>One of the inefficiencies of Percolator relative to a MapReduce-based system is the number of RPCs sent per work-unit. While MapReduce does a single large read to GFS and obtains all of the data for 10s or 100s of web pages, Percolator performs around 50 individual Bigtable operations to process a single document.（percolator在数量上面相对于MR多许多，MR从GFS一次读取就可以得到10-100个webpage所需要的全部信息，而percolator处理单个文档就需要调用50个bigtable操作）</li>
@@ -432,15 +433,15 @@ jump forward to the maximum allocated timestamp (but will never go backwards).�
 </div>
 </div>
 
-<div id="outline-container-org42810fe" class="outline-2">
-<h2 id="org42810fe"><span class="section-number-2">4</span> Evaluation</h2>
+<div id="outline-container-org4642706" class="outline-2">
+<h2 id="org4642706"><span class="section-number-2">4</span> Evaluation</h2>
 </div>
-<div id="outline-container-orgc8ced81" class="outline-2">
-<h2 id="orgc8ced81"><span class="section-number-2">5</span> Related Work</h2>
+<div id="outline-container-orgef7cf19" class="outline-2">
+<h2 id="orgef7cf19"><span class="section-number-2">5</span> Related Work</h2>
 </div>
-<div id="outline-container-orgf67fcd9" class="outline-2">
-<h2 id="orgf67fcd9"><span class="section-number-2">6</span> Conclusion and Future Work</h2>
+<div id="outline-container-org68bd56f" class="outline-2">
+<h2 id="org68bd56f"><span class="section-number-2">6</span> Conclusion and Future Work</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/percolator.html';this.page.identifier = 'percolator.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

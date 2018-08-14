@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Structures and Algorithms for Big Databases</title>
@@ -18,25 +19,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgad2b5cd">1. Overview</a></li>
-<li><a href="#orgb5a99f2">2. I/O Model and Cache-Oblivious</a>
+<li><a href="#org010de06">1. Overview</a></li>
+<li><a href="#org5ecd06d">2. I/O Model and Cache-Oblivious</a>
 <ul>
-<li><a href="#org195cc38">2.1. Modeling I/O Using the Disk Access Model</a></li>
-<li><a href="#orgb94049d">2.2. Cache-Oblivious Analysis</a></li>
+<li><a href="#org363f3f4">2.1. Modeling I/O Using the Disk Access Model</a></li>
+<li><a href="#orgcb40c61">2.2. Cache-Oblivious Analysis</a></li>
 </ul>
 </li>
-<li><a href="#orgb7c5b72">3. Write-Optimized Data Structures</a></li>
-<li><a href="#org6df6ecc">4. TokuFS&#x2013;How to Make a Write-Optimized File System</a></li>
-<li><a href="#org050a953">5. Paging</a></li>
-<li><a href="#orgf08d032">6. What to Index</a></li>
-<li><a href="#org783e1c3">7. Log Structured Merge Trees</a></li>
-<li><a href="#org3068f35">8. Bloom Filters</a></li>
-<li><a href="#org2dab432">9. Closing Words</a></li>
+<li><a href="#org3df564c">3. Write-Optimized Data Structures</a></li>
+<li><a href="#org278a152">4. TokuFS&#x2013;How to Make a Write-Optimized File System</a></li>
+<li><a href="#orgc440aca">5. Paging</a></li>
+<li><a href="#org042b727">6. What to Index</a></li>
+<li><a href="#org5340ebe">7. Log Structured Merge Trees</a></li>
+<li><a href="#org8588be9">8. Bloom Filters</a></li>
+<li><a href="#org3da2e9e">9. Closing Words</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgad2b5cd" class="outline-2">
-<h2 id="orgad2b5cd"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org010de06" class="outline-2">
+<h2 id="org010de06"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Michael A. Bender @ Stony Brook &amp; Tokutek</li>
@@ -82,12 +83,12 @@ Topics and Outline for this Tutorial
 </div>
 </div>
 
-<div id="outline-container-orgb5a99f2" class="outline-2">
-<h2 id="orgb5a99f2"><span class="section-number-2">2</span> I/O Model and Cache-Oblivious</h2>
+<div id="outline-container-org5ecd06d" class="outline-2">
+<h2 id="org5ecd06d"><span class="section-number-2">2</span> I/O Model and Cache-Oblivious</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org195cc38" class="outline-3">
-<h3 id="org195cc38"><span class="section-number-3">2.1</span> Modeling I/O Using the Disk Access Model</h3>
+<div id="outline-container-org363f3f4" class="outline-3">
+<h3 id="org363f3f4"><span class="section-number-3">2.1</span> Modeling I/O Using the Disk Access Model</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>How computation works:
@@ -128,8 +129,8 @@ merge-sort analysis非常精辟，每次merge run是M/B. 这点非常重要，�
 </div>
 </div>
 
-<div id="outline-container-orgb94049d" class="outline-3">
-<h3 id="orgb94049d"><span class="section-number-3">2.2</span> Cache-Oblivious Analysis</h3>
+<div id="outline-container-orgcb40c61" class="outline-3">
+<h3 id="orgcb40c61"><span class="section-number-3">2.2</span> Cache-Oblivious Analysis</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Cache-oblivious analysis:
@@ -146,8 +147,8 @@ merge-sort analysis非常精辟，每次merge run是M/B. 这点非常重要，�
 </div>
 </div>
 
-<div id="outline-container-orgb7c5b72" class="outline-2">
-<h2 id="orgb7c5b72"><span class="section-number-2">3</span> Write-Optimized Data Structures</h2>
+<div id="outline-container-org3df564c" class="outline-2">
+<h2 id="org3df564c"><span class="section-number-2">3</span> Write-Optimized Data Structures</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Data structures: [O'Neil,Cheng, Gawlick, O'Neil 96], [Buchsbaum, Goldwasser, Venkatasubramanian, Westbrook 00], [Argel 03], [Graefe 03], [Brodal, Fagerberg 03], [Bender, Farach,Fineman,Fogel, Kuszmaul, Nelson’07], [Brodal, Demaine, Fineman, Iacono, Langerman, Munro 10], [Spillane, Shetty, Zadok, Archak, Dixit 11].</li>
@@ -204,8 +205,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-org6df6ecc" class="outline-2">
-<h2 id="org6df6ecc"><span class="section-number-2">4</span> TokuFS&#x2013;How to Make a Write-Optimized File System</h2>
+<div id="outline-container-org278a152" class="outline-2">
+<h2 id="org278a152"><span class="section-number-2">4</span> TokuFS&#x2013;How to Make a Write-Optimized File System</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Microdata is the Problem 重点解决元数据存储问题</li>
@@ -213,8 +214,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-org050a953" class="outline-2">
-<h2 id="org050a953"><span class="section-number-2">5</span> Paging</h2>
+<div id="outline-container-orgc440aca" class="outline-2">
+<h2 id="orgc440aca"><span class="section-number-2">5</span> Paging</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Paging Algorithms
@@ -229,8 +230,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-orgf08d032" class="outline-2">
-<h2 id="orgf08d032"><span class="section-number-2">6</span> What to Index</h2>
+<div id="outline-container-org042b727" class="outline-2">
+<h2 id="org042b727"><span class="section-number-2">6</span> What to Index</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Indexes provide query performance
@@ -254,8 +255,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-org783e1c3" class="outline-2">
-<h2 id="org783e1c3"><span class="section-number-2">7</span> Log Structured Merge Trees</h2>
+<div id="outline-container-org5340ebe" class="outline-2">
+<h2 id="org5340ebe"><span class="section-number-2">7</span> Log Structured Merge Trees</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 #todo: LSM algorithm analysis
@@ -294,8 +295,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-org3068f35" class="outline-2">
-<h2 id="org3068f35"><span class="section-number-2">8</span> Bloom Filters</h2>
+<div id="outline-container-org8588be9" class="outline-2">
+<h2 id="org8588be9"><span class="section-number-2">8</span> Bloom Filters</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>If n items are in an array of size m, then the chances of getting a YES answer on an element that is not there is 1 - e^(-n /m)</li>
@@ -306,8 +307,8 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 
-<div id="outline-container-org2dab432" class="outline-2">
-<h2 id="org2dab432"><span class="section-number-2">9</span> Closing Words</h2>
+<div id="outline-container-org3da2e9e" class="outline-2">
+<h2 id="org3da2e9e"><span class="section-number-2">9</span> Closing Words</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Big Data Epigrams
@@ -321,5 +322,5 @@ Optimal read-write tradeoff: Easy Full featured: Hard 实现需要考虑如下�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/data-structures-and-algorithms-for-big-databases.html';this.page.identifier = 'data-structures-and-algorithms-for-big-databases.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

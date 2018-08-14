@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>nginx</title>
@@ -18,10 +19,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3e0a20a">1. 站点跳转</a></li>
-<li><a href="#org6a28d9c">2. 支持软链接</a></li>
-<li><a href="#orgb054277">3. 正向代理</a></li>
-<li><a href="#org50c9c88">4. 请求缓存</a></li>
+<li><a href="#orgeab10ef">1. 站点跳转</a></li>
+<li><a href="#org9ae2d8a">2. 支持软链接</a></li>
+<li><a href="#orgc779ebd">3. 正向代理</a></li>
+<li><a href="#org3ab216b">4. 请求缓存</a></li>
 </ul>
 </div>
 </div>
@@ -29,8 +30,8 @@
 <a href="http://nginx.org/">http://nginx.org/</a>
 </p>
 
-<div id="outline-container-org3e0a20a" class="outline-2">
-<h2 id="org3e0a20a"><span class="section-number-2">1</span> 站点跳转</h2>
+<div id="outline-container-orgeab10ef" class="outline-2">
+<h2 id="orgeab10ef"><span class="section-number-2">1</span> 站点跳转</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 从dirlt.com跳转到dirtysalt.info
@@ -75,8 +76,8 @@ http {
 </div>
 </div>
 
-<div id="outline-container-org6a28d9c" class="outline-2">
-<h2 id="org6a28d9c"><span class="section-number-2">2</span> 支持软链接</h2>
+<div id="outline-container-org9ae2d8a" class="outline-2">
+<h2 id="org9ae2d8a"><span class="section-number-2">2</span> 支持软链接</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 http {
@@ -85,8 +86,8 @@ http {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb054277" class="outline-2">
-<h2 id="orgb054277"><span class="section-number-2">3</span> 正向代理</h2>
+<div id="outline-container-orgc779ebd" class="outline-2">
+<h2 id="orgc779ebd"><span class="section-number-2">3</span> 正向代理</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 用nginx做一个http proxy. `resolver*`这个字段是必要的。
@@ -120,8 +121,8 @@ Out[12]: &lt;Response [200]&gt;
 </div>
 </div>
 
-<div id="outline-container-org50c9c88" class="outline-2">
-<h2 id="org50c9c88"><span class="section-number-2">4</span> 请求缓存</h2>
+<div id="outline-container-org3ab216b" class="outline-2">
+<h2 id="org3ab216b"><span class="section-number-2">4</span> 请求缓存</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 可以针对某个路径下面的请求进行缓存。不过我还没有搞清楚缓存规则是怎么样的，默认应该是对query做key.
@@ -171,5 +172,5 @@ proxy_cache_key $host$uri$is_args$args;
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/nginx.html';this.page.identifier = 'nginx.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

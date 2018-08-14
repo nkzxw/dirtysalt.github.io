@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Large-Scale Data and Computation: Challenges and Opportunities</title>
@@ -18,18 +19,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org15e2b61">1. Replication</a></li>
-<li><a href="#org2d00dbf">2. Shared Environment</a></li>
-<li><a href="#org06bab09">3. Tolerating Faults vs.Tolerating Variability</a></li>
-<li><a href="#org50fc149">4. Latency Tolerating Techniques</a></li>
-<li><a href="#org32fa31c">5. Cluster-Level Services</a></li>
-<li><a href="#org1c10735">6. Higher Level Systems</a></li>
+<li><a href="#org620424a">1. Replication</a></li>
+<li><a href="#orgc3780b2">2. Shared Environment</a></li>
+<li><a href="#orgbfa68c9">3. Tolerating Faults vs.Tolerating Variability</a></li>
+<li><a href="#org71b13c6">4. Latency Tolerating Techniques</a></li>
+<li><a href="#org1434198">5. Cluster-Level Services</a></li>
+<li><a href="#org29590ab">6. Higher Level Systems</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org15e2b61" class="outline-2">
-<h2 id="org15e2b61"><span class="section-number-2">1</span> Replication</h2>
+<div id="outline-container-org620424a" class="outline-2">
+<h2 id="org620424a"><span class="section-number-2">1</span> Replication</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 replication对于large-scale system的意义
@@ -59,8 +60,8 @@ replication对于large-scale system的意义
 </div>
 </div>
 
-<div id="outline-container-org2d00dbf" class="outline-2">
-<h2 id="org2d00dbf"><span class="section-number-2">2</span> Shared Environment</h2>
+<div id="outline-container-orgc3780b2" class="outline-2">
+<h2 id="orgc3780b2"><span class="section-number-2">2</span> Shared Environment</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 large-scale system都采用共享环境，有利也有弊
@@ -87,8 +88,8 @@ large-scale system都采用共享环境，有利也有弊
 </div>
 </div>
 
-<div id="outline-container-org06bab09" class="outline-2">
-<h2 id="org06bab09"><span class="section-number-2">3</span> Tolerating Faults vs.Tolerating Variability</h2>
+<div id="outline-container-orgbfa68c9" class="outline-2">
+<h2 id="orgbfa68c9"><span class="section-number-2">3</span> Tolerating Faults vs.Tolerating Variability</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 容忍错误和可变性的相似之处，都需要使用额外资源来解决。解决思路都是在unpredictable parts上面构建出predictable part. 两者的差别是时间范围，faults通常在10s/day. 而variability通常在1000s/sec.
@@ -116,8 +117,8 @@ large-scale system都采用共享环境，有利也有弊
 </div>
 </div>
 
-<div id="outline-container-org50fc149" class="outline-2">
-<h2 id="org50fc149"><span class="section-number-2">4</span> Latency Tolerating Techniques</h2>
+<div id="outline-container-org71b13c6" class="outline-2">
+<h2 id="org71b13c6"><span class="section-number-2">4</span> Latency Tolerating Techniques</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 延迟容忍技术主要有下面两种,单位是request.
@@ -144,8 +145,8 @@ large-scale system都采用共享环境，有利也有弊
 </div>
 </div>
 
-<div id="outline-container-org32fa31c" class="outline-2">
-<h2 id="org32fa31c"><span class="section-number-2">5</span> Cluster-Level Services</h2>
+<div id="outline-container-org1434198" class="outline-2">
+<h2 id="org1434198"><span class="section-number-2">5</span> Cluster-Level Services</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 提供cross-cluster的服务，比如spanner系统
@@ -174,8 +175,8 @@ Spanner:Worldwide Storage
 </p>
 </div>
 </div>
-<div id="outline-container-org1c10735" class="outline-2">
-<h2 id="org1c10735"><span class="section-number-2">6</span> Higher Level Systems</h2>
+<div id="outline-container-org29590ab" class="outline-2">
+<h2 id="org29590ab"><span class="section-number-2">6</span> Higher Level Systems</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 有了这些"just works"的抽象组件(GFS, MapReduce, BigTable, Spanner, tied requests, etc.)后，我们就能开搞更加牛X的东西比如深度学习。
@@ -202,5 +203,5 @@ Parameter Server用于实现异步分布式随机梯度下降.
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/large-scale-data-and-computation-chanllenges-and-opportunities.html';this.page.identifier = 'large-scale-data-and-computation-chanllenges-and-opportunities.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

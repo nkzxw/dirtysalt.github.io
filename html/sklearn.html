@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sklearn</title>
@@ -40,33 +41,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaf66448">1. Overview</a></li>
-<li><a href="#org03f53a8">2. Building Blocks</a>
+<li><a href="#orgb7c4f63">1. Overview</a></li>
+<li><a href="#orgb78fa97">2. Building Blocks</a>
 <ul>
-<li><a href="#orgf1d90fc">2.1. NumPy</a></li>
-<li><a href="#orgc0fe219">2.2. Matplotlib</a></li>
-<li><a href="#orgd22172f">2.3. SciPy</a></li>
-<li><a href="#org907a7fb">2.4. Pandas</a></li>
+<li><a href="#orgd5b4e3b">2.1. NumPy</a></li>
+<li><a href="#org7e68e54">2.2. Matplotlib</a></li>
+<li><a href="#org4337eb3">2.3. SciPy</a></li>
+<li><a href="#org070cb6a">2.4. Pandas</a></li>
 </ul>
 </li>
-<li><a href="#org28a522b">3. Supervised Learning</a>
+<li><a href="#org732bb34">3. Supervised Learning</a>
 <ul>
-<li><a href="#org233f1d0">3.1. Generalized Linear Models</a></li>
-<li><a href="#org5bdccfa">3.2. Kernel Ridge Regression</a></li>
-<li><a href="#org99b2c85">3.3. Support Vector Machines</a></li>
-<li><a href="#orgb514ae0">3.4. Stochastic Gradient Descent</a></li>
-<li><a href="#org974cef4">3.5. Nearest Neighbors</a></li>
-<li><a href="#org43bafe1">3.6. Naive Bayes</a></li>
-<li><a href="#orge725f51">3.7. Decision Trees</a></li>
-<li><a href="#org64dceaf">3.8. Ensemble methods</a></li>
+<li><a href="#orgff61045">3.1. Generalized Linear Models</a></li>
+<li><a href="#org0c783dd">3.2. Kernel Ridge Regression</a></li>
+<li><a href="#orgbc436d9">3.3. Support Vector Machines</a></li>
+<li><a href="#orgee22a4e">3.4. Stochastic Gradient Descent</a></li>
+<li><a href="#org8ec8593">3.5. Nearest Neighbors</a></li>
+<li><a href="#orgf96ef2a">3.6. Naive Bayes</a></li>
+<li><a href="#org39f8084">3.7. Decision Trees</a></li>
+<li><a href="#org0e6b811">3.8. Ensemble methods</a></li>
 </ul>
 </li>
-<li><a href="#orgd0aa68c">4. Model selection and evaluation</a>
+<li><a href="#org5a6ad37">4. Model selection and evaluation</a>
 <ul>
-<li><a href="#org2b3b222">4.1. Cross-validation: evaluating estimator performance</a></li>
-<li><a href="#orgf2dab00">4.2. Grid Search: searching for estimator parameters</a></li>
-<li><a href="#org256b9ce">4.3. Model evaluation: quantifying the quality of predictions</a></li>
-<li><a href="#org0575f4f">4.4. Validation curves: plotting scores to evaluate models</a></li>
+<li><a href="#org1c64e58">4.1. Cross-validation: evaluating estimator performance</a></li>
+<li><a href="#org4971b7b">4.2. Grid Search: searching for estimator parameters</a></li>
+<li><a href="#org9936aae">4.3. Model evaluation: quantifying the quality of predictions</a></li>
+<li><a href="#orgcc271c6">4.4. Validation curves: plotting scores to evaluate models</a></li>
 </ul>
 </li>
 </ul>
@@ -77,8 +78,8 @@
 <li>docs <a href="http://scikit-learn.org/stable/documentation.html">http://scikit-learn.org/stable/documentation.html</a></li>
 </ul>
 
-<div id="outline-container-orgaf66448" class="outline-2">
-<h2 id="orgaf66448"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgb7c4f63" class="outline-2">
+<h2 id="orgb7c4f63"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>supervised learning
@@ -99,16 +100,16 @@
 </div>
 </div>
 
-<div id="outline-container-org03f53a8" class="outline-2">
-<h2 id="org03f53a8"><span class="section-number-2">2</span> Building Blocks</h2>
+<div id="outline-container-orgb78fa97" class="outline-2">
+<h2 id="orgb78fa97"><span class="section-number-2">2</span> Building Blocks</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://scipy-lectures.github.io/">http://scipy-lectures.github.io/</a> sklearn底层使用的三驾马车numpy, scipy, matplotlib.
 </p>
 </div>
 
-<div id="outline-container-orgf1d90fc" class="outline-3">
-<h3 id="orgf1d90fc"><span class="section-number-3">2.1</span> NumPy</h3>
+<div id="outline-container-orgd5b4e3b" class="outline-3">
+<h3 id="orgd5b4e3b"><span class="section-number-3">2.1</span> NumPy</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 numpy (<code>import numpy as np</code>) 用于矩阵运算
@@ -155,8 +156,8 @@ numpy index array:
 </div>
 </div>
 
-<div id="outline-container-orgc0fe219" class="outline-3">
-<h3 id="orgc0fe219"><span class="section-number-3">2.2</span> Matplotlib</h3>
+<div id="outline-container-org7e68e54" class="outline-3">
+<h3 id="org7e68e54"><span class="section-number-3">2.2</span> Matplotlib</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 matplotlib (<code>import matplotlib.pyplot as plt</code>) 用于绘图. <a href="http://matplotlib.org/users/pyplot_tutorial.html">A pyplot tutorial</a>
@@ -168,8 +169,8 @@ matplotlib (<code>import matplotlib.pyplot as plt</code>) 用于绘图. <a href=
 </div>
 </div>
 
-<div id="outline-container-orgd22172f" class="outline-3">
-<h3 id="orgd22172f"><span class="section-number-3">2.3</span> SciPy</h3>
+<div id="outline-container-org4337eb3" class="outline-3">
+<h3 id="org4337eb3"><span class="section-number-3">2.3</span> SciPy</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 scipy (<code>import scipy</code>) 复杂的科学计算
@@ -182,8 +183,8 @@ The scipy package contains various toolboxes dedicated to common issues in scien
 </div>
 </div>
 
-<div id="outline-container-org907a7fb" class="outline-3">
-<h3 id="org907a7fb"><span class="section-number-3">2.4</span> Pandas</h3>
+<div id="outline-container-org070cb6a" class="outline-3">
+<h3 id="org070cb6a"><span class="section-number-3">2.4</span> Pandas</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 另外了解一下 <a href="http://pandas.pydata.org/pandas-docs/stable/10min.html">pandas</a> 也是很有必要的 (<a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html">cookbook</a>)
@@ -247,12 +248,12 @@ The scipy package contains various toolboxes dedicated to common issues in scien
 </div>
 </div>
 
-<div id="outline-container-org28a522b" class="outline-2">
-<h2 id="org28a522b"><span class="section-number-2">3</span> Supervised Learning</h2>
+<div id="outline-container-org732bb34" class="outline-2">
+<h2 id="org732bb34"><span class="section-number-2">3</span> Supervised Learning</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org233f1d0" class="outline-3">
-<h3 id="org233f1d0"><span class="section-number-3">3.1</span> Generalized Linear Models</h3>
+<div id="outline-container-orgff61045" class="outline-3">
+<h3 id="orgff61045"><span class="section-number-3">3.1</span> Generalized Linear Models</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 LinearRegression求解Ordinary Least Squares(<code>|y-Y|^2</code>). 假设X矩阵是(n, p), 时间复杂度是O(n * p^2). 对于输入数据要求是对于Xi, Xj来说两者不能线性相关，否则噪声会让训练结果有high variance.
@@ -309,8 +310,8 @@ The classes SGDClassifier and SGDRegressor provide functionality to fit linear m
 </div>
 </div>
 
-<div id="outline-container-org5bdccfa" class="outline-3">
-<h3 id="org5bdccfa"><span class="section-number-3">3.2</span> Kernel Ridge Regression</h3>
+<div id="outline-container-org0c783dd" class="outline-3">
+<h3 id="org0c783dd"><span class="section-number-3">3.2</span> Kernel Ridge Regression</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Ridge Regression with kernel tricks.
@@ -318,8 +319,8 @@ Ridge Regression with kernel tricks.
 </div>
 </div>
 
-<div id="outline-container-org99b2c85" class="outline-3">
-<h3 id="org99b2c85"><span class="section-number-3">3.3</span> Support Vector Machines</h3>
+<div id="outline-container-orgbc436d9" class="outline-3">
+<h3 id="orgbc436d9"><span class="section-number-3">3.3</span> Support Vector Machines</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <a href="http://scikit-learn.org/stable/modules/svm.html">http://scikit-learn.org/stable/modules/svm.html</a>
@@ -393,8 +394,8 @@ print(classification_report(y_true, y_pred))
 </div>
 </div>
 
-<div id="outline-container-orgb514ae0" class="outline-3">
-<h3 id="orgb514ae0"><span class="section-number-3">3.4</span> Stochastic Gradient Descent</h3>
+<div id="outline-container-orgee22a4e" class="outline-3">
+<h3 id="orgee22a4e"><span class="section-number-3">3.4</span> Stochastic Gradient Descent</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Stochastic Gradient Descent (SGD) is a simple yet very efficient approach to discriminative learning of linear classifiers under convex loss functions such as (linear) Support Vector Machines and Logistic Regression. <i><b>Even though SGD has been around in the machine learning community for a long time, it has received a considerable amount of attention just recently in the context of large-scale learning.</b></i>
@@ -430,8 +431,8 @@ Recent theoretical results, however, show that the runtime to get some desired o
 </div>
 </div>
 
-<div id="outline-container-org974cef4" class="outline-3">
-<h3 id="org974cef4"><span class="section-number-3">3.5</span> Nearest Neighbors</h3>
+<div id="outline-container-org8ec8593" class="outline-3">
+<h3 id="org8ec8593"><span class="section-number-3">3.5</span> Nearest Neighbors</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 <a href="http://scikit-learn.org/stable/modules/neighbors.html">http://scikit-learn.org/stable/modules/neighbors.html</a>
@@ -479,8 +480,8 @@ print(classification_report(y_true, y_pred))
 </div>
 </div>
 
-<div id="outline-container-org43bafe1" class="outline-3">
-<h3 id="org43bafe1"><span class="section-number-3">3.6</span> Naive Bayes</h3>
+<div id="outline-container-orgf96ef2a" class="outline-3">
+<h3 id="orgf96ef2a"><span class="section-number-3">3.6</span> Naive Bayes</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 <a href="http://scikit-learn.org/stable/modules/naive_bayes.html">http://scikit-learn.org/stable/modules/naive_bayes.html</a>
@@ -522,8 +523,8 @@ print(classification_report(y_true, y_pred))
 </div>
 </div>
 
-<div id="outline-container-orge725f51" class="outline-3">
-<h3 id="orge725f51"><span class="section-number-3">3.7</span> Decision Trees</h3>
+<div id="outline-container-org39f8084" class="outline-3">
+<h3 id="org39f8084"><span class="section-number-3">3.7</span> Decision Trees</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 Some advantages of decision trees are:
@@ -563,8 +564,8 @@ Tips on practical use:
 </div>
 </div>
 
-<div id="outline-container-org64dceaf" class="outline-3">
-<h3 id="org64dceaf"><span class="section-number-3">3.8</span> Ensemble methods</h3>
+<div id="outline-container-org0e6b811" class="outline-3">
+<h3 id="org0e6b811"><span class="section-number-3">3.8</span> Ensemble methods</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 <a href="http://scikit-learn.org/stable/modules/ensemble.html">http://scikit-learn.org/stable/modules/ensemble.html</a>
@@ -623,12 +624,12 @@ print(classification_report(y_true, y_pred))
 </div>
 </div>
 
-<div id="outline-container-orgd0aa68c" class="outline-2">
-<h2 id="orgd0aa68c"><span class="section-number-2">4</span> Model selection and evaluation</h2>
+<div id="outline-container-org5a6ad37" class="outline-2">
+<h2 id="org5a6ad37"><span class="section-number-2">4</span> Model selection and evaluation</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org2b3b222" class="outline-3">
-<h3 id="org2b3b222"><span class="section-number-3">4.1</span> Cross-validation: evaluating estimator performance</h3>
+<div id="outline-container-org1c64e58" class="outline-3">
+<h3 id="org1c64e58"><span class="section-number-3">4.1</span> Cross-validation: evaluating estimator performance</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 <a href="http://scikit-learn.org/stable/modules/cross_validation.html">http://scikit-learn.org/stable/modules/cross_validation.html</a>
@@ -670,8 +671,8 @@ print(np.mean(clf.predict(X_test) == y_test))
 </div>
 </div>
 
-<div id="outline-container-orgf2dab00" class="outline-3">
-<h3 id="orgf2dab00"><span class="section-number-3">4.2</span> Grid Search: searching for estimator parameters</h3>
+<div id="outline-container-org4971b7b" class="outline-3">
+<h3 id="org4971b7b"><span class="section-number-3">4.2</span> Grid Search: searching for estimator parameters</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <a href="http://scikit-learn.org/stable/modules/grid_search.html">http://scikit-learn.org/stable/modules/grid_search.html</a>
@@ -777,8 +778,8 @@ avg / total       0.99      0.99      0.99       719
 </div>
 </div>
 
-<div id="outline-container-org256b9ce" class="outline-3">
-<h3 id="org256b9ce"><span class="section-number-3">4.3</span> Model evaluation: quantifying the quality of predictions</h3>
+<div id="outline-container-org9936aae" class="outline-3">
+<h3 id="org9936aae"><span class="section-number-3">4.3</span> Model evaluation: quantifying the quality of predictions</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 <a href="http://scikit-learn.org/stable/modules/model_evaluation.html">http://scikit-learn.org/stable/modules/model_evaluation.html</a>
@@ -824,8 +825,8 @@ DummyRegressor also implements three simple rules of thumb for regression:
 </div>
 </div>
 
-<div id="outline-container-org0575f4f" class="outline-3">
-<h3 id="org0575f4f"><span class="section-number-3">4.4</span> Validation curves: plotting scores to evaluate models</h3>
+<div id="outline-container-orgcc271c6" class="outline-3">
+<h3 id="orgcc271c6"><span class="section-number-3">4.4</span> Validation curves: plotting scores to evaluate models</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 <a href="http://scikit-learn.org/stable/modules/learning_curve.html">http://scikit-learn.org/stable/modules/learning_curve.html</a>
@@ -882,5 +883,5 @@ learning curve
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/sklearn.html';this.page.identifier = 'sklearn.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

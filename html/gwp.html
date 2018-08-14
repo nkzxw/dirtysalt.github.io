@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Google-Wide Profiling: A Continuous Profiling Infrastructure for Data Centers</title>
@@ -18,36 +19,36 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb8d1c75">1. Introduction</a></li>
-<li><a href="#org24e6c48">2. Infrastructure</a>
+<li><a href="#org50e0900">1. Introduction</a></li>
+<li><a href="#orgde60a12">2. Infrastructure</a>
 <ul>
-<li><a href="#org3d203f0">2.1. Collector</a></li>
-<li><a href="#orgfe60a6b">2.2. Profiles and profiling interfaces</a></li>
-<li><a href="#org1f4ab92">2.3. Symbolization and binary storage</a></li>
-<li><a href="#org069518a">2.4. Profile storage</a></li>
-<li><a href="#org61177d6">2.5. User interfaces</a>
+<li><a href="#orgc2652d8">2.1. Collector</a></li>
+<li><a href="#org6d03ca1">2.2. Profiles and profiling interfaces</a></li>
+<li><a href="#org72b049a">2.3. Symbolization and binary storage</a></li>
+<li><a href="#orgb3c3dc9">2.4. Profile storage</a></li>
+<li><a href="#orgc5fe900">2.5. User interfaces</a>
 <ul>
-<li><a href="#orgad4bbbb">2.5.1. Query view</a></li>
-<li><a href="#org86db6c3">2.5.2. Call graph view</a></li>
-<li><a href="#org9da5775">2.5.3. Source annotation</a></li>
-<li><a href="#org939ec8b">2.5.4. Profile data API</a></li>
+<li><a href="#org189cc33">2.5.1. Query view</a></li>
+<li><a href="#org219fe40">2.5.2. Call graph view</a></li>
+<li><a href="#orgda306fc">2.5.3. Source annotation</a></li>
+<li><a href="#org0eb5a37">2.5.4. Profile data API</a></li>
 </ul>
 </li>
-<li><a href="#orgd6ed7c1">2.6. Application-specific profiling</a></li>
+<li><a href="#orge98941f">2.6. Application-specific profiling</a></li>
 </ul>
 </li>
-<li><a href="#orge3c89a9">3. Reliability analysis</a></li>
-<li><a href="#org6566e23">4. Profile uses</a>
+<li><a href="#org5081611">3. Reliability analysis</a></li>
+<li><a href="#org9148e6b">4. Profile uses</a>
 <ul>
-<li><a href="#org3240b21">4.1. Cloud applications’ performance</a>
+<li><a href="#orgdeeaff5">4.1. Cloud applications’ performance</a>
 <ul>
-<li><a href="#org95010b8">4.1.1. Finding the hottest shared code</a></li>
-<li><a href="#org83ce248">4.1.2. Evaluating hardware features</a></li>
+<li><a href="#orgd5e1c32">4.1.1. Finding the hottest shared code</a></li>
+<li><a href="#org4ea811e">4.1.2. Evaluating hardware features</a></li>
 </ul>
 </li>
-<li><a href="#org00342ae">4.2. Optimizing for application affinities</a></li>
-<li><a href="#org5dc6134">4.3. Datacenter performance monitoring</a></li>
-<li><a href="#org4795b90">4.4. Feedback-directed optimization</a></li>
+<li><a href="#org4c6acee">4.2. Optimizing for application affinities</a></li>
+<li><a href="#org2691240">4.3. Datacenter performance monitoring</a></li>
+<li><a href="#org2c2ddc9">4.4. Feedback-directed optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -57,8 +58,8 @@
 <a href="http://research.google.com/pubs/pub36575.html">http://research.google.com/pubs/pub36575.html</a> @ 2010
 </p>
 
-<div id="outline-container-orgb8d1c75" class="outline-2">
-<h2 id="orgb8d1c75"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org50e0900" class="outline-2">
+<h2 id="org50e0900"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>As cloud-based computing grows in pervasiveness and scale, understanding datacenter applications’ performance and utilization characteristics is critically important, because even minor performance improvements translate into huge cost savings.</li>
@@ -97,8 +98,8 @@
 </div>
 </div>
 
-<div id="outline-container-org24e6c48" class="outline-2">
-<h2 id="org24e6c48"><span class="section-number-2">2</span> Infrastructure</h2>
+<div id="outline-container-orgde60a12" class="outline-2">
+<h2 id="orgde60a12"><span class="section-number-2">2</span> Infrastructure</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -107,8 +108,8 @@
 </div>
 </div>
 
-<div id="outline-container-org3d203f0" class="outline-3">
-<h3 id="org3d203f0"><span class="section-number-3">2.1</span> Collector</h3>
+<div id="outline-container-orgc2652d8" class="outline-3">
+<h3 id="orgc2652d8"><span class="section-number-3">2.1</span> Collector</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>GWP samples in two dimensions. At any moment, profiling occurs only on a small subset of all machines in the fleet, and event-based sampling is used at the machine level.（采样是在两个维度上进行的，首先每次只是在一部分机器上进行采样，其次在每台机器上针对事件进行采样）。
@@ -130,8 +131,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgfe60a6b" class="outline-3">
-<h3 id="orgfe60a6b"><span class="section-number-3">2.2</span> Profiles and profiling interfaces</h3>
+<div id="outline-container-org6d03ca1" class="outline-3">
+<h3 id="org6d03ca1"><span class="section-number-3">2.2</span> Profiles and profiling interfaces</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>GWP collects two categories of profiles: whole-machine and per-process.
@@ -152,8 +153,8 @@
 </div>
 </div>
 
-<div id="outline-container-org1f4ab92" class="outline-3">
-<h3 id="org1f4ab92"><span class="section-number-3">2.3</span> Symbolization and binary storage</h3>
+<div id="outline-container-org72b049a" class="outline-3">
+<h3 id="org72b049a"><span class="section-number-3">2.3</span> Symbolization and binary storage</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>After collection, the Google File System (GFS) stores the profiles To provide mean- ingful information, the profiles must corre- late to source code. However, to save network bandwidth and disk space, applica- tions are usually deployed into data centers without any debug or symbolic information, which can make source correlation impossi- ble.(profile存储在GFS上面，但是为了节省存储空间以及带宽，没有存放符号信息因此不能够和源代码对应起来）</li>
@@ -163,8 +164,8 @@
 </div>
 </div>
 
-<div id="outline-container-org069518a" class="outline-3">
-<h3 id="org069518a"><span class="section-number-3">2.4</span> Profile storage</h3>
+<div id="outline-container-orgb3c3dc9" class="outline-3">
+<h3 id="orgb3c3dc9"><span class="section-number-3">2.4</span> Profile storage</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>To make the data useful and accessible, we load the samples into a read-only dimensional data- base that is distributed across hundreds of machines. That service is accessible to all users for ad hoc queries and to systems for automated analyses.</li>
@@ -173,12 +174,12 @@
 </div>
 </div>
 
-<div id="outline-container-org61177d6" class="outline-3">
-<h3 id="org61177d6"><span class="section-number-3">2.5</span> User interfaces</h3>
+<div id="outline-container-orgc5fe900" class="outline-3">
+<h3 id="orgc5fe900"><span class="section-number-3">2.5</span> User interfaces</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orgad4bbbb" class="outline-4">
-<h4 id="orgad4bbbb"><span class="section-number-4">2.5.1</span> Query view</h4>
+<div id="outline-container-org189cc33" class="outline-4">
+<h4 id="org189cc33"><span class="section-number-4">2.5.1</span> Query view</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 This page supplies links that let users refine the query to more specific data. For example, the user can restrict the query to only report samples for a specific executable collected within a desired time period. Additionally, the user can modify or refine any of the parameters to the current query to create a custom profile view.
@@ -192,14 +193,14 @@ This page supplies links that let users refine the query to more specific data. 
 </div>
 </div>
 
-<div id="outline-container-org86db6c3" class="outline-4">
-<h4 id="org86db6c3"><span class="section-number-4">2.5.2</span> Call graph view</h4>
+<div id="outline-container-org219fe40" class="outline-4">
+<h4 id="org219fe40"><span class="section-number-4">2.5.2</span> Call graph view</h4>
 </div>
-<div id="outline-container-org9da5775" class="outline-4">
-<h4 id="org9da5775"><span class="section-number-4">2.5.3</span> Source annotation</h4>
+<div id="outline-container-orgda306fc" class="outline-4">
+<h4 id="orgda306fc"><span class="section-number-4">2.5.3</span> Source annotation</h4>
 </div>
-<div id="outline-container-org939ec8b" class="outline-4">
-<h4 id="org939ec8b"><span class="section-number-4">2.5.4</span> Profile data API</h4>
+<div id="outline-container-org0eb5a37" class="outline-4">
+<h4 id="org0eb5a37"><span class="section-number-4">2.5.4</span> Profile data API</h4>
 <div class="outline-text-4" id="text-2-5-4">
 <p>
 We store both raw profiles and symbolized pro- files in ProtocolBuffer formats (<a href="http://code.google.com/apis/protocolbuffers">http://code.google.com/apis/protocolbuffers</a>). Advanced users can access and reprocess them using their preferred programming language.
@@ -208,8 +209,8 @@ We store both raw profiles and symbolized pro- files in ProtocolBuffer formats (
 </div>
 </div>
 
-<div id="outline-container-orgd6ed7c1" class="outline-3">
-<h3 id="orgd6ed7c1"><span class="section-number-3">2.6</span> Application-specific profiling</h3>
+<div id="outline-container-orge98941f" class="outline-3">
+<h3 id="orge98941f"><span class="section-number-3">2.6</span> Application-specific profiling</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Therefore, we provide an extension to GWP for application-specific profiling on the cloud. The machine pool for applica- tion-specific profiling is usually much smaller than GWP, so we can achieve a high sampling rate on those machines for the specific application. (对于特定应用进行profiling的话，是在GWP上进行扩展完成的，选取machine pool的数量也远少于之前每次选取的machine数量，然后在这些机器上面进行高频率的采样）</li>
@@ -219,11 +220,11 @@ We store both raw profiles and symbolized pro- files in ProtocolBuffer formats (
 </div>
 </div>
 
-<div id="outline-container-orge3c89a9" class="outline-2">
-<h2 id="orge3c89a9"><span class="section-number-2">3</span> Reliability analysis</h2>
+<div id="outline-container-org5081611" class="outline-2">
+<h2 id="org5081611"><span class="section-number-2">3</span> Reliability analysis</h2>
 </div>
-<div id="outline-container-org6566e23" class="outline-2">
-<h2 id="org6566e23"><span class="section-number-2">4</span> Profile uses</h2>
+<div id="outline-container-org9148e6b" class="outline-2">
+<h2 id="org9148e6b"><span class="section-number-2">4</span> Profile uses</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Note that the sample must be numeric and capable of aggregation. The associated vector contains information such as application name, function name, platform, compiler version, image name, data center, kernel information, build revi- sion, and builder’s name. Assuming that the vector contains m elements, we can rep- resent a record GWP collected as a tuple &lt;event, sample counter, m-dimension vector&gt;.（数据存储方式，每个event对应的计数上存在多个维度，包括应用程序，函数，平台，编译器版本，映像，数据中心，内核，构建版本和构建人等）</li>
@@ -232,15 +233,15 @@ We store both raw profiles and symbolized pro- files in ProtocolBuffer formats (
 </ul>
 </div>
 
-<div id="outline-container-org3240b21" class="outline-3">
-<h3 id="org3240b21"><span class="section-number-3">4.1</span> Cloud applications’ performance</h3>
+<div id="outline-container-orgdeeaff5" class="outline-3">
+<h3 id="orgdeeaff5"><span class="section-number-3">4.1</span> Cloud applications’ performance</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-org95010b8" class="outline-4">
-<h4 id="org95010b8"><span class="section-number-4">4.1.1</span> Finding the hottest shared code</h4>
+<div id="outline-container-orgd5e1c32" class="outline-4">
+<h4 id="orgd5e1c32"><span class="section-number-4">4.1.1</span> Finding the hottest shared code</h4>
 </div>
-<div id="outline-container-org83ce248" class="outline-4">
-<h4 id="org83ce248"><span class="section-number-4">4.1.2</span> Evaluating hardware features</h4>
+<div id="outline-container-org4ea811e" class="outline-4">
+<h4 id="org4ea811e"><span class="section-number-4">4.1.2</span> Evaluating hardware features</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 The low-level information GWP provides about how CPU cycles (and other machine resources) are spent is also used for early evaluation of new hardware features that datacenter operators might want to introduce.
@@ -249,8 +250,8 @@ The low-level information GWP provides about how CPU cycles (and other machine r
 </div>
 </div>
 
-<div id="outline-container-org00342ae" class="outline-3">
-<h3 id="org00342ae"><span class="section-number-3">4.2</span> Optimizing for application affinities</h3>
+<div id="outline-container-org4c6acee" class="outline-3">
+<h3 id="org4c6acee"><span class="section-number-3">4.2</span> Optimizing for application affinities</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Some applications run better on a partic- ular hardware platform due to sensitivity to architectural details, such as processor micro- architecture or cache size. It’s generally very hard or impossible to predict which applica- tion will fare best on which platform. In- stead, we measure an efficiency metric, CPI, for each application and platform com- bination. We can then improve job schedul- ing so that applications are scheduled on platforms where they do best, subject to availability.（一些应用程序可能在某些机器硬件上面执行效率更好，因为CPU架构或者是cache size等）</li>
@@ -268,13 +269,13 @@ The low-level information GWP provides about how CPU cycles (and other machine r
 </div>
 </div>
 
-<div id="outline-container-org5dc6134" class="outline-3">
-<h3 id="org5dc6134"><span class="section-number-3">4.3</span> Datacenter performance monitoring</h3>
+<div id="outline-container-org2691240" class="outline-3">
+<h3 id="org2691240"><span class="section-number-3">4.3</span> Datacenter performance monitoring</h3>
 </div>
-<div id="outline-container-org4795b90" class="outline-3">
-<h3 id="org4795b90"><span class="section-number-3">4.4</span> Feedback-directed optimization</h3>
+<div id="outline-container-org2c2ddc9" class="outline-3">
+<h3 id="org2c2ddc9"><span class="section-number-3">4.4</span> Feedback-directed optimization</h3>
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/gwp.html';this.page.identifier = 'gwp.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

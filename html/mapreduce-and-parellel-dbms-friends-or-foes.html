@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MapReduce and Parallel DBMSs: Friends or Foes?（MapReduce和并行数据库，朋友还是敌人？）</title>
@@ -18,13 +19,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7804bd0">1. Parallel Database Systems</a></li>
-<li><a href="#org3301ae9">2. Mapping Parallel DBMSs onto MapReduce</a></li>
-<li><a href="#orgd948fc0">3. Possible Applications</a></li>
-<li><a href="#org13c71b8">4. DBMs "Sweet Spot"</a></li>
-<li><a href="#org727706d">5. Architectural Differences</a></li>
-<li><a href="#org7efe400">6. Learning from Each Other</a></li>
-<li><a href="#orga5af4a0">7. Conclusion</a></li>
+<li><a href="#orgfedbfd6">1. Parallel Database Systems</a></li>
+<li><a href="#orga38fcd9">2. Mapping Parallel DBMSs onto MapReduce</a></li>
+<li><a href="#org3dafe40">3. Possible Applications</a></li>
+<li><a href="#orgc041030">4. DBMs "Sweet Spot"</a></li>
+<li><a href="#orgb71656a">5. Architectural Differences</a></li>
+<li><a href="#org7db863e">6. Learning from Each Other</a></li>
+<li><a href="#org0f5fb10">7. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -32,14 +33,14 @@
 <a href="http://cacm.acm.org/magazines/2010/1/55743-mapreduce-and-parallel-dbmss-friends-or-foes/fulltext">http://cacm.acm.org/magazines/2010/1/55743-mapreduce-and-parallel-dbmss-friends-or-foes/fulltext</a>
 </p>
 
-<div id="outline-container-org7804bd0" class="outline-2">
-<h2 id="org7804bd0"><span class="section-number-2">1</span> Parallel Database Systems</h2>
+<div id="outline-container-orgfedbfd6" class="outline-2">
+<h2 id="orgfedbfd6"><span class="section-number-2">1</span> Parallel Database Systems</h2>
 </div>
-<div id="outline-container-org3301ae9" class="outline-2">
-<h2 id="org3301ae9"><span class="section-number-2">2</span> Mapping Parallel DBMSs onto MapReduce</h2>
+<div id="outline-container-orga38fcd9" class="outline-2">
+<h2 id="orga38fcd9"><span class="section-number-2">2</span> Mapping Parallel DBMSs onto MapReduce</h2>
 </div>
-<div id="outline-container-orgd948fc0" class="outline-2">
-<h2 id="orgd948fc0"><span class="section-number-2">3</span> Possible Applications</h2>
+<div id="outline-container-org3dafe40" class="outline-2">
+<h2 id="org3dafe40"><span class="section-number-2">3</span> Possible Applications</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 作者认为MapReduce更加适合的应用场景
@@ -59,8 +60,8 @@
 </div>
 </div>
 
-<div id="outline-container-org13c71b8" class="outline-2">
-<h2 id="org13c71b8"><span class="section-number-2">4</span> DBMs "Sweet Spot"</h2>
+<div id="outline-container-orgc041030" class="outline-2">
+<h2 id="orgc041030"><span class="section-number-2">4</span> DBMs "Sweet Spot"</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>DBMSs ought to be good at analytical queries involving complex join operations (see the table). The DBMSs are a factor of 36 and 21 respectively faster than Hadoop. In general, query times for a typical user task fall somewhere in between these extremes. In the next section, we explore the reasons for these results.  <b>结论是DBMS更加适合做复杂查询</b></li>
@@ -68,8 +69,8 @@
 </div>
 </div>
 
-<div id="outline-container-org727706d" class="outline-2">
-<h2 id="org727706d"><span class="section-number-2">5</span> Architectural Differences</h2>
+<div id="outline-container-orgb71656a" class="outline-2">
+<h2 id="orgb71656a"><span class="section-number-2">5</span> Architectural Differences</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Repetitive record parsing.</li>
@@ -91,12 +92,12 @@ We generally expect ETL and complex analytics to be amenable to MR systems and q
 </div>
 </div>
 
-<div id="outline-container-org7efe400" class="outline-2">
-<h2 id="org7efe400"><span class="section-number-2">6</span> Learning from Each Other</h2>
+<div id="outline-container-org7db863e" class="outline-2">
+<h2 id="org7db863e"><span class="section-number-2">6</span> Learning from Each Other</h2>
 </div>
-<div id="outline-container-orga5af4a0" class="outline-2">
-<h2 id="orga5af4a0"><span class="section-number-2">7</span> Conclusion</h2>
+<div id="outline-container-org0f5fb10" class="outline-2">
+<h2 id="org0f5fb10"><span class="section-number-2">7</span> Conclusion</h2>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/mapreduce-and-parellel-dbms-friends-or-foes.html';this.page.identifier = 'mapreduce-and-parellel-dbms-friends-or-foes.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>

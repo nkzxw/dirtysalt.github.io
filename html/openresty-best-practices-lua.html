@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-31377772-3');</script>
+<head>
+<!-- 2018-08-14 二 20:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OpenResty最佳实践/Lua</title>
@@ -18,8 +19,8 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf1ff3f0">1. Lua入门</a></li>
-<li><a href="#org59227d5">2. Lua高阶</a></li>
+<li><a href="#org95f4d85">1. Lua入门</a></li>
+<li><a href="#orgba06c65">2. Lua高阶</a></li>
 </ul>
 </div>
 </div>
@@ -27,8 +28,8 @@
 <a href="https://moonbingbing.gitbooks.io/openresty-best-practices/">https://moonbingbing.gitbooks.io/openresty-best-practices/</a>
 </p>
 
-<div id="outline-container-orgf1ff3f0" class="outline-2">
-<h2 id="orgf1ff3f0"><span class="section-number-2">1</span> Lua入门</h2>
+<div id="outline-container-org95f4d85" class="outline-2">
+<h2 id="org95f4d85"><span class="section-number-2">1</span> Lua入门</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 在 Lua 实现中，Lua 字符串一般都会经历一个“内化”（intern）的过程，即两个完全一样的 Lua 字符串在 Lua 虚拟机中只会存储一份。每一个 Lua 字符串在创建时都会插入到 Lua 虚拟机内部的一个全局的哈希表中。 这意味着
@@ -61,8 +62,8 @@ Lua 字符串总是由字节构成的。Lua 核心并不尝试理解具体的字
 </div>
 </div>
 
-<div id="outline-container-org59227d5" class="outline-2">
-<h2 id="org59227d5"><span class="section-number-2">2</span> Lua高阶</h2>
+<div id="outline-container-orgba06c65" class="outline-2">
+<h2 id="orgba06c65"><span class="section-number-2">2</span> Lua高阶</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Lua 上下文中应当严格避免使用自己定义的全局变量。可以使用一个 lj-releng 工具来扫描 Lua 代码，定位使用 Lua 全局变量的地方。lj-releng 的相关链接：<a href="https://github.com/openresty/openresty-devel-utils/blob/master/lj-releng">https://github.com/openresty/openresty-devel-utils/blob/master/lj-releng</a>
@@ -115,5 +116,5 @@ JIT 编译器会从热函数的入口或者热循环的某个位置开始尝试�
 </div>
 </div>
 </div>
-<!-- DISQUS BEGIN --><div id="disqus_thread"></div><script>/***  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/var disqus_config = function () {this.page.url = 'https://dirtysalt.github.io/html/openresty-best-practices-lua.html';this.page.identifier = 'openresty-best-practices-lua.html';};(function() {var d = document, s = d.createElement('script');s.src = 'https://dirlt.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><!-- DISQUS END --></body>
+</body>
 </html>
