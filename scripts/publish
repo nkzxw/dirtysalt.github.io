@@ -19,8 +19,8 @@ then
 fi
 
 # post processing html files.
-python3 ./scripts/pp-html
-python3 ./scripts/gen-404
+python ./scripts/pp-html
+python ./scripts/gen-404
 git add .
 git commit -a -m 'x'
 git push origin master

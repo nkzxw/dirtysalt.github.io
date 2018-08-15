@@ -157,7 +157,9 @@ SCRIPT_TEMPLATE = """
 
 HTML_DIR = './html/'
 top_html_files = glob.glob(HTML_DIR + '*.html')
-html_files_string = ",".join(["'/%s'" % x[len(HTML_DIR):] for x in top_html_files])
+top_html_files = ["'/%s'" % x[len(HTML_DIR):] for x in top_html_files]
+top_html_files.sort()
+html_files_string = ",".join(top_html_files)
 script_string = SCRIPT_TEMPLATE % (globals())
 data = GP_404_TEMPLATE.replace('{sub}', script_string)
 
