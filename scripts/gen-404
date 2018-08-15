@@ -157,9 +157,8 @@ GP_404_TEMPLATE = """<!DOCTYPE html>
 
 SCRIPT_TEMPLATE = """
 <script>
-    var tops = ["/404.html","/sitemap.xml","/sitemap.txt","/google2b30126bdbbb81e0.html"]
     var pathname = window.location.pathname
-    if (!path.startsWith('/html') && (tops.indexOf(pathname) == -1)) {
+    if (!path.startsWith('/html')) {
         window.location.replace('/html' + window.location.pathname + window.location.search + window.location.hash)
       }
     }
