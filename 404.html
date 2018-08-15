@@ -13,8 +13,7 @@
            pathname = pathname.substr(12)
        }
        window.location.replace('https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/' + pathname + window.location.search + window.location.hash)
-   }
-   if (!pathname.startsWith('/html/')) {
+   } else if (!pathname.startsWith('/html/')) {
        window.location.replace('/html/' + window.location.pathname + window.location.search + window.location.hash)
    }
   </script>
