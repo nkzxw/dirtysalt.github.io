@@ -5,11 +5,13 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Page not found &middot; GitHub Pages</title>
   <script>
-    var pathname = window.location.pathname
-    if (!pathname.startsWith('/html')) {
-        window.location.replace('/html' + window.location.pathname + window.location.search + window.location.hash)
-      }
-    }
+   var pathname = window.location.pathname
+   if (pathname.startsWith('/codes/')) {
+       window.location.replace('https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/' + pathname.substr(6) + window.location.search + window.location.hash)
+   }
+   if (!pathname.startsWith('/html/')) {
+       window.location.replace('/html/' + window.location.pathname + window.location.search + window.location.hash)
+   }
   </script>
   <style type="text/css" media="screen">
     body {
