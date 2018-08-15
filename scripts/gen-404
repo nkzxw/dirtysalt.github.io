@@ -12,7 +12,13 @@ GP_404_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Page not found &middot; GitHub Pages</title>
-  {sub}
+  <script>
+    var pathname = window.location.pathname
+    if (!path.startsWith('/html')) {
+        window.location.replace('/html' + window.location.pathname + window.location.search + window.location.hash)
+      }
+    }
+  </script>
   <style type="text/css" media="screen">
     body {
       background-color: #f1f1f1;
@@ -156,13 +162,6 @@ GP_404_TEMPLATE = """<!DOCTYPE html>
 # """
 
 SCRIPT_TEMPLATE = """
-<script>
-    var pathname = window.location.pathname
-    if (!path.startsWith('/html')) {
-        window.location.replace('/html' + window.location.pathname + window.location.search + window.location.hash)
-      }
-    }
-  </script>
 """
 
 HTML_DIR = './html/'
