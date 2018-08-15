@@ -8,9 +8,9 @@
    var pathname = window.location.pathname
    if (pathname.startsWith('/codes/') || pathname.startsWith('/html/codes/')) {
        if (pathname.startsWith('/codes/')) {
-           pathname = pathname.substr(6)
+           pathname = pathname.substr(7)
        } else if (pathname.startsWith('/html/codes/')) {
-           pathname = pathname.substr(11)
+           pathname = pathname.substr(12)
        }
        window.location.replace('https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/' + pathname + window.location.search + window.location.hash)
    }
