@@ -111,9 +111,14 @@ for f in html_files:
 
 
 with open('./sitemap.txt', 'w') as fh:
-    fh.writelines(map(lambda x: site + x[len(HTML_DIR):-4] + 'html\n', html_files))
+    lines = [site + x[len(HTML_DIR):-4] + 'html\n' for x in html_files]
+    lines.sort()
+    fh.writelines(lines)
+
 with open('./sitemap.xml', 'w') as fh:
     fh.write("""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""")
-    fh.writelines(map(lambda x: '<url><loc>{}</loc></url>\n'.format(site + x[len(HTML_DIR):-4] + 'html'), html_files))
+    lines = ['<url><loc>{}</loc></url>\n'.format(site + x[len(HTML_DIR):-4] + 'html') for x in html_files]
+    lines.sort()
+    fh.writelines(lines)
     fh.write('</urlset>\n')
