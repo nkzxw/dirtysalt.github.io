@@ -12,19 +12,22 @@
  * };
  */
 
-#define NULL 0
+#include <climits>
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+
 struct TreeNode {
     int val;
     TreeNode* left, *right;
 };
 
-#define max(a, b) ((a > b) ? (a) : (b))
 class Solution {
 public:
     // 返回包含必须root节点的最大值
     // kmax 表示当前已知的最大值
     int trace(TreeNode* root, int* kmax) {
-        int R = - (1 << 30);
+        int R = INT_MIN;
         if(root == NULL) {
             *kmax = R;
             return 0;
