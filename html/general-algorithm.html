@@ -18,37 +18,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7515d68">1. 链接资源</a></li>
-<li><a href="#orga5040f9">2. 工程算法</a>
+<li><a href="#orgbd48c4c">1. 链接资源</a></li>
+<li><a href="#org4fa4a10">2. 工程算法</a>
 <ul>
-<li><a href="#orgd5dbc5b">2.1. strlen in glibc</a></li>
-<li><a href="#orgb46b196">2.2. consistent hashing</a></li>
-<li><a href="#org8536f0d">2.3. rsync core algorithm</a></li>
-<li><a href="#org433a415">2.4. simhash algorithm</a></li>
-<li><a href="#orga93e373">2.5. HyperLogLog</a></li>
-<li><a href="#orgc60774d">2.6. CONCISE</a></li>
+<li><a href="#orge393d0b">2.1. strlen in glibc</a></li>
+<li><a href="#orgf838ac5">2.2. consistent hashing</a></li>
+<li><a href="#orga9069c3">2.3. rsync core algorithm</a></li>
+<li><a href="#orgccb1ec2">2.4. simhash algorithm</a></li>
+<li><a href="#orgb92eee2">2.5. HyperLogLog</a></li>
+<li><a href="#org432d953">2.6. CONCISE</a></li>
 </ul>
 </li>
-<li><a href="#orge75ad4c">3. 面试算法</a>
+<li><a href="#org32bd3db">3. 面试算法</a>
 <ul>
-<li><a href="#orga6659ad">3.1. 树最长距离</a></li>
-<li><a href="#org1a72031">3.2. Monty Hall Problem</a></li>
-<li><a href="#org059caac">3.3. 等概率选取链表元素</a></li>
-<li><a href="#orgc021078">3.4. 查找非重复数字</a></li>
-<li><a href="#org1ffa653">3.5. 水池最大蓄水</a></li>
-<li><a href="#org17e8339">3.6. 流式计算均值和方差</a></li>
-<li><a href="#org89c1ba3">3.7. Poor Pigs @ leetcode</a></li>
-<li><a href="#orgc8f8706">3.8. 神奇帽子问题</a></li>
-<li><a href="#org037d78b">3.9. Reconstruct Original Digits from English @ leetcode</a></li>
+<li><a href="#org408f2eb">3.1. Monty Hall Problem</a></li>
+<li><a href="#orga43a9a7">3.2. 等概率选取链表元素</a></li>
+<li><a href="#orgb606f56">3.3. 查找非重复数字</a></li>
+<li><a href="#org4983552">3.4. 流式计算均值和方差</a></li>
+<li><a href="#org99a5ad6">3.5. Poor Pigs @ leetcode</a></li>
+<li><a href="#orgfa01ff6">3.6. 神奇帽子问题 Magical Hat</a></li>
+<li><a href="#org1b68fb0">3.7. Reconstruct Original Digits from English @ leetcode</a></li>
 </ul>
 </li>
-<li><a href="#orgde0eaa5">4. 配置topcoder</a></li>
-<li><a href="#orgbecd98e">5. CS中最重要的32个算法</a></li>
+<li><a href="#orgba15f43">4. 配置topcoder</a></li>
+<li><a href="#org89f91e5">5. CS中最重要的32个算法</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7515d68" class="outline-2">
-<h2 id="org7515d68"><span class="section-number-2">1</span> 链接资源</h2>
+<div id="outline-container-orgbd48c4c" class="outline-2">
+<h2 id="orgbd48c4c"><span class="section-number-2">1</span> 链接资源</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Jobs:
@@ -96,12 +94,12 @@ Online Editor:
 </div>
 </div>
 
-<div id="outline-container-orga5040f9" class="outline-2">
-<h2 id="orga5040f9"><span class="section-number-2">2</span> 工程算法</h2>
+<div id="outline-container-org4fa4a10" class="outline-2">
+<h2 id="org4fa4a10"><span class="section-number-2">2</span> 工程算法</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd5dbc5b" class="outline-3">
-<h3 id="orgd5dbc5b"><span class="section-number-3">2.1</span> strlen in glibc</h3>
+<div id="outline-container-orge393d0b" class="outline-3">
+<h3 id="orge393d0b"><span class="section-number-3">2.1</span> strlen in glibc</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 参考链接 <a href="http://www.kuqin.com/language/20071113/2308.html">http://www.kuqin.com/language/20071113/2308.html</a>. 这里和链接有点不太一样的就是，这个版本glibc实现考虑了非ASCII字符。
@@ -200,8 +198,8 @@ Online Editor:
 </div>
 </div>
 
-<div id="outline-container-orgb46b196" class="outline-3">
-<h3 id="orgb46b196"><span class="section-number-3">2.2</span> consistent hashing</h3>
+<div id="outline-container-orgf838ac5" class="outline-3">
+<h3 id="orgf838ac5"><span class="section-number-3">2.2</span> consistent hashing</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Consistent_hash">http://en.wikipedia.org/wiki/Consistent_hash</a></li>
@@ -223,8 +221,8 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 </div>
 </div>
 
-<div id="outline-container-org8536f0d" class="outline-3">
-<h3 id="org8536f0d"><span class="section-number-3">2.3</span> rsync core algorithm</h3>
+<div id="outline-container-orga9069c3" class="outline-3">
+<h3 id="orga9069c3"><span class="section-number-3">2.3</span> rsync core algorithm</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><a href="http://coolshell.cn/articles/7425.html">http://coolshell.cn/articles/7425.html</a></li>
@@ -255,8 +253,8 @@ The basic idea behind the consistent hashing algorithm is to hash both objects a
 </div>
 </div>
 
-<div id="outline-container-org433a415" class="outline-3">
-<h3 id="org433a415"><span class="section-number-3">2.4</span> simhash algorithm</h3>
+<div id="outline-container-orgccb1ec2" class="outline-3">
+<h3 id="orgccb1ec2"><span class="section-number-3">2.4</span> simhash algorithm</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><a href="http://blog.csdn.net/lgnlgn/article/details/6008498">http://blog.csdn.net/lgnlgn/article/details/6008498</a></li>
@@ -323,8 +321,8 @@ UPDATE@201808 这篇 <a href="https://github.com/julycoding/The-Art-Of-Programmi
 </div>
 </div>
 
-<div id="outline-container-orga93e373" class="outline-3">
-<h3 id="orga93e373"><span class="section-number-3">2.5</span> HyperLogLog</h3>
+<div id="outline-container-orgb92eee2" class="outline-3">
+<h3 id="orgb92eee2"><span class="section-number-3">2.5</span> HyperLogLog</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li><a href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf</a></li>
@@ -416,8 +414,8 @@ def estimate_cardinality(values, k):
 </div>
 </div>
 
-<div id="outline-container-orgc60774d" class="outline-3">
-<h3 id="orgc60774d"><span class="section-number-3">2.6</span> CONCISE</h3>
+<div id="outline-container-org432d953" class="outline-3">
+<h3 id="org432d953"><span class="section-number-3">2.6</span> CONCISE</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Maximum Performance with Minimum Storage: Data Compression in Druid | Metamarkets <a href="http://metamarkets.com/2012/druid-bitmap-compression/">http://metamarkets.com/2012/druid-bitmap-compression/</a></li>
@@ -482,98 +480,13 @@ CONCISE针对这个部分稍微改进了一下
 </div>
 </div>
 
-<div id="outline-container-orge75ad4c" class="outline-2">
-<h2 id="orge75ad4c"><span class="section-number-2">3</span> 面试算法</h2>
+<div id="outline-container-org32bd3db" class="outline-2">
+<h2 id="org32bd3db"><span class="section-number-2">3</span> 面试算法</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga6659ad" class="outline-3">
-<h3 id="orga6659ad"><span class="section-number-3">3.1</span> 树最长距离</h3>
+<div id="outline-container-org408f2eb" class="outline-3">
+<h3 id="org408f2eb"><span class="section-number-3">3.1</span> Monty Hall Problem</h3>
 <div class="outline-text-3" id="text-3-1">
-<p>
-树的最长距离定义为任意两个节点之间距离的最大值。咋一看这个问题，似乎就是根节点左子树高度和右子树高度之和，但是实际上可能对于子树里面可能会存在更长的距离。对于最长距离的话应该仅存在于这两者之间。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-Python">#!/usr/bin/env python
-#coding:utf-8
-#Copyright (C) dirlt
-
-def tree_dist(root):
-    if(not root):
-        return (0,-1,-1)
-    (a,b,c)=tree_dist(root.left)
-    (d,e,f)=tree_dist(root.right)
-    ml=max(b,c)+1 # 左子树高度
-    mr=max(e,f)+1 # 右子树高度
-    path=ml+mr+1 # root内部最长距离
-    return (max(a,d,path),ml,mr)
-
-def TreeDistance(root):
-    return tree_dist(root)[0]
-</pre>
-</div>
-
-<p>
-对于返回元组来说的话(a,b,c)，a表示树的最长距离，b表示左子树的高度，c表示右子树的高度。
-</p>
-
-<hr />
-
-<p>
-leetcode上也有类似的题目，但是考虑上了树节点值 <a href="http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/">http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/</a> 情况就更加复杂，代码也更不容易写对。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">Solution</span> {
- <span class="org-keyword">public</span>:
-  <span class="org-type">int</span> <span class="org-function-name">maxPathSum</span>(<span class="org-type">TreeNode</span> *<span class="org-variable-name">root</span>) {
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Start typing your C/C++ solution below</span>
-    <span class="org-comment-delimiter">// </span><span class="org-comment">DO NOT write int main() function</span>
-    <span class="org-keyword">if</span>(root == <span class="org-constant">NULL</span>) {
-      <span class="org-keyword">return</span> 0;
-    }
-    <span class="org-type">int</span> <span class="org-variable-name">p</span>;
-    <span class="org-type">int</span> <span class="org-variable-name">s</span> = side(root,&amp;p);
-    <span class="org-keyword">return</span> max(s,p);
-  }
-
-  <span class="org-comment-delimiter">// </span><span class="org-comment">path means max sum in root, but not contains root node,</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">so it does not contribute the parent.(but if contains root node, it doesn't matter)</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">because we just get max of it.</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">function return value max sum including root node.</span>
-  <span class="org-type">int</span> <span class="org-function-name">side</span>(<span class="org-type">TreeNode</span>* <span class="org-variable-name">root</span>,<span class="org-type">int</span>* <span class="org-variable-name">path</span>) {
-    <span class="org-keyword">if</span>(root-&gt;left == <span class="org-constant">NULL</span> &amp;&amp; root-&gt;right == <span class="org-constant">NULL</span>) {
-      *path = root-&gt;val;
-      <span class="org-keyword">return</span> root-&gt;val;
-    } <span class="org-keyword">else</span> <span class="org-keyword">if</span>(root-&gt;left == <span class="org-constant">NULL</span>) {
-      <span class="org-type">int</span> <span class="org-variable-name">rp</span>;
-      <span class="org-type">int</span> <span class="org-variable-name">r</span>= side(root-&gt;right,&amp;rp);
-      *path = max(r,rp);
-      <span class="org-keyword">return</span> max(0,r) + root-&gt;val;
-    } <span class="org-keyword">else</span> <span class="org-keyword">if</span>(root-&gt;right == <span class="org-constant">NULL</span>) {
-      <span class="org-type">int</span> <span class="org-variable-name">lp</span>;
-      <span class="org-type">int</span> <span class="org-variable-name">l</span> = side(root-&gt;left,&amp;lp);
-      *path = max(l,lp);
-      <span class="org-keyword">return</span> max(0,l) + root-&gt;val;
-    } <span class="org-keyword">else</span> {
-      <span class="org-type">int</span> <span class="org-variable-name">lp</span>,<span class="org-variable-name">rp</span>;
-      <span class="org-type">int</span> <span class="org-variable-name">l</span> = side(root-&gt;left,&amp;lp);
-      <span class="org-type">int</span> <span class="org-variable-name">r</span> = side(root-&gt;right,&amp;rp);
-      <span class="org-type">int</span> <span class="org-variable-name">p</span> = max(max(l,r),max(lp,rp));
-      p = max(p, max(0,l) + max(0,r) + root-&gt;val);
-      *path = p;
-      <span class="org-keyword">return</span> max(max(0,l), max(0,r)) + root-&gt;val;
-    }
-  }
-};
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org1a72031" class="outline-3">
-<h3 id="org1a72031"><span class="section-number-3">3.2</span> Monty Hall Problem</h3>
-<div class="outline-text-3" id="text-3-2">
 <p>
 原题是有三扇门，一扇门后面是一辆汽车，后面两扇门没有东西。主持人首先让你选择一扇门，之后主持人打开一扇后面没有任何东西的门，然后主持人问你是否需要更换你的选择？扩展一下这个问题，如果扩展到N(N&gt;=3)扇门的话，那么之前和之后中奖概率分别是多少？
 </p>
@@ -600,9 +513,9 @@ UPDATE@2015-09-08: 这个问题是 <a href="https://en.wikipedia.org/wiki/Monty_
 </div>
 </div>
 
-<div id="outline-container-org059caac" class="outline-3">
-<h3 id="org059caac"><span class="section-number-3">3.3</span> 等概率选取链表元素</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-orga43a9a7" class="outline-3">
+<h3 id="orga43a9a7"><span class="section-number-3">3.2</span> 等概率选取链表元素</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 <a href="https://www.geeksforgeeks.org/reservoir-sampling/">https://www.geeksforgeeks.org/reservoir-sampling/</a>
 </p>
@@ -633,9 +546,9 @@ UPDATE@2015-09-08: 这个问题是 <a href="https://en.wikipedia.org/wiki/Monty_
 </div>
 </div>
 
-<div id="outline-container-orgc021078" class="outline-3">
-<h3 id="orgc021078"><span class="section-number-3">3.4</span> 查找非重复数字</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orgb606f56" class="outline-3">
+<h3 id="orgb606f56"><span class="section-number-3">3.3</span> 查找非重复数字</h3>
+<div class="outline-text-3" id="text-3-3">
 <hr />
 <p>
 有一堆数，只有 <b>一个</b> 数出现单次，其余数都出现 <b>偶数</b> 次。
@@ -744,129 +657,9 @@ a1 a1 a1 a2 a2 a2 &#x2026; an an an X
 </div>
 </div>
 
-<div id="outline-container-org1ffa653" class="outline-3">
-<h3 id="org1ffa653"><span class="section-number-3">3.5</span> 水池最大蓄水</h3>
-<div class="outline-text-3" id="text-3-5">
-<p>
-考虑一个二维直方图平面，X轴单位为1，Y轴是直方图高度。假设向这个直方图里面灌水，请问这个直方图能够容纳多少水。
-</p>
-
-<p>
-举个例子，假设有下面直方图 9，4，5，10，很明显最终9，10会两侧的水，并且水面高度为9，因此对于4来说的话就会容纳5单位，5就容纳4个单位，因此一共容纳9个单位。
-</p>
-
-<hr />
-
-<p>
-这个问题我一开始的想法就是首先我们可以找出两个最高的点，这两个点之间肯定是可以存水的。然后以这两个点为划分，考虑剩余的区域。简单地说就是一个Divide and Conquer的方法。找出两个最高点时间复杂度为O（n)，然后两个点划分的话，类似于快排的时间复杂度，因此时间复杂度为O（nlgn）
-</p>
-
-<p>
-另外一个比较好的办法就是只是考虑某一个直方图容纳水多少。对于这个点来说，它所容纳的高度取决于它的左右两边最大高度。因此我们可以先对这个直方图做一个预处理，求解得到left[i]表示第i个柱子左边最大高度，right[i]表示第i个柱子右边最大高度，这个预处理O（n)就可以计算完成。然后再一遍处理即可求解结果。
-</p>
-
-<hr />
-
-<p>
-@2013-10-13 今天在leetcode也看到了相似的题目，<a href="http://oj.leetcode.com/problems/container-with-most-water/">http://oj.leetcode.com/problems/container-with-most-water/</a> 虽然题目意思不一样，但是我本能地按照这个问题也编写代码了。结果发现上面的解决办法还是有很多corner case的，比如如果每个线是递增的话怎么办？今天编写leetcode的时候我重新考虑了一下这个问题，然后有个应该是可行的实现。
-</p>
-<ul class="org-ul">
-<li>dp[i]表示xi(包括xi)的右边最大高度</li>
-<li>p = 0
-<ul class="org-ul">
-<li>如果p+1右边有比h[p]高的话，那么找到第一个比这个h[p]高的点做计算，然后下面从这个点继续</li>
-<li>如果p+1右边没有比h[p]高的话，那么选择最高点计算，然后以最高点继续。</li>
-</ul></li>
-<li>时间空间复杂度在O(n)</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">Solution</span> {
- <span class="org-keyword">public</span>:
-  <span class="org-type">int</span> <span class="org-variable-name">n</span>;
-  <span class="org-type">int</span>* <span class="org-variable-name">dp</span>;
-  <span class="org-type">int</span> <span class="org-function-name">maxArea</span>(<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">height</span>) {
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Note: The Solution object is instantiated only once and is reused by each test case.</span>
-    n = height.size();
-    <span class="org-keyword">if</span>(n == 0) {
-      <span class="org-keyword">return</span> 0;
-    }
-    <span class="org-comment-delimiter">// </span><span class="org-comment">dp[i] highest one since xi.</span>
-    dp = <span class="org-keyword">new</span> <span class="org-type">int</span>[n];
-    dp[n-1]=n-1;
-    <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=n-1;i&gt;=1;i--) {
-      <span class="org-type">int</span> <span class="org-variable-name">h</span> = height[i-1];
-      <span class="org-keyword">if</span>(h &gt;= height[dp[i]]) {
-        dp[i-1] = i-1;
-      } <span class="org-keyword">else</span> {
-        dp[i-1] = dp[i];
-      }
-    }
-    <span class="org-comment-delimiter">// </span><span class="org-comment">solution.</span>
-    <span class="org-type">int</span> <span class="org-variable-name">res</span> = 0;
-    <span class="org-type">int</span> <span class="org-variable-name">p</span> = 0;
-    <span class="org-keyword">while</span>(p!=(n-1)) {
-      <span class="org-type">int</span> <span class="org-variable-name">np</span> = p+1;
-      <span class="org-comment-delimiter">//</span><span class="org-comment">printf("%d %d\n",p,np);</span>
-      <span class="org-type">int</span> <span class="org-variable-name">nph</span> = height[dp[np]];
-      <span class="org-keyword">if</span>(nph &gt;= height[p]) {
-        <span class="org-keyword">while</span>(np &lt; n &amp;&amp; height[np] &lt; height[p]) np++;
-        res += (np - p) * height[p];
-        p = np;
-      } <span class="org-keyword">else</span> {
-        res += (<span class="org-type">dp</span>[np] - p) * nph;
-        p = dp[np];
-      }
-    }
-    <span class="org-keyword">delete</span>[] dp;
-    <span class="org-keyword">return</span> res;
-  }
-};
-</pre>
-</div>
-
-<hr />
-
-<p>
-另外一个题目的变形是 <a href="http://oj.leetcode.com/problems/container-with-most-water/">http://oj.leetcode.com/problems/container-with-most-water/</a> 题目的大致要求是找到两个点，这两个点围成的container蓄水最多。似乎没有O(n^2)以下的算法了，但是可以做比较深度的减枝。假设两个点是xi,xj.有两个特性可以用来减枝。
-</p>
-<ul class="org-ul">
-<li>如果x(i+1) &lt;= x(i)的话，那么蓄水量肯定要少。</li>
-<li>从n-1到i+1区间来选择j,  如果一旦存在x(j)&gt;=x(i)的话，那么剩余的点不用考虑。</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-C++"><span class="org-keyword">class</span> <span class="org-type">Solution</span> {
- <span class="org-keyword">public</span>:
-  <span class="org-type">int</span> <span class="org-variable-name">n</span>;
-  <span class="org-type">int</span> <span class="org-function-name">maxArea</span>(<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">height</span>) {
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Note: The Solution object is instantiated only once and is reused by each test case.</span>
-    n = height.size();
-    <span class="org-keyword">if</span>(n == 0) {
-      <span class="org-keyword">return</span> 0;
-    }
-    <span class="org-type">int</span> <span class="org-variable-name">res</span> = 0;
-    <span class="org-type">int</span> <span class="org-variable-name">lm</span> = 0;
-    <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0;i&lt;n;i++) {
-      <span class="org-keyword">if</span>(height[i] &lt;= lm) <span class="org-keyword">continue</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">prune.</span>
-      lm = height[i];
-      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">j</span>=n-1;j&gt;i;j--) {
-        res = max(res,(j-i) * min(<span class="org-type">height</span>[i],<span class="org-type">height</span>[j]));
-        <span class="org-keyword">if</span>(height[j] &gt;= height[i]) {
-          <span class="org-keyword">break</span>;
-        }
-      }
-    }
-    <span class="org-keyword">return</span> res;
-  }
-};
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org17e8339" class="outline-3">
-<h3 id="org17e8339"><span class="section-number-3">3.6</span> 流式计算均值和方差</h3>
-<div class="outline-text-3" id="text-3-6">
+<div id="outline-container-org4983552" class="outline-3">
+<h3 id="org4983552"><span class="section-number-3">3.4</span> 流式计算均值和方差</h3>
+<div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance">http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance</a></li>
 <li><a href="http://www.johndcook.com/standard_deviation.html">http://www.johndcook.com/standard_deviation.html</a></li>
@@ -896,9 +689,9 @@ th^2 * n = (X1-Xe)^2 + (X2-Xe)^2 + (X3-Xe)^2 + ... (Xi-Xe)^2 + .. (Xn-Xe)^2
 </div>
 </div>
 
-<div id="outline-container-org89c1ba3" class="outline-3">
-<h3 id="org89c1ba3"><span class="section-number-3">3.7</span> Poor Pigs @ leetcode</h3>
-<div class="outline-text-3" id="text-3-7">
+<div id="outline-container-org99a5ad6" class="outline-3">
+<h3 id="org99a5ad6"><span class="section-number-3">3.5</span> Poor Pigs @ leetcode</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 <a href="https://leetcode.com/problems/poor-pigs/description/">https://leetcode.com/problems/poor-pigs/description/</a>
 </p>
@@ -952,9 +745,9 @@ if __name__ == '__main__':
 </div>
 </div>
 
-<div id="outline-container-orgc8f8706" class="outline-3">
-<h3 id="orgc8f8706"><span class="section-number-3">3.8</span> 神奇帽子问题</h3>
-<div class="outline-text-3" id="text-3-8">
+<div id="outline-container-orgfa01ff6" class="outline-3">
+<h3 id="orgfa01ff6"><span class="section-number-3">3.6</span> 神奇帽子问题 Magical Hat</h3>
+<div class="outline-text-3" id="text-3-6">
 <p>
 A bunch of men are on an island. A genie comes down and gathers everyone together and places a magical hat on some people’s heads (i.e., at least one person has a hat). The hat is magical: it can be seen by other people, but not by the wearer of the hat himself. To remove the hat, those (and only those who have a hat) must dunk themselves underwater at exactly midnight. If there are n people and c hats, how long does it take the men to remove the hats? The men cannot tell each other (in any way) that they have a hat.
 </p>
@@ -987,9 +780,9 @@ Case General: If c = 3, then each man is unsure whether c = 2 or 3. If it were 2
 </div>
 </div>
 
-<div id="outline-container-org037d78b" class="outline-3">
-<h3 id="org037d78b"><span class="section-number-3">3.9</span> Reconstruct Original Digits from English @ leetcode</h3>
-<div class="outline-text-3" id="text-3-9">
+<div id="outline-container-org1b68fb0" class="outline-3">
+<h3 id="org1b68fb0"><span class="section-number-3">3.7</span> Reconstruct Original Digits from English @ leetcode</h3>
+<div class="outline-text-3" id="text-3-7">
 <p>
 <a href="https://leetcode.com/problems/reconstruct-original-digits-from-english/description/">https://leetcode.com/problems/reconstruct-original-digits-from-english/description/</a>
 </p>
@@ -1074,8 +867,8 @@ class Solution:
 </div>
 </div>
 
-<div id="outline-container-orgde0eaa5" class="outline-2">
-<h2 id="orgde0eaa5"><span class="section-number-2">4</span> 配置topcoder</h2>
+<div id="outline-container-orgba15f43" class="outline-2">
+<h2 id="orgba15f43"><span class="section-number-2">4</span> 配置topcoder</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用另外一个插件 <a href="https://github.com/shivawu/topcoder-greed">https://github.com/shivawu/topcoder-greed</a>. 这个插件是一个整合包，配置起来更加方便。
@@ -1186,8 +979,8 @@ UPDATE@2017-10-06: 下面这些插件还不支持Python, 所以我开始使用�
 </div>
 </div>
 </div>
-<div id="outline-container-orgbecd98e" class="outline-2">
-<h2 id="orgbecd98e"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
+<div id="outline-container-org89f91e5" class="outline-2">
+<h2 id="org89f91e5"><span class="section-number-2">5</span> CS中最重要的32个算法</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms">http://www.infoq.com/cn/news/2012/08/32-most-important-algorithms</a>
