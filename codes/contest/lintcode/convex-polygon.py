@@ -24,6 +24,7 @@ class Solution:
             a = point[(i - 1 + n) % n]
             b = point[i]
             c = point[(i + 1) % n]
+            # NOTE(yan): 参考convex-hull.py 整个旋转过程中需要始终保持一个方向
             cp0 = cross_product(vector(a, b), vector(a, c))
             if cp0 == 0:
                 continue

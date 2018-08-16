@@ -33,16 +33,16 @@ def orientation(p, q, r):
     s2y = r.y - q.y
     s2x = r.x - q.x
     # s1y / s1x vs. s2y / s2x
-    # < means clockwise
-    # = means colinear
-    # > means counter-clockwise
+    # < means counter clockwise 0
+    # = means colinear = 1
+    # > means clockwise  = 2
     val = s1y * s2x - s2y * s1x
     if val == 0:
-        return 'cl'
+        return 1
     elif val < 0:
-        return 'cw'
+        return 0
     else:
-        return 'cc'
+        return 2
 
 
 def solve(ps):
@@ -73,7 +73,7 @@ def solve(ps):
         res.append(p)
         q = (p + 1) % n
         for i in range(n):
-            if orientation(ps[p], ps[q], ps[i]) == 'cw':
+            if orientation(ps[p], ps[q], ps[i]) == 2:
                 q = i
         if q == l:
             break
