@@ -23,9 +23,6 @@ alternative_links = [
     ('file:///home/dirlt/repo/dirtysalt.github.io/codes/', 'https://github.com/dirtysalt/dirtysalt.github.io/tree/master/codes/'),
 ]
 
-filter_words = ('resume',)
-
-
 HEAD_BEGIN = """<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31377772-3"></script>
 <script>
@@ -68,14 +65,6 @@ s.setAttribute('data-timestamp', +new Date());
 
 
 for f in html_files:
-    skip = False
-    for w in filter_words:
-        if f.find(w) != -1:
-            skip = True
-            break
-    if skip:
-        continue
-
     xs = open(f).readlines()
     site_id = f[len(HTML_DIR):]
     site_title = site_id
