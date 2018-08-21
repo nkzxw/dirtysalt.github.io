@@ -16,3 +16,4 @@
 - brotli https://github.com/google/brotli/
 - zstd https://github.com/facebook/zstd
 - 201801 [[file:./blogs/find-10-digits-prime-in-consecutive-digits-of-e.org][Find 10 digits prime in consecutive digits of e]]
+- 201808 [[file:./blogs/protobuf-encoding.org][Protobuf Encoding]] Protobuf编码方式

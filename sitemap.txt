@@ -260,6 +260,7 @@ https://dirtysalt.github.io/html/blogs/principles.html
 https://dirtysalt.github.io/html/blogs/probability-paradox-by-peter-norvig.html
 https://dirtysalt.github.io/html/blogs/professional-amateur.html
 https://dirtysalt.github.io/html/blogs/programmers-are-distraction-for-your-startup.html
+https://dirtysalt.github.io/html/blogs/protobuf-encoding.html
 https://dirtysalt.github.io/html/blogs/proxy-on-http-streaming.html
 https://dirtysalt.github.io/html/blogs/purchase-compaq-notebook.html
 https://dirtysalt.github.io/html/blogs/purchase-diamond.html
