@@ -7,15 +7,15 @@
 using namespace std;
 
 class Solution {
-public:
+   public:
     bool isOneBitCharacter(vector<int>& bits) {
-        for(int i = 0; i < bits.size(); ) {
-            if(bits[i] == 1) {
+        for (int i = 0; i < bits.size();) {
+            if (bits[i] == 1) {
                 i += 2;
-                if(i >= bits.size()) return false;
+                if (i >= bits.size()) return false;
             } else {
                 i += 1;
-                if(i == bits.size()) return true;
+                if (i == bits.size()) return true;
             }
         }
         assert(false);

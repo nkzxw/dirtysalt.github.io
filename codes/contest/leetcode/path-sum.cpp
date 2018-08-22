@@ -21,15 +21,15 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+   public:
     bool hasPathSum(TreeNode* root, int sum) {
         // safe guard
         if (root == NULL) return false;
         // leaf node.
-        if(root->left == NULL && root->right == NULL) {
+        if (root->left == NULL && root->right == NULL) {
             return root->val == sum;
         }
-        return hasPathSum(root->left, sum - root->val) || \
+        return hasPathSum(root->left, sum - root->val) ||
                hasPathSum(root->right, sum - root->val);
     }
 };

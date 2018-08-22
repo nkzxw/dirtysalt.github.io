@@ -17,11 +17,11 @@ struct ListNode {
 };
 
 class Solution {
-public:
+   public:
     ListNode* detectCycle(ListNode* head) {
-        ListNode* p0 = head, *p1 = head;
+        ListNode *p0 = head, *p1 = head;
         bool cycle = false;
-        while(p0 != NULL && p1 != NULL) {
+        while (p0 != NULL && p1 != NULL) {
             p0 = p0->next;
             p1 = p1->next;
             if (p1 == NULL) {
@@ -33,14 +33,14 @@ public:
                 break;
             }
         }
-        if(!cycle) {
+        if (!cycle) {
             return NULL;
         }
         p0 = head;
-        while(p0 != p1) {
+        while (p0 != p1) {
             p0 = p0->next;
             p1 = p1->next;
         }
-        return p1; // or p0
+        return p1;  // or p0
     }
 };

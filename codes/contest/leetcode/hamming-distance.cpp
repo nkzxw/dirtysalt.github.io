@@ -3,11 +3,11 @@
  */
 
 class Solution {
-public:
+   public:
     int hammingDistance(int x, int y) {
         int z = x ^ y;
         int dist = 0;
-        while(z) {
+        while (z) {
             dist += (z & 0x1);
             z = z >> 1;
         }

@@ -20,13 +20,12 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+   public:
     TreeNode* find(TreeNode* root, TreeNode* p, TreeNode* q, int* covers) {
         if (root == NULL) return NULL;
 
         int c = 0;
-        if((root == p) || (root == q))
-            c += 1;
+        if ((root == p) || (root == q)) c += 1;
 
         int c0 = 0, c1 = 0;
         TreeNode* t0 = find(root->left, p, q, &c0);

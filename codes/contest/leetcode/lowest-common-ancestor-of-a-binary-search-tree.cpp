@@ -19,9 +19,9 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+   public:
     TreeNode* find(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if((root == p) || (root == q)) return root;
+        if ((root == p) || (root == q)) return root;
         if (root->val >= p->val and root->val < q->val) return root;
         if (root->val < p->val) return find(root->right, p, q);
         return find(root->left, p, q);

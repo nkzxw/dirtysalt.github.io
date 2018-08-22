@@ -4,9 +4,9 @@
 
 #define LL long long
 class Solution {
-public:
+   public:
     LL gcd(LL a, LL b) {
-        while(true) {
+        while (true) {
             LL c = a % b;
             if (c == 0) {
                 break;
@@ -18,7 +18,7 @@ public:
     }
     int uniquePaths(int m, int n) {
         LL a = 1, b = 1;
-        for(int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             a *= (LL)(m + i - 1);
             b *= (LL)i;
             LL c = gcd(a, b);

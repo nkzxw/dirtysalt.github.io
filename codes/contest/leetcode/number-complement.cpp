@@ -3,11 +3,11 @@
  */
 
 class Solution {
-public:
+   public:
     int findComplement(int num) {
         int p = 0;
         int r = 0;
-        while(num) {
+        while (num) {
             r += (1 - (num & 0x1)) << p;
             p += 1;
             num = num >> 1;

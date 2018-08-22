@@ -3,9 +3,9 @@
  */
 
 class Solution {
-public:
+   public:
     int getSum(int a, int b) {
-        while(a) {
+        while (a) {
             int c = (a & b) << 1;
             int d = a ^ b;
             a = c;

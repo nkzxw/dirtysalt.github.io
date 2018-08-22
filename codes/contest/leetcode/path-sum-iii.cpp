@@ -15,16 +15,16 @@
 #include <cstdio>
 struct TreeNode {
     int val;
-    TreeNode* left, *right;
+    TreeNode *left, *right;
 };
 class Solution {
-public:
+   public:
     int trace(TreeNode* root, int exp) {
         if (root == NULL) {
             return 0;
         }
         int count = 0;
-        if(root->val == exp) {
+        if (root->val == exp) {
             count += 1;
         }
         count += trace(root->left, exp - root->val);

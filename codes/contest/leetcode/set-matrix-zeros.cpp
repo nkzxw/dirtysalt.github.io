@@ -7,18 +7,18 @@
 using namespace std;
 
 class Solution {
-public:
+   public:
     void setZeroes(vector<vector<int>>& matrix) {
         int odd = 78392356;
-        for(int r = 0; r < matrix.size(); r++) {
+        for (int r = 0; r < matrix.size(); r++) {
             for (int c = 0; c < matrix[r].size(); c++) {
                 if (matrix[r][c] == 0) {
-                    for(int k = 0; k < matrix.size(); k++) {
-                        if(matrix[k][c] != 0) {
+                    for (int k = 0; k < matrix.size(); k++) {
+                        if (matrix[k][c] != 0) {
                             matrix[k][c] = odd;
                         }
                     }
-                    for(int k = 0; k < matrix[0].size(); k++) {
+                    for (int k = 0; k < matrix[0].size(); k++) {
                         if (matrix[r][k] != 0) {
                             matrix[r][k] = odd;
                         }
@@ -26,9 +26,9 @@ public:
                 }
             }
         }
-        for(int r = 0; r < matrix.size(); r++) {
-            for(int c = 0; c < matrix[r].size(); c ++) {
-                if(matrix[r][c] == odd) {
+        for (int r = 0; r < matrix.size(); r++) {
+            for (int c = 0; c < matrix[r].size(); c++) {
+                if (matrix[r][c] == odd) {
                     matrix[r][c] = 0;
                 }
             }

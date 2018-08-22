@@ -6,10 +6,10 @@
 using namespace std;
 
 class Solution {
-public:
+   public:
     // worst case is O(n) if all elements are same.
     bool search(vector<int>& nums, int target) {
-        for(int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) {
             if (nums[i] == target) return true;
         }
         return false;

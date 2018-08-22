@@ -12,18 +12,19 @@
  * };
  */
 
-#include <vector>
 #include <cstdio>
+#include <vector>
 using namespace std;
 struct TreeNode {
     int val;
-    TreeNode* left, *right;
+    TreeNode *left, *right;
 };
 
 class Solution {
-public:
-    void trace(TreeNode* root, int sum, vector<int>& stage, vector<vector<int>>& paths) {
-        if(root == NULL) return;
+   public:
+    void trace(TreeNode* root, int sum, vector<int>& stage,
+               vector<vector<int>>& paths) {
+        if (root == NULL) return;
         if (root->left == NULL && root->right == NULL && root->val == sum) {
             stage.push_back(root->val);
             paths.push_back(stage);

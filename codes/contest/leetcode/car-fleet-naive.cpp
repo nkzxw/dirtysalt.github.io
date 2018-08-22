@@ -3,25 +3,24 @@
  */
 
 #include <iostream>
-#include <vector>
-#include <set>
 #include <map>
+#include <set>
+#include <vector>
 using namespace std;
-
 
 // TODO(yan): fix me. TLE.
 
 class Solution {
-  public:
+   public:
     int carFleet(int target, vector<int>& position, vector<int>& speed) {
         map<float, int> cars;
-        for(int i = 0; i < position.size(); i++) {
+        for (int i = 0; i < position.size(); i++) {
             float p = float(position[i]);
             int s = speed[i];
             cars[p] = s;
         }
 
-        for(;;) {
+        for (;;) {
             auto it = cars.begin();
             float da = it->first;
             int sa = it->second;
@@ -32,7 +31,7 @@ class Solution {
             vector<int> ss;
             float hit_time = -1;
 
-            for(;it!= cars.end();++it) {
+            for (; it != cars.end(); ++it) {
                 float db = it->first;
                 int sb = it->second;
                 if (sb < sa) {
@@ -42,16 +41,17 @@ class Solution {
                         hit_time = t;
                         ps.clear();
                         ss.clear();
-                        ps.push_back(da); ps.push_back(db);
-                        ss.push_back(sa); ss.push_back(sb);
+                        ps.push_back(da);
+                        ps.push_back(db);
+                        ss.push_back(sa);
+                        ss.push_back(sb);
                     }
                 }
                 da = db;
                 sa = sb;
             }
 
-            if (hit_time < 0)
-                break;
+            if (hit_time < 0) break;
 
             da = ps[0];
             db = ps[1];
@@ -67,7 +67,8 @@ class Solution {
             } else {
                 cars[meet] = sb;
             }
-            cout << "add (" << meet << ", " << sb << ")" << " " << hit_time << endl;
+            cout << "add (" << meet << ", " << sb << ")"
+                 << " " << hit_time << endl;
             cout << "erase " << da << ", " << db << endl;
         }
 
@@ -77,10 +78,10 @@ class Solution {
 
 void test1() {
     Solution s;
-    vector<int> position = {10,8,0,5,3};
-    vector<int> speed = {2,4,1,1,3};
+    vector<int> position = {10, 8, 0, 5, 3};
+    vector<int> speed = {2, 4, 1, 1, 3};
     int target = 12;
-    int ans = s.carFleet(target, position, speed) ;
+    int ans = s.carFleet(target, position, speed);
     cout << "ans = " << ans << endl;
 }
 
@@ -89,18 +90,17 @@ void test2() {
     vector<int> position = {6, 8};
     vector<int> speed = {3, 2};
     int target = 10;
-    int ans = s.carFleet(target, position, speed) ;
+    int ans = s.carFleet(target, position, speed);
     cout << "ans = " << ans << endl;
 }
 
 void test3() {
     Solution s;
     int target = 12;
-    vector<int> position = {4,0,5,3,1,2};
-    vector<int> speed = {6,10,9,6,7,2};
-    int ans = s.carFleet(target, position, speed) ;
+    vector<int> position = {4, 0, 5, 3, 1, 2};
+    vector<int> speed = {6, 10, 9, 6, 7, 2};
+    int ans = s.carFleet(target, position, speed);
     cout << "ans = " << ans << endl;
-
 }
 
 int main() {

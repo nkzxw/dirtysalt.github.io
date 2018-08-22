@@ -3,11 +3,11 @@
  */
 
 class Solution {
-public:
+   public:
     bool hasAlternatingBits(int n) {
         int next = (n & 0x1);
-        while(n) {
-            if((n & 0x1) != next) {
+        while (n) {
+            if ((n & 0x1) != next) {
                 return false;
             }
             next = 1 - next;

@@ -3,24 +3,24 @@
  */
 
 #include <cstdio>
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Solution {
-public:
+   public:
     int bits(int v) {
         int c = 0;
-        while(v) {
+        while (v) {
             c += (v & 0x1);
             v = v >> 1;
         }
         return c;
     }
     void solve(int num, vector<string>& result) {
-        for(int h = 0; h < 12; h ++) {
-            for(int m = 0; m < 60; m ++) {
-                if((bits(h) + bits(m)) == num) {
+        for (int h = 0; h < 12; h++) {
+            for (int m = 0; m < 60; m++) {
+                if ((bits(h) + bits(m)) == num) {
                     char buf[10];
                     snprintf(buf, sizeof(buf), "%d:%02d", h, m);
                     string s(buf);

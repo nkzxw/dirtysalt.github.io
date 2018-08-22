@@ -5,10 +5,10 @@
 #define uint32_t unsigned int
 
 class Solution {
-public:
+   public:
     int hammingWeight(uint32_t n) {
         int count = 0;
-        while(n) {
+        while (n) {
             count += (n & 0x1);
             n = n >> 1;
         }
