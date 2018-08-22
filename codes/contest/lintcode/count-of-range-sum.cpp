@@ -77,7 +77,7 @@ Node* insert_node(Node* root, int value) {
 
     if (root->value == value) {
         root->lenum += 1;
-    } else if(root->value > value) {
+    } else if (root->value > value) {
         root->left = insert_node(root->left, value);
         root->lenum += 1;
     } else {
@@ -103,20 +103,20 @@ int query(Node* root, int value) {
 }
 
 class Solution {
-public:
+   public:
     /**
      * @param nums: a list of integers
      * @param lower: a integer
      * @param upper: a integer
      * @return: return a integer
      */
-    int countRangeSum(vector<int> &nums, int lower, int upper) {
+    int countRangeSum(vector<int>& nums, int lower, int upper) {
         // write your code here
         Node* root = NULL;
 
         int acc = 0;
         int res = 0;
-        for(size_t i = 0; i < nums.size(); i++) {
+        for (size_t i = 0; i < nums.size(); i++) {
             int num = nums[i];
             acc += num;
             int lo = query(root, acc - upper - 1);

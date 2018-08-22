@@ -3,12 +3,12 @@
  */
 
 #include <iostream>
-#include <vector>
 #include <set>
+#include <vector>
 using namespace std;
 
 class Solution {
-public:
+   public:
     /**
      * @param nums: the given array
      * @return: the minimum difference between their sums
@@ -16,7 +16,7 @@ public:
     int findMin(vector<int> &nums) {
         // write your code here
         int acc = 0;
-        for(int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) {
             acc += nums[i];
         }
         int lmax = acc / 2;
@@ -24,7 +24,7 @@ public:
         values.insert(0);
         for (int i = 0; i < nums.size(); i++) {
             vector<int> tmp;
-            for(auto it = values.begin(); it != values.end(); ++it) {
+            for (auto it = values.begin(); it != values.end(); ++it) {
                 int v = *it;
                 if ((v + nums[i]) <= lmax) {
                     tmp.push_back(v + nums[i]);
@@ -32,7 +32,7 @@ public:
                     break;
                 }
             }
-            for(auto it  = tmp.begin(); it != tmp.end(); ++it) {
+            for (auto it = tmp.begin(); it != tmp.end(); ++it) {
                 values.insert(*it);
             }
         }
