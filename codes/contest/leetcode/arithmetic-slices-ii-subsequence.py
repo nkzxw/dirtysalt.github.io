@@ -37,6 +37,36 @@
 #                     vis[res[k - 1]][res[k]] = 1
 #         return ans
 
+
+
+# class Solution:
+#     def numberOfArithmeticSlices(self, A):
+#         """
+#         :type A: List[int]
+#         :rtype: int
+#         """
+#
+#         n = len(A)
+#         if n == 0: return 0
+#         # (end, step) as key, count as value
+#         st = defaultdict(int)
+#         ans = 0
+#         for x in A:
+#             updates = defaultdict(int)
+#             updates[(x, None, 1)] += 1
+#             for (end, step, seq), count in st.items():
+#                 if step is None:
+#                     updates[(x, x - end, 2)] += count
+#                 elif (x - end) == step:
+#                     updates[(x, step, 3)] += count
+#                     ans += count
+#             for k, v in updates.items():
+#                 st[k] += v
+#         print(st)
+#         return ans
+
+# NOTE(yan): 这个算法和上面算法类似，但是更加简单：不考虑seq==2的情况，而是直接在最后面减去C(n,2)
+
 from collections import defaultdict
 
 
@@ -49,21 +79,14 @@ class Solution:
 
         n = len(A)
         if n == 0: return 0
-        # (end, step) as key, count as value
-        st = defaultdict(int)
-        ans = 0
-        for x in A:
-            updates = defaultdict(int)
-            updates[(x, None, 1)] += 1
-            for (end, step, seq), count in st.items():
-                if step is None:
-                    updates[(x, x - end, 2)] += count
-                elif (x - end) == step:
-                    updates[(x, step, 3)] += count
-                    ans += count
-            for k, v in updates.items():
-                st[k] += v
-        print(st)
+        dp = defaultdict(int)
+        for i in range(0, n):
+            for j in range(0, i):
+                step = A[i] - A[j]
+                dp[(i, step)] += 1
+                if (j, step) in dp:
+                    dp[(i, step)] += dp[(j, step)]
+        ans = sum(dp.values()) - n * (n - 1) // 2
         return ans
 
 
