@@ -2,7 +2,7 @@
 
 http://firstround.com/review/The-anatomy-of-the-perfect-technical-interview-from-a-former-Amazon-VP/
 
-作者[[https://www.crunchbase.com/person/neil-roseman][Neil Roseman]]是Amazon和Zynga的前技术VP.
+作者 [[https://www.crunchbase.com/person/neil-roseman][Neil Roseman]] 是Amazon和Zynga的前技术VP.
 
 开始面试之前：
 - You should come out of every interview with a clear sense of whether the person could improve the probability of your company’s success. # 能够清楚地辨认某人是否可以增加公司成功几率。
@@ -49,4 +49,3 @@ http://firstround.com/review/The-anatomy-of-the-perfect-technical-interview-from
 - Ask a design question. See how people think about a bigger picture problem.
 - Create core competences for your company. Make sure candidates measure up well.
 - Make it tough but fun. Good developers want to know they’re talking to smart folks.
-
