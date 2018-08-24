@@ -1,5 +1,7 @@
 #+title: dirtysalt's site / 章炎的个人站点
 
+Some notes from an unqualified programmer, just for amusement.
+
 - [[file:index-os.org][操作系统 Operating System]]
 - [[file:index-np.org][网络编程 Network Programming]]
 - [[file:index-ss.org][存储系统 Storage System]]
