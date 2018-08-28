@@ -1,5 +1,5 @@
 #+title: Scaling lessons learned at Dropbox
-- http://eranki.tumblr.com/post/27076431887/scaling-lessons-learned-at-dropbox-part-1
+http://eranki.tumblr.com/post/27076431887/scaling-lessons-learned-at-dropbox-part-1
 
 For most of that time we had one to three people working on the backend. Here are some suggestions on scaling, particularly in a resource-constrained, fast-growing environment that can’t always afford to do things “the right way” (i.e., any real-world engineering project ;-). （一些简单但是非常实用的建议，适合资源受限但是快速发展的团队）
 

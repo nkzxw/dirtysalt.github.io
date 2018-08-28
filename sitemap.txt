@@ -118,6 +118,7 @@ https://dirtysalt.github.io/html/blogs/dreaming-in-code.html
 https://dirtysalt.github.io/html/blogs/drive-learning.html
 https://dirtysalt.github.io/html/blogs/employee-equity.html
 https://dirtysalt.github.io/html/blogs/equipped-with-ssd.html
+https://dirtysalt.github.io/html/blogs/etsy-activity-feeds-architecture.html
 https://dirtysalt.github.io/html/blogs/eureka-on-career.html
 https://dirtysalt.github.io/html/blogs/experience-of-running-coffee-shop-for-40-years.html
 https://dirtysalt.github.io/html/blogs/face-landmark-detection-dlib.html

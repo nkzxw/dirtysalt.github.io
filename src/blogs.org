@@ -1,6 +1,7 @@
 #+title: 个人博客 blogs
 
 ** 2018
+- 201808 [[file:./blogs/etsy-activity-feeds-architecture.org][Etsy Activity Feeds Architecture]]
 - 201808 [[file:./blogs/protobuf-encoding.org][Protobuf Encoding]] Protobuf编码方式
 - 201808 [[file:blogs/youtube-scalability.org][YouTube Scalability]] on youtube
 - 201808 [[file:blogs/sit-boost-your-tech-career.org][SIT / Boost your tech career]]
