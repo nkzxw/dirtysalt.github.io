@@ -1,13 +1,13 @@
 #+title: Finding a needle in Haystack: Facebook’s photo storage
-https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf @ 2010 
+https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf @ 2010
 
 解决存储大量静态小文件问题
 
 ** Abstract
-   - Facebook currently stores over 260 billion images, which translates to over 20 petabytes of data. Users up-load one billion new photos (∼60 terabytes) each week and Facebook serves over one million images per sec-ond at peak. # 260G张图片, 20PB数据(~= 20 * 1024 * 1024 * 1.024 ^ 3 / 260 = 84k bytes). 每周上传1G张图片~60TB(~= 60 * 1024 * 1.024 ^ 3 / 1 = 64k bytes). 高峰1000k QPS.
-   - Haystack provides a less expensive and higher performing solution than our previous approach, which leveraged network attached storage appliances over NFS. # 取代之前NFS方案.
-   - Our key observation is that this traditional design incurs an excessive number of disk operations because of metadata lookups. # NFS(or POSIX based fs)最大性能问题在于因为读取元数据使得磁盘访问次数太多.
-   - We carefully reduce this per photo metadata so that Haystack storage machines can perform all metadata lookups in main memory. # haystack减少metadata大小, 然后全部放入memory. 减少磁盘访问次数.
+- Facebook currently stores over 260 billion images, which translates to over 20 petabytes of data. Users up-load one billion new photos (∼60 terabytes) each week and Facebook serves over one million images per sec-ond at peak. # 260G张图片, 20PB数据(~= 20 * 1024 * 1024 * 1.024 ^ 3 / 260 = 84k bytes). 每周上传1G张图片~60TB(~= 60 * 1024 * 1.024 ^ 3 / 1 = 64k bytes). 高峰1000k QPS.
+- Haystack provides a less expensive and higher performing solution than our previous approach, which leveraged network attached storage appliances over NFS. # 取代之前NFS方案.
+- Our key observation is that this traditional design incurs an excessive number of disk operations because of metadata lookups. # NFS(or POSIX based fs)最大性能问题在于因为读取元数据使得磁盘访问次数太多.
+- We carefully reduce this per photo metadata so that Haystack storage machines can perform all metadata lookups in main memory. # haystack减少metadata大小, 然后全部放入memory. 减少磁盘访问次数.
 
 ** Introduction
 ** Background & Previous Design
@@ -24,40 +24,40 @@ file:./images/haystack-nfs-based-design.png
 Recall that storing a single photo per file resulted in more filesystem metadata than could be reasonably cached. Haystack takes a straight-forward approach: it stores multiple photos in a single file and therefore maintains very large files. # 将许多图片存储在一个文件里面来减少metadata.
 
 The Haystack architecture consists of 3 core compo-nents:
-   - the Haystack Store,
-     - physical volumes. # on a single node. 100 pv on 1TB, 100GB/pv.
-     - logical volumes. # redundancy. several physical volumes => a single logical volumes.
-   - Haystack Directory,
-     - application metadata
-     - mapping(filename -> logical volume)
-     - logical volume free space.
-     - mapping(logical volume->physical volumes)
-   - and Haystack Cache.
+- the Haystack Store,
+  - physical volumes. # on a single node. 100 pv on 1TB, 100GB/pv.
+  - logical volumes. # redundancy. several physical volumes => a single logical volumes.
+- Haystack Directory,
+  - application metadata
+  - mapping(filename -> logical volume)
+  - logical volume free space.
+  - mapping(logical volume->physical volumes)
+- and Haystack Cache.
 
 file:./images/haystack-serve.png file:./images/haystack-upload.png
 
 图片url格式是 "http://<CDN>/<Cache>/<Machine id>/<Logical volume, Photo>". 请求流程大致是:
-   - CDN解析最后部分<lv, photo>看是否在自己cache中, 如果不在的话. 那么去掉<CDN>部分请求<Cache>
-   - Cache和CDN一样. 如果找不到的话那么交给machine处理.
-   - machine根据<lv, photo>在磁盘上找到图片之后层级返回.
+- CDN解析最后部分<lv, photo>看是否在自己cache中, 如果不在的话. 那么去掉<CDN>部分请求<Cache>
+- Cache和CDN一样. 如果找不到的话那么交给machine处理.
+- machine根据<lv, photo>在磁盘上找到图片之后层级返回.
 
 *** Haystack Directory
 #note: 不知道是否支持副本自动迁移
 
 The Directory serves four main functions.
-   - First, it pro-vides a mapping from logical volumes to physical vol-umes. Web servers use this mapping when uploading photos and also when constructing the image URLs for a page request. # 映射关系
-   - Second, the Directory load balances writes across logical volumes and reads across physi-cal volumes. # 在各个节点以及volumes之间平衡.
-   - Third, the Directory determines whether a photo request should be handled by the CDN or by the Cache. This functionality lets us adjust our depen-dence on CDNs. # 系统灵活性
-   - Fourth, the Directory identifies those logical volumes that are read-only either because of op-erational reasons or because those volumes have reached their storage capacity. We mark volumes as read-only at the granularity of machines for operational ease. # 方便运维
+- First, it pro-vides a mapping from logical volumes to physical vol-umes. Web servers use this mapping when uploading photos and also when constructing the image URLs for a page request. # 映射关系
+- Second, the Directory load balances writes across logical volumes and reads across physi-cal volumes. # 在各个节点以及volumes之间平衡.
+- Third, the Directory determines whether a photo request should be handled by the CDN or by the Cache. This functionality lets us adjust our depen-dence on CDNs. # 系统灵活性
+- Fourth, the Directory identifies those logical volumes that are read-only either because of op-erational reasons or because those volumes have reached their storage capacity. We mark volumes as read-only at the granularity of machines for operational ease. # 方便运维
 The Directory is a relatively straight-forward compo-nent that stores its information in a replicated database accessed via a PHP interface that leverages memcache. In the event that we lose the data on a Store machine we remove the corresponding entry in the mapping and replace it when a new Store machine is brought online. # 数据存储在replicated database前面有memcache. (#note: 似乎没有办法进行自动迁移)
 
 *** Haystack Cache
 We now highlight an important behavioral aspect of the Cache. It caches a photo only if two conditions are met:
-   - (a) the request comes directly from a user and not the CDN and # 如果有CDN的话那么就不使用Cache
-     - The justification for the first condition is that our experience with the NFS-based de-sign showed post-CDN caching is ineffective as it is un-likely that a request that misses in the CDN would hit in our internal cache. # 根据使用NFS方案经验来看, post-CDN caching基本没有效果.
-   - (b) the photo is fetched from a write-enabled Store machine. # 只缓存从write-enabled machine取的数据.
-     - photos are most heavily accessed soon after they are uploaded. # 最近上传的图片有可能很快就会被大量访问
-     - filesystems for our workload gener-ally perform better when doing either reads or writes but not both. # 平衡读写比例
+- (a) the request comes directly from a user and not the CDN and # 如果有CDN的话那么就不使用Cache
+  - The justification for the first condition is that our experience with the NFS-based de-sign showed post-CDN caching is ineffective as it is un-likely that a request that misses in the CDN would hit in our internal cache. # 根据使用NFS方案经验来看, post-CDN caching基本没有效果.
+- (b) the photo is fetched from a write-enabled Store machine. # 只缓存从write-enabled machine取的数据.
+  - photos are most heavily accessed soon after they are uploaded. # 最近上传的图片有可能很快就会被大量访问
+  - filesystems for our workload gener-ally perform better when doing either reads or writes but not both. # 平衡读写比例
 
 *** Haystack Store
 Each Store machine manages multiple physical vol-umes. Each volume holds millions of photos. For concreteness, the reader can think of a physical vol-ume as simply a very large file (100 GB) saved as '/hay/haystack_<logical volume id>'. # 一个logical volumn在一台机器上只有一个对应的physical volume. 这是redundancy的需要, 同时也简化了文件组织.
@@ -68,9 +68,9 @@ A Store machine keeps open file descriptors for each physical volume that it man
 
 file:./images/haystack-store-file.png file:./images/haystack-needle.png
 
-   - alternate key用来表示不同大小的类型, 比如100 * 100, 200 * 200 etc.
-   - cookie 字段是在upload时候随机生成的. 这样可以避免猜测url来获取图片.
-   - 对于store-file的追加是同步完成的.
+- alternate key用来表示不同大小的类型, 比如100 * 100, 200 * 200 etc.
+- cookie 字段是在upload时候随机生成的. 这样可以避免猜测url来获取图片.
+- 对于store-file的追加是同步完成的.
 
 index文件可以用来加快映射表的生成:
 
