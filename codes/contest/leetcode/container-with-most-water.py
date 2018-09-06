@@ -9,13 +9,13 @@ class Solution(object):
         hs = [(idx, h) for idx, h in enumerate(height)]
         hs.sort(key=lambda x: x[1])
 
-        left_idx = None
-        right_idx = None
+        left_idx = n
+        right_idx = -1
         res = 0
         for i in range(n - 1, -1, -1):
-            if left_idx is None or hs[i][0] < left_idx:
+            if hs[i][0] < left_idx:
                 left_idx = hs[i][0]
-            if right_idx is None or hs[i][0] > right_idx:
+            if hs[i][0] > right_idx:
                 right_idx = hs[i][0]
             area = (right_idx - left_idx) * hs[i][1]
             res = max(res, area)

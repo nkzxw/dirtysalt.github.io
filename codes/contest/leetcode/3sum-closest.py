@@ -10,24 +10,21 @@ class Solution(object):
         :rtype: int
         """
         nums.sort()
-        res = None
+        ans = None
         for i in range(0, len(nums)):
             (k, j) = (i + 1, len(nums) - 1)
-            x = nums[i]
             while k < j:
-                y = nums[k]
-                z = nums[j]
-                _sum = x + y + z
-                dist = _sum - target
-                if res is None or abs(res - target) > abs(dist):
-                    res = _sum
-                if dist == 0:
-                    return res
-                elif dist > 0:
-                    j -= 1
-                else:
+                value = nums[i] + nums[k] + nums[j]
+                diff = target - value
+                if ans is None or abs(ans - target) > abs(diff):
+                    ans = value
+                if diff == 0:
+                    break
+                elif diff > 0:
                     k += 1
-        return res
+                else:
+                    j -= 1
+        return ans
 
 
 if __name__ == '__main__':

@@ -11,23 +11,26 @@ class Solution(object):
         """
 
         nums.sort()
-        res = []
+        ans = []
+        n = len(nums)
+
         # O(n^3)
-        for i in range(0, len(nums) - 1):
-            for j in range(i + 1, len(nums) - 1):
-                (k, l) = (j + 1, len(nums) - 1)
+        for i in range(0, n):
+            for j in range(i + 1, n):
+                k, l = j + 1, n - 1
                 while k < l:
-                    _sum = nums[i] + nums[j] + nums[k] + nums[l]
-                    if _sum == target:
-                        res.append((nums[i], nums[j], nums[k], nums[l]))
+                    value = nums[i] + nums[j] + nums[k] + nums[l]
+                    if value == target:
+                        t = (nums[i], nums[j], nums[k], nums[l])
+                        ans.append(t)
                         k += 1
-                    elif _sum > target:
+                    elif value > target:
                         l -= 1
                     else:
                         k += 1
-        res2 = set(res)
-        res = list(map(list, res2))
-        return res
+
+        ans = [list(x) for x in set(ans)]
+        return ans
 
 
 if __name__ == '__main__':
