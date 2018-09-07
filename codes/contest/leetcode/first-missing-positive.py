@@ -2,28 +2,28 @@
 # coding:utf-8
 # Copyright (C) dirlt
 
+# NOTE(yan): 非常巧妙的解法，不断地swap直到element在正确的位置上
+
 class Solution(object):
     def firstMissingPositive(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        # TODO(yan): not O(N)
-        nums = [x for x in nums if x > 0]
-        nums.sort()
-        if len(nums) == 0: return 1
 
-        exp = 1
-        prev = None
-        for c in nums:
-            if c == prev:
-                continue
-            else:
-                prev = c
-                if c != exp:
-                    return exp
-                exp += 1
-        return c + 1
+        n = len(nums)
+        for i in range(n):
+            x = nums[i]
+            while 0 < x <= n and nums[x - 1] != x:
+                nums[i], nums[x - 1] = nums[x - 1], nums[i]
+                x = nums[i]
+
+        print(nums)
+        for i in range(n):
+            x = nums[i]
+            if (i + 1) != x:
+                return i + 1
+        return n + 1
 
 
 if __name__ == '__main__':
@@ -32,3 +32,5 @@ if __name__ == '__main__':
     print(s.firstMissingPositive([3, 4, 1, -1]))
     print(s.firstMissingPositive([1, 1000]))
     print(s.firstMissingPositive([1, 2, 1000]))
+    print(s.firstMissingPositive([3, 4, -1, 1]))
+    print(s.firstMissingPositive([3, 4, 0, 2]))
