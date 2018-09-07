@@ -1,10 +1,20 @@
 #+title: fun
 
 -----
+好像是这么个道理！
+
+file:./images/importance-of-appearance.jpg
+
+-----
+如何正确地使用微博广告！
+
+file:./images/weibo-ceo-with-ads.jpg
+
+-----
 张怡宁对女儿说，家里的奖牌你只能玩金牌，因为妈妈只有一块银牌；想玩银牌你去找王皓舅舅，他有的是，而且都是连号的；想玩铜牌你去找福原爱阿姨 ，她的铜牌也是连号的……
 
 -----
-为什么互联网模式这么高效
+为什么互联网模式这么高效？
 
 file:./images/why-internet-mode-so-efficient.png
 
@@ -16,6 +26,8 @@ file:./images/why-internet-mode-so-efficient.png
 @Easy 表里如一 ： 指数据库主从同步没有问题，主库和从库的表里边的数据都是一致的。
 
 -----
+Good wife can bring balance to life.
+
 file:./images/good-wife-bring-balance-to-life.jpg
 
 -----
