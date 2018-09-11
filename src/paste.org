@@ -299,7 +299,7 @@ James Clear on 推特：
 -----
 突然发现，用这张图诠释“你必须非常努力，才能看起来毫不费力”挺合适的
 
-file:../images/why-you-have-to-work-hard-to-feel-good.png
+[[file:images/why-you-have-to-work-hard-to-feel-good.png]]
 
 -----
 关于独角兽，我还说过一句话：独角兽回归最冠冕堂皇的理由是，让中国可怜的网民分享他们的红利，回馈中国可怜的韭菜们，但是你必须明白：卫生巾看起来是用来堵漏的，其实它是吸血的！
@@ -733,7 +733,7 @@ file:./images/political-left-or-right.jpg
 -----
 我们的人生本来就很幽默！
 
-file:../images/how-humor-it-is.jpg
+file:./images/how-humor-it-is.jpg
 
 
 -----
