@@ -1,4 +1,4 @@
-#+title: fun
+#+title: Fun
 
 -----
 好像是这么个道理！

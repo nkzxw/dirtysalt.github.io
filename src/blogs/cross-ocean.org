@@ -5,7 +5,7 @@
 - https://remotecoder.io/
 - https://www.remotejobsexpert.com/ # 朋友做的网站. 支持!
 
-** salary info
+** salary
 - Numbeo - The biggest Internet Database about Cost of Living, Housing Indicators and many other informations about cities and countries! : http://www.numbeo.com/common/
 - PayScale - Salary Comparison, Salary Survey, Search Wages : http://www.payscale.com/
 - Company Salaries | Glassdoor : http://www.glassdoor.com/Salaries/index.htm

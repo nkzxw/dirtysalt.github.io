@@ -10,4 +10,4 @@ Some notes from an unqualified programmer, just for amusement.
 - [[file:index-ds.org][分布式系统 Distributed System]]
 - [[file:index-pl.org][程序设计语言 Programming Language]]
 - [[file:index-sd.org][软件设计 Software Design]]
-- [[file:links.org][友情链接 Links]] / [[file:blogs.org][个人博客 Blogs]] / [[file:books.org][各种杂书 Books]]
+- [[file:./links.org][Links]] / [[file:./blogs.org][Blogs]] / [[file:books.org][Books]] / [[file:./fun.org][Fun]] / [[file:./paste.org][Paste]]
