@@ -11,36 +11,13 @@ class Solution:
         if len(nums) == 0:
             return 0
 
-        res = -(1 << 31)
-        pos, neg = 0, 0
-        for i in range(len(nums)):
-            v = nums[i]
-            if v == 0:
-                pos, neg = 0, 0
-                res = max(res, 0)
-                continue
-
-            if v > 0:
-                pos_tmp, neg_tmp = pos, neg
-                pos, neg = v, 0
-                if pos_tmp:
-                    pos = max(pos, pos_tmp * v)
-                if neg_tmp:
-                    neg = neg_tmp * v
-
-            else:
-                pos_tmp, neg_tmp = pos, neg
-                pos, neg = 0, v
-                if pos_tmp:
-                    neg = min(pos_tmp * v, neg)
-                if neg_tmp:
-                    pos = neg_tmp * v
-
-            if pos:
-                res = max(res, pos)
-            if neg:
-                res = max(res, neg)
-        return res
+        ans, minv, maxv = nums[0], nums[0], nums[0]
+        for i in range(1, len(nums)):
+            a, b = minv * nums[i], maxv * nums[i]
+            minv = min(a, b, nums[i])
+            maxv = max(a, b, nums[i])
+            ans = max(ans, maxv)
+        return ans
 
 
 if __name__ == '__main__':
